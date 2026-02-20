@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'import Link from 'next/link'
+import Link from 'next/link'
 import { Search, Star, ExternalLink } from 'lucide-react'
 import { useState } from 'react'
 
