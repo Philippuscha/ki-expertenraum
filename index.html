@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Most — KI Expertenraum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         * {
@@ -14,10 +15,14 @@
 
         :root {
             --black: #000000;
-            --dark: #0a0a0a;
             --white: #ffffff;
-            --gray: #888888;
+            --gray: #666666;
             --accent: #ff3d00;
+            --surface: #0a0a0a;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -26,35 +31,36 @@
             color: var(--white);
             line-height: 1.6;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
         h1, h2, h3, .logo {
             font-family: 'Syne', sans-serif;
-            font-weight: 800;
+            font-weight: 700;
         }
 
-        /* Most Theme Navigation */
-        nav {
+        /* Navigation — Exact Most Style */
+        .nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            z-index: 1000;
-            padding: 30px 60px;
+            z-index: 100;
+            padding: 40px 60px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             mix-blend-mode: difference;
         }
 
-        .logo {
-            font-size: 28px;
+        .nav-logo {
+            font-size: 24px;
             font-weight: 800;
-            letter-spacing: -2px;
+            letter-spacing: -1px;
             text-transform: uppercase;
         }
 
-        .nav-right {
+        .nav-menu {
             display: flex;
             gap: 40px;
             align-items: center;
@@ -69,29 +75,30 @@
         .nav-links a {
             color: var(--white);
             text-decoration: none;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 1px;
             position: relative;
+            padding-bottom: 5px;
         }
 
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             width: 0;
             height: 1px;
             background: var(--white);
-            transition: width 0.3s;
+            transition: width 0.3s ease;
         }
 
         .nav-links a:hover::after {
             width: 100%;
         }
 
-        .menu-btn {
+        .hamburger {
             width: 30px;
             height: 20px;
             display: flex;
@@ -100,29 +107,30 @@
             cursor: pointer;
         }
 
-        .menu-btn span {
+        .hamburger span {
             width: 100%;
             height: 2px;
             background: var(--white);
         }
 
-        /* Most Hero Layout */
+        /* Hero — Exact Most Layout */
         .hero {
             min-height: 100vh;
             display: grid;
-            grid-template-columns: 55% 45%;
-            align-items: center;
-            padding: 0;
+            grid-template-columns: 1fr 1fr;
             position: relative;
         }
 
         .hero-content {
-            padding: 120px 60px 80px;
+            padding: 180px 80px 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             z-index: 10;
         }
 
         .tag {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--accent);
             text-transform: uppercase;
             letter-spacing: 3px;
@@ -131,281 +139,251 @@
             display: block;
         }
 
-        h1 {
-            font-size: 100px;
-            line-height: 0.9;
+        .hero-title {
+            font-size: clamp(60px, 8vw, 100px);
+            line-height: 0.95;
             margin-bottom: 40px;
-            letter-spacing: -6px;
+            letter-spacing: -5px;
             text-transform: uppercase;
             font-weight: 800;
         }
 
-        .hero-text {
-            font-size: 20px;
+        .hero-subtitle {
+            font-size: 18px;
             color: var(--gray);
-            line-height: 1.6;
+            line-height: 1.7;
             margin-bottom: 50px;
-            max-width: 500px;
+            max-width: 480px;
+            font-weight: 400;
         }
 
-        .btn-main {
+        .btn {
             display: inline-block;
             background: var(--white);
             color: var(--black);
-            padding: 20px 50px;
-            font-size: 14px;
+            padding: 22px 50px;
+            font-size: 13px;
             font-weight: 600;
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 2px;
             border: none;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            width: fit-content;
+        }
+
+        .btn:hover {
+            background: var(--accent);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Visual — Professional Android */
+        .hero-visual {
             position: relative;
+            background: radial-gradient(circle at 30% 50%, rgba(255, 61, 0, 0.08) 0%, transparent 60%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
         }
 
-        .btn-main:hover {
-            background: var(--accent);
-            color: var(--white);
-        }
-
-        /* T-800 Endoskeleton Visual */
-        .hero-visual {
+        .android-container {
             position: relative;
-            height: 100vh;
+            width: 100%;
+            height: 100%;
             display: flex;
-            justify-content: center;
             align-items: center;
-            background: radial-gradient(circle at center, rgba(255,61,0,0.05) 0%, transparent 70%);
-        }
-
-        .t800-container {
-            position: relative;
-            width: 600px;
-            height: 800px;
-            display: flex;
             justify-content: center;
-            align-items: center;
         }
 
-        /* T-800 HEAD */
-        .t800-head {
+        /* Professional Humanoid Android */
+        .android {
             position: relative;
-            width: 280px;
-            height: 360px;
-            z-index: 100;
-            animation: head-float 4s ease-in-out infinite;
-            transform-origin: center bottom;
+            width: 400px;
+            height: 700px;
+            filter: drop-shadow(0 0 100px rgba(255, 61, 0, 0.2));
         }
 
-        @keyframes head-float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(2deg); }
-        }
-
-        /* Look at user animation - turns left toward PC user */
-        .t800-head::before {
-            content: '';
+        /* Head */
+        .android-head {
             position: absolute;
             top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            animation: look-left 6s ease-in-out infinite;
-            transform-origin: center bottom;
-        }
-
-        @keyframes look-left {
-            0%, 40% { transform: rotateY(0deg); }
-            50%, 90% { transform: rotateY(-25deg); } /* Looks left at user */
-            100% { transform: rotateY(0deg); }
-        }
-
-        /* Skull Structure */
-        .skull {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 50%, #0d0d0d 100%);
-            clip-path: polygon(
-                25% 0%, 75% 0%, 
-                95% 15%, 100% 40%, 
-                95% 65%, 85% 85%, 
-                70% 100%, 30% 100%, 
-                15% 85%, 5% 65%, 
-                0% 40%, 5% 15%
-            );
+            left: 50%;
+            transform: translateX(-50%);
+            width: 220px;
+            height: 280px;
+            background: linear-gradient(135deg, #e0e0e0 0%, #b0b0b0 50%, #808080 100%);
+            border-radius: 60px 60px 80px 80px;
             box-shadow: 
-                inset -20px 0 40px rgba(0,0,0,0.8),
-                inset 20px 0 40px rgba(255,255,255,0.05),
-                0 0 60px rgba(255,61,0,0.2);
-            border: 2px solid #3a3a3a;
+                inset -20px -20px 40px rgba(0,0,0,0.2),
+                inset 20px 20px 40px rgba(255,255,255,0.3),
+                0 20px 60px rgba(0,0,0,0.5);
+            z-index: 10;
+            animation: head-tilt 8s ease-in-out infinite;
+            transform-origin: center bottom;
         }
 
-        /* Metallic shine */
-        .skull::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 50%;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.1), transparent);
-            clip-path: inherit;
+        @keyframes head-tilt {
+            0%, 45% { transform: translateX(-50%) rotateY(0deg); }
+            50%, 95% { transform: translateX(-50%) rotateY(-20deg); } /* Looks left at user */
+            100% { transform: translateX(-50%) rotateY(0deg); }
         }
 
-        /* Eye sockets */
-        .eye-socket {
+        /* Face screen */
+        .face-screen {
             position: absolute;
-            top: 42%;
-            width: 80px;
-            height: 40px;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 160px;
+            height: 100px;
             background: #000;
-            border-radius: 50%;
+            border-radius: 20px;
             overflow: hidden;
             box-shadow: inset 0 0 20px rgba(0,0,0,1);
         }
 
-        .eye-socket.left { left: 15%; }
-        .eye-socket.right { right: 15%; }
-
-        /* Glowing eyes */
-        .eye {
+        /* Eyes */
+        .eyes {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 60px;
-            height: 8px;
+            display: flex;
+            gap: 40px;
+        }
+
+        .eye {
+            width: 30px;
+            height: 4px;
             background: var(--accent);
-            box-shadow: 
-                0 0 20px var(--accent),
-                0 0 40px var(--accent),
-                0 0 60px var(--accent);
-            animation: eye-pulse 2s ease-in-out infinite;
+            box-shadow: 0 0 20px var(--accent), 0 0 40px var(--accent);
+            animation: eye-pulse 3s ease-in-out infinite;
         }
 
         @keyframes eye-pulse {
-            0%, 100% { opacity: 1; box-shadow: 0 0 20px var(--accent), 0 0 40px var(--accent); }
-            50% { opacity: 0.8; box-shadow: 0 0 30px var(--accent), 0 0 60px var(--accent), 0 0 80px var(--accent); }
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; box-shadow: 0 0 30px var(--accent), 0 0 60px var(--accent); }
         }
 
-        /* Jaw/Teeth area */
-        .jaw {
+        /* Mouth */
+        .mouth {
             position: absolute;
-            bottom: 10%;
+            bottom: 40px;
             left: 50%;
             transform: translateX(-50%);
-            width: 180px;
-            height: 100px;
-            background: linear-gradient(to bottom, #1a1a1a, #0d0d0d);
-            clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+            width: 60px;
+            height: 2px;
+            background: #666;
         }
 
-        .teeth {
-            position: absolute;
-            bottom: 5%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 160px;
-            height: 60px;
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 3px;
-        }
-
-        .tooth {
-            background: linear-gradient(to bottom, #666, #222);
-            border: 1px solid #444;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-        }
-
-        /* Neck/Spine */
+        /* Neck */
         .neck {
             position: absolute;
-            bottom: -80px;
+            top: 260px;
             left: 50%;
             transform: translateX(-50%);
-            width: 120px;
-            height: 100px;
-            background: linear-gradient(to right, #1a1a1a, #2a2a2a, #1a1a1a);
-            z-index: 90;
+            width: 100px;
+            height: 80px;
+            background: linear-gradient(to right, #909090, #c0c0c0, #909090);
+            z-index: 5;
         }
 
-        .spine-detail {
+        .neck-ring {
+            width: 100%;
+            height: 20px;
+            background: linear-gradient(to bottom, #707070, #505050);
+            margin-bottom: 5px;
+            border-radius: 5px;
+        }
+
+        /* Body/Torso */
+        .torso {
+            position: absolute;
+            top: 320px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 380px;
+            background: linear-gradient(135deg, #d0d0d0 0%, #a0a0a0 50%, #707070 100%);
+            border-radius: 40px 40px 60px 60px;
+            box-shadow: 
+                inset -30px -30px 60px rgba(0,0,0,0.2),
+                inset 30px 30px 60px rgba(255,255,255,0.3),
+                0 30px 80px rgba(0,0,0,0.4);
+            z-index: 8;
+        }
+
+        /* Chest light */
+        .chest-light {
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, rgba(255,61,0,0.8) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: chest-glow 4s ease-in-out infinite;
+        }
+
+        @keyframes chest-glow {
+            0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
+            50% { opacity: 1; transform: translateX(-50%) scale(1.1); }
+        }
+
+        /* Body details */
+        .torso-lines {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 2px;
+            background: rgba(0,0,0,0.2);
+            box-shadow: 0 20px 0 rgba(0,0,0,0.2), 0 40px 0 rgba(0,0,0,0.2);
+        }
+
+        /* Floating particles */
+        .particles {
             position: absolute;
             width: 100%;
-            height: 10px;
-            background: #333;
-            border-top: 1px solid #444;
-            border-bottom: 1px solid #111;
+            height: 100%;
+            pointer-events: none;
         }
 
-        .spine-detail:nth-child(1) { top: 20%; }
-        .spine-detail:nth-child(2) { top: 50%; }
-        .spine-detail:nth-child(3) { top: 80%; }
-
-        /* Shoulders */
-        .shoulders {
+        .particle {
             position: absolute;
-            bottom: -180px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 400px;
-            height: 150px;
-            z-index: 80;
-        }
-
-        .shoulder {
-            position: absolute;
-            width: 150px;
-            height: 120px;
-            background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
-            border-radius: 20px;
-            border: 2px solid #3a3a3a;
-        }
-
-        .shoulder.left { left: 0; transform: rotate(-10deg); }
-        .shoulder.right { right: 0; transform: rotate(10deg); }
-
-        /* Hydraulic details */
-        .hydraulic {
-            position: absolute;
-            width: 20px;
-            height: 60px;
-            background: linear-gradient(to bottom, #444, #222);
-            border-radius: 10px;
-            border: 1px solid #555;
-        }
-
-        .hydraulic.left { left: 30%; bottom: -40px; }
-        .hydraulic.right { right: 30%; bottom: -40px; }
-
-        /* Ambient effects */
-        .ambient-glow {
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(255,61,0,0.15) 0%, transparent 70%);
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
             border-radius: 50%;
-            animation: breathe 4s ease-in-out infinite;
+            opacity: 0.6;
+            animation: float-particle 6s ease-in-out infinite;
         }
 
-        @keyframes breathe {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 0.8; }
+        .particle:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { top: 40%; right: 15%; animation-delay: 1s; }
+        .particle:nth-child(3) { top: 60%; left: 20%; animation-delay: 2s; }
+        .particle:nth-child(4) { top: 30%; right: 25%; animation-delay: 3s; }
+        .particle:nth-child(5) { bottom: 30%; left: 15%; animation-delay: 4s; }
+
+        @keyframes float-particle {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.4; }
+            50% { transform: translateY(-30px) scale(1.2); opacity: 0.8; }
         }
 
-        /* Scanning effect */
+        /* Scan effect */
         .scan-line {
             position: absolute;
             width: 100%;
             height: 2px;
             background: rgba(255,61,0,0.5);
             box-shadow: 0 0 20px var(--accent);
-            animation: scan 3s linear infinite;
-            z-index: 200;
+            animation: scan 4s linear infinite;
+            z-index: 20;
         }
 
         @keyframes scan {
@@ -415,19 +393,19 @@
             100% { top: 100%; opacity: 0; }
         }
 
-        /* Most Marquee */
-        .marquee-section {
-            padding: 40px 0;
+        /* Marquee */
+        .marquee {
+            padding: 30px 0;
             border-top: 1px solid rgba(255,255,255,0.1);
             border-bottom: 1px solid rgba(255,255,255,0.1);
             overflow: hidden;
-            background: var(--dark);
+            background: var(--surface);
         }
 
-        .marquee-track {
+        .marquee-content {
             display: flex;
-            gap: 80px;
-            animation: marquee 30s linear infinite;
+            gap: 60px;
+            animation: marquee-scroll 25s linear infinite;
             white-space: nowrap;
             font-family: 'Syne', sans-serif;
             font-size: 80px;
@@ -435,58 +413,59 @@
             text-transform: uppercase;
             letter-spacing: -4px;
             color: transparent;
-            -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+            -webkit-text-stroke: 1px rgba(255,255,255,0.2);
         }
 
-        @keyframes marquee {
+        @keyframes marquee-scroll {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
 
-        /* Most Features Section */
+        /* Features Section */
         .features {
-            padding: 150px 60px;
-            background: var(--black);
+            padding: 150px 80px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 60px;
-            max-width: 1400px;
-            margin: 0 auto;
+            gap: 80px;
         }
 
-        .feature-item {
+        .feature {
             border-top: 1px solid rgba(255,255,255,0.2);
             padding-top: 40px;
         }
 
         .feature-num {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--accent);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             font-weight: 600;
+            letter-spacing: 1px;
         }
 
-        .feature-item h3 {
+        .feature h3 {
             font-size: 32px;
             margin-bottom: 20px;
             letter-spacing: -2px;
+            font-weight: 700;
         }
 
-        .feature-item p {
+        .feature p {
             color: var(--gray);
             line-height: 1.7;
             font-size: 16px;
         }
 
-        /* Most Work/Courses Section */
+        /* Work/Courses Section */
         .work {
-            padding: 100px 60px;
+            padding: 100px 80px;
         }
 
-        .section-header {
+        .work-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
@@ -496,57 +475,71 @@
             margin-right: auto;
         }
 
-        .section-title {
+        .work-title {
             font-size: 72px;
             letter-spacing: -4px;
             line-height: 1;
+            font-weight: 800;
         }
 
-        .view-all {
+        .work-link {
             color: var(--white);
             text-decoration: none;
-            font-size: 14px;
+            font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 2px;
             border-bottom: 1px solid var(--white);
             padding-bottom: 5px;
+            transition: all 0.3s;
+        }
+
+        .work-link:hover {
+            color: var(--accent);
+            border-color: var(--accent);
         }
 
         .work-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
+            gap: 30px;
             max-width: 1400px;
             margin: 0 auto;
         }
 
-        .work-card {
+        .work-item {
             position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            background: var(--dark);
-            border: 1px solid rgba(255,255,255,0.1);
+            background: var(--surface);
+            border: 1px solid rgba(255,255,255,0.05);
             height: 500px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 40px;
+            padding: 50px;
+            cursor: pointer;
+            overflow: hidden;
             transition: all 0.4s;
         }
 
-        .work-card:hover {
-            border-color: var(--accent);
-        }
-
-        .work-card::before {
+        .work-item::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.8) 100%);
+            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.9) 100%);
             z-index: 1;
+            opacity: 0.7;
+            transition: opacity 0.4s;
+        }
+
+        .work-item:hover::before {
+            opacity: 0.9;
+        }
+
+        .work-item:hover {
+            border-color: rgba(255,61,0,0.3);
+            transform: translateY(-5px);
         }
 
         .work-content {
@@ -559,38 +552,38 @@
             color: var(--accent);
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            font-weight: 600;
         }
 
-        .work-card h3 {
+        .work-item h3 {
             font-size: 42px;
             letter-spacing: -3px;
             line-height: 1.1;
+            font-weight: 700;
         }
 
         .work-arrow {
             position: relative;
             z-index: 2;
-            font-size: 40px;
-            color: var(--white);
-            transition: transform 0.3s;
+            font-size: 36px;
+            transition: all 0.3s;
         }
 
-        .work-card:hover .work-arrow {
-            transform: translateX(20px);
+        .work-item:hover .work-arrow {
+            transform: translateX(15px);
             color: var(--accent);
         }
 
-        /* Most Footer */
-        footer {
-            padding: 100px 60px 40px;
+        /* Footer */
+        .footer {
+            padding: 100px 80px 40px;
             border-top: 1px solid rgba(255,255,255,0.1);
         }
 
         .footer-content {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -599,15 +592,17 @@
             font-size: 48px;
             letter-spacing: -3px;
             margin-bottom: 20px;
+            font-weight: 800;
         }
 
         .footer-brand p {
             color: var(--gray);
             max-width: 400px;
             line-height: 1.6;
+            font-size: 15px;
         }
 
-        .footer-links {
+        .footer-nav {
             display: flex;
             gap: 100px;
         }
@@ -618,6 +613,7 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-bottom: 30px;
+            font-weight: 600;
         }
 
         .footer-col ul {
@@ -642,38 +638,53 @@
 
         .footer-bottom {
             max-width: 1400px;
-            margin: 100px auto 0;
+            margin: 80px auto 0;
             padding-top: 40px;
             border-top: 1px solid rgba(255,255,255,0.1);
             display: flex;
             justify-content: space-between;
             color: var(--gray);
-            font-size: 14px;
+            font-size: 13px;
         }
 
         /* Responsive */
         @media (max-width: 1024px) {
             .hero {
                 grid-template-columns: 1fr;
-                min-height: auto;
             }
             
-            h1 {
+            .hero-content {
+                padding: 140px 40px 80px;
+                text-align: center;
+            }
+            
+            .hero-title {
                 font-size: 60px;
                 letter-spacing: -3px;
             }
             
-            .t800-container {
-                transform: scale(0.7);
-                height: 600px;
+            .hero-subtitle {
+                margin: 0 auto 40px;
             }
             
-            .features-grid,
+            .btn {
+                margin: 0 auto;
+            }
+            
+            .android {
+                transform: scale(0.8);
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+            
             .work-grid {
                 grid-template-columns: 1fr;
             }
             
-            .section-title {
+            .work-title {
                 font-size: 48px;
             }
             
@@ -682,60 +693,69 @@
                 gap: 60px;
             }
             
-            .footer-links {
-                gap: 40px;
+            .footer-nav {
+                gap: 60px;
             }
         }
 
         @media (max-width: 768px) {
-            nav {
-                padding: 20px 30px;
+            .nav {
+                padding: 30px;
             }
             
             .nav-links {
                 display: none;
             }
             
-            h1 {
+            .hero-title {
                 font-size: 42px;
+                letter-spacing: -2px;
             }
             
             .hero-content {
-                padding: 100px 30px 60px;
+                padding: 120px 30px 60px;
             }
             
-            .t800-container {
-                transform: scale(0.5);
-                height: 500px;
+            .android {
+                transform: scale(0.6);
             }
             
-            .marquee-track {
-                font-size: 40px;
+            .marquee-content {
+                font-size: 48px;
             }
             
-            .section-header {
+            .work-header {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 20px;
             }
             
-            .work-card h3 {
+            .work-title {
+                font-size: 36px;
+            }
+            
+            .work-item h3 {
                 font-size: 28px;
+            }
+            
+            .footer-nav {
+                flex-direction: column;
+                gap: 40px;
             }
         }
     </style>
 </head>
 <body>
-    <nav>
-        <div class="logo">KI Expertenraum</div>
-        <div class="nav-right">
+    <nav class="nav">
+        <div class="nav-logo">KI Expertenraum</div>
+        <div class="nav-menu">
             <ul class="nav-links">
-                <li><a href="#">Work</a></li>
+                <li><a href="#work">Kurse</a></li>
+                <li><a href="#">Blog</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#">Kontakt</a></li>
             </ul>
-            <div class="menu-btn">
+            <div class="hamburger">
                 <span></span>
                 <span></span>
             </div>
@@ -745,58 +765,55 @@
     <section class="hero">
         <div class="hero-content">
             <span class="tag">NEU 2026</span>
-            <h1>Werde zur KI Elite</h1>
-            <p class="hero-text">
+            <h1 class="hero-title">Werde zur KI Elite</h1>
+            <p class="hero-subtitle">
                 Von EU AI Act Compliance bis zu No-Code Automatisierung. 
                 Lerne KI wirklich anzuwenden – nicht nur darüber zu reden.
             </p>
-            <a href="#" class="btn-main">Kurse entdecken</a>
+            <a href="#work" class="btn">Kurse entdecken</a>
         </div>
         
         <div class="hero-visual">
-            <div class="ambient-glow"></div>
-            <div class="t800-container">
-                <div class="scan-line"></div>
+            <div class="android-container">
+                <div class="particles">
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                </div>
                 
-                <!-- T-800 Endoskeleton -->
-                <div class="t800-head">
-                    <div class="skull">
-                        <div class="eye-socket left">
-                            <div class="eye"></div>
+                <!-- Professional Android -->
+                <div class="android">
+                    <div class="scan-line"></div>
+                    
+                    <div class="android-head">
+                        <div class="face-screen">
+                            <div class="eyes">
+                                <div class="eye"></div>
+                                <div class="eye"></div>
+                            </div>
                         </div>
-                        <div class="eye-socket right">
-                            <div class="eye"></div>
-                        </div>
-                        <div class="jaw"></div>
-                        <div class="teeth">
-                            <div class="tooth"></div>
-                            <div class="tooth"></div>
-                            <div class="tooth"></div>
-                            <div class="tooth"></div>
-                            <div class="tooth"></div>
-                            <div class="tooth"></div>
-                        </div>
+                        <div class="mouth"></div>
                     </div>
                     
                     <div class="neck">
-                        <div class="spine-detail"></div>
-                        <div class="spine-detail"></div>
-                        <div class="spine-detail"></div>
+                        <div class="neck-ring"></div>
+                        <div class="neck-ring"></div>
+                        <div class="neck-ring"></div>
                     </div>
                     
-                    <div class="shoulders">
-                        <div class="shoulder left"></div>
-                        <div class="shoulder right"></div>
-                        <div class="hydraulic left"></div>
-                        <div class="hydraulic right"></div>
+                    <div class="torso">
+                        <div class="chest-light"></div>
+                        <div class="torso-lines"></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="marquee-section">
-        <div class="marquee-track">
+    <div class="marquee">
+        <div class="marquee-content">
             <span>EU AI Act</span>
             <span>•</span>
             <span>Automation</span>
@@ -805,31 +822,31 @@
             <span>•</span>
             <span>Compliance</span>
             <span>•</span>
+            <span>No-Code</span>
+            <span>•</span>
             <span>EU AI Act</span>
             <span>•</span>
             <span>Automation</span>
             <span>•</span>
             <span>KI Strategie</span>
-            <span>•</span>
-            <span>Compliance</span>
         </div>
-    </section>
+    </div>
 
     <section class="features">
         <div class="features-grid">
-            <div class="feature-item">
+            <div class="feature">
                 <div class="feature-num">01</div>
                 <h3>Sofort umsetzbar</h3>
                 <p>Jedes Konzept wird direkt mit praktischen Beispielen erklärt. Wissen, das du heute lernst, morgen anwenden kannst.</p>
             </div>
             
-            <div class="feature-item">
+            <div class="feature">
                 <div class="feature-num">02</div>
                 <h3>Rechtssicher</h3>
                 <p>EU AI Act, DSGVO, Haftung – wir decken alle rechtlichen Aspekte ab, damit du KI risikofrei nutzt.</p>
             </div>
             
-            <div class="feature-item">
+            <div class="feature">
                 <div class="feature-num">03</div>
                 <h3>Für echte Profis</h3>
                 <p>Ob KMU-Geschäftsführer oder Entscheider – unsere Kurse sind für Profis aufbereitet.</p>
@@ -837,14 +854,14 @@
         </div>
     </section>
 
-    <section class="work">
-        <div class="section-header">
-            <h2 class="section-title">Unsere<br>Kurse</h2>
-            <a href="#" class="view-all">Alle ansehen</a>
+    <section class="work" id="work">
+        <div class="work-header">
+            <h2 class="work-title">Unsere<br>Kurse</h2>
+            <a href="#" class="work-link">Alle ansehen</a>
         </div>
         
         <div class="work-grid">
-            <div class="work-card">
+            <div class="work-item">
                 <div class="work-content">
                     <div class="work-category">Compliance</div>
                     <h3>EU AI Act<br>Masterclass</h3>
@@ -852,7 +869,7 @@
                 <div class="work-arrow">→</div>
             </div>
             
-            <div class="work-card">
+            <div class="work-item">
                 <div class="work-content">
                     <div class="work-category">Strategie</div>
                     <h3>KI Governance<br>& Einführung</h3>
@@ -860,7 +877,7 @@
                 <div class="work-arrow">→</div>
             </div>
             
-            <div class="work-card">
+            <div class="work-item">
                 <div class="work-content">
                     <div class="work-category">Automation</div>
                     <h3>No-Code KI<br>Tools</h3>
@@ -868,7 +885,7 @@
                 <div class="work-arrow">→</div>
             </div>
             
-            <div class="work-card">
+            <div class="work-item">
                 <div class="work-content">
                     <div class="work-category">Recht</div>
                     <h3>DSGVO<br>konforme KI</h3>
@@ -878,19 +895,19 @@
         </div>
     </section>
 
-    <footer>
+    <footer class="footer">
         <div class="footer-content">
             <div class="footer-brand">
                 <h2>KI Expertenraum</h2>
                 <p>Dein Zugang zur KI-Elite. Praxisnahe Kurse für Unternehmer und Fachkräfte.</p>
             </div>
             
-            <div class="footer-links">
+            <div class="footer-nav">
                 <div class="footer-col">
                     <h4>Navigation</h4>
                     <ul>
                         <li><a href="#">Start</a></li>
-                        <li><a href="#">Kurse</a></li>
+                        <li><a href="#work">Kurse</a></li>
                         <li><a href="#">Blog</a></li>
                         <li><a href="#">Kontakt</a></li>
                     </ul>
