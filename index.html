@@ -3,19 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KI Expertenraum — Meistere KI</title>
+    <title>KI Expertenraum — Premium KI-Bildung für Unternehmer</title>
+    <meta name="description" content="Praxisnahe KI-Kurse für Unternehmer. EU AI Act, Automation & Strategie.">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --bg: #fafafa;
-            --surface: #ffffff;
-            --text: #111111;
-            --text-muted: #666666;
-            --border: rgba(0,0,0,0.08);
-            --accent: #0d0d0d;
-            --accent-light: #f0f0f0;
-            --radius: 24px;
+            --bg: #0f0f11;
+            --surface: #161618;
+            --surface-elevated: #1c1c1f;
+            --text: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.5);
+            --border: rgba(255, 255, 255, 0.1);
+            --success: #10b981;
+            
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         * {
@@ -33,13 +40,15 @@
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
+            overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        h1, h2, h3 {
+        h1, h2, h3, h4 {
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 600;
-            letter-spacing: -0.03em;
+            letter-spacing: -0.02em;
             line-height: 1.1;
         }
 
@@ -51,52 +60,83 @@
             right: 0;
             z-index: 1000;
             padding: 24px 40px;
+            background: rgba(15, 15, 17, 0.8);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s var(--ease-out-expo);
+        }
+
+        nav.scrolled {
+            padding: 16px 40px;
+            background: rgba(15, 15, 17, 0.95);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(250, 250, 250, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
         }
 
         .logo {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 700;
-            letter-spacing: -0.5px;
+            color: var(--text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--accent), #8b5cf6);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            box-shadow: 0 0 20px var(--accent-glow);
         }
 
         .nav-links {
             display: flex;
-            gap: 32px;
+            gap: 8px;
             list-style: none;
         }
 
         .nav-links a {
-            color: var(--text-muted);
+            color: var(--text-secondary);
             text-decoration: none;
             font-size: 14px;
             font-weight: 500;
-            transition: color 0.2s;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.2s;
         }
 
         .nav-links a:hover {
             color: var(--text);
+            background: rgba(255, 255, 255, 0.05);
         }
 
-        .btn-small {
+        .nav-cta {
             background: var(--text);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 100px;
+            color: var(--bg);
+            padding: 10px 24px;
+            border-radius: 8px;
             font-size: 14px;
-            font-weight: 500;
+            font-weight: 600;
             text-decoration: none;
-            transition: transform 0.2s;
+            transition: all 0.3s var(--ease-spring);
         }
 
-        .btn-small:hover {
-            transform: scale(1.05);
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
         }
 
         /* Hero Section */
@@ -104,12 +144,21 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 140px 40px 100px;
+            padding: 160px 40px 100px;
             position: relative;
             overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+            pointer-events: none;
         }
 
         .hero-badge {
@@ -117,21 +166,22 @@
             align-items: center;
             gap: 8px;
             padding: 8px 16px;
-            background: white;
+            background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 100px;
             font-size: 13px;
-            color: var(--text-muted);
-            margin-bottom: 40px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            animation: fadeInUp 0.8s var(--ease-out-expo) backwards;
         }
 
         .hero-badge::before {
             content: '';
             width: 6px;
             height: 6px;
-            background: #10b981;
+            background: var(--success);
             border-radius: 50%;
+            box-shadow: 0 0 10px var(--success);
             animation: pulse 2s infinite;
         }
 
@@ -141,134 +191,239 @@
         }
 
         h1 {
-            font-size: clamp(48px, 10vw, 90px);
+            font-size: clamp(48px, 8vw, 80px);
             max-width: 900px;
             margin-bottom: 24px;
-            font-weight: 600;
+            background: linear-gradient(135deg, #fff 0%, #a0a0a0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 0.8s var(--ease-out-expo) 0.1s backwards;
         }
 
         .hero-subtitle {
             font-size: 20px;
-            color: var(--text-muted);
+            color: var(--text-secondary);
             max-width: 600px;
             margin-bottom: 40px;
             line-height: 1.6;
+            animation: fadeInUp 0.8s var(--ease-out-expo) 0.2s backwards;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 80px;
+            animation: fadeInUp 0.8s var(--ease-out-expo) 0.3s backwards;
         }
 
         .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--text);
+            background: var(--accent);
             color: white;
             padding: 16px 32px;
-            border-radius: 100px;
+            border-radius: 12px;
             font-size: 15px;
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.3s;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-        }
-
-        .btn-secondary {
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            transition: all 0.3s var(--ease-spring);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.5);
+        }
+
+        .btn-secondary {
             background: transparent;
             color: var(--text);
             padding: 16px 32px;
-            border-radius: 100px;
+            border-radius: 12px;
             font-size: 15px;
             font-weight: 500;
             text-decoration: none;
             border: 1px solid var(--border);
-            margin-left: 12px;
             transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .btn-secondary:hover {
-            background: var(--accent-light);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.2);
         }
 
-        /* Visual */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hero Visual - Abstract 3D */
         .hero-visual {
-            margin-top: 60px;
             width: 100%;
             max-width: 1000px;
             height: 500px;
-            background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
-            border-radius: var(--radius);
-            border: 1px solid var(--border);
             position: relative;
-            overflow: hidden;
+            animation: fadeInUp 0.8s var(--ease-out-expo) 0.4s backwards;
+        }
+
+        .orbital-system {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .center-core {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--accent), #8b5cf6);
+            border-radius: 50%;
+            position: relative;
             box-shadow: 
-                0 20px 60px rgba(0,0,0,0.05),
-                inset 0 0 0 1px rgba(255,255,255,0.5);
+                0 0 60px var(--accent-glow),
+                inset 0 0 60px rgba(255, 255, 255, 0.2);
+            animation: rotate 20s linear infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
         }
 
-        .floating-card {
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .orbit {
             position: absolute;
-            background: white;
-            border-radius: 16px;
-            padding: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: orbit-rotate 30s linear infinite;
+        }
+
+        .orbit-1 {
+            width: 300px;
+            height: 300px;
+            animation-duration: 20s;
+        }
+
+        .orbit-2 {
+            width: 450px;
+            height: 450px;
+            animation-duration: 30s;
+            animation-direction: reverse;
+        }
+
+        .orbit-3 {
+            width: 600px;
+            height: 600px;
+            animation-duration: 40s;
+        }
+
+        @keyframes orbit-rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .satellite {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: var(--surface-elevated);
             border: 1px solid var(--border);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
         }
 
-        .floating-card:nth-child(1) {
-            top: 20%;
-            left: 10%;
-            animation: float 6s ease-in-out infinite;
-        }
+        .satellite-1 { top: -30px; left: 50%; transform: translateX(-50%); }
+        .satellite-2 { bottom: -30px; left: 50%; transform: translateX(-50%); }
+        .satellite-3 { left: -30px; top: 50%; transform: translateY(-50%); }
 
-        .floating-card:nth-child(2) {
-            top: 30%;
-            right: 10%;
-            animation: float 6s ease-in-out infinite 1s;
-        }
-
-        .floating-card:nth-child(3) {
-            bottom: 20%;
-            left: 20%;
-            animation: float 6s ease-in-out infinite 2s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        /* Logos */
-        .logos {
-            padding: 40px;
-            text-align: center;
-            border-top: 1px solid var(--border);
-        }
-
-        .logos-text {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 24px;
-        }
-
-        .logo-row {
+        /* Stats */
+        .stats {
             display: flex;
             justify-content: center;
+            gap: 80px;
+            margin-top: 60px;
+            padding-top: 60px;
+            border-top: 1px solid var(--border);
+            animation: fadeInUp 0.8s var(--ease-out-expo) 0.5s backwards;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Logo Cloud */
+        .logos {
+            padding: 60px 40px;
+            border-top: 1px solid var(--border);
+            background: var(--surface);
+        }
+
+        .logos-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .logos-title {
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 32px;
+        }
+
+        .logo-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             gap: 60px;
+            flex-wrap: wrap;
             opacity: 0.4;
+            font-family: 'Space Grotesk', sans-serif;
             font-weight: 600;
-            font-size: 18px;
+            font-size: 20px;
             letter-spacing: -0.5px;
         }
 
-        /* Features */
+        /* Features Grid */
         .features {
-            padding: 120px 40px;
+            padding: 160px 40px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -278,13 +433,26 @@
             margin-bottom: 80px;
         }
 
-        .section-label {
-            font-size: 13px;
-            color: var(--text-muted);
+        .section-eyebrow {
+            font-size: 14px;
+            color: var(--accent);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 16px;
+            letter-spacing: 3px;
             font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .section-eyebrow::before,
+        .section-eyebrow::after {
+            content: '';
+            width: 30px;
+            height: 1px;
+            background: var(--accent);
+            opacity: 0.5;
         }
 
         .section-title {
@@ -292,43 +460,62 @@
             margin-bottom: 16px;
         }
 
-        .section-desc {
-            color: var(--text-muted);
+        .section-subtitle {
             font-size: 18px;
-            max-width: 500px;
+            color: var(--text-secondary);
+            max-width: 600px;
             margin: 0 auto;
         }
 
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
+            gap: 24px;
         }
 
         .feature-card {
-            background: white;
+            background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: var(--radius);
+            border-radius: 20px;
             padding: 40px;
-            transition: all 0.3s;
+            transition: all 0.4s var(--ease-out-expo);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
         }
 
         .feature-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-            border-color: rgba(0,0,0,0.12);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
         }
 
         .feature-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--accent-light);
-            border-radius: 12px;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
+            font-size: 28px;
             margin-bottom: 24px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
         }
 
         .feature-card h3 {
@@ -337,151 +524,223 @@
         }
 
         .feature-card p {
-            color: var(--text-muted);
+            color: var(--text-secondary);
             font-size: 15px;
             line-height: 1.6;
         }
 
-        /* Courses */
+        /* Courses Section */
         .courses {
-            padding: 100px 40px;
-            background: white;
+            padding: 120px 40px;
+            background: var(--surface);
             border-top: 1px solid var(--border);
         }
 
-        .course-grid {
+        .courses-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            max-width: 1200px;
+            margin: 0 auto 60px;
+        }
+
+        .courses-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 24px;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .course-card {
             background: var(--bg);
             border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 40px;
+            border-radius: 24px;
+            padding: 48px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 280px;
-            transition: all 0.3s;
+            min-height: 320px;
             cursor: pointer;
+            transition: all 0.4s var(--ease-spring);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), #8b5cf6);
+            transform: scaleX(0);
+            transition: transform 0.4s var(--ease-out-expo);
         }
 
         .course-card:hover {
-            background: white;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .course-card:hover::after {
+            transform: scaleX(1);
         }
 
         .course-meta {
             display: flex;
             gap: 12px;
-            margin-bottom: 16px;
+            margin-bottom: 24px;
         }
 
         .badge {
-            padding: 4px 12px;
-            background: white;
+            padding: 6px 14px;
+            background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--border);
             border-radius: 100px;
             font-size: 12px;
-            font-weight: 500;
-            color: var(--text-muted);
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge.accent {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: rgba(59, 130, 246, 0.3);
+            color: var(--accent);
         }
 
         .course-card h3 {
-            font-size: 28px;
-            margin-bottom: 12px;
+            font-size: 32px;
+            margin-bottom: 16px;
+            line-height: 1.2;
         }
 
         .course-card p {
-            color: var(--text-muted);
-            font-size: 15px;
+            color: var(--text-secondary);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .course-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .course-duration {
+            font-size: 14px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .course-arrow {
-            margin-top: 24px;
+            width: 48px;
+            height: 48px;
+            background: var(--surface-elevated);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 20px;
-            color: var(--text-muted);
             transition: all 0.3s;
         }
 
         .course-card:hover .course-arrow {
+            background: var(--accent);
             transform: translateX(5px);
-            color: var(--text);
         }
 
-        /* CTA */
+        /* CTA Section */
         .cta {
-            padding: 120px 40px;
-            text-align: center;
+            padding: 160px 40px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .cta-box {
+        .cta-bg {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+        }
+
+        .cta-container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 80px 40px;
-            background: var(--text);
-            border-radius: var(--radius);
-            color: white;
+            text-align: center;
+            position: relative;
+            z-index: 1;
         }
 
         .cta h2 {
-            font-size: 48px;
-            margin-bottom: 16px;
+            font-size: 56px;
+            margin-bottom: 24px;
         }
 
         .cta p {
-            opacity: 0.7;
-            font-size: 18px;
-            margin-bottom: 32px;
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
         }
 
-        .btn-white {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: white;
-            color: var(--text);
-            padding: 16px 32px;
-            border-radius: 100px;
-            font-size: 15px;
+        .btn-large {
+            background: linear-gradient(135deg, var(--accent), #8b5cf6);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 14px;
+            font-size: 16px;
             font-weight: 600;
             text-decoration: none;
-            transition: transform 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s var(--ease-spring);
+            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.4);
         }
 
-        .btn-white:hover {
-            transform: scale(1.05);
+        .btn-large:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.6);
         }
 
         /* Footer */
         footer {
-            padding: 60px 40px;
+            padding: 80px 40px 40px;
             border-top: 1px solid var(--border);
-            background: white;
+            background: var(--surface);
         }
 
-        .footer-content {
+        .footer-container {
             max-width: 1200px;
             margin: 0 auto;
+        }
+
+        .footer-top {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand {
+            max-width: 300px;
         }
 
         .footer-brand .logo {
             margin-bottom: 16px;
-            display: inline-block;
         }
 
         .footer-brand p {
-            color: var(--text-muted);
-            font-size: 14px;
-            max-width: 300px;
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.6;
         }
 
         .footer-links {
@@ -490,17 +749,15 @@
         }
 
         .footer-col h4 {
-            font-size: 13px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
+            font-size: 14px;
+            color: var(--text);
+            margin-bottom: 24px;
             font-weight: 600;
         }
 
         .footer-col a {
             display: block;
-            color: var(--text);
+            color: var(--text-secondary);
             text-decoration: none;
             margin-bottom: 12px;
             font-size: 15px;
@@ -508,92 +765,202 @@
         }
 
         .footer-col a:hover {
-            color: var(--text-muted);
+            color: var(--text);
         }
 
         .footer-bottom {
-            max-width: 1200px;
-            margin: 60px auto 0;
-            padding-top: 30px;
-            border-top: 1px solid var(--border);
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
             font-size: 14px;
-            color: var(--text-muted);
+            color: var(--text-secondary);
         }
 
-        @media (max-width: 900px) {
-            .nav-links { display: none; }
-            .features-grid { grid-template-columns: 1fr; }
-            .course-grid { grid-template-columns: 1fr; }
-            .footer-content { flex-direction: column; gap: 40px; }
-            .footer-links { gap: 40px; }
-            h1 { font-size: 42px; }
-            .section-title { font-size: 36px; }
+        .social-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            font-size: 18px;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats {
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 16px 20px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            h1 {
+                font-size: 40px;
+            }
+            
+            .hero-cta-group {
+                flex-direction: column;
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 32px;
+            }
+            
+            .courses-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+            
+            .footer-top {
+                flex-direction: column;
+                gap: 48px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 32px;
+            }
+            
+            .cta h2 {
+                font-size: 36px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">KI Expertenraum</div>
-        <ul class="nav-links">
-            <li><a href="#courses">Kurse</a></li>
-            <li><a href="#features">Vorteile</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Kontakt</a></li>
-        </ul>
-        <a href="#courses" class="btn-small">Jetzt starten</a>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">🧠</div>
+                KI Expertenraum
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#courses">Kurse</a></li>
+                <li><a href="#features">Vorteile</a></li>
+                <li><a href="#about">Über uns</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+            
+            <a href="#courses" class="nav-cta">Jetzt starten</a>
+        </div>
     </nav>
 
     <section class="hero">
+        <div class="hero-bg"></div>
+        
         <div class="hero-badge">
-            <span>NEU 2026</span>
+            <span>22 Kurse verfügbar</span>
         </div>
         
-        <h1>Werde zur KI Elite</h1>
+        <h1>Meistere die KI-Revolution</h1>
         
         <p class="hero-subtitle">
-            Von EU AI Act Compliance bis zu No-Code Automatisierung. 
-            Lerne KI wirklich anzuwenden – mit praxisnahen Kursen für Unternehmer.
+            Praxisnahe KI-Bildung für Unternehmer. Von EU AI Act Compliance bis zu No-Code Automation. 
+            Lerne von Experten, nicht von Theoretikern.
         </p>
         
-        <div>
-            <a href="#courses" class="btn-primary">Kurse entdecken →</a>
-            <a href="#features" class="btn-secondary">Mehr erfahren</a>
+        <div class="hero-cta-group">
+            <a href="#courses" class="btn-primary">
+                Kurse entdecken
+                <span>→</span>
+            </a>
+            <a href="#features" class="btn-secondary">
+                Mehr erfahren
+            </a>
         </div>
 
         <div class="hero-visual">
-            <div class="floating-card">
-                <div style="font-size: 32px; margin-bottom: 8px;">🤖</div>
-                <div style="font-size: 14px; font-weight: 600;">KI Automation</div>
+            <div class="orbital-system">
+                <div class="orbit orbit-3">
+                    <div class="satellite satellite-3">🛡️</div>
+                </div>
+                <div class="orbit orbit-2">
+                    <div class="satellite satellite-2">⚡</div>
+                </div>
+                <div class="orbit orbit-1">
+                    <div class="satellite satellite-1">📊</div>
+                </div>
+                <div class="center-core">🎯</div>
             </div>
-            <div class="floating-card">
-                <div style="font-size: 32px; margin-bottom: 8px;">⚡</div>
-                <div style="font-size: 14px; font-weight: 600;">Sofort umsetzbar</div>
+        </div>
+
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-value">22</div>
+                <div class="stat-label">Expert-Kurse</div>
             </div>
-            <div class="floating-card">
-                <div style="font-size: 32px; margin-bottom: 8px;">🛡️</div>
-                <div style="font-size: 14px; font-weight: 600;">DSGVO konform</div>
+            <div class="stat">
+                <div class="stat-value">2.5h</div>
+                <div class="stat-label">Ø Kursdauer</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">100%</div>
+                <div class="stat-label">Praxisnah</div>
             </div>
         </div>
     </section>
 
-    <div class="logos">
-        <div class="logos-text">Vertrauen von Unternehmern aus allen Branchen</div>
-        <div class="logo-row">
-            <span>KMU</span>
-            <span>STARTUPS</span>
-            <span>AGENTUREN</span>
-            <span>BERATUNG</span>
+    <section class="logos">
+        <div class="logos-container">
+            <div class="logos-title">Vertrauen von Unternehmern</div>
+            <div class="logo-grid">
+                <span>KMU</span>
+                <span>STARTUPS</span>
+                <span>BERATUNG</span>
+                <span>E-COMMERCE</span>
+                <span>HANDWERK</span>
+            </div>
         </div>
-    </div>
+    </section>
 
     <section class="features" id="features">
         <div class="section-header">
-            <div class="section-label">Warum wir</div>
+            <div class="section-eyebrow">Unser Versprechen</div>
             <h2 class="section-title">Praxis statt Theorie</h2>
-            <p class="section-desc">Kein Fachchinesisch. Nur erprobte Strategien, die sofort funktionieren.</p>
+            <p class="section-subtitle">Kein Fachchinesisch. Nur erprobte Strategien, die sofort funktionieren und dein Business voranbringen.</p>
         </div>
 
         <div class="features-grid">
@@ -618,23 +985,28 @@
     </section>
 
     <section class="courses" id="courses">
-        <div class="section-header">
-            <div class="section-label">Das Programm</div>
-            <h2 class="section-title">Unsere Kurse</h2>
-            <p class="section-desc">22 Kurse in 6 Kategorien – von Compliance bis No-Code.</p>
+        <div class="courses-header">
+            <div>
+                <div class="section-eyebrow" style="justify-content: flex-start;">Das Programm</div>
+                <h2 class="section-title" style="text-align: left;">Unsere Kurse</h2>
+            </div>
+            <a href="#" class="btn-secondary" style="margin: 0;">Alle ansehen →</a>
         </div>
 
-        <div class="course-grid">
+        <div class="courses-grid">
             <div class="course-card">
                 <div>
                     <div class="course-meta">
+                        <span class="badge accent">Beliebt</span>
                         <span class="badge">4 Kurse</span>
-                        <span class="badge">Beliebt</span>
                     </div>
                     <h3>EU AI Act & Compliance</h3>
-                    <p>Rechtssichere KI-Nutzung nach EU-Richtlinien. Bis August 2026 compliant sein.</p>
+                    <p>Rechtssichere KI-Nutzung nach EU-Richtlinien. Bis August 2026 compliant sein – mit Checklisten und Vorlagen.</p>
                 </div>
-                <div class="course-arrow">→</div>
+                <div class="course-footer">
+                    <span class="course-duration">⏱ 2.5h Gesamt</span>
+                    <div class="course-arrow">→</div>
+                </div>
             </div>
 
             <div class="course-card">
@@ -643,9 +1015,12 @@
                         <span class="badge">5 Kurse</span>
                     </div>
                     <h3>KI-Strategie & Governance</h3>
-                    <p>Strategische KI-Einführung im Unternehmen. Von der Vision bis zur Umsetzung.</p>
+                    <p>Strategische KI-Einführung im Unternehmen. Von der Vision bis zur erfolgreichen Implementierung.</p>
                 </div>
-                <div class="course-arrow">→</div>
+                <div class="course-footer">
+                    <span class="course-duration">⏱ 12h Gesamt</span>
+                    <div class="course-arrow">→</div>
+                </div>
             </div>
 
             <div class="course-card">
@@ -654,9 +1029,12 @@
                         <span class="badge">6 Kurse</span>
                     </div>
                     <h3>Praxis-Tools & Automation</h3>
-                    <p>No-Code KI-Tools für maximale Produktivität. Sofort anwendbar.</p>
+                    <p>No-Code KI-Tools für maximale Produktivität. ChatGPT, Claude, Zapier und mehr – sofort anwendbar.</p>
                 </div>
-                <div class="course-arrow">→</div>
+                <div class="course-footer">
+                    <span class="course-duration">⏱ 15h Gesamt</span>
+                    <div class="course-arrow">→</div>
+                </div>
             </div>
 
             <div class="course-card">
@@ -665,58 +1043,64 @@
                         <span class="badge">3 Kurse</span>
                     </div>
                     <h3>Datenschutz & Recht</h3>
-                    <p>DSGVO-konforme KI-Nutzung. Risiken minimieren, Chancen maximieren.</p>
+                    <p>DSGVO-konforme KI-Nutzung im Unternehmen. Risiken minimieren, Chancen maximieren, Haftung vermeiden.</p>
                 </div>
-                <div class="course-arrow">→</div>
+                <div class="course-footer">
+                    <span class="course-duration">⏱ 8h Gesamt</span>
+                    <div class="course-arrow">→</div>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="cta">
-        <div class="cta-box">
+        <div class="cta-bg"></div>
+        <div class="cta-container">
             <h2>Bereit für die KI-Elite?</h2>
-            <p>Starte jetzt mit unseren praxisnahen Kursen. 14 Tage Geld-zurück-Garantie.</p>
-            <a href="#courses" class="btn-white">Jetzt Kurs starten →</a>
+            <p>Starte jetzt mit unseren praxisnahen Kursen. 14 Tage Geld-zurück-Garantie bei allen Kursen – ohne Risiko.</p>
+            <a href="#courses" class="btn-large">
+                Jetzt Kurs starten
+                <span>→</span>
+            </a>
         </div>
     </section>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-brand">
-                <div class="logo">KI Expertenraum</div>
-                <p>Dein Zugang zur KI-Elite. Praxisnahe Kurse für Unternehmer und Fachkräfte.</p>
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">🧠</div>
+                        KI Expertenraum
+                    </a>
+                    <p>Dein Zugang zur KI-Elite. Praxisnahe Kurse für Unternehmer und Fachkräfte, die Ergebnisse erwarten.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Produkt</h4>
+                        <a href="#courses">Alle Kurse</a>
+                        <a href="#">EU AI Act</a>
+                        <a href="#">Automation</a>
+                        <a href="#">KI-Strategie</a>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h4>Unternehmen</h4>
+                        <a href="#">Über uns</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Karriere</a>
+                        <a href="#">Kontakt</a>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h4>Legal</h4>
+                        <a href="#">Impressum</a>
+                        <a href="#">Datenschutz</a>
+                        <a href="#">AGB</a>
+                    </div>
+                </div>
             </div>
             
-            <div class="footer-links">
-                <div class="footer-col">
-                    <h4>Navigation</h4>
-                    <a href="#">Start</a>
-                    <a href="#courses">Kurse</a>
-                    <a href="#">Blog</a>
-                    <a href="#">Kontakt</a>
-                </div>
-                
-                <div class="footer-col">
-                    <h4>Legal</h4>
-                    <a href="#">Impressum</a>
-                    <a href="#">Datenschutz</a>
-                    <a href="#">AGB</a>
-                </div>
-                
-                <div class="footer-col">
-                    <h4>Social</h4>
-                    <a href="#">LinkedIn</a>
-                    <a href="#">Twitter</a>
-                    <a href="#">YouTube</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <span>© 2026 KI Expertenraum</span>
-            <span>Alle Rechte vorbehalten</span>
-        </div>
-    </footer>
-
-</body>
-</html>
+            <div class="footer-bottom">
+                <span>© 2026
