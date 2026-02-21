@@ -1,12 +1,120 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>KI-Expertenraum</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+Hier ist die Schritt-für-Schritt-Anleitung um die Website auf GitHub hochzuladen:
+📋 Voraussetzungen
+GitHub Account (kostenlos auf github.com)
+Git installiert (git-scm.com)
+Die Website-Dateien auf deinem Computer
+Schritt 1: Ordner vorbereiten
+Erstelle einen neuen Ordner für dein Projekt und kopiere alle Dateien rein:
+plain
+Copy
+ki-expertenraum/
+├── index.html
+├── package.json
+├── vite.config.ts
+├── tailwind.config.js
+├── postcss.config.js
+├── tsconfig.json
+├── tsconfig.app.json
+├── public/
+│   ├── hero-robot.jpg
+│   ├── cube-*.jpg
+│   ├── gallery-*.jpg
+│   ├── course-*.jpg
+│   ├── footer-portrait.jpg
+│   └── vinyl-disc.png
+└── src/
+    ├── main.tsx
+    ├── App.tsx
+    ├── index.css
+    ├── config.ts
+    ├── lib/
+    │   └── utils.ts
+    ├── hooks/
+    │   └── useLenis.ts
+    └── sections/
+        ├── Hero.tsx
+        ├── AlbumCube.tsx
+        ├── ParallaxGallery.tsx
+        ├── TourSchedule.tsx
+        └── Footer.tsx
+Schritt 2: GitHub Repository erstellen
+Gehe zu github.com und melde dich an
+Klicke oben rechts auf das + Symbol → "New repository"
+Gib einen Namen ein: ki-expertenraum
+Wähle "Public" (oder Private, wenn du willst)
+NICHT "Initialize with README" ankreuzen
+Klicke auf "Create repository"
+Schritt 3: Git initialisieren & hochladen
+Öffne das Terminal (Command Prompt auf Windows, Terminal auf Mac) und navigiere zu deinem Projektordner:
+bash
+Copy
+# In den Projektordner wechseln
+cd pfad/zu/deinem/ki-expertenraum
+
+# Git initialisieren
+git init
+
+# Alle Dateien zum Upload vorbereiten
+git add .
+
+# Änderungen commiten (speichern)
+git commit -m "Erste Version der KI-Expertenraum Website"
+
+# Mit GitHub verbinden (URL von deinem Repository kopieren!)
+git remote add origin https://github.com/DEIN_USERNAME/ki-expertenraum.git
+
+# Hochladen
+git push -u origin main
+Fertig! Dein Code ist jetzt auf GitHub.
+Schritt 4: Live-Demo mit GitHub Pages (Optional)
+Damit die Website online erreichbar ist:
+1. Build erstellen
+bash
+Copy
+# Dependencies installieren
+npm install
+
+# Build erstellen
+npm run build
+2. dist Ordner hochladen
+bash
+Copy
+# dist Ordner hinzufügen (normalerweise ignored von git)
+git add dist -f
+git commit -m "Add build files"
+git push
+3. GitHub Pages aktivieren
+Auf GitHub zu deinem Repository gehen
+Settings → Pages (linke Seitenleiste)
+Bei Source wähle: Deploy from a branch
+Branch: main, Folder: /dist
+Klicke Save
+Nach 2-5 Minuten ist deine Website live unter:
+https://dein-username.github.io/ki-expertenraum/
+🔧 Alternative: Schneller mit GitHub Desktop
+Wenn du Terminal-Befehle nicht magst:
+Lade GitHub Desktop herunter
+Melde dich an
+Klicke "Add existing repository"
+Wähle deinen Projektordner
+Gib eine Beschreibung ein und klicke "Commit to main"
+Klicke "Publish repository"
+📝 Wichtige Hinweise
+Table
+Copy
+Problem	Lösung
+git: command not found	Git installieren: git-scm.com
+fatal: not a git repository	Zuerst git init ausführen
+Permission denied	Überprüfe deine GitHub-Anmeldedaten
+Bilder werden nicht angezeigt	Stelle sicher, dass der public Ordner mit hochgeladen wurde
+🎯 Zusammenfassung der Befehle
+bash
+Copy
+cd ki-expertenraum
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/USERNAME/ki-expertenraum.git
+git push -u origin main
+Dein Code ist dann unter github.com/USERNAME/ki-expertenraum zu sehen! 🚀
+Kimi answered directly this time. As no Agent was used, your credits have been returned.
