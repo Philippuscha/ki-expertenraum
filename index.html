@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KI Expertenraum — Dein Zugang zur KI-Elite</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Most — KI Expertenraum</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,380 +13,399 @@
         }
 
         :root {
-            --bg: #050508;
-            --surface: #0f0f14;
-            --text: #ffffff;
-            --text-muted: #6b7280;
-            --accent: #ff4d00;
-            --accent-blue: #00d4ff;
-            --metal: #c0c0c0;
+            --black: #000000;
+            --dark: #0a0a0a;
+            --white: #ffffff;
+            --gray: #888888;
+            --accent: #ff3d00;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background: var(--bg);
-            color: var(--text);
+            background: var(--black);
+            color: var(--white);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        h1, h2, h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
+        h1, h2, h3, .logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
         }
 
-        /* Navigation - Clean */
+        /* Most Theme Navigation */
         nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            padding: 24px 60px;
+            padding: 30px 60px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: linear-gradient(to bottom, rgba(5,5,8,0.9), transparent);
+            mix-blend-mode: difference;
         }
 
         .logo {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: white;
-            text-decoration: none;
-            letter-spacing: -1px;
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 40px;
+            align-items: center;
         }
 
         .nav-links {
             display: flex;
-            gap: 40px;
+            gap: 30px;
             list-style: none;
         }
 
         .nav-links a {
-            color: var(--text-muted);
+            color: var(--white);
             text-decoration: none;
             font-size: 14px;
             font-weight: 500;
-            transition: color 0.3s;
             text-transform: uppercase;
             letter-spacing: 1px;
+            position: relative;
         }
 
-        .nav-links a:hover {
-            color: var(--accent);
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--white);
+            transition: width 0.3s;
         }
 
-        .btn-nav {
-            background: var(--accent);
-            color: white;
-            padding: 12px 28px;
-            border-radius: 0;
-            font-size: 14px;
-            font-weight: 600;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s;
-            clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
-        .btn-nav:hover {
-            background: var(--accent-blue);
-            transform: translateY(-2px);
+        .menu-btn {
+            width: 30px;
+            height: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
         }
 
-        /* Hero Section */
+        .menu-btn span {
+            width: 100%;
+            height: 2px;
+            background: var(--white);
+        }
+
+        /* Most Hero Layout */
         .hero {
             min-height: 100vh;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 55% 45%;
             align-items: center;
-            padding: 120px 60px 80px;
-            max-width: 1400px;
-            margin: 0 auto;
-            gap: 60px;
+            padding: 0;
             position: relative;
         }
 
         .hero-content {
+            padding: 120px 60px 80px;
             z-index: 10;
         }
 
         .tag {
-            display: inline-block;
-            padding: 8px 20px;
-            background: rgba(255, 77, 0, 0.1);
-            border-left: 3px solid var(--accent);
-            font-size: 12px;
+            font-size: 14px;
             color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
             font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
             margin-bottom: 30px;
-        }
-
-        h1 {
-            font-size: 80px;
-            line-height: 0.95;
-            margin-bottom: 24px;
-            letter-spacing: -4px;
-            text-transform: uppercase;
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-blue) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
             display: block;
         }
 
-        .hero-subtitle {
-            font-size: 18px;
-            color: var(--text-muted);
-            line-height: 1.7;
+        h1 {
+            font-size: 100px;
+            line-height: 0.9;
             margin-bottom: 40px;
-            max-width: 480px;
+            letter-spacing: -6px;
+            text-transform: uppercase;
+            font-weight: 800;
         }
 
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
+        .hero-text {
+            font-size: 20px;
+            color: var(--gray);
+            line-height: 1.6;
+            margin-bottom: 50px;
+            max-width: 500px;
         }
 
-        .btn-primary {
-            background: var(--accent);
-            color: white;
-            padding: 16px 36px;
+        .btn-main {
+            display: inline-block;
+            background: var(--white);
+            color: var(--black);
+            padding: 20px 50px;
             font-size: 14px;
             font-weight: 600;
             text-decoration: none;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             border: none;
             cursor: pointer;
-            clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
         }
 
-        .btn-primary::before {
+        .btn-main:hover {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        /* T-800 Endoskeleton Visual */
+        .hero-visual {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at center, rgba(255,61,0,0.05) 0%, transparent 70%);
+        }
+
+        .t800-container {
+            position: relative;
+            width: 600px;
+            height: 800px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* T-800 HEAD */
+        .t800-head {
+            position: relative;
+            width: 280px;
+            height: 360px;
+            z-index: 100;
+            animation: head-float 4s ease-in-out infinite;
+            transform-origin: center bottom;
+        }
+
+        @keyframes head-float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+
+        /* Look at user animation - turns left toward PC user */
+        .t800-head::before {
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
+            left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: 0.5s;
+            animation: look-left 6s ease-in-out infinite;
+            transform-origin: center bottom;
         }
 
-        .btn-primary:hover::before {
-            left: 100%;
+        @keyframes look-left {
+            0%, 40% { transform: rotateY(0deg); }
+            50%, 90% { transform: rotateY(-25deg); } /* Looks left at user */
+            100% { transform: rotateY(0deg); }
         }
 
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            padding: 16px 36px;
-            font-size: 14px;
-            font-weight: 500;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: 1px solid rgba(255,255,255,0.2);
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--accent-blue);
-            color: var(--accent-blue);
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
-        }
-
-        .stats {
-            display: flex;
-            gap: 60px;
-            margin-top: 60px;
-            padding-top: 40px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .stat h3 {
-            font-size: 42px;
-            color: var(--accent);
-            margin-bottom: 5px;
-            font-family: 'Space Grotesk', sans-serif;
-            letter-spacing: -2px;
-        }
-
-        .stat p {
-            font-size: 13px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Terminator Robot Visual */
-        .hero-visual {
-            position: relative;
-            height: 700px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .robot-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Atmosphere */
-        .fog {
+        /* Skull Structure */
+        .skull {
             position: absolute;
             width: 100%;
             height: 100%;
-            background: radial-gradient(ellipse at center, rgba(255,77,0,0.1) 0%, transparent 70%);
-            animation: fog-move 8s ease-in-out infinite;
-        }
-
-        @keyframes fog-move {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 0.8; }
-        }
-
-        /* Terminator Endoskeleton Style Robot */
-        .terminator {
-            position: relative;
-            width: 400px;
-            height: 600px;
-            z-index: 10;
-        }
-
-        .robot-head {
-            width: 180px;
-            height: 220px;
-            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 50%, #0f0f0f 100%);
-            margin: 0 auto;
-            position: relative;
-            clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
-            border: 2px solid #444;
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 50%, #0d0d0d 100%);
+            clip-path: polygon(
+                25% 0%, 75% 0%, 
+                95% 15%, 100% 40%, 
+                95% 65%, 85% 85%, 
+                70% 100%, 30% 100%, 
+                15% 85%, 5% 65%, 
+                0% 40%, 5% 15%
+            );
             box-shadow: 
-                inset 0 0 30px rgba(0,0,0,0.8),
-                0 0 40px rgba(255,77,0,0.3),
-                0 0 80px rgba(255,77,0,0.1);
-            animation: robot-float 6s ease-in-out infinite;
+                inset -20px 0 40px rgba(0,0,0,0.8),
+                inset 20px 0 40px rgba(255,255,255,0.05),
+                0 0 60px rgba(255,61,0,0.2);
+            border: 2px solid #3a3a3a;
         }
 
-        .robot-eyes {
+        /* Metallic shine */
+        .skull::before {
+            content: '';
             position: absolute;
-            top: 45%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: 20px;
-            background: #000;
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            align-items: center;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.1), transparent);
+            clip-path: inherit;
         }
 
+        /* Eye sockets */
+        .eye-socket {
+            position: absolute;
+            top: 42%;
+            width: 80px;
+            height: 40px;
+            background: #000;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: inset 0 0 20px rgba(0,0,0,1);
+        }
+
+        .eye-socket.left { left: 15%; }
+        .eye-socket.right { right: 15%; }
+
+        /* Glowing eyes */
         .eye {
-            width: 40px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
             height: 8px;
             background: var(--accent);
-            box-shadow: 0 0 20px var(--accent), 0 0 40px var(--accent);
-            animation: eye-glow 3s ease-in-out infinite;
+            box-shadow: 
+                0 0 20px var(--accent),
+                0 0 40px var(--accent),
+                0 0 60px var(--accent);
+            animation: eye-pulse 2s ease-in-out infinite;
         }
 
-        @keyframes eye-glow {
-            0%, 100% { opacity: 1; box-shadow: 0 0 20px var(--accent); }
-            50% { opacity: 0.7; box-shadow: 0 0 40px var(--accent), 0 0 60px var(--accent); }
+        @keyframes eye-pulse {
+            0%, 100% { opacity: 1; box-shadow: 0 0 20px var(--accent), 0 0 40px var(--accent); }
+            50% { opacity: 0.8; box-shadow: 0 0 30px var(--accent), 0 0 60px var(--accent), 0 0 80px var(--accent); }
         }
 
-        .robot-teeth {
+        /* Jaw/Teeth area */
+        .jaw {
             position: absolute;
-            bottom: 20%;
+            bottom: 10%;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 40px;
+            width: 180px;
+            height: 100px;
+            background: linear-gradient(to bottom, #1a1a1a, #0d0d0d);
+            clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+        }
+
+        .teeth {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 160px;
+            height: 60px;
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2px;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 3px;
         }
 
         .tooth {
             background: linear-gradient(to bottom, #666, #222);
             border: 1px solid #444;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
         }
 
-        .robot-body {
-            width: 280px;
-            height: 350px;
-            background: linear-gradient(to bottom, #1f1f1f, #0a0a0a);
-            margin: -20px auto 0;
-            clip-path: polygon(20% 0%, 80% 0%, 100% 15%, 100% 100%, 0% 100%, 0% 15%);
-            position: relative;
-            border-left: 2px solid rgba(255,77,0,0.3);
-            border-right: 2px solid rgba(255,77,0,0.3);
-            animation: robot-float 6s ease-in-out infinite;
-            animation-delay: 0.5s;
-        }
-
-        .chest-light {
+        /* Neck/Spine */
+        .neck {
             position: absolute;
-            top: 30%;
+            bottom: -80px;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
-            height: 60px;
-            background: radial-gradient(circle, rgba(255,77,0,0.8) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: chest-pulse 2s ease-in-out infinite;
+            width: 120px;
+            height: 100px;
+            background: linear-gradient(to right, #1a1a1a, #2a2a2a, #1a1a1a);
+            z-index: 90;
         }
 
-        @keyframes chest-pulse {
-            0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.8; }
-            50% { transform: translateX(-50%) scale(1.2); opacity: 1; }
-        }
-
-        .hydraulics {
+        .spine-detail {
             position: absolute;
             width: 100%;
-            height: 100%;
-            background: repeating-linear-gradient(
-                90deg,
-                transparent,
-                transparent 20px,
-                rgba(255,255,255,0.03) 20px,
-                rgba(255,255,255,0.03) 21px
-            );
+            height: 10px;
+            background: #333;
+            border-top: 1px solid #444;
+            border-bottom: 1px solid #111;
         }
 
-        @keyframes robot-float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+        .spine-detail:nth-child(1) { top: 20%; }
+        .spine-detail:nth-child(2) { top: 50%; }
+        .spine-detail:nth-child(3) { top: 80%; }
+
+        /* Shoulders */
+        .shoulders {
+            position: absolute;
+            bottom: -180px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 400px;
+            height: 150px;
+            z-index: 80;
         }
 
-        /* Scanning Line */
+        .shoulder {
+            position: absolute;
+            width: 150px;
+            height: 120px;
+            background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+            border-radius: 20px;
+            border: 2px solid #3a3a3a;
+        }
+
+        .shoulder.left { left: 0; transform: rotate(-10deg); }
+        .shoulder.right { right: 0; transform: rotate(10deg); }
+
+        /* Hydraulic details */
+        .hydraulic {
+            position: absolute;
+            width: 20px;
+            height: 60px;
+            background: linear-gradient(to bottom, #444, #222);
+            border-radius: 10px;
+            border: 1px solid #555;
+        }
+
+        .hydraulic.left { left: 30%; bottom: -40px; }
+        .hydraulic.right { right: 30%; bottom: -40px; }
+
+        /* Ambient effects */
+        .ambient-glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,61,0,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: breathe 4s ease-in-out infinite;
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        /* Scanning effect */
         .scan-line {
             position: absolute;
             width: 100%;
             height: 2px;
-            background: var(--accent-blue);
-            box-shadow: 0 0 20px var(--accent-blue);
-            animation: scan 4s linear infinite;
-            opacity: 0.5;
+            background: rgba(255,61,0,0.5);
+            box-shadow: 0 0 20px var(--accent);
+            animation: scan 3s linear infinite;
+            z-index: 200;
         }
 
         @keyframes scan {
@@ -396,301 +415,209 @@
             100% { top: 100%; opacity: 0; }
         }
 
-        /* Reflection/Shine */
-        .shine {
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            animation: shine 5s infinite;
-        }
-
-        @keyframes shine {
-            0% { left: -100%; }
-            100% { left: 200%; }
-        }
-
-        /* Sparks */
-        .sparks {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-
-        .spark {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: var(--accent);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--accent);
-            animation: spark 2s linear infinite;
-        }
-
-        .spark:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
-        .spark:nth-child(2) { top: 60%; right: 5%; animation-delay: 0.5s; }
-        .spark:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 1s; }
-        .spark:nth-child(4) { bottom: 10%; right: 15%; animation-delay: 1.5s; }
-
-        @keyframes spark {
-            0% { transform: scale(0); opacity: 0; }
-            50% { transform: scale(1); opacity: 1; }
-            100% { transform: scale(0); opacity: 0; }
-        }
-
-        /* Marquee Bar */
-        .marquee-bar {
-            background: rgba(255,77,0,0.05);
-            border-top: 1px solid rgba(255,77,0,0.1);
-            border-bottom: 1px solid rgba(255,77,0,0.1);
-            padding: 16px 0;
+        /* Most Marquee */
+        .marquee-section {
+            padding: 40px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
             overflow: hidden;
-            position: relative;
+            background: var(--dark);
         }
 
-        .marquee-content {
+        .marquee-track {
             display: flex;
-            gap: 60px;
-            animation: scroll 25s linear infinite;
+            gap: 80px;
+            animation: marquee 30s linear infinite;
             white-space: nowrap;
-            font-size: 13px;
-            color: var(--text-muted);
+            font-family: 'Syne', sans-serif;
+            font-size: 80px;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: -4px;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(255,255,255,0.3);
         }
 
-        @keyframes scroll {
+        @keyframes marquee {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
 
-        /* Features */
+        /* Most Features Section */
         .features {
-            padding: 120px 60px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .section-label {
-            font-size: 12px;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-
-        .section-title {
-            font-size: 56px;
-            margin-bottom: 20px;
-            letter-spacing: -3px;
-        }
-
-        .section-subtitle {
-            color: var(--text-muted);
-            font-size: 18px;
-            max-width: 500px;
-            margin: 0 auto;
+            padding: 150px 60px;
+            background: var(--black);
         }
 
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
-        .feature-card {
-            background: var(--surface);
-            border: 1px solid rgba(255,255,255,0.05);
-            padding: 50px 40px;
+        .feature-item {
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 40px;
+        }
+
+        .feature-num {
+            font-size: 14px;
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .feature-item h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+        }
+
+        .feature-item p {
+            color: var(--gray);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        /* Most Work/Courses Section */
+        .work {
+            padding: 100px 60px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 80px;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-title {
+            font-size: 72px;
+            letter-spacing: -4px;
+            line-height: 1;
+        }
+
+        .view-all {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 1px solid var(--white);
+            padding-bottom: 5px;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .work-card {
             position: relative;
             overflow: hidden;
+            cursor: pointer;
+            background: var(--dark);
+            border: 1px solid rgba(255,255,255,0.1);
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 40px;
             transition: all 0.4s;
         }
 
-        .feature-card::before {
+        .work-card:hover {
+            border-color: var(--accent);
+        }
+
+        .work-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 3px;
-            background: var(--accent);
-            transform: scaleX(0);
-            transition: transform 0.4s;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.8) 100%);
+            z-index: 1;
         }
 
-        .feature-card:hover::before {
-            transform: scaleX(1);
+        .work-content {
+            position: relative;
+            z-index: 2;
         }
 
-        .feature-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(255,77,0,0.2);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        .work-category {
+            font-size: 12px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
         }
 
-        .feature-icon {
-            font-size: 36px;
-            margin-bottom: 24px;
+        .work-card h3 {
+            font-size: 42px;
+            letter-spacing: -3px;
+            line-height: 1.1;
+        }
+
+        .work-arrow {
+            position: relative;
+            z-index: 2;
+            font-size: 40px;
+            color: var(--white);
+            transition: transform 0.3s;
+        }
+
+        .work-card:hover .work-arrow {
+            transform: translateX(20px);
             color: var(--accent);
         }
 
-        .feature-card h3 {
-            font-size: 24px;
-            margin-bottom: 16px;
-            letter-spacing: -1px;
+        /* Most Footer */
+        footer {
+            padding: 100px 60px 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
-        .feature-card p {
-            color: var(--text-muted);
-            line-height: 1.7;
-        }
-
-        /* Courses */
-        .courses {
-            padding: 100px 60px;
-            background: var(--surface);
-        }
-
-        .courses-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-            max-width: 1000px;
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
-        .course-card {
-            background: var(--bg);
-            border: 1px solid rgba(255,255,255,0.05);
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 280px;
-            transition: all 0.3s;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .course-card::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--accent);
-            transform: scaleX(0);
-            transition: transform 0.3s;
-        }
-
-        .course-card:hover::after {
-            transform: scaleX(1);
-        }
-
-        .course-card:hover {
-            border-color: rgba(255,77,0,0.3);
-        }
-
-        .course-num {
-            font-size: 14px;
-            color: var(--accent);
-            font-weight: 700;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-        }
-
-        .course-card h3 {
-            font-size: 28px;
-            margin-bottom: 12px;
-            letter-spacing: -1px;
-        }
-
-        .course-card p {
-            color: var(--text-muted);
-            font-size: 16px;
-        }
-
-        .course-arrow {
-            font-size: 24px;
-            color: var(--accent);
-            margin-top: 30px;
-            transition: transform 0.3s;
-        }
-
-        .course-card:hover .course-arrow {
-            transform: translateX(10px);
-        }
-
-        /* CTA */
-        .cta {
-            padding: 140px 60px;
-            text-align: center;
-            position: relative;
-        }
-
-        .cta::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(255,77,0,0.1) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .cta h2 {
-            font-size: 64px;
-            margin-bottom: 20px;
+        .footer-brand h2 {
+            font-size: 48px;
             letter-spacing: -3px;
-        }
-
-        .cta p {
-            color: var(--text-muted);
-            font-size: 18px;
-            margin-bottom: 40px;
-        }
-
-        /* Footer */
-        footer {
-            padding: 60px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr repeat(3, 1fr);
-            gap: 60px;
-            max-width: 1200px;
-            margin: 0 auto 60px;
+            margin-bottom: 20px;
         }
 
         .footer-brand p {
-            color: var(--text-muted);
-            margin-top: 20px;
+            color: var(--gray);
+            max-width: 400px;
             line-height: 1.6;
         }
 
+        .footer-links {
+            display: flex;
+            gap: 100px;
+        }
+
         .footer-col h4 {
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 24px;
-            color: white;
+            font-size: 12px;
+            color: var(--gray);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
         }
 
         .footer-col ul {
@@ -698,13 +625,14 @@
         }
 
         .footer-col li {
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         .footer-col a {
-            color: var(--text-muted);
+            color: var(--white);
             text-decoration: none;
-            font-size: 14px;
+            font-size: 16px;
+            font-weight: 500;
             transition: color 0.3s;
         }
 
@@ -713,57 +641,49 @@
         }
 
         .footer-bottom {
-            text-align: center;
+            max-width: 1400px;
+            margin: 100px auto 0;
             padding-top: 40px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            color: var(--text-muted);
-            font-size: 13px;
-            max-width: 1200px;
-            margin: 0 auto;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            color: var(--gray);
+            font-size: 14px;
         }
 
         /* Responsive */
         @media (max-width: 1024px) {
             .hero {
                 grid-template-columns: 1fr;
-                text-align: center;
-                padding: 100px 30px 60px;
+                min-height: auto;
             }
-
+            
             h1 {
-                font-size: 56px;
+                font-size: 60px;
+                letter-spacing: -3px;
             }
-
-            .hero-subtitle {
-                margin: 0 auto 40px;
+            
+            .t800-container {
+                transform: scale(0.7);
+                height: 600px;
             }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .stats {
-                justify-content: center;
-            }
-
-            .terminator {
-                transform: scale(0.8);
-            }
-
-            .features-grid {
+            
+            .features-grid,
+            .work-grid {
                 grid-template-columns: 1fr;
             }
-
-            .courses-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .cta h2 {
+            
+            .section-title {
                 font-size: 48px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 60px;
+            }
+            
+            .footer-links {
+                gap: 40px;
             }
         }
 
@@ -771,250 +691,225 @@
             nav {
                 padding: 20px 30px;
             }
-
+            
             .nav-links {
                 display: none;
             }
-
+            
             h1 {
                 font-size: 42px;
-                letter-spacing: -2px;
             }
-
-            .terminator {
-                transform: scale(0.6);
+            
+            .hero-content {
+                padding: 100px 30px 60px;
             }
-
-            .section-title {
+            
+            .t800-container {
+                transform: scale(0.5);
+                height: 500px;
+            }
+            
+            .marquee-track {
                 font-size: 40px;
             }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
+            
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
             }
-
-            .cta h2 {
-                font-size: 36px;
+            
+            .work-card h3 {
+                font-size: 28px;
             }
         }
     </style>
 </head>
 <body>
     <nav>
-        <a href="#" class="logo">KI Expertenraum</a>
-        <ul class="nav-links">
-            <li><a href="#kurse">Kurse</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Tools</a></li>
-        </ul>
-        <a href="#kurse" class="btn-nav">Entdecken</a>
+        <div class="logo">KI Expertenraum</div>
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="#">Work</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="menu-btn">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
     </nav>
 
     <section class="hero">
         <div class="hero-content">
-            <div class="tag">NEU 2026</div>
-            <h1>
-                Werde zur <br>
-                <span class="gradient-text">KI Elite</span>
-            </h1>
-            <p class="hero-subtitle">
+            <span class="tag">NEU 2026</span>
+            <h1>Werde zur KI Elite</h1>
+            <p class="hero-text">
                 Von EU AI Act Compliance bis zu No-Code Automatisierung. 
                 Lerne KI wirklich anzuwenden – nicht nur darüber zu reden.
             </p>
-            <div class="hero-buttons">
-                <a href="#kurse" class="btn-primary">Kurse ansehen</a>
-                <a href="#" class="btn-secondary">Mehr erfahren</a>
-            </div>
-            <div class="stats">
-                <div class="stat">
-                    <h3>22</h3>
-                    <p>Kurse</p>
-                </div>
-                <div class="stat">
-                    <h3>2.5h</h3>
-                    <p>Ø Dauer</p>
-                </div>
-                <div class="stat">
-                    <h3>100%</h3>
-                    <p>Praxis</p>
-                </div>
-            </div>
+            <a href="#" class="btn-main">Kurse entdecken</a>
         </div>
         
         <div class="hero-visual">
-            <div class="robot-container">
-                <div class="fog"></div>
-                <div class="sparks">
-                    <div class="spark"></div>
-                    <div class="spark"></div>
-                    <div class="spark"></div>
-                    <div class="spark"></div>
-                </div>
+            <div class="ambient-glow"></div>
+            <div class="t800-container">
+                <div class="scan-line"></div>
                 
-                <!-- Terminator Style Robot -->
-                <div class="terminator">
-                    <div class="shine"></div>
-                    <div class="scan-line"></div>
-                    <div class="robot-head">
-                        <div class="robot-eyes">
-                            <div class="eye"></div>
+                <!-- T-800 Endoskeleton -->
+                <div class="t800-head">
+                    <div class="skull">
+                        <div class="eye-socket left">
                             <div class="eye"></div>
                         </div>
-                        <div class="robot-teeth">
+                        <div class="eye-socket right">
+                            <div class="eye"></div>
+                        </div>
+                        <div class="jaw"></div>
+                        <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
                             <div class="tooth"></div>
                             <div class="tooth"></div>
                             <div class="tooth"></div>
                             <div class="tooth"></div>
                         </div>
                     </div>
-                    <div class="robot-body">
-                        <div class="hydraulics"></div>
-                        <div class="chest-light"></div>
+                    
+                    <div class="neck">
+                        <div class="spine-detail"></div>
+                        <div class="spine-detail"></div>
+                        <div class="spine-detail"></div>
+                    </div>
+                    
+                    <div class="shoulders">
+                        <div class="shoulder left"></div>
+                        <div class="shoulder right"></div>
+                        <div class="hydraulic left"></div>
+                        <div class="hydraulic right"></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="marquee-bar">
-        <div class="marquee-content">
-            <span>EU AI Act Compliance</span>
+    <section class="marquee-section">
+        <div class="marquee-track">
+            <span>EU AI Act</span>
             <span>•</span>
             <span>Automation</span>
             <span>•</span>
-            <span>KI-Strategie</span>
+            <span>KI Strategie</span>
             <span>•</span>
-            <span>Prompt Engineering</span>
+            <span>Compliance</span>
             <span>•</span>
-            <span>DSGVO Konform</span>
-            <span>•</span>
-            <span>No-Code Tools</span>
-            <span>•</span>
-            <span>EU AI Act Compliance</span>
+            <span>EU AI Act</span>
             <span>•</span>
             <span>Automation</span>
             <span>•</span>
-            <span>KI-Strategie</span>
+            <span>KI Strategie</span>
+            <span>•</span>
+            <span>Compliance</span>
         </div>
-    </div>
+    </section>
 
     <section class="features">
-        <div class="section-header">
-            <div class="section-label">Unser Anspruch</div>
-            <h2 class="section-title">Praxis statt Theorie</h2>
-            <p class="section-subtitle">Kein Fachchinesisch. Nur erprobte Strategien.</p>
-        </div>
-        
         <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">⚡</div>
+            <div class="feature-item">
+                <div class="feature-num">01</div>
                 <h3>Sofort umsetzbar</h3>
                 <p>Jedes Konzept wird direkt mit praktischen Beispielen erklärt. Wissen, das du heute lernst, morgen anwenden kannst.</p>
             </div>
             
-            <div class="feature-card">
-                <div class="feature-icon">🛡️</div>
+            <div class="feature-item">
+                <div class="feature-num">02</div>
                 <h3>Rechtssicher</h3>
                 <p>EU AI Act, DSGVO, Haftung – wir decken alle rechtlichen Aspekte ab, damit du KI risikofrei nutzt.</p>
             </div>
             
-            <div class="feature-card">
-                <div class="feature-icon">🎯</div>
-                <h3>Für Profis</h3>
-                <p>Ob KMU-Geschäftsführer oder Entscheider – unsere Kurse sind für Profis aufbereitet, die Ergebnisse erwarten.</p>
+            <div class="feature-item">
+                <div class="feature-num">03</div>
+                <h3>Für echte Profis</h3>
+                <p>Ob KMU-Geschäftsführer oder Entscheider – unsere Kurse sind für Profis aufbereitet.</p>
             </div>
         </div>
     </section>
 
-    <section class="courses" id="kurse">
+    <section class="work">
         <div class="section-header">
-            <div class="section-label">Das Programm</div>
-            <h2 class="section-title">22 Kurse.<br>Ein Ziel.</h2>
-            <p class="section-subtitle">Dein KI-Erfolg.</p>
+            <h2 class="section-title">Unsere<br>Kurse</h2>
+            <a href="#" class="view-all">Alle ansehen</a>
         </div>
         
-        <div class="courses-grid">
-            <div class="course-card">
-                <div>
-                    <div class="course-num">01 / 04</div>
-                    <h3>EU AI Act & Compliance</h3>
-                    <p>Rechtssichere KI-Nutzung nach EU-Richtlinien. Bis August 2026 compliant sein.</p>
+        <div class="work-grid">
+            <div class="work-card">
+                <div class="work-content">
+                    <div class="work-category">Compliance</div>
+                    <h3>EU AI Act<br>Masterclass</h3>
                 </div>
-                <div class="course-arrow">→</div>
+                <div class="work-arrow">→</div>
             </div>
             
-            <div class="course-card">
-                <div>
-                    <div class="course-num">02 / 04</div>
-                    <h3>KI-Strategie & Governance</h3>
-                    <p>Strategische KI-Einführung im Unternehmen. Von der Vision bis zur Umsetzung.</p>
+            <div class="work-card">
+                <div class="work-content">
+                    <div class="work-category">Strategie</div>
+                    <h3>KI Governance<br>& Einführung</h3>
                 </div>
-                <div class="course-arrow">→</div>
+                <div class="work-arrow">→</div>
             </div>
             
-            <div class="course-card">
-                <div>
-                    <div class="course-num">03 / 04</div>
-                    <h3>Praxis-Tools & Automation</h3>
-                    <p>No-Code KI-Tools für maximale Produktivität. Sofort anwendbar.</p>
+            <div class="work-card">
+                <div class="work-content">
+                    <div class="work-category">Automation</div>
+                    <h3>No-Code KI<br>Tools</h3>
                 </div>
-                <div class="course-arrow">→</div>
+                <div class="work-arrow">→</div>
             </div>
             
-            <div class="course-card">
-                <div>
-                    <div class="course-num">04 / 04</div>
-                    <h3>Datenschutz & Recht</h3>
-                    <p>DSGVO-konforme KI-Nutzung. Risiken minimieren, Chancen maximieren.</p>
+            <div class="work-card">
+                <div class="work-content">
+                    <div class="work-category">Recht</div>
+                    <h3>DSGVO<br>konforme KI</h3>
                 </div>
-                <div class="course-arrow">→</div>
+                <div class="work-arrow">→</div>
             </div>
         </div>
-    </section>
-
-    <section class="cta">
-        <h2>Bereit für die <span class="gradient-text">Elite</span>?</h2>
-        <p>Starte jetzt. 14 Tage Geld-zurück-Garantie.</p>
-        <a href="#kurse" class="btn-primary">Jetzt starten</a>
     </section>
 
     <footer>
-        <div class="footer-grid">
+        <div class="footer-content">
             <div class="footer-brand">
-                <div class="logo">KI Expertenraum</div>
-                <p>Dein Zugang zur KI-Elite. Praxisnahe Kurse für Unternehmer und Fachkräfte, die Ergebnisse erwarten.</p>
+                <h2>KI Expertenraum</h2>
+                <p>Dein Zugang zur KI-Elite. Praxisnahe Kurse für Unternehmer und Fachkräfte.</p>
             </div>
             
-            <div class="footer-col">
-                <h4>Kurse</h4>
-                <ul>
-                    <li><a href="#">EU AI Act</a></li>
-                    <li><a href="#">KI-Strategie</a></li>
-                    <li><a href="#">Automation</a></li>
-                    <li><a href="#">Alle Kurse</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-col">
-                <h4>Ressourcen</h4>
-                <ul>
-                    <li><a href="#">Tools</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Newsletter</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-col">
-                <h4>Kontakt</h4>
-                <ul>
-                    <li><a href="mailto:zerna.philipp@gmail.com">zerna.philipp@gmail.com</a></li>
-                </ul>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#">Start</a></li>
+                        <li><a href="#">Kurse</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Kontakt</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Social</h4>
+                    <ul>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">YouTube</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
         
         <div class="footer-bottom">
-            © 2026 KI Expertenraum. Alle Rechte vorbehalten.
+            <span>© 2026 KI Expertenraum</span>
+            <span>Alle Rechte vorbehalten</span>
         </div>
     </footer>
 </body>
