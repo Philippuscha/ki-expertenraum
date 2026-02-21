@@ -1,539 +1,262 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KI Expertenraum — Album Experience</title>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 230 33% 2%;
+    --foreground: 0 0% 100%;
+    --card: 230 33% 4%;
+    --card-foreground: 0 0% 100%;
+    --popover: 230 33% 4%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 216 100% 81%;
+    --primary-foreground: 230 33% 2%;
+    --secondary: 230 20% 12%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 230 20% 15%;
+    --muted-foreground: 216 50% 70%;
+    --accent: 216 100% 81%;
+    --accent-foreground: 230 33% 2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 230 20% 15%;
+    --input: 230 20% 15%;
+    --ring: 216 100% 81%;
+    --radius: 0.5rem;
     
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
-    <style>
-        :root {
-            --void-black: #0a0a0f;
-            --void-black-light: #12121a;
-            --neon-cyan: #00d4ff;
-            --neon-soft: rgba(0, 212, 255, 0.6);
-            --white: #ffffff;
-            --white-50: rgba(255, 255, 255, 0.5);
-            --white-20: rgba(255, 255, 255, 0.2);
-            --white-10: rgba(255, 255, 255, 0.1);
-            --white-05: rgba(255, 255, 255, 0.05);
-        }
+    /* Custom colors */
+    --void-black: #050508;
+    --soft-blue: #9DC4FF;
+    --neon-cyan: #00D4FF;
+    --neon-blue: #4D9FFF;
+  }
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: auto !important;
+  }
+  
+  body {
+    @apply bg-[#050508] text-white antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+  }
+  
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+  
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  
+  .lenis.lenis-smooth iframe {
+    pointer-events: none;
+  }
+}
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--void-black);
-            color: var(--white);
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
+/* Custom font classes */
+.font-display {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
 
-        h1, h2, h3, .font-display {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-        }
+.font-mono-custom {
+  font-family: 'JetBrains Mono', 'SF Mono', 'Monaco', monospace;
+}
 
-        .font-mono {
-            font-family: 'Inter', monospace;
-            font-weight: 500;
-            letter-spacing: 0.05em;
-        }
+/* Text decode effect */
+.decode-text {
+  font-family: 'JetBrains Mono', monospace;
+}
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 24px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(10, 10, 15, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--white-10);
-        }
+/* Marquee animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 
-        .logo {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--white);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
 
-        .logo::before {
-            content: '🧠';
-            font-size: 24px;
-        }
+/* Vinyl spin animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-        }
+.animate-spin-slow {
+  animation: spin 4s linear infinite;
+}
 
-        .nav-links a {
-            color: var(--white-50);
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 12px;
-        }
+/* Glitch effect */
+@keyframes glitch {
+  0%, 100% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+}
 
-        .nav-links a:hover {
-            color: var(--neon-cyan);
-        }
+.glitch-effect {
+  animation: glitch 0.3s ease-in-out infinite;
+}
 
-        /* Main Section - Album Experience */
-        .album-section {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            background: var(--void-black);
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #00D4FF 0%, #4D9FFF 50%, #9DC4FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
-        /* Background Title */
-        .bg-title {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-        }
+/* Glow effects */
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3),
+              0 0 40px rgba(0, 212, 255, 0.2),
+              0 0 60px rgba(0, 212, 255, 0.1);
+}
 
-        .bg-title h2 {
-            font-size: 20vw;
-            color: var(--white-05);
-            text-transform: uppercase;
-            white-space: nowrap;
-            transition: filter 0.1s;
-            font-weight: 800;
-            letter-spacing: -0.05em;
-        }
+.text-glow-cyan {
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5),
+               0 0 20px rgba(0, 212, 255, 0.3),
+               0 0 30px rgba(0, 212, 255, 0.2);
+}
 
-        /* 3D Cube Container */
-        .cube-container {
-            position: relative;
-            z-index: 10;
-            width: 300px;
-            height: 300px;
-            perspective: 1000px;
-        }
+/* Blur mask for cube section */
+.blur-mask {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
 
-        .cube {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            transform-style: preserve-3d;
-            transition: transform 0.1s;
-        }
+/* Video overlay */
+.video-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(5, 5, 8, 0.3) 0%,
+    rgba(5, 5, 8, 0.6) 50%,
+    rgba(5, 5, 8, 0.9) 100%
+  );
+}
 
-        .cube-face {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: linear-gradient(135deg, var(--void-black-light), #1a1a2e);
-            border: 1px solid var(--white-20);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 80px;
-            backface-visibility: visible;
-            box-shadow: inset 0 0 60px rgba(0, 212, 255, 0.1);
-        }
+/* Navigation pill */
+.nav-pill {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-        .cube-face:nth-child(1) { transform: rotateY(0deg) translateZ(150px); }
-        .cube-face:nth-child(2) { transform: rotateY(90deg) translateZ(150px); }
-        .cube-face:nth-child(3) { transform: rotateY(180deg) translateZ(150px); }
-        .cube-face:nth-child(4) { transform: rotateY(-90deg) translateZ(150px); }
-        .cube-face:nth-child(5) { transform: rotateX(90deg) translateZ(150px); }
-        .cube-face:nth-child(6) { transform: rotateX(-90deg) translateZ(150px); }
+.nav-pill:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(157, 196, 255, 0.3);
+}
 
-        /* Album Info Overlay */
-        .album-info {
-            position: absolute;
-            bottom: 60px;
-            left: 60px;
-            z-index: 20;
-        }
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
 
-        .album-counter {
-            font-family: 'Inter', monospace;
-            font-size: 12px;
-            color: var(--white-50);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
-        }
+::-webkit-scrollbar-track {
+  background: #050508;
+}
 
-        .album-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            transition: all 0.3s;
-        }
+::-webkit-scrollbar-thumb {
+  background: rgba(157, 196, 255, 0.2);
+  border-radius: 3px;
+}
 
-        .album-subtitle {
-            font-family: 'Inter', monospace;
-            font-size: 14px;
-            color: var(--white-50);
-        }
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(157, 196, 255, 0.4);
+}
 
-        /* Progress Indicator */
-        .progress-indicator {
-            position: absolute;
-            right: 60px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 20;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
+/* Section transitions */
+.section-transition {
+  transition: background-color 0.6s ease-out;
+}
 
-        .progress-dot {
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
-            background: var(--white-20);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+/* Image hover effect */
+.image-hover-scale {
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
 
-        .progress-dot.active {
-            background: var(--neon-cyan);
-            height: 32px;
-            box-shadow: 0 0 20px var(--neon-soft);
-        }
+.image-hover-scale:hover {
+  transform: scale(1.05);
+}
 
-        /* Corner Decorations */
-        .corner-line {
-            position: absolute;
-            z-index: 20;
-            background: linear-gradient(90deg, var(--neon-cyan), transparent);
-        }
+/* Canvas container */
+.canvas-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
 
-        .corner-line.top-left-h {
-            top: 60px;
-            left: 60px;
-            width: 80px;
-            height: 1px;
-        }
+/* Three.js canvas fix */
+canvas {
+  display: block;
+}
 
-        .corner-line.top-left-v {
-            top: 60px;
-            left: 60px;
-            width: 1px;
-            height: 80px;
-            background: linear-gradient(180deg, var(--neon-cyan), transparent);
-        }
+/* Speed blur text effect */
+.speed-blur {
+  transition: filter 0.1s ease-out, letter-spacing 0.1s ease-out, transform 0.1s ease-out;
+}
 
-        .scroll-hint {
-            position: absolute;
-            bottom: 60px;
-            right: 60px;
-            z-index: 20;
-            font-family: 'Inter', monospace;
-            font-size: 11px;
-            color: var(--white-50);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+/* Tour section light background */
+.tour-bg {
+  background-color: #9DC4FF;
+}
 
-        /* Content Sections */
-        .content-section {
-            padding: 120px 60px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+/* List item hover state */
+.tour-item {
+  transition: all 0.3s ease;
+}
 
-        .section-header {
-            margin-bottom: 80px;
-        }
+.tour-item:hover {
+  background: rgba(31, 31, 31, 0.05);
+}
 
-        .eyebrow {
-            font-size: 12px;
-            color: var(--neon-cyan);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 16px;
-            font-family: 'Inter', monospace;
-        }
+/* Footer grid item */
+.footer-grid-item {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
 
-        h2 {
-            font-size: 56px;
-            line-height: 1;
-            margin-bottom: 24px;
-        }
-
-        .subtitle {
-            font-size: 18px;
-            color: var(--white-50);
-            max-width: 600px;
-            line-height: 1.6;
-        }
-
-        /* Feature Grid */
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-top: 60px;
-        }
-
-        .feature-card {
-            background: var(--void-black-light);
-            border: 1px solid var(--white-10);
-            border-radius: 16px;
-            padding: 40px;
-            transition: all 0.4s;
-        }
-
-        .feature-card:hover {
-            border-color: var(--neon-cyan);
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-        }
-
-        .feature-icon {
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-
-        .feature-card h3 {
-            font-size: 20px;
-            margin-bottom: 12px;
-        }
-
-        .feature-card p {
-            color: var(--white-50);
-            font-size: 15px;
-            line-height: 1.6;
-        }
-
-        @media (max-width: 768px) {
-            .cube-container {
-                width: 200px;
-                height: 200px;
-            }
-            
-            .cube-face {
-                width: 200px;
-                height: 200px;
-            }
-            
-            .cube-face:nth-child(1) { transform: rotateY(0deg) translateZ(100px); }
-            .cube-face:nth-child(2) { transform: rotateY(90deg) translateZ(100px); }
-            .cube-face:nth-child(3) { transform: rotateY(180deg) translateZ(100px); }
-            .cube-face:nth-child(4) { transform: rotateY(-90deg) translateZ(100px); }
-            .cube-face:nth-child(5) { transform: rotateX(90deg) translateZ(100px); }
-            .cube-face:nth-child(6) { transform: rotateX(-90deg) translateZ(100px); }
-            
-            .album-title {
-                font-size: 32px;
-            }
-            
-            .bg-title h2 {
-                font-size: 15vw;
-            }
-            
-            h2 {
-                font-size: 36px;
-            }
-            
-            .feature-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <nav>
-        <a href="#" class="logo">KI Expertenraum</a>
-        <ul class="nav-links">
-            <li><a href="#albums">Kurse</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#about">Über</a></li>
-        </ul>
-    </nav>
-
-    <!-- Album Experience Section -->
-    <section class="album-section" id="albums">
-        <!-- Background Title -->
-        <div class="bg-title">
-            <h2 id="bgTitle">STRATEGIE</h2>
-        </div>
-
-        <!-- 3D Cube -->
-        <div class="cube-container">
-            <div class="cube" id="cube">
-                <div class="cube-face">🎯</div>
-                <div class="cube-face">⚡</div>
-                <div class="cube-face">🛡️</div>
-                <div class="cube-face">📊</div>
-                <div class="cube-face">🚀</div>
-                <div class="cube-face">💡</div>
-            </div>
-        </div>
-
-        <!-- Album Info -->
-        <div class="album-info">
-            <div class="album-counter">
-                <span id="currentId">01</span> / <span id="totalId">04</span>
-            </div>
-            <h3 class="album-title" id="albumTitle">KI Strategie</h3>
-            <p class="album-subtitle" id="albumSubtitle">Von der Vision bis zur Umsetzung</p>
-        </div>
-
-        <!-- Progress Indicator -->
-        <div class="progress-indicator" id="progressDots">
-            <div class="progress-dot active"></div>
-            <div class="progress-dot"></div>
-            <div class="progress-dot"></div>
-            <div class="progress-dot"></div>
-        </div>
-
-        <!-- Corner Lines -->
-        <div class="corner-line top-left-h"></div>
-        <div class="corner-line top-left-v"></div>
-
-        <!-- Scroll Hint -->
-        <div class="scroll-hint">Scroll to explore ↓</div>
-    </section>
-
-    <!-- Content Section -->
-    <section class="content-section" id="features">
-        <div class="section-header">
-            <div class="eyebrow">Das Programm</div>
-            <h2>Praxis statt Theorie</h2>
-            <p class="subtitle">Kein Fachchinesisch. Nur erprobte Strategien, die sofort funktionieren und dein Business voranbringen.</p>
-        </div>
-
-        <div class="feature-grid">
-            <div class="feature-card">
-                <div class="feature-icon">⚡</div>
-                <h3>Sofort umsetzbar</h3>
-                <p>Jedes Konzept wird direkt mit praktischen Beispielen erklärt.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🛡️</div>
-                <h3>Rechtssicher</h3>
-                <p>EU AI Act, DSGVO, Haftung – wir decken alle Aspekte ab.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🎯</div>
-                <h3>Für Profis</h3>
-                <p>Für KMU-Geschäftsführer und Entscheider.</p>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        // Album Data
-        const albums = [
-            { id: 1, title: "KI Strategie", subtitle: "Von der Vision bis zur Umsetzung", bg: "STRATEGIE" },
-            { id: 2, title: "EU AI Act", subtitle: "Compliance ohne Komplexität", bg: "COMPLIANCE" },
-            { id: 3, title: "Automation", subtitle: "No-Code KI Tools", bg: "AUTOMATION" },
-            { id: 4, title: "Governance", subtitle: "Risiken managen", bg: "GOVERNANCE" }
-        ];
-
-        // Elements
-        const cube = document.getElementById('cube');
-        const bgTitle = document.getElementById('bgTitle');
-        const albumTitle = document.getElementById('albumTitle');
-        const albumSubtitle = document.getElementById('albumSubtitle');
-        const currentId = document.getElementById('currentId');
-        const totalId = document.getElementById('totalId');
-        const dots = document.querySelectorAll('.progress-dot');
-
-        totalId.textContent = String(albums.length).padStart(2, '0');
-
-        // Register GSAP ScrollTrigger
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Pin the section and animate on scroll
-        ScrollTrigger.create({
-            trigger: ".album-section",
-            start: "top top",
-            end: "+=300%",
-            pin: true,
-            scrub: 1,
-            onUpdate: (self) => {
-                const progress = self.progress;
-                
-                // Rotate cube based on scroll progress
-                const rotationY = progress * 360 * 2; // 2 full rotations
-                const rotationX = Math.sin(progress * Math.PI) * 20;
-                
-                cube.style.transform = `rotateY(${rotationY}deg) rotateX(${rotationX}deg)`;
-                
-                // Calculate current album index
-                const albumIndex = Math.min(
-                    Math.floor(progress * albums.length),
-                    albums.length - 1
-                );
-                
-                // Update content
-                const album = albums[albumIndex];
-                bgTitle.textContent = album.bg;
-                albumTitle.textContent = album.title;
-                albumSubtitle.textContent = album.subtitle;
-                currentId.textContent = String(album.id).padStart(2, '0');
-                
-                // Update progress dots
-                dots.forEach((dot, index) => {
-                    if (index === albumIndex) {
-                        dot.classList.add('active');
-                    } else {
-                        dot.classList.remove('active');
-                    }
-                });
-                
-                // Blur effect based on scroll velocity
-                const velocity = Math.abs(self.getVelocity());
-                const blur = Math.min(velocity / 300, 8);
-                bgTitle.style.filter = `blur(${blur}px)`;
-                bgTitle.style.letterSpacing = `${Math.min(velocity / 100, 20)}px`;
-            }
-        });
-
-        // Initial state
-        let currentAlbum = 0;
-        
-        function updateAlbum(index) {
-            const album = albums[index];
-            albumTitle.textContent = album.title;
-            albumSubtitle.textContent = album.subtitle;
-            bgTitle.textContent = album.bg;
-        }
-    </script>
-</body>
-</html>
+.footer-grid-item:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
