@@ -4,48 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Most — KI Expertenraum</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         :root {
             --black: #000000;
             --white: #ffffff;
-            --gray: #666666;
-            --accent: #ff3d00;
-            --surface: #0a0a0a;
-        }
-
-        html {
-            scroll-behavior: smooth;
+            --gray: #888888;
+            --dark-gray: #1a1a1a;
+            --accent: #ff4d00;
         }
 
         body {
             font-family: 'Inter', sans-serif;
             background: var(--black);
             color: var(--white);
-            line-height: 1.6;
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3, .logo {
-            font-family: 'Syne', sans-serif;
-            font-weight: 700;
-        }
+        h1, h2, h3 { font-family: 'Syne', sans-serif; font-weight: 700; }
 
-        /* Navigation — Exact Most Style */
-        .nav {
+        /* Navigation */
+        nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            z-index: 100;
+            z-index: 1000;
             padding: 40px 60px;
             display: flex;
             justify-content: space-between;
@@ -53,80 +39,29 @@
             mix-blend-mode: difference;
         }
 
-        .nav-logo {
-            font-size: 24px;
-            font-weight: 800;
-            letter-spacing: -1px;
-            text-transform: uppercase;
-        }
+        .logo { font-family: 'Syne', sans-serif; font-size: 24px; font-weight: 800; text-transform: uppercase; letter-spacing: -1px; }
+        
+        .nav-links { display: flex; gap: 40px; list-style: none; }
+        .nav-links a { color: var(--white); text-decoration: none; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; position: relative; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 1px; background: var(--white); transition: width 0.3s; }
+        .nav-links a:hover::after { width: 100%; }
 
-        .nav-menu {
-            display: flex;
-            gap: 40px;
-            align-items: center;
-        }
+        .menu-btn { width: 30px; height: 20px; display: flex; flex-direction: column; justify-content: space-between; cursor: pointer; }
+        .menu-btn span { width: 100%; height: 2px; background: var(--white); }
 
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--white);
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            position: relative;
-            padding-bottom: 5px;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--white);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .hamburger {
-            width: 30px;
-            height: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            cursor: pointer;
-        }
-
-        .hamburger span {
-            width: 100%;
-            height: 2px;
-            background: var(--white);
-        }
-
-        /* Hero — Exact Most Layout */
+        /* Hero */
         .hero {
             min-height: 100vh;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            position: relative;
+            padding-top: 100px;
         }
 
         .hero-content {
-            padding: 180px 80px 100px;
+            padding: 120px 80px;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            z-index: 10;
         }
 
         .tag {
@@ -136,276 +71,224 @@
             letter-spacing: 3px;
             font-weight: 600;
             margin-bottom: 30px;
-            display: block;
         }
 
-        .hero-title {
-            font-size: clamp(60px, 8vw, 100px);
-            line-height: 0.95;
-            margin-bottom: 40px;
+        h1 {
+            font-size: 90px;
+            line-height: 0.9;
+            margin-bottom: 30px;
             letter-spacing: -5px;
             text-transform: uppercase;
             font-weight: 800;
         }
 
-        .hero-subtitle {
+        .hero-text {
             font-size: 18px;
             color: var(--gray);
-            line-height: 1.7;
-            margin-bottom: 50px;
-            max-width: 480px;
-            font-weight: 400;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            max-width: 450px;
         }
 
         .btn {
             display: inline-block;
             background: var(--white);
             color: var(--black);
-            padding: 22px 50px;
+            padding: 20px 50px;
             font-size: 13px;
             font-weight: 600;
-            text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 2px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            text-decoration: none;
             width: fit-content;
+            transition: all 0.3s;
         }
 
-        .btn:hover {
-            background: var(--accent);
-            color: var(--white);
-            transform: translateY(-2px);
-        }
+        .btn:hover { background: var(--accent); color: var(--white); }
 
-        /* Hero Visual — Professional Android */
+        /* Android Visual */
         .hero-visual {
             position: relative;
-            background: radial-gradient(circle at 30% 50%, rgba(255, 61, 0, 0.08) 0%, transparent 60%);
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
+            background: radial-gradient(circle at 30% 50%, rgba(255, 77, 0, 0.1) 0%, transparent 70%);
         }
 
-        .android-container {
+        .android-wrapper {
+            position: relative;
+            width: 500px;
+            height: 700px;
+        }
+
+        /* Professional Android Construction */
+        .android {
             position: relative;
             width: 100%;
             height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            filter: drop-shadow(0 0 80px rgba(255, 77, 0, 0.2));
         }
 
-        /* Professional Humanoid Android */
-        .android {
-            position: relative;
-            width: 400px;
-            height: 700px;
-            filter: drop-shadow(0 0 100px rgba(255, 61, 0, 0.2));
-        }
-
-        /* Head */
-        .android-head {
+        /* Head - Sleek and Professional */
+        .head {
             position: absolute;
             top: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 220px;
-            height: 280px;
-            background: linear-gradient(135deg, #e0e0e0 0%, #b0b0b0 50%, #808080 100%);
-            border-radius: 60px 60px 80px 80px;
+            width: 200px;
+            height: 260px;
+            background: linear-gradient(145deg, #e8e8e8 0%, #b8b8b8 50%, #888888 100%);
+            border-radius: 50px 50px 70px 70px;
             box-shadow: 
-                inset -20px -20px 40px rgba(0,0,0,0.2),
-                inset 20px 20px 40px rgba(255,255,255,0.3),
-                0 20px 60px rgba(0,0,0,0.5);
-            z-index: 10;
-            animation: head-tilt 8s ease-in-out infinite;
+                inset -10px -10px 30px rgba(0,0,0,0.2),
+                inset 10px 10px 30px rgba(255,255,255,0.4),
+                0 20px 50px rgba(0,0,0,0.3);
+            animation: head-turn 10s ease-in-out infinite;
             transform-origin: center bottom;
+            z-index: 10;
         }
 
-        @keyframes head-tilt {
+        @keyframes head-turn {
             0%, 45% { transform: translateX(-50%) rotateY(0deg); }
-            50%, 95% { transform: translateX(-50%) rotateY(-20deg); } /* Looks left at user */
+            50%, 95% { transform: translateX(-50%) rotateY(-25deg); }
             100% { transform: translateX(-50%) rotateY(0deg); }
         }
 
-        /* Face screen */
-        .face-screen {
+        /* Face Display */
+        .face {
             position: absolute;
-            top: 60px;
+            top: 70px;
             left: 50%;
             transform: translateX(-50%);
-            width: 160px;
-            height: 100px;
+            width: 140px;
+            height: 90px;
             background: #000;
-            border-radius: 20px;
+            border-radius: 15px;
             overflow: hidden;
             box-shadow: inset 0 0 20px rgba(0,0,0,1);
         }
 
-        /* Eyes */
         .eyes {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             display: flex;
-            gap: 40px;
+            gap: 30px;
         }
 
         .eye {
-            width: 30px;
+            width: 35px;
             height: 4px;
             background: var(--accent);
             box-shadow: 0 0 20px var(--accent), 0 0 40px var(--accent);
-            animation: eye-pulse 3s ease-in-out infinite;
+            animation: pulse 3s infinite;
         }
 
-        @keyframes eye-pulse {
-            0%, 100% { opacity: 0.8; }
+        @keyframes pulse {
+            0%, 100% { opacity: 0.7; }
             50% { opacity: 1; box-shadow: 0 0 30px var(--accent), 0 0 60px var(--accent); }
-        }
-
-        /* Mouth */
-        .mouth {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 2px;
-            background: #666;
         }
 
         /* Neck */
         .neck {
             position: absolute;
-            top: 260px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 80px;
-            background: linear-gradient(to right, #909090, #c0c0c0, #909090);
-            z-index: 5;
-        }
-
-        .neck-ring {
-            width: 100%;
-            height: 20px;
-            background: linear-gradient(to bottom, #707070, #505050);
-            margin-bottom: 5px;
-            border-radius: 5px;
-        }
-
-        /* Body/Torso */
-        .torso {
-            position: absolute;
-            top: 320px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 300px;
-            height: 380px;
-            background: linear-gradient(135deg, #d0d0d0 0%, #a0a0a0 50%, #707070 100%);
-            border-radius: 40px 40px 60px 60px;
-            box-shadow: 
-                inset -30px -30px 60px rgba(0,0,0,0.2),
-                inset 30px 30px 60px rgba(255,255,255,0.3),
-                0 30px 80px rgba(0,0,0,0.4);
-            z-index: 8;
-        }
-
-        /* Chest light */
-        .chest-light {
-            position: absolute;
-            top: 100px;
+            top: 240px;
             left: 50%;
             transform: translateX(-50%);
             width: 80px;
-            height: 80px;
-            background: radial-gradient(circle, rgba(255,61,0,0.8) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: chest-glow 4s ease-in-out infinite;
+            height: 60px;
+            background: linear-gradient(to right, #888, #aaa, #888);
+            z-index: 5;
         }
 
-        @keyframes chest-glow {
-            0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
-            50% { opacity: 1; transform: translateX(-50%) scale(1.1); }
+        .neck-line {
+            width: 100%;
+            height: 15px;
+            background: linear-gradient(to bottom, #666, #444);
+            margin-bottom: 3px;
+            border-radius: 3px;
         }
 
-        /* Body details */
-        .torso-lines {
+        /* Torso */
+        .torso {
             position: absolute;
-            top: 60%;
+            top: 290px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 280px;
+            height: 350px;
+            background: linear-gradient(145deg, #ddd 0%, #aaa 50%, #777 100%);
+            border-radius: 30px 30px 50px 50px;
+            box-shadow: 
+                inset -20px -20px 40px rgba(0,0,0,0.2),
+                inset 20px 20px 40px rgba(255,255,255,0.3),
+                0 30px 60px rgba(0,0,0,0.4);
+            z-index: 8;
+        }
+
+        /* Chest Core */
+        .chest-core {
+            position: absolute;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, rgba(255, 77, 0, 0.9) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: glow 4s infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
+            50% { opacity: 1; transform: translateX(-50%) scale(1.2); }
+        }
+
+        .torso-detail {
+            position: absolute;
+            top: 200px;
             left: 50%;
             transform: translateX(-50%);
             width: 60%;
             height: 2px;
             background: rgba(0,0,0,0.2);
-            box-shadow: 0 20px 0 rgba(0,0,0,0.2), 0 40px 0 rgba(0,0,0,0.2);
+            box-shadow: 0 15px 0 rgba(0,0,0,0.2), 0 30px 0 rgba(0,0,0,0.2);
         }
 
-        /* Floating particles */
-        .particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-
+        /* Ambient Particles */
         .particle {
             position: absolute;
-            width: 4px;
-            height: 4px;
+            width: 3px;
+            height: 3px;
             background: var(--accent);
             border-radius: 50%;
             opacity: 0.6;
-            animation: float-particle 6s ease-in-out infinite;
+            animation: float 6s infinite;
         }
 
         .particle:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
-        .particle:nth-child(2) { top: 40%; right: 15%; animation-delay: 1s; }
-        .particle:nth-child(3) { top: 60%; left: 20%; animation-delay: 2s; }
-        .particle:nth-child(4) { top: 30%; right: 25%; animation-delay: 3s; }
-        .particle:nth-child(5) { bottom: 30%; left: 15%; animation-delay: 4s; }
+        .particle:nth-child(2) { top: 40%; right: 10%; animation-delay: 2s; }
+        .particle:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 4s; }
 
-        @keyframes float-particle {
-            0%, 100% { transform: translateY(0) scale(1); opacity: 0.4; }
-            50% { transform: translateY(-30px) scale(1.2); opacity: 0.8; }
-        }
-
-        /* Scan effect */
-        .scan-line {
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            background: rgba(255,61,0,0.5);
-            box-shadow: 0 0 20px var(--accent);
-            animation: scan 4s linear infinite;
-            z-index: 20;
-        }
-
-        @keyframes scan {
-            0% { top: 0; opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { top: 100%; opacity: 0; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); opacity: 0.3; }
+            50% { transform: translateY(-20px); opacity: 0.8; }
         }
 
         /* Marquee */
         .marquee {
-            padding: 30px 0;
+            padding: 25px 0;
             border-top: 1px solid rgba(255,255,255,0.1);
             border-bottom: 1px solid rgba(255,255,255,0.1);
             overflow: hidden;
-            background: var(--surface);
+            background: #0a0a0a;
         }
 
-        .marquee-content {
+        .marquee-track {
             display: flex;
             gap: 60px;
-            animation: marquee-scroll 25s linear infinite;
+            animation: scroll 30s linear infinite;
             white-space: nowrap;
             font-family: 'Syne', sans-serif;
             font-size: 80px;
@@ -413,15 +296,15 @@
             text-transform: uppercase;
             letter-spacing: -4px;
             color: transparent;
-            -webkit-text-stroke: 1px rgba(255,255,255,0.2);
+            -webkit-text-stroke: 1px rgba(255,255,255,0.15);
         }
 
-        @keyframes marquee-scroll {
+        @keyframes scroll {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
 
-        /* Features Section */
+        /* Features */
         .features {
             padding: 150px 80px;
             max-width: 1400px;
@@ -435,32 +318,29 @@
         }
 
         .feature {
-            border-top: 1px solid rgba(255,255,255,0.2);
+            border-top: 1px solid rgba(255,255,255,0.15);
             padding-top: 40px;
         }
 
         .feature-num {
             font-size: 13px;
             color: var(--accent);
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             font-weight: 600;
-            letter-spacing: 1px;
         }
 
         .feature h3 {
-            font-size: 32px;
-            margin-bottom: 20px;
-            letter-spacing: -2px;
-            font-weight: 700;
+            font-size: 28px;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
         }
 
         .feature p {
             color: var(--gray);
             line-height: 1.7;
-            font-size: 16px;
         }
 
-        /* Work/Courses Section */
+        /* Work */
         .work {
             padding: 100px 80px;
         }
@@ -469,33 +349,26 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            margin-bottom: 80px;
+            margin-bottom: 60px;
             max-width: 1400px;
             margin-left: auto;
             margin-right: auto;
         }
 
         .work-title {
-            font-size: 72px;
-            letter-spacing: -4px;
+            font-size: 64px;
+            letter-spacing: -3px;
             line-height: 1;
-            font-weight: 800;
         }
 
-        .work-link {
+        .view-all {
             color: var(--white);
             text-decoration: none;
             font-size: 13px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             border-bottom: 1px solid var(--white);
-            padding-bottom: 5px;
-            transition: all 0.3s;
-        }
-
-        .work-link:hover {
-            color: var(--accent);
-            border-color: var(--accent);
+            padding-bottom: 3px;
         }
 
         .work-grid {
@@ -506,11 +379,11 @@
             margin: 0 auto;
         }
 
-        .work-item {
+        .work-card {
             position: relative;
-            background: var(--surface);
+            background: #0f0f0f;
             border: 1px solid rgba(255,255,255,0.05);
-            height: 500px;
+            height: 450px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -520,26 +393,20 @@
             transition: all 0.4s;
         }
 
-        .work-item::before {
+        .work-card:hover {
+            border-color: rgba(255, 77, 0, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .work-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.9) 100%);
+            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.8) 100%);
             z-index: 1;
-            opacity: 0.7;
-            transition: opacity 0.4s;
-        }
-
-        .work-item:hover::before {
-            opacity: 0.9;
-        }
-
-        .work-item:hover {
-            border-color: rgba(255,61,0,0.3);
-            transform: translateY(-5px);
         }
 
         .work-content {
@@ -547,36 +414,34 @@
             z-index: 2;
         }
 
-        .work-category {
+        .work-cat {
             font-size: 12px;
             color: var(--accent);
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 20px;
-            font-weight: 600;
+            margin-bottom: 15px;
         }
 
-        .work-item h3 {
-            font-size: 42px;
-            letter-spacing: -3px;
+        .work-card h3 {
+            font-size: 36px;
+            letter-spacing: -2px;
             line-height: 1.1;
-            font-weight: 700;
         }
 
-        .work-arrow {
+        .arrow {
             position: relative;
             z-index: 2;
-            font-size: 36px;
-            transition: all 0.3s;
+            font-size: 32px;
+            transition: transform 0.3s;
         }
 
-        .work-item:hover .work-arrow {
-            transform: translateX(15px);
+        .work-card:hover .arrow {
+            transform: translateX(10px);
             color: var(--accent);
         }
 
         /* Footer */
-        .footer {
+        footer {
             padding: 100px 80px 40px;
             border-top: 1px solid rgba(255,255,255,0.1);
         }
@@ -589,20 +454,17 @@
         }
 
         .footer-brand h2 {
-            font-size: 48px;
-            letter-spacing: -3px;
-            margin-bottom: 20px;
-            font-weight: 800;
+            font-size: 42px;
+            letter-spacing: -2px;
+            margin-bottom: 15px;
         }
 
         .footer-brand p {
             color: var(--gray);
-            max-width: 400px;
-            line-height: 1.6;
-            font-size: 15px;
+            max-width: 350px;
         }
 
-        .footer-nav {
+        .footer-links {
             display: flex;
             gap: 100px;
         }
@@ -612,34 +474,23 @@
             color: var(--gray);
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 30px;
-            font-weight: 600;
+            margin-bottom: 25px;
         }
 
-        .footer-col ul {
-            list-style: none;
-        }
-
-        .footer-col li {
-            margin-bottom: 15px;
-        }
-
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 12px; }
         .footer-col a {
             color: var(--white);
             text-decoration: none;
-            font-size: 16px;
-            font-weight: 500;
+            font-size: 15px;
             transition: color 0.3s;
         }
-
-        .footer-col a:hover {
-            color: var(--accent);
-        }
+        .footer-col a:hover { color: var(--accent); }
 
         .footer-bottom {
             max-width: 1400px;
-            margin: 80px auto 0;
-            padding-top: 40px;
+            margin: 60px auto 0;
+            padding-top: 30px;
             border-top: 1px solid rgba(255,255,255,0.1);
             display: flex;
             justify-content: space-between;
@@ -649,124 +500,42 @@
 
         /* Responsive */
         @media (max-width: 1024px) {
-            .hero {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero-content {
-                padding: 140px 40px 80px;
-                text-align: center;
-            }
-            
-            .hero-title {
-                font-size: 60px;
-                letter-spacing: -3px;
-            }
-            
-            .hero-subtitle {
-                margin: 0 auto 40px;
-            }
-            
-            .btn {
-                margin: 0 auto;
-            }
-            
-            .android {
-                transform: scale(0.8);
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
-                gap: 60px;
-            }
-            
-            .work-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .work-title {
-                font-size: 48px;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-                gap: 60px;
-            }
-            
-            .footer-nav {
-                gap: 60px;
-            }
+            .hero { grid-template-columns: 1fr; }
+            .hero-content { padding: 140px 40px 80px; text-align: center; }
+            h1 { font-size: 60px; }
+            .hero-text { margin: 0 auto 40px; }
+            .btn { margin: 0 auto; }
+            .android-wrapper { transform: scale(0.7); height: 500px; }
+            .features-grid { grid-template-columns: 1fr; gap: 60px; }
+            .work-grid { grid-template-columns: 1fr; }
+            .footer-content { flex-direction: column; gap: 60px; }
         }
 
         @media (max-width: 768px) {
-            .nav {
-                padding: 30px;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .hero-title {
-                font-size: 42px;
-                letter-spacing: -2px;
-            }
-            
-            .hero-content {
-                padding: 120px 30px 60px;
-            }
-            
-            .android {
-                transform: scale(0.6);
-            }
-            
-            .marquee-content {
-                font-size: 48px;
-            }
-            
-            .work-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 20px;
-            }
-            
-            .work-title {
-                font-size: 36px;
-            }
-            
-            .work-item h3 {
-                font-size: 28px;
-            }
-            
-            .footer-nav {
-                flex-direction: column;
-                gap: 40px;
-            }
+            .nav-links { display: none; }
+            h1 { font-size: 42px; letter-spacing: -2px; }
+            .work-title { font-size: 40px; }
+            .android-wrapper { transform: scale(0.5); }
         }
     </style>
 </head>
 <body>
-    <nav class="nav">
-        <div class="nav-logo">KI Expertenraum</div>
-        <div class="nav-menu">
-            <ul class="nav-links">
-                <li><a href="#work">Kurse</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Kontakt</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-            </div>
+    <nav>
+        <div class="logo">KI Expertenraum</div>
+        <div class="nav-links">
+            <a href="#work">Kurse</a>
+            <a href="#">Blog</a>
+            <a href="#">About</a>
+            <a href="#">Kontakt</a>
         </div>
+        <div class="menu-btn"><span></span><span></span></div>
     </nav>
 
     <section class="hero">
         <div class="hero-content">
             <span class="tag">NEU 2026</span>
-            <h1 class="hero-title">Werde zur KI Elite</h1>
-            <p class="hero-subtitle">
+            <h1>Werde zur<br>KI Elite</h1>
+            <p class="hero-text">
                 Von EU AI Act Compliance bis zu No-Code Automatisierung. 
                 Lerne KI wirklich anzuwenden – nicht nur darüber zu reden.
             </p>
@@ -774,38 +543,28 @@
         </div>
         
         <div class="hero-visual">
-            <div class="android-container">
-                <div class="particles">
-                    <div class="particle"></div>
-                    <div class="particle"></div>
-                    <div class="particle"></div>
-                    <div class="particle"></div>
-                    <div class="particle"></div>
-                </div>
+            <div class="android-wrapper">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
                 
-                <!-- Professional Android -->
                 <div class="android">
-                    <div class="scan-line"></div>
-                    
-                    <div class="android-head">
-                        <div class="face-screen">
+                    <div class="head">
+                        <div class="face">
                             <div class="eyes">
                                 <div class="eye"></div>
                                 <div class="eye"></div>
                             </div>
                         </div>
-                        <div class="mouth"></div>
                     </div>
-                    
                     <div class="neck">
-                        <div class="neck-ring"></div>
-                        <div class="neck-ring"></div>
-                        <div class="neck-ring"></div>
+                        <div class="neck-line"></div>
+                        <div class="neck-line"></div>
+                        <div class="neck-line"></div>
                     </div>
-                    
                     <div class="torso">
-                        <div class="chest-light"></div>
-                        <div class="torso-lines"></div>
+                        <div class="chest-core"></div>
+                        <div class="torso-detail"></div>
                     </div>
                 </div>
             </div>
@@ -813,22 +572,9 @@
     </section>
 
     <div class="marquee">
-        <div class="marquee-content">
-            <span>EU AI Act</span>
-            <span>•</span>
-            <span>Automation</span>
-            <span>•</span>
-            <span>KI Strategie</span>
-            <span>•</span>
-            <span>Compliance</span>
-            <span>•</span>
-            <span>No-Code</span>
-            <span>•</span>
-            <span>EU AI Act</span>
-            <span>•</span>
-            <span>Automation</span>
-            <span>•</span>
-            <span>KI Strategie</span>
+        <div class="marquee-track">
+            <span>EU AI Act</span><span>•</span><span>Automation</span><span>•</span><span>KI Strategie</span><span>•</span><span>Compliance</span><span>•</span><span>No-Code</span><span>•</span>
+            <span>EU AI Act</span><span>•</span><span>Automation</span><span>•</span><span>KI Strategie</span><span>•</span><span>Compliance</span><span>•</span><span>No-Code</span><span>•</span>
         </div>
     </div>
 
@@ -839,13 +585,11 @@
                 <h3>Sofort umsetzbar</h3>
                 <p>Jedes Konzept wird direkt mit praktischen Beispielen erklärt. Wissen, das du heute lernst, morgen anwenden kannst.</p>
             </div>
-            
             <div class="feature">
                 <div class="feature-num">02</div>
                 <h3>Rechtssicher</h3>
                 <p>EU AI Act, DSGVO, Haftung – wir decken alle rechtlichen Aspekte ab, damit du KI risikofrei nutzt.</p>
             </div>
-            
             <div class="feature">
                 <div class="feature-num">03</div>
                 <h3>Für echte Profis</h3>
@@ -856,74 +600,65 @@
 
     <section class="work" id="work">
         <div class="work-header">
-            <h2 class="work-title">Unsere<br>Kurse</h2>
-            <a href="#" class="work-link">Alle ansehen</a>
+            <h2 class="work-title">Unsere Kurse</h2>
+            <a href="#" class="view-all">Alle ansehen</a>
         </div>
-        
         <div class="work-grid">
-            <div class="work-item">
+            <div class="work-card">
                 <div class="work-content">
-                    <div class="work-category">Compliance</div>
+                    <div class="work-cat">Compliance</div>
                     <h3>EU AI Act<br>Masterclass</h3>
                 </div>
-                <div class="work-arrow">→</div>
+                <div class="arrow">→</div>
             </div>
-            
-            <div class="work-item">
+            <div class="work-card">
                 <div class="work-content">
-                    <div class="work-category">Strategie</div>
+                    <div class="work-cat">Strategie</div>
                     <h3>KI Governance<br>& Einführung</h3>
                 </div>
-                <div class="work-arrow">→</div>
+                <div class="arrow">→</div>
             </div>
-            
-            <div class="work-item">
+            <div class="work-card">
                 <div class="work-content">
-                    <div class="work-category">Automation</div>
+                    <div class="work-cat">Automation</div>
                     <h3>No-Code KI<br>Tools</h3>
                 </div>
-                <div class="work-arrow">→</div>
+                <div class="arrow">→</div>
             </div>
-            
-            <div class="work-item">
+            <div class="work-card">
                 <div class="work-content">
-                    <div class="work-category">Recht</div>
+                    <div class="work-cat">Recht</div>
                     <h3>DSGVO<br>konforme KI</h3>
                 </div>
-                <div class="work-arrow">→</div>
+                <div class="arrow">→</div>
             </div>
         </div>
     </section>
 
-    <footer class="footer">
+    <footer>
         <div class="footer-content">
             <div class="footer-brand">
                 <h2>KI Expertenraum</h2>
-                <p>Dein Zugang zur KI-Elite. Praxisnahe Kurse für Unternehmer und Fachkräfte.</p>
+                <p>Dein Zugang zur KI-Elite. Praxisnahe Kurse für Unternehmer.</p>
             </div>
-            
-            <div class="footer-nav">
+            <div class="footer-links">
                 <div class="footer-col">
                     <h4>Navigation</h4>
                     <ul>
                         <li><a href="#">Start</a></li>
                         <li><a href="#work">Kurse</a></li>
                         <li><a href="#">Blog</a></li>
-                        <li><a href="#">Kontakt</a></li>
                     </ul>
                 </div>
-                
                 <div class="footer-col">
                     <h4>Social</h4>
                     <ul>
                         <li><a href="#">LinkedIn</a></li>
                         <li><a href="#">Twitter</a></li>
-                        <li><a href="#">YouTube</a></li>
                     </ul>
                 </div>
             </div>
         </div>
-        
         <div class="footer-bottom">
             <span>© 2026 KI Expertenraum</span>
             <span>Alle Rechte vorbehalten</span>
