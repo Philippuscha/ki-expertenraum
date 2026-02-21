@@ -4,61 +4,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Most — KI Expertenraum</title>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         :root {
-            --black: #000000;
+            --bg: #fafafa;
             --white: #ffffff;
-            --gray: #888888;
-            --dark-gray: #1a1a1a;
-            --accent: #ff4d00;
+            --text: #1a1a1a;
+            --text-light: #666666;
+            --border: #e5e5e5;
+            --accent: #0066cc;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background: var(--black);
-            color: var(--white);
-            overflow-x: hidden;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3 { font-family: 'Syne', sans-serif; font-weight: 700; }
+        h1, h2, h3 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
 
-        /* Navigation */
+        /* Navigation — Most Style (Light) */
         nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            padding: 40px 60px;
+            padding: 30px 60px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            mix-blend-mode: difference;
+            background: rgba(250, 250, 250, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
         }
 
-        .logo { font-family: 'Syne', sans-serif; font-size: 24px; font-weight: 800; text-transform: uppercase; letter-spacing: -1px; }
-        
-        .nav-links { display: flex; gap: 40px; list-style: none; }
-        .nav-links a { color: var(--white); text-decoration: none; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; position: relative; }
-        .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 1px; background: var(--white); transition: width 0.3s; }
-        .nav-links a:hover::after { width: 100%; }
+        .logo {
+            font-family: 'Syne', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+        }
 
-        .menu-btn { width: 30px; height: 20px; display: flex; flex-direction: column; justify-content: space-between; cursor: pointer; }
-        .menu-btn span { width: 100%; height: 2px; background: var(--white); }
+        .nav-right {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
 
-        /* Hero */
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        /* Hero — Most Layout */
         .hero {
             min-height: 100vh;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 55% 45%;
             padding-top: 100px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .hero-content {
-            padding: 120px 80px;
+            padding: 120px 60px 80px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -68,235 +104,101 @@
             font-size: 13px;
             color: var(--accent);
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             font-weight: 600;
             margin-bottom: 30px;
         }
 
         h1 {
-            font-size: 90px;
-            line-height: 0.9;
+            font-size: 80px;
+            line-height: 0.95;
             margin-bottom: 30px;
-            letter-spacing: -5px;
-            text-transform: uppercase;
             font-weight: 800;
         }
 
         .hero-text {
             font-size: 18px;
-            color: var(--gray);
-            line-height: 1.6;
+            color: var(--text-light);
+            line-height: 1.7;
             margin-bottom: 40px;
-            max-width: 450px;
+            max-width: 480px;
         }
 
         .btn {
             display: inline-block;
-            background: var(--white);
-            color: var(--black);
-            padding: 20px 50px;
-            font-size: 13px;
+            background: var(--text);
+            color: var(--white);
+            padding: 18px 40px;
+            font-size: 14px;
             font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
             text-decoration: none;
+            border-radius: 100px;
             width: fit-content;
             transition: all 0.3s;
         }
 
-        .btn:hover { background: var(--accent); color: var(--white); }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
 
-        /* Android Visual */
+        /* Visual — Abstract/Geometric instead of Robot */
         .hero-visual {
-            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: radial-gradient(circle at 30% 50%, rgba(255, 77, 0, 0.1) 0%, transparent 70%);
+            padding: 40px;
         }
 
-        .android-wrapper {
-            position: relative;
-            width: 500px;
-            height: 700px;
-        }
-
-        /* Professional Android Construction */
-        .android {
-            position: relative;
+        .visual-box {
             width: 100%;
-            height: 100%;
-            filter: drop-shadow(0 0 80px rgba(255, 77, 0, 0.2));
+            height: 600px;
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        /* Head - Sleek and Professional */
-        .head {
+        .geometric-shape {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, var(--accent), #004499);
+            border-radius: 30px;
+            transform: rotate(45deg);
+            opacity: 0.1;
             position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
+        }
+
+        .geometric-shape:nth-child(2) {
             width: 200px;
-            height: 260px;
-            background: linear-gradient(145deg, #e8e8e8 0%, #b8b8b8 50%, #888888 100%);
-            border-radius: 50px 50px 70px 70px;
-            box-shadow: 
-                inset -10px -10px 30px rgba(0,0,0,0.2),
-                inset 10px 10px 30px rgba(255,255,255,0.4),
-                0 20px 50px rgba(0,0,0,0.3);
-            animation: head-turn 10s ease-in-out infinite;
-            transform-origin: center bottom;
-            z-index: 10;
-        }
-
-        @keyframes head-turn {
-            0%, 45% { transform: translateX(-50%) rotateY(0deg); }
-            50%, 95% { transform: translateX(-50%) rotateY(-25deg); }
-            100% { transform: translateX(-50%) rotateY(0deg); }
-        }
-
-        /* Face Display */
-        .face {
-            position: absolute;
-            top: 70px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 140px;
-            height: 90px;
-            background: #000;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: inset 0 0 20px rgba(0,0,0,1);
-        }
-
-        .eyes {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: flex;
-            gap: 30px;
-        }
-
-        .eye {
-            width: 35px;
-            height: 4px;
+            height: 200px;
             background: var(--accent);
-            box-shadow: 0 0 20px var(--accent), 0 0 40px var(--accent);
-            animation: pulse 3s infinite;
+            opacity: 0.8;
+            transform: rotate(45deg) translate(20px, 20px);
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 0.7; }
-            50% { opacity: 1; box-shadow: 0 0 30px var(--accent), 0 0 60px var(--accent); }
-        }
-
-        /* Neck */
-        .neck {
-            position: absolute;
-            top: 240px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 60px;
-            background: linear-gradient(to right, #888, #aaa, #888);
-            z-index: 5;
-        }
-
-        .neck-line {
-            width: 100%;
-            height: 15px;
-            background: linear-gradient(to bottom, #666, #444);
-            margin-bottom: 3px;
-            border-radius: 3px;
-        }
-
-        /* Torso */
-        .torso {
-            position: absolute;
-            top: 290px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 280px;
-            height: 350px;
-            background: linear-gradient(145deg, #ddd 0%, #aaa 50%, #777 100%);
-            border-radius: 30px 30px 50px 50px;
-            box-shadow: 
-                inset -20px -20px 40px rgba(0,0,0,0.2),
-                inset 20px 20px 40px rgba(255,255,255,0.3),
-                0 30px 60px rgba(0,0,0,0.4);
-            z-index: 8;
-        }
-
-        /* Chest Core */
-        .chest-core {
-            position: absolute;
-            top: 80px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 60px;
-            background: radial-gradient(circle, rgba(255, 77, 0, 0.9) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: glow 4s infinite;
-        }
-
-        @keyframes glow {
-            0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
-            50% { opacity: 1; transform: translateX(-50%) scale(1.2); }
-        }
-
-        .torso-detail {
-            position: absolute;
-            top: 200px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60%;
-            height: 2px;
-            background: rgba(0,0,0,0.2);
-            box-shadow: 0 15px 0 rgba(0,0,0,0.2), 0 30px 0 rgba(0,0,0,0.2);
-        }
-
-        /* Ambient Particles */
-        .particle {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: var(--accent);
-            border-radius: 50%;
-            opacity: 0.6;
-            animation: float 6s infinite;
-        }
-
-        .particle:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
-        .particle:nth-child(2) { top: 40%; right: 10%; animation-delay: 2s; }
-        .particle:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 4s; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); opacity: 0.3; }
-            50% { transform: translateY(-20px); opacity: 0.8; }
-        }
-
-        /* Marquee */
+        /* Marquee — Most Style */
         .marquee {
-            padding: 25px 0;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 30px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
             overflow: hidden;
-            background: #0a0a0a;
+            background: var(--white);
         }
 
-        .marquee-track {
+        .marquee-content {
             display: flex;
-            gap: 60px;
+            gap: 80px;
             animation: scroll 30s linear infinite;
             white-space: nowrap;
             font-family: 'Syne', sans-serif;
-            font-size: 80px;
+            font-size: 100px;
             font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: -4px;
             color: transparent;
-            -webkit-text-stroke: 1px rgba(255,255,255,0.15);
+            -webkit-text-stroke: 1px var(--border);
         }
 
         @keyframes scroll {
@@ -304,70 +206,70 @@
             100% { transform: translateX(-50%); }
         }
 
-        /* Features */
+        /* Features — Most Grid */
         .features {
-            padding: 150px 80px;
-            max-width: 1400px;
+            padding: 150px 60px;
+            max-width: 1200px;
             margin: 0 auto;
+            background: var(--white);
         }
 
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 80px;
+            gap: 60px;
         }
 
         .feature {
-            border-top: 1px solid rgba(255,255,255,0.15);
-            padding-top: 40px;
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
         }
 
         .feature-num {
-            font-size: 13px;
+            font-size: 14px;
             color: var(--accent);
             margin-bottom: 20px;
             font-weight: 600;
         }
 
         .feature h3 {
-            font-size: 28px;
+            font-size: 24px;
             margin-bottom: 15px;
-            letter-spacing: -1px;
         }
 
         .feature p {
-            color: var(--gray);
+            color: var(--text-light);
             line-height: 1.7;
         }
 
-        /* Work */
+        /* Work Section — Most Cards */
         .work {
-            padding: 100px 80px;
+            padding: 100px 60px;
+            background: var(--bg);
         }
 
-        .work-header {
+        .section-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
             margin-bottom: 60px;
-            max-width: 1400px;
+            max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        .work-title {
-            font-size: 64px;
-            letter-spacing: -3px;
+        .section-title {
+            font-size: 60px;
             line-height: 1;
+            font-weight: 800;
         }
 
         .view-all {
-            color: var(--white);
+            color: var(--text);
             text-decoration: none;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 1px solid var(--white);
+            font-size: 14px;
+            font-weight: 500;
+            border-bottom: 1px solid var(--text);
             padding-bottom: 3px;
         }
 
@@ -375,63 +277,45 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 30px;
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .work-card {
-            position: relative;
-            background: #0f0f0f;
-            border: 1px solid rgba(255,255,255,0.05);
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 20px;
             height: 450px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             padding: 50px;
             cursor: pointer;
-            overflow: hidden;
             transition: all 0.4s;
         }
 
         .work-card:hover {
-            border-color: rgba(255, 77, 0, 0.3);
             transform: translateY(-5px);
-        }
-
-        .work-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.8) 100%);
-            z-index: 1;
-        }
-
-        .work-content {
-            position: relative;
-            z-index: 2;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
         }
 
         .work-cat {
-            font-size: 12px;
+            font-size: 13px;
             color: var(--accent);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             margin-bottom: 15px;
+            font-weight: 600;
         }
 
         .work-card h3 {
-            font-size: 36px;
-            letter-spacing: -2px;
+            font-size: 32px;
             line-height: 1.1;
         }
 
         .arrow {
-            position: relative;
-            z-index: 2;
-            font-size: 32px;
+            font-size: 24px;
+            color: var(--text-light);
             transition: transform 0.3s;
         }
 
@@ -440,141 +324,146 @@
             color: var(--accent);
         }
 
-        /* Footer */
+        /* Footer — Most Style */
         footer {
-            padding: 100px 80px 40px;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 80px 60px 40px;
+            border-top: 1px solid var(--border);
+            background: var(--white);
         }
 
         .footer-content {
             display: flex;
             justify-content: space-between;
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .footer-brand h2 {
-            font-size: 42px;
-            letter-spacing: -2px;
+            font-size: 36px;
             margin-bottom: 15px;
         }
 
         .footer-brand p {
-            color: var(--gray);
-            max-width: 350px;
+            color: var(--text-light);
+            max-width: 300px;
         }
 
         .footer-links {
             display: flex;
-            gap: 100px;
+            gap: 80px;
         }
 
         .footer-col h4 {
-            font-size: 12px;
-            color: var(--gray);
+            font-size: 13px;
+            color: var(--text-light);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             margin-bottom: 25px;
         }
 
         .footer-col ul { list-style: none; }
         .footer-col li { margin-bottom: 12px; }
         .footer-col a {
-            color: var(--white);
+            color: var(--text);
             text-decoration: none;
             font-size: 15px;
-            transition: color 0.3s;
+            font-weight: 500;
         }
-        .footer-col a:hover { color: var(--accent); }
 
         .footer-bottom {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 60px auto 0;
             padding-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid var(--border);
             display: flex;
             justify-content: space-between;
-            color: var(--gray);
+            color: var(--text-light);
             font-size: 13px;
         }
 
         /* Responsive */
         @media (max-width: 1024px) {
-            .hero { grid-template-columns: 1fr; }
-            .hero-content { padding: 140px 40px 80px; text-align: center; }
-            h1 { font-size: 60px; }
-            .hero-text { margin: 0 auto 40px; }
-            .btn { margin: 0 auto; }
-            .android-wrapper { transform: scale(0.7); height: 500px; }
-            .features-grid { grid-template-columns: 1fr; gap: 60px; }
-            .work-grid { grid-template-columns: 1fr; }
-            .footer-content { flex-direction: column; gap: 60px; }
+            .hero {
+                grid-template-columns: 1fr;
+            }
+            .hero-content {
+                padding: 140px 40px 80px;
+                text-align: center;
+            }
+            h1 {
+                font-size: 56px;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .work-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-content {
+                flex-direction: column;
+                gap: 60px;
+            }
         }
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            h1 { font-size: 42px; letter-spacing: -2px; }
-            .work-title { font-size: 40px; }
-            .android-wrapper { transform: scale(0.5); }
+            h1 { font-size: 40px; }
+            .section-title { font-size: 40px; }
+            .visual-box { height: 400px; }
         }
     </style>
 </head>
 <body>
+
     <nav>
-        <div class="logo">KI Expertenraum</div>
-        <div class="nav-links">
-            <a href="#work">Kurse</a>
-            <a href="#">Blog</a>
-            <a href="#">About</a>
-            <a href="#">Kontakt</a>
+        <a href="#" class="logo">KI Expertenraum</a>
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="#work">Kurse</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Kontakt</a></li>
+            </ul>
+            <div class="menu-btn">
+                <span></span>
+                <span></span>
+            </div>
         </div>
-        <div class="menu-btn"><span></span><span></span></div>
     </nav>
 
     <section class="hero">
         <div class="hero-content">
-            <span class="tag">NEU 2026</span>
-            <h1>Werde zur<br>KI Elite</h1>
+            <span class="tag">Praxisnahe KI-Kurse</span>
+            <h1>Werde zur KI Elite</h1>
             <p class="hero-text">
                 Von EU AI Act Compliance bis zu No-Code Automatisierung. 
-                Lerne KI wirklich anzuwenden – nicht nur darüber zu reden.
+                Lerne KI wirklich anzuwenden.
             </p>
             <a href="#work" class="btn">Kurse entdecken</a>
         </div>
         
         <div class="hero-visual">
-            <div class="android-wrapper">
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                
-                <div class="android">
-                    <div class="head">
-                        <div class="face">
-                            <div class="eyes">
-                                <div class="eye"></div>
-                                <div class="eye"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="neck">
-                        <div class="neck-line"></div>
-                        <div class="neck-line"></div>
-                        <div class="neck-line"></div>
-                    </div>
-                    <div class="torso">
-                        <div class="chest-core"></div>
-                        <div class="torso-detail"></div>
-                    </div>
-                </div>
+            <div class="visual-box">
+                <div class="geometric-shape"></div>
+                <div class="geometric-shape"></div>
             </div>
         </div>
     </section>
 
     <div class="marquee">
-        <div class="marquee-track">
-            <span>EU AI Act</span><span>•</span><span>Automation</span><span>•</span><span>KI Strategie</span><span>•</span><span>Compliance</span><span>•</span><span>No-Code</span><span>•</span>
-            <span>EU AI Act</span><span>•</span><span>Automation</span><span>•</span><span>KI Strategie</span><span>•</span><span>Compliance</span><span>•</span><span>No-Code</span><span>•</span>
+        <div class="marquee-content">
+            <span>EU AI Act</span>
+            <span>•</span>
+            <span>Automation</span>
+            <span>•</span>
+            <span>KI Strategie</span>
+            <span>•</span>
+            <span>Compliance</span>
+            <span>•</span>
+            <span>EU AI Act</span>
+            <span>•</span>
+            <span>Automation</span>
         </div>
     </div>
 
@@ -583,52 +472,56 @@
             <div class="feature">
                 <div class="feature-num">01</div>
                 <h3>Sofort umsetzbar</h3>
-                <p>Jedes Konzept wird direkt mit praktischen Beispielen erklärt. Wissen, das du heute lernst, morgen anwenden kannst.</p>
+                <p>Jedes Konzept wird direkt mit praktischen Beispielen erklärt.</p>
             </div>
             <div class="feature">
                 <div class="feature-num">02</div>
                 <h3>Rechtssicher</h3>
-                <p>EU AI Act, DSGVO, Haftung – wir decken alle rechtlichen Aspekte ab, damit du KI risikofrei nutzt.</p>
+                <p>EU AI Act, DSGVO, Haftung – wir decken alle Aspekte ab.</p>
             </div>
             <div class="feature">
                 <div class="feature-num">03</div>
-                <h3>Für echte Profis</h3>
-                <p>Ob KMU-Geschäftsführer oder Entscheider – unsere Kurse sind für Profis aufbereitet.</p>
+                <h3>Für Profis</h3>
+                <p>Für KMU-Geschäftsführer und Entscheider.</p>
             </div>
         </div>
     </section>
 
     <section class="work" id="work">
-        <div class="work-header">
-            <h2 class="work-title">Unsere Kurse</h2>
+        <div class="section-header">
+            <h2 class="section-title">Unsere Kurse</h2>
             <a href="#" class="view-all">Alle ansehen</a>
         </div>
+        
         <div class="work-grid">
             <div class="work-card">
-                <div class="work-content">
+                <div>
                     <div class="work-cat">Compliance</div>
-                    <h3>EU AI Act<br>Masterclass</h3>
+                    <h3>EU AI Act Masterclass</h3>
                 </div>
                 <div class="arrow">→</div>
             </div>
+            
             <div class="work-card">
-                <div class="work-content">
+                <div>
                     <div class="work-cat">Strategie</div>
-                    <h3>KI Governance<br>& Einführung</h3>
+                    <h3>KI Governance</h3>
                 </div>
                 <div class="arrow">→</div>
             </div>
+            
             <div class="work-card">
-                <div class="work-content">
+                <div>
                     <div class="work-cat">Automation</div>
-                    <h3>No-Code KI<br>Tools</h3>
+                    <h3>No-Code KI Tools</h3>
                 </div>
                 <div class="arrow">→</div>
             </div>
+            
             <div class="work-card">
-                <div class="work-content">
+                <div>
                     <div class="work-cat">Recht</div>
-                    <h3>DSGVO<br>konforme KI</h3>
+                    <h3>DSGVO konforme KI</h3>
                 </div>
                 <div class="arrow">→</div>
             </div>
@@ -641,6 +534,7 @@
                 <h2>KI Expertenraum</h2>
                 <p>Dein Zugang zur KI-Elite. Praxisnahe Kurse für Unternehmer.</p>
             </div>
+            
             <div class="footer-links">
                 <div class="footer-col">
                     <h4>Navigation</h4>
@@ -650,6 +544,7 @@
                         <li><a href="#">Blog</a></li>
                     </ul>
                 </div>
+                
                 <div class="footer-col">
                     <h4>Social</h4>
                     <ul>
@@ -659,10 +554,12 @@
                 </div>
             </div>
         </div>
+        
         <div class="footer-bottom">
             <span>© 2026 KI Expertenraum</span>
             <span>Alle Rechte vorbehalten</span>
         </div>
     </footer>
+
 </body>
 </html>
