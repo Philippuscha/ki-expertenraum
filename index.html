@@ -3,988 +3,219 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KI Expertenraum — Premium KI-Bildung</title>
-    <meta name="description" content="Praxisnahe KI-Kurse für Unternehmer. EU AI Act, Automation & Strategie. 14 Tage Geld-zurück-Garantie.">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <title>KI Expertenraum — Werde zur KI Elite</title>
+    <meta name="description" content="Von EU AI Act Compliance bis zu No-Code Automatisierung. Lerne KI wirklich anzuwenden – nicht nur darüber zu reden.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --black: #000000; --white: #ffffff; --gray: #666666; --accent: #ff3d00; --surface: #0a0a0a; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background: var(--black); color: var(--white); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, .logo { font-family: 'Syne', sans-serif; font-weight: 700; }
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 40px 60px; display: flex; justify-content: space-between; align-items: center; mix-blend-mode: difference; }
+        .nav-logo { font-size: 24px; font-weight: 800; letter-spacing: -1px; text-transform: uppercase; }
+        .nav-logo a { color: var(--white); text-decoration: none; }
+        .nav-menu { display: flex; gap: 40px; align-items: center; }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { color: var(--white); text-decoration: none; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; position: relative; padding-bottom: 5px; }
+        .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--white); transition: width 0.3s ease; }
+        .nav-links a:hover::after { width: 100%; }
+        .hamburger { width: 30px; height: 20px; display: flex; flex-direction: column; justify-content: space-between; cursor: pointer; }
+        .hamburger span { width: 100%; height: 2px; background: var(--white); }
+        .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; position: relative; }
+        .hero-content { padding: 180px 80px 100px; display: flex; flex-direction: column; justify-content: center; z-index: 10; }
+        .tag { font-size: 13px; color: var(--accent); text-transform: uppercase; letter-spacing: 3px; font-weight: 600; margin-bottom: 30px; display: block; }
+        .hero-title { font-size: clamp(60px, 8vw, 100px); line-height: 0.95; margin-bottom: 40px; letter-spacing: -5px; text-transform: uppercase; font-weight: 800; }
+        .hero-subtitle { font-size: 18px; color: var(--gray); line-height: 1.7; margin-bottom: 50px; max-width: 480px; font-weight: 400; }
+        .btn { display: inline-block; background: var(--white); color: var(--black); padding: 22px 50px; font-size: 13px; font-weight: 600; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; border: none; cursor: pointer; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); width: fit-content; }
+        .btn:hover { background: var(--accent); color: var(--white); transform: translateY(-2px); }
+        .hero-visual { position: relative; background: radial-gradient(circle at 30% 50%, rgba(255, 61, 0, 0.08) 0%, transparent 60%); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .android-container { position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+        .android { position: relative; width: 400px; height: 700px; filter: drop-shadow(0 0 100px rgba(255, 61, 0, 0.2)); }
+        .android-head { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 220px; height: 280px; background: linear-gradient(135deg, #e0e0e0 0%, #b0b0b0 50%, #808080 100%); border-radius: 60px 60px 80px 80px; box-shadow: inset -20px -20px 40px rgba(0,0,0,0.2), inset 20px 20px 40px rgba(255,255,255,0.3), 0 20px 60px rgba(0,0,0,0.5); z-index: 10; animation: head-tilt 8s ease-in-out infinite; transform-origin: center bottom; }
+        @keyframes head-tilt { 0%, 45% { transform: translateX(-50%) rotateY(0deg); } 50%, 95% { transform: translateX(-50%) rotateY(-20deg); } 100% { transform: translateX(-50%) rotateY(0deg); } }
+        .face-screen { position: absolute; top: 60px; left: 50%; transform: translateX(-50%); width: 160px; height: 100px; background: #000; border-radius: 20px; overflow: hidden; box-shadow: inset 0 0 20px rgba(0,0,0,1); }
+        .eyes { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: flex; gap: 40px; }
+        .eye { width: 30px; height: 4px; background: var(--accent); box-shadow: 0 0 20px var(--accent), 0 0 40px var(--accent); animation: eye-pulse 3s ease-in-out infinite; }
+        @keyframes eye-pulse { 0%, 100% { opacity: 0.8; } 50% { opacity: 1; box-shadow: 0 0 30px var(--accent), 0 0 60px var(--accent); } }
+        .mouth { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); width: 60px; height: 2px; background: #666; }
+        .neck { position: absolute; top: 260px; left: 50%; transform: translateX(-50%); width: 100px; height: 80px; background: linear-gradient(to right, #909090, #c0c0c0, #909090); z-index: 5; }
+        .neck-ring { width: 100%; height: 20px; background: linear-gradient(to bottom, #707070, #505050); margin-bottom: 5px; border-radius: 5px; }
+        .torso { position: absolute; top: 320px; left: 50%; transform: translateX(-50%); width: 300px; height: 380px; background: linear-gradient(135deg, #d0d0d0 0%, #a0a0a0 50%, #707070 100%); border-radius: 40px 40px 60px 60px; box-shadow: inset -30px -30px 60px rgba(0,0,0,0.2), inset 30px 30px 60px rgba(255,255,255,0.3), 0 30px 80px rgba(0,0,0,0.4); z-index: 8; }
+        .chest-light { position: absolute; top: 100px; left: 50%; transform: translateX(-50%); width: 80px; height: 80px; background: radial-gradient(circle, rgba(255,61,0,0.8) 0%, transparent 70%); border-radius: 50%; animation: chest-glow 4s ease-in-out infinite; }
+        @keyframes chest-glow { 0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); } 50% { opacity: 1; transform: translateX(-50%) scale(1.1); } }
+        .torso-lines { position: absolute; top: 60%; left: 50%; transform: translateX(-50%); width: 60%; height: 2px; background: rgba(0,0,0,0.2); box-shadow: 0 20px 0 rgba(0,0,0,0.2), 0 40px 0 rgba(0,0,0,0.2); }
+        .particles { position: absolute; width: 100%; height: 100%; pointer-events: none; }
+        .particle { position: absolute; width: 4px; height: 4px; background: var(--accent); border-radius: 50%; opacity: 0.6; animation: float-particle 6s ease-in-out infinite; }
+        .particle:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { top: 40%; right: 15%; animation-delay: 1s; }
+        .particle:nth-child(3) { top: 60%; left: 20%; animation-delay: 2s; }
+        .particle:nth-child(4) { top: 30%; right: 25%; animation-delay: 3s; }
+        .particle:nth-child(5) { bottom: 30%; left: 15%; animation-delay: 4s; }
+        @keyframes float-particle { 0%, 100% { transform: translateY(0) scale(1); opacity: 0.4; } 50% { transform: translateY(-30px) scale(1.2); opacity: 0.8; } }
+        .scan-line { position: absolute; width: 100%; height: 2px; background: rgba(255,61,0,0.5); box-shadow: 0 0 20px var(--accent); animation: scan 4s linear infinite; z-index: 20; }
+        @keyframes scan { 0% { top: 0; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
+        .marquee { padding: 30px 0; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); overflow: hidden; background: var(--surface); }
+        .marquee-content { display: flex; gap: 60px; animation: marquee-scroll 25s linear infinite; white-space: nowrap; font-family: 'Syne', sans-serif; font-size: 80px; font-weight: 800; text-transform: uppercase; letter-spacing: -4px; color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.2); }
+        @keyframes marquee-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .features { padding: 150px 80px; max-width: 1400px; margin: 0 auto; }
+        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 80px; }
+        .feature { border-top: 1px solid rgba(255,255,255,0.2); padding-top: 40px; }
+        .feature-num { font-size: 13px; color: var(--accent); margin-bottom: 25px; font-weight: 600; letter-spacing: 1px; }
+        .feature h3 { font-size: 32px; margin-bottom: 20px; letter-spacing: -2px; font-weight: 700; }
+        .feature p { color: var(--gray); line-height: 1.7; font-size: 16px; }
+        .work { padding: 100px 80px; }
+        .work-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 80px; max-width: 1400px; margin-left: auto; margin-right: auto; }
+        .work-title { font-size: 72px; letter-spacing: -4px; line-height: 1; font-weight: 800; }
+        .work-link { color: var(--white); text-decoration: none; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; border-bottom: 1px solid var(--white); padding-bottom: 5px; transition: all 0.3s; }
+        .work-link:hover { color: var(--accent); border-color: var(--accent); }
+        .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 1400px; margin: 0 auto; }
+        .work-item { position: relative; background: var(--surface); border: 1px solid rgba(255,255,255,0.05); height: 500px; display: flex; flex-direction: column; justify-content: space-between; padding: 50px; cursor: pointer; overflow: hidden; transition: all 0.4s; }
+        .work-item::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.9) 100%); z-index: 1; opacity: 0.7; transition: opacity 0.4s; }
+        .work-item:hover::before { opacity: 0.9; }
+        .work-item:hover { border-color: rgba(255,61,0,0.3); transform: translateY(-5px); }
+        .work-content { position: relative; z-index: 2; }
+        .work-category { font-size: 12px; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; font-weight: 600; }
+        .work-item h3 { font-size: 42px; letter-spacing: -3px; line-height: 1.1; font-weight: 700; }
+        .work-arrow { position: relative; z-index: 2; font-size: 36px; transition: all 0.3s; }
+        .work-item:hover .work-arrow { transform: translateX(15px); color: var(--accent); }
+        .footer { padding: 100px 80px 40px; border-top: 1px solid rgba(255,255,255,0.1); }
+        .footer-content { display: flex; justify-content: space-between; max-width: 1400px; margin: 0 auto; }
+        .footer-brand h2 { font-size: 48px; letter-spacing: -3px; margin-bottom: 20px; font-weight: 800; }
+        .footer-brand p { color: var(--gray); max-width: 400px; line-height: 1.6; font-size: 15px; }
+        .footer-nav { display: flex; gap: 100px; }
+        .footer-col h4 { font-size: 12px; color: var(--gray); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; font-weight: 600; }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 15px; }
+        .footer-col a { color: var(--white); text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.3s; }
+        .footer-col a:hover { color: var(--accent); }
+        .footer-bottom { max-width: 1400px; margin: 80px auto 0; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; color: var(--gray); font-size: 13px; }
+        @media (max-width: 1024px) {
+            .hero { grid-template-columns: 1fr; }
+            .hero-content { padding: 140px 40px 80px; text-align: center; }
+            .hero-title { font-size: 60px; letter-spacing: -3px; }
+            .hero-subtitle { margin: 0 auto 40px; }
+            .btn { margin: 0 auto; }
+            .android { transform: scale(0.8); }
+            .features-grid { grid-template-columns: 1fr; gap: 60px; }
+            .work-grid { grid-template-columns: 1fr; }
+            .work-title { font-size: 48px; }
+            .footer-content { flex-direction: column; gap: 60px; }
+            .footer-nav { gap: 60px; }
         }
-
-        :root {
-            --bg: #0f172a;
-            --surface: rgba(255, 255, 255, 0.03);
-            --surface-hover: rgba(255, 255, 255, 0.06);
-            --border: rgba(255, 255, 255, 0.1);
-            --text: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent: #38bdf8;
-            --accent-glow: rgba(56, 189, 248, 0.5);
-            --gradient-start: #0ea5e9;
-            --gradient-end: #8b5cf6;
-        }
-
-        body {
-            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Animated Background */
-        .bg-gradient {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(14, 165, 233, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .noise {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: calc(100% - 40px);
-            max-width: 1200px;
-            z-index: 1000;
-            padding: 16px 32px;
-            background: rgba(15, 23, 42, 0.7);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--border);
-            border-radius: 100px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-
-        .logo {
-            font-size: 22px;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--text), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            transition: all 0.3s;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--text);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: width 0.3s;
-            box-shadow: 0 0 10px var(--accent-glow);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .btn-nav {
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            color: white;
-            padding: 10px 24px;
-            border-radius: 100px;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 700;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 4px 20px rgba(56, 189, 248, 0.3);
-        }
-
-        .btn-nav:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(56, 189, 248, 0.5);
-        }
-
-        /* Hero */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 140px 40px 100px;
-            position: relative;
-        }
-
-        .hero-content {
-            text-align: center;
-            max-width: 900px;
-        }
-
-        .badge-glass {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 20px;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 100px;
-            font-size: 13px;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 32px;
-            backdrop-filter: blur(10px);
-        }
-
-        .badge-glass::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            background: var(--accent);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--accent-glow);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        h1 {
-            font-size: clamp(40px, 6vw, 72px);
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            letter-spacing: -0.02em;
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-subtitle {
-            font-size: 20px;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto 40px;
-            line-height: 1.6;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn-glow {
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            color: white;
-            padding: 18px 36px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-glow::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: 0.5s;
-        }
-
-        .btn-glow:hover::before {
-            left: 100%;
-        }
-
-        .btn-glow:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(56, 189, 248, 0.6);
-        }
-
-        .btn-outline-glass {
-            background: var(--surface);
-            color: var(--text);
-            padding: 18px 36px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            border: 1px solid var(--border);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s;
-        }
-
-        .btn-outline-glass:hover {
-            background: var(--surface-hover);
-            border-color: var(--accent);
-            transform: translateY(-2px);
-        }
-
-        .floating-cards {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 60px;
-            flex-wrap: wrap;
-        }
-
-        .float-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 24px;
-            width: 200px;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .float-card:nth-child(2) { animation-delay: 1s; }
-        .float-card:nth-child(3) { animation-delay: 2s; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .float-card:hover {
-            transform: translateY(-5px) scale(1.02);
-            border-color: var(--accent);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-
-        .float-icon {
-            font-size: 32px;
-            margin-bottom: 12px;
-        }
-
-        .float-card h4 {
-            font-size: 16px;
-            margin-bottom: 4px;
-        }
-
-        .float-card p {
-            font-size: 13px;
-            color: var(--text-muted);
-        }
-
-        /* Courses Timeline - KIMI STYLE */
-        .courses-timeline {
-            padding: 120px 40px;
-            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.5), #0f172a);
-            position: relative;
-        }
-
-        .timeline-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .timeline-header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .timeline-eyebrow {
-            font-size: 13px;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            display: block;
-        }
-
-        .timeline-title {
-            font-size: 48px;
-            font-weight: 800;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, #fff, #94a3b8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .timeline-subtitle {
-            color: var(--text-muted);
-            font-size: 18px;
-        }
-
-        .timeline-list {
-            position: relative;
-        }
-
-        .timeline-item {
-            display: flex;
-            gap: 32px;
-            margin-bottom: 32px;
-            position: relative;
-        }
-
-        .timeline-marker {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-width: 60px;
-            position: relative;
-        }
-
-        .timeline-number {
-            width: 48px;
-            height: 48px;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--accent);
-            position: relative;
-            z-index: 2;
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.1);
-        }
-
-        .timeline-line {
-            width: 2px;
-            flex: 1;
-            background: linear-gradient(to bottom, var(--accent), transparent);
-            margin-top: 8px;
-            opacity: 0.3;
-        }
-
-        .timeline-item:last-child .timeline-line {
-            display: none;
-        }
-
-        .timeline-card {
-            flex: 1;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 32px;
-            display: flex;
-            justify-content: space-between;
-            gap: 24px;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .timeline-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.5), transparent);
-            opacity: 0;
-            transition: opacity 0.4s;
-        }
-
-        .timeline-card:hover {
-            transform: translateX(10px);
-            border-color: rgba(56, 189, 248, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(56, 189, 248, 0.1);
-        }
-
-        .timeline-card:hover::before {
-            opacity: 1;
-        }
-
-        .timeline-content {
-            flex: 1;
-        }
-
-        .timeline-meta {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 12px;
-            align-items: center;
-        }
-
-        .timeline-tag {
-            padding: 4px 12px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 100px;
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .timeline-tag.highlight {
-            background: rgba(56, 189, 248, 0.1);
-            border-color: rgba(56, 189, 248, 0.3);
-            color: var(--accent);
-        }
-
-        .timeline-duration {
-            font-size: 13px;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-
-        .timeline-course-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: var(--text);
-        }
-
-        .timeline-description {
-            color: var(--text-muted);
-            font-size: 15px;
-            line-height: 1.6;
-            margin-bottom: 16px;
-        }
-
-        .timeline-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 16px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .timeline-modules {
-            font-size: 13px;
-            color: var(--text-muted);
-        }
-
-        .timeline-btn {
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: var(--text);
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .timeline-btn:hover {
-            background: var(--accent);
-            border-color: var(--accent);
-            color: white;
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
-        }
-
-        .timeline-visual {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .timeline-icon {
-            width: 64px;
-            height: 64px;
-            background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(139, 92, 246, 0.1));
-            border: 1px solid rgba(56, 189, 248, 0.2);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            transition: all 0.3s;
-        }
-
-        .timeline-card:hover .timeline-icon {
-            transform: scale(1.1);
-            box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);
-        }
-
-        .timeline-cta {
-            text-align: center;
-            margin-top: 48px;
-        }
-
-        .timeline-cta-btn {
-            display: inline-block;
-            color: var(--accent);
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 600;
-            padding: 12px 24px;
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            border-radius: 100px;
-            transition: all 0.3s;
-        }
-
-        .timeline-cta-btn:hover {
-            background: rgba(56, 189, 248, 0.1);
-            border-color: var(--accent);
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
-        }
-
-        /* Features Grid */
-        .features {
-            padding: 120px 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .section-label {
-            font-size: 13px;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-
-        h2 {
-            font-size: 48px;
-            font-weight: 800;
-            margin-bottom: 16px;
-        }
-
-        .section-subtitle {
-            color: var(--text-muted);
-            font-size: 18px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-
-        .feature-card-glass {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 40px;
-            transition: all 0.4s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card-glass::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent);
-            opacity: 0;
-            transition: opacity 0.4s;
-        }
-
-        .feature-card-glass:hover::before {
-            opacity: 1;
-        }
-
-        .feature-card-glass:hover {
-            transform: translateY(-5px);
-            border-color: rgba(56, 189, 248, 0.3);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-        }
-
-        .feature-icon-glass {
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(139, 92, 246, 0.2));
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            margin-bottom: 24px;
-            border: 1px solid rgba(56, 189, 248, 0.3);
-        }
-
-        .feature-card-glass h3 {
-            font-size: 22px;
-            margin-bottom: 12px;
-            font-weight: 700;
-        }
-
-        .feature-card-glass p {
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        /* CTA */
-        .cta-premium {
-            padding: 140px 40px;
-            text-align: center;
-            position: relative;
-        }
-
-        .cta-box-glass {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 80px 60px;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 32px;
-            backdrop-filter: blur(20px);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-box-glass::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .cta-premium h2 {
-            font-size: 52px;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .cta-premium p {
-            color: var(--text-muted);
-            font-size: 20px;
-            margin-bottom: 40px;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Footer */
-        footer {
-            padding: 60px 40px;
-            border-top: 1px solid var(--border);
-            text-align: center;
-            color: var(--text-muted);
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 32px;
-            margin-bottom: 24px;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent);
-        }
-
         @media (max-width: 768px) {
+            .nav { padding: 30px; }
             .nav-links { display: none; }
-            nav { padding: 12px 24px; }
-            h1 { font-size: 36px; }
-            h2 { font-size: 32px; }
-            .features-grid,
-            .timeline-list { grid-template-columns: 1fr; }
-            .timeline-card { flex-direction: column; }
-            .timeline-visual { order: -1; justify-content: flex-start; }
-            .timeline-icon { width: 48px; height: 48px; font-size: 20px; }
-            .timeline-course-title { font-size: 20px; }
-            .hero-buttons { flex-direction: column; width: 100%; }
-            .btn-glow, .btn-outline-glass { width: 100%; text-align: center; }
-            .floating-cards { flex-direction: column; align-items: center; }
-            .float-card { width: 100%; max-width: 300px; }
-            .cta-box-glass { padding: 40px 24px; }
-            .cta-premium h2 { font-size: 32px; }
-            .cta-premium p { font-size: 16px; }
-            
-            /* FIX: Button unten mobilgerecht */
-            .cta-premium .btn-glow {
-                width: 100%;
-                padding: 16px 20px !important;
-                font-size: 16px !important;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
+            .hero-title { font-size: 42px; letter-spacing: -2px; }
+            .hero-content { padding: 120px 30px 60px; }
+            .android { transform: scale(0.6); }
+            .marquee-content { font-size: 48px; }
+            .work-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+            .work-title { font-size: 36px; }
+            .work-item h3 { font-size: 28px; }
+            .footer-nav { flex-direction: column; gap: 40px; }
         }
     </style>
 </head>
 <body>
-
-    <div class="bg-gradient"></div>
-    <div class="noise"></div>
-
-    <nav>
-        <div class="logo">KI Expertenraum</div>
-        <ul class="nav-links">
-            <li><a href="#courses">Kurse</a></li>
-            <li><a href="#features">Vorteile</a></li>
-            <li><a href="#about">Über</a></li>
-        </ul>
-        <a href="#courses" class="btn-nav">Jetzt starten</a>
+    <nav class="nav">
+        <div class="nav-logo"><a href="index.html">KI Expertenraum</a></div>
+        <div class="nav-menu">
+            <ul class="nav-links">
+                <li><a href="#work">Kurse</a></li>
+                <li><a href="blog.html">Blog</a></li>  <!-- HIER: von # zu blog.html -->
+                <li><a href="#">About</a></li>
+                <li><a href="#footer">Kontakt</a></li>  <!-- HIER: von # zu #footer -->
+            </ul>
+            <div class="hamburger"><span></span><span></span></div>
+        </div>
     </nav>
 
     <section class="hero">
         <div class="hero-content">
-            <div class="badge-glass">
-                Neu: EU AI Act 2026
-            </div>
-            
-            <h1>
-                Werde zur <span class="gradient-text">KI-Elite</span><br>
-                in 2,5 Stunden
-            </h1>
-            
-            <p class="hero-subtitle">
-                Praxisnahe KI-Kurse für Unternehmer. Ohne Fachchinesisch. 
-                Mit Fokus auf EU AI Act, Automation und Strategie.
-            </p>
-            
-            <div class="hero-buttons">
-                <a href="#courses" class="btn-glow">Kurse entdecken →</a>
-                <a href="#features" class="btn-outline-glass">Mehr erfahren</a>
-            </div>
-
-            <div class="floating-cards">
-                <div class="float-card">
-                    <div class="float-icon">⚡</div>
-                    <h4>Sofort umsetzbar</h4>
-                    <p>Praxisnah & konkret</p>
+            <span class="tag">NEU 2026</span>
+            <h1 class="hero-title">Werde zur KI Elite</h1>
+            <p class="hero-subtitle">Von EU AI Act Compliance bis zu No-Code Automatisierung. Lerne KI wirklich anzuwenden – nicht nur darüber zu reden.</p>
+            <a href="#work" class="btn">Kurse entdecken</a>
+        </div>
+        
+        <div class="hero-visual">
+            <div class="android-container">
+                <div class="particles">
+                    <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
                 </div>
-                <div class="float-card">
-                    <div class="float-icon">🛡️</div>
-                    <h4>Rechtssicher</h4>
-                    <p>EU AI Act konform</p>
-                </div>
-                <div class="float-card">
-                    <div class="float-icon">🎯</div>
-                    <h4>Für Profis</h4>
-                    <p>Keine Theorie</p>
+                <div class="android">
+                    <div class="scan-line"></div>
+                    <div class="android-head">
+                        <div class="face-screen"><div class="eyes"><div class="eye"></div><div class="eye"></div></div></div>
+                        <div class="mouth"></div>
+                    </div>
+                    <div class="neck"><div class="neck-ring"></div><div class="neck-ring"></div><div class="neck-ring"></div></div>
+                    <div class="torso"><div class="chest-light"></div><div class="torso-lines"></div></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="courses-timeline" id="courses">
-        <div class="timeline-container">
-            <div class="timeline-header">
-                <span class="timeline-eyebrow">Das Programm</span>
-                <h2 class="timeline-title">Unsere Kurse</h2>
-                <p class="timeline-subtitle">22 Kurse in 4 Kategorien. Wähle deinen Einstieg.</p>
-            </div>
-
-            <div class="timeline-list">
-                <div class="timeline-item" data-index="01">
-                    <div class="timeline-marker">
-                        <span class="timeline-number">01</span>
-                        <div class="timeline-line"></div>
-                    </div>
-                    <div class="timeline-card">
-                        <div class="timeline-content">
-                            <div class="timeline-meta">
-                                <span class="timeline-tag highlight">Beliebt</span>
-                                <span class="timeline-duration">⏱ 2,5h</span>
-                            </div>
-                            <h3 class="timeline-course-title">EU AI Act Masterclass</h3>
-                            <p class="timeline-description">Rechtssichere KI-Nutzung nach EU-Richtlinien. Checklisten, Vorlagen und Fristen bis August 2026.</p>
-                            <div class="timeline-footer">
-                                <span class="timeline-modules">4 Module • 12 Lektionen</span>
-                                <button class="timeline-btn">Details →</button>
-                            </div>
-                        </div>
-                        <div class="timeline-visual">
-                            <div class="timeline-icon">🛡️</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item" data-index="02">
-                    <div class="timeline-marker">
-                        <span class="timeline-number">02</span>
-                        <div class="timeline-line"></div>
-                    </div>
-                    <div class="timeline-card">
-                        <div class="timeline-content">
-                            <div class="timeline-meta">
-                                <span class="timeline-tag">Automation</span>
-                                <span class="timeline-duration">⏱ 3h</span>
-                            </div>
-                            <h3 class="timeline-course-title">KI-Workflows mit No-Code</h3>
-                            <p class="timeline-description">ChatGPT, Zapier und Co. richtig nutzen. Automatisierungen die dir Stunden pro Woche sparen.</p>
-                            <div class="timeline-footer">
-                                <span class="timeline-modules">6 Module • 18 Lektionen</span>
-                                <button class="timeline-btn">Details →</button>
-                            </div>
-                        </div>
-                        <div class="timeline-visual">
-                            <div class="timeline-icon">⚡</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item" data-index="03">
-                    <div class="timeline-marker">
-                        <span class="timeline-number">03</span>
-                        <div class="timeline-line"></div>
-                    </div>
-                    <div class="timeline-card">
-                        <div class="timeline-content">
-                            <div class="timeline-meta">
-                                <span class="timeline-tag">Strategie</span>
-                                <span class="timeline-duration">⏱ 4h</span>
-                            </div>
-                            <h3 class="timeline-course-title">KI-Strategie für KMU</h3>
-                            <p class="timeline-description">Von der ersten Idee bis zur erfolgreichen Implementierung in deinem Unternehmen.</p>
-                            <div class="timeline-footer">
-                                <span class="timeline-modules">5 Module • 15 Lektionen</span>
-                                <button class="timeline-btn">Details →</button>
-                            </div>
-                        </div>
-                        <div class="timeline-visual">
-                            <div class="timeline-icon">🎯</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item" data-index="04">
-                    <div class="timeline-marker">
-                        <span class="timeline-number">04</span>
-                    </div>
-                    <div class="timeline-card">
-                        <div class="timeline-content">
-                            <div class="timeline-meta">
-                                <span class="timeline-tag">Recht</span>
-                                <span class="timeline-duration">⏱ 2h</span>
-                            </div>
-                            <h3 class="timeline-course-title">DSGVO & KI-Compliance</h3>
-                            <p class="timeline-description">Rechtssichere KI-Nutzung. Haftung vermeiden, Chancen maximieren, Risiken minimieren.</p>
-                            <div class="timeline-footer">
-                                <span class="timeline-modules">3 Module • 9 Lektionen</span>
-                                <button class="timeline-btn">Details →</button>
-                            </div>
-                        </div>
-                        <div class="timeline-visual">
-                            <div class="timeline-icon">📋</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="timeline-cta">
-                <a href="#" class="timeline-cta-btn">Alle 22 Kurse ansehen →</a>
-            </div>
+    <div class="marquee">
+        <div class="marquee-content">
+            <span>EU AI Act</span><span>•</span><span>Automation</span><span>•</span><span>KI Strategie</span><span>•</span><span>Compliance</span><span>•</span><span>No-Code</span><span>•</span>
+            <span>EU AI Act</span><span>•</span><span>Automation</span><span>•</span><span>KI Strategie</span>
         </div>
-    </section>
+    </div>
 
-    <section class="features" id="features">
-        <div class="section-header">
-            <div class="section-label">Warum wir</div>
-            <h2>Praxis statt Theorie</h2>
-            <p class="section-subtitle">Kein Fachchinesisch. Nur erprobte Strategien, die sofort funktionieren.</p>
-        </div>
-
+    <section class="features">
         <div class="features-grid">
-            <div class="feature-card-glass">
-                <div class="feature-icon-glass">⚡</div>
-                <h3>Sofort umsetzbar</h3>
-                <p>Jedes Konzept wird direkt mit praktischen Beispielen erklärt. Wissen, das du heute lernst, morgen anwenden kannst.</p>
-            </div>
-            
-            <div class="feature-card-glass">
-                <div class="feature-icon-glass">🛡️</div>
-                <h3>Rechtssicher</h3>
-                <p>EU AI Act, DSGVO, Haftung – wir decken alle rechtlichen Aspekte ab, damit du KI risikofrei nutzt.</p>
-            </div>
-            
-            <div class="feature-card-glass">
-                <div class="feature-icon-glass">🎯</div>
-                <h3>Für echte Profis</h3>
-                <p>Ob KMU-Geschäftsführer oder Entscheider – unsere Kurse sind für Profis aufbereitet, die Ergebnisse erwarten.</p>
-            </div>
+            <div class="feature"><div class="feature-num">01</div><h3>Sofort umsetzbar</h3><p>Jedes Konzept wird direkt mit praktischen Beispielen erklärt. Wissen, das du heute lernst, morgen anwenden kannst.</p></div>
+            <div class="feature"><div class="feature-num">02</div><h3>Rechtssicher</h3><p>EU AI Act, DSGVO, Haftung – wir decken alle rechtlichen Aspekte ab, damit du KI risikofrei nutzt.</p></div>
+            <div class="feature"><div class="feature-num">03</div><h3>Für echte Profis</h3><p>Ob KMU-Geschäftsführer oder Entscheider – unsere Kurse sind für Profis aufbereitet.</p></div>
         </div>
     </section>
 
-    <section class="cta-premium">
-        <div class="cta-box-glass">
-            <h2>Bereit für die <span class="gradient-text">KI-Elite</span>?</h2>
-            <p>Starte jetzt mit unseren praxisnahen Kursen. 14 Tage Geld-zurück-Garantie.</p>
-            <a href="#" class="btn-glow" style="padding: 20px 40px; font-size: 18px;">Jetzt Kurs starten →</a>
+    <section class="work" id="work">
+        <div class="work-header">
+            <h2 class="work-title">Unsere<br>Kurse</h2>
+            <a href="#" class="work-link">Alle ansehen</a>
+        </div>
+        <div class="work-grid">
+            <div class="work-item"><div class="work-content"><div class="work-category">Compliance</div><h3>EU AI Act<br>Masterclass</h3></div><div class="work-arrow">→</div></div>
+            <div class="work-item"><div class="work-content"><div class="work-category">Strategie</div><h3>KI Governance<br>& Einführung</h3></div><div class="work-arrow">→</div></div>
+            <div class="work-item"><div class="work-content"><div class="work-category">Automation</div><h3>No-Code KI<br>Tools</h3></div><div class="work-arrow">→</div></div>
+            <div class="work-item"><div class="work-content"><div class="work-category">Recht</div><h3>DSGVO<br>konforme KI</h3></div><div class="work-arrow">→</div></div>
         </div>
     </section>
 
-    <footer>
-        <div class="footer-links">
-            <a href="#">Impressum</a>
-            <a href="#">Datenschutz</a>
-            <a href="mailto:zerna.philipp@gmail.com">Kontakt</a>
+    <footer class="footer" id="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h2>KI Expertenraum</h2>
+                <p>Dein Zugang zur KI-Elite. Praxisnahe Kurse für Unternehmer und Fachkräfte.</p>
+            </div>
+            <div class="footer-nav">
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#">Start</a></li>
+                        <li><a href="#work">Kurse</a></li>
+                        <li><a href="blog.html">Blog</a></li>  <!-- HIER: von # zu blog.html -->
+                        <li><a href="#">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Social</h4>
+                    <ul>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <p>© 2026 KI Expertenraum. Alle Rechte vorbehalten.</p>
+        <div class="footer-bottom">
+            <span>© 2026 KI Expertenraum</span>
+            <span>Alle Rechte vorbehalten</span>
+        </div>
     </footer>
-
 </body>
 </html>
