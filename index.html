@@ -3,203 +3,281 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KI Expertenraum — Werde zur KI Elite</title>
-    <meta name="description" content="Von EU AI Act Compliance bis zu No-Code Automatisierung. Lerne KI wirklich anzuwenden – nicht nur darüber zu reden.">
+    <title>KI Expertenraum — Praxisnahe KI-Kurse für Unternehmer</title>
+    <meta name="description" content="Werde zur KI-Elite. Von EU AI Act bis No-Code Automation. Kurse, die dein Business transformieren.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { --black: #000000; --white: #ffffff; --gray: #666666; --accent: #ff3d00; --surface: #0a0a0a; }
+        :root { --bg: #0a0a0a; --bg-light: #111111; --text: #ffffff; --text-muted: #888888; --accent: #ff3d00; --accent-hover: #ff5722; --border: #222222; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; background: var(--black); color: var(--white); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
-        h1, h2, h3, .logo { font-family: 'Syne', sans-serif; font-weight: 700; }
-        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 40px 60px; display: flex; justify-content: space-between; align-items: center; mix-blend-mode: difference; }
-        .nav-logo { font-size: 24px; font-weight: 800; letter-spacing: -1px; text-transform: uppercase; }
-        .nav-logo a { color: var(--white); text-decoration: none; }
-        .nav-menu { display: flex; gap: 40px; align-items: center; }
-        .nav-links { display: flex; gap: 30px; list-style: none; }
-        .nav-links a { color: var(--white); text-decoration: none; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; position: relative; padding-bottom: 5px; }
-        .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--white); transition: width 0.3s ease; }
-        .nav-links a:hover::after { width: 100%; }
-        .hamburger { width: 30px; height: 20px; display: flex; flex-direction: column; justify-content: space-between; cursor: pointer; }
-        .hamburger span { width: 100%; height: 2px; background: var(--white); }
-        .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; position: relative; }
-        .hero-content { padding: 180px 80px 100px; display: flex; flex-direction: column; justify-content: center; z-index: 10; }
-        .tag { font-size: 13px; color: var(--accent); text-transform: uppercase; letter-spacing: 3px; font-weight: 600; margin-bottom: 30px; display: block; }
-        .hero-title { font-size: clamp(60px, 8vw, 100px); line-height: 0.95; margin-bottom: 40px; letter-spacing: -5px; text-transform: uppercase; font-weight: 800; }
-        .hero-subtitle { font-size: 18px; color: var(--gray); line-height: 1.7; margin-bottom: 50px; max-width: 480px; font-weight: 400; }
-        .btn { display: inline-block; background: var(--white); color: var(--black); padding: 22px 50px; font-size: 13px; font-weight: 600; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; border: none; cursor: pointer; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); width: fit-content; }
-        .btn:hover { background: var(--accent); color: var(--white); transform: translateY(-2px); }
-        .hero-visual { position: relative; background: radial-gradient(circle at 30% 50%, rgba(255, 61, 0, 0.08) 0%, transparent 60%); display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .android-container { position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
-        .android { position: relative; width: 400px; height: 700px; filter: drop-shadow(0 0 100px rgba(255, 61, 0, 0.2)); }
-        .android-head { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 220px; height: 280px; background: linear-gradient(135deg, #e0e0e0 0%, #b0b0b0 50%, #808080 100%); border-radius: 60px 60px 80px 80px; box-shadow: inset -20px -20px 40px rgba(0,0,0,0.2), inset 20px 20px 40px rgba(255,255,255,0.3), 0 20px 60px rgba(0,0,0,0.5); z-index: 10; animation: head-tilt 8s ease-in-out infinite; transform-origin: center bottom; }
-        @keyframes head-tilt { 0%, 45% { transform: translateX(-50%) rotateY(0deg); } 50%, 95% { transform: translateX(-50%) rotateY(-20deg); } 100% { transform: translateX(-50%) rotateY(0deg); } }
-        .face-screen { position: absolute; top: 60px; left: 50%; transform: translateX(-50%); width: 160px; height: 100px; background: #000; border-radius: 20px; overflow: hidden; box-shadow: inset 0 0 20px rgba(0,0,0,1); }
-        .eyes { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: flex; gap: 40px; }
-        .eye { width: 30px; height: 4px; background: var(--accent); box-shadow: 0 0 20px var(--accent), 0 0 40px var(--accent); animation: eye-pulse 3s ease-in-out infinite; }
-        @keyframes eye-pulse { 0%, 100% { opacity: 0.8; } 50% { opacity: 1; box-shadow: 0 0 30px var(--accent), 0 0 60px var(--accent); } }
-        .mouth { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); width: 60px; height: 2px; background: #666; }
-        .neck { position: absolute; top: 260px; left: 50%; transform: translateX(-50%); width: 100px; height: 80px; background: linear-gradient(to right, #909090, #c0c0c0, #909090); z-index: 5; }
-        .neck-ring { width: 100%; height: 20px; background: linear-gradient(to bottom, #707070, #505050); margin-bottom: 5px; border-radius: 5px; }
-        .torso { position: absolute; top: 320px; left: 50%; transform: translateX(-50%); width: 300px; height: 380px; background: linear-gradient(135deg, #d0d0d0 0%, #a0a0a0 50%, #707070 100%); border-radius: 40px 40px 60px 60px; box-shadow: inset -30px -30px 60px rgba(0,0,0,0.2), inset 30px 30px 60px rgba(255,255,255,0.3), 0 30px 80px rgba(0,0,0,0.4); z-index: 8; }
-        .chest-light { position: absolute; top: 100px; left: 50%; transform: translateX(-50%); width: 80px; height: 80px; background: radial-gradient(circle, rgba(255,61,0,0.8) 0%, transparent 70%); border-radius: 50%; animation: chest-glow 4s ease-in-out infinite; }
-        @keyframes chest-glow { 0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); } 50% { opacity: 1; transform: translateX(-50%) scale(1.1); } }
-        .torso-lines { position: absolute; top: 60%; left: 50%; transform: translateX(-50%); width: 60%; height: 2px; background: rgba(0,0,0,0.2); box-shadow: 0 20px 0 rgba(0,0,0,0.2), 0 40px 0 rgba(0,0,0,0.2); }
-        .particles { position: absolute; width: 100%; height: 100%; pointer-events: none; }
-        .particle { position: absolute; width: 4px; height: 4px; background: var(--accent); border-radius: 50%; opacity: 0.6; animation: float-particle 6s ease-in-out infinite; }
-        .particle:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
-        .particle:nth-child(2) { top: 40%; right: 15%; animation-delay: 1s; }
-        .particle:nth-child(3) { top: 60%; left: 20%; animation-delay: 2s; }
-        .particle:nth-child(4) { top: 30%; right: 25%; animation-delay: 3s; }
-        .particle:nth-child(5) { bottom: 30%; left: 15%; animation-delay: 4s; }
-        @keyframes float-particle { 0%, 100% { transform: translateY(0) scale(1); opacity: 0.4; } 50% { transform: translateY(-30px) scale(1.2); opacity: 0.8; } }
-        .scan-line { position: absolute; width: 100%; height: 2px; background: rgba(255,61,0,0.5); box-shadow: 0 0 20px var(--accent); animation: scan 4s linear infinite; z-index: 20; }
-        @keyframes scan { 0% { top: 0; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
-        .marquee { padding: 30px 0; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); overflow: hidden; background: var(--surface); }
-        .marquee-content { display: flex; gap: 60px; animation: marquee-scroll 25s linear infinite; white-space: nowrap; font-family: 'Syne', sans-serif; font-size: 80px; font-weight: 800; text-transform: uppercase; letter-spacing: -4px; color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.2); }
-        @keyframes marquee-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        .features { padding: 150px 80px; max-width: 1400px; margin: 0 auto; }
-        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 80px; }
-        .feature { border-top: 1px solid rgba(255,255,255,0.2); padding-top: 40px; }
-        .feature-num { font-size: 13px; color: var(--accent); margin-bottom: 25px; font-weight: 600; letter-spacing: 1px; }
-        .feature h3 { font-size: 32px; margin-bottom: 20px; letter-spacing: -2px; font-weight: 700; }
-        .feature p { color: var(--gray); line-height: 1.7; font-size: 16px; }
-        .work { padding: 100px 80px; }
-        .work-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 80px; max-width: 1400px; margin-left: auto; margin-right: auto; }
-        .work-title { font-size: 72px; letter-spacing: -4px; line-height: 1; font-weight: 800; }
-        .work-link { color: var(--white); text-decoration: none; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; border-bottom: 1px solid var(--white); padding-bottom: 5px; transition: all 0.3s; }
-        .work-link:hover { color: var(--accent); border-color: var(--accent); }
-        .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 1400px; margin: 0 auto; }
-        .work-item { position: relative; background: var(--surface); border: 1px solid rgba(255,255,255,0.05); height: 500px; display: flex; flex-direction: column; justify-content: space-between; padding: 50px; cursor: pointer; overflow: hidden; transition: all 0.4s; }
-        .work-item::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.9) 100%); z-index: 1; opacity: 0.7; transition: opacity 0.4s; }
-        .work-item:hover::before { opacity: 0.9; }
-        .work-item:hover { border-color: rgba(255,61,0,0.3); transform: translateY(-5px); }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, h4, .logo { font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: -0.03em; }
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 30px 60px; display: flex; justify-content: space-between; align-items: center; transition: all 0.4s ease; }
+        .nav.scrolled { background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(20px); padding: 20px 60px; border-bottom: 1px solid var(--border); }
+        .logo { font-size: 22px; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; }
+        .logo a { color: var(--text); text-decoration: none; transition: opacity 0.3s; }
+        .logo a:hover { opacity: 0.7; }
+        .nav-links { display: flex; gap: 40px; list-style: none; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s; position: relative; }
+        .nav-links a:hover, .nav-links a.active { color: var(--text); }
+        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--accent); transition: width 0.3s; }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 160px 60px 100px; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 20% 50%, rgba(255, 61, 0, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(255, 61, 0, 0.08) 0%, transparent 40%); pointer-events: none; }
+        .hero-content { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+        .hero-eyebrow { font-size: 14px; color: var(--accent); text-transform: uppercase; letter-spacing: 3px; font-weight: 500; margin-bottom: 30px; display: inline-block; animation: fadeInUp 0.8s ease forwards; opacity: 0; }
+        .hero-title { font-size: clamp(48px, 10vw, 120px); line-height: 0.9; margin-bottom: 40px; font-weight: 700; animation: fadeInUp 0.8s ease 0.2s forwards; opacity: 0; }
+        .hero-title span { display: block; }
+        .hero-title .accent { color: var(--accent); }
+        .hero-description { font-size: 20px; color: var(--text-muted); max-width: 600px; margin-bottom: 50px; line-height: 1.7; animation: fadeInUp 0.8s ease 0.4s forwards; opacity: 0; }
+        .hero-cta { display: flex; gap: 20px; animation: fadeInUp 0.8s ease 0.6s forwards; opacity: 0; }
+        .btn { display: inline-flex; align-items: center; gap: 10px; padding: 18px 36px; font-size: 14px; font-weight: 600; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; border: none; cursor: pointer; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); font-family: inherit; }
+        .btn-primary { background: var(--accent); color: var(--text); }
+        .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 10px 40px rgba(255, 61, 0, 0.3); }
+        .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
+        .btn-secondary:hover { background: var(--text); color: var(--bg); border-color: var(--text); }
+        .scroll-indicator { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 10px; color: var(--text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 2px; animation: bounce 2s infinite; }
+        .scroll-line { width: 1px; height: 60px; background: linear-gradient(to bottom, var(--accent), transparent); }
+        .marquee { padding: 30px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; background: var(--bg-light); }
+        .marquee-content { display: flex; gap: 80px; animation: marquee 30s linear infinite; white-space: nowrap; }
+        .marquee-item { font-family: 'Space Grotesk', sans-serif; font-size: 80px; font-weight: 700; text-transform: uppercase; letter-spacing: -0.03em; color: transparent; -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2); transition: all 0.3s; }
+        .marquee-item:hover { color: var(--accent); -webkit-text-stroke: 1px var(--accent); }
+        .services { padding: 150px 60px; max-width: 1400px; margin: 0 auto; }
+        .section-header { margin-bottom: 80px; }
+        .section-label { font-size: 14px; color: var(--accent); text-transform: uppercase; letter-spacing: 3px; font-weight: 500; margin-bottom: 20px; }
+        .section-title { font-size: clamp(36px, 5vw, 56px); line-height: 1.1; max-width: 800px; }
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+        .service-card { padding: 40px; border: 1px solid var(--border); background: var(--bg-light); transition: all 0.4s; position: relative; overflow: hidden; }
+        .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(255, 61, 0, 0.1) 0%, transparent 60%); opacity: 0; transition: opacity 0.4s; }
+        .service-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+        .service-card:hover::before { opacity: 1; }
+        .service-number { font-size: 14px; color: var(--accent); font-weight: 600; margin-bottom: 20px; position: relative; }
+        .service-card h3 { font-size: 28px; margin-bottom: 16px; position: relative; }
+        .service-card p { color: var(--text-muted); line-height: 1.7; position: relative; }
+        .work { padding: 150px 60px; background: var(--bg-light); }
+        .work-container { max-width: 1400px; margin: 0 auto; }
+        .work-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 80px; }
+        .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+        .work-item { position: relative; background: var(--bg); border: 1px solid var(--border); min-height: 500px; display: flex; flex-direction: column; justify-content: flex-end; padding: 50px; cursor: pointer; overflow: hidden; transition: all 0.4s; }
+        .work-item::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 50%, transparent 100%); z-index: 1; }
+        .work-item:hover { border-color: var(--accent); }
+        .work-item:hover .work-arrow { transform: translateX(10px); }
+        .work-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(255,61,0,0.1) 0%, transparent 50%); opacity: 0.5; transition: opacity 0.4s; }
+        .work-item:hover .work-bg { opacity: 1; }
         .work-content { position: relative; z-index: 2; }
-        .work-category { font-size: 12px; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; font-weight: 600; }
-        .work-item h3 { font-size: 42px; letter-spacing: -3px; line-height: 1.1; font-weight: 700; }
-        .work-arrow { position: relative; z-index: 2; font-size: 36px; transition: all 0.3s; }
-        .work-item:hover .work-arrow { transform: translateX(15px); color: var(--accent); }
-        .footer { padding: 100px 80px 40px; border-top: 1px solid rgba(255,255,255,0.1); }
-        .footer-content { display: flex; justify-content: space-between; max-width: 1400px; margin: 0 auto; }
-        .footer-brand h2 { font-size: 48px; letter-spacing: -3px; margin-bottom: 20px; font-weight: 800; }
-        .footer-brand p { color: var(--gray); max-width: 400px; line-height: 1.6; font-size: 15px; }
-        .footer-nav { display: flex; gap: 100px; }
-        .footer-col h4 { font-size: 12px; color: var(--gray); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; font-weight: 600; }
+        .work-category { font-size: 12px; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; font-weight: 600; margin-bottom: 16px; }
+        .work-item h3 { font-size: 36px; line-height: 1.2; margin-bottom: 20px; }
+        .work-item p { color: var(--text-muted); margin-bottom: 30px; max-width: 400px; }
+        .work-arrow { font-size: 24px; transition: transform 0.3s; }
+        .stats { padding: 100px 60px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .stats-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+        .stat-item { text-align: center; }
+        .stat-number { font-family: 'Space Grotesk', sans-serif; font-size: 64px; font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: 10px; }
+        .stat-label { font-size: 14px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; }
+        .cta { padding: 200px 60px; text-align: center; position: relative; overflow: hidden; }
+        .cta::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(255, 61, 0, 0.15) 0%, transparent 70%); pointer-events: none; }
+        .cta-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+        .cta h2 { font-size: clamp(36px, 6vw, 72px); margin-bottom: 30px; line-height: 1.1; }
+        .cta p { font-size: 18px; color: var(--text-muted); margin-bottom: 40px; }
+        .footer { padding: 80px 60px 40px; border-top: 1px solid var(--border); }
+        .footer-content { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; margin-bottom: 60px; }
+        .footer-brand h3 { font-size: 28px; margin-bottom: 16px; }
+        .footer-brand p { color: var(--text-muted); max-width: 300px; line-height: 1.7; }
+        .footer-links { display: flex; gap: 80px; }
+        .footer-col h4 { font-size: 14px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px; font-weight: 500; }
         .footer-col ul { list-style: none; }
-        .footer-col li { margin-bottom: 15px; }
-        .footer-col a { color: var(--white); text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.3s; }
+        .footer-col li { margin-bottom: 12px; }
+        .footer-col a { color: var(--text); text-decoration: none; font-size: 15px; transition: color 0.3s; }
         .footer-col a:hover { color: var(--accent); }
-        .footer-bottom { max-width: 1400px; margin: 80px auto 0; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; color: var(--gray); font-size: 13px; }
-        @media (max-width: 1024px) {
-            .hero { grid-template-columns: 1fr; }
-            .hero-content { padding: 140px 40px 80px; text-align: center; }
-            .hero-title { font-size: 60px; letter-spacing: -3px; }
-            .hero-subtitle { margin: 0 auto 40px; }
-            .btn { margin: 0 auto; }
-            .android { transform: scale(0.8); }
-            .features-grid { grid-template-columns: 1fr; gap: 60px; }
-            .work-grid { grid-template-columns: 1fr; }
-            .work-title { font-size: 48px; }
-            .footer-content { flex-direction: column; gap: 60px; }
-            .footer-nav { gap: 60px; }
-        }
-        @media (max-width: 768px) {
-            .nav { padding: 30px; }
-            .nav-links { display: none; }
-            .hero-title { font-size: 42px; letter-spacing: -2px; }
-            .hero-content { padding: 120px 30px 60px; }
-            .android { transform: scale(0.6); }
-            .marquee-content { font-size: 48px; }
-            .work-header { flex-direction: column; align-items: flex-start; gap: 20px; }
-            .work-title { font-size: 36px; }
-            .work-item h3 { font-size: 28px; }
-            .footer-nav { flex-direction: column; gap: 40px; }
-        }
+        .footer-bottom { max-width: 1400px; margin: 0 auto; padding-top: 40px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; color: var(--text-muted); font-size: 14px; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); } 40% { transform: translateX(-50%) translateY(-10px); } 60% { transform: translateX(-50%) translateY(-5px); } }
+        @media (max-width: 1024px) { .nav { padding: 20px 40px; } .hero { padding: 140px 40px 80px; } .services { padding: 100px 40px; } .work { padding: 100px 40px; } .stats-grid { grid-template-columns: repeat(2, 1fr); } .services-grid { grid-template-columns: 1fr; } .work-grid { grid-template-columns: 1fr; } .footer-content { flex-direction: column; gap: 60px; } .footer-links { gap: 40px; } .marquee-item { font-size: 48px; } }
+        @media (max-width: 768px) { .nav-links { display: none; } .hero-title { font-size: 40px; } .hero-cta { flex-direction: column; } .stats-grid { grid-template-columns: 1fr; gap: 40px; } .section-title { font-size: 32px; } .work-item h3 { font-size: 28px; } .footer-links { flex-direction: column; gap: 40px; } .footer-bottom { flex-direction: column; gap: 20px; text-align: center; } }
     </style>
 </head>
 <body>
-    <nav class="nav">
-        <div class="nav-logo"><a href="index.html">KI Expertenraum</a></div>
-        <div class="nav-menu">
-            <ul class="nav-links">
-                <li><a href="#work">Kurse</a></li>
-                <li><a href="blog.html">Blog</a></li>  <!-- HIER: von # zu blog.html -->
-                <li><a href="#">About</a></li>
-                <li><a href="#footer">Kontakt</a></li>  <!-- HIER: von # zu #footer -->
-            </ul>
-            <div class="hamburger"><span></span><span></span></div>
-        </div>
+    <nav class="nav" id="nav">
+        <div class="logo"><a href="index.html">KI Expertenraum</a></div>
+        <ul class="nav-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#work">Kurse</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+        </ul>
     </nav>
 
     <section class="hero">
         <div class="hero-content">
-            <span class="tag">NEU 2026</span>
-            <h1 class="hero-title">Werde zur KI Elite</h1>
-            <p class="hero-subtitle">Von EU AI Act Compliance bis zu No-Code Automatisierung. Lerne KI wirklich anzuwenden – nicht nur darüber zu reden.</p>
-            <a href="#work" class="btn">Kurse entdecken</a>
-        </div>
-        
-        <div class="hero-visual">
-            <div class="android-container">
-                <div class="particles">
-                    <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
-                </div>
-                <div class="android">
-                    <div class="scan-line"></div>
-                    <div class="android-head">
-                        <div class="face-screen"><div class="eyes"><div class="eye"></div><div class="eye"></div></div></div>
-                        <div class="mouth"></div>
-                    </div>
-                    <div class="neck"><div class="neck-ring"></div><div class="neck-ring"></div><div class="neck-ring"></div></div>
-                    <div class="torso"><div class="chest-light"></div><div class="torso-lines"></div></div>
-                </div>
+            <span class="hero-eyebrow">Praxisnahe KI-Bildung</span>
+            <h1 class="hero-title">
+                <span>Werde zur</span>
+                <span class="accent">KI-Elite</span>
+            </h1>
+            <p class="hero-description">
+                Von EU AI Act Compliance bis zu No-Code Automatisierung. 
+                Lerne KI wirklich anzuwenden – nicht nur darüber zu reden.
+            </p>
+            <div class="hero-cta">
+                <a href="#work" class="btn btn-primary">Kurse entdecken →</a>
+                <a href="#services" class="btn btn-secondary">Mehr erfahren</a>
             </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
         </div>
     </section>
 
     <div class="marquee">
         <div class="marquee-content">
-            <span>EU AI Act</span><span>•</span><span>Automation</span><span>•</span><span>KI Strategie</span><span>•</span><span>Compliance</span><span>•</span><span>No-Code</span><span>•</span>
-            <span>EU AI Act</span><span>•</span><span>Automation</span><span>•</span><span>KI Strategie</span>
+            <span class="marquee-item">EU AI Act</span>
+            <span class="marquee-item">•</span>
+            <span class="marquee-item">Automation</span>
+            <span class="marquee-item">•</span>
+            <span class="marquee-item">KI Strategie</span>
+            <span class="marquee-item">•</span>
+            <span class="marquee-item">Compliance</span>
+            <span class="marquee-item">•</span>
+            <span class="marquee-item">No-Code</span>
+            <span class="marquee-item">•</span>
+            <span class="marquee-item">Prompt Engineering</span>
+            <span class="marquee-item">•</span>
+            <span class="marquee-item">EU AI Act</span>
+            <span class="marquee-item">•</span>
+            <span class="marquee-item">Automation</span>
+            <span class="marquee-item">•</span>
+            <span class="marquee-item">KI Strategie</span>
+            <span class="marquee-item">•</span>
         </div>
     </div>
 
-    <section class="features">
-        <div class="features-grid">
-            <div class="feature"><div class="feature-num">01</div><h3>Sofort umsetzbar</h3><p>Jedes Konzept wird direkt mit praktischen Beispielen erklärt. Wissen, das du heute lernst, morgen anwenden kannst.</p></div>
-            <div class="feature"><div class="feature-num">02</div><h3>Rechtssicher</h3><p>EU AI Act, DSGVO, Haftung – wir decken alle rechtlichen Aspekte ab, damit du KI risikofrei nutzt.</p></div>
-            <div class="feature"><div class="feature-num">03</div><h3>Für echte Profis</h3><p>Ob KMU-Geschäftsführer oder Entscheider – unsere Kurse sind für Profis aufbereitet.</p></div>
+    <section class="services" id="services">
+        <div class="section-header">
+            <span class="section-label">Unser Angebot</span>
+            <h2 class="section-title">Alles was du für KI im Unternehmen brauchst</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-number">01</div>
+                <h3>EU AI Act</h3>
+                <p>Rechtssichere KI-Nutzung ab Februar 2026. Compliance-Checklisten, Dokumentation & Haftungsminimierung.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-number">02</div>
+                <h3>KI-Strategie</h3>
+                <p>Von der ersten Analyse bis zur vollständigen Integration. Maßgeschneidert für KMU.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-number">03</div>
+                <h3>Automation</h3>
+                <p>No-Code KI-Tools für echte Produktivitätsgewinne. Ohne Programmierkenntnisse.</p>
+            </div>
         </div>
     </section>
 
     <section class="work" id="work">
-        <div class="work-header">
-            <h2 class="work-title">Unsere<br>Kurse</h2>
-            <a href="#" class="work-link">Alle ansehen</a>
-        </div>
-        <div class="work-grid">
-            <div class="work-item"><div class="work-content"><div class="work-category">Compliance</div><h3>EU AI Act<br>Masterclass</h3></div><div class="work-arrow">→</div></div>
-            <div class="work-item"><div class="work-content"><div class="work-category">Strategie</div><h3>KI Governance<br>& Einführung</h3></div><div class="work-arrow">→</div></div>
-            <div class="work-item"><div class="work-content"><div class="work-category">Automation</div><h3>No-Code KI<br>Tools</h3></div><div class="work-arrow">→</div></div>
-            <div class="work-item"><div class="work-content"><div class="work-category">Recht</div><h3>DSGVO<br>konforme KI</h3></div><div class="work-arrow">→</div></div>
+        <div class="work-container">
+            <div class="work-header">
+                <div>
+                    <span class="section-label">Kurse</span>
+                    <h2 class="section-title">Lerne von den Besten</h2>
+                </div>
+            </div>
+            <div class="work-grid">
+                <div class="work-item">
+                    <div class="work-bg"></div>
+                    <div class="work-content">
+                        <span class="work-category">Compliance</span>
+                        <h3>EU AI Act<br>Masterclass</h3>
+                        <p>Der komplette Leitfaden für rechtssichere KI. Inklusive Checklisten & Vorlagen.</p>
+                        <div class="work-arrow">→</div>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <div class="work-bg"></div>
+                    <div class="work-content">
+                        <span class="work-category">Strategie</span>
+                        <h3>KI Governance<br>& Einführung</h3>
+                        <p>Wie du KI strukturiert in dein Unternehmen bringst – von der Roadmap bis zur Umsetzung.</p>
+                        <div class="work-arrow">→</div>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <div class="work-bg"></div>
+                    <div class="work-content">
+                        <span class="work-category">Automation</span>
+                        <h3>No-Code KI<br>Tools</h3>
+                        <p>Automatisiere Workflows ohne Programmieren. Praxisnahe Beispiele & Templates.</p>
+                        <div class="work-arrow">→</div>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <div class="work-bg"></div>
+                    <div class="work-content">
+                        <span class="work-category">Recht</span>
+                        <h3>DSGVO<br>konforme KI</h3>
+                        <p>Datenschutzrechtliche Grundlagen für KI-Nutzung. Verträge, Auftragsverarbeitung & mehr.</p>
+                        <div class="work-arrow">→</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer class="footer" id="footer">
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Absolventen</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">20+</div>
+                <div class="stat-label">Kurse</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Zufriedenheit</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">4.9</div>
+                <div class="stat-label">Bewertung</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta" id="contact">
+        <div class="cta-content">
+            <h2>Bereit für die<br>KI-Transformation?</h2>
+            <p>Starte jetzt und werde Teil der KI-Elite. Erster Kurs kostenlos testen.</p>
+            <a href="#work" class="btn btn-primary">Jetzt starten →</a>
+        </div>
+    </section>
+
+    <footer class="footer">
         <div class="footer-content">
             <div class="footer-brand">
-                <h2>KI Expertenraum</h2>
+                <h3>KI Expertenraum</h3>
                 <p>Dein Zugang zur KI-Elite. Praxisnahe Kurse für Unternehmer und Fachkräfte.</p>
             </div>
-            <div class="footer-nav">
+            <div class="footer-links">
                 <div class="footer-col">
                     <h4>Navigation</h4>
                     <ul>
-                        <li><a href="#">Start</a></li>
+                        <li><a href="#services">Services</a></li>
                         <li><a href="#work">Kurse</a></li>
-                        <li><a href="blog.html">Blog</a></li>  <!-- HIER: von # zu blog.html -->
-                        <li><a href="#">Kontakt</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="#contact">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Rechtliches</h4>
+                    <ul>
+                        <li><a href="#">Impressum</a></li>
+                        <li><a href="#">Datenschutz</a></li>
+                        <li><a href="#">AGB</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -213,9 +291,23 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <span>© 2026 KI Expertenraum</span>
-            <span>Alle Rechte vorbehalten</span>
+            <span>© 2026 KI Expertenraum. Alle Rechte vorbehalten.</span>
+            <span>Mit ♥ in Deutschland</span>
         </div>
     </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('nav');
+            if (window.scrollY > 100) { nav.classList.add('scrolled'); } else { nav.classList.remove('scrolled'); }
+        });
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+            });
+        });
+    </script>
 </body>
 </html>
