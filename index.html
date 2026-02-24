@@ -54,52 +54,13 @@
         .btn-secondary { display: inline-flex; align-items: center; gap: 10px; padding: 18px 36px; background: rgba(255,255,255,0.7); color: var(--text); font-size: 15px; font-weight: 600; text-decoration: none; border-radius: 12px; transition: all 0.3s; border: 1px solid var(--border); backdrop-filter: blur(10px); }
         .btn-secondary:hover { background: white; transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
         
-        /* CSS ROBOT - Guaranteed to work */
+        /* AI HUMANOID IMAGE */
         .hero-visual { position: relative; height: 550px; display: flex; align-items: center; justify-content: center; animation: fadeIn 1.2s ease 0.3s both; }
-        .robot-container { position: relative; width: 350px; height: 500px; display: flex; flex-direction: column; align-items: center; }
-        
-        /* Robot Head */
-        .robot-head { width: 140px; height: 160px; background: linear-gradient(145deg, rgba(255,255,255,0.95) 0%, rgba(240,247,255,0.9) 50%, rgba(219,234,254,0.85) 100%); border-radius: 70px 70px 50px 50px; box-shadow: 0 25px 50px rgba(59, 130, 246, 0.25), 0 0 0 1px rgba(255,255,255,0.8), inset 0 -15px 30px rgba(59, 130, 246, 0.15); position: relative; z-index: 10; animation: headMove 6s ease-in-out infinite; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.9); }
-        @keyframes headMove { 0%, 100% { transform: rotate(-3deg) translateY(0); } 50% { transform: rotate(3deg) translateY(-5px); } }
-        
-        /* Robot Face */
-        .robot-face { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90px; height: 50px; background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); border-radius: 12px; box-shadow: inset 0 0 20px rgba(0,0,0,0.8), 0 0 15px rgba(59, 130, 246, 0.3); overflow: hidden; }
-        .robot-eyes { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: flex; gap: 20px; }
-        .robot-eye { width: 24px; height: 6px; background: linear-gradient(90deg, #06b6d4, #3b82f6, #8b5cf6); border-radius: 3px; box-shadow: 0 0 15px #06b6d4, 0 0 30px rgba(6, 182, 212, 0.5); animation: eyeGlow 2s ease-in-out infinite; }
-        @keyframes eyeGlow { 0%, 100% { opacity: 0.8; box-shadow: 0 0 15px #06b6d4; } 50% { opacity: 1; box-shadow: 0 0 25px #06b6d4, 0 0 40px rgba(6,182,212,0.6); } }
-        
-        /* Robot Neck */
-        .robot-neck { width: 50px; height: 60px; background: linear-gradient(to bottom, rgba(200,220,255,0.9), rgba(180,210,250,0.8)); margin-top: -5px; position: relative; z-index: 5; border-radius: 0 0 25px 25px; }
-        .neck-ring { width: 100%; height: 12px; background: linear-gradient(to bottom, rgba(150,180,220,0.6), rgba(130,160,200,0.4)); margin-bottom: 8px; border-radius: 3px; }
-        
-        /* Robot Body */
-        .robot-body { width: 220px; height: 260px; background: linear-gradient(145deg, rgba(255,255,255,0.9) 0%, rgba(230,240,255,0.85) 50%, rgba(200,220,250,0.8) 100%); border-radius: 50px 50px 35px 35px; position: relative; margin-top: -5px; backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.9); box-shadow: 0 30px 60px rgba(59, 130, 246, 0.2), 0 0 0 1px rgba(255,255,255,0.8), inset 0 -25px 50px rgba(59, 130, 246, 0.1); display: flex; align-items: center; justify-content: center; }
-        
-        /* Chest Core */
-        .robot-core { width: 80px; height: 80px; background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9) 0%, rgba(6,182,212,0.4) 40%, rgba(59,130,246,0.6) 100%); border-radius: 50%; box-shadow: 0 0 40px rgba(6, 182, 212, 0.6), 0 0 70px rgba(59, 130, 246, 0.4), inset 0 0 20px rgba(255,255,255,0.5); animation: corePulse 3s ease-in-out infinite; position: relative; }
-        .robot-core::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 35px; height: 35px; background: radial-gradient(circle, rgba(6,182,212,0.9) 0%, transparent 70%); border-radius: 50%; animation: coreSpin 8s linear infinite; }
-        @keyframes corePulse { 0%, 100% { transform: scale(1); opacity: 0.9; box-shadow: 0 0 40px rgba(6, 182, 212, 0.6); } 50% { transform: scale(1.1); opacity: 1; box-shadow: 0 0 55px rgba(6, 182, 212, 0.8), 0 0 90px rgba(59, 130, 246, 0.5); } }
-        @keyframes coreSpin { from { transform: translate(-50%, -50%) rotate(0deg); } to { transform: translate(-50%, -50%) rotate(360deg); } }
-        
-        /* Circuit Lines */
-        .circuit-line { position: absolute; width: 60px; height: 2px; background: linear-gradient(90deg, transparent, rgba(6,182,212,0.6), transparent); animation: circuitFlow 3s linear infinite; }
-        .circuit-line:nth-child(1) { top: 30%; left: 10%; animation-delay: 0s; }
-        .circuit-line:nth-child(2) { top: 50%; right: 10%; animation-delay: -1s; }
-        .circuit-line:nth-child(3) { bottom: 30%; left: 5%; animation-delay: -2s; }
-        @keyframes circuitFlow { 0% { transform: translateX(-100%); opacity: 0; } 50% { opacity: 1; } 100% { transform: translateX(200%); opacity: 0; } }
-        
-        /* Glow Background */
-        .robot-glow { position: absolute; width: 350px; height: 350px; background: radial-gradient(circle, rgba(6,182,212,0.25) 0%, rgba(59,130,246,0.15) 40%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%, -50%); filter: blur(60px); animation: glowBreathe 5s ease-in-out infinite; z-index: -1; }
-        @keyframes glowBreathe { 0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; } 50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; } }
-        
-        /* Floating Particles */
-        .particles { position: absolute; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none; }
-        .particle { position: absolute; width: 5px; height: 5px; background: linear-gradient(135deg, #06b6d4, #3b82f6); border-radius: 50%; opacity: 0.7; animation: particleFloat 10s ease-in-out infinite; box-shadow: 0 0 15px rgba(6, 182, 212, 0.8); }
-        .particle:nth-child(1) { top: 20%; left: 15%; animation-delay: 0s; }
-        .particle:nth-child(2) { top: 30%; right: 20%; animation-delay: -2s; }
-        .particle:nth-child(3) { bottom: 25%; left: 25%; animation-delay: -4s; }
-        .particle:nth-child(4) { top: 60%; right: 15%; animation-delay: -6s; }
-        @keyframes particleFloat { 0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; } 50% { transform: translateY(-30px) scale(1.3); opacity: 1; } }
+        .hero-image-container { position: relative; width: 100%; max-width: 500px; height: 500px; display: flex; align-items: center; justify-content: center; }
+        .hero-image { width: 100%; height: 100%; object-fit: contain; border-radius: 20px; filter: drop-shadow(0 25px 50px rgba(59, 130, 246, 0.3)); animation: imageFloat 6s ease-in-out infinite; }
+        @keyframes imageFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+        .image-glow { position: absolute; width: 400px; height: 400px; background: radial-gradient(circle, rgba(6,182,212,0.3) 0%, rgba(59,130,246,0.2) 40%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%, -50%); filter: blur(60px); animation: glowBreathe 5s ease-in-out infinite; z-index: -1; }
+        @keyframes glowBreathe { 0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; } 50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.9; } }
         
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -107,7 +68,6 @@
         .intro { padding: 100px 80px; text-align: center; max-width: 850px; margin: 0 auto; }
         .intro-text { font-family: 'DM Sans', sans-serif; font-size: clamp(26px, 3vw, 38px); line-height: 1.4; font-weight: 500; color: var(--text); }
         .intro-text span { background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700; }
-        
         .ebooks { padding: 80px; position: relative; }
         .ebooks-container { max-width: 1200px; margin: 0 auto; }
         .ebooks-header { text-align: center; margin-bottom: 50px; }
@@ -128,7 +88,6 @@
         .ebook-download { display: inline-flex; align-items: center; gap: 8px; color: var(--accent); font-weight: 700; text-decoration: none; transition: all 0.3s; }
         .ebook-download:hover { gap: 12px; }
         .ebook-download::after { content: '↓'; font-size: 18px; }
-        
         .services { padding: 80px; position: relative; }
         .services-container { max-width: 1200px; margin: 0 auto; }
         .section-header { text-align: center; margin-bottom: 60px; }
@@ -142,7 +101,6 @@
         .service-icon { width: 55px; height: 55px; background: linear-gradient(135deg, var(--accent) 0%, #2563eb 100%); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 22px; box-shadow: 0 8px 25px var(--accent-glow); }
         .service-card h3 { font-size: 22px; margin-bottom: 12px; font-weight: 700; }
         .service-card p { color: var(--text-muted); line-height: 1.7; font-size: 15px; }
-        
         .work { padding: 80px; }
         .work-container { max-width: 1200px; margin: 0 auto; }
         .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; }
@@ -153,18 +111,15 @@
         .work-item p { color: var(--text-muted); line-height: 1.6; margin-bottom: 18px; font-size: 15px; }
         .work-arrow { color: var(--accent); font-weight: 700; display: inline-flex; align-items: center; gap: 8px; transition: gap 0.3s; font-size: 15px; }
         .work-item:hover .work-arrow { gap: 12px; }
-        
         .stats { padding: 70px 80px; background: var(--bg-card); backdrop-filter: blur(20px); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
         .stats-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-around; gap: 50px; }
         .stat-item { text-align: center; }
         .stat-number { font-family: 'DM Sans', sans-serif; font-size: 52px; font-weight: 800; background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; margin-bottom: 8px; }
         .stat-label { font-size: 15px; color: var(--text-muted); font-weight: 600; }
-        
         .cta { padding: 120px 80px; text-align: center; position: relative; overflow: hidden; }
         .cta-box { max-width: 650px; margin: 0 auto; padding: 50px; background: var(--bg-card); backdrop-filter: blur(20px); border-radius: 28px; box-shadow: 0 25px 50px rgba(0,0,0,0.1); border: 1px solid rgba(255,255,255,0.7); position: relative; z-index: 1; }
         .cta h2 { font-size: clamp(30px, 4vw, 44px); margin-bottom: 18px; font-weight: 800; }
         .cta p { color: var(--text-muted); margin-bottom: 30px; font-size: 18px; line-height: 1.7; }
-        
         .footer { padding: 50px 80px; background: var(--bg-card); backdrop-filter: blur(20px); border-top: 1px solid var(--border); }
         .footer-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .footer-brand h3 { font-size: 24px; margin-bottom: 8px; font-weight: 800; background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -173,9 +128,8 @@
         .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.3s; }
         .footer-links a:hover { color: var(--accent); }
         .footer-bottom { max-width: 1200px; margin: 35px auto 0; padding-top: 25px; border-top: 1px solid var(--border); text-align: center; font-size: 14px; color: var(--text-light); }
-        
-        @media (max-width: 1024px) { .nav { padding: 20px 40px; } .hero { grid-template-columns: 1fr; padding: 120px 40px 60px; text-align: center; gap: 40px; } .hero-description { margin: 0 auto 35px; } .hero-visual { height: 400px; order: -1; } .robot-container { transform: scale(0.85); } .intro, .services, .work, .ebooks, .stats, .cta { padding: 60px 40px; } .services-grid, .work-grid, .ebooks-grid { grid-template-columns: 1fr; } .stats-container { flex-direction: column; gap: 35px; } .ebook-card, .footer-container { flex-direction: column; text-align: center; } .ebook-cover { margin: 0 auto; } }
-        @media (max-width: 768px) { .nav-links { display: none; } .hero-title { font-size: 38px; } .hero-buttons { justify-content: center; } .btn-primary, .btn-secondary { padding: 16px 28px; font-size: 14px; } .robot-container { transform: scale(0.7); } }
+        @media (max-width: 1024px) { .nav { padding: 20px 40px; } .hero { grid-template-columns: 1fr; padding: 120px 40px 60px; text-align: center; gap: 40px; } .hero-description { margin: 0 auto 35px; } .hero-visual { height: 400px; order: -1; } .hero-image { max-height: 350px; } .intro, .services, .work, .ebooks, .stats, .cta { padding: 60px 40px; } .services-grid, .work-grid, .ebooks-grid { grid-template-columns: 1fr; } .stats-container { flex-direction: column; gap: 35px; } .ebook-card, .footer-container { flex-direction: column; text-align: center; } .ebook-cover { margin: 0 auto; } }
+        @media (max-width: 768px) { .nav-links { display: none; } .hero-title { font-size: 38px; } .hero-buttons { justify-content: center; } .btn-primary, .btn-secondary { padding: 16px 28px; font-size: 14px; } }
     </style>
 </head>
 <body>
@@ -205,32 +159,9 @@
             </div>
         </div>
         <div class="hero-visual">
-            <div class="robot-container">
-                <div class="robot-head">
-                    <div class="robot-face">
-                        <div class="robot-eyes">
-                            <div class="robot-eye"></div>
-                            <div class="robot-eye"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="robot-neck">
-                    <div class="neck-ring"></div>
-                    <div class="neck-ring"></div>
-                </div>
-                <div class="robot-body">
-                    <div class="circuit-line"></div>
-                    <div class="circuit-line"></div>
-                    <div class="circuit-line"></div>
-                    <div class="robot-core"></div>
-                </div>
-                <div class="robot-glow"></div>
-                <div class="particles">
-                    <div class="particle"></div>
-                    <div class="particle"></div>
-                    <div class="particle"></div>
-                    <div class="particle"></div>
-                </div>
+            <div class="hero-image-container">
+                <div class="image-glow"></div>
+                <img src="images/ki-humanoid.jpg" alt="KI Humanoid" class="hero-image">
             </div>
         </div>
     </section>
@@ -261,4 +192,148 @@
                     </div>
                 </a>
                 <a href="https://www.dropbox.com/scl/fi/rt7k1r6w4qwexzs795gkv/Die_10_KI-Prompts_fuer_KMU.pdf?rlkey=wlo2fn2815lt2hwlp1w76ggk3&st=06yeyrs1&dl=1" class="ebook-card" download>
-                    <div class="ebook-cover">
+                    <div class="ebook-cover">📗</div>
+                    <div class="ebook-content">
+                        <span class="ebook-tag">PDF • 38 Seiten</span>
+                        <h3>25 KI-Prompts für KMU</h3>
+                        <p>Fertige Prompts für Marketing, Vertrieb & Büro. 10h/Woche Zeitersparnis garantiert.</p>
+                        <div class="ebook-meta">
+                            <span>⏱️ 12 Min</span>
+                            <span>👥 1.923 Downloads</span>
+                        </div>
+                        <span class="ebook-download">Jetzt downloaden</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="services-container">
+            <div class="section-header">
+                <span class="section-label">Was wir anbieten</span>
+                <h2 class="section-title">Unsere Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎓</div>
+                    <h3>KI Kurse</h3>
+                    <p>Von Grundlagen bis Fortgeschritten. Praxisnahe Lerninhalte mit sofort umsetzbaren Ergebnissen.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚖️</div>
+                    <h3>Compliance Beratung</h3>
+                    <p>EU AI Act, DSGVO & Betriebsrat. Wir machen Ihre KI-Nutzung rechtssicher.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🤖</div>
+                    <h3>Automation Setup</h3>
+                    <p>No-Code Workflows, Zapier-Integrationen, KI-Agenten. Wir automatisieren Ihre Prozesse.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💼</div>
+                    <h3>Workshops</h3>
+                    <p>Maßgeschneiderte Inhouse-Schulungen für Ihr Team. Von 2 Stunden bis 2 Tagen.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>KI Strategie</h3>
+                    <p>Roadmap für Ihre KI-Transformation. Von der ersten Idee bis zur Skalierung.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Implementation</h3>
+                    <p>Wir setzen Ihre KI-Projekte um. Von Chatbots bis zu komplexen Automatisierungen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="work" id="work">
+        <div class="work-container">
+            <div class="section-header">
+                <span class="section-label">Lerne von den Besten</span>
+                <h2 class="section-title">Unsere Kurse</h2>
+            </div>
+            <div class="work-grid">
+                <a href="#" class="work-item">
+                    <span class="work-category">EU AI Act</span>
+                    <h3>EU AI Act Mastery</h3>
+                    <p>Der komplette Kurs zur neuen KI-Verordnung. Alle Pflichten, Checklisten und Vorlagen für Ihr Unternehmen.</p>
+                    <span class="work-arrow">Details ansehen →</span>
+                </a>
+                <a href="#" class="work-item">
+                    <span class="work-category">Prompt Engineering</span>
+                    <h3>Prompt Engineering Pro</h3>
+                    <p>Lerne, wie die Top 1% KI nutzen. Von Chain-of-Thought bis zu Multi-Agent Workflows.</p>
+                    <span class="work-arrow">Details ansehen →</span>
+                </a>
+                <a href="#" class="work-item">
+                    <span class="work-category">No-Code</span>
+                    <h3>No-Code Automation</h3>
+                    <p>Automatisiere dein Business ohne Programmieren. Zapier, Make, n8n & KI-Agenten im Einsatz.</p>
+                    <span class="work-arrow">Details ansehen →</span>
+                </a>
+                <a href="#" class="work-item">
+                    <span class="work-category">Marketing</span>
+                    <h3>KI Marketing Accelerator</h3>
+                    <p>Content-Strategie, SEO, Social Media – alles mit KI beschleunigt. Messbare Ergebnisse garantiert.</p>
+                    <span class="work-arrow">Details ansehen →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">2.500+</div>
+                <div class="stat-label">Zufriedene Teilnehmer</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Praxisnahe Kurse</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">4.8★</div>
+                <div class="stat-label">Durchschnittliche Bewertung</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">10h+</div>
+                <div class="stat-label">Zeitersparnis/Woche</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="cta-box">
+            <h2>Bereit für die KI-Transformation?</h2>
+            <p>Starte jetzt mit unseren kostenlosen eBooks oder buche ein kostenloses Erstgespräch für dein Unternehmen.</p>
+            <a href="#ebooks" class="btn-primary">Gratis eBooks sichern →</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>KI Expertenraum</h3>
+                <p>Dein Zugang zur KI-Elite</p>
+            </div>
+            <div class="footer-links">
+                <a href="#services">Services</a>
+                <a href="#work">Kurse</a>
+                <a href="blog.html">Blog</a>
+                <a href="#">Impressum</a>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2026 KI Expertenraum. Alle Rechte vorbehalten.</div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('nav');
+            if (window.scrollY > 50) { nav.classList.add('scrolled'); } else { nav.classList.remove('scrolled'); }
+        });
+    </script>
+</body>
+</html>
