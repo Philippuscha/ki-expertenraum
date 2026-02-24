@@ -66,6 +66,7 @@
         .intro { padding: 100px 80px; text-align: center; max-width: 850px; margin: 0 auto; }
         .intro-text { font-family: 'DM Sans', sans-serif; font-size: clamp(26px, 3vw, 38px); line-height: 1.4; font-weight: 500; color: var(--text); }
         .intro-text span { background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700; }
+        
         .ebooks { padding: 80px; position: relative; }
         .ebooks-container { max-width: 1200px; margin: 0 auto; }
         .ebooks-header { text-align: center; margin-bottom: 50px; }
@@ -86,21 +87,12 @@
         .ebook-download { display: inline-flex; align-items: center; gap: 8px; color: var(--accent); font-weight: 700; text-decoration: none; transition: all 0.3s; }
         .ebook-download:hover { gap: 12px; }
         .ebook-download::after { content: '↓'; font-size: 18px; }
-        .services { padding: 80px; position: relative; }
-        .services-container { max-width: 1200px; margin: 0 auto; }
+        
+        .work { padding: 80px; }
+        .work-container { max-width: 1200px; margin: 0 auto; }
         .section-header { text-align: center; margin-bottom: 60px; }
         .section-label { font-size: 14px; color: var(--accent); text-transform: uppercase; letter-spacing: 3px; font-weight: 700; margin-bottom: 12px; display: block; }
         .section-title { font-size: clamp(34px, 4vw, 48px); font-weight: 800; color: var(--text); }
-        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
-        .service-card { padding: 35px; background: var(--bg-card); backdrop-filter: blur(20px); border-radius: 20px; border: 1px solid rgba(255,255,255,0.7); box-shadow: 0 10px 30px rgba(0,0,0,0.06); transition: all 0.4s; position: relative; overflow: hidden; }
-        .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--accent), #8b5cf6); transform: scaleX(0); transition: transform 0.4s; }
-        .service-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px rgba(0,0,0,0.1); }
-        .service-card:hover::before { transform: scaleX(1); }
-        .service-icon { width: 55px; height: 55px; background: linear-gradient(135deg, var(--accent) 0%, #2563eb 100%); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 22px; box-shadow: 0 8px 25px var(--accent-glow); }
-        .service-card h3 { font-size: 22px; margin-bottom: 12px; font-weight: 700; }
-        .service-card p { color: var(--text-muted); line-height: 1.7; font-size: 15px; }
-        .work { padding: 80px; }
-        .work-container { max-width: 1200px; margin: 0 auto; }
         .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; }
         .work-item { background: var(--bg-card); backdrop-filter: blur(20px); border-radius: 20px; padding: 35px; border: 1px solid rgba(255,255,255,0.7); box-shadow: 0 10px 30px rgba(0,0,0,0.06); cursor: pointer; transition: all 0.4s; text-decoration: none; color: inherit; display: block; position: relative; overflow: hidden; }
         .work-item:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
@@ -109,15 +101,18 @@
         .work-item p { color: var(--text-muted); line-height: 1.6; margin-bottom: 18px; font-size: 15px; }
         .work-arrow { color: var(--accent); font-weight: 700; display: inline-flex; align-items: center; gap: 8px; transition: gap 0.3s; font-size: 15px; }
         .work-item:hover .work-arrow { gap: 12px; }
+        
         .stats { padding: 70px 80px; background: var(--bg-card); backdrop-filter: blur(20px); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
         .stats-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-around; gap: 50px; }
         .stat-item { text-align: center; }
         .stat-number { font-family: 'DM Sans', sans-serif; font-size: 52px; font-weight: 800; background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; margin-bottom: 8px; }
         .stat-label { font-size: 15px; color: var(--text-muted); font-weight: 600; }
+        
         .cta { padding: 120px 80px; text-align: center; position: relative; overflow: hidden; }
         .cta-box { max-width: 650px; margin: 0 auto; padding: 50px; background: var(--bg-card); backdrop-filter: blur(20px); border-radius: 28px; box-shadow: 0 25px 50px rgba(0,0,0,0.1); border: 1px solid rgba(255,255,255,0.7); position: relative; z-index: 1; }
         .cta h2 { font-size: clamp(30px, 4vw, 44px); margin-bottom: 18px; font-weight: 800; }
         .cta p { color: var(--text-muted); margin-bottom: 30px; font-size: 18px; line-height: 1.7; }
+        
         .footer { padding: 50px 80px; background: var(--bg-card); backdrop-filter: blur(20px); border-top: 1px solid var(--border); }
         .footer-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .footer-brand h3 { font-size: 24px; margin-bottom: 8px; font-weight: 800; background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -126,7 +121,8 @@
         .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.3s; }
         .footer-links a:hover { color: var(--accent); }
         .footer-bottom { max-width: 1200px; margin: 35px auto 0; padding-top: 25px; border-top: 1px solid var(--border); text-align: center; font-size: 14px; color: var(--text-light); }
-        @media (max-width: 1024px) { .nav { padding: 20px 40px; } .hero { grid-template-columns: 1fr; padding: 120px 40px 60px; text-align: center; gap: 40px; } .hero-description { margin: 0 auto 35px; } .hero-visual { height: 400px; order: -1; } .hero-image { max-height: 350px; } .intro, .services, .work, .ebooks, .stats, .cta { padding: 60px 40px; } .services-grid, .work-grid, .ebooks-grid { grid-template-columns: 1fr; } .stats-container { flex-direction: column; gap: 35px; } .ebook-card, .footer-container { flex-direction: column; text-align: center; } .ebook-cover { margin: 0 auto; } }
+        
+        @media (max-width: 1024px) { .nav { padding: 20px 40px; } .hero { grid-template-columns: 1fr; padding: 120px 40px 60px; text-align: center; gap: 40px; } .hero-description { margin: 0 auto 35px; } .hero-visual { height: 400px; order: -1; } .hero-image { max-height: 350px; } .intro, .work, .ebooks, .stats, .cta { padding: 60px 40px; } .ebooks-grid, .work-grid { grid-template-columns: 1fr; } .stats-container { flex-direction: column; gap: 35px; } .ebook-card, .footer-container { flex-direction: column; text-align: center; } .ebook-cover { margin: 0 auto; } }
         @media (max-width: 768px) { .nav-links { display: none; } .hero-title { font-size: 38px; } .hero-buttons { justify-content: center; } .btn-primary, .btn-secondary { padding: 16px 28px; font-size: 14px; } }
     </style>
 </head>
@@ -140,7 +136,6 @@
         <div class="logo"><a href="index.html">KI Expertenraum</a></div>
         <ul class="nav-links">
             <li><a href="#ebooks">eBooks</a></li>
-            <li><a href="#services">Services</a></li>
             <li><a href="#work">Kurse</a></li>
             <li><a href="blog.html">Blog</a></li>
         </ul>
@@ -206,47 +201,6 @@
         </div>
     </section>
 
-    <section class="services" id="services">
-        <div class="services-container">
-            <div class="section-header">
-                <span class="section-label">Was wir anbieten</span>
-                <h2 class="section-title">Unsere Services</h2>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🎓</div>
-                    <h3>KI Kurse</h3>
-                    <p>Von Grundlagen bis Fortgeschritten. Praxisnahe Lerninhalte mit sofort umsetzbaren Ergebnissen.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">⚖️</div>
-                    <h3>Compliance Beratung</h3>
-                    <p>EU AI Act, DSGVO & Betriebsrat. Wir machen Ihre KI-Nutzung rechtssicher.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🤖</div>
-                    <h3>Automation Setup</h3>
-                    <p>No-Code Workflows, Zapier-Integrationen, KI-Agenten. Wir automatisieren Ihre Prozesse.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">💼</div>
-                    <h3>Workshops</h3>
-                    <p>Maßgeschneiderte Inhouse-Schulungen für Ihr Team. Von 2 Stunden bis 2 Tagen.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📊</div>
-                    <h3>KI Strategie</h3>
-                    <p>Roadmap für Ihre KI-Transformation. Von der ersten Idee bis zur Skalierung.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🔧</div>
-                    <h3>Implementation</h3>
-                    <p>Wir setzen Ihre KI-Projekte um. Von Chatbots bis zu komplexen Automatisierungen.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="work" id="work">
         <div class="work-container">
             <div class="section-header">
@@ -306,7 +260,7 @@
     <section class="cta">
         <div class="cta-box">
             <h2>Bereit für die KI-Transformation?</h2>
-            <p>Starte jetzt mit unseren kostenlosen eBooks oder buche ein kostenloses Erstgespräch für dein Unternehmen.</p>
+            <p>Starte jetzt mit unseren kostenlosen eBooks oder buche ein kostenloses Erstgespräch.</p>
             <a href="#ebooks" class="btn-primary">Gratis eBooks sichern →</a>
         </div>
     </section>
@@ -318,7 +272,6 @@
                 <p>Dein Zugang zur KI-Elite</p>
             </div>
             <div class="footer-links">
-                <a href="#services">Services</a>
                 <a href="#work">Kurse</a>
                 <a href="blog.html">Blog</a>
                 <a href="#">Impressum</a>
