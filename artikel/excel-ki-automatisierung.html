@@ -9,88 +9,34 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { 
-            --bg: #f0f7ff; 
-            --bg-card: rgba(255, 255, 255, 0.9);
-            --text: #0f172a; 
-            --text-muted: #475569; 
-            --text-light: #64748b; 
-            --border: rgba(255, 255, 255, 0.6);
-            --accent: #3b82f6;
-            --excel: #217346;
-        }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 50%, #dbeafe 100%); color: var(--text); line-height: 1.7; overflow-x: hidden; -webkit-font-smoothing: antialiased; min-height: 100vh; }
-        h1, h2, h3, h4 { font-family: 'DM Sans', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
-        
+        :root { --bg: #f0f7ff; --bg-card: rgba(255, 255, 255, 0.9); --text: #0f172a; --text-muted: #475569; --text-light: #64748b; --border: rgba(255, 255, 255, 0.6); --accent: #3b82f6; --excel: #217346; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 50%, #dbeafe 100%); color: var(--text); line-height: 1.7; min-height: 100vh; }
+        h1, h2, h3 { font-family: 'DM Sans', sans-serif; font-weight: 700; }
         .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 80px; display: flex; justify-content: space-between; align-items: center; background: rgba(240, 247, 255, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
         .logo { font-family: 'DM Sans', sans-serif; font-size: 24px; font-weight: 800; background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .logo a { text-decoration: none; color: inherit; }
         .nav-links { display: flex; gap: 35px; list-style: none; }
-        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.3s; }
-        .nav-links a:hover { color: var(--accent); }
-        
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 600; }
         .article-header { padding: 140px 80px 60px; max-width: 800px; margin: 0 auto; text-align: center; }
         .article-meta { display: flex; gap: 20px; justify-content: center; margin-bottom: 25px; font-size: 14px; color: var(--text-light); }
         .article-meta .category { color: var(--accent); background: rgba(59, 130, 246, 0.1); padding: 6px 14px; border-radius: 20px; font-weight: 600; }
         .article-title { font-size: clamp(32px, 4vw, 48px); line-height: 1.15; margin-bottom: 25px; }
-        .article-intro { font-size: 20px; color: var(--text-muted); line-height: 1.8; margin-bottom: 30px; }
-        .article-author { display: flex; align-items: center; gap: 15px; justify-content: center; }
-        .author-avatar { width: 50px; height: 50px; background: linear-gradient(135deg, var(--accent), #8b5cf6); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 20px; }
-        .author-info { text-align: left; }
-        .author-name { font-weight: 700; color: var(--text); }
-        .author-role { font-size: 14px; color: var(--text-light); }
-        
         .article-content { max-width: 800px; margin: 0 auto; padding: 0 80px 80px; }
-        .article-content h2 { font-size: 28px; margin: 50px 0 20px; color: var(--text); }
-        .article-content h3 { font-size: 22px; margin: 35px 0 15px; color: var(--text); }
-        .article-content p { margin-bottom: 20px; color: var(--text-muted); }
-        .article-content ul, .article-content ol { margin: 20px 0; padding-left: 30px; color: var(--text-muted); }
-        .article-content li { margin-bottom: 10px; }
-        .article-content strong { color: var(--text); font-weight: 600; }
-        
+        .article-content h2 { font-size: 28px; margin: 50px 0 20px; }
         .excel-box { background: linear-gradient(135deg, rgba(33, 115, 70, 0.1), rgba(33, 115, 70, 0.05)); border: 2px solid var(--excel); border-radius: 16px; padding: 30px; margin: 30px 0; }
         .excel-box h3 { color: var(--excel); margin-top: 0; }
-        
-        .prompt-box { background: #1e293b; border-radius: 16px; padding: 25px; margin: 25px 0; color: #e2e8f0; font-family: 'Monaco', 'Consolas', monospace; font-size: 14px; line-height: 1.6; position: relative; }
+        .prompt-box { background: #1e293b; border-radius: 16px; padding: 25px; margin: 25px 0; color: #e2e8f0; font-family: monospace; font-size: 14px; position: relative; }
         .prompt-box::before { content: 'PROMPT'; position: absolute; top: 10px; right: 15px; font-size: 11px; color: #64748b; font-family: 'DM Sans', sans-serif; font-weight: 700; }
-        
         .formula-result { background: white; border-radius: 12px; padding: 20px; margin: 20px 0; border-left: 4px solid var(--excel); font-family: monospace; }
-        .formula-result h4 { color: var(--excel); margin-top: 0; font-size: 16px; }
-        
+        .time-save { display: inline-block; background: linear-gradient(135deg, #22c55e, #16a34a); color: white; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 700; margin: 15px 0; }
+        .highlight-box { background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 16px; padding: 30px; margin: 30px 0; }
         .step-box { display: flex; gap: 20px; margin: 25px 0; padding: 25px; background: var(--bg-card); border-radius: 16px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
         .step-number { width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent), #8b5cf6); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; flex-shrink: 0; }
         .step-content { flex: 1; }
-        .step-content h4 { margin-top: 0; margin-bottom: 8px; }
-        
-        .highlight-box { background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 16px; padding: 30px; margin: 30px 0; }
-        .highlight-box h3 { margin-top: 0; color: var(--accent); }
-        
-        .time-save { display: inline-block; background: linear-gradient(135deg, #22c55e, #16a34a); color: white; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 700; margin: 15px 0; }
-        
         .cta-box { background: linear-gradient(135deg, var(--accent), #8b5cf6); color: white; padding: 40px; border-radius: 20px; margin: 50px 0; text-align: center; }
-        .cta-box h3 { color: white; margin-bottom: 15px; font-size: 24px; }
-        .cta-box p { color: rgba(255,255,255,0.9); margin-bottom: 25px; }
-        .btn-white { display: inline-block; background: white; color: var(--accent); padding: 14px 32px; border-radius: 10px; text-decoration: none; font-weight: 700; transition: transform 0.3s; }
-        .btn-white:hover { transform: translateY(-3px); }
-        
-        .footer { padding: 50px 80px; background: var(--bg-card); backdrop-filter: blur(20px); border-top: 1px solid var(--border); margin-top: 80px; }
-        .footer-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .footer-brand h3 { font-size: 24px; margin-bottom: 8px; }
-        .footer-brand p { color: var(--text-muted); font-size: 15px; }
-        .footer-links { display: flex; gap: 35px; }
-        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 600; }
-        .footer-links a:hover { color: var(--accent); }
-        
-        @media (max-width: 768px) { 
-            .nav { padding: 15px 30px; } 
-            .nav-links { display: none; } 
-            .article-header { padding: 120px 30px 40px; } 
-            .article-content { padding: 0 30px 60px; }
-            .step-box { flex-direction: column; }
-            .footer { padding: 40px 30px; } 
-            .footer-content { flex-direction: column; gap: 25px; text-align: center; }
-        }
+        .btn-white { display: inline-block; background: white; color: var(--accent); padding: 14px 32px; border-radius: 10px; text-decoration: none; font-weight: 700; }
+        .footer { padding: 50px 80px; background: var(--bg-card); border-top: 1px solid var(--border); margin-top: 80px; }
+        @media (max-width: 768px) { .article-content { padding: 0 30px 60px; } }
     </style>
 </head>
 <body>
@@ -98,8 +44,6 @@
         <div class="logo"><a href="../index.html">KI Expertenraum</a></div>
         <ul class="nav-links">
             <li><a href="../index.html#ebooks">eBooks</a></li>
-            <li><a href="../index.html#services">Services</a></li>
-            <li><a href="../index.html#work">Kurse</a></li>
             <li><a href="../blog.html">Blog</a></li>
         </ul>
     </nav>
@@ -112,5 +56,111 @@
         </div>
         <h1 class="article-title">Excel KI Automatisierung ohne Programmieren</h1>
         <p class="article-intro">Formeln per KI generieren, Daten analysieren, Berichte automatisch erstellen – ganz ohne VBA. So sparst du 5+ Stunden pro Woche.</p>
-        <div class="article-author">
-            <div class="author-avatar">P</div>
+    </header>
+
+    <article class="article-content">
+        <h2>Das Problem mit Excel</h2>
+        <p>Sie kennen das: Eine einfache Auswertung dauert Stunden. Die Formel will nicht funktionieren. Die Pivot-Tabelle zeigt falsche Werte. Die Lösung: KI als Excel-Coach.</p>
+
+        <div class="excel-box">
+            <h3>📊 Was Sie lernen</h3>
+            <ul>
+                <li>Formeln per Prompt generieren lassen</li>
+                <li>Komplexe Daten analysieren ohne Pivot</li>
+                <li>Berichte automatisch formatieren</li>
+                <li>Fehler finden und korrigieren</li>
+                <li>Daten aus verschiedenen Quellen zusammenführen</li>
+            </ul>
+        </div>
+
+        <h2>Die 3 besten KI-Tools für Excel</h2>
+        <p><strong>1. ChatGPT / Claude:</strong> Perfekt für komplexe Formeln, die Sie nicht auswendig kennen.</p>
+        <p><strong>2. Excel's eigene KI (Copilot):</strong> Natürlichsprachige Befehle für Microsoft 365 Nutzer.</p>
+        <p><strong>3. SheetAI:</strong> Für Google Sheets mit KI direkt in der Tabelle.</p>
+
+        <h2>Praxisbeispiel 1: SUMMEWENN-Formel</h2>
+        <div class="prompt-box">
+Erstelle eine Excel-Formel für folgendes Problem:
+Ich habe eine Tabelle mit:
+- Spalte A: Produktname
+- Spalte B: Verkaufszahl
+- Spalte C: Kategorie
+Ich möchte die Summe aller Verkaufszahlen für die Kategorie "Elektronik".
+        </div>
+        <div class="formula-result">
+            <h4>🤖 KI-Antwort</h4>
+            <code>=SUMMEWENN(C:C;"Elektronik";B:B)</code>
+            <p style="margin-top: 15px;">Erklärung: C:C = Bereich mit Kriterium, "Elektronik" = gesuchter Wert, B:B = Summenbereich</p>
+        </div>
+        <div class="time-save">⏱️ Zeitersparnis: 30 Minuten pro komplexer Formel</div>
+
+        <h2>Praxisbeispiel 2: Doppelte Einträge finden</h2>
+        <div class="step-box">
+            <div class="step-number">1</div>
+            <div class="step-content">
+                <h4>Problem</h4>
+                <p>In einer Liste mit 5.000 Kunden sind Dubletten. Sie wollen sie markieren, nicht löschen.</p>
+            </div>
+        </div>
+        <div class="prompt-box">
+Hier ist mein Problem: Ich habe Kundendaten in Spalte B (E-Mail).
+Wie markiere ich alle doppelten E-Mail-Adressen mit rotem Hintergrund?
+Schritt-für-Schritt Anleitung bitte.
+        </div>
+        <div class="formula-result">
+            <h4>🤖 KI-Lösung</h4>
+            <ol>
+                <li>Spalte B markieren</li>
+                <li>Start → Bedingte Formatierung → Neue Regel</li>
+                <li>Formel verwenden: <code>=ZÄHLENWENN($B:$B;B1)>1</code></li>
+                <li>Format → Füllfarbe → Rot → OK</li>
+            </ol>
+        </div>
+
+        <h2>Praxisbeispiel 3: Automatischer Monatsbericht</h2>
+        <div class="prompt-box">
+Erstelle eine Excel-Vorlage für einen monatlichen Verkaufsbericht.
+Daten: Spalte A: Datum, Spalte B: Produkt, Spalte C: Menge, Spalte D: Umsatz, Spalte E: Verkäufer
+Benötigt wird: Gesamtumsatz, Durchschnitt, Top-Produkt, Beste Verkäufer (Top 3)
+        </div>
+        <div class="time-save">⏱️ Zeitersparnis: 2-3 Stunden pro Bericht</div>
+
+        <h2>Fortgeschritten: Datenanalyse mit KI</h2>
+        <p>ChatGPT Plus und Claude Pro ermöglichen Datei-Uploads. Analysieren Sie Ihre Excel-Dateien direkt:</p>
+        <div class="highlight-box">
+            <h3>💡 Pro-Tipp: VBA-Code generieren</h3>
+            <p>Selbst wenn Sie nicht programmieren können: Die KI schreibt VBA-Code für Sie.</p>
+            <p>Beispiel: "Erstelle ein VBA-Makro, das alle Sheets als PDF speichert"</p>
+        </div>
+
+        <h2>Häufige Fehler vermeiden</h2>
+        <ul>
+            <li>KI gibt falsche Zellbezüge → Immer eigene Spaltenbuchstaben überprüfen</li>
+            <li>Formel funktioniert nicht → Semikolon vs. Komma je nach Sprache prüfen</li>
+            <li>Datum wird als Zahl angezeigt → Zellenformat auf "Datum" ändern</li>
+        </ul>
+
+        <h2>Die beste Vorgehensweise</h2>
+        <ol>
+            <li>Beschreiben Sie präzise: Was haben Sie (Daten), was wollen Sie (Ergebnis)?</li>
+            <li>Beispiele geben: "Spalte A sieht so aus: [Beispiel einfügen]"</li>
+            <li>Schrittweise vorgehen: Erst Formel, dann Formatierung, dann Automatisierung</li>
+            <li>Testen: Formel mit bekannten Werten überprüfen</li>
+            <li>Dokumentieren: Was macht die Formel? (für späteres Nachschlagen)</li>
+        </ol>
+
+        <div class="cta-box">
+            <h3>🚀 Excel-Profis werden?</h3>
+            <p>In unserem Kurs "Excel KI Automation" lernen Sie ganze Workflows zu automatisieren.</p>
+            <a href="../index.html#work" class="btn-white">Mehr erfahren →</a>
+        </div>
+    </article>
+
+    <footer class="footer">
+        <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+            <h3>KI Expertenraum</h3>
+            <p>Dein Zugang zur KI-Elite</p>
+        </div>
+    </footer>
+</body>
+</html>
