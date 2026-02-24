@@ -9,36 +9,87 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { --bg: #f0f7ff; --bg-card: rgba(255, 255, 255, 0.9); --text: #0f172a; --text-muted: #475569; --text-light: #64748b; --border: rgba(255, 255, 255, 0.6); --accent: #3b82f6; }
-        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 50%, #dbeafe 100%); color: var(--text); line-height: 1.7; min-height: 100vh; }
-        h1, h2, h3 { font-family: 'DM Sans', sans-serif; font-weight: 700; }
+        :root { 
+            --bg: #f0f7ff; 
+            --bg-card: rgba(255, 255, 255, 0.9);
+            --text: #0f172a; 
+            --text-muted: #475569; 
+            --text-light: #64748b; 
+            --border: rgba(255, 255, 255, 0.6);
+            --accent: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.3);
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 50%, #dbeafe 100%); color: var(--text); line-height: 1.7; overflow-x: hidden; -webkit-font-smoothing: antialiased; min-height: 100vh; }
+        h1, h2, h3, h4 { font-family: 'DM Sans', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
+        
         .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 80px; display: flex; justify-content: space-between; align-items: center; background: rgba(240, 247, 255, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
         .logo { font-family: 'DM Sans', sans-serif; font-size: 24px; font-weight: 800; background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .logo a { text-decoration: none; color: inherit; }
         .nav-links { display: flex; gap: 35px; list-style: none; }
-        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 600; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--accent); }
+        
         .article-header { padding: 140px 80px 60px; max-width: 800px; margin: 0 auto; text-align: center; }
         .article-meta { display: flex; gap: 20px; justify-content: center; margin-bottom: 25px; font-size: 14px; color: var(--text-light); }
         .article-meta .category { color: var(--accent); background: rgba(59, 130, 246, 0.1); padding: 6px 14px; border-radius: 20px; font-weight: 600; }
         .article-title { font-size: clamp(32px, 4vw, 48px); line-height: 1.15; margin-bottom: 25px; }
         .article-intro { font-size: 20px; color: var(--text-muted); line-height: 1.8; margin-bottom: 30px; }
+        .article-author { display: flex; align-items: center; gap: 15px; justify-content: center; }
+        .author-avatar { width: 50px; height: 50px; background: linear-gradient(135deg, var(--accent), #8b5cf6); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 20px; }
+        .author-info { text-align: left; }
+        .author-name { font-weight: 700; color: var(--text); }
+        .author-role { font-size: 14px; color: var(--text-light); }
+        
         .article-content { max-width: 800px; margin: 0 auto; padding: 0 80px 80px; }
-        .article-content h2 { font-size: 28px; margin: 50px 0 20px; }
+        .article-content h2 { font-size: 28px; margin: 50px 0 20px; color: var(--text); }
+        .article-content h3 { font-size: 22px; margin: 35px 0 15px; color: var(--text); }
         .article-content p { margin-bottom: 20px; color: var(--text-muted); }
-        .tool-card { background: var(--bg-card); border-radius: 16px; padding: 30px; margin: 25px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+        .article-content ul, .article-content ol { margin: 20px 0; padding-left: 30px; color: var(--text-muted); }
+        .article-content li { margin-bottom: 10px; }
+        .article-content strong { color: var(--text); font-weight: 600; }
+        
+        .tool-card { background: var(--bg-card); border-radius: 16px; padding: 30px; margin: 25px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border: 1px solid rgba(255,255,255,0.7); }
         .tool-card h3 { margin-top: 0; display: flex; align-items: center; gap: 12px; }
         .tool-icon { width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent), #8b5cf6); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; }
         .tool-meta { display: flex; gap: 15px; margin: 15px 0; flex-wrap: wrap; }
         .tool-tag { background: rgba(59, 130, 246, 0.1); color: var(--accent); padding: 5px 12px; border-radius: 15px; font-size: 13px; font-weight: 600; }
         .tool-tag.free { background: rgba(34, 197, 94, 0.1); color: #22c55e; }
-        .comparison-table { width: 100%; border-collapse: collapse; margin: 30px 0; background: var(--bg-card); border-radius: 16px; overflow: hidden; }
-        .comparison-table th { background: linear-gradient(135deg, var(--accent), #2563eb); color: white; padding: 16px; text-align: left; }
+        .tool-tag.paid { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+        
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 30px 0; background: var(--bg-card); border-radius: 16px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+        .comparison-table th { background: linear-gradient(135deg, var(--accent), #2563eb); color: white; padding: 16px; text-align: left; font-weight: 600; }
         .comparison-table td { padding: 16px; border-bottom: 1px solid rgba(0,0,0,0.05); color: var(--text-muted); }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table tr:hover td { background: rgba(59, 130, 246, 0.05); }
+        
         .highlight-box { background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 16px; padding: 30px; margin: 30px 0; }
+        .highlight-box h3 { margin-top: 0; color: var(--accent); }
+        
         .cta-box { background: linear-gradient(135deg, var(--accent), #8b5cf6); color: white; padding: 40px; border-radius: 20px; margin: 50px 0; text-align: center; }
-        .btn-white { display: inline-block; background: white; color: var(--accent); padding: 14px 32px; border-radius: 10px; text-decoration: none; font-weight: 700; }
-        .footer { padding: 50px 80px; background: var(--bg-card); border-top: 1px solid var(--border); margin-top: 80px; }
-        @media (max-width: 768px) { .article-content { padding: 0 30px 60px; } }
+        .cta-box h3 { color: white; margin-bottom: 15px; font-size: 24px; }
+        .cta-box p { color: rgba(255,255,255,0.9); margin-bottom: 25px; }
+        .btn-white { display: inline-block; background: white; color: var(--accent); padding: 14px 32px; border-radius: 10px; text-decoration: none; font-weight: 700; transition: transform 0.3s; }
+        .btn-white:hover { transform: translateY(-3px); }
+        
+        .footer { padding: 50px 80px; background: var(--bg-card); backdrop-filter: blur(20px); border-top: 1px solid var(--border); margin-top: 80px; }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .footer-brand h3 { font-size: 24px; margin-bottom: 8px; }
+        .footer-brand p { color: var(--text-muted); font-size: 15px; }
+        .footer-links { display: flex; gap: 35px; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 600; }
+        .footer-links a:hover { color: var(--accent); }
+        
+        @media (max-width: 768px) { 
+            .nav { padding: 15px 30px; } 
+            .nav-links { display: none; } 
+            .article-header { padding: 120px 30px 40px; } 
+            .article-content { padding: 0 30px 60px; }
+            .comparison-table { font-size: 14px; }
+            .comparison-table th, .comparison-table td { padding: 12px; }
+            .footer { padding: 40px 30px; } 
+            .footer-content { flex-direction: column; gap: 25px; text-align: center; }
+        }
     </style>
 </head>
 <body>
@@ -46,6 +97,8 @@
         <div class="logo"><a href="../index.html">KI Expertenraum</a></div>
         <ul class="nav-links">
             <li><a href="../index.html#ebooks">eBooks</a></li>
+            <li><a href="../index.html#services">Services</a></li>
+            <li><a href="../index.html#work">Kurse</a></li>
             <li><a href="../blog.html">Blog</a></li>
         </ul>
     </nav>
@@ -58,76 +111,232 @@
         </div>
         <h1 class="article-title">17 Kostenlose KI Tools 2026 im Test</h1>
         <p class="article-intro">Die besten kostenlosen KI-Tools mit echten Limits, Preisen und Testergebnissen. Für Text, Bilder, Video & mehr.</p>
+        <div class="article-author">
+            <div class="author-avatar">P</div>
+            <div class="author-info">
+                <div class="author-name">Philipp Zerna</div>
+                <div class="author-role">KI Experte</div>
+            </div>
+        </div>
     </header>
 
     <article class="article-content">
         <h2>Das große KI-Tool-Testing 2026</h2>
-        <p>Wir haben <strong>17 populäre KI-Tools</strong> getestet – mit Fokus auf die kostenlosen Versionen.</p>
+        
+        <p>Wir haben <strong>17 populäre KI-Tools</strong> getestet – mit Fokus auf die kostenlosen Versionen. Was ist wirklich gratis? Wo sind die Fallen? Und wann lohnt sich ein Upgrade?</p>
         
         <div class="highlight-box">
             <h3>🎯 Unser Test-Setup</h3>
             <ul>
                 <li><strong>Testzeitraum:</strong> Januar 2026</li>
                 <li><strong>Kriterien:</strong> Qualität, Limits, Nutzerfreundlichkeit, Datenschutz</li>
+                <li><strong>Fokus:</strong> Kostenlose Tarife und deren echte Einsatzmöglichkeiten</li>
             </ul>
         </div>
 
-        <h2>Text & Chat (LLMs)</h2>
+        <h2>Kategorie 1: Text & Chat (LLMs)</h2>
         
         <div class="tool-card">
             <h3><span class="tool-icon">💬</span> ChatGPT (OpenAI)</h3>
             <div class="tool-meta">
-                <span class="tool-tag free">Kostenlos</span>
+                <span class="tool-tag free">Kostenlos verfügbar</span>
                 <span class="tool-tag">GPT-4o mini</span>
             </div>
-            <p><strong>Free-Limit:</strong> Unbegrenzte Nachrichten mit GPT-4o mini</p>
-            <p><strong>Plus:</strong> 20€/Monat für GPT-4o</p>
+            <p><strong>Was ist gratis:</strong> GPT-4o mini mit unbegrenzten Nachrichten, Web-Suche, Datei-Uploads</p>
+            <p><strong>Limits:</strong> Kein GPT-4o (nur Premium), begrenzte Bildgenerierung</p>
+            <p><strong>Preis Plus:</strong> 20€/Monat</p>
+            <p><strong>Fazit:</strong> ⭐⭐⭐⭐⭐ Bestes kostenloses LLM für den Alltag</p>
         </div>
 
         <div class="tool-card">
             <h3><span class="tool-icon">🧠</span> Claude (Anthropic)</h3>
             <div class="tool-meta">
-                <span class="tool-tag free">Kostenlos</span>
-                <span class="tool-tag">200K Context</span>
+                <span class="tool-tag free">Kostenlos verfügbar</span>
+                <span class="tool-tag">Claude 3.5 Sonnet</span>
             </div>
-            <p><strong>Free-Limit:</strong> ~50 Nachrichten/Tag</p>
-            <p><strong>Pro:</strong> 18€/Monat</p>
+            <p><strong>Was ist gratis:</strong> Claude 3.5 Sonnet mit sehr großem Kontextfenster (200K Tokens)</p>
+            <p><strong>Limits:</strong> ~50 Nachrichten/Tag, danach Rate-Limit</p>
+            <p><strong>Preis Pro:</strong> 18€/Monat</p>
+            <p><strong>Fazit:</strong> ⭐⭐⭐⭐⭐ Bester für lange Dokumente und komplexe Analysen</p>
+        </div>
+
+        <div class="tool-card">
+            <h3><span class="tool-icon">🔍</span> Perplexity AI</h3>
+            <div class="tool-meta">
+                <span class="tool-tag free">Kostenlos verfügbar</span>
+                <span class="tool-tag">KI-Suche</span>
+            </div>
+            <p><strong>Was ist gratis:</strong> 5 Pro-Suchen/Tag, unbegrenzte Standard-Suchen mit Quellen</p>
+            <p><strong>Limits:</strong> Keine GPT-4-Anfragen im Free-Tier</p>
+            <p><strong>Preis Pro:</strong> 20€/Monat</p>
+            <p><strong>Fazit:</strong> ⭐⭐⭐⭐★ Beste kostenlose KI-Suchmaschine</p>
+        </div>
+
+        <div class="tool-card">
+            <h3><span class="tool-icon">📝</span> Google Gemini</h3>
+            <div class="tool-meta">
+                <span class="tool-tag free">Kostenlos verfügbar</span>
+                <span class="tool-tag">1M Context</span>
+            </div>
+            <p><strong>Was ist gratis:</strong> Gemini 1.5 Flash mit 1 Million Token Kontext, Bildanalyse</p>
+            <p><strong>Limits:</strong> 60 Anfragen/Minute</p>
+            <p><strong>Preis Advanced:</strong> 20€/Monat</p>
+            <p><strong>Fazit:</strong> ⭐⭐⭐⭐★ Bestes Preis-Leistungs-Verhältnis für große Dokumente</p>
+        </div>
+
+        <h2>Kategorie 2: Bildgenerierung</h2>
+        
+        <div class="tool-card">
+            <h3><span class="tool-icon">🎨</span> Microsoft Copilot (DALL-E 3)</h3>
+            <div class="tool-meta">
+                <span class="tool-tag free">Kostenlos verfügbar</span>
+                <span class="tool-tag">DALL-E 3</span>
+            </div>
+            <p><strong>Was ist gratis:</strong> 15 Boosts/Tag für schnelle Bilder, danach langsame Generierung</p>
+            <p><strong>Qualität:</strong> Sehr gut für Illustrationen und Konzepte</p>
+            <p><strong>Fazit:</strong> ⭐⭐⭐⭐★ Bestes kostenloses Bild-Tool</p>
+        </div>
+
+        <div class="tool-card">
+            <h3><span class="tool-icon">🖼️</span> Leonardo.ai</h3>
+            <div class="tool-meta">
+                <span class="tool-tag free">Freemium</span>
+                <span class="tool-tag">150 Tokens/Tag</span>
+            </div>
+            <p><strong>Was ist gratis:</strong> 150 Tokens täglich (~15 Bilder), viele Styles</p>
+            <p><strong>Limits:</strong> Nur 1 Job gleichzeitig, Wasserzeichen</p>
+            <p><strong>Preis:</strong> Ab 10€/Monat</p>
+            <p><strong>Fazit:</strong> ⭐⭐⭐⭐★ Beste kostenlose Alternative zu Midjourney</p>
+        </div>
+
+        <h2>Kategorie 3: Video & Audio</h2>
+        
+        <div class="tool-card">
+            <h3><span class="tool-icon">🎬</span> CapCut (mit KI)</h3>
+            <div class="tool-meta">
+                <span class="tool-tag free">Kostenlos</span>
+                <span class="tool-tag">Video-Editing</span>
+            </div>
+            <p><strong>Was ist gratis:</strong> Auto-Captions, Text-to-Speech, Background Removal, KI-Übersetzung</p>
+            <p><strong>Limits:</strong> Wasserzeichen in manchen Exporten</p>
+            <p><strong>Fazit:</strong> ⭐⭐⭐⭐⭐ Bestes kostenloses KI-Video-Tool</p>
+        </div>
+
+        <div class="tool-card">
+            <h3><span class="tool-icon">🎙️</span> ElevenLabs</h3>
+            <div class="tool-meta">
+                <span class="tool-tag free">Freemium</span>
+                <span class="tool-tag">Text-to-Speech</span>
+            </div>
+            <p><strong>Was ist gratis:</strong> 10.000 Zeichen/Monat (~10 Min Audio)</p>
+            <p><strong>Qualität:</strong> Deutsches Deutsch, sehr natürlich</p>
+            <p><strong>Preis:</strong> Ab 5€/Monat</p>
+            <p><strong>Fazit:</strong> ⭐⭐⭐⭐★ Beste Stimmenqualität</p>
         </div>
 
         <h2>Die komplette Übersicht</h2>
+
         <table class="comparison-table">
             <tr>
                 <th>Tool</th>
                 <th>Kategorie</th>
                 <th>Free-Limit</th>
+                <th>Bewertung</th>
             </tr>
             <tr>
                 <td><strong>ChatGPT</strong></td>
                 <td>Text/Chat</td>
                 <td>Unbegrenzt (GPT-4o mini)</td>
+                <td>⭐⭐⭐⭐⭐</td>
             </tr>
             <tr>
                 <td><strong>Claude</strong></td>
                 <td>Text/Chat</td>
                 <td>~50 Nachrichten/Tag</td>
+                <td>⭐⭐⭐⭐⭐</td>
             </tr>
             <tr>
                 <td><strong>Perplexity</strong></td>
                 <td>Suche</td>
                 <td>5 Pro-Suchen/Tag</td>
+                <td>⭐⭐⭐⭐★</td>
+            </tr>
+            <tr>
+                <td><strong>Gemini</strong></td>
+                <td>Text/Multimodal</td>
+                <td>60/Minute</td>
+                <td>⭐⭐⭐⭐★</td>
+            </tr>
+            <tr>
+                <td><strong>Copilot/DALL-E</strong></td>
+                <td>Bilder</td>
+                <td>15 Boosts/Tag</td>
+                <td>⭐⭐⭐⭐★</td>
+            </tr>
+            <tr>
+                <td><strong>Leonardo.ai</strong></td>
+                <td>Bilder</td>
+                <td>150 Tokens/Tag</td>
+                <td>⭐⭐⭐⭐★</td>
+            </tr>
+            <tr>
+                <td><strong>CapCut</strong></td>
+                <td>Video</td>
+                <td>Unbegrenzt (mit Watermark)</td>
+                <td>⭐⭐⭐⭐⭐</td>
+            </tr>
+            <tr>
+                <td><strong>ElevenLabs</strong></td>
+                <td>Audio</td>
+                <td>10K Zeichen/Monat</td>
+                <td>⭐⭐⭐⭐★</td>
             </tr>
         </table>
 
+        <h2>Datenschutz-Hinweis</h2>
+        
+        <p><strong>Achtung bei geschäftlichen Daten:</strong></p>
+        <ul>
+            <li>ChatGPT Free: Daten werden für Training verwendet (opt-out möglich)</li>
+            <li>Claude Free: Kein Training mit Nutzerdaten</li>
+            <li>Google Gemini: Daten fließen in Google-Ökosystem</li>
+            <li>Copilot: Microsoft-Standard-Datenschutz</li>
+        </ul>
+
+        <div class="highlight-box">
+            <h3>💡 Tipp für Unternehmen</h3>
+            <p>Für geschäftliche Nutzung mit sensiblen Daten empfehlen wir <strong>Claude Pro</strong> oder <strong>ChatGPT Team</strong> (30€/User/Monat) mit garantiertem Datenschutz.</p>
+        </div>
+
+        <h2>Fazit: Die beste kostenlose Kombination</h2>
+        
+        <p>Für den täglichen Einsatz ohne Budget:</p>
+        <ol>
+            <li><strong>ChatGPT Free</strong> – für allgemeine Fragen und Brainstorming</li>
+            <li><strong>Claude Free</strong> – für lange Dokumente und Analysen</li>
+            <li><strong>Perplexity Free</strong> – für Recherche mit Quellen</li>
+            <li><strong>Microsoft Copilot</strong> – für Bildgenerierung</li>
+            <li><strong>CapCut</strong> – für Video-Editing</li>
+        </ol>
+
         <div class="cta-box">
             <h3>🚀 Willst du KI richtig nutzen?</h3>
+            <p>In unserem Kurs "KI Tools Mastery" zeigen wir dir, wie du diese Tools professionell einsetzt.</p>
             <a href="../index.html#work" class="btn-white">Kurse entdecken →</a>
         </div>
     </article>
 
     <footer class="footer">
-        <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
-            <h3>KI Expertenraum</h3>
-            <p>Dein Zugang zur KI-Elite</p>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>KI Expertenraum</h3>
+                <p>Dein Zugang zur KI-Elite</p>
+            </div>
+            <div class="footer-links">
+                <a href="../index.html">Startseite</a>
+                <a href="../blog.html">Blog</a>
+                <a href="../index.html#work">Kurse</a>
+            </div>
         </div>
     </footer>
 </body>
