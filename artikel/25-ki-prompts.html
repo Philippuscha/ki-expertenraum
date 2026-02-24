@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>25 KI-Prompts für KMU: So sparst du 10h/Woche | KI Expertenraum</title>
+    <meta name="description" content="Fertige, optimierte Prompts für Marketing, Vertrieb, Büro. Copy & Paste-fertig. Durchschnittliche Zeitersparnis: 10 Stunden pro Woche.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { 
+            --bg: #f0f7ff; 
+            --bg-card: rgba(255, 255, 255, 0.9);
+            --text: #0f172a; 
+            --text-muted: #475569; 
+            --text-light: #64748b; 
+            --border: rgba(255, 255, 255, 0.6);
+            --accent: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.3);
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 50%, #dbeafe 100%); color: var(--text); line-height: 1.7; overflow-x: hidden; -webkit-font-smoothing: antialiased; min-height: 100vh; }
+        h1, h2, h3, h4 { font-family: 'DM Sans', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
+        
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 80px; display: flex; justify-content: space-between; align-items: center; background: rgba(240, 247, 255, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+        .logo { font-family: 'DM Sans', sans-serif; font-size: 24px; font-weight: 800; background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .logo a { text-decoration: none; color: inherit; }
+        .nav-links { display: flex; gap: 35px; list-style: none; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--accent); }
+        
+        .article-header { padding: 140px 80px 60px; max-width: 800px; margin: 0 auto; text-align: center; }
+        .article-meta { display: flex; gap: 20px; justify-content: center; margin-bottom: 25px; font-size: 14px; color: var(--text-light); }
+        .article-meta .category { color: var(--accent); background: rgba(59, 130, 246, 0.1); padding: 6px 14px; border-radius: 20px; font-weight: 600; }
+        .article-title { font-size: clamp(32px, 4vw, 48px); line-height: 1.15; margin-bottom: 25px; }
+        .article-intro { font-size: 20px; color: var(--text-muted); line-height: 1.8; margin-bottom: 30px; }
+        .article-author { display: flex; align-items: center; gap: 15px; justify-content: center; }
+        .author-avatar { width: 50px; height: 50px; background: linear-gradient(135deg, var(--accent), #8b5cf6); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 20px; }
+        .author-info { text-align: left; }
+        .author-name { font-weight: 700; color: var(--text); }
+        .author-role { font-size: 14px; color: var(--text-light); }
+        
+        .article-content { max-width: 800px; margin: 0 auto; padding: 0 80px 80px; }
+        .article-content h2 { font-size: 28px; margin: 50px 0 20px; color: var(--text); }
+        .article-content h3 { font-size: 22px; margin: 35px 0 15px; color: var(--text); }
+        .article-content p { margin-bottom: 20px; color: var(--text-muted); }
+        .article-content ul, .article-content ol { margin: 20px 0; padding-left: 30px; color: var(--text-muted); }
+        .article-content li { margin-bottom: 10px; }
+        .article-content strong { color: var(--text); font-weight: 600; }
+        .article-content blockquote { border-left: 4px solid var(--accent); padding-left: 20px; margin: 30px 0; font-style: italic; color: var(--text-muted); background: rgba(59, 130, 246, 0.05); padding: 20px 20px 20px 30px; border-radius: 0 10px 10px 0; }
+        
+        .prompt-box { background: #1e293b; border-radius: 16px; padding: 30px; margin: 30px 0; color: #e2e8f0; font-family: 'Monaco', 'Consolas', monospace; font-size: 14px; line-height: 1.6; position: relative; overflow: hidden; }
+        .prompt-box::before { content: 'PROMPT'; position: absolute; top: 10px; right: 15px; font-size: 11px; color: #64748b; font-family: 'DM Sans', sans-serif; font-weight: 700; letter-spacing: 1px; }
+        .prompt-box code { color: #22d3ee; }
+        .prompt-box .comment { color: #64748b; font-style: italic; }
+        
+        .highlight-box { background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 16px; padding: 30px; margin: 30px 0; }
+        .highlight-box h3 { margin-top: 0; color: var(--accent); }
+        .highlight-box ul { margin: 15px 0; }
+        .highlight-box li { margin-bottom: 8px; }
+        
+        .time-save { display: inline-block; background: linear-gradient(135deg, #22c55e, #16a34a); color: white; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 700; margin: 15px 0; }
+        
+        .cta-box { background: linear-gradient(135deg, var(--accent), #8b5cf6); color: white; padding: 40px; border-radius: 20px; margin: 50px 0; text-align: center; }
+        .cta-box h3 { color: white; margin-bottom: 15px; font-size: 24px; }
+        .cta-box p { color: rgba(255,255,255,0.9); margin-bottom: 25px; }
+        .btn-white { display: inline-block; background: white; color: var(--accent); padding: 14px 32px; border-radius: 10px; text-decoration: none; font-weight: 700; transition: transform 0.3s; }
+        .btn-white:hover { transform: translateY(-3px); }
+        
+        .checklist { background: white; border-radius: 16px; padding: 30px; margin: 30px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+        .checklist h3 { margin-top: 0; margin-bottom: 20px; }
+        .checklist-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+        .checklist-item input[type="checkbox"] { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--accent); }
+        .checklist-item label { color: var(--text-muted); cursor: pointer; }
+        
+        .footer { padding: 50px 80px; background: var(--bg-card); backdrop-filter: blur(20px); border-top: 1px solid var(--border); margin-top: 80px; }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .footer-brand h3 { font-size: 24px; margin-bottom: 8px; }
+        .footer-brand p { color: var(--text-muted); font-size: 15px; }
+        .footer-links { display: flex; gap: 35px; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 600; }
+        .footer-links a:hover { color: var(--accent); }
+        
+        @media (max-width: 768px) { 
+            .nav { padding: 15px 30px; } 
+            .nav-links { display: none; } 
+            .article-header { padding: 120px 30px 40px; } 
+            .article-content { padding: 0 30px 60px; }
+            .prompt-box { padding: 20px; font-size: 13px; }
+            .footer { padding: 40px 30px; } 
+            .footer-content { flex-direction: column; gap: 25px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="logo"><a href="../index.html">KI Expertenraum</a></div>
+        <ul class="nav-links">
+            <li><a href="../index.html#ebooks">eBooks</a></li>
+            <li><a href="../index.html#services">Services</a></li>
+            <li><a href="../index.html#work">Kurse</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+        </ul>
+    </nav>
+
+    <header class="article-header">
+        <div class="article-meta">
+            <span class="category">Produktivität</span>
+            <span>⏱️ 15 Min Lesezeit</span>
+            <span>📅 21. Februar 2026</span>
+        </div>
+        <h1 class="article-title">25 KI-Prompts für KMU: So sparst du 10h/Woche [Copy & Paste]</h1>
+        <p class="article-intro">Fertige, optimierte Prompts (Befehle), die sofort funktionieren. Diese 25 Prompts haben sich in über 100 deutschen KMU bewährt. Durchschnittliche Zeitersparnis: 10 Stunden pro Woche.</p>
+        <div class="article-author">
+            <div class="author-avatar">P</div>
+            <div class="author-info">
+                <div class="author-name">Philipp Zerna</div>
+                <div class="author-role">KI Experte</div>
+            </div>
+        </div>
+    </header>
+
+    <article class="article-content">
+        <h2>Warum die meisten Unternehmer KI falsch nutzen</h2>
+        
+        <p>Sie haben ChatGPT geöffnet. Der Cursor blinkt. Und Sie denken: <strong>"Was soll ich jetzt eintippen?"</strong></p>
+        
+        <p>Die meisten KMU-Besitzer nutzen KI <strong>ineffizient</strong>:</p>
+        <ul>
+            <li>Sie formulieren vage Anfragen</li>
+            <li>Sie akzeptieren schlechte Ergebnisse</li>
+            <li>Sie verlieren Zeit mit Hin-und-Her</li>
+        </ul>
+        
+        <blockquote>
+            <strong>Die Lösung:</strong> Fertige, optimierte Prompts (Befehle), die sofort funktionieren.
+        </blockquote>
+
+        <h2>Kategorie 1: Marketing & Vertrieb</h2>
+        
+        <h3>Prompt 1: Der perfekte Social Media Post</h3>
+        
+        <div class="prompt-box">
+Du bist ein Social Media Experte für B2B-Unternehmen.
+
+Erstelle einen [PLATTFORM]-Post für mein Unternehmen:
+- Branche: [BRANCHE]
+- Zielgruppe: [ZIELGRUPPE]
+- Thema: [THEMA/ANGEBOT]
+- Ton: [PROFESSIONELL/LOCKER/MOTIVIERT]
+- Länge: [150-200 Wörter]
+
+Struktur:
+1. Hook (erster Satz muss neugierig machen)
+2. Hauptteil mit Nutzen
+3. Call-to-Action
+4. 3-5 passende Hashtags
+
+Vermeide: Fachchinesen, zu lange Sätze, generische Floskeln.
+        </div>
+        
+        <div class="time-save">⏱️ Zeitersparnis: 45 Minuten pro Post</div>
+
+        <h3>Prompt 2: Die überzeugende Verkaufs-E-Mail</h3>
+        
+        <div class="prompt-box">
+Schreibe eine Verkaufs-E-Mail an [PROSPEKT/KUNDE].
+
+Kontext:
+- Mein Produkt/Dienstleistung: [BESCHREIBUNG]
+- Preis: [PREIS]
+- Hauptnutzen: [3 WICHTIGSTE VORTEILE]
+- Einwand des Kunden: [FALLS BEKANNT]
+
+Aufbau:
+1. Betreff: Neugier wecken (max. 50 Zeichen)
+2. Einleitung: Persönlich, Bezug zum Kunden
+3. Problem: Beschreiben Sie das Pain Point
+4. Lösung: Ihr Angebot als Lösung
+5. Beweis: Ein konkretes Ergebnis/Beispiel
+6. Call-to-Action: Konkreter nächster Schritt
+
+Länge: Max. 150 Wörter. Ton: Professionell, aber menschlich.
+        </div>
+        
+        <div class="time-save">⏱️ Zeitersparnis: 30 Minuten pro E-Mail</div>
+
+        <h3>Prompt 3: Website-Texte, die verkaufen</h3>
+        
+        <div class="prompt-box">
+Erstelle Website-Texte für meine [SEITE]:
+
+Unternehmen: [NAME, BRANCHE, USP]
+Zielgruppe: [BESCHREIBUNG]
+Ziel der Seite: [INFORMIEREN/VERKAUFEN/KONTAKT]
+
+Benötigt:
+1. Headline (H1): Emotional + rational, max. 60 Zeichen
+2. Subheadline: Erklärt das Versprechen
+3. 3 Bullet Points mit Hauptnutzen
+4. Einleitungstext (80-100 Wörter)
+5. Call-to-Action-Button Text (2-3 Wörter)
+
+Sprache: Aktiv. Sie-Form. Kein Fachjargon.
+        </div>
+        
+        <div class="time-save">⏱️ Zeitersparnis: 2 Stunden pro Seite</div>
+
+        <h2>Kategorie 2: Büro & Administration</h2>
+        
+        <h3>Prompt 8: Excel-Formel erklären & erstellen</h3>
+        
+        <div class="prompt-box">
+Ich brauche eine Excel-Formel für folgendes Problem:
+
+Was ich habe: [DATENBESCHREIBUNG]
+Was ich will: [GEWÜNSCHTES ERGEBNIS]
+Mein Excel-Level: [ANFÄNGER/FORTGESCHRITTEN]
+
+Bitte:
+1. Die komplette Formel
+2. Schritt-für-Schritt Erklärung
+3. Ein konkretes Beispiel mit Zahlen
+4. Typische Fehler, die vermieden werden sollten
+5. Alternative (einfachere) Lösung, falls möglich
+        </div>
+        
+        <div class="time-save">⏱️ Zeitersparnis: 1-2 Stunden pro Formel</div>
+
+        <h3>Prompt 9: E-Mail kurz & prägnant machen</h3>
+        
+        <div class="prompt-box">
+Hier ist mein E-Mail-Entwurf. Bitte kürzen und verbessern:
+
+[E-MAIL-TEXT EINFÜGEN]
+
+Anforderungen:
+- Kürze auf max. 100 Wörter
+- Entferne Füllwörter und redundante Sätze
+- Mache die Kernbotschaft klarer
+- Prüfe auf höflichen, professionellen Ton
+- Verbessere die Call-to-Action
+
+Ziel: Der Empfänger versteht sofort, was ich will.
+        </div>
+        
+        <div class="time-save">⏱️ Zeitersparnis: 15 Minuten pro E-Mail</div>
+
+        <h3>Prompt 10: Meeting-Protokoll strukturieren</h3>
+        
+        <div class="prompt-box">
+Strukturiere dieses Meeting-Protokoll:
+
+[ROHER TEXT/ZUSAMMENFASSUNG EINFÜGEN]
+
+Format:
+## Meeting: [THEMA] | [DATUM]
+**Teilnehmer:** [NAMEN]
+
+### 1. Besprochene Themen
+- Punkt 1
+- Punkt 2
+
+### 2. Getroffene Entscheidungen
+- Entscheidung A → Verantwortlich: [NAME] | Deadline: [DATUM]
+
+### 3. Offene Punkte / To-Dos
+- [ ] Aufgabe 1 (@Person)
+
+### 4. Nächster Termin
+[DATUM, ZEIT, ORT]
+        </div>
+        
+        <div class="time-save">⏱️ Zeitersparnis: 20 Minuten pro Protokoll</div>
+
+        <div class="highlight-box">
+            <h3>🎯 Weitere 15 Prompts im vollständigen Guide</h3>
+            <ul>
+                <li>Google Bewertungen professionell beantworten</li>
+                <li>Angebots-Texte erstellen</li>
+                <li>LinkedIn B2B Content</li>
+                <li>Kaltakquise Telefon-Scripts</li>
+                <li>Rechtliche Texte prüfen</li>
+                <li>Und 9 weitere...</li>
+            </ul>
+        </div>
+
+        <h2>Die GOLDENE REGEL der KI-Nutzung</h2>
+        
+        <div class="highlight-box" style="border-color: #ef4444;">
+            <h3 style="color: #ef4444;">❌ Schlecht:</h3>
+            <p>"Schreib mir was über Marketing"</p>
+        </div>
+        
+        <div class="highlight-box" style="border-color: #22c55e;">
+            <h3 style="color: #22c55e;">✅ Gut:</h3>
+            <p>"Du bist ein Marketing-Experte für B2B-Software. Erstelle einen LinkedIn-Post für IT-Leiter über die Vorteile von Cloud-Migration. Ton: Professionell aber locker. Länge: 150 Wörter. Struktur: Hook, Problem, Lösung, CTA."</p>
+        </div>
+
+        <div class="checklist">
+            <h3>✓ Checkliste für perfekte Ergebnisse:</h3>
+            <div class="checklist-item">
+                <input type="checkbox" id="check1">
+                <label for="check1">Rolle klar definiert ("Du bist ein...")</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="check2">
+                <label for="check2">Kontext gegeben (Branche, Zielgruppe)</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="check3">
+                <label for="check3">Konkrete Ausgabe beschrieben (Format, Länge, Struktur)</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="check4">
+                <label for="check4">Einschränkungen genannt (was NICHT gewünscht ist)</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="check5">
+                <label for="check5">Beispiele gegeben (falls möglich)</label>
+            </div>
+        </div>
+
+        <h2>Download: Alle 25 Prompts als PDF</h2>
+        
+        <p>Laden Sie unsere <strong>kostenlose PDF-Version</strong> herunter – mit allen 25 Prompts ausführlich ausgearbeitet und mit Beispielen:</p>
+        
+        <div class="cta-box">
+            <h3>📥 25 KI-Prompts für KMU</h3>
+            <p>PDF-Guide mit allen Prompts, Beispielen und Zeitersparnis-Übersicht</p>
+            <a href="https://www.dropbox.com/scl/fi/rt7k1r6w4qwexzs795gkv/Die_10_KI-Prompts_fuer_KMU.pdf?rlkey=wlo2fn2815lt2hwlp1w76ggk3&st=06yeyrs1&dl=1" class="btn-white" download>Jetzt kostenlos downloaden</a>
+        </div>
+
+        <blockquote>
+            Hinweis: KI-Tools wie ChatGPT können Fehler machen. Wichtige Geschäftsentscheidungen immer prüfen.
+        </blockquote>
+    </article>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>KI Expertenraum</h3>
+                <p>Dein Zugang zur KI-Elite</p>
+            </div>
+            <div class="footer-links">
+                <a href="../index.html">Startseite</a>
+                <a href="../blog.html">Blog</a>
+                <a href="../index.html#work">Kurse</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
