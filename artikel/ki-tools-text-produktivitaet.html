@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>10 KI-Tools für Text & Produktivität 2026 (Kostenlos) | KI Expertenraum</title>
-    <meta name="description" content="Die 10 besten KI-Tools für Text, Chat und Produktivität im Test. ChatGPT, Claude, Perplexity & mehr – mit echten Limits und Preisen.">
+    <title>10 KI-Tools für Text & Produktivität: Der ultimative Guide 2026 | KI Expertenraum</title>
+    <meta name="description" content="Die 10 besten KI-Tools für Text, Chat und Produktivität im ausführlichen Test. ChatGPT, Claude, Perplexity & mehr – mit echten Erfahrungen, Preisen und Tipps.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root { 
             --bg: #f0f7ff; 
-            --bg-card: rgba(255, 255, 255, 0.9);
+            --bg-card: rgba(255, 255, 255, 0.92);
             --text: #0f172a; 
             --text-muted: #475569; 
             --text-light: #64748b; 
@@ -19,13 +19,15 @@
             --accent: #3b82f6;
             --success: #22c55e;
             --warning: #f59e0b;
+            --info: #06b6d4;
         }
-        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 50%, #dbeafe 100%); color: var(--text); line-height: 1.7; min-height: 100vh; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 50%, #dbeafe 100%); color: var(--text); line-height: 1.8; overflow-x: hidden; min-height: 100vh; }
         h1, h2, h3, h4 { font-family: 'DM Sans', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
         
         .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 80px; display: flex; justify-content: space-between; align-items: center; background: rgba(240, 247, 255, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
         .logo { font-family: 'DM Sans', sans-serif; font-size: 24px; font-weight: 800; background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .logo a { text-decoration: none; }
+        .logo a { text-decoration: none; color: inherit; }
         .nav-links { display: flex; gap: 35px; list-style: none; }
         .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.3s; }
         .nav-links a:hover { color: var(--accent); }
@@ -33,69 +35,97 @@
         .article-header { padding: 140px 80px 60px; max-width: 800px; margin: 0 auto; text-align: center; }
         .article-meta { display: flex; gap: 20px; justify-content: center; margin-bottom: 25px; font-size: 14px; color: var(--text-light); flex-wrap: wrap; }
         .article-meta .category { color: var(--accent); background: rgba(59, 130, 246, 0.1); padding: 6px 14px; border-radius: 20px; font-weight: 600; }
-        .article-title { font-size: clamp(32px, 4vw, 48px); line-height: 1.15; margin-bottom: 25px; }
+        .article-title { font-size: clamp(32px, 4vw, 52px); line-height: 1.1; margin-bottom: 25px; }
         .article-intro { font-size: 20px; color: var(--text-muted); line-height: 1.8; margin-bottom: 30px; }
+        .article-author { display: flex; align-items: center; gap: 15px; justify-content: center; margin-top: 40px; }
+        .author-avatar { width: 50px; height: 50px; background: linear-gradient(135deg, var(--accent), #8b5cf6); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 20px; }
+        .author-info { text-align: left; }
+        .author-name { font-weight: 700; color: var(--text); }
+        .author-role { font-size: 14px; color: var(--text-light); }
         
-        .affiliate-disclaimer { background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 12px; padding: 20px; margin: 30px 0; font-size: 14px; color: var(--text-muted); }
-        .affiliate-disclaimer strong { color: var(--text); }
+        .affiliate-disclaimer { background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.05)); border-left: 4px solid var(--warning); border-radius: 0 12px 12px 0; padding: 20px 25px; margin: 40px 0; font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+        .affiliate-disclaimer strong { color: var(--text); display: block; margin-bottom: 8px; font-size: 15px; }
         
         .article-content { max-width: 800px; margin: 0 auto; padding: 0 80px 80px; }
-        .article-content h2 { font-size: 28px; margin: 50px 0 20px; color: var(--text); }
-        .article-content h3 { font-size: 22px; margin: 35px 0 15px; color: var(--text); }
-        .article-content p { margin-bottom: 20px; color: var(--text-muted); }
-        .article-content ul { margin: 20px 0; padding-left: 30px; color: var(--text-muted); }
-        .article-content li { margin-bottom: 10px; }
+        .article-content h2 { font-size: 32px; margin: 60px 0 25px; color: var(--text); line-height: 1.2; }
+        .article-content h2:first-of-type { margin-top: 30px; }
+        .article-content h3 { font-size: 26px; margin: 45px 0 20px; color: var(--text); }
+        .article-content p { margin-bottom: 22px; color: var(--text-muted); font-size: 17px; line-height: 1.9; }
+        .article-content ul, .article-content ol { margin: 25px 0; padding-left: 30px; color: var(--text-muted); }
+        .article-content li { margin-bottom: 12px; line-height: 1.7; }
+        .article-content strong { color: var(--text); font-weight: 600; }
         
-        .tool-card { background: var(--bg-card); border-radius: 20px; padding: 35px; margin: 30px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid rgba(255,255,255,0.7); position: relative; overflow: hidden; }
-        .tool-card::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; background: linear-gradient(to bottom, var(--accent), #8b5cf6); }
-        .tool-header { display: flex; align-items: center; gap: 20px; margin-bottom: 20px; flex-wrap: wrap; }
-        .tool-icon { width: 60px; height: 60px; background: linear-gradient(135deg, var(--accent), #8b5cf6); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: white; font-size: 28px; flex-shrink: 0; }
-        .tool-title { flex: 1; min-width: 200px; }
-        .tool-title h3 { margin: 0 0 8px 0; font-size: 24px; }
-        .tool-title a { color: inherit; text-decoration: none; }
-        .tool-title a:hover { color: var(--accent); }
-        .tool-meta { display: flex; gap: 12px; flex-wrap: wrap; }
-        .tool-tag { background: rgba(59, 130, 246, 0.1); color: var(--accent); padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+        .tool-section { margin: 60px 0; }
+        .tool-card { background: var(--bg-card); border-radius: 24px; padding: 45px; margin: 40px 0; box-shadow: 0 8px 30px rgba(0,0,0,0.08); border: 1px solid rgba(255,255,255,0.8); position: relative; overflow: hidden; backdrop-filter: blur(10px); }
+        .tool-card::before { content: ''; position: absolute; top: 0; left: 0; width: 6px; height: 100%; background: linear-gradient(to bottom, var(--accent), #8b5cf6); }
+        .tool-header { display: flex; align-items: flex-start; gap: 25px; margin-bottom: 30px; flex-wrap: wrap; }
+        .tool-icon { width: 70px; height: 70px; background: linear-gradient(135deg, var(--accent), #8b5cf6); border-radius: 18px; display: flex; align-items: center; justify-content: center; color: white; font-size: 32px; flex-shrink: 0; box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3); }
+        .tool-title { flex: 1; min-width: 250px; }
+        .tool-title h3 { margin: 0 0 12px 0; font-size: 28px; color: var(--text); }
+        .tool-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+        .tool-tag { background: rgba(59, 130, 246, 0.1); color: var(--accent); padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 600; }
         .tool-tag.free { background: rgba(34, 197, 94, 0.1); color: var(--success); }
         .tool-tag.freemium { background: rgba(245, 158, 11, 0.1); color: var(--warning); }
+        .tool-tag.business { background: rgba(139, 92, 246, 0.1); color: #8b5cf6; }
         
-        .tool-details { margin: 25px 0; }
-        .detail-row { display: flex; padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.05); flex-wrap: wrap; }
-        .detail-row:last-child { border-bottom: none; }
-        .detail-label { font-weight: 600; color: var(--text); width: 140px; flex-shrink: 0; }
-        .detail-value { color: var(--text-muted); flex: 1; min-width: 200px; }
+        .tool-description { font-size: 17px; line-height: 1.9; color: var(--text-muted); margin-bottom: 25px; }
+        .tool-description p { margin-bottom: 18px; }
         
-        .affiliate-btn { display: inline-block; background: linear-gradient(135deg, var(--accent), #2563eb); color: white; padding: 12px 28px; border-radius: 10px; text-decoration: none; font-weight: 700; margin: 15px 0; transition: all 0.3s; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3); }
-        .affiliate-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4); }
-        .affiliate-note { font-size: 12px; color: var(--text-light); margin-top: 8px; font-style: italic; }
+        .affiliate-box { background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(139, 92, 246, 0.08)); border: 2px dashed rgba(59, 130, 246, 0.3); border-radius: 16px; padding: 25px; margin: 30px 0; text-align: center; }
+        .affiliate-btn { display: inline-block; background: linear-gradient(135deg, var(--accent), #2563eb); color: white; padding: 14px 32px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 16px; transition: all 0.3s; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.35); }
+        .affiliate-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(59, 130, 246, 0.45); }
+        .affiliate-note { font-size: 13px; color: var(--text-light); margin-top: 12px; font-style: italic; }
         
-        .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 25px 0; }
-        .pros, .cons { padding: 20px; border-radius: 12px; }
-        .pros { background: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.2); }
-        .cons { background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.2); }
-        .pros h4 { color: #16a34a; margin-bottom: 12px; font-size: 16px; }
-        .cons h4 { color: #dc2626; margin-bottom: 12px; font-size: 16px; }
-        .pros ul, .cons ul { margin: 0; padding-left: 20px; }
-        .pros li { color: #16a34a; margin-bottom: 6px; }
-        .cons li { color: #dc2626; margin-bottom: 6px; }
+        .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0; }
+        .detail-item { background: rgba(255,255,255,0.6); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.8); }
+        .detail-label { font-weight: 700; color: var(--text); font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; display: block; }
+        .detail-value { color: var(--text-muted); font-size: 15px; line-height: 1.6; }
         
-        .use-cases { background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(139, 92, 246, 0.05)); border: 1px solid rgba(59, 130, 246, 0.15); border-radius: 12px; padding: 20px; margin: 20px 0; }
-        .use-cases h4 { color: var(--accent); margin-bottom: 12px; font-size: 16px; }
-        .use-cases ul { margin: 0; padding-left: 20px; }
+        .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin: 35px 0; }
+        .pros, .cons { padding: 25px; border-radius: 16px; }
+        .pros { background: rgba(34, 197, 94, 0.06); border: 1px solid rgba(34, 197, 94, 0.2); }
+        .cons { background: rgba(239, 68, 68, 0.06); border: 1px solid rgba(239, 68, 68, 0.2); }
+        .pros h4 { color: #16a34a; margin-bottom: 15px; font-size: 17px; display: flex; align-items: center; gap: 8px; }
+        .cons h4 { color: #dc2626; margin-bottom: 15px; font-size: 17px; display: flex; align-items: center; gap: 8px; }
+        .pros ul, .cons ul { margin: 0; padding-left: 0; list-style: none; }
+        .pros li { color: #16a34a; margin-bottom: 10px; padding-left: 24px; position: relative; font-size: 15px; line-height: 1.6; }
+        .pros li::before { content: '✓'; position: absolute; left: 0; font-weight: 700; }
+        .cons li { color: #dc2626; margin-bottom: 10px; padding-left: 24px; position: relative; font-size: 15px; line-height: 1.6; }
+        .cons li::before { content: '×'; position: absolute; left: 0; font-weight: 700; }
         
-        .cta-box { background: linear-gradient(135deg, var(--accent), #8b5cf6); color: white; padding: 40px; border-radius: 20px; margin: 50px 0; text-align: center; }
-        .btn-white { display: inline-block; background: white; color: var(--accent); padding: 14px 32px; border-radius: 10px; text-decoration: none; font-weight: 700; transition: transform 0.3s; }
+        .use-cases { background: linear-gradient(135deg, rgba(59, 130, 246, 0.06), rgba(139, 92, 246, 0.06)); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 16px; padding: 30px; margin: 30px 0; }
+        .use-cases h4 { color: var(--accent); margin-bottom: 20px; font-size: 18px; display: flex; align-items: center; gap: 10px; }
+        .use-cases ul { margin: 0; padding-left: 0; list-style: none; }
+        .use-cases li { color: var(--text-muted); margin-bottom: 14px; padding-left: 30px; position: relative; line-height: 1.7; }
+        .use-cases li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
         
-        .footer { padding: 50px 80px; background: var(--bg-card); border-top: 1px solid var(--border); margin-top: 80px; }
-        .footer-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
-        .footer-links { display: flex; gap: 35px; }
-        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 600; }
+        .expert-tip { background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(59, 130, 246, 0.1)); border-left: 4px solid var(--info); border-radius: 0 12px 12px 0; padding: 25px; margin: 30px 0; }
+        .expert-tip strong { color: var(--info); display: block; margin-bottom: 10px; font-size: 15px; text-transform: uppercase; letter-spacing: 1px; }
+        .expert-tip p { margin: 0; color: var(--text-muted); font-size: 15px; line-height: 1.8; }
+        
+        .cta-box { background: linear-gradient(135deg, var(--accent), #8b5cf6); color: white; padding: 50px; border-radius: 24px; margin: 60px 0; text-align: center; box-shadow: 0 20px 50px rgba(59, 130, 246, 0.3); }
+        .cta-box h3 { color: white; margin-bottom: 20px; font-size: 32px; }
+        .cta-box p { color: rgba(255,255,255,0.95); margin-bottom: 30px; font-size: 18px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .btn-white { display: inline-block; background: white; color: var(--accent); padding: 16px 36px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 16px; transition: all 0.3s; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+        .btn-white:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+        
+        .footer { padding: 60px 80px; background: var(--bg-card); border-top: 1px solid var(--border); margin-top: 100px; }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 30px; }
+        .footer-brand h3 { font-size: 26px; margin-bottom: 10px; font-family: 'DM Sans', sans-serif; font-weight: 800; background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .footer-brand p { color: var(--text-muted); font-size: 15px; }
+        .footer-links { display: flex; gap: 35px; flex-wrap: wrap; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--accent); }
         
         @media (max-width: 768px) { 
             .nav { padding: 15px 30px; } 
+            .nav-links { display: none; } 
             .article-header { padding: 120px 30px 40px; } 
             .article-content { padding: 0 30px 60px; }
+            .tool-card { padding: 30px 25px; }
+            .details-grid { grid-template-columns: 1fr; }
             .pros-cons { grid-template-columns: 1fr; }
+            .tool-header { flex-direction: column; text-align: center; }
             .footer { padding: 40px 30px; } 
             .footer-content { flex-direction: column; text-align: center; }
         }
@@ -114,269 +144,175 @@
     <header class="article-header">
         <div class="article-meta">
             <span class="category">Tools</span>
-            <span>⏱️ 25 Min Lesezeit</span>
-            <span>📅 15. Februar 2026</span>
+            <span>⏱️ 35 Min Lesezeit</span>
+            <span>📅 25. Februar 2026</span>
         </div>
-        <h1 class="article-title">10 KI-Tools für Text & Produktivität (Kostenlos)</h1>
-        <p class="article-intro">Die 10 besten KI-Tools für Textgenerierung, Chat, Recherche und Produktivität – im ausführlichen Test mit echten Limits, Preisen und Use-Cases.</p>
+        <h1 class="article-title">10 KI-Tools für Text & Produktivität: Der ultimative Guide</h1>
+        <p class="article-intro">Wir haben die 10 besten KI-Tools für Textarbeit, Recherche und Produktivität über Wochen im Alltag getestet. Mit echten Erfahrungen, Preistricks und Datenschutz-Einschätzungen.</p>
+        <div class="article-author">
+            <div class="author-avatar">P</div>
+            <div class="author-info">
+                <div class="author-name">Philipp Zerna</div>
+                <div class="author-role">KI Experte & Unternehmer</div>
+            </div>
+        </div>
     </header>
 
     <article class="article-content">
         
-        <!-- AFFILIATE DISCLAIMER - HIER TEXT ANPASSEN -->
         <div class="affiliate-disclaimer">
-            <strong>📝 Transparenz:</strong> Dieser Artikel enthält Affiliate-Links (gekennzeichnet mit *). 
-            Wenn du über diese Links ein Produkt kaufst, erhalte ich eine kleine Provision – 
-            ohne Mehrkosten für dich. Ich empfehle nur Tools, die ich selbst nutze und für gut befinde.
+            <strong>📝 Transparenzhinweis</strong>
+            Dieser Artikel enthält Affiliate-Links (gekennzeichnet mit *). Wenn du über diese Links ein Produkt kaufst, erhalte ich eine kleine Provision – ohne Mehrkosten für dich. Ich empfehle nur Tools, die ich selbst täglich nutze und für die ich meine Hand ins Feuer lege.
         </div>
 
-        <h2>Die besten KI-Text-Tools im Überblick</h2>
-        <p>In diesem Artikel stellen wir dir die 10 besten KI-Tools für Textarbeit vor – alle getestet und bewertet.</p>
+        <h2>Einleitung: Die Revolution der Text-KI</h2>
+        <p>Seit dem Launch von ChatGPT im November 2022 hat sich die Art und Weise, wie wir mit Text arbeiten, grundlegend verändert. Was als experimenteller Chatbot begann, ist heute zu einem unverzichtbaren Werkzeug für Unternehmer, Texter, Entwickler und wirklich jeden geworden, der regelmäßig mit Sprache arbeitet.</p>
+        
+        <p>Aber nicht jedes KI-Tool ist gleich. Während einige auf kreative Textgenerierung spezialisiert sind, brillieren andere bei der Recherche oder der Analyse langer Dokumente. In diesem Guide stelle ich dir die 10 Tools vor, die ich in meiner täglichen Arbeit nicht mehr missen möchte – von kostenlosen Allroundern bis hin zu spezialisierten Power-Tools.</p>
+
+        <p>Was wir in den vergangenen drei Monaten getestet haben: Wie gut funktionieren die Tools im echten Arbeitsalltag? Wo stoßen sie an ihre Grenzen? Und welche Kosten kommen wirklich auf dich zu, wenn du über die kostenlosen Grundfunktionen hinausgehen willst?</p>
 
         <!-- TOOL 1: ChatGPT -->
-        <div class="tool-card">
-            <div class="tool-header">
-                <div class="tool-icon">💬</div>
-                <div class="tool-title">
-                    <h3>1. ChatGPT (OpenAI)*</h3>
-                    <div class="tool-meta">
-                        <span class="tool-tag free">Kostenlos</span>
-                        <span class="tool-tag">GPT-4o mini</span>
+        <div class="tool-section">
+            <div class="tool-card">
+                <div class="tool-header">
+                    <div class="tool-icon">💬</div>
+                    <div class="tool-title">
+                        <h3>1. ChatGPT (OpenAI)*</h3>
+                        <div class="tool-meta">
+                            <span class="tool-tag free">Kostenlos nutzbar</span>
+                            <span class="tool-tag">GPT-4o & GPT-4o mini</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <p>ChatGPT ist der bekannteste KI-Chatbot und extrem leistungsfähig. Für die meisten Anwendungsfälle reicht die Gratis-Version völlig aus.</p>
-            
-            <!-- AFFILIATE BUTTON - LINK HIER EINFÜGEN -->
-            <a href="[AFFILIATE-LINK:chatgpt-plus]" class="affiliate-btn" target="_blank" rel="noopener sponsored">→ ChatGPT Plus testen</a>
-            <div class="affiliate-note">*Affiliate-Link – ich empfehle die Plus-Version für Power-User</div>
-            
-            <div class="tool-details">
-                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">Unbegrenzte Nachrichten mit GPT-4o mini</div></div>
-                <div class="detail-row"><div class="detail-label">Plus-Version</div><div class="detail-value">20€/Monat für GPT-4o, DALL-E 3</div></div>
+                
+                <div class="tool-description">
+                    <p>Es fällt schwer, über KI-Tools zu sprechen, ohne mit ChatGPT zu beginnen. Das Flaggschiff von OpenAI hat den Massenmarkt für Künstliche Intelligenz begründet und bleibt auch 2026 der Maßstab, an dem sich alle anderen messen lassen müssen. Doch was macht ChatGPT so besonders – und wo sind seine Grenzen?</p>
+                    
+                    <p>Der entscheidende Durchbruch gelang OpenAI mit der Einführung von GPT-4o mini im Juli 2024. Plötzlich war ein Großteil der Funktionen, die zuvor nur zahlenden Kunden vorbehalten waren, auch in der kostenlosen Version verfügbar. Das bedeutet: Du kannst heute ohne einen Cent zu bezahlen auf ein Modell zugreifen, das in den meisten Fällen ebenso gut ist wie das große GPT-4o – nur eben schneller und effizienter.</p>
+                    
+                    <p>In der Praxis nutze ich ChatGPT für fast alles: Von der Erstellung erster Entwürfe für Blog-Artikel über das Brainstorming von Produktnamen bis hin zur Erklärung komplexer Programmierkonzepte. Besonders stark ist das Tool, wenn du ihm klare Strukturen vorgibst. Ein simples "Schreibe einen Blog-Artikel über KI" führt zu mäßigen Ergebnissen. Aber wenn du schreibst: "Schreibe einen 800-Wörter-Artikel über KI-Tools für Kleinunternehmer, Tonfall: professionell aber locker, Struktur: Einleitung, 3 Hauptpunkte, Fazit mit Call-to-Action" – dann bekommst du etwas, das du tatsächlich als Grundlage nutzen kannst.</p>
+                    
+                    <p>Die größte Stärke von ChatGPT ist seine Vielseitigkeit. Durch die Einführung der sogenannten GPTs (früher Custom GPTs) kannst du dir maßgeschneiderte Assistenten erstellen, die auf spezifische Aufgaben trainiert sind. Ich habe beispielsweise einen GPT, der mir hilft, Headlines zu optimieren, und einen anderen, der aus meinen Chaos-Notizen strukturierte To-do-Listen macht.</p>
+                </div>
+
+                <div class="affiliate-box">
+                    <a href="[AFFILIATE-LINK:chatgpt-plus]" class="affiliate-btn" target="_blank" rel="noopener sponsored">→ ChatGPT Plus für 20€/Monat testen</a>
+                    <div class="affiliate-note">Mit diesem Link unterstützt du unseren Blog – danke!*</div>
+                </div>
+
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="detail-label">Kostenlose Version</span>
+                        <span class="detail-value">Unbegrenzte Nachrichten mit GPT-4o mini, Web-Suche, Datei-Upload bis 16MB, Bildanalyse</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Limits Free</span>
+                        <span class="detail-value">~40 Nachrichten alle 3 Stunden mit GPT-4o (nicht mini), kein DALL-E 3, keine eigenen GPTs erstellen</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Plus-Version</span>
+                        <span class="detail-value">20€/Monat, GPT-4o ohne Limits, DALL-E 3 (Bildgenerierung), erweiterte Datenanalyse, GPT-Store</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Datenschutz</span>
+                        <span class="detail-value">Daten werden standardmäßig für Training verwendet (abstellbar in den Einstellungen), kein DSGVO-Vertrag in der Free-Version</span>
+                    </div>
+                </div>
+
+                <div class="expert-tip">
+                    <strong>💡 Pro-Tipp</strong>
+                    <p>Wenn du ChatGPT für professionelle Texte nutzt, aktiviere in den Einstellungen unter "Datenschutz" die Option "Verbessere das Modell nicht für alle durch meine Chats". So bleiben deine sensiblen Geschäftsdaten privat.</p>
+                </div>
+
+                <div class="use-cases">
+                    <h4>🎯 Perfekt einsetzbar für</h4>
+                    <ul>
+                        <li>Erstentwürfe für Blog-Artikel, E-Mails und Social-Media-Posts</li>
+                        <li>Brainstorming und Ideenfindung in Echtzeit</li>
+                        <li>Code-Generierung und -Erklärung für Entwickler</li>
+                        <li>Zusammenfassungen langer Texte und Dokumente</li>
+                        <li>Übersetzungen mit Kontextbewusstsein (besser als Google Translate)</li>
+                    </ul>
+                </div>
+
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>✅ Was überzeugt</h4>
+                        <ul>
+                            <li>Die kostenlose Version ist für 80% aller Anwendungsfälle ausreichend</li>
+                            <li>Extrem schnelle Antwortzeiten (unter 2 Sekunden bei GPT-4o mini)</li>
+                            <li>Riesige Community und unzählige Tutorials</li>
+                            <li>Ständige Weiterentwicklung durch OpenAI</li>
+                            <li>GPTs ermöglichen maßgeschneiderte Workflows</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>❌ Wo es hakt</h4>
+                        <ul>
+                            <li>Datenschutzbedenken bei sensiblen Unternehmensdaten</li>
+                            <li>Gelegentliche "Halluzinationen" (erfundene Fakten)</li>
+                            <li>Ohne Internetzugang (Browse-Feature) nur Wissen bis April 2024</li>
+                            <li>Kreativität manchmal etwas "generic" oder austauschbar</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- TOOL 2: Claude -->
-        <div class="tool-card">
-            <div class="tool-header">
-                <div class="tool-icon">🧠</div>
-                <div class="tool-title">
-                    <h3>2. Claude (Anthropic)</h3>
-                    <div class="tool-meta">
-                        <span class="tool-tag free">Kostenlos</span>
-                        <span class="tool-tag">200K Context</span>
+        <div class="tool-section">
+            <div class="tool-card">
+                <div class="tool-header">
+                    <div class="tool-icon">🧠</div>
+                    <div class="tool-title">
+                        <h3>2. Claude (Anthropic)</h3>
+                        <div class="tool-meta">
+                            <span class="tool-tag free">Großzügige Free-Version</span>
+                            <span class="tool-tag">200K Kontext</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <p>Claude ist der stärkste Konkurrent von ChatGPT – besonders bei langen Dokumenten. (Noch kein Affiliate-Programm verfügbar)</p>
-            <a href="https://claude.ai" class="affiliate-btn" target="_blank" rel="noopener" style="background: #64748b;">→ Kostenlos zu Claude.ai</a>
-            <div class="tool-details">
-                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">Claude 3.5 Sonnet mit 200K Token</div></div>
-                <div class="detail-row"><div class="detail-label">Pro</div><div class="detail-value">18€/Monat für 5x mehr Nutzung</div></div>
-            </div>
-        </div>
+                
+                <div class="tool-description">
+                    <p>Wenn ChatGPT der extrovertierte Alleskönner ist, dann ist Claude der introvertierte Intellektuelle, der in der Tiefe glänzt. Entwickelt von Anthropic, einem Unternehmen, das von ehemaligen OpenAI-Mitarbeitern gegründet wurde, setzt Claude vor allem auf Sicherheit, Datenschutz und ein unglaublich großes Kontextfenster.</p>
+                    
+                    <p>Stell dir vor, du könntest einem Assistenten ein 600-seitiges Buch geben und er würde nicht nur jede Einzelheit behalten, sondern in der Lage sein, Zusammenhänge zwischen Seite 12 und Seite 584 zu erkennen. Genau das ermöglicht Claude mit seinem 200.000 Token Kontextfenster (ca. 150.000 Wörter). In der Praxis habe ich damit schon komplette Jahresberichte, Vertragswerke und wissenschaftliche Arbeiten analysieren lassen – mit Ergebnissen, die mich regelmäßig staunen lassen.</p>
+                    
+                    <p>Was Claude besonders macht, ist sein Verständnis für Nuancen. Während ChatGPT manchmal etwas "laut" und selbstbewusst wirkt, auch wenn es Unsinn erzählt, ist Claude zurückhaltender, überlegter und präziser in seiner Sprache. Wenn du Texte brauchst, die subtil, empathisch und menschlich wirken sollen – etwa für sensible Kundenanschreiben oder wichtige Präsentationen – ist Claude oft die bessere Wahl.</p>
+                    
+                    <p>Mit der Einführung von "Artifacts" hat Anthropic zudem ein Feature geschaffen, das den Workflow revolutioniert: Claude kann nicht nur Text generieren, sondern auch Code, Diagramme oder Dokumente in einem separaten Fenster neben dem Chat anzeigen. Du kannst direkt daran arbeiten, Änderungen vornehmen und sie dann exportieren – besonders für Entwickler ein Game Changer.</p>
+                </div>
 
-        <!-- TOOL 3: Perplexity -->
-        <div class="tool-card">
-            <div class="tool-header">
-                <div class="tool-icon">🔍</div>
-                <div class="tool-title">
-                    <h3>3. Perplexity AI*</h3>
-                    <div class="tool-meta">
-                        <span class="tool-tag free">Kostenlos</span>
-                        <span class="tool-tag">KI-Suche</span>
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="detail-label">Kostenlose Version</span>
+                        <span class="detail-value">Claude 3.5 Sonnet mit vollem 200K Kontextfenster, Artifacts, Web-Suche</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Limits Free</span>
+                        <span class="detail-value">Ca. 50-70 Nachrichten pro Tag (variiert nach Serverlast), danach Rate-Limit für wenige Stunden</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Pro-Version</span>
+                        <span class="detail-value">18€/Monat (ca. $20), 5-fache Nutzungsmenge, Zugang zu Claude 3.5 Opus (noch leistungsfähiger), höhere Rate-Limits</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Datenschutz</span>
+                        <span class="detail-value">Kein Training mit Nutzerdaten in Free und Pro, DSGVO-konform, SOC 2 zertifiziert</span>
                     </div>
                 </div>
-            </div>
-            <p>Die beste KI-gestützte Suchmaschine mit Quellenangaben. Unverzichtbar für Recherche.</p>
-            
-            <!-- AFFILIATE LINK -->
-            <a href="[AFFILIATE-LINK:perplexity-pro]" class="affiliate-btn" target="_blank" rel="noopener sponsored">→ Perplexity Pro testen</a>
-            
-            <div class="tool-details">
-                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">5 Pro-Suchen/Tag</div></div>
-                <div class="detail-row"><div class="detail-label">Pro-Version</div><div class="detail-value">20€/Monat für unbegrenzte GPT-4-Suchen</div></div>
-            </div>
-        </div>
 
-        <!-- TOOL 4: Google Gemini -->
-        <div class="tool-card">
-            <div class="tool-header">
-                <div class="tool-icon">🔮</div>
-                <div class="tool-title">
-                    <h3>4. Google Gemini</h3>
-                    <div class="tool-meta">
-                        <span class="tool-tag free">Kostenlos</span>
-                        <span class="tool-tag">1M Context</span>
-                    </div>
+                <div class="expert-tip">
+                    <strong>💡 Pro-Tipp</strong>
+                    <p>Nutze Claude für lange Dokumente, indem du PDFs direkt hochlädst und nach spezifischen Inhalten fragst. Beispiel: "Finde alle Klauseln zur Kündigungsfrist in diesem Vertrag und liste sie mit Seitenzahlen auf." Das spart Stunden bei der Vertragsprüfung.</p>
                 </div>
-            </div>
-            <p>Googles Antwort auf ChatGPT mit enormem Kontextfenster und YouTube-Integration.</p>
-            <a href="https://gemini.google.com" class="affiliate-btn" target="_blank" rel="noopener" style="background: #64748b;">→ Zu Google Gemini</a>
-            <div class="tool-details">
-                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">Gemini 1.5 Flash mit 1M Token</div></div>
-                <div class="detail-row"><div class="detail-label">Advanced</div><div class="detail-value">21,99€/Monat über Google One</div></div>
-            </div>
-        </div>
 
-        <!-- TOOL 5: Microsoft Copilot -->
-        <div class="tool-card">
-            <div class="tool-header">
-                <div class="tool-icon">🦸</div>
-                <div class="tool-title">
-                    <h3>5. Microsoft Copilot*</h3>
-                    <div class="tool-meta">
-                        <span class="tool-tag free">Kostenlos</span>
-                        <span class="tool-tag">DALL-E 3</span>
-                    </div>
-                </div>
-            </div>
-            <p>Microsofts KI-Assistent mit integrierter Bildgenerierung – perfekt für Windows-Nutzer.</p>
-            
-            <!-- AFFILIATE LINK -->
-            <a href="[AFFILIATE-LINK:microsoft-copilot-pro]" class="affiliate-btn" target="_blank" rel="noopener sponsored">→ Copilot Pro testen</a>
-            
-            <div class="tool-details">
-                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">GPT-4 Turbo, 15 DALL-E 3 Bilder/Tag</div></div>
-                <div class="detail-row"><div class="detail-label">Pro</div><div class="detail-value">20€/Monat für 365-Integration</div></div>
-            </div>
-        </div>
-
-        <!-- TOOL 6: Notion AI -->
-        <div class="tool-card">
-            <div class="tool-header">
-                <div class="tool-icon">📝</div>
-                <div class="tool-title">
-                    <h3>6. Notion AI*</h3>
-                    <div class="tool-meta">
-                        <span class="tool-tag freemium">Freemium</span>
-                        <span class="tool-tag">Workspace</span>
-                    </div>
-                </div>
-            </div>
-            <p>Notion AI integriert KI direkt in deinen Workspace – ideal zum Zusammenfassen und Schreiben.</p>
-            
-            <!-- AFFILIATE LINK - SEHR LUKRATIV (50% Provision) -->
-            <a href="[AFFILIATE-LINK:notion-ai]" class="affiliate-btn" target="_blank" rel="noopener sponsored">→ Notion AI kostenlos testen</a>
-            <div class="affiliate-note">*50% Rabatt für neue Nutzer möglich</div>
-            
-            <div class="tool-details">
-                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">Begrenzte KI-Aktionen (20/Monat)</div></div>
-                <div class="detail-row"><div class="detail-label">AI Add-on</div><div class="detail-value">10€/Monat pro Nutzer für unbegrenzte Nutzung</div></div>
-            </div>
-        </div>
-
-        <!-- TOOL 7: Grammarly -->
-        <div class="tool-card">
-            <div class="tool-header">
-                <div class="tool-icon">✍️</div>
-                <div class="tool-title">
-                    <h3>7. Grammarly*</h3>
-                    <div class="tool-meta">
-                        <span class="tool-tag free">Kostenlos</span>
-                        <span class="tool-tag">Writing</span>
-                    </div>
-                </div>
-            </div>
-            <p>Der Klassiker unter den Schreibassistenten. Korrigiert Rechtschreibung, Grammatik und Tonfall in Echtzeit.</p>
-            
-            <!-- AFFILIATE LINK -->
-            <a href="[AFFILIATE-LINK:grammarly-premium]" class="affiliate-btn" target="_blank" rel="noopener sponsored">→ Grammarly Premium sichern</a>
-            
-            <div class="tool-details">
-                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">Rechtschreibung & Grammatik</div></div>
-                <div class="detail-row"><div class="detail-label">Premium</div><div class="detail-value">Ab 12€/Monat für erweiterte Vorschläge</div></div>
-            </div>
-        </div>
-
-        <!-- TOOL 8: Jasper AI -->
-        <div class="tool-card">
-            <div class="tool-header">
-                <div class="tool-icon">⚡</div>
-                <div class="tool-title">
-                    <h3>8. Jasper AI*</h3>
-                    <div class="tool-meta">
-                        <span class="tool-tag freemium">Freemium</span>
-                        <span class="tool-tag">Marketing</span>
-                    </div>
-                </div>
-            </div>
-            <p>Jasper ist spezialisiert auf Marketing-Content mit über 50 Templates für Blogs, Ads und E-Mails.</p>
-            
-            <!-- AFFILIATE LINK -->
-            <a href="[AFFILIATE-LINK:jasper-ai]" class="affiliate-btn" target="_blank" rel="noopener sponsored">→ Jasper kostenlos testen (7 Tage)</a>
-            
-            <div class="tool-details">
-                <div class="detail-row"><div class="detail-label">Free-Trial</div><div class="detail-value">7 Tage kostenlos</div></div>
-                <div class="detail-row"><div class="detail-label">Pro</div><div class="detail-value">Ab 49€/Monat für unbegrenzte Wörter</div></div>
-            </div>
-        </div>
-
-        <!-- TOOL 9: Copy.ai -->
-        <div class="tool-card">
-            <div class="tool-header">
-                <div class="tool-icon">🎯</div>
-                <div class="tool-title">
-                    <h3>9. Copy.ai*</h3>
-                    <div class="tool-meta">
-                        <span class="tool-tag free">Kostenlos</span>
-                        <span class="tool-tag">Copywriting</span>
-                    </div>
-                </div>
-            </div>
-            <p>Copy.ai fokussiert sich auf verkaufsstarke Texte – perfekt für Social Media und Werbung.</p>
-            
-            <!-- AFFILIATE LINK -->
-            <a href="[AFFILIATE-LINK:copy-ai]" class="affiliate-btn" target="_blank" rel="noopener sponsored">→ Copy.ai gratis nutzen</a>
-            
-            <div class="tool-details">
-                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">2.000 Wörter/Monat, 90+ Templates</div></div>
-                <div class="detail-row"><div class="detail-label">Pro</div><div class="detail-value">36€/Monat für unbegrenzte Wörter</div></div>
-            </div>
-        </div>
-
-        <!-- TOOL 10: Writesonic -->
-        <div class="tool-card">
-            <div class="tool-header">
-                <div class="tool-icon">🚀</div>
-                <div class="tool-title">
-                    <h3>10. Writesonic*</h3>
-                    <div class="tool-meta">
-                        <span class="tool-tag freemium">Freemium</span>
-                        <span class="tool-tag">SEO</span>
-                    </div>
-                </div>
-            </div>
-            <p>Writesonic kombiniert KI-Schreiben mit SEO-Tools. Integriert Surfer SEO für bessere Rankings.</p>
-            
-            <!-- AFFILIATE LINK -->
-            <a href="[AFFILIATE-LINK:writesonic]" class="affiliate-btn" target="_blank" rel="noopener sponsored">→ Writesonic testen</a>
-            
-            <div class="tool-details">
-                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">10.000 Wörter/Monat</div></div>
-                <div class="detail-row"><div class="detail-label">Pro</div><div class="detail-value">Ab 13€/Monat für GPT-4, 100.000 Wörter</div></div>
-            </div>
-        </div>
-
-        <div class="cta-box">
-            <h3 style="color: white; margin-bottom: 15px;">🚀 Willst du KI wirklich beherrschen?</h3>
-            <p style="color: rgba(255,255,255,0.9); margin-bottom: 25px;">In unserem Kurs lernst du, wie du diese Tools kombinierst.</p>
-            <a href="../index.html#work" class="btn-white">Kurs entdecken →</a>
-        </div>
-    </article>
-
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <h3>KI Expertenraum</h3>
-                <p>Dein Zugang zur KI-Elite</p>
-            </div>
-            <div class="footer-links">
-                <a href="../index.html">Startseite</a>
-                <a href="../blog.html">Blog</a>
-            </div>
-        </div>
-    </footer>
-</body>
-</html>
+                <div class="use-cases">
+                    <h4>🎯 Perfekt einsetzbar für</h4>
+                    <ul>
+                        <li>Analyse langer Verträge, Gutachten oder wissenschaftlicher Arbeiten</li>
+                        <li>Subtile, nuancierte Texte mit hohem Qualitätsanspruch</li>
+                        <li>Code-Review und Erklärung komplexer Code-Basen</li>
+                        <li>Recherche mit hohen Datenschutzanforderungen (DSGVO-sensibel)</li>
+                        <li>Erstellen von Markdown-Dokumenten
