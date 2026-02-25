@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>10 KI-Tools für Bild, Video & Kreativität 2026 | KI Expertenraum</title>
-    <meta name="description" content="Die 10 besten KI-Tools für Bildgenerierung, Video-Editing und Kreativität. Midjourney-Alternativen, Video-KI & mehr – alle kostenlos testbar.">
+    <title>10 KI-Tools für Bild, Video & Kreativität: Der vollständige Guide 2026 | KI Expertenraum</title>
+    <meta name="description" content="Die 10 besten KI-Tools für Bildgenerierung, Video-Editing und Kreativität im ausführlichen Test. Von DALL-E über Runway bis CapCut – mit echten Tipps und Tricks.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root { 
             --bg: #f0f7ff; 
-            --bg-card: rgba(255, 255, 255, 0.9);
+            --bg-card: rgba(255, 255, 255, 0.92);
             --text: #0f172a; 
             --text-muted: #475569; 
             --text-light: #64748b; 
@@ -19,13 +19,15 @@
             --accent: #3b82f6;
             --success: #22c55e;
             --warning: #f59e0b;
+            --info: #06b6d4;
         }
-        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 50%, #dbeafe 100%); color: var(--text); line-height: 1.7; min-height: 100vh; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 50%, #dbeafe 100%); color: var(--text); line-height: 1.8; overflow-x: hidden; min-height: 100vh; }
         h1, h2, h3, h4 { font-family: 'DM Sans', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
         
         .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 80px; display: flex; justify-content: space-between; align-items: center; background: rgba(240, 247, 255, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
         .logo { font-family: 'DM Sans', sans-serif; font-size: 24px; font-weight: 800; background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .logo a { text-decoration: none; }
+        .logo a { text-decoration: none; color: inherit; }
         .nav-links { display: flex; gap: 35px; list-style: none; }
         .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.3s; }
         .nav-links a:hover { color: var(--accent); }
@@ -33,69 +35,97 @@
         .article-header { padding: 140px 80px 60px; max-width: 800px; margin: 0 auto; text-align: center; }
         .article-meta { display: flex; gap: 20px; justify-content: center; margin-bottom: 25px; font-size: 14px; color: var(--text-light); flex-wrap: wrap; }
         .article-meta .category { color: var(--accent); background: rgba(59, 130, 246, 0.1); padding: 6px 14px; border-radius: 20px; font-weight: 600; }
-        .article-title { font-size: clamp(32px, 4vw, 48px); line-height: 1.15; margin-bottom: 25px; }
+        .article-title { font-size: clamp(32px, 4vw, 52px); line-height: 1.1; margin-bottom: 25px; }
         .article-intro { font-size: 20px; color: var(--text-muted); line-height: 1.8; margin-bottom: 30px; }
+        .article-author { display: flex; align-items: center; gap: 15px; justify-content: center; margin-top: 40px; }
+        .author-avatar { width: 50px; height: 50px; background: linear-gradient(135deg, var(--accent), #8b5cf6); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 20px; }
+        .author-info { text-align: left; }
+        .author-name { font-weight: 700; color: var(--text); }
+        .author-role { font-size: 14px; color: var(--text-light); }
         
-        .affiliate-disclaimer { background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 12px; padding: 20px; margin: 30px 0; font-size: 14px; color: var(--text-muted); }
-        .affiliate-disclaimer strong { color: var(--text); }
+        .affiliate-disclaimer { background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.05)); border-left: 4px solid var(--warning); border-radius: 0 12px 12px 0; padding: 20px 25px; margin: 40px 0; font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+        .affiliate-disclaimer strong { color: var(--text); display: block; margin-bottom: 8px; font-size: 15px; }
         
         .article-content { max-width: 800px; margin: 0 auto; padding: 0 80px 80px; }
-        .article-content h2 { font-size: 28px; margin: 50px 0 20px; color: var(--text); }
-        .article-content p { margin-bottom: 20px; color: var(--text-muted); }
-        .article-content ul { margin: 20px 0; padding-left: 30px; color: var(--text-muted); }
-        .article-content li { margin-bottom: 10px; }
+        .article-content h2 { font-size: 32px; margin: 60px 0 25px; color: var(--text); line-height: 1.2; }
+        .article-content h2:first-of-type { margin-top: 30px; }
+        .article-content h3 { font-size: 26px; margin: 45px 0 20px; color: var(--text); }
+        .article-content p { margin-bottom: 22px; color: var(--text-muted); font-size: 17px; line-height: 1.9; }
+        .article-content ul, .article-content ol { margin: 25px 0; padding-left: 30px; color: var(--text-muted); }
+        .article-content li { margin-bottom: 12px; line-height: 1.7; }
+        .article-content strong { color: var(--text); font-weight: 600; }
         
-        .tool-card { background: var(--bg-card); border-radius: 20px; padding: 35px; margin: 30px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid rgba(255,255,255,0.7); position: relative; overflow: hidden; }
-        .tool-card::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; background: linear-gradient(to bottom, #ec4899, #8b5cf6); }
-        .tool-header { display: flex; align-items: center; gap: 20px; margin-bottom: 20px; flex-wrap: wrap; }
-        .tool-icon { width: 60px; height: 60px; background: linear-gradient(135deg, #ec4899, #8b5cf6); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: white; font-size: 28px; flex-shrink: 0; }
-        .tool-title { flex: 1; min-width: 200px; }
-        .tool-title h3 { margin: 0 0 8px 0; font-size: 24px; }
-        .tool-meta { display: flex; gap: 12px; flex-wrap: wrap; }
-        .tool-tag { background: rgba(59, 130, 246, 0.1); color: var(--accent); padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+        .tool-section { margin: 60px 0; }
+        .tool-card { background: var(--bg-card); border-radius: 24px; padding: 45px; margin: 40px 0; box-shadow: 0 8px 30px rgba(0,0,0,0.08); border: 1px solid rgba(255,255,255,0.8); position: relative; overflow: hidden; backdrop-filter: blur(10px); }
+        .tool-card::before { content: ''; position: absolute; top: 0; left: 0; width: 6px; height: 100%; background: linear-gradient(to bottom, #ec4899, #8b5cf6); }
+        .tool-header { display: flex; align-items: flex-start; gap: 25px; margin-bottom: 30px; flex-wrap: wrap; }
+        .tool-icon { width: 70px; height: 70px; background: linear-gradient(135deg, #ec4899, #8b5cf6); border-radius: 18px; display: flex; align-items: center; justify-content: center; color: white; font-size: 32px; flex-shrink: 0; box-shadow: 0 8px 20px rgba(236, 72, 153, 0.3); }
+        .tool-title { flex: 1; min-width: 250px; }
+        .tool-title h3 { margin: 0 0 12px 0; font-size: 28px; color: var(--text); }
+        .tool-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+        .tool-tag { background: rgba(59, 130, 246, 0.1); color: var(--accent); padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 600; }
         .tool-tag.free { background: rgba(34, 197, 94, 0.1); color: var(--success); }
         .tool-tag.freemium { background: rgba(245, 158, 11, 0.1); color: var(--warning); }
         
-        .affiliate-btn { display: inline-block; background: linear-gradient(135deg, #ec4899, #8b5cf6); color: white; padding: 12px 28px; border-radius: 10px; text-decoration: none; font-weight: 700; margin: 15px 0; transition: all 0.3s; box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3); }
-        .affiliate-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(236, 72, 153, 0.4); }
-        .affiliate-note { font-size: 12px; color: var(--text-light); margin-top: 8px; font-style: italic; }
+        .tool-description { font-size: 17px; line-height: 1.9; color: var(--text-muted); margin-bottom: 25px; }
+        .tool-description p { margin-bottom: 18px; }
         
-        .tool-details { margin: 25px 0; }
-        .detail-row { display: flex; padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.05); flex-wrap: wrap; }
-        .detail-row:last-child { border-bottom: none; }
-        .detail-label { font-weight: 600; color: var(--text); width: 140px; flex-shrink: 0; }
-        .detail-value { color: var(--text-muted); flex: 1; min-width: 200px; }
+        .affiliate-box { background: linear-gradient(135deg, rgba(236, 72, 153, 0.08), rgba(139, 92, 246, 0.08)); border: 2px dashed rgba(236, 72, 153, 0.3); border-radius: 16px; padding: 25px; margin: 30px 0; text-align: center; }
+        .affiliate-btn { display: inline-block; background: linear-gradient(135deg, #ec4899, #8b5cf6); color: white; padding: 14px 32px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 16px; transition: all 0.3s; box-shadow: 0 4px 15px rgba(236, 72, 153, 0.35); }
+        .affiliate-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(236, 72, 153, 0.45); }
+        .affiliate-btn.secondary { background: linear-gradient(135deg, var(--accent), #2563eb); box-shadow: 0 4px 15px rgba(59, 130, 246, 0.35); }
+        .affiliate-note { font-size: 13px; color: var(--text-light); margin-top: 12px; font-style: italic; }
         
-        .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 25px 0; }
-        .pros, .cons { padding: 20px; border-radius: 12px; }
-        .pros { background: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.2); }
-        .cons { background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.2); }
-        .pros h4 { color: #16a34a; margin-bottom: 12px; font-size: 16px; }
-        .cons h4 { color: #dc2626; margin-bottom: 12px; font-size: 16px; }
-        .pros ul, .cons ul { margin: 0; padding-left: 20px; }
-        .pros li { color: #16a34a; margin-bottom: 6px; }
-        .cons li { color: #dc2626; margin-bottom: 6px; }
+        .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0; }
+        .detail-item { background: rgba(255,255,255,0.6); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.8); }
+        .detail-label { font-weight: 700; color: var(--text); font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; display: block; }
+        .detail-value { color: var(--text-muted); font-size: 15px; line-height: 1.6; }
         
-        .use-cases { background: linear-gradient(135deg, rgba(236, 72, 153, 0.05), rgba(139, 92, 246, 0.05)); border: 1px solid rgba(236, 72, 153, 0.15); border-radius: 12px; padding: 20px; margin: 20px 0; }
-        .use-cases h4 { color: #ec4899; margin-bottom: 12px; font-size: 16px; }
-        .use-cases ul { margin: 0; padding-left: 20px; }
+        .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin: 35px 0; }
+        .pros, .cons { padding: 25px; border-radius: 16px; }
+        .pros { background: rgba(34, 197, 94, 0.06); border: 1px solid rgba(34, 197, 94, 0.2); }
+        .cons { background: rgba(239, 68, 68, 0.06); border: 1px solid rgba(239, 68, 68, 0.2); }
+        .pros h4 { color: #16a34a; margin-bottom: 15px; font-size: 17px; display: flex; align-items: center; gap: 8px; }
+        .cons h4 { color: #dc2626; margin-bottom: 15px; font-size: 17px; display: flex; align-items: center; gap: 8px; }
+        .pros ul, .cons ul { margin: 0; padding-left: 0; list-style: none; }
+        .pros li { color: #16a34a; margin-bottom: 10px; padding-left: 24px; position: relative; font-size: 15px; line-height: 1.6; }
+        .pros li::before { content: '✓'; position: absolute; left: 0; font-weight: 700; }
+        .cons li { color: #dc2626; margin-bottom: 10px; padding-left: 24px; position: relative; font-size: 15px; line-height: 1.6; }
+        .cons li::before { content: '×'; position: absolute; left: 0; font-weight: 700; }
         
-        .cta-box { background: linear-gradient(135deg, #ec4899, #8b5cf6); color: white; padding: 40px; border-radius: 20px; margin: 50px 0; text-align: center; }
-        .btn-white { display: inline-block; background: white; color: #ec4899; padding: 14px 32px; border-radius: 10px; text-decoration: none; font-weight: 700; transition: transform 0.3s; }
-        .btn-white:hover { transform: translateY(-3px); }
+        .use-cases { background: linear-gradient(135deg, rgba(236, 72, 153, 0.06), rgba(139, 92, 246, 0.06)); border: 1px solid rgba(236, 72, 153, 0.2); border-radius: 16px; padding: 30px; margin: 30px 0; }
+        .use-cases h4 { color: #ec4899; margin-bottom: 20px; font-size: 18px; display: flex; align-items: center; gap: 10px; }
+        .use-cases ul { margin: 0; padding-left: 0; list-style: none; }
+        .use-cases li { color: var(--text-muted); margin-bottom: 14px; padding-left: 30px; position: relative; line-height: 1.7; }
+        .use-cases li::before { content: '→'; position: absolute; left: 0; color: #ec4899; font-weight: 700; }
         
-        .footer { padding: 50px 80px; background: var(--bg-card); border-top: 1px solid var(--border); margin-top: 80px; }
-        .footer-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
-        .footer-links { display: flex; gap: 35px; }
-        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 600; }
+        .expert-tip { background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(59, 130, 246, 0.1)); border-left: 4px solid var(--info); border-radius: 0 12px 12px 0; padding: 25px; margin: 30px 0; }
+        .expert-tip strong { color: var(--info); display: block; margin-bottom: 10px; font-size: 15px; text-transform: uppercase; letter-spacing: 1px; }
+        .expert-tip p { margin: 0; color: var(--text-muted); font-size: 15px; line-height: 1.8; }
+        
+        .cta-box { background: linear-gradient(135deg, #ec4899, #8b5cf6); color: white; padding: 50px; border-radius: 24px; margin: 60px 0; text-align: center; box-shadow: 0 20px 50px rgba(236, 72, 153, 0.3); }
+        .cta-box h3 { color: white; margin-bottom: 20px; font-size: 32px; }
+        .cta-box p { color: rgba(255,255,255,0.95); margin-bottom: 30px; font-size: 18px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .btn-white { display: inline-block; background: white; color: #ec4899; padding: 16px 36px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 16px; transition: all 0.3s; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+        .btn-white:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+        
+        .footer { padding: 60px 80px; background: var(--bg-card); border-top: 1px solid var(--border); margin-top: 100px; }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 30px; }
+        .footer-brand h3 { font-size: 26px; margin-bottom: 10px; font-family: 'DM Sans', sans-serif; font-weight: 800; background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .footer-brand p { color: var(--text-muted); font-size: 15px; }
+        .footer-links { display: flex; gap: 35px; flex-wrap: wrap; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--accent); }
         
         @media (max-width: 768px) { 
             .nav { padding: 15px 30px; } 
+            .nav-links { display: none; } 
             .article-header { padding: 120px 30px 40px; } 
             .article-content { padding: 0 30px 60px; }
+            .tool-card { padding: 30px 25px; }
+            .details-grid { grid-template-columns: 1fr; }
             .pros-cons { grid-template-columns: 1fr; }
             .tool-header { flex-direction: column; text-align: center; }
-            .detail-row { flex-direction: column; gap: 5px; }
             .footer { padding: 40px 30px; } 
             .footer-content { flex-direction: column; text-align: center; }
         }
@@ -113,275 +143,188 @@
 
     <header class="article-header">
         <div class="article-meta">
-            <span class="category">Tools</span>
-            <span>⏱️ 22 Min Lesezeit</span>
-            <span>📅 16. Februar 2026</span>
+            <span class="category">Kreativ-Tools</span>
+            <span>⏱️ 40 Min Lesezeit</span>
+            <span>📅 25. Februar 2026</span>
         </div>
-        <h1 class="article-title">10 KI-Tools für Bild, Video & Kreativität</h1>
-        <p class="article-intro">Von Bildgenerierung bis Video-Editing: Die 10 besten KI-Tools für Kreative im ausführlichen Test – mit echten Limits, Preisen und Anwendungsbeispielen.</p>
+        <h1 class="article-title">10 KI-Tools für Bild, Video & Kreativität: Der vollständige Guide</h1>
+        <p class="article-intro">Von der Idee zum fertigen Video in Minuten statt Stunden: Wir haben die 10 besten KI-Tools für Bildgenerierung, Video-Editing und Design getestet. Mit echten Beispielen, Preis-Leistungs-Tipps und Datenschutz-Einschätzungen.</p>
+        <div class="article-author">
+            <div class="author-avatar">P</div>
+            <div class="author-info">
+                <div class="author-name">Philipp Zerna</div>
+                <div class="author-role">KI Experte & Content Creator</div>
+            </div>
+        </div>
     </header>
 
     <article class="article-content">
         
-        <!-- AFFILIATE DISCLAIMER -->
         <div class="affiliate-disclaimer">
-            <strong>📝 Transparenz:</strong> Dieser Artikel enthält Affiliate-Links (gekennzeichnet mit *). 
-            Wenn du über diese Links ein Produkt kaufst, erhalte ich eine kleine Provision – 
-            ohne Mehrkosten für dich. Ich empfehle nur Tools, die ich selbst nutze und für gut befinde.
+            <strong>📝 Transparenzhinweis</strong>
+            Dieser Artikel enthält Affiliate-Links (gekennzeichnet mit *). Wenn du über diese Links ein Produkt kaufst, erhalte ich eine kleine Provision – ohne Mehrkosten für dich. Ich empfehle nur Tools, die ich selbst im Alltag nutze.
         </div>
 
-        <h2>KI für Kreative: Mehr als nur Text</h2>
-        <p>Während ChatGPT & Co. die Textwelt revolutionieren, tut sich bei Bildern und Videos ebenso viel. Hier sind die 10 besten Tools, mit denen du professionelle Visuals erstellst – ganz ohne Design-Studium.</p>
+        <h2>Einleitung: Wenn Maschinen kreativ werden</h2>
+        <p>Als ich vor drei Jahren angefangen habe, Online-Kurse zu erstellen, brauchte ich für jedes einzelne Promo-Bild einen Grafiker, für jedes Tutorial-Video einen Cutter und für jedes Thumbnail Stunden an Photoshop-Arbeit. Heute? Ich erstelle professionelle Visuals in der Zeit, die ich früher für einen Kaffee gebraucht hätte.</p>
+        
+        <p>Die zweite Generation der Kreativ-KIs hat einen Sprung gemacht, der vor 2024 noch undenkbar war. Wir reden nicht mehr von pixeligen Bildern mit sechs Fingern an der Hand, sondern von fotorealistischen Assets, die selbst Profis zweimal hinsehen lassen. Von Videos, die aus reinem Text entstehen. Von Design-Tools, die verstehen, was "moderner, aber nicht zu verspielt" bedeutet.</p>
+
+        <p>In diesem Guide stelle ich dir die 10 Tools vor, die meinen Workflow revolutioniert haben. Einige sind komplett kostenlos, andere lohnen sich durch ihre Zeitersparnis allein. Alle haben eines gemeinsam: Sie machen dich unabhängig von teuren Agenturen und ermöglichen es, professionelle Inhalte im Alleingang zu produzieren – egal ob du ein Ein-Personen-Unternehmen bist oder in einem großen Marketing-Team arbeitest.</p>
 
         <!-- TOOL 1: Microsoft Copilot -->
-        <div class="tool-card">
-            <div class="tool-header">
-                <div class="tool-icon">🎨</div>
-                <div class="tool-title">
-                    <h3>1. Microsoft Copilot (DALL-E 3)*</h3>
-                    <div class="tool-meta">
-                        <span class="tool-tag free">Kostenlos</span>
-                        <span class="tool-tag">DALL-E 3</span>
+        <div class="tool-section">
+            <div class="tool-card">
+                <div class="tool-header">
+                    <div class="tool-icon">🎨</div>
+                    <div class="tool-title">
+                        <h3>1. Microsoft Copilot (DALL-E 3)*</h3>
+                        <div class="tool-meta">
+                            <span class="tool-tag free">Kostenlos nutzbar</span>
+                            <span class="tool-tag">DALL-E 3 Integration</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tool-description">
+                    <p>Wenn du heute mit KI-Bildern starten willst, führt kein Weg an Microsoft Copilot vorbei – und das hat einen guten Grund: Es ist der einfachste, schnellste und in der Basisversion komplett kostenlose Einstieg in die Welt der Bildgenerierung. Durch die Integration von DALL-E 3, dem aktuell besten Bildmodell von OpenAI, bekommst du hier Qualität, für die andere Anbieter berechnen – ohne einen Cent zu bezahlen.</p>
+                    
+                    <p>Was Copilot besonders macht, ist die nahtlose Integration in das Microsoft-Ökosystem. Ob du Windows 11 nutzt, im Edge-Browser surfst oder die mobile App auf deinem Smartphone hast: Überall ist der KI-Assistent nur einen Klick entfernt. Für mich persönlich hat sich das als Game Changer erwiesen, weil ich nicht mehr zwischen verschiedenen Tools hin- und herwechseln muss. Ich schreibe eine E-Mail in Outlook, brauche eine passende Illustration, öffne das Copilot-Sidebar-Fenster – und habe innerhalb von 30 Sekunden das perfekte Bild.</p>
+                    
+                    <p>Die Qualität der generierten Bilder ist beeindruckend. DALL-E 3 versteht komplexe Prompts wie "Ein minimalistisches Logo für eine nachhaltige Kaffeemarke, Erdtöne, handgezeichnete Ästhetik, weißer Hintergrund" und liefert Ergebnisse, die du sofort für Social Media oder Präsentationen nutzen kannst. Besonders stark ist das Tool bei Illustrationen, Konzeptzeichnungen und Marketing-Grafiken. Fotorealistische Menschen sind zwar möglich, aber hier greife ich persönlich lieber auf spezialisierte Tools zurück.</p>
+                    
+                    <p>Der Haken an der Sache? Die kostenlose Version gibt dir 15 sogenannte "Boosts" pro Tag – also 15 Bilder, die schnell generiert werden. Danach dauert es länger, aber es funktioniert weiterhin. Für die meisten Nutzer reichen diese 15 Bilder völlig aus. Wer mehr braucht und zusätzlich die Vorteile von GPT-4 nutzen will, greift zur Pro-Version.</p>
+                </div>
+
+                <div class="affiliate-box">
+                    <a href="[AFFILIATE-LINK:microsoft-copilot-pro]" class="affiliate-btn" target="_blank" rel="noopener sponsored">→ Copilot Pro für 20€/Monat testen</a>
+                    <div class="affiliate-note">Inkl. Office-Integration und schnelleren Generierungen*</div>
+                </div>
+
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="detail-label">Kostenlos nutzbar</span>
+                        <span class="detail-value">15 "Boosts" pro Tag (schnelle Generierung), danach langsamere Verarbeitung, aber weiterhin unbegrenzt</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Bildrechte</span>
+                        <span class="detail-value">Volle kommerzielle Nutzungsrechte für alle generierten Bilder, auch in der Free-Version</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Stärken</span>
+                        <span class="detail-value">Illustrationen, Konzeptzeichnungen, Logos, Marketing-Grafiken, Integration in Windows/Office</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Schwächen</span>
+                        <span class="detail-value">Fotorealistische Menschen sehen manchmal "zu glatt" aus, Text im Bild kann Fehler enthalten</span>
+                    </div>
+                </div>
+
+                <div class="expert-tip">
+                    <strong>💡 Pro-Tipp für bessere Prompts</strong>
+                    <p>Sei extrem spezifisch bei der Beschreibung. Statt "Ein Hund im Park" schreibe: "Ein golden retriever spielt im sonnigen Central Park, Frühlingsstimmung, helle Farben, Fotografie-Stil, unscharfer Hintergrund". Je detaillierter, desto besser das Ergebnis.</p>
+                </div>
+
+                <div class="use-cases">
+                    <h4>🎯 Wofür ich Copilot täglich nutze</h4>
+                    <ul>
+                        <li>Schnelle Blog-Illustrationen, die nicht nach Stock-Foto aussehen</li>
+                        <li>Social-Media-Grafiken für LinkedIn und Instagram Stories</li>
+                        <li>Produkt-Mockups für Kurs-Landingpages</li>
+                        <li>Präsentations-Bilder, die aus der Masse herausstechen</li>
+                        <li>Brainstorming von Logos und Branding-Ideen</li>
+                    </ul>
+                </div>
+
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>✅ Warum ich es empfehle</h4>
+                        <ul>
+                            <li>Komplett kostenlos nutzbar, ohne Kreditkarte</li>
+                            <li>Kein separates Konto nötig (funktioniert mit Microsoft-Account)</li>
+                            <li>Sehr gutes Verständnis komplexer deutscher Prompts</li>
+                            <li>Text-in-Bild-Funktion funktioniert erstaunlich gut</li>
+                            <li>Integriert sich perfekt in den Arbeitsalltag</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>❌ Was dich stören könnte</h4>
+                        <ul>
+                            <li>Nach 15 Bildern/Tag merkliche Wartezeiten</li>
+                            <li>Keine Feinabstimmung möglich (keine Inpainting-Funktion)</li>
+                            <li>Begrenzte Bildformate (meist quadratisch oder 16:9)</li>
+                            <li>Keine Bild-zu-Bild-Variationen wie bei Midjourney</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <p>Der einfachste Weg zu KI-Bildern. Über den Copilot in Windows, Bing oder die App kannst du direkt DALL-E 3 nutzen – ohne extra Account, ohne Kosten.</p>
-            
-            <a href="[AFFILIATE-LINK:microsoft-copilot-pro]" class="affiliate-btn" target="_blank" rel="noopener sponsored">→ Copilot Pro testen</a>
-            
-            <div class="tool-details">
-                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">15 "Boosts" pro Tag für schnelle Generierung, danach langsamer</div></div>
-                <div class="detail-row"><div class="detail-label">Qualität</div><div class="detail-value">Sehr hoch, besonders für Illustrationen und Konzepte</div></div>
-                <div class="detail-row"><div class="detail-label">Rechte</div><div class="detail-value">Volle kommerzielle Nutzungsrechte</div></div>
-                <div class="detail-row"><div class="detail-label">Besonderheit</div><div class="detail-value">Integriert in Windows 11, Edge, Office-Apps</div></div>
-            </div>
-            <div class="use-cases"><h4>🎯 Perfekt für</h4><ul><li>Blog-Illustrationen</li><li>Social Media Grafiken</li><li>Produkt-Mockups</li><li>Präsentations-Bilder</li></ul></div>
         </div>
 
         <!-- TOOL 2: Leonardo.ai -->
-        <div class="tool-card">
-            <div class="tool-header">
-                <div class="tool-icon">🖼️</div>
-                <div class="tool-title">
-                    <h3>2. Leonardo.ai*</h3>
-                    <div class="tool-meta">
-                        <span class="tool-tag free">Freemium</span>
-                        <span class="tool-tag">150 Tokens/Tag</span>
+        <div class="tool-section">
+            <div class="tool-card">
+                <div class="tool-header">
+                    <div class="tool-icon">🖼️</div>
+                    <div class="tool-title">
+                        <h3>2. Leonardo.ai*</h3>
+                        <div class="tool-meta">
+                            <span class="tool-tag free">Großzügige Free-Version</span>
+                            <span class="tool-tag">150 Tokens/Tag</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <p>Die beste kostenlose Alternative zu Midjourney. Spezialisierte Modelle für Game-Assets, Konzeptkunst und Illustrationen.</p>
-            
-            <a href="[AFFILIATE-LINK:leonardo-ai]" class="affiliate-btn" target="_blank" rel="noopener sponsored">→ Leonardo.ai kostenlos testen</a>
-            
-            <div class="tool-details">
-                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">150 Tokens täglich (~15-20 Bilder)</div></div>
-                <div class="detail-row"><div class="detail-label">Features</div><div class="detail-value">Image-to-Image, Canvas, 3D-Texturen, Motion</div></div>
-                <div class="detail-row"><div class="detail-label">Pro</div><div class="detail-value">Ab 10€/Monat für mehr Tokens, private Bilder</div></div>
-                <div class="detail-row"><div class="detail-label">Besonderheit</div><div class="detail-value">Eigene Modelle trainieren möglich</div></div>
-            </div>
-            <div class="use-cases"><h4>🎯 Perfekt für</h4><ul><li>Game Development</li><li>Konzeptzeichnungen</li><li>Charakter-Designs</li><li>Architektur-Visualisierungen</li></ul></div>
-        </div>
+                
+                <div class="tool-description">
+                    <p>Wenn du schon einmal versucht hast, mit Midjourney professionelle Game-Assets oder Charakter-Designs zu erstellen, weißt du, wie frustrierend die Discord-Oberfläche sein kann. Leonardo.ai ist die Antwort darauf: Eine webbasierte Plattform, die nicht nur bessere Kontrollmöglichkeiten bietet, sondern in vielen Bereichen auch qualitativ höherwertige Ergebnisse liefert – und das mit einer großzügigen kostenlosen Version.</p>
+                    
+                    <p>Was Leonardo von der Konkurrenz abhebt, ist die Spezialisierung auf spezifische Anwendungsfälle. Während andere Tools versuchen, alles für jeden zu sein, hat Leonardo verschiedene "Fine-tuned Models" – also KIs, die auf bestimmte Stile trainiert wurden. Es gibt Modelle für fotorealistische Bilder, für Anime-Charaktere, für 3D-Game-Assets, für Architektur-Visualisierungen und vieles mehr. Das bedeutet: Du wählst vorher das passende Modell aus und bekommst Ergebnisse, die deutlich näher an deiner Vision sind als bei einem Gener<tool>ic</tool>hen Alleskönner.</p>
+                    
+                    <p>Die kostenlose Version gibt dir täglich 150 Tokens – das reicht für etwa 15 bis 20 Bilder, je nach Komplexität. Das mag nach wenig klingen, aber für gezielte Projekte ist das völlig ausreichend. Ich nutze Leonardo vor allem, wenn ich konsistente Charaktere über mehrere Bilder hinweg brauche – eine Funktion, die selbst in der Bezahlversion von DALL-E 3 noch nicht richtig funktioniert. Mit Leonado "Character Reference" kannst du ein Gesicht oder einen Stil über verschiedene Szenen hinweg beibehalten, was für Storyboards oder Comic-Projekte unverzichtbar ist.</p>
+                    
+                    <p>Besonders erwähnenswert ist die "Canvas"-Funktion: Ein Interface, das an Photoshop erinnert, in dem du gezielt Bereiche eines Bildes verändern kannst (Inpainting), Bilder erweitern kannst (Outpainting) und verschiedene Varianten nebeneinander vergleichen kannst. Das ist für iterative Design-Prozesse Gold wert.</p>
+                </div>
 
-        <!-- TOOL 3: Adobe Firefly -->
-        <div class="tool-card">
-            <div class="tool-header">
-                <div class="tool-icon">✨</div>
-                <div class="tool-title">
-                    <h3>3. Adobe Firefly*</h3>
-                    <div class="tool-meta">
-                        <span class="tool-tag free">Freemium</span>
-                        <span class="tool-tag">25 Credits/Monat</span>
-                    </div>
+                <div class="affiliate-box">
+                    <a href="[AFFILIATE-LINK:leonardo-ai]" class="affiliate-btn" target="_blank" rel="noopener sponsored">→ Leonardo.ai kostenlos testen (150 Tokens/Tag)</a>
+                    <div class="affiliate-note">Mit diesem Link sicherst du dir die maximale Start-Prämie*</div>
                 </div>
-            </div>
-            <p>Adobes KI-Plattform für professionelle Designer. Alle Trainingsdaten sind lizenziert – kommerzielle Nutzung absolut sicher.</p>
-            
-            <a href="[AFFILIATE-LINK:adobe-firefly]" class="affiliate-btn" target="_blank" rel="noopener sponsored">→ Adobe Firefly testen</a>
-            <div class="affiliate-note">*Auch über Creative Cloud Abo verfügbar</div>
-            
-            <div class="tool-details">
-                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">25 Generierungen/Monat, Text-to-Image, Generative Fill</div></div>
-                <div class="detail-row"><div class="detail-label">Premium</div><div class="detail-value">Ab 4,99€/Monat für 100 Credits</div></div>
-                <div class="detail-row"><div class="detail-label">Rechte</div><div class="detail-value">100% kommerziell nutzbar (lizenzierte Trainingsdaten)</div></div>
-                <div class="detail-row"><div class="detail-label">Besonderheit</div><div class="detail-value">Generative Fill in Photoshop</div></div>
-            </div>
-            <div class="use-cases"><h4>🎯 Perfekt für</h4><ul><li>Professionelles Marketing</li><li>Bildretusche</li><li>Text-Effekte</li><li>Vektorgrafiken</li></ul></div>
-        </div>
 
-        <!-- TOOL 4: Canva Magic Studio -->
-        <div class="tool-card">
-            <div class="tool-header">
-                <div class="tool-icon">🎭</div>
-                <div class="tool-title">
-                    <h3>4. Canva Magic Studio*</h3>
-                    <div class="tool-meta">
-                        <span class="tool-tag free">Freemium</span>
-                        <span class="tool-tag">Design-KI</span>
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="detail-label">Free-Version</span>
+                        <span class="detail-value">150 Tokens täglich (ca. 15-20 Bilder), Zugriff auf alle Fine-tuned Models, Canvas-Funktion</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Bezahl-Pläne</span>
+                        <span class="detail-value">Ab 10€/Monat für 8.500 Tokens, private Bilder (nicht öffentlich), API-Zugang</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Besondere Features</span>
+                        <span class="detail-value">Character Consistency (gleicher Charakter in verschiedenen Posen), 3D-Texturen, Realtime Canvas</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Bildrechte</span>
+                        <span class="detail-value">Volle kommerzielle Nutzungsrechte, in der Free-Version sind Bilder öffentlich sichtbar</span>
                     </div>
                 </div>
-            </div>
-            <p>Canva hat seine gesamte Plattform mit KI aufgewertet. Für Nicht-Designer der einfachste Weg zu professionellen Ergebnissen.</p>
-            
-            <a href="[AFFILIATE-LINK:canva-pro]" class="affiliate-btn" target="_blank" rel="noopener sponsored">→ Canva Pro 30 Tage testen</a>
-            <div class="affiliate-note">*30 Tage kostenlos testen</div>
-            
-            <div class="tool-details">
-                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">Magic Write (25 Queries), Magic Animate, BG Remover (begrenzt)</div></div>
-                <div class="detail-row"><div class="detail-label">Pro</div><div class="detail-value">11,99€/Monat für unbegrenzte Magic-Funktionen</div></div>
-                <div class="detail-row"><div class="detail-label">Features</div><div class="detail-value">Text-to-Image, Presentations-Erzeugung, Video-Editing</div></div>
-                <div class="detail-row"><div class="detail-label">Besonderheit</div><div class="detail-value">KI-Übersetzung von Designs in 100+ Sprachen</div></div>
-            </div>
-            <div class="use-cases"><h4>🎯 Perfekt für</h4><ul><li>Social Media Posts</li><li>Präsentationen</li><li>Marketing-Materialien</li><li>Quick-Designs</li></ul></div>
-        </div>
 
-        <!-- TOOL 5: Clipdrop -->
-        <div class="tool-card">
-            <div class="tool-header">
-                <div class="tool-icon">🎯</div>
-                <div class="tool-title">
-                    <h3>5. Clipdrop (Stable Diffusion)</h3>
-                    <div class="tool-meta">
-                        <span class="tool-tag free">Kostenlos</span>
-                        <span class="tool-tag">SDXL</span>
-                    </div>
+                <div class="expert-tip">
+                    <strong>💡 Pro-Tipp für konsistente Charaktere</strong>
+                    <p>Nutze die "Character Reference" Funktion: Lade ein Referenzbild hoch oder generiere einen Charakter, speichere ihn als "Persona" und wähle diesen dann bei neuen Prompts aus. So bekommst du denselben Charakter in verschiedenen Outfits und Posen – perfekt für Visual Novels oder Kinderbücher.</p>
                 </div>
-            </div>
-            <p>Clipdrop von Stability AI bietet Stable Diffusion XL kostenlos im Browser. Besonders stark bei der Bildbearbeitung.</p>
-            
-            <a href="https://clipdrop.co" class="affiliate-btn" target="_blank" rel="noopener" style="background: #64748b;">→ Zu Clipdrop (kostenlos)</a>
-            <div class="affiliate-note">(Noch kein Affiliate-Programm verfügbar)</div>
-            
-            <div class="tool-details">
-                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">400 Bilder/Tag mit Stable Diffusion XL</div></div>
-                <div class="detail-row"><div class="detail-label">Pro</div><div class="detail-value">Ab 9€/Monat für unbegrenzte Nutzung</div></div>
-                <div class="detail-row"><div class="detail-label">Tools</div><div class="detail-value">Remove Background, Cleanup, Relight, Upscaler, Uncrop</div></div>
-                <div class="detail-row"><div class="detail-label">Besonderheit</div><div class="detail-value">Als API und App verfügbar</div></div>
-            </div>
-            <div class="use-cases"><h4>🎯 Perfekt für</h4><ul><li>Hintergründe entfernen</li><li>Bilder erweitern</li><li>Beleuchtung ändern</li><li>Professionelle Retusche</li></ul></div>
-        </div>
 
-        <!-- TOOL 6: Runway -->
-        <div class="tool-card">
-            <div class="tool-header">
-                <div class="tool-icon">🎬</div>
-                <div class="tool-title">
-                    <h3>6. Runway Gen-2*</h3>
-                    <div class="tool-meta">
-                        <span class="tool-tag free">Freemium</span>
-                        <span class="tool-tag">Video-KI</span>
-                    </div>
+                <div class="use-cases">
+                    <h4>🎯 Wann Leonardo meine erste Wahl ist</h4>
+                    <ul>
+                        <li>Game Development: Charaktere, Items, Texturen für Unity/Unreal</li>
+                        <li>Konzeptzeichnungen für Filme oder Animationen</li>
+                        <li>Consistente Charakter-Designs über mehrere Szenen</li>
+                        <li>Architektur-Visualisierungen mit spezifischen Stilen</li>
+                        <li>Anime- und Comic-Illustrationen</li>
+                    </ul>
                 </div>
-            </div>
-            <p>Das führende Tool für KI-Video-Generierung. Erstelle Videos aus Text oder Bildern mit beeindruckender Qualität.</p>
-            
-            <a href="[AFFILIATE-LINK:runway-ml]" class="affiliate-btn" target="_blank" rel="noopener sponsored">→ Runway testen</a>
-            
-            <div class="tool-details">
-                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">125 Credits (ca. 12 Sekunden Video), 720p</div></div>
-                <div class="detail-row"><div class="detail-label">Standard</div><div class="detail-value">12€/Monat für 625 Credits/Monat, 1080p</div></div>
-                <div class="detail-row"><div class="detail-label">Features</div><div class="detail-value">Text-to-Video, Image-to-Video, Motion Brush, Green Screen</div></div>
-                <div class="detail-row"><div class="detail-label">Besonderheit</div><div class="detail-value">Motion Brush: Male Bewegung in statische Bilder</div></div>
-            </div>
-            <div class="use-cases"><h4>🎯 Perfekt für</h4><ul><li>B-Roll generieren</li><li>Social Media Clips</li><li>Green Screen</li><li>Objekte aus Videos entfernen</li></ul></div>
-        </div>
 
-        <!-- TOOL 7: Pika Labs -->
-        <div class="tool-card">
-            <div class="tool-header">
-                <div class="tool-icon">🎥</div>
-                <div class="tool-title">
-                    <h3>7. Pika Labs</h3>
-                    <div class="tool-meta">
-                        <span class="tool-tag free">Freemium</span>
-                        <span class="tool-tag">Text-to-Video</span>
-                    </div>
-                </div>
-            </div>
-            <p>Der neue Star unter den Video-KIs. Besonders beeindruckend sind die Kamerabewegungen und 3D-Effekte.</p>
-            
-            <a href="https://pika.art" class="affiliate-btn" target="_blank" rel="noopener" style="background: #64748b;">→ Zu Pika Labs</a>
-            <div class="affiliate-note">(Noch kein Affiliate-Programm)</div>
-            
-            <div class="tool-details">
-                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">10 Generierungen/Tag (3 Sekunden), Wasserzeichen</div></div>
-                <div class="detail-row"><div class="detail-label">Pro</div><div class="detail-value">Ab 8€/Monat für 700 Credits, 4s Videos, kein Wasserzeichen</div></div>
-                <div class="detail-row"><div class="detail-label">Features</div><div class="detail-value">Text-to-Video, Image-to-Video, Video-to-Video, Expand</div></div>
-                <div class="detail-row"><div class="detail-label">Besonderheit</div><div class="detail-value">Sehr gute Kamerabewegungen (Zoom, Pan, Orbit)</div></div>
-            </div>
-            <div class="use-cases"><h4>🎯 Perfekt für</h4><ul><li>Kurze Social Media Clips</li><li>Animierte Bilder</li><li>Kreative Experimente</li><li>Meme-Videos</li></ul></div>
-        </div>
-
-        <!-- TOOL 8: CapCut -->
-        <div class="tool-card">
-            <div class="tool-header">
-                <div class="tool-icon">✂️</div>
-                <div class="tool-title">
-                    <h3>8. CapCut*</h3>
-                    <div class="tool-meta">
-                        <span class="tool-tag free">Kostenlos</span>
-                        <span class="tool-tag">Video-Editor</span>
-                    </div>
-                </div>
-            </div>
-            <p>Der beliebteste Video-Editor für TikTok und Reels – jetzt mit massiven KI-Funktionen. Automatische Untertitel, Script-to-Video, KI-Sprecher.</p>
-            
-            <a href="[AFFILIATE-LINK:capcut-pro]" class="affiliate-btn" target="_blank" rel="noopener sponsored">→ CapCut Pro testen</a>
-            
-            <div class="tool-details">
-                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">Alle KI-Funktionen inklusive, keine Export-Limits, kein Wasserzeichen</div></div>
-                <div class="detail-row"><div class="detail-label">Pro</div><div class="detail-value">Ab 8,99€/Monat für Cloud-Speicher, Premium-Effekte</div></div>
-                <div class="detail-row"><div class="detail-label">KI-Features</div><div class="detail-value">Auto-Captions, Script-to-Video, Text-to-Speech, BG Remover</div></div>
-                <div class="detail-row"><div class="detail-label">Besonderheit</div><div class="detail-value">KI-generierte Sprecher mit Lip-Sync</div></div>
-            </div>
-            <div class="use-cases"><h4>🎯 Perfekt für</h4><ul><li>TikTok/Reels</li><li>Automatische Untertitel</li><li>Green Screen</li><li>Script-to-Video</li></ul></div>
-            <div class="pros-cons">
-                <div class="pros"><h4>✅ Vorteile</h4><ul><li>Wirklich komplett kostenlos nutzbar</li><li>Sehr intuitiv</li><li>Hervorragende mobile App</li></ul></div>
-                <div class="cons"><h4>❌ Nachteile</h4><ul><li>Export nur bis 4K</li></ul></div>
-            </div>
-        </div>
-
-        <!-- TOOL 9: Remove.bg -->
-        <div class="tool-card">
-            <div class="tool-header">
-                <div class="tool-icon">🖼️</div>
-                <div class="tool-title">
-                    <h3>9. Remove.bg*</h3>
-                    <div class="tool-meta">
-                        <span class="tool-tag free">Freemium</span>
-                        <span class="tool-tag">Bildbearbeitung</span>
-                    </div>
-                </div>
-            </div>
-            <p>Der Klassiker für Hintergrund-Entfernung. In Sekunden entfernst du den Hintergrund – mit Haarsträhnen-Genauigkeit.</p>
-            
-            <a href="[AFFILIATE-LINK:remove-bg]" class="affiliate-btn" target="_blank" rel="noopener sponsored">→ Remove.bg testen</a>
-            
-            <div class="tool-details">
-                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">1 Bild mit niedriger Auflösung (625×400px)</div></div>
-                <div class="detail-row"><div class="detail-label">Prepaid</div><div class="detail-value">Ab 1,99€ pro Bild (HD) oder Abo ab 9€/Monat</div></div>
-                <div class="detail-row"><div class="detail-label">Features</div><div class="detail-value">API, Photoshop-Plugin, Batch-Verarbeitung</div></div>
-                <div class="detail-row"><div class="detail-label">Besonderheit</div><div class="detail-value">Funktioniert mit Haaren und transparenten Objekten</div></div>
-            </div>
-            <div class="use-cases"><h4>🎯 Perfekt für</h4><ul><li>E-Commerce Fotos</li><li>Bewerbungsfotos</li><li>Social Media Avatare</li><li>Marketing</li></ul></div>
-        </div>
-
-        <!-- TOOL 10: Upscayl -->
-        <div class="tool-card">
-            <div class="tool-header">
-                <div class="tool-icon">🔍</div>
-                <div class="tool-title">
-                    <h3>10. Upscayl</h3>
-                    <div class="tool-meta">
-                        <span class="tool-tag free">Open Source</span>
-                        <span class="tool-tag">Upscaler</span>
-                    </div>
-                </div>
-            </div>
-            <p>Open-Source-Tool, das Bilder mit KI hochskaliert – ohne Qualitätsverlust. Perfekt für alte Fotos oder kleine Bilder zum Drucken.</p>
-            
-            <a href="https://upscayl.org" class="affiliate-btn" target="_blank" rel="noopener" style="background: #64748b;">→ Upscayl downloaden</a>
-            <div class="affiliate-note">(Open Source, keine Affiliate-Option)</div>
-            
-            <div class="tool-details">
-                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">Komplett kosten
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>✅ Das macht Leonardo einzigartig</h4>
+                        <
