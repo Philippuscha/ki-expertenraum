@@ -62,25 +62,25 @@
         .btn-secondary { background: transparent; color: var(--text); border: 2px solid var(--border); }
         .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
         
-        /* 3D TILT EFFECT FOR HERO IMAGE */
+        /* 3D TILT CONTAINER */
         .hero-image-container { 
             perspective: 1000px; 
             transform-style: preserve-3d;
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
         }
+        
+        /* 3D TILT IMAGE - KEIN FLOAT MEHR */
         .hero-image { 
             max-width: 100%; 
             height: auto; 
             filter: drop-shadow(0 20px 40px rgba(59, 130, 246, 0.3));
             transition: transform 0.1s ease-out;
             transform-style: preserve-3d;
-            animation: float 6s ease-in-out infinite;
         }
-        .hero-image:hover {
-            animation-play-state: paused;
-        }
+        
         /* Glow effect behind image */
         .hero-image-container::before {
             content: '';
@@ -162,6 +162,11 @@
             .cta-box h2 { font-size: 32px; }
             .footer { padding: 40px 30px; }
             .footer-container { flex-direction: column; gap: 25px; text-align: center; }
+            
+            /* Touch-Geräte: Sanfte Perspektive statt Tilt */
+            .hero-image {
+                transform: perspective(1000px) rotateY(-5deg);
+            }
         }
     </style>
 </head>
@@ -272,7 +277,7 @@
                 <div class="work-image">⚡</div>
                 <div class="work-content">
                     <h3>Prompt Engineering Pro</h3>
-                    <p> Lerne, wie die Profis prompten. Mit Frameworks, Templates und Feedback-Systemen.</p>
+                    <p>Lerne, wie die Profis prompten. Mit Frameworks, Templates und Feedback-Systemen.</p>
                     <div class="work-meta">
                         <span class="work-tag">Fortgeschritten</span>
                         <span class="work-tag">8 Stunden</span>
@@ -348,7 +353,7 @@
             document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
         }
         
-        // 3D TILT EFFECT für Hero Image
+        // 3D TILT EFFECT für Hero Image (NUR Desktop)
         const heroImage = document.querySelector('.hero-image');
         const heroContainer = document.querySelector('.hero-image-container');
         
