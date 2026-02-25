@@ -20,7 +20,6 @@
             --success: #22c55e;
             --warning: #f59e0b;
         }
-        html { scroll-behavior: smooth; }
         body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 50%, #dbeafe 100%); color: var(--text); line-height: 1.7; min-height: 100vh; }
         h1, h2, h3, h4 { font-family: 'DM Sans', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
         
@@ -37,9 +36,14 @@
         .article-title { font-size: clamp(32px, 4vw, 48px); line-height: 1.15; margin-bottom: 25px; }
         .article-intro { font-size: 20px; color: var(--text-muted); line-height: 1.8; margin-bottom: 30px; }
         
+        .affiliate-disclaimer { background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 12px; padding: 20px; margin: 30px 0; font-size: 14px; color: var(--text-muted); }
+        .affiliate-disclaimer strong { color: var(--text); }
+        
         .article-content { max-width: 800px; margin: 0 auto; padding: 0 80px 80px; }
-        .article-content h2 { font-size: 28px; margin: 50px 0 20px; }
+        .article-content h2 { font-size: 28px; margin: 50px 0 20px; color: var(--text); }
         .article-content p { margin-bottom: 20px; color: var(--text-muted); }
+        .article-content ul { margin: 20px 0; padding-left: 30px; color: var(--text-muted); }
+        .article-content li { margin-bottom: 10px; }
         
         .tool-card { background: var(--bg-card); border-radius: 20px; padding: 35px; margin: 30px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid rgba(255,255,255,0.7); position: relative; overflow: hidden; }
         .tool-card::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; background: linear-gradient(to bottom, #ec4899, #8b5cf6); }
@@ -51,6 +55,10 @@
         .tool-tag { background: rgba(59, 130, 246, 0.1); color: var(--accent); padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; }
         .tool-tag.free { background: rgba(34, 197, 94, 0.1); color: var(--success); }
         .tool-tag.freemium { background: rgba(245, 158, 11, 0.1); color: var(--warning); }
+        
+        .affiliate-btn { display: inline-block; background: linear-gradient(135deg, #ec4899, #8b5cf6); color: white; padding: 12px 28px; border-radius: 10px; text-decoration: none; font-weight: 700; margin: 15px 0; transition: all 0.3s; box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3); }
+        .affiliate-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(236, 72, 153, 0.4); }
+        .affiliate-note { font-size: 12px; color: var(--text-light); margin-top: 8px; font-style: italic; }
         
         .tool-details { margin: 25px 0; }
         .detail-row { display: flex; padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.05); flex-wrap: wrap; }
@@ -71,8 +79,6 @@
         .use-cases { background: linear-gradient(135deg, rgba(236, 72, 153, 0.05), rgba(139, 92, 246, 0.05)); border: 1px solid rgba(236, 72, 153, 0.15); border-radius: 12px; padding: 20px; margin: 20px 0; }
         .use-cases h4 { color: #ec4899; margin-bottom: 12px; font-size: 16px; }
         .use-cases ul { margin: 0; padding-left: 20px; }
-        
-        .highlight-box { background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 16px; padding: 30px; margin: 30px 0; }
         
         .cta-box { background: linear-gradient(135deg, #ec4899, #8b5cf6); color: white; padding: 40px; border-radius: 20px; margin: 50px 0; text-align: center; }
         .btn-white { display: inline-block; background: white; color: #ec4899; padding: 14px 32px; border-radius: 10px; text-decoration: none; font-weight: 700; transition: transform 0.3s; }
@@ -116,43 +122,40 @@
     </header>
 
     <article class="article-content">
-        <h2>KI für Kreative: Mehr als nur Text</h2>
-        <p>Während ChatGPT & Co. die Textwelt revolutionieren, tut sich bei Bildern und Videos ebenso viel. Hier sind die 10 besten Tools, mit denen du professionelle Visuals erstellst – ganz ohne Design-Studium oder teure Software.</p>
-
-        <div class="highlight-box">
-            <h3>🎨 Was dich erwartet</h3>
-            <ul>
-                <li><strong>Bildgenerierung:</strong> Kostenlose Alternativen zu Midjourney</li>
-                <li><strong>Video-Editing:</strong> KI-gestützte Schnitt- und Generierungs-Tools</li>
-                <li><strong>Design-Automation:</strong> Von Logos bis zu kompletten Brandings</li>
-                <li><strong>Bildbearbeitung:</strong> Hintergründe entfernen, upscalen, retuschieren</li>
-            </ul>
+        
+        <!-- AFFILIATE DISCLAIMER -->
+        <div class="affiliate-disclaimer">
+            <strong>📝 Transparenz:</strong> Dieser Artikel enthält Affiliate-Links (gekennzeichnet mit *). 
+            Wenn du über diese Links ein Produkt kaufst, erhalte ich eine kleine Provision – 
+            ohne Mehrkosten für dich. Ich empfehle nur Tools, die ich selbst nutze und für gut befinde.
         </div>
+
+        <h2>KI für Kreative: Mehr als nur Text</h2>
+        <p>Während ChatGPT & Co. die Textwelt revolutionieren, tut sich bei Bildern und Videos ebenso viel. Hier sind die 10 besten Tools, mit denen du professionelle Visuals erstellst – ganz ohne Design-Studium.</p>
 
         <!-- TOOL 1: Microsoft Copilot -->
         <div class="tool-card">
             <div class="tool-header">
                 <div class="tool-icon">🎨</div>
                 <div class="tool-title">
-                    <h3>1. Microsoft Copilot (DALL-E 3)</h3>
+                    <h3>1. Microsoft Copilot (DALL-E 3)*</h3>
                     <div class="tool-meta">
                         <span class="tool-tag free">Kostenlos</span>
                         <span class="tool-tag">DALL-E 3</span>
                     </div>
                 </div>
             </div>
-            <p>Der einfachste Weg zu KI-Bildern. Über den Copilot in Windows, Bing oder die eigene App kannst du direkt DALL-E 3 nutzen – ohne extra Account, ohne Kosten. Die Bildqualität ist beeindruckend und für die meisten Anwendungsfälle ausreichend.</p>
+            <p>Der einfachste Weg zu KI-Bildern. Über den Copilot in Windows, Bing oder die App kannst du direkt DALL-E 3 nutzen – ohne extra Account, ohne Kosten.</p>
+            
+            <a href="[AFFILIATE-LINK:microsoft-copilot-pro]" class="affiliate-btn" target="_blank" rel="noopener sponsored">→ Copilot Pro testen</a>
+            
             <div class="tool-details">
                 <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">15 "Boosts" pro Tag für schnelle Generierung, danach langsamer</div></div>
-                <div class="detail-row"><div class="detail-label">Qualität</div><div class="detail-value">Sehr hoch, besonders für Illustrationen, Konzepte und Marketing-Bilder</div></div>
-                <div class="detail-row"><div class="detail-label">Rechte</div><div class="detail-value">Volle kommerzielle Nutzungsrechte für generierte Bilder</div></div>
+                <div class="detail-row"><div class="detail-label">Qualität</div><div class="detail-value">Sehr hoch, besonders für Illustrationen und Konzepte</div></div>
+                <div class="detail-row"><div class="detail-label">Rechte</div><div class="detail-value">Volle kommerzielle Nutzungsrechte</div></div>
                 <div class="detail-row"><div class="detail-label">Besonderheit</div><div class="detail-value">Integriert in Windows 11, Edge, Office-Apps</div></div>
             </div>
             <div class="use-cases"><h4>🎯 Perfekt für</h4><ul><li>Blog-Illustrationen</li><li>Social Media Grafiken</li><li>Produkt-Mockups</li><li>Präsentations-Bilder</li></ul></div>
-            <div class="pros-cons">
-                <div class="pros"><h4>✅ Vorteile</h4><ul><li>Kostenlos und unbegrenzt (ohne Boost)</li><li>Kein separates Konto nötig (Microsoft)</li><li>Sehr gute Prompt-Verständnis</li><li>Text-in-Bild relativ gut</li></ul></div>
-                <div class="cons"><h4>❌ Nachteile</h4><ul><li>Nach 15 Bildern/Tag Wartezeiten</li><li>Keine Feinabstimmung möglich</li><li>Begrenzte Bildformate</li></ul></div>
-            </div>
         </div>
 
         <!-- TOOL 2: Leonardo.ai -->
@@ -160,21 +163,24 @@
             <div class="tool-header">
                 <div class="tool-icon">🖼️</div>
                 <div class="tool-title">
-                    <h3>2. Leonardo.ai</h3>
+                    <h3>2. Leonardo.ai*</h3>
                     <div class="tool-meta">
                         <span class="tool-tag free">Freemium</span>
                         <span class="tool-tag">150 Tokens/Tag</span>
                     </div>
                 </div>
             </div>
-            <p>Die beste kostenlose Alternative zu Midjourney. Leonardo.ai bietet nicht nur Standard-Bildgenerierung, sondern spezialisierte Modelle für Game-Assets, Konzeptkunst, Illustrationen und Fotografie. Die Kontrolle über das Ergebnis ist deutlich höher als bei den meisten anderen Tools.</p>
+            <p>Die beste kostenlose Alternative zu Midjourney. Spezialisierte Modelle für Game-Assets, Konzeptkunst und Illustrationen.</p>
+            
+            <a href="[AFFILIATE-LINK:leonardo-ai]" class="affiliate-btn" target="_blank" rel="noopener sponsored">→ Leonardo.ai kostenlos testen</a>
+            
             <div class="tool-details">
-                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">150 Tokens täglich (~15-20 Bilder), viele Fine-tuned Modelle</div></div>
-                <div class="detail-row"><div class="detail-label">Features</div><div class="detail-value">Image-to-Image, Canvas (Inpainting), 3D-Texturen, Motion (Video)</div></div>
-                <div class="detail-row"><div class="detail-label">Pro</div><div class="detail-value">Ab 10€/Monat für mehr Tokens, private Bilder, API-Zugang</div></div>
-                <div class="detail-row"><div class="detail-label">Besonderheit</div><div class="detail-value">Eigene Modelle trainieren (DreamShine, Realtime Canvas)</div></div>
+                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">150 Tokens täglich (~15-20 Bilder)</div></div>
+                <div class="detail-row"><div class="detail-label">Features</div><div class="detail-value">Image-to-Image, Canvas, 3D-Texturen, Motion</div></div>
+                <div class="detail-row"><div class="detail-label">Pro</div><div class="detail-value">Ab 10€/Monat für mehr Tokens, private Bilder</div></div>
+                <div class="detail-row"><div class="detail-label">Besonderheit</div><div class="detail-value">Eigene Modelle trainieren möglich</div></div>
             </div>
-            <div class="use-cases"><h4>🎯 Perfekt für</h4><ul><li>Game Development Assets</li><li>Konzeptzeichnungen</li><li>Charakter-Designs</li><li>Architektur-Visualisierungen</li></ul></div>
+            <div class="use-cases"><h4>🎯 Perfekt für</h4><ul><li>Game Development</li><li>Konzeptzeichnungen</li><li>Charakter-Designs</li><li>Architektur-Visualisierungen</li></ul></div>
         </div>
 
         <!-- TOOL 3: Adobe Firefly -->
@@ -182,21 +188,25 @@
             <div class="tool-header">
                 <div class="tool-icon">✨</div>
                 <div class="tool-title">
-                    <h3>3. Adobe Firefly</h3>
+                    <h3>3. Adobe Firefly*</h3>
                     <div class="tool-meta">
                         <span class="tool-tag free">Freemium</span>
                         <span class="tool-tag">25 Credits/Monat</span>
                     </div>
                 </div>
             </div>
-            <p>Adobes KI-Plattform ist auf professionelle Designer ausgerichtet und integriert sich nahtlos in Photoshop, Illustrator und Express. Besonders wichtig: Alle Trainingsdaten sind lizenziert oder gemeinfrei – kommerzielle Nutzung ist absolut sicher.</p>
+            <p>Adobes KI-Plattform für professionelle Designer. Alle Trainingsdaten sind lizenziert – kommerzielle Nutzung absolut sicher.</p>
+            
+            <a href="[AFFILIATE-LINK:adobe-firefly]" class="affiliate-btn" target="_blank" rel="noopener sponsored">→ Adobe Firefly testen</a>
+            <div class="affiliate-note">*Auch über Creative Cloud Abo verfügbar</div>
+            
             <div class="tool-details">
-                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">25 Generierungen/Monat, Text-to-Image, Generative Fill, Text Effects</div></div>
-                <div class="detail-row"><div class="detail-label">Premium</div><div class="detail-value">Ab 4,99€/Monat für 100 Credits, Premium-Funktionen</div></div>
-                <div class="detail-row"><div class="detail-label">Rechte</div><div class="detail-value">100% kommerziell nutzbar, da nur lizenzierte Daten im Training</div></div>
-                <div class="detail-row"><div class="detail-label">Besonderheit</div><div class="detail-value">Generative Fill in Photoshop (Objekte entfernen/hinzufügen)</div></div>
+                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">25 Generierungen/Monat, Text-to-Image, Generative Fill</div></div>
+                <div class="detail-row"><div class="detail-label">Premium</div><div class="detail-value">Ab 4,99€/Monat für 100 Credits</div></div>
+                <div class="detail-row"><div class="detail-label">Rechte</div><div class="detail-value">100% kommerziell nutzbar (lizenzierte Trainingsdaten)</div></div>
+                <div class="detail-row"><div class="detail-label">Besonderheit</div><div class="detail-value">Generative Fill in Photoshop</div></div>
             </div>
-            <div class="use-cases"><h4>🎯 Perfekt für</h4><ul><li>Professionelles Marketing-Material</li><li>Bildretusche ohne Skills</li><li>Text-Effekte für Social Media</li><li>Vektorgrafiken generieren</li></ul></div>
+            <div class="use-cases"><h4>🎯 Perfekt für</h4><ul><li>Professionelles Marketing</li><li>Bildretusche</li><li>Text-Effekte</li><li>Vektorgrafiken</li></ul></div>
         </div>
 
         <!-- TOOL 4: Canva Magic Studio -->
@@ -204,65 +214,76 @@
             <div class="tool-header">
                 <div class="tool-icon">🎭</div>
                 <div class="tool-title">
-                    <h3>4. Canva Magic Studio</h3>
+                    <h3>4. Canva Magic Studio*</h3>
                     <div class="tool-meta">
                         <span class="tool-tag free">Freemium</span>
                         <span class="tool-tag">Design-KI</span>
                     </div>
                 </div>
             </div>
-            <p>Canva hat seine gesamte Plattform mit KI aufgewertet. Magic Write, Magic Design, Magic Edit – alles ist integriert. Für Nicht-Designer der einfachste Weg zu professionellen Ergebnissen.</p>
+            <p>Canva hat seine gesamte Plattform mit KI aufgewertet. Für Nicht-Designer der einfachste Weg zu professionellen Ergebnissen.</p>
+            
+            <a href="[AFFILIATE-LINK:canva-pro]" class="affiliate-btn" target="_blank" rel="noopener sponsored">→ Canva Pro 30 Tage testen</a>
+            <div class="affiliate-note">*30 Tage kostenlos testen</div>
+            
             <div class="tool-details">
-                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">Magic Write (25 Queries), Magic Animate, Hintergrund-Entferner (begrenzt)</div></div>
-                <div class="detail-row"><div class="detail-label">Pro</div><div class="detail-value">11,99€/Monat für unbegrenzte Magic-Funktionen, 1TB Speicher</div></div>
-                <div class="detail-row"><div class="detail-label">Features</div><div class="detail-value">Text-to-Image, Presentations-Erzeugung, Video-Editing, Übersetzung</div></div>
-                <div class="detail-row"><div class="detail-label">Besonderheit</div><div class="detail-value">KI-gestützte Übersetzung von Designs in 100+ Sprachen</div></div>
+                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">Magic Write (25 Queries), Magic Animate, BG Remover (begrenzt)</div></div>
+                <div class="detail-row"><div class="detail-label">Pro</div><div class="detail-value">11,99€/Monat für unbegrenzte Magic-Funktionen</div></div>
+                <div class="detail-row"><div class="detail-label">Features</div><div class="detail-value">Text-to-Image, Presentations-Erzeugung, Video-Editing</div></div>
+                <div class="detail-row"><div class="detail-label">Besonderheit</div><div class="detail-value">KI-Übersetzung von Designs in 100+ Sprachen</div></div>
             </div>
-            <div class="use-cases"><h4>🎯 Perfekt für</h4><ul><li>Social Media Posts im Batch</li><li>Präsentationen erstellen</li><li>Marketing-Materialien</li><li>Quick-Designs ohne Vorkenntnisse</li></ul></div>
+            <div class="use-cases"><h4>🎯 Perfekt für</h4><ul><li>Social Media Posts</li><li>Präsentationen</li><li>Marketing-Materialien</li><li>Quick-Designs</li></ul></div>
         </div>
 
-        <!-- TOOL 5: Clipdrop (Stable Diffusion) -->
+        <!-- TOOL 5: Clipdrop -->
         <div class="tool-card">
             <div class="tool-header">
                 <div class="tool-icon">🎯</div>
                 <div class="tool-title">
-                    <h3>5. Clipdrop (Stable Diffusion XL)</h3>
+                    <h3>5. Clipdrop (Stable Diffusion)</h3>
                     <div class="tool-meta">
                         <span class="tool-tag free">Kostenlos</span>
                         <span class="tool-tag">SDXL</span>
                     </div>
                 </div>
             </div>
-            <p>Clipdrop von Stability AI bietet Stable Diffusion XL direkt im Browser – kostenlos und ohne Wasserzeichen. Besonders stark bei der Bildbearbeitung: Uncrop (Bilder erweitern), ReLight (Beleuchtung ändern) und Cleanup (Objekte entfernen).</p>
+            <p>Clipdrop von Stability AI bietet Stable Diffusion XL kostenlos im Browser. Besonders stark bei der Bildbearbeitung.</p>
+            
+            <a href="https://clipdrop.co" class="affiliate-btn" target="_blank" rel="noopener" style="background: #64748b;">→ Zu Clipdrop (kostenlos)</a>
+            <div class="affiliate-note">(Noch kein Affiliate-Programm verfügbar)</div>
+            
             <div class="tool-details">
-                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">400 Bilder/Tag mit Stable Diffusion XL, alle Bearbeitungs-Tools</div></div>
-                <div class="detail-row"><div class="detail-label">Pro</div><div class="detail-value">Ab 9€/Monat für unbegrenzte Nutzung, API-Zugang</div></div>
-                <div class="detail-row"><div class="detail-label">Tools</div><div class="detail-value">Remove Background, Cleanup, Relight, Image Upscaler, Uncrop, Text Remover</div></div>
-                <div class="detail-row"><div class="detail-label">Besonderheit</div><div class="detail-value">Als API und App (iOS/Android) verfügbar</div></div>
+                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">400 Bilder/Tag mit Stable Diffusion XL</div></div>
+                <div class="detail-row"><div class="detail-label">Pro</div><div class="detail-value">Ab 9€/Monat für unbegrenzte Nutzung</div></div>
+                <div class="detail-row"><div class="detail-label">Tools</div><div class="detail-value">Remove Background, Cleanup, Relight, Upscaler, Uncrop</div></div>
+                <div class="detail-row"><div class="detail-label">Besonderheit</div><div class="detail-value">Als API und App verfügbar</div></div>
             </div>
-            <div class="use-cases"><h4>🎯 Perfekt für</h4><ul><li>Hintergründe entfernen</li><li>Bilder erweitern (Uncrop)</li><li>Beleuchtung nachträglich ändern</li><li>Professionelle Retusche</li></ul></div>
+            <div class="use-cases"><h4>🎯 Perfekt für</h4><ul><li>Hintergründe entfernen</li><li>Bilder erweitern</li><li>Beleuchtung ändern</li><li>Professionelle Retusche</li></ul></div>
         </div>
 
-        <!-- TOOL 6: Runway ML -->
+        <!-- TOOL 6: Runway -->
         <div class="tool-card">
             <div class="tool-header">
                 <div class="tool-icon">🎬</div>
                 <div class="tool-title">
-                    <h3>6. Runway Gen-2</h3>
+                    <h3>6. Runway Gen-2*</h3>
                     <div class="tool-meta">
                         <span class="tool-tag free">Freemium</span>
                         <span class="tool-tag">Video-KI</span>
                     </div>
                 </div>
             </div>
-            <p>Das führende Tool für KI-Video-Generierung. Mit Runway kannst du Videos aus Text oder Bildern erstellen, bestehende Videos stylen oder Objekte entfernen. Die Qualität ist beeindruckend und für Social Media absolut nutzbar.</p>
+            <p>Das führende Tool für KI-Video-Generierung. Erstelle Videos aus Text oder Bildern mit beeindruckender Qualität.</p>
+            
+            <a href="[AFFILIATE-LINK:runway-ml]" class="affiliate-btn" target="_blank" rel="noopener sponsored">→ Runway testen</a>
+            
             <div class="tool-details">
-                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">125 Credits (ca. 12 Sekunden Video), 3 Projekte, 720p Export</div></div>
-                <div class="detail-row"><div class="detail-label">Standard</div><div class="detail-value">12€/Monat für 625 Credits/Monat, 1080p, unbegrenzte Projekte</div></div>
-                <div class="detail-row"><div class="detail-label">Features</div><div class="detail-value">Text-to-Video, Image-to-Video, Motion Brush, Green Screen, Inpainting</div></div>
+                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">125 Credits (ca. 12 Sekunden Video), 720p</div></div>
+                <div class="detail-row"><div class="detail-label">Standard</div><div class="detail-value">12€/Monat für 625 Credits/Monat, 1080p</div></div>
+                <div class="detail-row"><div class="detail-label">Features</div><div class="detail-value">Text-to-Video, Image-to-Video, Motion Brush, Green Screen</div></div>
                 <div class="detail-row"><div class="detail-label">Besonderheit</div><div class="detail-value">Motion Brush: Male Bewegung in statische Bilder</div></div>
             </div>
-            <div class="use-cases"><h4>🎯 Perfekt für</h4><ul><li>B-Roll für Videos generieren</li><li>Social Media Clips</li><li>Green Screen ohne Greenscreen</li><li>Objekte aus Videos entfernen</li></ul></div>
+            <div class="use-cases"><h4>🎯 Perfekt für</h4><ul><li>B-Roll generieren</li><li>Social Media Clips</li><li>Green Screen</li><li>Objekte aus Videos entfernen</li></ul></div>
         </div>
 
         <!-- TOOL 7: Pika Labs -->
@@ -277,11 +298,15 @@
                     </div>
                 </div>
             </div>
-            <p>Pika ist der neue Star unter den Video-KIs. Besonders beeindruckend sind die Kamerabewegungen und der 3D-Effekt, den die generierten Videos haben. Die Discord-Community ist sehr aktiv und teilt ständig neue Techniken.</p>
+            <p>Der neue Star unter den Video-KIs. Besonders beeindruckend sind die Kamerabewegungen und 3D-Effekte.</p>
+            
+            <a href="https://pika.art" class="affiliate-btn" target="_blank" rel="noopener" style="background: #64748b;">→ Zu Pika Labs</a>
+            <div class="affiliate-note">(Noch kein Affiliate-Programm)</div>
+            
             <div class="tool-details">
-                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">10 Generierungen/Tag (3 Sekunden), Wasserzeichen, öffentlich</div></div>
+                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">10 Generierungen/Tag (3 Sekunden), Wasserzeichen</div></div>
                 <div class="detail-row"><div class="detail-label">Pro</div><div class="detail-value">Ab 8€/Monat für 700 Credits, 4s Videos, kein Wasserzeichen</div></div>
-                <div class="detail-row"><div class="detail-label">Features</div><div class="detail-value">Text-to-Video, Image-to-Video, Video-to-Video, Expand (Länger machen)</div></div>
+                <div class="detail-row"><div class="detail-label">Features</div><div class="detail-value">Text-to-Video, Image-to-Video, Video-to-Video, Expand</div></div>
                 <div class="detail-row"><div class="detail-label">Besonderheit</div><div class="detail-value">Sehr gute Kamerabewegungen (Zoom, Pan, Orbit)</div></div>
             </div>
             <div class="use-cases"><h4>🎯 Perfekt für</h4><ul><li>Kurze Social Media Clips</li><li>Animierte Bilder</li><li>Kreative Experimente</li><li>Meme-Videos</li></ul></div>
@@ -292,24 +317,27 @@
             <div class="tool-header">
                 <div class="tool-icon">✂️</div>
                 <div class="tool-title">
-                    <h3>8. CapCut (Video-Editing)</h3>
+                    <h3>8. CapCut*</h3>
                     <div class="tool-meta">
                         <span class="tool-tag free">Kostenlos</span>
                         <span class="tool-tag">Video-Editor</span>
                     </div>
                 </div>
             </div>
-            <p>Der beliebteste Video-Editor für TikTok und Instagram Reels – jetzt mit massiven KI-Funktionen. Automatische Untertitel, Script-to-Video, Hintergrund-Entfernung und KI-Sprecher sind nur einige Highlights.</p>
+            <p>Der beliebteste Video-Editor für TikTok und Reels – jetzt mit massiven KI-Funktionen. Automatische Untertitel, Script-to-Video, KI-Sprecher.</p>
+            
+            <a href="[AFFILIATE-LINK:capcut-pro]" class="affiliate-btn" target="_blank" rel="noopener sponsored">→ CapCut Pro testen</a>
+            
             <div class="tool-details">
                 <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">Alle KI-Funktionen inklusive, keine Export-Limits, kein Wasserzeichen</div></div>
                 <div class="detail-row"><div class="detail-label">Pro</div><div class="detail-value">Ab 8,99€/Monat für Cloud-Speicher, Premium-Effekte</div></div>
-                <div class="detail-row"><div class="detail-label">KI-Features</div><div class="detail-value">Auto-Captions (Untertitel), Script-to-Video, Text-to-Speech, BG Remover</div></div>
+                <div class="detail-row"><div class="detail-label">KI-Features</div><div class="detail-value">Auto-Captions, Script-to-Video, Text-to-Speech, BG Remover</div></div>
                 <div class="detail-row"><div class="detail-label">Besonderheit</div><div class="detail-value">KI-generierte Sprecher mit Lip-Sync</div></div>
             </div>
-            <div class="use-cases"><h4>🎯 Perfekt für</h4><ul><li>TikTok/Reels erstellen</li><li>Automatische Untertitel</li><li>Green Screen Videos</li><li>Script-to-Video für YouTube</li></ul></div>
+            <div class="use-cases"><h4>🎯 Perfekt für</h4><ul><li>TikTok/Reels</li><li>Automatische Untertitel</li><li>Green Screen</li><li>Script-to-Video</li></ul></div>
             <div class="pros-cons">
-                <div class="pros"><h4>✅ Vorteile</h4><ul><li>Wirklich komplett kostenlos nutzbar</li><li>Sehr intuitive Bedienung</li><li>Hervorragende mobile App</li><li>Cloud-Sync zwischen Geräten</li></ul></div>
-                <div class="cons"><h4>❌ Nachteile</h4><ul><li>Export nur bis 4K (nicht 8K)</li><li>Weniger professionell als DaVinci</li></ul></div>
+                <div class="pros"><h4>✅ Vorteile</h4><ul><li>Wirklich komplett kostenlos nutzbar</li><li>Sehr intuitiv</li><li>Hervorragende mobile App</li></ul></div>
+                <div class="cons"><h4>❌ Nachteile</h4><ul><li>Export nur bis 4K</li></ul></div>
             </div>
         </div>
 
@@ -318,21 +346,24 @@
             <div class="tool-header">
                 <div class="tool-icon">🖼️</div>
                 <div class="tool-title">
-                    <h3>9. Remove.bg</h3>
+                    <h3>9. Remove.bg*</h3>
                     <div class="tool-meta">
                         <span class="tool-tag free">Freemium</span>
                         <span class="tool-tag">Bildbearbeitung</span>
                     </div>
                 </div>
             </div>
-            <p>Der Klassiker für Hintergrund-Entfernung. In Sekunden entfernst du den Hintergrund von Fotos – mit Haarsträhnen-Genauigkeit. Für E-Commerce, Portraits oder Produktfotos unverzichtbar.</p>
+            <p>Der Klassiker für Hintergrund-Entfernung. In Sekunden entfernst du den Hintergrund – mit Haarsträhnen-Genauigkeit.</p>
+            
+            <a href="[AFFILIATE-LINK:remove-bg]" class="affiliate-btn" target="_blank" rel="noopener sponsored">→ Remove.bg testen</a>
+            
             <div class="tool-details">
-                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">1 Bild mit niedriger Auflösung (625×400px) kostenlos</div></div>
-                <div class="detail-row"><div class="detail-label">Prepaid</div><div class="detail-value">Ab 1,99€ pro Bild (HD) oder Abo ab 9€/Monat für 50 Credits</div></div>
-                <div class="detail-row"><div class="detail-label">Features</div><div class="detail-value">API-Zugang, Photoshop-Plugin, Batch-Verarbeitung</div></div>
-                <div class="detail-row"><div class="detail-label">Besonderheit</div><div class="detail-value">Funktioniert auch mit Haaren und transparenten Objekten</div></div>
+                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">1 Bild mit niedriger Auflösung (625×400px)</div></div>
+                <div class="detail-row"><div class="detail-label">Prepaid</div><div class="detail-value">Ab 1,99€ pro Bild (HD) oder Abo ab 9€/Monat</div></div>
+                <div class="detail-row"><div class="detail-label">Features</div><div class="detail-value">API, Photoshop-Plugin, Batch-Verarbeitung</div></div>
+                <div class="detail-row"><div class="detail-label">Besonderheit</div><div class="detail-value">Funktioniert mit Haaren und transparenten Objekten</div></div>
             </div>
-            <div class="use-cases"><h4>🎯 Perfekt für</h4><ul><li>E-Commerce Produktfotos</li><li>Bewerbungsfotos</li><li>Social Media Avatare</li><li>Marketing-Materialien</li></ul></div>
+            <div class="use-cases"><h4>🎯 Perfekt für</h4><ul><li>E-Commerce Fotos</li><li>Bewerbungsfotos</li><li>Social Media Avatare</li><li>Marketing</li></ul></div>
         </div>
 
         <!-- TOOL 10: Upscayl -->
@@ -347,7 +378,10 @@
                     </div>
                 </div>
             </div>
-            <p>Upscayl ist ein Open-Source-Tool, das Bilder mit KI hochskaliert – ohne Qualitätsverlust, oft sogar mit Qualitätsgewinn. Perfekt für alte Fotos, kleine Bilder oder Screenshots, die du drucken möchtest.</p>
+            <p>Open-Source-Tool, das Bilder mit KI hochskaliert – ohne Qualitätsverlust. Perfekt für alte Fotos oder kleine Bilder zum Drucken.</p>
+            
+            <a href="https://upscayl.org" class="affiliate-btn" target="_blank" rel="noopener" style="background: #64748b;">→ Upscayl downloaden</a>
+            <div class="affiliate-note">(Open Source, keine Affiliate-Option)</div>
+            
             <div class="tool-details">
-                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">Komplett kostenlos und Open Source, unbegrenzte Nutzung</div></div>
-                <div class="detail-row"><div class="detail-label">Upscale</div><div class="detail-value">Bis zu 4x oder 8x Vergößerung, verschiedene
+                <div class="detail-row"><div class="detail-label">Free-Version</div><div class="detail-value">Komplett kosten
