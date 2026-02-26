@@ -94,8 +94,9 @@
         .dropdown-menu a { display: block; padding: 10px 16px; border-radius: 8px; }
         .dropdown-menu a:hover { background: #f0f7ff; }
         
-        .hero { 
-            padding: 140px 40px 80px; 
+        .hero {
+            margin-top: 20px; 
+            padding: 160px 40px 80px; 
             text-align: center; 
             max-width: 900px; 
             margin: 0 auto;
@@ -139,8 +140,8 @@
         }
         
         .main-content { max-width: 800px; }
-        h2 { font-size: 32px; margin: 50px 0 25px; font-weight: 800; color: var(--text); scroll-margin-top: 100px; }
-        h3 { font-size: 24px; margin: 35px 0 20px; font-weight: 700; color: var(--text); scroll-margin-top: 100px; }
+        h2 { font-size: 32px; margin: 50px 0 25px; font-weight: 800; color: var(--text); scroll-margin-top: 120px; }
+        h3 { font-size: 24px; margin: 35px 0 20px; font-weight: 700; color: var(--text); scroll-margin-top: 120px; }
         h4 { font-size: 20px; margin: 25px 0 15px; font-weight: 600; color: var(--text); }
         p { margin-bottom: 25px; color: var(--text-muted); font-size: 17px; line-height: 1.8; }
         ul, ol { margin: 25px 0; padding-left: 30px; }
@@ -304,7 +305,8 @@
         @media (max-width: 768px) {
             .nav { padding: 15px 20px; }
             .nav-links { display: none; }
-            .hero { padding: 100px 20px 50px; }
+            .hero {
+            margin-top: 20px; padding: 100px 20px 50px; }
             .content-wrapper { padding: 0 20px; }
             .feature-grid { grid-template-columns: 1fr; }
             h2 { font-size: 26px; }
@@ -532,7 +534,11 @@
                 a.textContent = heading.textContent;
                 a.addEventListener("click", function(e) {
                     e.preventDefault();
-                    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+                    const element = document.getElementById(id);
+                    const navHeight = 100;
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+                    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
                 });
                 li.appendChild(a);
                 tocList.appendChild(li);
