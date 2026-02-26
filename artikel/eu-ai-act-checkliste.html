@@ -3,226 +3,301 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EU AI Act Checkliste 2026: Alle Pflichten für KMU | KI Expertenraum</title>
-    <meta name="description" content="Der komplette Leitfaden für KMU zum EU AI Act. Schritt-für-Schritt Checkliste, Fristen und kostenlose Vorlagen.">
+    <title>EU AI Act Checkliste 2026: Pflichten für KMU | KI-Expertenraum</title>
+    <meta name="description" content="Der komplette Leitfaden für KMU zum EU AI Act. Alle Pflichten, Fristen und Vorlagen für 2026 – mit Schritt-für-Schritt Plan.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { 
-            --bg: #f0f7ff; 
-            --bg-card: rgba(255, 255, 255, 0.9);
-            --text: #0f172a; 
-            --text-muted: #475569; 
-            --text-light: #64748b; 
-            --border: rgba(255, 255, 255, 0.6);
-            --accent: #3b82f6;
-            --accent-glow: rgba(59, 130, 246, 0.3);
-        }
+        :root { --bg: #f0f7ff; --bg-card: rgba(255, 255, 255, 0.9); --text: #0f172a; --text-muted: #475569; --text-light: #64748b; --border: rgba(255, 255, 255, 0.6); --accent: #3b82f6; --strat: #f59e0b; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 50%, #dbeafe 100%); color: var(--text); line-height: 1.7; overflow-x: hidden; -webkit-font-smoothing: antialiased; min-height: 100vh; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 50%, #dbeafe 100%); color: var(--text); line-height: 1.7; min-height: 100vh; }
         h1, h2, h3, h4 { font-family: 'DM Sans', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
-        
-        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 80px; display: flex; justify-content: space-between; align-items: center; background: rgba(240, 247, 255, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
-        .logo { font-family: 'DM Sans', sans-serif; font-size: 24px; font-weight: 800; background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .logo a { text-decoration: none; color: inherit; }
-        .nav-links { display: flex; gap: 35px; list-style: none; }
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; background: rgba(240, 247, 255, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+        .logo { font-family: 'DM Sans', sans-serif; font-size: 24px; font-weight: 800; background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
+        .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
         .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.3s; }
         .nav-links a:hover { color: var(--accent); }
-        
-        .article-header { padding: 140px 80px 60px; max-width: 800px; margin: 0 auto; text-align: center; }
-        .article-meta { display: flex; gap: 20px; justify-content: center; margin-bottom: 25px; font-size: 14px; color: var(--text-light); }
-        .article-meta .category { color: var(--accent); background: rgba(59, 130, 246, 0.1); padding: 6px 14px; border-radius: 20px; font-weight: 600; }
-        .article-title { font-size: clamp(32px, 4vw, 48px); line-height: 1.15; margin-bottom: 25px; }
-        .article-intro { font-size: 20px; color: var(--text-muted); line-height: 1.8; margin-bottom: 30px; }
-        .article-author { display: flex; align-items: center; gap: 15px; justify-content: center; }
-        .author-avatar { width: 50px; height: 50px; background: linear-gradient(135deg, var(--accent), #8b5cf6); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 20px; }
-        .author-info { text-align: left; }
-        .author-name { font-weight: 700; color: var(--text); }
-        .author-role { font-size: 14px; color: var(--text-light); }
-        
-        .article-content { max-width: 800px; margin: 0 auto; padding: 0 80px 80px; }
-        .article-content h2 { font-size: 28px; margin: 50px 0 20px; color: var(--text); }
-        .article-content h3 { font-size: 22px; margin: 35px 0 15px; color: var(--text); }
-        .article-content p { margin-bottom: 20px; color: var(--text-muted); }
-        .article-content ul, .article-content ol { margin: 20px 0; padding-left: 30px; color: var(--text-muted); }
-        .article-content li { margin-bottom: 10px; }
-        .article-content strong { color: var(--text); font-weight: 600; }
-        .article-content blockquote { border-left: 4px solid var(--accent); padding-left: 20px; margin: 30px 0; font-style: italic; color: var(--text-muted); background: rgba(59, 130, 246, 0.05); padding: 20px 20px 20px 30px; border-radius: 0 10px 10px 0; }
-        
+        .dropdown { position: relative; }
+        .dropdown-toggle { background: rgba(59, 130, 246, 0.1); color: var(--accent); padding: 8px 16px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+        .dropdown-menu { position: absolute; top: 100%; right: 0; margin-top: 10px; background: white; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.15); padding: 12px; min-width: 220px; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.3s; }
+        .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown-menu a { display: block; padding: 10px 16px; border-radius: 8px; }
+        .dropdown-menu a:hover { background: #f0f7ff; }
+        .hero { padding: 140px 40px 80px; text-align: center; max-width: 900px; margin: 0 auto; background: linear-gradient(135deg, rgba(245,158,11,0.1) 0%, rgba(239,68,68,0.05) 100%); border-radius: 0 0 40px 40px; margin-bottom: 40px; }
+        .hero-badge { display: inline-block; background: rgba(239, 68, 68, 0.15); color: #dc2626; padding: 8px 20px; border-radius: 20px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; }
+        .hero h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.15; margin-bottom: 25px; font-weight: 800; }
+        .hero h1 span { background: linear-gradient(135deg, #dc2626 0%, #f59e0b 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-description { font-size: 19px; color: var(--text-muted); max-width: 600px; margin: 0 auto 30px; }
+        .hero-meta { display: flex; justify-content: center; gap: 30px; color: var(--text-light); font-size: 14px; }
+        .content-wrapper { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: 1fr 280px; gap: 60px; }
+        .main-content { max-width: 800px; }
+        h2 { font-size: 32px; margin: 50px 0 25px; font-weight: 800; color: var(--text); }
+        h3 { font-size: 24px; margin: 35px 0 20px; font-weight: 700; color: var(--text); }
+        p { margin-bottom: 25px; color: var(--text-muted); font-size: 17px; line-height: 1.8; }
+        ul, ol { margin: 25px 0; padding-left: 30px; }
+        li { margin: 12px 0; color: var(--text-muted); }
+        blockquote { background: rgba(239, 68, 68, 0.08); border-left: 4px solid #dc2626; padding: 30px; margin: 35px 0; border-radius: 0 12px 12px 0; font-size: 19px; font-weight: 600; color: var(--text); }
+        .highlight { background: rgba(59, 130, 246, 0.08); border-radius: 12px; padding: 25px; margin: 35px 0; border: 1px solid rgba(59, 130, 246, 0.15); }
+        .risk-box { background: rgba(34, 197, 94, 0.08); border-radius: 12px; padding: 25px; margin: 25px 0; border: 1px solid rgba(34, 197, 94, 0.3); }
+        .risk-box h4 { color: #16a34a; margin-top: 0; }
+        .risk-box.yellow { background: rgba(245, 158, 11, 0.08); border-color: rgba(245, 158, 11, 0.3); }
+        .risk-box.yellow h4 { color: #d97706; }
+        .risk-box.red { background: rgba(239, 68, 68, 0.08); border-color: rgba(239, 68, 68, 0.3); }
+        .risk-box.red h4 { color: #dc2626; }
+        table { width: 100%; border-collapse: collapse; margin: 35px 0; background: var(--bg-card); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        th { background: linear-gradient(135deg, #dc2626 0%, #f59e0b 100%); color: white; padding: 16px; text-align: left; font-weight: 700; font-family: 'DM Sans', sans-serif; }
+        td { padding: 16px; border-bottom: 1px solid rgba(0,0,0,0.05); color: var(--text-muted); }
+        tr:hover { background: rgba(59, 130, 246, 0.03); }
+        .step-box { background: var(--bg-card); border-radius: 16px; padding: 30px; margin: 25px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border-left: 5px solid #f59e0b; }
+        .step-box h4 { margin-top: 0; color: #d97706; }
         .checklist { background: var(--bg-card); border-radius: 16px; padding: 30px; margin: 30px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
-        .checklist h3 { margin-top: 0; margin-bottom: 20px; }
-        .checklist-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
-        .checklist-item input[type="checkbox"] { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--accent); }
-        .checklist-item label { color: var(--text-muted); cursor: pointer; }
-        
-        .warning-box { background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(239, 68, 68, 0.05)); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 16px; padding: 25px; margin: 25px 0; }
-        .warning-box h4 { color: #dc2626; margin-top: 0; }
-        
-        .tip-box { background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(34, 197, 94, 0.05)); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 16px; padding: 25px; margin: 25px 0; }
-        .tip-box h4 { color: #16a34a; margin-top: 0; }
-        
-        .cta-box { background: linear-gradient(135deg, var(--accent), #8b5cf6); color: white; padding: 40px; border-radius: 20px; margin: 50px 0; text-align: center; }
+        .check-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+        .check-item input { width: 20px; height: 20px; margin-top: 3px; accent-color: var(--accent); }
+        .cta-box { background: linear-gradient(135deg, #dc2626 0%, #f59e0b 100%); color: white; padding: 40px; border-radius: 20px; margin: 50px 0; text-align: center; }
         .cta-box h3 { color: white; margin-bottom: 15px; font-size: 24px; }
         .cta-box p { color: rgba(255,255,255,0.9); margin-bottom: 25px; }
-        .btn-white { display: inline-block; background: white; color: var(--accent); padding: 14px 32px; border-radius: 10px; text-decoration: none; font-weight: 700; transition: transform 0.3s; }
+        .btn-white { display: inline-block; background: white; color: #dc2626; padding: 14px 32px; border-radius: 10px; text-decoration: none; font-weight: 700; transition: transform 0.3s; }
         .btn-white:hover { transform: translateY(-3px); }
-        
-        .footer { padding: 50px 80px; background: var(--bg-card); backdrop-filter: blur(20px); border-top: 1px solid var(--border); margin-top: 80px; }
-        .footer-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .footer-brand h3 { font-size: 24px; margin-bottom: 8px; }
-        .footer-brand p { color: var(--text-muted); font-size: 15px; }
-        .footer-links { display: flex; gap: 35px; }
-        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 600; }
-        .footer-links a:hover { color: var(--accent); }
-        
-        @media (max-width: 768px) { 
-            .nav { padding: 15px 30px; } 
-            .nav-links { display: none; } 
-            .article-header { padding: 120px 30px 40px; } 
-            .article-content { padding: 0 30px 60px; }
-            .footer { padding: 40px 30px; } 
-            .footer-content { flex-direction: column; gap: 25px; text-align: center; }
-        }
+        .toc-sidebar { position: sticky; top: 100px; height: fit-content; background: var(--bg-card); border-radius: 16px; padding: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid rgba(255,255,255,0.6); }
+        .toc-title { font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 20px; color: var(--text); text-transform: uppercase; letter-spacing: 1px; }
+        .toc-list { list-style: none; padding: 0; margin: 0; }
+        .toc-list li { margin: 8px 0; }
+        .toc-list a { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; display: block; padding: 8px 12px; border-radius: 8px; transition: all 0.3s; }
+        .toc-list a:hover { background: rgba(245, 158, 11, 0.1); color: #d97706; }
+        .footer { background: var(--text); color: rgba(255,255,255,0.7); padding: 50px 40px 30px; margin-top: 80px; text-align: center; }
+        .footer-logo { font-family: 'DM Sans', sans-serif; font-size: 24px; font-weight: 800; margin-bottom: 15px; background: linear-gradient(135deg, white 0%, #60a5fa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        @media (max-width: 1024px) { .content-wrapper { grid-template-columns: 1fr; } .toc-sidebar { display: none; } }
+        @media (max-width: 768px) { .nav { padding: 15px 20px; } .nav-links { display: none; } .hero { padding: 100px 20px 50px; } .content-wrapper { padding: 0 20px; } h2 { font-size: 26px; } h3 { font-size: 22px; } }
     </style>
 </head>
 <body>
     <nav class="nav">
-        <div class="logo"><a href="../index.html">KI Expertenraum</a></div>
+        <a href="/" class="logo">KI-Expertenraum</a>
         <ul class="nav-links">
-            <li><a href="../index.html#ebooks">eBooks</a></li>
-            <li><a href="../index.html#services">Services</a></li>
-            <li><a href="../index.html#work">Kurse</a></li>
-            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="/">Startseite</a></li>
+            <li class="dropdown">
+                <span class="dropdown-toggle">Artikel ▼</span>
+                <div class="dropdown-menu">
+                    <a href="/artikel/index.html">Alle Artikel</a>
+                    <a href="/artikel/index.html#ki-tools">KI-Tools</a>
+                    <a href="/artikel/index.html#automation">Automation</a>
+                    <a href="/artikel/index.html#strategie">Strategie</a>
+                </div>
+            </li>
+            <li><a href="/#work">Kurse</a></li>
+            <li><a href="/kontakt.html">Kontakt</a></li>
         </ul>
     </nav>
 
-    <header class="article-header">
-        <div class="article-meta">
-            <span class="category">Recht & Compliance</span>
-            <span>⏱️ 12 Min Lesezeit</span>
-            <span>📅 12. Februar 2026</span>
-        </div>
-        <h1 class="article-title">EU AI Act Checkliste 2026: Alle Pflichten für KMU</h1>
-        <p class="article-intro">Der EU AI Act ist ab Februar 2026 verbindlich. Mit unserer Schritt-für-Schritt Checkliste erfüllen Sie alle Pflichten – ohne externe Berater.</p>
-        <div class="article-author">
-            <div class="author-avatar">P</div>
-            <div class="author-info">
-                <div class="author-name">Philipp Zerna</div>
-                <div class="author-role">KI Experte</div>
-            </div>
+    <header class="hero">
+        <span class="hero-badge">Recht & Compliance</span>
+        <h1>EU AI Act <span>Checkliste 2026</span></h1>
+        <p class="hero-description">Alle Pflichten, Fristen und Vorlagen für KMU. Der komplette Leitfaden mit Schritt-für-Schritt Plan.</p>
+        <div class="hero-meta">
+            <span>✍️ Philipp Zerna</span>
+            <span>⏱️ 12 Min. Lesezeit</span>
+            <span>📊 14.832 Leser</span>
         </div>
     </header>
 
-    <article class="article-content">
-        <h2>Was ist der EU AI Act?</h2>
-        
-        <p>Der EU AI Act ist das weltweit erste umfassende Gesetz für Künstliche Intelligenz. Er gilt für <strong>alle Unternehmen</strong>, die KI-Systeme entwickeln, vertreiben oder nutzen – unabhängig von der Unternehmensgröße.</p>
-        
-        <blockquote>
-            <strong>Wichtig:</strong> Auch wenn Sie nur ChatGPT im Unternehmen nutzen, fallen Sie unter den EU AI Act!
-        </blockquote>
+    <div class="content-wrapper">
+        <main class="main-content">
+            <blockquote><strong>Wichtig:</strong> Ab August 2026 drohen bei Nichteinhaltung Bußgelder von bis zu 35 Millionen Euro oder 7% des weltweiten Jahresumsatzes.</blockquote>
 
-        <h2>Schritt 1: KI-Risikoklassifizierung</h2>
-        
-        <p>Der EU AI Act unterteilt KI-Systeme in vier Risikokategorien:</p>
-        
-        <ul>
-            <li><strong>Unannehmbares Risiko:</strong> Verboten (z.B. soziale Scoring-Systeme)</li>
-            <li><strong>Hochrisiko:</strong> Strenge Pflichten (z.B. KI in Rekrutierung, Kreditvergabe)</li>
-            <li><strong>Begrenztes Risiko:</strong> Transparenzpflichten (z.B. Chatbots)</li>
-            <li><strong>Minimales Risiko:</strong> Freiwillige Maßnahmen empfohlen</li>
-        </ul>
+            <h2>Die 3 wichtigsten Fakten auf einen Blick</h2>
+            
+            <table>
+                <tr><th>Frist</th><th>Was ist zu tun?</th><th>Betrifft Sie?</th></tr>
+                <tr><td><strong>Februar 2026</strong></td><td>Verbotene KI-Praktiken stoppen</td><td>Alle Unternehmen</td></tr>
+                <tr><td><strong>August 2026</strong></td><td>High-Risk Pflichten umsetzen</td><td>Nur bei Hochrisiko-KI</td></tr>
+                <tr><td><strong>August 2027</strong></td><td>Vollständige Compliance</td><td>Alle KI-Systeme dokumentiert</td></tr>
+            </table>
 
-        <div class="tip-box">
-            <h4>💡 Tipp für KMU</h4>
-            <p>Die meisten KMU nutzen KI-Tools wie ChatGPT oder Microsoft Copilot – diese fallen unter "begrenztes Risiko". Das bedeutet: Transparenzpflichten beachten, aber keine komplexen Zertifizierungen nötig.</p>
-        </div>
+            <p><strong>Gute Nachricht:</strong> Die meisten KMU nutzen KI-Systeme der Kategorie "minimales Risiko" – das bedeutet wenig Aufwand.</p>
 
-        <h2>Schritt 2: Die Pflichten-Checkliste</h2>
+            <h2>Schritt 1: KI-Inventarisierung (Woche 1-2)</h2>
+            
+            <h3>Was Sie tun müssen:</h3>
+            <p>Erfassen Sie <strong>alle KI-Tools</strong> in Ihrem Unternehmen – auch die, die Mitarbeiter "nebenbei" nutzen.</p>
 
-        <div class="checklist">
-            <h3>✓ Checkliste für KMU</h3>
-            <div class="checklist-item">
-                <input type="checkbox" id="check1">
-                <label for="check1">Bestandsaufnahme: Welche KI-Tools nutzen wir? (ChatGPT, Copilot, etc.)</label>
+            <h3>Die Inventar-Tabelle:</h3>
+            <table>
+                <tr><th>Tool-Name</th><th>Zweck</th><th>Risiko-Klasse</th><th>Verantwortlicher</th></tr>
+                <tr><td>ChatGPT</td><td>Texte schreiben</td><td>Minimal</td><td>Marketing</td></tr>
+                <tr><td>Notion AI</td><td>Notizen organisieren</td><td>Minimal</td><td>Alle</td></tr>
+                <tr><td>Canva AI</td><td>Bilder erstellen</td><td>Minimal</td><td>Marketing</td></tr>
+                <tr><td>Excel/Sheets</td><td>Datenanalyse</td><td>Minimal</td><td>Buchhaltung</td></tr>
+            </table>
+
+            <h3>Risiko-Klassen einfach erklärt:</h3>
+            
+            <div class="risk-box">
+                <h4>🟢 Minimal Risiko (fast alle KMU-Tools)</h4>
+                <ul>
+                    <li>Chatbots ohne sensible Daten</li>
+                    <li>Spam-Filter</li>
+                    <li>KI in Office-Programmen</li>
+                    <li><strong>Pflichten:</strong> Nur Transparenz (Nutzer informieren)</li>
+                </ul>
             </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="check2">
-                <label for="check2">Risikoeinstufung: Welche Kategorie gilt für unsere Nutzung?</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="check3">
-                <label for="check3">Dokumentation: Nutzungsrichtlinien für Mitarbeiter erstellen</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="check4">
-                <label for="check4">DSGVO-Check: Datenverarbeitung durch KI dokumentieren</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="check5">
-                <label for="check5">Transparenz: Bei Kunden/Kandidaten auf KI-Nutzung hinweisen</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="check6">
-                <label for="check6">Menschliche Aufsicht: Verantwortliche Person benennen</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="check7">
-                <label for="check7">Schulung: Mitarbeiter über KI-Richtlinien informieren</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="check8">
-                <label for="check8">Regelmäßige Überprüfung: Mindestens jährlich aktualisieren</label>
-            </div>
-        </div>
 
-        <h2>Schritt 3: Dokumentation erstellen</h2>
-        
-        <p>Für den EU AI Act müssen Sie nachweisen können, dass Sie KI verantwortungsvoll nutzen. Eine einfache Dokumentation reicht für KMU in den meisten Fällen:</p>
+            <div class="risk-box yellow">
+                <h4>🟡 Begrenztes Risiko</h4>
+                <ul>
+                    <li>Chatbots, die mit Menschen interagieren</li>
+                    <li><strong>Pflichten:</strong> Kennzeichnungspflicht ("Ich bin ein Chatbot")</li>
+                </ul>
+            </div>
 
-        <div class="warning-box">
-            <h4>⚠️ Nicht vergessen</h4>
-            <p>Bei Bußgeldern von bis zu 7% des weltweiten Jahresumsatzes (max. 35 Mio. €) lohnt sich eine ordentliche Dokumentation!</p>
-        </div>
+            <div class="risk-box red">
+                <h4>🟠 Hohes Risiko (selten in KMU)</h4>
+                <ul>
+                    <li>KI bei Einstellungsentscheidungen</li>
+                    <li>Kreditwürdigkeitsprüfung durch KI</li>
+                    <li><strong>Pflichten:</strong> Umfassende Dokumentation, Menschliche Überwachung</li>
+                </ul>
+            </div>
 
-        <h2>Die wichtigsten Fristen</h2>
-        
-        <ul>
-            <li><strong>Februar 2026:</strong> Verbotene KI-Systeme müssen offline sein</li>
-            <li><strong>August 2026:</strong> Hochrisiko-KI-Systeme müssen zertifiziert sein</li>
-            <li><strong>August 2027:</strong> Alle anderen Pflichten verbindlich</li>
-        </ul>
+            <p>💡 <strong>Praxis-Tipp:</strong> 95% aller KMU nutzen nur "Minimal-Risiko"-KI. Prüfen Sie trotzdem genau!</p>
 
-        <h2>DSGVO + EU AI Act: Die Kombination</h2>
-        
-        <p>Der EU AI Act ergänzt die DSGVO, ersetzt sie aber nicht. Beachten Sie:</p>
-        
-        <ul>
-            <li>Einwilligung für KI-verarbeitete personenbezogene Daten</li>
-            <li>Recht auf menschliches Eingreifen bei automatisierten Entscheidungen</li>
-            <li>Informationspflichten gegenüber betroffenen Personen</li>
-        </ul>
+            <h2>Schritt 2: Dokumentation aufbauen (Woche 3-4)</h2>
+            
+            <h3>Was Sie dokumentieren müssen:</h3>
+            <p>Für jedes KI-Tool eine kurze Dokumentation:</p>
+            
+            <div class="highlight">
+                <h3>Beispiel-Dokumentation:</h3>
+                <p><strong>Tool:</strong> ChatGPT (Plus-Version)<br>
+                <strong>Einsatzzweck:</strong> Erstellung von Marketingtexten, E-Mail-Entwürfen<br>
+                <strong>Verantwortlich:</strong> Max Mustermann (Marketing)<br>
+                <strong>Zuletzt geprüft:</strong> 15.02.2026<br>
+                <strong>Risikoklasse:</strong> Minimal<br>
+                <strong>Besonderheiten:</strong> Keine sensiblen Kundendaten werden eingegeben</p>
+            </div>
 
-        <div class="cta-box">
-            <h3>📥 Kostenlose EU AI Act Vorlagen</h3>
-            <p>Laden Sie unsere kostenlosen Vorlagen herunter: Dokumentations-Template, Mitarbeiter-Richtlinien und Checklisten.</p>
-            <a href="https://www.dropbox.com/scl/fi/qee9tm1p7hbo5oe4eyemt/EU-AI-Act-Survival-Guide.pdf?rlkey=chsnn67os8xsei5epy9ft3x9l&st=r19r9ezm&dl=1" class="btn-white" download>Vorlagen downloaden</a>
-        </div>
-    </article>
+            <h3>Wo speichern?</h3>
+            <ul>
+                <li>Interne Dokumentation (SharePoint, Drive, Ordner)</li>
+                <li>Zugänglich für Geschäftsführung & IT-Beauftragten</li>
+                <li>Jährlich aktualisieren</li>
+            </ul>
+
+            <h2>Schritt 3: Mitarbeiter schulen (Woche 5-6)</h2>
+            
+            <h3>Die Pflicht zur AI Literacy (Art. 4 EU AI Act)</h3>
+            
+            <p><strong>Wer muss geschult werden?</strong></p>
+            <ul>
+                <li>Alle Mitarbeiter, die KI-Systeme nutzen</li>
+                <li>Führungskräfte</li>
+                <li>Besonders: Personen, die KI-Entscheidungen beeinflussen</li>
+            </ul>
+
+            <p><strong>Was muss drin sein?</strong></p>
+            <ol>
+                <li>Grundverständnis KI (Was kann sie, was nicht?)</li>
+                <li>Richtiger Umgang mit KI-Systemen</li>
+                <li>Risiken erkennen (Halluzinationen, Bias)</li>
+                <li>Datenschutz bei KI-Nutzung</li>
+                <li>Menschliche Überwachung</li>
+            </ol>
+
+            <h2>Schritt 4: Risikobewertung durchführen (Woche 7-8)</h2>
+            
+            <h3>Der 4-Fragen-Test:</h3>
+            
+            <div class="highlight">
+                <p><strong>Frage 1:</strong> Nutzen wir KI für Entscheidungen über Menschen?<br>
+                → Einstellung, Kredit, Versicherung = <strong>Hohes Risiko</strong></p>
+                
+                <p><strong>Frage 2:</strong> Verarbeiten wir sensible Daten (Gesundheit, Biometrie)?<br>
+                → Ja = <strong>Wahrscheinlich Hohes Risiko</strong></p>
+                
+                <p><strong>Frage 3:</strong> Ist es ein "eingebettetes System" (Medizin, Autos, Justiz)?<br>
+                → Ja = <strong>Hohes Risiko</strong></p>
+                
+                <p><strong>Frage 4:</strong> Nutzen wir nur Standard-Büro-KI (ChatGPT, Copilot)?<br>
+                → Ja = <strong>Minimal Risiko</strong></p>
+            </div>
+
+            <h2>Schritt 5: Bei High-Risk - Erweiterte Pflichten (Woche 9-12)</h2>
+            
+            <p>Falls Sie doch High-Risk-KI nutzen, brauchen Sie:</p>
+            <ol>
+                <li>Risikomanagement-System</li>
+                <li>Qualitätsmanagement für Daten</li>
+                <li>Technische Dokumentation</li>
+                <li>Protokollierung (Logging)</li>
+                <li>Menschliche Überwachung</li>
+                <li>Sicherheitskonzept</li>
+                <li>Konformitätserklärung</li>
+            </ol>
+
+            <div class="checklist">
+                <h3>✓ Checkliste für EU AI Act Compliance</h3>
+                <div class="check-item"><input type="checkbox" id="c1"><label for="c1">Alle KI-Tools inventarisiert</label></div>
+                <div class="check-item"><input type="checkbox" id="c2"><label for="c2">Risiko-Klassen zugeordnet</label></div>
+                <div class="check-item"><input type="checkbox" id="c3"><label for="c3">Dokumentation erstellt</label></div>
+                <div class="check-item"><input type="checkbox" id="c4"><label for="c4">Mitarbeiter geschult (AI Literacy)</label></div>
+                <div class="check-item"><input type="checkbox" id="c5"><label for="c5">Risikobewertung durchgeführt</label></div>
+                <div class="check-item"><input type="checkbox" id="c6"><label for="c6">Bei High-Risk: Erweiterte Pflichten umgesetzt</label></div>
+                <div class="check-item"><input type="checkbox" id="c7"><label for="c7">Prozesse für regelmäßige Updates etabliert</label></div>
+            </div>
+
+            <h2>Häufige Fehler – und wie Sie sie vermeiden</h2>
+            
+            <h3>❌ Fehler 1: "Der EU AI Act betrifft uns nicht"</h3>
+            <p><strong>Falsch!</strong> Auch Nutzung von ChatGPT im Unternehmen fällt unter den Act.</p>
+            
+            <h3>❌ Fehler 2: Externe Berater engagieren (15.000€)</h3>
+            <p><strong>Nicht nötig!</strong> Für Standard-KMU reichen diese Checklisten.</p>
+            
+            <h3>❌ Fehler 3: Alles auf einmal machen wollen</h3>
+            <p><strong>Besser:</strong> Schrittweise nach diesem Plan vorgehen.</p>
+
+            <h2>Fazit: In 12 Wochen zur EU AI Act Compliance</h2>
+            
+            <p>Mit diesem Plan sind Sie <strong>bis August 2026</strong> auf der sicheren Seite:</p>
+            <ul>
+                <li><strong>Woche 1-2:</strong> Inventarisierung</li>
+                <li><strong>Woche 3-4:</strong> Dokumentation</li>
+                <li><strong>Woche 5-6:</strong> Mitarbeiter schulen</li>
+                <li><strong>Woche 7-8:</strong> Risikobewertung</li>
+                <li><strong>Woche 9-12:</strong> Erweiterte Pflichten (falls nötig)</li>
+            </ul>
+            
+            <p><strong>Der Aufwand für Standard-KMU:</strong> Ca. 8-12 Stunden insgesamt.</p>
+            <p><strong>Der Nutzen:</strong> Kein Bußgeld, sicheres Geschäft, Wettbewerbsvorteil.</p>
+
+            <div class="cta-box">
+                <h3>🚀 EU AI Act Masterclass</h3>
+                <p>In 2,5 Stunden alle Details, Fallstricke und fertige Vorlagen. Inklusive Zertifikat.</p>
+                <a href="/#work" class="btn-white">Mehr erfahren</a>
+            </div>
+
+            <blockquote>Disclaimer: Dieser Artikel stellt eine allgemeine Information dar und ersetzt keine rechtliche Beratung. Bei komplexen Fällen konsultieren Sie bitte einen Fachanwalt.</blockquote>
+        </main>
+
+        <aside class="toc-sidebar">
+            <div class="toc-title">Inhaltsverzeichnis</div>
+            <ul class="toc-list">
+                <li><a href="#">Die 3 wichtigsten Fakten</a></li>
+                <li><a href="#">Schritt 1: Inventarisierung</a></li>
+                <li><a href="#">Risiko-Klassen</a></li>
+                <li><a href="#">Schritt 2: Dokumentation</a></li>
+                <li><a href="#">Schritt 3: Schulung</a></li>
+                <li><a href="#">Schritt 4: Risikobewertung</a></li>
+                <li><a href="#">Schritt 5: High-Risk</a></li>
+                <li><a href="#">Fehler vermeiden</a></li>
+                <li><a href="#">Fazit</a></li>
+            </ul>
+        </aside>
+    </div>
 
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <h3>KI Expertenraum</h3>
-                <p>Dein Zugang zur KI-Elite</p>
-            </div>
-            <div class="footer-links">
-                <a href="../index.html">Startseite</a>
-                <a href="../blog.html">Blog</a>
-                <a href="../index.html#work">Kurse</a>
-            </div>
-        </div>
+        <div class="footer-logo">KI-Expertenraum</div>
+        <p>© 2026 KI-Expertenraum | Philipp Zerna</p>
     </footer>
 </body>
 </html>
