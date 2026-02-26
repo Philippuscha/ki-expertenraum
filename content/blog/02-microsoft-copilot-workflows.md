@@ -4,7 +4,7 @@ date: "28.02.2026"
 author: "Philipp Zerna"
 description: "Praxis-Beispiele für Microsoft Copilot: So automatisieren Sie HR-Prozesse, Vertriebsaufgaben und Assistenz-Tätigkeiten."
 slug: "microsoft-copilot-workflows"
-cover_image: "https://images.unsplash.com/photo-1633419461186-7d40a38105ec?w=800"
+cover_image: "/public/images/02.jpg"
 ---
 
 ## Warum Microsoft Copilot für Unternehmen?
