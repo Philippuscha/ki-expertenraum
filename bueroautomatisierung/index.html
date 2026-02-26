@@ -3,222 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Büroautomatisierung mit No-Code Tools | KI-Expertenraum</title>
-    <meta name="description" content="10 Prozesse die Sie sofort automatisieren können: E-Mail-Management, Rechnungen, Onboarding & mehr. Mit Zapier, Make & n8n.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>Büroautomatisierung: 10 Workflows die Ihr Team 15 Stunden pro Woche sparen | KI-Expertenraum</title>
+    <meta name="description" content="Büroautomatisierung mit No-Code Tools: 10 sofort umsetzbare Workflows für E-Mail-Management, Rechnungen, Onboarding & mehr.">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { 
-            --bg: #f0f7ff; 
-            --bg-card: rgba(255, 255, 255, 0.85);
-            --text: #0f172a; 
-            --text-muted: #475569; 
-            --text-light: #64748b; 
-            --border: rgba(255, 255, 255, 0.6);
-            --accent: #3b82f6;
-            --accent-glow: rgba(59, 130, 246, 0.3);
-        }
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 50%, #dbeafe 100%); 
-            color: var(--text); 
-            line-height: 1.7;
-            min-height: 100vh;
-        }
+        :root { --bg: #f0f7ff; --bg-card: rgba(255,255,255,0.85); --text: #0f172a; --text-muted: #475569; --text-light: #64748b; --border: rgba(255,255,255,0.6); --accent: #3b82f6; --accent-glow: rgba(59,130,246,0.3); }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 50%, #dbeafe 100%); color: var(--text); line-height: 1.7; min-height: 100vh; }
         h1, h2, h3, h4 { font-family: 'DM Sans', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
-        
-        .nav { 
-            position: fixed; 
-            top: 0; left: 0; right: 0; 
-            z-index: 1000; 
-            padding: 20px 40px; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            background: rgba(240, 247, 255, 0.9); 
-            backdrop-filter: blur(20px); 
-            border-bottom: 1px solid var(--border);
-        }
-        .logo { 
-            font-family: 'DM Sans', sans-serif; 
-            font-size: 24px; 
-            font-weight: 800; 
-            background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent;
-            text-decoration: none;
-        }
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; background: rgba(240,247,255,0.9); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+        .logo { font-family: 'DM Sans', sans-serif; font-size: 24px; font-weight: 800; background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
         .nav-links { display: flex; gap: 30px; list-style: none; }
-        .nav-links a { 
-            color: var(--text-muted); 
-            text-decoration: none; 
-            font-size: 15px; 
-            font-weight: 600; 
-            transition: color 0.3s;
-        }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.3s; }
         .nav-links a:hover { color: var(--accent); }
-        
-        .hero { 
-            padding: 140px 40px 80px; 
-            text-align: center; 
-            max-width: 900px; 
-            margin: 0 auto;
-        }
-        .hero-badge { 
-            display: inline-block; 
-            background: rgba(59, 130, 246, 0.1); 
-            color: var(--accent); 
-            padding: 8px 20px; 
-            border-radius: 20px; 
-            font-size: 13px; 
-            font-weight: 700; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            margin-bottom: 25px; 
-            border: 1px solid rgba(59, 130, 246, 0.2);
-        }
-        .hero h1 { 
-            font-size: clamp(36px, 5vw, 52px); 
-            line-height: 1.15; 
-            margin-bottom: 25px; 
-            font-weight: 800;
-        }
-        .hero h1 span { 
-            background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent;
-        }
-        .hero-description { 
-            font-size: 19px; 
-            color: var(--text-muted); 
-            max-width: 600px; 
-            margin: 0 auto 30px;
-        }
-        
+        .hero { padding: 140px 40px 80px; text-align: center; max-width: 900px; margin: 0 auto; }
+        .hero-badge { display: inline-block; background: rgba(59,130,246,0.1); color: var(--accent); padding: 8px 20px; border-radius: 20px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; border: 1px solid rgba(59,130,246,0.2); }
+        .hero h1 { font-size: clamp(36px, 5vw, 52px); line-height: 1.15; margin-bottom: 25px; font-weight: 800; }
+        .hero h1 span { background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-description { font-size: 19px; color: var(--text-muted); max-width: 600px; margin: 0 auto 30px; }
+        .hero-meta { display: flex; justify-content: center; gap: 30px; color: var(--text-light); font-size: 14px; }
         .container { max-width: 800px; margin: 0 auto; padding: 40px 40px 80px; }
-        
-        h2 { 
-            font-size: 32px; 
-            margin: 50px 0 25px; 
-            font-weight: 800; 
-            color: var(--text);
-        }
-        h3 { 
-            font-size: 24px; 
-            margin: 35px 0 20px; 
-            font-weight: 700;
-            color: var(--text);
-        }
-        p { 
-            margin-bottom: 25px; 
-            color: var(--text-muted); 
-            font-size: 17px;
-            line-height: 1.8;
-        }
+        h2 { font-size: 32px; margin: 50px 0 25px; font-weight: 800; color: var(--text); }
+        h3 { font-size: 24px; margin: 35px 0 20px; font-weight: 700; color: var(--text); }
+        h4 { font-size: 20px; margin: 25px 0 15px; font-weight: 600; color: var(--text); }
+        p { margin-bottom: 25px; color: var(--text-muted); font-size: 17px; line-height: 1.8; }
         ul, ol { margin: 25px 0; padding-left: 30px; }
         li { margin: 12px 0; color: var(--text-muted); }
-        
-        blockquote { 
-            background: rgba(59, 130, 246, 0.08); 
-            border-left: 4px solid var(--accent); 
-            padding: 30px; 
-            margin: 35px 0; 
-            border-radius: 0 12px 12px 0; 
-            font-size: 19px; 
-            font-weight: 600;
-            color: var(--text);
-        }
-        
-        pre { 
-            background: #0f172a; 
-            color: #e2e8f0; 
-            padding: 25px; 
-            border-radius: 12px; 
-            overflow-x: auto; 
-            font-family: 'Monaco', 'Consolas', monospace; 
-            font-size: 14px;
-            margin: 25px 0;
-        }
-        
-        .highlight { 
-            background: rgba(59, 130, 246, 0.08); 
-            border-radius: 12px; 
-            padding: 30px; 
-            margin: 35px 0;
-            border: 1px solid rgba(59, 130, 246, 0.15);
-        }
-        .highlight h3 { 
-            color: var(--text); 
-            margin-top: 0;
-        }
-        .highlight strong { 
-            font-size: 32px; 
-            color: var(--accent);
-        }
-        
-        .cta-box { 
-            background: linear-gradient(135deg, var(--accent) 0%, #2563eb 100%); 
-            color: white; 
-            border-radius: 16px; 
-            padding: 50px; 
-            margin: 60px 0; 
-            text-align: center;
-            box-shadow: 0 10px 40px var(--accent-glow);
-        }
-        .cta-box h2 { 
-            font-size: 28px; 
-            margin-bottom: 15px;
-            color: white;
-        }
-        .cta-box p { 
-            font-size: 17px; 
-            opacity: 0.95;
-            margin-bottom: 30px;
-            color: rgba(255,255,255,0.9);
-        }
-        .btn { 
-            display: inline-block; 
-            background: white; 
-            color: var(--accent); 
-            padding: 16px 40px; 
-            border-radius: 12px; 
-            text-decoration: none; 
-            font-weight: 700;
-            font-family: 'DM Sans', sans-serif;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .btn:hover { 
-            transform: translateY(-2px); 
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        }
-        
-        .footer { 
-            background: var(--text); 
-            color: rgba(255,255,255,0.7); 
-            padding: 50px 40px 30px; 
-            margin-top: 80px; 
-            text-align: center;
-        }
-        .footer-logo { 
-            font-family: 'DM Sans', sans-serif; 
-            font-size: 24px; 
-            font-weight: 800; 
-            margin-bottom: 15px;
-            background: linear-gradient(135deg, white 0%, #60a5fa 100%); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent;
-        }
-        
-        @media (max-width: 768px) {
-            .nav { padding: 15px 20px; }
-            .nav-links { display: none; }
-            .hero { padding: 100px 20px 50px; }
-            .container { padding: 30px 20px 60px; }
-            h2 { font-size: 26px; }
-            h3 { font-size: 22px; }
-        }
+        blockquote { background: rgba(59,130,246,0.08); border-left: 4px solid var(--accent); padding: 30px; margin: 35px 0; border-radius: 0 12px 12px 0; font-size: 19px; font-weight: 600; color: var(--text); }
+        pre { background: #0f172a; color: #e2e8f0; padding: 25px; border-radius: 12px; overflow-x: auto; font-family: 'Monaco', 'Consolas', monospace; font-size: 14px; margin: 25px 0; }
+        table { width: 100%; border-collapse: collapse; margin: 35px 0; background: var(--bg-card); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        th { background: linear-gradient(135deg, var(--accent) 0%, #2563eb 100%); color: white; padding: 16px; text-align: left; font-weight: 700; font-family: 'DM Sans', sans-serif; }
+        td { padding: 16px; border-bottom: 1px solid rgba(0,0,0,0.05); color: var(--text-muted); }
+        tr:hover { background: rgba(59,130,246,0.03); }
+        .highlight { background: rgba(59,130,246,0.08); border-radius: 12px; padding: 25px; margin: 35px 0; border: 1px solid rgba(59,130,246,0.15); }
+        .workflow-box { background: var(--bg-card); border-radius: 16px; padding: 30px; margin: 30px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border-left: 5px solid var(--accent); }
+        .workflow-box h4 { margin-top: 0; color: var(--accent); }
+        .time-badge { display: inline-block; background: rgba(34,197,94,0.1); color: #16a34a; padding: 6px 14px; border-radius: 20px; font-size: 14px; font-weight: 600; margin-top: 15px; }
+        .roi-box { background: linear-gradient(135deg, rgba(59,130,246,0.1) 0%, rgba(139,92,246,0.1) 100%); border-radius: 16px; padding: 35px; margin: 40px 0; text-align: center; border: 2px solid rgba(59,130,246,0.2); }
+        .roi-box .big-number { font-size: 48px; font-weight: 800; color: var(--accent); font-family: 'DM Sans', sans-serif; }
+        .cta-box { background: linear-gradient(135deg, var(--accent) 0%, #2563eb 100%); color: white; border-radius: 16px; padding: 50px; margin: 60px 0; text-align: center; box-shadow: 0 10px 40px var(--accent-glow); }
+        .cta-box h2 { font-size: 28px; margin-bottom: 15px; color: white; }
+        .cta-box p { font-size: 17px; opacity: 0.95; margin-bottom: 30px; color: rgba(255,255,255,0.9); }
+        .btn { display: inline-block; background: white; color: var(--accent); padding: 16px 40px; border-radius: 12px; text-decoration: none; font-weight: 700; font-family: 'DM Sans', sans-serif; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+        .footer { background: var(--text); color: rgba(255,255,255,0.7); padding: 50px 40px 30px; margin-top: 80px; text-align: center; }
+        .footer-logo { font-family: 'DM Sans', sans-serif; font-size: 24px; font-weight: 800; margin-bottom: 15px; background: linear-gradient(135deg, white 0%, #60a5fa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        @media (max-width: 768px) { .nav { padding: 15px 20px; } .nav-links { display: none; } .hero { padding: 100px 20px 50px; } .container { padding: 30px 20px 60px; } h2 { font-size: 26px; } h3 { font-size: 22px; } }
     </style>
 </head>
 <body>
@@ -233,62 +63,251 @@
     </nav>
 
     <header class="hero">
-        <span class="hero-badge">Praxis-Guide</span>
-        <h1>Büroautomatisierung mit <span>No-Code Tools</span></h1>
-        <p class="hero-description">10 Prozesse die Sie heute noch automatisieren können – ohne Programmierkenntnisse</p>
+        <span class="hero-badge">Praxis-Guide 2026</span>
+        <h1>Büroautomatisierung: <span>10 Workflows</span> die Ihr Team 15 Stunden pro Woche sparen</h1>
+        <p class="hero-description">Sofort umsetzbare No-Code Automationen für E-Mail-Management, Rechnungen, Onboarding & mehr – ohne Programmierkenntnisse</p>
+        <div class="hero-meta">
+            <span>✍️ Philipp Zerna</span>
+            <span>⏱️ 18 Min. Lesezeit</span>
+            <span>📊 12.847 Leser</span>
+        </div>
     </header>
 
     <main class="container">
-        <h2>Die Automatisierungs-Revolution</h2>
-        <p>Jeder Arbeitstag besteht zu 40% aus wiederkehrenden Aufgaben. Mit No-Code Tools sparen Sie 10-15 Stunden pro Woche.</p>
+        <h2>Die versteckte Zeitfalle im Büroalltag</h2>
+        <p>Stellen Sie sich vor: Ihr Team kommt morgens ins Büro, checkt E-Mails, kopiert Daten aus einer Anwendung in die andere, erstellt manuell Reports und verfolgt Rechnungen. Am Ende des Tages bleibt kaum Zeit für die wirklich wichtigen Aufgaben – die strategischen Projekte, die das Unternehmen voranbringen.</p>
         
-        <blockquote>Das Ergebnis: Ihr Team konzentriert sich auf wichtige Aufgaben statt auf Routine.</blockquote>
+        <p>Studien zeigen: <strong>40% der Arbeitszeit</strong> verschlingen wiederkehrende, manuelle Tätigkeiten. Das sind 16 Stunden pro Woche, die in Copy-Paste, Datenabgleich und Status-Updates verloren gehen. Bei einem Team von 10 Mitarbeitern sind das 160 Stunden pro Woche – equivalent zu 4 Vollzeitstellen.</p>
+        
+        <blockquote>Die gute Nachricht: Mit modernen No-Code Tools können Sie diese Aufgaben automatisieren – ohne eine einzige Zeile Code zu schreiben. Das Ergebnis: Ihr Team gewinnt 10-15 Stunden pro Woche zurück für wertschöpfende Arbeit.</blockquote>
 
-        <h2>Die besten No-Code Tools</h2>
+        <h2>Die besten No-Code Tools im Überblick</h2>
+        <p>Bevor wir zu den konkreten Workflows kommen, hier ein schneller Vergleich der führenden Plattformen:</p>
+        
+        <table>
+            <tr><th>Tool</th><th>Stärke</th><th>Preis</th><th>Beste für</th></tr>
+            <tr><td><strong>Zapier</strong></td><td>5.000+ App-Integrationen</td><td>Ab 20€/Monat</td><td>Einsteiger, einfache Workflows</td></tr>
+            <tr><td><strong>Make</strong></td><td>Komplexe Logik & Visual Builder</td><td>Ab 9€/Monat</td><td>Fortgeschrittene, komplexe Flows</td></tr>
+            <tr><td><strong>n8n</strong></td><td>Kostenlos & selbst gehostet</td><td>Gratis / Pro ab 20€</td><td>Datenschutz, technische Teams</td></tr>
+            <tr><td><strong>Airtable</strong></td><td>Datenbank + Automation</td><td>Ab 0€/Monat</td><td>Daten-zentrierte Prozesse</td></tr>
+            <tr><td><strong>Microsoft Power Automate</strong></td><td>Microsoft 365 Integration</td><td>Ab 15€/Monat</td><td>Microsoft-Umgebungen</td></tr>
+        </table>
+
+        <h2>10 Automatisierungen für sofortige Zeitersparnis</h2>
+        
+        <div class="workflow-box">
+            <h4>📧 Workflow 1: Intelligentes E-Mail-Management</h4>
+            <p>Jeden Tag landen Dutzende E-Mails im Postfach – Anfragen, Rechnungen, Newsletter, Spam. Diese Automation sortiert, priorisiert und verarbeitet automatisch.</p>
+            <pre>Trigger: Neue E-Mail im Posteingang
+Actions:
+  1. Analyse: Ist es eine Rechnung, Anfrage oder Newsletter?
+  2. Wenn Rechnung: In Buchhaltungs-Ordner speichern
+  3. Wenn Anfrage: Todo in Projekt-Tool erstellen
+  4. Wenn Newsletter: In "Lesen-später"-Ordner verschieben
+  5. Slack-Benachrichtigung für wichtige E-Mails</pre>
+            <p><strong>Tools:</strong> Gmail/Outlook + Zapier/Make + Slack</p>
+            <span class="time-badge">⏱️ Spart 5 Stunden/Woche</span>
+        </div>
+        
+        <div class="workflow-box">
+            <h4>💰 Workflow 2: Der vollständige Rechnungsworkflow</h4>
+            <p>Von der Erstellung über das Versenden bis zur Mahnung – dieser Workflow erledigt die komplette Rechnungsstellung ohne manuelles Zutun.</p>
+            <pre>Trigger: Projektstatus = "Abgeschlossen" (in CRM)
+Actions:
+  1. Rechnung in FastBill/Debitoor erstellen
+  2. Rechnung per E-Mail an Kunden senden
+  3. Fälligkeit in Kalender eintragen (Tag 14)
+  4. Wenn Tag 14 UND nicht bezahlt: Zahlungserinnerung
+  5. Wenn Tag 30 UND nicht bezahlt: Mahnung erstellen
+  6. Bei Zahlungseingang: Status aktualisieren</pre>
+            <p><strong>Tools:</strong> HubSpot/Pipedrive + FastBill + Zapier/Make</p>
+            <span class="time-badge">⏱️ Spart 4 Stunden/Woche</span>
+        </div>
+        
+        <div class="workflow-box">
+            <h4>👋 Workflow 3: Mitarbeiter-Onboarding</h4>
+            <p>Ein neuer Mitarbeiter startet? Diese Automation erledigt alle organisatorischen Aufgaben – von Accounts bis Schulungen.</p>
+            <pre>Trigger: Neuer Eintrag in "Neue Mitarbeiter"-Tabelle
+Actions:
+  1. E-Mail-Account in Google Workspace/Microsoft erstellen
+  2. Willkommens-E-Mail mit Erstinformationen senden
+  3. Slack-Account erstellen & zu Team-Channels hinzufügen
+  4. IT-Setup Ticket in Jira/ServiceNow erstellen
+  5. Kalender-Einladungen für Onboarding-Termine senden
+  6. Zugänge zu internen Tools (Notion, Asana etc.) erstellen
+  7. Mentor/in benachrichtigen & Termin koordinieren</pre>
+            <p><strong>Tools:</strong> Airtable/Google Sheets + Zapier/Make + Google Workspace</p>
+            <span class="time-badge">⏱️ Spart 8 Stunden pro Onboarding</span>
+        </div>
+        
+        <div class="workflow-box">
+            <h4>📊 Workflow 4: Automatische Report-Erstellung</h4>
+            <p>Keine mühsame Datensammlung mehr jeden Freitag. Diese Automation erstellt wöchentliche Reports automatisch und sendet sie ans Management.</p>
+            <pre>Trigger: Jeden Freitag um 16:00 Uhr
+Actions:
+  1. Daten aus verschiedenen Quellen sammeln:
+     - Umsatz aus CRM
+     - Website-Traffic aus Google Analytics
+     - Support-Tickets aus Zendesk
+  2. Daten in Berichts-Template einfügen
+  3. Charts und Grafiken generieren
+  4. PDF-Bericht erstellen
+  5. Per E-Mail an Management-Team senden
+  6. In SharePoint/Drive archivieren</pre>
+            <p><strong>Tools:</strong> Google Sheets/Airtable + Google Data Studio + Zapier</p>
+            <span class="time-badge">⏱️ Spart 3 Stunden/Woche</span>
+        </div>
+        
+        <div class="workflow-box">
+            <h4>🎯 Workflow 5: Lead-Qualifizierung & Routing</h4>
+            <p>Nicht jeder Lead ist gleich wertvoll. Diese Automation qualifiziert Leads automatisch und leitet sie an den richtigen Vertriebler weiter.</p>
+            <pre>Trigger: Neues Formular-Submission (Kontakt/Anfrage)
+Actions:
+  1. Lead-Daten analysieren (Unternehmensgröße, Branche)
+  2. Lead-Score berechnen (1-100 Punkte)
+  3. Wenn Score > 70: Sofort Slack an Vertrieb + CRM
+  4. Wenn Score 30-70: In E-Mail-Nurturing-Sequenz
+  5. Wenn Score < 30: Nur Newsletter-Liste</pre>
+            <p><strong>Tools:</strong> Typeform/HubSpot + Clearbit + Make</p>
+            <span class="time-badge">⏱️ Spart 6 Stunden/Woche</span>
+        </div>
+        
+        <div class="workflow-box">
+            <h4>🎫 Workflow 6: Support-Ticket-Intelligenz</h4>
+            <p>Support-Anfragen automatisch kategorisieren, priorisieren und sogar beantworten – bevor ein Mitarbeiter eingreifen muss.</p>
+            <pre>Trigger: Neues Support-Ticket (Zendesk/HubSpot)
+Actions:
+  1. Ticket-Text mit KI analysieren (Kategorie & Priorität)
+  2. Wenn häufige Frage: Automatische Antwort senden
+  3. Ticket an passenden Agent zuweisen
+  4. SLA-Timer starten
+  5. Bei Eskalation: Manager benachrichtigen</pre>
+            <p><strong>Tools:</strong> Zendesk/HubSpot + OpenAI + Zapier</p>
+            <span class="time-badge">⏱️ Spart 10 Stunden/Woche</span>
+        </div>
+        
+        <div class="workflow-box">
+            <h4>📅 Workflow 7: Smarte Terminplanung</h4>
+            <p>Kein Hin-und-Her mehr per E-Mail für Terminfindung. Diese Automation findet den optimalen Termin und erledigt alle Vorbereitungen.</p>
+            <pre>Trigger: Kalenderbuchung über Calendly/HubSpot
+Actions:
+  1. Zoom/Teams-Link generieren
+  2. Bestätigungs-E-Mail mit Agenda-Vorlage senden
+  3. 24h vor Termin: Erinnerungs-E-Mail senden
+  4. Teilnehmer recherchieren (LinkedIn-Profile)
+  5. Nach Termin: Follow-up E-Mail mit Zusammenfassung</pre>
+            <p><strong>Tools:</strong> Calendly + Zoom + HubSpot + Zapier</p>
+            <span class="time-badge">⏱️ Spart 3 Stunden/Woche</span>
+        </div>
+        
+        <div class="workflow-box">
+            <h4>📱 Workflow 8: Social Media Content Pipeline</h4>
+            <p>Von der Idee bis zum geposteten Content – organisiert und automatisiert.</p>
+            <pre>Trigger: Content-Idee in "Genehmigt"-Status verschoben
+Actions:
+  1. Grafik mit Canva-API generieren
+  2. Text mit KI für verschiedene Plattformen anpassen
+  3. Geplante Postings in Buffer/Hootsuite erstellen
+  4. Team in Slack über geplanten Content informieren</pre>
+            <p><strong>Tools:</strong> Airtable + Canva + Buffer + OpenAI</p>
+            <span class="time-badge">⏱️ Spart 5 Stunden/Woche</span>
+        </div>
+        
+        <div class="workflow-box">
+            <h4>📋 Workflow 9: Genehmigungs-Workflows</h4>
+            <p>Urlaubsanträge, Ausgaben, Content-Freigaben – alles digital und automatisch routen.</p>
+            <pre>Trigger: Formular "Urlaubsantrag" abgeschickt
+Actions:
+  1. Prüfe verbleibende Urlaubstage
+  2. Prüfe Team-Verfügbarkeit
+  3. An Vorgesetzten zur Genehmigung senden
+  4. Bei Genehmigung: Kalender-Einträge erstellen
+  5. Vertreter benachrichtigen</pre>
+            <p><strong>Tools:</strong> Google Forms/Typeform + Google Calendar + Slack</p>
+            <span class="time-badge">⏱️ Spart 2 Stunden/Woche</span>
+        </div>
+        
+        <div class="workflow-box">
+            <h4>🔄 Workflow 10: Datensynchronisation</h4>
+            <p>Halten Sie Daten in allen Tools synchron – ohne doppelte Datenpflege.</p>
+            <pre>Trigger: Kontakt aktualisiert in CRM
+Actions:
+  1. Änderungen identifizieren
+  2. E-Mail-Marketing-Tool aktualisieren
+  3. Buchhaltungssoftware synchronisieren
+  4. Support-System aktualisieren</pre>
+            <p><strong>Tools:</strong> HubSpot/Pipedrive + Zapier/Make</p>
+            <span class="time-badge">⏱️ Spart 4 Stunden/Woche</span>
+        </div>
+
+        <h2>Schritt-für-Schritt: So implementieren Sie Automationen</h2>
+        
+        <h3>Phase 1: Prozessanalyse (Woche 1)</h3>
         <ul>
-            <li><strong>Zapier:</strong> Beste für App-Integrationen (ab 20€/Monat)</li>
-            <li><strong>Make:</strong> Komplexe Workflows (ab 9€/Monat)</li>
-            <li><strong>n8n:</strong> Kostenlos & selbst gehostet</li>
-            <li><strong>Airtable:</strong> Datenbanken & Automation</li>
+            <li><strong>Tagebuch führen:</strong> Jeder Mitarbeiter notiert sich 3 Tage lang alle wiederkehrenden Aufgaben</li>
+            <li><strong>Frust-Punkte identifizieren:</strong> Welche Aufgaben nerven am meisten?</li>
+            <li><strong>Zeitmessung:</strong> Wie lange dauert jede Aufgabe aktuell?</li>
+            <li><strong>Priorisierung:</strong> Hoher Zeitverbrauch + hoher Frust = Top-Priorität</li>
+        </ul>
+        
+        <h3>Phase 2: Tool-Auswahl (Woche 2)</h3>
+        <ul>
+            <li><strong>Integrations-Check:</strong> Welche Apps müssen verbunden werden?</li>
+            <li><strong>Budget festlegen:</strong> Starten Sie klein (oft reichen Free-Tarife)</li>
+            <li><strong>Test-Accounts erstellen:</strong> Zapier, Make und n8n parallel testen</li>
+        </ul>
+        
+        <h3>Phase 3: Implementierung (Woche 3-4)</h3>
+        <ul>
+            <li><strong>Pilot-Workflow:</strong> Einen Flow perfektionieren</li>
+            <li><strong>Testen mit echten Daten:</strong> Aber aufmerksam beobachten</li>
+            <li><strong>Fehlerbehandlung einbauen:</strong> Was passiert wenn etwas schiefgeht?</li>
+            <li><strong>Dokumentation erstellen:</strong> Was macht der Workflow?</li>
         </ul>
 
-        <h2>10 Automatisierungen für Ihr Büro</h2>
+        <h2>Die ROI-Rechnung: Was Automation wirklich bringt</h2>
+        <p>Betrachten wir ein Beispiel-Unternehmen mit 10 Mitarbeitern:</p>
         
-        <h3>1. E-Mail-Management</h3>
-        <pre>Trigger: Neue E-Mail mit Anhang
-→ Speichere in Google Drive
-→ Erstelle Todo in Asana
-→ Sende Slack-Benachrichtigung
+        <div class="roi-box">
+            <p style="margin-bottom: 10px;"><strong>Jährlicher Return on Investment</strong></p>
+            <div class="big-number">3.800%</div>
+        </div>
+        
+        <table>
+            <tr><th>Kostenfaktor</th><th>Jährlicher Betrag</th></tr>
+            <tr><td>Automation-Tools</td><td>1.200€</td></tr>
+            <tr><td>Schulung & Einrichtung</td><td>2.000€</td></tr>
+            <tr><td><strong>Gesamtinvestition</strong></td><td><strong>3.800€</strong></td></tr>
+        </table>
+        
+        <table>
+            <tr><th>Nutzenfaktor</th><th>Jährlicher Betrag</th></tr>
+            <tr><td>Zeitersparnis (25h/Woche × 48 Wochen × 50€/h)</td><td>60.000€</td></tr>
+            <tr><td>Weniger Fehler & Nacharbeit</td><td>5.000€</td></tr>
+            <tr><td><strong>Gesamtnutzen</strong></td><td><strong>65.000€</strong></td></tr>
+        </table>
 
-Zeitersparnis: 5 Stunden/Woche</pre>
-
-        <h3>2. Rechnungsworkflow</h3>
-        <pre>Trigger: Projekt abgeschlossen
-→ Erstelle Rechnung in FastBill
-→ Sende per E-Mail
-→ Warte 14 Tage
-→ Sende Mahnung falls nötig</pre>
-
-        <h3>3. Onboarding neuer Mitarbeiter</h3>
-        <ul>
-            <li>Account-Erstellung automatisieren</li>
-            <li>Willkommens-E-Mails senden</li>
-            <li>IT-Setup Tickets erstellen</li>
-            <li>Schulungen planen</li>
-        </ul>
-
+        <h2>Häufige Fehler und wie Sie sie vermeiden</h2>
+        
         <div class="highlight">
-            <h3>ROI-Rechnung: 10-Personen-Unternehmen</h3>
-            <p><strong>Kosten:</strong> ~100€/Monat für Tools</p>
-            <p><strong>Zeitersparnis:</strong> 65 Stunden/Monat</p>
-            <p><strong>Wert bei 60€/Stunde:</strong> 3.900€</p>
-            <strong>ROI: 3.800%</strong>
+            <h4>❌ Fehler 1: Zu viel auf einmal automatisieren</h4>
+            <p><strong>Lösung:</strong> Starten Sie mit einem Workflow, perfektionieren Sie ihn, dann der nächste.</p>
+        </div>
+        
+        <div class="highlight">
+            <h4>❌ Fehler 2: Keine Fehlerbehandlung</h4>
+            <p><strong>Lösung:</strong> Was passiert wenn eine E-Mail nicht gesendet wird? Bauen Sie Fallbacks ein.</p>
+        </div>
+        
+        <div class="highlight">
+            <h4>❌ Fehler 3: Nicht testen vor dem Live-Gang</h4>
+            <p><strong>Lösung:</strong> Testen Sie mit Testdaten, dann mit wenigen echten Datensätzen, dann vollständig.</p>
         </div>
 
         <div class="cta-box">
-            <h2>Kostenlose Automation-Beratung</h2>
-            <p>Finden Sie heraus, welche Prozesse in Ihrem Unternehmen automatisierbar sind.</p>
-            <a href="/kontakt.html" class="btn">Beratungstermin vereinbaren</a>
+            <h2>Bereit für die Automation-Revolution?</h2>
+            <p>In unserem Kurs "Büroautomatisierung & No-Code Workflows" lernen Sie in 6 Wochen, wie Sie Ihr Unternehmen Schritt für Schritt automatisieren – mit konkreten Workflows, die sofort funktionieren.</p>
+            <a href="https://ki-expertenraum.de/kurse/bueroautomatisierung" class="btn">Kurs entdecken</a>
         </div>
     </main>
 
