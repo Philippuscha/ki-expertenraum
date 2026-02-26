@@ -302,8 +302,6 @@
             
         }
         
-        @media (max-width: 768px) {
-            .nav { padding: 15px 20px; }
             .nav-links { display: none; }
             .hero {
             margin-top: 20px; padding: 100px 20px 50px; }
@@ -317,6 +315,11 @@
 <body>
     <nav class="nav">
         <a href="/" class="logo">KI-Expertenraum</a>
+        <div class="mobile-menu-toggle" id="mobileMenuToggle" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <ul class="nav-links">
             <li><a href="/">Startseite</a></li>
             <li class="dropdown">
@@ -332,6 +335,12 @@
             <li><a href="/kontakt.html">Kontakt</a></li>
         </ul>
     </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="/">Startseite</a>
+        <a href="/artikel/">Artikel</a>
+        <a href="/#work">Kurse</a>
+        <a href="/kontakt.html">Kontakt</a>
+    </div>
 
     <header class="hero">
         <span class="hero-badge">Datenschutz-First</span>
@@ -515,6 +524,7 @@
         <div class="footer-logo">KI-Expertenraum</div>
         <p>© 2026 KI-Expertenraum | Philipp Zerna</p>
     </footer>
+    
     <script>
         // Auto-generate TOC from headings
         document.addEventListener("DOMContentLoaded", function() {
@@ -545,5 +555,6 @@
             });
         });
     </script>
+
 </body>
 </html>
