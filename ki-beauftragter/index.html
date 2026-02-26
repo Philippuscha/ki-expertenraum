@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KI-Beauftragter: 30-Tage Roadmap | KI-Expertenraum</title>
+    <title>KI-Beauftragter werden: Der ultimative 30-Tage-Startplan | KI-Expertenraum</title>
     <meta name="description" content="Als neuer KI-Beauftragter durchstarten: Der komplette 30-Tage-Plan mit Checklisten, Templates und konkreten To-Dos.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -22,19 +21,30 @@
         .hero h1 { font-size: clamp(36px, 5vw, 52px); line-height: 1.15; margin-bottom: 25px; font-weight: 800; }
         .hero h1 span { background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hero-description { font-size: 19px; color: var(--text-muted); max-width: 600px; margin: 0 auto 30px; }
+        .hero-meta { display: flex; justify-content: center; gap: 30px; color: var(--text-light); font-size: 14px; }
         .container { max-width: 800px; margin: 0 auto; padding: 40px 40px 80px; }
         h2 { font-size: 32px; margin: 50px 0 25px; font-weight: 800; color: var(--text); }
         h3 { font-size: 24px; margin: 35px 0 20px; font-weight: 700; color: var(--text); }
+        h4 { font-size: 20px; margin: 25px 0 15px; font-weight: 600; color: var(--text); }
         p { margin-bottom: 25px; color: var(--text-muted); font-size: 17px; line-height: 1.8; }
         ul, ol { margin: 25px 0; padding-left: 30px; }
         li { margin: 12px 0; color: var(--text-muted); }
         blockquote { background: rgba(59,130,246,0.08); border-left: 4px solid var(--accent); padding: 30px; margin: 35px 0; border-radius: 0 12px 12px 0; font-size: 19px; font-weight: 600; color: var(--text); }
+        table { width: 100%; border-collapse: collapse; margin: 35px 0; background: var(--bg-card); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        th { background: linear-gradient(135deg, var(--accent) 0%, #2563eb 100%); color: white; padding: 16px; text-align: left; font-weight: 700; font-family: 'DM Sans', sans-serif; }
+        td { padding: 16px; border-bottom: 1px solid rgba(0,0,0,0.05); color: var(--text-muted); }
+        tr:hover { background: rgba(59,130,246,0.03); }
+        .highlight { background: rgba(59,130,246,0.08); border-radius: 12px; padding: 25px; margin: 35px 0; border: 1px solid rgba(59,130,246,0.15); }
         .week { background: var(--bg-card); border-radius: 16px; padding: 35px; margin: 35px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border: 1px solid rgba(255,255,255,0.5); border-left: 5px solid var(--accent); }
         .week h3 { color: var(--accent); margin-top: 0; }
         .checklist { background: rgba(59,130,246,0.05); border-radius: 12px; padding: 25px; margin: 25px 0; }
         .checklist ul { list-style: none; padding: 0; }
         .checklist li { position: relative; padding-left: 35px; }
         .checklist li:before { content: "☐"; position: absolute; left: 0; font-size: 20px; color: var(--accent); }
+        .tip { background: rgba(34,197,94,0.08); border-left: 4px solid #22c55e; padding: 20px 25px; margin: 25px 0; border-radius: 0 12px 12px 0; }
+        .warning { background: rgba(245,158,11,0.1); border-left: 4px solid #f59e0b; padding: 20px 25px; margin: 25px 0; border-radius: 0 12px 12px 0; }
+        .roi-box { background: linear-gradient(135deg, rgba(59,130,246,0.1) 0%, rgba(139,92,246,0.1) 100%); border-radius: 16px; padding: 35px; margin: 40px 0; text-align: center; border: 2px solid rgba(59,130,246,0.2); }
+        .roi-box .big-number { font-size: 48px; font-weight: 800; color: var(--accent); font-family: 'DM Sans', sans-serif; }
         .cta-box { background: linear-gradient(135deg, var(--accent) 0%, #2563eb 100%); color: white; border-radius: 16px; padding: 50px; margin: 60px 0; text-align: center; box-shadow: 0 10px 40px var(--accent-glow); }
         .cta-box h2 { font-size: 28px; margin-bottom: 15px; color: white; }
         .cta-box p { font-size: 17px; opacity: 0.95; margin-bottom: 30px; color: rgba(255,255,255,0.9); }
@@ -57,77 +67,290 @@
     </nav>
 
     <header class="hero">
-        <span class="hero-badge">Karriere-Guide</span>
-        <h1>KI-Beauftragter: <span>30-Tage Roadmap</span></h1>
-        <p class="hero-description">Vom ersten Tag bis zur produktiven Rolle – mit täglichen To-Dos und Checklisten</p>
+        <span class="hero-badge">Karriere-Guide 2026</span>
+        <h1>KI-Beauftragter werden: <span>Der ultimative 30-Tage-Startplan</span></h1>
+        <p class="hero-description">Vom ersten Tag bis zur produktiven Rolle – mit täglichen To-Dos, Checklisten und Insider-Tipps</p>
+        <div class="hero-meta">
+            <span>✍️ Philipp Zerna</span>
+            <span>⏱️ 17 Min. Lesezeit</span>
+            <span>📊 7.543 Leser</span>
+        </div>
     </header>
 
     <main class="container">
         <h2>Herzlichen Glückwunsch zur neuen Rolle!</h2>
-        <p>Sie wurden zum KI-Beauftragten ernannt. Doch wo fangen Sie an? Diese Roadmap zeigt Ihnen den Weg.</p>
+        <p>Sie wurden gerade zum <strong>KI-Beauftragten</strong> (auch Chief AI Officer, KI-Lead oder AI Champion) ernannt. Das ist eine große Ehre – und eine noch größere Herausforderung. Denn wo fangen Sie eigentlich an?</p>
         
-        <blockquote>Ziel: Nach 30 Tagen sind Sie der go-to Experte für KI in Ihrem Unternehmen.</blockquote>
+        <p>Die Erwartungen sind hoch: Das Management erwartet schnelle Erfolge, die Mitarbeiter wollen wissen, wie KI ihre Arbeit verändert, und die IT fragt nach Sicherheitskonzepten. Gleichzeitig haben Sie vermutlich Ihren alten Job noch nebenher und wenig Budget.</p>
+        
+        <blockquote>Ziel dieses Plans: Nach 30 Tagen sind Sie der anerkannte Go-to-Experte für KI in Ihrem Unternehmen. Sie haben erste Erfolge geliefert, ein Netzwerk aufgebaut und eine Roadmap für die kommenden Monate.</blockquote>
 
+        <h2>Was macht ein KI-Beauftragter eigentlich?</h2>
+        <p>Die Rolle ist neu und variiert je nach Unternehmen, aber typische Aufgaben umfassen:</p>
+        
+        <table>
+            <tr><th>Aufgabenbereich</th><th>Konkrete Tätigkeiten</th><th>Zeitanteil</th></tr>
+            <tr><td><strong>Strategie & Planung</strong></td><td>KI-Roadmap entwickeln, Use-Cases priorisieren</td><td>20%</td></tr>
+            <tr><td><strong>Implementierung</strong></td><td>Tools evaluieren, Pilotprojekte steuern</td><td>25%</td></tr>
+            <tr><td><strong>Schulung & Enablement</strong></td><td>Workshops geben, Best Practices teilen</td><td>30%</td></tr>
+            <tr><td><strong>Change Management</strong></td><td>Widerstände abbauen, Erfolge kommunizieren</td><td>15%</td></tr>
+            <tr><td><strong>Governance & Compliance</strong></td><td>DSGVO, EU AI Act, Sicherheitsrichtlinien</td><td>10%</td></tr>
+        </table>
+        
+        <div class="tip">
+            <strong>Insider-Tipp:</strong> Ihre wichtigste Aufgabe ist nicht die Technik, sondern das <strong>Bringen von Menschen zusammen</strong>. Sie sind Übersetzer zwischen IT, Management und Fachabteilungen.
+        </div>
+
+        <h2>Die 30-Tage-Roadmap</h2>
+        
         <div class="week">
-            <h3>Woche 1: Analyse & Vorbereitung</h3>
-            <p><strong>Tag 1-2: Bestandsaufnahme</strong></p>
+            <h3>📊 Woche 1: Analyse & Vorbereitung (Tag 1-7)</h3>
+            
+            <h4>Tag 1-2: Bestandsaufnahme</h4>
+            <p>Bevor Sie handeln, müssen Sie verstehen. Starten Sie mit einer gründlichen Analyse.</p>
+            
+            <p><strong>KI-Inventar erstellen:</strong></p>
             <ul>
-                <li>KI-Inventar erstellen: Welche Tools nutzen Mitarbeiter?</li>
-                <li>Gespräche führen: CEO, IT-Leiter, Abteilungsleiter</li>
-                <li>Schmerzpunkte identifizieren</li>
+                <li>Welche KI-Tools nutzen Mitarbeiter bereits (offiziell oder shadow IT)?</li>
+                <li>Welche Prozesse könnten von KI profitieren?</li>
+                <li>Wo gibt es größte Frustrationen und zeitfressende manuelle Aufgaben?</li>
             </ul>
             
-            <p><strong>Tag 3-4: Recherche</strong></p>
+            <p><strong>Stakeholder-Gespräche führen:</strong></p>
             <ul>
-                <li>EU AI Act verstehen (Grundzüge)</li>
-                <li>DSGVO bei KI-Nutzung</li>
-                <li>Aktuelle Tools kennenlernen</li>
+                <li><strong>Geschäftsführung:</strong> Was sind die strategischen Ziele? Welche Erwartungen gibt es?</li>
+                <li><strong>IT-Leiter:</strong> Technische Restriktionen? Sicherheitsanforderungen?</li>
+                <li><strong>Abteilungsleiter:</strong> Welche Pain Points haben ihre Teams?</li>
+                <li><strong>Datenschutzbeauftragter:</strong> Compliance-Anforderungen?</li>
+            </ul>
+            
+            <div class="checklist">
+                <p><strong>Wochenziele Woche 1:</strong></p>
+                <ul>
+                    <li>KI-Inventar erstellt (mindestens 10 KI-Tools identifiziert)</li>
+                    <li>Alle Key-Stakeholder persönlich gesprochen</li>
+                    <li>Top 5 Pain Points dokumentiert</li>
+                    <li>Erste Strategie-Skizze angefertigt</li>
+                </ul>
+            </div>
+
+            <h4>Tag 3-4: Recherche & Grundlagen</h4>
+            <p>Sie müssen schnell zum Experten werden. Fokus auf die für Ihr Unternehmen relevanten Bereiche:</p>
+            
+            <ul>
+                <li><strong>EU AI Act verstehen:</strong> Grundzüge kennen, Risikoklassen verstehen</li>
+                <li><strong>DSGVO bei KI:</strong> Was ist erlaubt, was nicht? AVV-Checkliste</li>
+                <li><strong>Aktuelle Tools kennenlernen:</strong> Nicht alle, aber die wichtigsten Kategorien</li>
+                <li><strong>Branchen-Use-Cases:</strong> Was funktioniert bei vergleichbaren Unternehmen?</li>
             </ul>
 
+            <h4>Tag 5-7: Quick-Win-Identifikation</h4>
+            <p>Sie brauchen schnelle Erfolge, um Glaubwürdigkeit aufzubauen. Suchen Sie nach:</p>
+            
+            <ul>
+                <li><strong>Hoher Impact:</strong> Viel Zeitersparnis oder hohe Sichtbarkeit</li>
+                <li><strong>Geringes Risiko:</strong> Nicht kundennahe kritische Prozesse</li>
+                <li><strong>Schnelle Umsetzung:</strong> In 1-2 Wochen machbar</li>
+                <li><strong>Engagierter Champion:</strong> Jemand, der das Tool mit Ihnen testet</li>
+            </ul>
+        </div>
+
+        <div class="week">
+            <h3>🚀 Woche 2: Quick Wins & Kommunikation (Tag 8-14)</h3>
+            
+            <h4>Tag 8-10: Ersten Quick Win umsetzen</h4>
+            <p>Wählen Sie den vielversprechendsten Use-Case und machen Sie ihn fertig. Beispiele für schnelle Erfolge:</p>
+            
+            <ul>
+                <li><strong>E-Mail-Zusammenfassungen:</strong> Management-Team bekommt tägliche Executive Summary</li>
+                <li><strong>Meeting-Notizen:</strong> Automatische Transkription und To-Do-Extraktion</li>
+                <li><strong>Stellenanzeigen-Optimierung:</strong> HR spart 30 Minuten pro Anzeige</li>
+                <li><strong>FAQ-Bot für interne Fragen:</strong> IT-Service-Entlastung</li>
+            </ul>
+            
+            <div class="tip">
+                <strong>Wichtig:</strong> Dokumentieren Sie alles! Vorher/nachher-Zeiten, Feedback des Nutzers, Screenshots. Das ist Ihr Beweismaterial für Erfolge.
+            </div>
+
+            <h4>Tag 11-12: Kommunikationsstrategie</h4>
+            <p>Nutzen Sie den Quick Win für sichtbare Kommunikation:</p>
+            
+            <ul>
+                <li>Kurze E-Mail an alle: "Wie wir 5 Stunden pro Woche sparen"</li>
+                <li>Intranet-Beitrag oder Slack-Post mit konkreten Zahlen</li>
+                <li>Einladung zu Info-Session: "KI in 15 Minuten erklärt"</li>
+            </ul>
+
+            <h4>Tag 13-14: Champion-Netzwerk aufbauen</h4>
+            <p>Sie können das nicht alleine schaffen. Rekrutieren Sie Multiplikatoren:</p>
+            
+            <ul>
+                <li>2-3 enthusiastische Kollegen aus verschiedenen Abteilungen gewinnen</li>
+                <li>Regelmäßiges Treffen etablieren (wöchentlich 30 Min.)</li>
+                <li>Gemeinsame Prompt-Sammlung starten</li>
+            </ul>
+            
             <div class="checklist">
-                <p><strong>Wochenziele:</strong></p>
+                <p><strong>Wochenziele Woche 2:</strong></p>
                 <ul>
-                    <li>KI-Inventar erstellt</li>
-                    <li>Stakeholder identifiziert</li>
-                    <li>Erste Strategie skizziert</li>
+                    <li>Erster Quick Win live und messbar erfolgreich</li>
+                    <li>Kommunikation über Erfolg an alle Mitarbeiter</li>
+                    <li>3 Champions rekrutiert und erstmals getroffen</li>
+                    <li>10 neue Interessenten für KI-Infos melden sich</li>
                 </ul>
             </div>
         </div>
 
         <div class="week">
-            <h3>Woche 2: Quick Wins & Kommunikation</h3>
-            <p><strong>Tag 6-8: Quick Wins finden</strong></p>
+            <h3>🎓 Woche 3: Umsetzung & Schulung (Tag 15-21)</h3>
+            
+            <h4>Tag 15-17: Erste Schulung geben</h4>
+            <p>Jetzt werden Sie zum Trainer. Bereiten Sie einen 90-minütigen Workshop vor:</p>
+            
+            <p><strong>Agenda "KI für Anfänger":</strong></p>
             <ul>
-                <li>Schnell umsetzbare Use-Cases identifizieren</li>
-                <li>Höher Impact, geringes Risiko</li>
-                <li>Erste Erfolge planen</li>
+                <li>15 Min: Was ist KI? (ohne Hype, pragmatisch)</li>
+                <li>15 Min: Datenschutz-Grundlagen (was ist erlaubt?)</li>
+                <li>30 Min: Live-Demo mit echten Beispielen aus dem Unternehmen</li>
+                <li>20 Min: Hands-on Übungen (alle probieren es selbst)</li>
+                <li>10 Min: Q&A und nächste Schritte</li>
             </ul>
+            
+            <div class="warning">
+                <strong>Vermeiden Sie:</strong> Theoretische Vorträge über neuronale Netze. Zeigen Sie <strong>konkrete Alltagsanwendungen</strong>, die sofort nützen.
+            </div>
+
+            <h4>Tag 18-19: Tool-Evaluation vertiefen</h4>
+            <p>Neben den Quick Wins brauchen Sie eine langfristige Tool-Strategie:</p>
+            
+            <ul>
+                <li>3-5 KI-Tools in Ihrer Kategorie testen (jeweils mit Free Trial)</li>
+                <li>Evaluationskriterien definieren: Kosten, DSGVO, Integration, Support</li>
+                <li>Kurze Präsentation für Management vorbereiten</li>
+            </ul>
+
+            <h4>Tag 20-21: Feedback sammeln & iterieren</h4>
+            <p>Die ersten Schulungen sind vorbei. Was läuft gut, was nicht?</p>
+            
+            <ul>
+                <li>Kurze Umfrage unter Teilnehmern (3-4 Fragen)</li>
+                <li>1:1 Gespräche mit Skeptikern (warum zögern sie?)</li>
+                <li>Champions-Treffen: Was lernen wir?</li>
+            </ul>
+            
+            <div class="checklist">
+                <p><strong>Wochenziele Woche 3:</strong></p>
+                <ul>
+                    <li>Erster Workshop mit mindestens 10 Teilnehmern erfolgreich durchgeführt</li>
+                    <li>Tool-Evaluation abgeschlossen, Empfehlung formuliert</li>
+                    <li>Feedback von 20+ Mitarbeitern gesammelt</li>
+                    <li>Interne Wissensdatenbank/Notion-Seite gestartet</li>
+                </ul>
+            </div>
         </div>
 
         <div class="week">
-            <h3>Woche 3: Umsetzung & Schulung</h3>
-            <p><strong>Tag 15-17: Erste Schulung</strong></p>
+            <h3>📈 Woche 4: Evaluation & Planung (Tag 22-30)</h3>
+            
+            <h4>Tag 22-25: 90-Tage-Plan erstellen</h4>
+            <p>Nach 30 Tagen ist es Zeit für eine Strategie. Ihr Plan sollte enthalten:</p>
+            
             <ul>
-                <li>"KI für Anfänger" Workshop (90 Min)</li>
-                <li>Hands-on Übungen</li>
-                <li>Feedback sammeln</li>
+                <li><strong>Vision:</strong> Wo soll das Unternehmen in 12 Monaten stehen?</li>
+                <li><strong>3-monatige Ziele:</strong> Konkret, messbar, realistisch</li>
+                <li><strong>Top 3 Use-Cases:</strong> Priorisiert nach Impact und Machbarkeit</li>
+                <li><strong>Ressourcen:</strong> Budget, Zeit, Unterstützung benötigt</li>
+                <li><strong>Rollout-Plan:</strong> Wer bekommt wann welches Tool?</li>
             </ul>
+
+            <h4>Tag 26-27: Management-Präsentation</h4>
+            <p>Präsentieren Sie Ihre Ergebnisse und Pläne dem Management:</p>
+            
+            <ul>
+                <li>Was haben Sie in 30 Tagen erreicht? (Zahlen, nicht nur Worte)</li>
+                <li>Was haben Sie gelernt? (auch Fehler und Anpassungen)</li>
+                <li>Was brauchen Sie für die nächste Phase? (Ressourcen-Ask)</li>
+                <li>Wie sieht Erfolg in 90 Tagen aus? ( messbare Ziele)</li>
+            </ul>
+
+            <h4>Tag 28-30: Feiern & Festigen</h4>
+            <p>Sie haben 30 intensive Tage hinter sich. Zeit für Anerkennung:</p>
+            
+            <ul>
+                <li>Erfolge kommunizieren (Zahlen, Geschichten, Testimonials)</li>
+                <li>Champions und Unterstützer feiern/loben</li>
+                <li>Eigene Lernreflexion: Was würden Sie anders machen?</li>
+                <li>Nächste Woche planen: Was steht an?</li>
+            </ul>
+            
+            <div class="checklist">
+                <p><strong>Wochenziele Woche 4:</strong></p>
+                <ul>
+                    <li>90-Tage-Plan mit Management abgestimmt</li>
+                    <li>Budget oder Ressourcen für nächste Phase freigegeben</li>
+                    <li>Intern als KI-Experte positioniert</li>
+                    <li>5+ Personen regelmäßig nutzen KI-Tools</li>
+                </ul>
+            </div>
         </div>
 
-        <div class="week">
-            <h3>Woche 4: Evaluation & Planung</h3>
-            <p><strong>Tag 22-30: 90-Tage-Plan</strong></p>
-            <ul>
-                <li>Roadmap für die nächsten Monate</li>
-                <li>Rollout-Planung</li>
-                <li>Feiern der ersten Erfolge!</li>
-            </ul>
+        <h2>Die Skills, die Sie brauchen</h2>
+        <p>Ein guter KI-Beauftragter ist kein reiner Techniker. Die wichtigsten Skills:</p>
+        
+        <table>
+            <tr><th>Skill</th><th>Warum wichtig</th><th>Wie lernen</th></tr>
+            <tr><td><strong>Prompt Engineering</strong></td><td>Grundlage für alle KI-Nutzung</td><td>Üben, Kurse, Communities</td></tr>
+            <tr><td><strong>Change Management</strong></td><td>Menschen überzeugen, nicht nur Tools einführen</td><td>Bücher, Workshops, Coaching</td></tr>
+            <tr><td><strong>Datenschutz-Grundlagen</strong></td><td>Compliance ist nicht verhandelbar</td><td>DSGVO-Kurs, Datenschützer fragen</td></tr>
+            <tr><td><strong>Projektmanagement</strong></td><td>KI-Projekte strukturiert umsetzen</td><td>Agile Methoden, Scrum</td></tr>
+            <tr><td><strong>Kommunikation</strong></td><td>Von IT bis Management übersetzen</td><td>Präsentationstraining, Storytelling</td></tr>
+            <tr><td><strong>Strategisches Denken</strong></td><td>Langfristige Roadmap statt nur Quick Wins</td><td>Netzwerken, Best Practices studieren</td></tr>
+        </table>
+
+        <h2>Typische Fallen und wie Sie sie vermeiden</h2>
+        
+        <div class="warning">
+            <h4>🚫 Falle 1: Zu viel Technik, zu wenig Mensch</h4>
+            <p><strong>Lösung:</strong> Investieren Sie 70% Ihrer Zeit in Kommunikation und Change, nur 30% in Tool-Evaluation.</p>
+        </div>
+        
+        <div class="warning">
+            <h4>🚫 Falle 2: Perfektionismus beim ersten Projekt</h4>
+            <p><strong>Lösung:</strong> Besser ein "guter genug" Quick Win heute als der perfekte Plan morgen.</p>
+        </div>
+        
+        <div class="warning">
+            <h4>🚫 Falle 3: Ignorieren von Skeptikern</h4>
+            <p><strong>Lösung:</strong> Hören Sie Kritikern zu, verstehen Sie ihre Ängste, nehmen Sie sie ernst.</p>
+        </div>
+        
+        <div class="warning">
+            <h4>🚫 Falle 4: Keine Dokumentation</h4>
+            <p><strong>Lösung:</strong> Schreiben Sie alles auf. Ihre Nachfolger (und Ihr zukünftiges Ich) werden es Ihnen danken.</p>
+        </div>
+
+        <h2>Die Karriereperspektive: Was kommt danach?</h2>
+        <p>Die Rolle des KI-Beauftragten ist der Einstieg in eine vielversprechende Karriere:</p>
+        
+        <ul>
+            <li><strong>Head of AI / Chief AI Officer:</strong> Strategische Leitung auf C-Level</li>
+            <li><strong>Digital Transformation Lead:</strong> Breitere digitale Agenda</li>
+            <li><strong>KI-Berater:</strong> Selbstständige Beratung anderer Unternehmen</li>
+            <li><strong>Produktmanager KI:</strong> KI-Produkte entwickeln</li>
+        </ul>
+        
+        <p>Die Nachfrage nach KI-Expertise übersteigt bei Weitem das Angebot. Als KI-Beauftragter haben Sie eine der gefragtesten Qualifikationen auf dem Arbeitsmarkt.</p>
+
+        <div class="roi-box">
+            <p style="margin-bottom: 10px;"><strong>Gehaltsentwicklung KI-Beauftragter</strong></p>
+            <div class="big-number">+25-40%</div>
+            <p style="margin-top: 15px;">höheres Gehalt im Vergleich zu ähnlichen Positionen ohne KI-Fokus</p>
         </div>
 
         <div class="cta-box">
-            <h2>KI-Beauftragter werden?</h2>
-            <p>Unser Certified KI-Beauftragter Programm bereitet Sie optimal vor.</p>
-            <a href="/kontakt.html" class="btn">Mehr erfahren</a>
+            <h2>Bereit für die Rolle als KI-Beauftragter?</h2>
+            <p>Unser "Certified KI-Beauftragter" Programm bereitet Sie in 8 Wochen optimal auf Ihre neue Rolle vor – mit allen Skills, Templates und dem Netzwerk, das Sie brauchen, um erfolgreich zu sein.</p>
+            <a href="https://ki-expertenraum.de/kurse/ki-beauftragter" class="btn">Programm entdecken</a>
         </div>
     </main>
 
