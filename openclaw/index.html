@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenClaw Installation & Konfiguration | KI-Expertenraum</title>
+    <meta name="description" content="OpenClaw installieren und konfigurieren: Schritt-für-Schritt Anleitung für maximale Datensicherheit mit lokaler KI.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.7; color: #333; background: #f7fafc; }
+        .nav { background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: 800; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 80px 20px; text-align: center; }
+        .hero h1 { font-size: 40px; margin-bottom: 25px; font-weight: 800; }
+        .hero-description { font-size: 20px; opacity: 0.95; max-width: 700px; margin: 0 auto 30px; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        h2 { font-size: 32px; margin: 50px 0 25px; font-weight: 800; color: #1a202c; }
+        h3 { font-size: 24px; margin: 35px 0 20px; font-weight: 700; }
+        p { margin-bottom: 25px; color: #4a5568; font-size: 18px; }
+        ul, ol { margin: 25px 0; padding-left: 30px; }
+        li { margin: 12px 0; color: #4a5568; }
+        blockquote { background: #ebf8ff; border-left: 4px solid #667eea; padding: 30px; margin: 35px 0; border-radius: 0 12px 12px 0; font-size: 20px; font-weight: 600; }
+        pre { background: #1a202c; color: #e2e8f0; padding: 25px; border-radius: 12px; overflow-x: auto; font-family: monospace; font-size: 15px; margin: 25px 0; }
+        code { background: #edf2f7; padding: 3px 8px; border-radius: 4px; font-family: monospace; font-size: 15px; }
+        .step { background: white; border-radius: 12px; padding: 30px; margin: 35px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 5px solid #667eea; }
+        .step-number { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; width: 40px; height: 40px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; margin-right: 15px; }
+        .warning { background: #fffaf0; border-left: 4px solid #ed8936; padding: 20px; margin: 25px 0; border-radius: 0 12px 12px 0; }
+        .cta-box { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 16px; padding: 40px; margin: 50px 0; text-align: center; }
+        .btn { display: inline-block; background: white; color: #667eea; padding: 16px 40px; border-radius: 30px; text-decoration: none; font-weight: 700; }
+        .footer { background: #1a202c; color: white; padding: 60px 20px 30px; margin-top: 80px; text-align: center; }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="logo">KI-Expertenraum</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>OpenClaw Installation & Konfiguration</h1>
+        <p class="hero-description">Der komplette Guide: Von der Installation bis zur produktiven Nutzung mit maximaler Datensicherheit</p>
+    </header>
+
+    <main class="container">
+        <h2>Was ist OpenClaw?</h2>
+        <p>OpenClaw ist eine Open-Source-Plattform für lokale KI-Modelle. Die Alternative zu ChatGPT mit voller Datenkontrolle.</p>
+        
+        <blockquote>Ideal für Unternehmen, die maximale Datensicherheit und Unabhängigkeit von Cloud-Anbietern wollen.</blockquote>
+
+        <h2>Voraussetzungen</h2>
+        <ul>
+            <li><strong>Hardware:</strong> 4 Kerne CPU, 8GB RAM, 50GB Speicher</li>
+            <li><strong>Software:</strong> Linux/Ubuntu oder Windows mit Docker</li>
+            <li><strong>Netzwerk:</strong> Stabile Internetverbindung</li>
+        </ul>
+
+        <div class="step">
+            <h3><span class="step-number">1</span>Repository klonen</h3>
+            <pre>git clone https://github.com/openclaw/openclaw.git
+cd openclaw</pre>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">2</span>Konfiguration anpassen</h3>
+            <pre>cp config.example.yml config.yml
+nano config.yml</pre>
+            <p>Wichtige Einstellungen:</p>
+            <pre>server:
+  port: 3000
+  host: 0.0.0.0
+
+ai_models:
+  default: llama2
+  available:
+    - llama2
+    - mistral
+    - codellama</pre>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">3</span>Docker starten</h3>
+            <pre>docker-compose up -d</pre>
+            <div class="warning">
+                <strong>Hinweis:</strong> Der erste Start lädt die KI-Modelle herunter. Das kann je nach Internetverbindung 10-30 Minuten dauern.
+            </div>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">4</span>Admin erstellen</h3>
+            <pre>docker exec -it openclaw python manage.py create_admin</pre>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">5</span>Testen</h3>
+            <p>Öffnen Sie <code>http://localhost:3000</code> im Browser und melden sich mit dem Admin-Account an.</p>
+        </div>
+
+        <h2>Kosten-Nutzen-Rechnung</h2>
+        <ul>
+            <li><strong>Einmalkosten:</strong> Server 2.000-5.000€</li>
+            <li><strong>Laufende Kosten:</strong> ~50€/Monat (Strom)</li>
+            <li><strong>Einsparungen:</strong> Keine ChatGPT-Lizenzen (500€/Monat)</li>
+            <li><strong>Amortisation:</strong> 6-12 Monate</li>
+        </ul>
+
+        <div class="cta-box">
+            <h2>Benötigen Sie Unterstützung?</h2>
+            <p>Wir helfen bei Installation, Konfiguration und Integration in Ihre Infrastruktur.</p>
+            <a href="/kontakt.html" class="btn">Beratung anfragen</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 KI-Expertenraum | Philipp Zerna</p>
+    </footer>
+</body>
+</html>
