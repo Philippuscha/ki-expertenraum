@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum | KI-Expertenraum</title>
+    <meta name="description" content="Impressum und Kontaktinformationen von Philipp Zerna, KI-Expertenraum.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { 
+            --bg: #f0f7ff; 
+            --bg-card: rgba(255, 255, 255, 0.9);
+            --text: #0f172a; 
+            --text-muted: #475569; 
+            --text-light: #64748b; 
+            --border: rgba(255, 255, 255, 0.6);
+            --accent: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.3);
+        }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 50%, #dbeafe 100%); 
+            color: var(--text); 
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        h1, h2, h3, h4 { font-family: 'DM Sans', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
+        
+        .nav { 
+            position: fixed; 
+            top: 0; left: 0; right: 0; 
+            z-index: 1000; 
+            padding: 20px 40px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            background: rgba(240, 247, 255, 0.95); 
+            backdrop-filter: blur(20px); 
+            border-bottom: 1px solid var(--border);
+        }
+        .logo { 
+            font-family: 'DM Sans', sans-serif; 
+            font-size: 24px; 
+            font-weight: 800; 
+            background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { 
+            color: var(--text-muted); 
+            text-decoration: none; 
+            font-size: 15px; 
+            font-weight: 600; 
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--accent); }
+        
+        .hero { 
+            padding: 160px 40px 80px; 
+            text-align: center; 
+            max-width: 900px; 
+            margin: 0 auto;
+        }
+        .hero h1 { 
+            font-size: clamp(36px, 5vw, 52px); 
+            line-height: 1.15; 
+            margin-bottom: 25px; 
+            font-weight: 800;
+        }
+        .hero h1 span { 
+            background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 40px 80px; }
+        
+        .impressum-section {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        
+        h2 { 
+            font-size: 28px; 
+            margin: 40px 0 20px; 
+            font-weight: 800; 
+            color: var(--text);
+        }
+        h3 { 
+            font-size: 22px; 
+            margin: 30px 0 15px; 
+            font-weight: 700;
+            color: var(--text);
+        }
+        p { 
+            margin-bottom: 20px; 
+            color: var(--text-muted); 
+            font-size: 17px;
+            line-height: 1.8;
+        }
+        
+        .contact-box {
+            background: linear-gradient(135deg, rgba(59,130,246,0.1) 0%, rgba(139,92,246,0.1) 100%);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 1px solid rgba(59,130,246,0.2);
+        }
+        .contact-box h3 {
+            margin-top: 0;
+            color: var(--accent);
+        }
+        
+        .footer { 
+            background: var(--text); 
+            color: rgba(255,255,255,0.7); 
+            padding: 50px 40px 30px; 
+            margin-top: 80px; 
+            text-align: center;
+        }
+        .footer-logo { 
+            font-family: 'DM Sans', sans-serif; 
+            font-size: 24px; 
+            font-weight: 800; 
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, white 0%, #60a5fa 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent;
+        }
+        
+        @media (max-width: 768px) {
+            .nav { padding: 15px 20px; }
+            .nav-links { display: none; }
+            .hero { padding: 120px 20px 60px; }
+            .container { padding: 30px 20px 60px; }
+            .impressum-section { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="/" class="logo">KI-Expertenraum</a>
+        <ul class="nav-links">
+            <li><a href="/">Startseite</a></li>
+            <li><a href="/artikel/">Artikel</a></li>
+            <li><a href="/services/">Services</a></li>
+            <li><a href="/glossar/">Glossar</a></li>
+            <li><a href="/#work">Kurse</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1><span>Impressum</span></h1>
+    </header>
+
+    <main class="container">
+        <div class="impressum-section">
+            <h2>Angaben gemäß § 5 TMG</h2>
+            
+            <div class="contact-box">
+                <h3>Philipp Zerna</h3>
+                <p><strong>Adresse:</strong><br>
+                Friedensstraße 30b<br>
+                68804 Altlußheim</p>
+                
+                <p><strong>Kontakt:</strong><br>
+                E-Mail: <a href="mailto:zernaphilipp@gmail.com" style="color: var(--accent);">zernaphilipp@gmail.com</a></p>
+            </div>
+            
+            <h3>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
+            <p>Philipp Zerna<br>
+            Friedensstraße 30b<br>
+            68804 Altlußheim</p>
+            
+            <h3>Haftungsausschluss</h3>
+            <p><strong>Haftung für Inhalte</strong><br>
+            Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.</p>
+            
+            <p><strong>Haftung für Links</strong><br>
+            Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.</p>
+            
+            <h3>Urheberrecht</h3>
+            <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
+            
+            <h3>Datenschutz</h3>
+            <p>Die Nutzung unserer Website ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder E-Mail-Adressen) erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis.</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-logo">KI-Expertenraum</div>
+        <p>© 2026 KI-Expertenraum | Philipp Zerna</p>
+    </footer>
+</body>
+</html>
