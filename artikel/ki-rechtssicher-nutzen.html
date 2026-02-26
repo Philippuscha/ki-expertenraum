@@ -32,8 +32,8 @@
         .hero-meta { display: flex; justify-content: center; gap: 30px; color: var(--text-light); font-size: 14px; }
         .content-wrapper { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: 1fr 280px; gap: 60px; }
         .main-content { max-width: 800px; }
-        h2 { font-size: 32px; margin: 50px 0 25px; font-weight: 800; color: var(--text); }
-        h3 { font-size: 24px; margin: 35px 0 20px; font-weight: 700; color: var(--text); }
+        h2 { font-size: 32px; margin: 50px 0 25px; font-weight: 800; color: var(--text); scroll-margin-top: 100px; }
+        h3 { font-size: 24px; margin: 35px 0 20px; font-weight: 700; color: var(--text); scroll-margin-top: 100px; }
         p { margin-bottom: 25px; color: var(--text-muted); font-size: 17px; line-height: 1.8; }
         ul, ol { margin: 25px 0; padding-left: 30px; }
         li { margin: 12px 0; color: var(--text-muted); }
@@ -245,5 +245,31 @@
         <div class="footer-logo">KI-Expertenraum</div>
         <p>© 2026 KI-Expertenraum | Philipp Zerna</p>
     </footer>
+    <script>
+        // Auto-generate TOC from headings
+        document.addEventListener("DOMContentLoaded", function() {
+            const tocList = document.querySelector(".toc-list");
+            if (!tocList) return;
+            
+            const headings = document.querySelectorAll(".main-content h2");
+            tocList.innerHTML = "";
+            
+            headings.forEach((heading, index) => {
+                const id = "section-" + index;
+                heading.id = id;
+                
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = "#" + id;
+                a.textContent = heading.textContent;
+                a.addEventListener("click", function(e) {
+                    e.preventDefault();
+                    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+                });
+                li.appendChild(a);
+                tocList.appendChild(li);
+            });
+        });
+    </script>
 </body>
 </html>
