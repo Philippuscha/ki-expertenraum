@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KI-Glossar: Alle Begriffe einfach erklärt | KI-Expertenraum</title>
+    <meta name="description" content="Das umfassende KI-Glossar: 50+ KI-Begriffe einfach erklärt. Von Prompt Engineering bis Transformer – alles verständlich für Anfänger.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { 
+            --bg: #f0f7ff; 
+            --bg-card: rgba(255, 255, 255, 0.9);
+            --text: #0f172a; 
+            --text-muted: #475569; 
+            --text-light: #64748b; 
+            --border: rgba(255, 255, 255, 0.6);
+            --accent: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.3);
+        }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 50%, #dbeafe 100%); 
+            color: var(--text); 
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        h1, h2, h3, h4 { font-family: 'DM Sans', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
+        
+        .nav { 
+            position: fixed; 
+            top: 0; left: 0; right: 0; 
+            z-index: 1000; 
+            padding: 20px 40px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            background: rgba(240, 247, 255, 0.95); 
+            backdrop-filter: blur(20px); 
+            border-bottom: 1px solid var(--border);
+        }
+        .logo { 
+            font-family: 'DM Sans', sans-serif; 
+            font-size: 24px; 
+            font-weight: 800; 
+            background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { 
+            color: var(--text-muted); 
+            text-decoration: none; 
+            font-size: 15px; 
+            font-weight: 600; 
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--accent); }
+        
+        .hero { 
+            padding: 160px 40px 80px; 
+            text-align: center; 
+            max-width: 900px; 
+            margin: 0 auto;
+        }
+        .hero h1 { 
+            font-size: clamp(36px, 5vw, 52px); 
+            line-height: 1.15; 
+            margin-bottom: 25px; 
+            font-weight: 800;
+        }
+        .hero h1 span { 
+            background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 20px;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+        
+        /* GLOSSARY CONTAINER */
+        .glossary-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+        
+        .letter-section {
+            margin-bottom: 60px;
+        }
+        
+        .letter-header {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid rgba(59,130,246,0.2);
+        }
+        
+        .term-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        
+        .term-card h3 {
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+        
+        .term-card p {
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+        
+        .cta-box {
+            background: linear-gradient(135deg, var(--accent) 0%, #2563eb 100%);
+            color: white;
+            border-radius: 24px;
+            padding: 60px;
+            margin: 80px auto;
+            text-align: center;
+            max-width: 800px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: white;
+            color: var(--accent);
+            padding: 18px 40px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .footer { 
+            background: var(--text); 
+            color: rgba(255,255,255,0.7); 
+            padding: 50px 40px 30px; 
+            text-align: center;
+        }
+        .footer-logo { 
+            font-family: 'DM Sans', sans-serif; 
+            font-size: 24px; 
+            font-weight: 800; 
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, white 0%, #60a5fa 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent;
+        }
+        
+        @media (max-width: 768px) {
+            .nav { padding: 15px 20px; }
+            .nav-links { display: none; }
+            .hero { padding: 120px 20px 60px; }
+            .glossary-container { padding: 20px; }
+            .term-card { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="/" class="logo">KI-Expertenraum</a>
+        <ul class="nav-links">
+            <li><a href="/">Startseite</a></li>
+            <li><a href="/artikel/">Artikel</a></li>
+            <li><a href="/services/">Services</a></li>
+            <li><a href="/glossar/">Glossar</a></li>
+            <li><a href="/#work">Kurse</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1>KI-Glossar: <span>Alle Begriffe einfach erklärt</span></h1>
+        <p>Die wichtigsten KI-Begriffe verständlich erklärt – für Anfänger und Fortgeschrittene</p>
+    </header>
+
+    <main class="glossary-container">
+        <!-- A -->
+        <section class="letter-section" id="A">
+            <h2 class="letter-header">A</h2>
+            
+            <article class="term-card">
+                <h3>AI (Artificial Intelligence)</h3>
+                <p>Künstliche Intelligenz – die Fähigkeit von Maschinen, menschenähnliche Intelligenz zu zeigen: zu lernen, Probleme zu lösen und zu verstehen.</p>
+            </article>
+            
+            <article class="term-card">
+                <h3>API</h3>
+                <p>Application Programming Interface – eine Schnittstelle, über die Programme miteinander kommunizieren können.</p>
+            </article>
+        </section>
+
+        <!-- C -->
+        <section class="letter-section" id="C">
+            <h2 class="letter-header">C</h2>
+            
+            <article class="term-card">
+                <h3>ChatGPT</h3>
+                <p>Ein KI-Chatbot von OpenAI, der natürliche Sprache versteht und generiert.</p>
+            </article>
+            
+            <article class="term-card">
+                <h3>Context Window</h3>
+                <p>Das "Gedächtnis" einer KI – wie viel Text sie gleichzeitig verarbeiten kann.</p>
+            </article>
+        </section>
+
+        <!-- D -->
+        <section class="letter-section" id="D">
+            <h2 class="letter-header">D</h2>
+            
+            <article class="term-card">
+                <h3>Deep Learning</h3>
+                <p>Fortgeschrittenes Machine Learning mit vielen Schichten neuronaler Netze.</p>
+            </article>
+        </section>
+
+        <!-- G -->
+        <section class="letter-section" id="G">
+            <h2 class="letter-header">G</h2>
+            
+            <article class="term-card">
+                <h3>Generative KI</h3>
+                <p>KI, die neue Inhalte erzeugt – Texte, Bilder, Musik oder Videos.</p>
+            </article>
+        </section>
+
+        <!-- L -->
+        <section class="letter-section" id="L">
+            <h2 class="letter-header">L</h2>
+            
+            <article class="term-card">
+                <h3>LLM (Large Language Model)</h3>
+                <p>Großes Sprachmodell wie GPT-4 – trainiert auf riesigen Textmengen.</p>
+            </article>
+        </section>
+
+        <!-- M -->
+        <section class="letter-section" id="M">
+            <h2 class="letter-header">M</h2>
+            
+            <article class="term-card">
+                <h3>Machine Learning</h3>
+                <p>Maschinelles Lernen – Systeme lernen aus Daten, ohne explizit programmiert zu werden.</p>
+            </article>
+        </section>
+
+        <!-- P -->
+        <section class="letter-section" id="P">
+            <h2 class="letter-header">P</h2>
+            
+            <article class="term-card">
+                <h3>Prompt</h3>
+                <p>Deine Eingabe an die KI – die Anweisung, was sie tun soll.</p>
+            </article>
+            
+            <article class="term-card">
+                <h3>Prompt Engineering</h3>
+                <p>Die Kunst, optimale Prompts zu formulieren für beste Ergebnisse.</p>
+            </article>
+        </section>
+
+        <!-- T -->
+        <section class="letter-section" id="T">
+            <h2 class="letter-header">T</h2>
+            
+            <article class="term-card">
+                <h3>Token</h3>
+                <p>Die kleinste Einheit in Sprachmodellen – etwa ein Wort oder Wortteil.</p>
+            </article>
+            
+            <article class="term-card">
+                <h3>Transformer</h3>
+                <p>Die Architektur hinter modernen KI-Modellen – revolutioniert durch "Attention"-Mechanismus.</p>
+            </article>
+        </section>
+    </main>
+
+    <section class="cta-box">
+        <h2>Noch Fragen zu KI-Begriffen?</h2>
+        <p>In meinen Kursen erkläre ich alles ausführlich und praxisnah.</p>
+        <a href="/kurse.html" class="btn">Zu den Kursen →</a>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-logo">KI-Expertenraum</div>
+        <p>© 2026 KI-Expertenraum | Philipp Zerna | <a href="/impressum/" style="color: rgba(255,255,255,0.7);">Impressum</a></p>
+    </footer>
+</body>
+</html>
