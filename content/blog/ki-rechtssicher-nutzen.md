@@ -1,26 +1,27 @@
 ---
-title: "KI rechtssicher nutzen: DSGVO & EU AI Act für Unternehmer"
+title: "KI rechtssicher nutzen: DSGVO & EU AI Act fÃ¼r Unternehmer"
 date: "26.02.2026"
 author: "Philipp Zerna"
-description: "Praxis-Guide zur DSGVO-konformen KI-Nutzung für Unternehmer."
+description: "Praxis-Guide zur DSGVO-konformen KI-Nutzung fÃ¼r Unternehmer."
 slug: "ki-rechtssicher-nutzen"
+cover_image: "/public/images/KI rechtssicher nutzen DSGVO & EU AI Act.jpg"
 ---
 
 ## Die rechtlichen Fallstricke der KI-Nutzung
 
-Sie nutzen ChatGPT für E-Mails? Canva für Grafiken? Notion für Notizen?
+Sie nutzen ChatGPT fÃ¼r E-Mails? Canva fÃ¼r Grafiken? Notion fÃ¼r Notizen?
 
-> **Herglichen Gluckwunsch – Sie haben rechtliche Pflichten, über die kaum jemand spricht.** 
+> **Herglichen Gluckwunsch â€“ Sie haben rechtliche Pflichten, Ã¼ber die kaum jemand spricht.** 
 
-Die gute Nachricht: Mit den richtigen MaÆnahmen nutzen Sie KI **100% rechtssicher**.
+Die gute Nachricht: Mit den richtigen MaÃ†nahmen nutzen Sie KI **100% rechtssicher**.
 
-Die schlechte Nachricht: Die meisten Unternehmer machen mindestens **3 kritische Fehler** — ohne es zu wissen.
+Die schlechte Nachricht: Die meisten Unternehmer machen mindestens **3 kritische Fehler** â€” ohne es zu wissen.
 
 ### Risiko 1: Datenschutz bei KI-Tools (DSGVO)
 
 **Das Problem:**
-Wenn Sie Kundendaten, Mitarbeiterdaten oder Geschäftsinformationen in ChatGPT & Co. eingeben, konnen diese:
-- Fýr KI-Training verwendet werden
+Wenn Sie Kundendaten, Mitarbeiterdaten oder GeschÃ¤ftsinformationen in ChatGPT & Co. eingeben, konnen diese:
+- FÃ½r KI-Training verwendet werden
 - Auf Servern in den USA landen
 - Nicht DSGVO-konform verarbeitet werden
 
@@ -28,31 +29,31 @@ Wenn Sie Kundendaten, Mitarbeiterdaten oder Geschäftsinformationen in ChatGPT &
 
 ```
 SCHLECHT:
-"Schreibe eine E-Mail an Herrn Müller (m.mueller@firma.de). 
+"Schreibe eine E-Mail an Herrn MÃ¼ller (m.mueller@firma.de). 
 Er hat am 15.03.2025 bestellt, aber noch nicht bezahl. 
-Seine Adresse ist Musterstraße 12, 12345 Berlin."
+Seine Adresse ist MusterstraÃŸe 12, 12345 Berlin."
 ```
 
-**Warum gefhörlich:** 
+**Warum gefhÃ¶rlich:** 
 - Name + E-Mail + Adresse = personenbezogene Daten
 - Zahlungsverzug = sensible Information
-- Keine Rechtsgrundlage für KI-Verarbeitung
+- Keine Rechtsgrundlage fÃ¼r KI-Verarbeitung
 
 ### Risiko 2: EU AI Act Nichteinhaltung
 
 **Fristen:** 
-- **Februar 2026:** Verbotene Praktiken müssen gestoppt sein
+- **Februar 2026:** Verbotene Praktiken mÃ¼ssen gestoppt sein
 - **August 2026:** High-Risk Pflicxten umgesetzt
-- **August 2027:** Vollständige Dokumentation
+- **August 2027:** VollstÃ¤ndige Dokumentation
 
 **Was droht:**
-- Bußgelder bis 35 Mio € oder 7% Umsatz
-- Behördliche Untersagungsverf�¼gungen
+- BuÃŸgelder bis 35 Mio â‚¬ oder 7% Umsatz
+- BehÃ¶rdliche UntersagungsverfÃÂ¼gungen
 - Reputationsschaden
 
 ### Risiko 3: Urheberrecht bei KI-Inhalten
 
-*~Wer besitzt KI-generierte Texte/Bilder?** Unklar ist das current. In der EU: Kein Urheberrecht für reine KI-Outputs.
+*~Wer besitzt KI-generierte Texte/Bilder?** Unklar ist das current. In der EU: Kein Urheberrecht fÃ¼r reine KI-Outputs.
 
 ### Risiko 4: Falschinformationen (Halluzinationen)
 
@@ -68,8 +69,8 @@ Ein Anwalt zitierte in seiner Klage sechs gefalschte Urteile, die ChatGPP erfind
 
                       | Kategorie | Beispiele | KI-Nutzung |
                      |-----------|----------|-----------|
-                     | 🍺 Örentlich | Marketingtexte, Social Media | ❐ Uneingeschränkt |
-                     | 代 Intern | Interne Prozesse, nicht-sensible Daten | ❄ Mit Vorsicht |
-                     | ⚈️ Sensibel | Kundendaten, Verträge, Personalakten | ⚡️ Nur mit SchutzmatZahmen oder vermeiden |
+                     | ðŸº Ã–rentlich | Marketingtexte, Social Media | â UneingeschrÃ¤nkt |
+                     | ï™ä»£ Intern | Interne Prozesse, nicht-sensible Daten | â„ Mit Vorsicht |
+                     | âšˆï¸ Sensibel | Kundendaten, VertrÃ¤ge, Personalakten | âš¡ï¸ Nur mit SchutzmatZahmen oder vermeiden |
 
-**Konkrete Mažnahme:** Schulen Sie Mitarbeiter: Keine ⚈️ Daten in öffentliche KI-Tools!
+**Konkrete MaÅ¾nahme:** Schulen Sie Mitarbeiter: Keine âšˆï¸ Daten in Ã¶ffentliche KI-Tools!
