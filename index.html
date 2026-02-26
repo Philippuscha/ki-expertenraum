@@ -39,6 +39,35 @@
         .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--accent); transition: width 0.3s; }
         .nav-links a:hover::after { width: 100%; }
         
+        /* Dropdown Menü */
+        .dropdown { position: relative; }
+        .dropdown-content { 
+            display: none; 
+            position: absolute; 
+            top: 100%; 
+            left: 0; 
+            background: rgba(255, 255, 255, 0.95); 
+            backdrop-filter: blur(20px);
+            min-width: 180px; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1); 
+            border-radius: 12px; 
+            padding: 10px 0; 
+            margin-top: 10px;
+            border: 1px solid var(--border);
+        }
+        .dropdown-content a { 
+            display: block; 
+            padding: 10px 20px; 
+            color: var(--text); 
+            text-decoration: none; 
+            font-size: 14px;
+        }
+        .dropdown-content a:hover { 
+            background: rgba(59, 130, 246, 0.1); 
+            color: var(--accent);
+        }
+        .dropdown:hover .dropdown-content { display: block; }
+        
         .mobile-menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; z-index: 1001; }
         .mobile-menu-toggle span { width: 24px; height: 2.5px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
         .mobile-menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
@@ -154,7 +183,15 @@
         <ul class="nav-links">
             <li><a href="#ebooks">eBooks</a></li>
             <li><a href="#work">Kurse</a></li>
-            <li><a href="blog.html">Blog</a></li>
+            <li class="dropdown">
+                <a href="artikel/">Artikel</a>
+                <div class="dropdown-content">
+                    <a href="artikel/">Alle Artikel</a>
+                    <a href="artikel/#ki-tools">KI-Tools</a>
+                    <a href="artikel/#automation">Automation</a>
+                    <a href="artikel/#strategie">Strategie</a>
+                </div>
+            </li>
         </ul>
         <div class="mobile-menu-toggle" id="mobileMenuToggle" onclick="toggleMobileMenu()">
             <span></span>
@@ -166,7 +203,7 @@
     <div class="mobile-menu" id="mobileMenu">
         <a href="#ebooks" onclick="toggleMobileMenu()">eBooks</a>
         <a href="#work" onclick="toggleMobileMenu()">Kurse</a>
-        <a href="blog.html" onclick="toggleMobileMenu()">Blog</a>
+        <a href="artikel/" onclick="toggleMobileMenu()">Artikel</a>
     </div>
 
     <section class="hero">
