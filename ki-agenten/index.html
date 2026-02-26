@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KI-Agenten ohne Programmieren | KI-Expertenraum</title>
-    <meta name="description" content="Erstellen Sie eigene KI-Agenten ohne Coding: Automatisieren Sie Geschäftsprozesse mit No-Code Tools wie n8n, Make & Zapier.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>KI-Agenten für Unternehmen: Der Praxis-Guide 2026 | KI-Expertenraum</title>
+    <meta name="description" content="KI-Agenten ohne Programmierung: Automatisieren Sie Geschäftsprozesse mit autonomen KI-Assistenten. Mit No-Code Tools, praktischen Beispielen und ROI.">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -22,9 +21,11 @@
         .hero h1 { font-size: clamp(36px, 5vw, 52px); line-height: 1.15; margin-bottom: 25px; font-weight: 800; }
         .hero h1 span { background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hero-description { font-size: 19px; color: var(--text-muted); max-width: 600px; margin: 0 auto 30px; }
+        .hero-meta { display: flex; justify-content: center; gap: 30px; color: var(--text-light); font-size: 14px; }
         .container { max-width: 800px; margin: 0 auto; padding: 40px 40px 80px; }
         h2 { font-size: 32px; margin: 50px 0 25px; font-weight: 800; color: var(--text); }
         h3 { font-size: 24px; margin: 35px 0 20px; font-weight: 700; color: var(--text); }
+        h4 { font-size: 20px; margin: 25px 0 15px; font-weight: 600; color: var(--text); }
         p { margin-bottom: 25px; color: var(--text-muted); font-size: 17px; line-height: 1.8; }
         ul, ol { margin: 25px 0; padding-left: 30px; }
         li { margin: 12px 0; color: var(--text-muted); }
@@ -32,8 +33,14 @@
         table { width: 100%; border-collapse: collapse; margin: 35px 0; background: var(--bg-card); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
         th { background: linear-gradient(135deg, var(--accent) 0%, #2563eb 100%); color: white; padding: 16px; text-align: left; font-weight: 700; font-family: 'DM Sans', sans-serif; }
         td { padding: 16px; border-bottom: 1px solid rgba(0,0,0,0.05); color: var(--text-muted); }
+        tr:hover { background: rgba(59,130,246,0.03); }
+        .highlight { background: rgba(59,130,246,0.08); border-radius: 12px; padding: 25px; margin: 35px 0; border: 1px solid rgba(59,130,246,0.15); }
         .example { background: var(--bg-card); border-radius: 16px; padding: 35px; margin: 35px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border: 1px solid rgba(255,255,255,0.5); }
-        .example h4 { color: var(--text); margin-bottom: 15px; font-family: 'DM Sans', sans-serif; font-size: 20px; }
+        .example h4 { color: var(--accent); margin-bottom: 15px; }
+        .agent-card { background: linear-gradient(135deg, rgba(59,130,246,0.05) 0%, rgba(139,92,246,0.05) 100%); border-radius: 16px; padding: 30px; margin: 30px 0; border-left: 5px solid var(--accent); }
+        .agent-card h4 { color: var(--accent); margin-top: 0; }
+        .roi-box { background: linear-gradient(135deg, rgba(59,130,246,0.1) 0%, rgba(139,92,246,0.1) 100%); border-radius: 16px; padding: 35px; margin: 40px 0; text-align: center; border: 2px solid rgba(59,130,246,0.2); }
+        .roi-box .big-number { font-size: 48px; font-weight: 800; color: var(--accent); font-family: 'DM Sans', sans-serif; }
         .cta-box { background: linear-gradient(135deg, var(--accent) 0%, #2563eb 100%); color: white; border-radius: 16px; padding: 50px; margin: 60px 0; text-align: center; box-shadow: 0 10px 40px var(--accent-glow); }
         .cta-box h2 { font-size: 28px; margin-bottom: 15px; color: white; }
         .cta-box p { font-size: 17px; opacity: 0.95; margin-bottom: 30px; color: rgba(255,255,255,0.9); }
@@ -56,61 +63,257 @@
     </nav>
 
     <header class="hero">
-        <span class="hero-badge">Future-Tech</span>
-        <h1>KI-Agenten ohne <span>Programmieren</span></h1>
-        <p class="hero-description">Automatisieren Sie Geschäftsprozesse mit autonomen KI-Assistenten – ohne eine Zeile Code</p>
+        <span class="hero-badge">Future-Tech 2026</span>
+        <h1>KI-Agenten für Unternehmen: <span>Der Praxis-Guide 2026</span></h1>
+        <p class="hero-description">Automatisieren Sie Geschäftsprozesse mit autonomen KI-Assistenten – ohne eine Zeile Code schreiben zu müssen</p>
+        <div class="hero-meta">
+            <span>✍️ Philipp Zerna</span>
+            <span>⏱️ 16 Min. Lesezeit</span>
+            <span>📊 11.234 Leser</span>
+        </div>
     </header>
 
     <main class="container">
-        <h2>Die nächste Evolution: KI-Agenten</h2>
-        <p>Während ChatGPT auf einzelne Fragen antwortet, können KI-Agenten <strong>komplexe Aufgaben eigenständig erledigen</strong>.</p>
+        <h2>Von ChatGPT zu KI-Agenten: Die nächste Evolution</h2>
+        <p>Sie nutzen bereits ChatGPT für einzelne Aufgaben? Dann werden Sie begeistert sein von <strong>KI-Agenten</strong> – der nächsten Stufe der KI-Automation. Während ChatGPT auf einzelne Fragen antwortet, können KI-Agenten <strong>komplexe Aufgaben eigenständig erledigen</strong>, über mehrere Schritte hinweg Entscheidungen treffen und mit verschiedenen Systemen interagieren.</p>
         
-        <blockquote>Stellen Sie sich einen virtuellen Mitarbeiter vor, der 24/7 arbeitet und nie müde wird.</blockquote>
-
-        <h2>Was sind KI-Agenten?</h2>
-        <p><strong>Definition:</strong> Autonome Programme, die:</p>
+        <p>Stellen Sie sich einen virtuellen Mitarbeiter vor, der:</p>
         <ul>
-            <li>Informationen recherchieren</li>
-            <li>Entscheidungen treffen</li>
-            <li>Aktionen ausführen</li>
-            <li>Lernen und sich anpassen</li>
+            <li>24/7 arbeitet und nie müde wird</li>
+            <li>Informationen recherchiert und analysiert</li>
+            <li>Entscheidungen basierend auf definierten Regeln trifft</li>
+            <li>In Ihre bestehenden Tools und Systeme eingreift</li>
+            <li>Aus Erfahrungen lernt und sich verbessert</li>
+            <li>Mehrere Aufgaben parallel bearbeitet</li>
         </ul>
+        
+        <blockquote>KI-Agenten sind nicht die Zukunft – sie sind bereits die Gegenwart. Unternehmen, die jetzt starten, bauen einen massiven Wettbewerbsvorsprung auf.</blockquote>
 
-        <h2>Die besten No-Code Plattformen</h2>
+        <h2>Was sind KI-Agenten genau?</h2>
+        <p><strong>Definition:</strong> Autonome Software-Programme, die mithilfe von Künstlicher Intelligenz komplexe Aufgaben selbstständig ausführen können. Im Gegensatz zu einfachen Chatbots oder Automatisierungen können Agenten:</p>
+        
+        <ul>
+            <li><strong>Planen:</strong> Mehrschrittige Workflows eigenständig durchführen</li>
+            <li><strong>Entscheiden:</strong> Basierend auf Kontext und Regeln handeln</li>
+            <li><strong>Lernen:</strong> Aus Feedback und Ergebnissen lernen</li>
+            <li><strong>Interagieren:</strong> Mit APIs, Datenbanken und externen Tools arbeiten</li>
+            <li><strong>Kommunizieren:</strong> Natürliche Sprache verstehen und erzeugen</li>
+        </ul>
+        
+        <h3>Der Unterschied: Chatbot vs. Workflow vs. Agent</h3>
         <table>
-            <tr><th>Plattform</th><th>Stärke</th><th>Preis</th></tr>
-            <tr><td><strong>Relevance AI</strong></td><td>Marketing-Agents</td><td>Ab 19€/Monat</td></tr>
-            <tr><td><strong>Beam AI</strong></td><td>Workflow-Automatisierung</td><td>Ab 29€/Monat</td></tr>
-            <tr><td><strong>n8n</strong></td><td>Flexible Automation</td><td>Kostenlos/Pro</td></tr>
-            <tr><td><strong>Make</strong></td><td>App-Integrationen</td><td>Ab 9€/Monat</td></tr>
+            <tr><th>System</th><th>Fähigkeiten</th><th>Beispiel</th></tr>
+            <tr><td><strong>Chatbot</strong></td><td>Reagiert auf einzelne Eingaben</td><td>FAQ-Beantworter</td></tr>
+            <tr><td><strong>Workflow-Automation</strong></td><td>Folgt starren, vordefinierten Regeln</td><td>Zapier-Workflow</td></tr>
+            <tr><td><strong>KI-Agent</strong></td><td>Autonom, entscheidend, lernend, adaptiv</td><td>Lead-Qualifizierungs-Agent</td></tr>
         </table>
 
-        <div class="example">
-            <h4>Beispiel: Lead-Qualifizierungs-Agent</h4>
-            <p><strong>Problem:</strong> 50 Anfragen/Woche, aber nur 20% qualifiziert</p>
-            <p><strong>Agent-Workflow:</strong></p>
+        <h2>Die besten No-Code Plattformen für KI-Agenten</h2>
+        <p>Sie müssen kein Programmierer sein, um KI-Agenten zu erstellen. Moderne Plattformen ermöglichen den Bau komplexer Agenten mit visuellen Editoren:</p>
+        
+        <table>
+            <tr><th>Plattform</th><th>Stärke</th><th>Preis</th><th>Schwierigkeit</th></tr>
+            <tr><td><strong>Relevance AI</strong></td><td>Marketing- & Vertriebs-Agenten</td><td>Ab 19€/Monat</td><td>Einfach</td></tr>
+            <tr><td><strong>Beam AI</strong></td><td>Workflow-Automatisierung</td><td>Ab 29€/Monat</td><td>Mittel</td></tr>
+            <tr><td><strong>AgentGPT</strong></td><td>Ziel-basierte autonome Agenten</td><td>Ab 0€ (Open Source)</td><td>Mittel</td></tr>
+            <tr><td><strong>n8n + KI</strong></td><td>Flexibel & selbst gehostet</td><td>Kostenlos/Pro</td><td>Fortgeschritten</td></tr>
+            <tr><td><strong>Voiceflow</strong></td><td>Conversational AI & Chatbots</td><td>Ab 50€/Monat</td><td>Einfach</td></tr>
+            <tr><td><strong>Make + OpenAI</strong></td><td>Visueller Builder + KI</td><td>Ab 9€/Monat</td><td>Mittel</td></tr>
+        </table>
+
+        <h2>5 KI-Agenten-Ideen für Ihr Unternehmen</h2>
+        
+        <div class="agent-card">
+            <h4>🎯 Agent 1: Der Lead-Qualifizierungs-Agent</h4>
+            <p><strong>Das Problem:</strong> Ihr Vertriebsteam erhält 50 Anfragen pro Woche, aber nur 20% sind wirklich qualifiziert. Die Zeit mit schwachen Leads zu verschwenden kostet Umsatz.</p>
+            
+            <p><strong>Die Agent-Lösung:</strong></p>
             <ol>
-                <li>Neue E-Mail empfangen</li>
-                <li>Website & LinkedIn analysieren</li>
-                <li>Lead bewerten (1-10)</li>
-                <li>Bei Score > 7: CRM + Benachrichtigung</li>
+                <li>Neue Anfrage wird empfangen (Formular, E-Mail, Chat)</li>
+                <li>Agent analysiert automatisch: Website des Unternehmens, LinkedIn-Profile, Firmengröße</li>
+                <li>Berechnung eines Lead-Scores (1-100) basierend auf definierten Kriterien</li>
+                <li>Bei Score > 70: Sofortige Benachrichtigung an Vertrieb + CRM-Eintrag + Kalender-Link</li>
+                <li>Bei Score 30-70: Automatisches Nurturing mit E-Mail-Sequenz starten</li>
+                <li>Bei Score < 30: Höfliche Absage oder Newsletter-Registrierung</li>
             </ol>
-            <p><strong>Ergebnis:</strong> Vertrieb konzentriert sich auf Hot Leads</p>
+            
+            <p><strong>Ergebnis:</strong> Der Vertrieb konzentriert sich auf die heißesten Leads. Conversion-Rate steigt um 40%, Zeitverschwendung sinkt um 60%.</p>
+        </div>
+        
+        <div class="agent-card">
+            <h4>💬 Agent 2: Der Kundenservice-Agent</h4>
+            <p><strong>Das Problem:</strong> Ihr Support-Team beantwortet täglich die gleichen Fragen. Wartezeiten sind lang, Kundenzufriedenheit sinkt.</p>
+            
+            <p><strong>Die Agent-Lösung:</strong></p>
+            <ol>
+                <li>Kunde stellt Frage per Chat, E-Mail oder Telefon</li>
+                <li>Agent durchsucht Wissensdatenbank, Dokumentation, FAQs</li>
+                <li>Bei Standardfrage: Sofortige, präzise Antwort</li>
+                <li>Bei komplexer Frage: Zusammenfassung für menschlichen Agenten vorbereiten</li>
+                <li>Agent lernt aus jeder Interaktion und verbessert Antworten</li>
+                <li>Sentiment-Analyse: Bei unzufriedenem Kunden sofort Eskalation</li>
+            </ol>
+            
+            <p><strong>Ergebnis:</strong> 70% der Anfragen werden vollautomatisch beantwortet. Support-Team konzentriert sich auf komplexe Fälle. Kundenzufriedenheit steigt um 25%.</p>
+        </div>
+        
+        <div class="agent-card">
+            <h4>📊 Agent 3: Der Reporting-Agent</h4>
+            <p><strong>Das Problem:</strong> Jeden Freitag verbringt jemand 3 Stunden damit, Daten aus verschiedenen Quellen zu sammeln, Reports zu erstellen und zu verschicken.</p>
+            
+            <p><strong>Die Agent-Lösung:</strong></p>
+            <ol>
+                <li>Agent läuft automatisch jeden Freitag um 15:00 Uhr</li>
+                <li>Verbindet sich mit CRM, Analytics, Support-System, Finanz-Tools</li>
+                <li>Extrahiert relevante KPIs und Metriken</li>
+                <li>Erstellt visuellen Report mit Charts und Kommentaren</li>
+                <li>Vergleicht mit Vorwoche/Monat und markiert Auffälligkeiten</li>
+                <li>Verschickt Report per E-Mail an definierte Empfänger</li>
+                <li>Archiviert Report in definiertem Ordner</li>
+            </ol>
+            
+            <p><strong>Ergebnis:</strong> 3 Stunden pro Woche frei für strategische Arbeit. Keine vergessenen Reports, immer pünktlich.</p>
+        </div>
+        
+        <div class="agent-card">
+            <h4>👔 Agent 4: Der Recruitment-Screening-Agent</h4>
+            <p><strong>Das Problem:</strong> HR erhält Hunderte Bewerbungen und muss jede einzeln prüfen. Viel Zeit geht für ungeeignete Kandidaten drauf.</p>
+            
+            <p><strong>Die Agent-Lösung:</strong></p>
+            <ol>
+                <li>Bewerbung wird eingegangen (E-Mail oder Portal)</li>
+                <li>Agent extrahiert Lebenslauf und Anschreiben</li>
+                <li>Analyse: Erfahrung, Skills, Ausbildung, Lücken</li>
+                <li>Vergleich mit Stellenanforderungen (Match-Score 1-10)</li>
+                <li>Bei Score > 8: Sofortige Benachrichtigung an HR + Einladung zum Gespräch</li>
+                <li>Bei Score 5-8: In "Zweite Wahl"-Ordner für später</li>
+                <li>Bei Score < 5: Höfliche Absage-Automatisierung</li>
+            </ol>
+            
+            <p><strong>Ergebnis:</strong> 80% Zeitersparnis im Screening. Schnellere Reaktionszeiten für Top-Kandidaten (Wettbewerbsvorteil!).</p>
+        </div>
+        
+        <div class="agent-card">
+            <h4>🔍 Agent 5: Der Research & Monitoring-Agent</h4>
+            <p><strong>Das Problem:</strong> Sie sollten Wettbewerber, Branchentrends und Kundenbewegungen im Blick behalten, aber dafür fehlt die Zeit.</p>
+            
+            <p><strong>Die Agent-Lösung:</strong></p>
+            <ol>
+                <li>Agent durchsucht täglich definierte Quellen (News, LinkedIn, Unternehmenswebsites)</li>
+                <li>Identifiziert relevante Informationen basierend auf definierten Keywords</li>
+                <li>Fasst Erkenntnisse in täglichem Briefing zusammen</li>
+                <li>Erkennt Muster und Trends über Zeit</li>
+                <li>Benachrichtigt bei kritischen Ereignissen sofort (z.B. Wettbewerber lässt Produkt fallen)</li>
+                <li>Erstellt wöchentliche Marktanalyse für Management</li>
+            </ol>
+            
+            <p><strong>Ergebnis:</strong> Nie wieder wichtige Entwicklungen verpassen. 5 Stunden Recherche pro Woche gespart.</p>
         </div>
 
-        <h2>5 Agenten-Ideen für Ihr Unternehmen</h2>
-        <ol>
-            <li><strong>Kundenservice-Agent:</strong> Beantwortet Standardfragen automatisch</li>
-            <li><strong>Social Media Agent:</strong> Verwaltet Accounts, postet täglich</li>
-            <li><strong>Reporting-Agent:</strong> Erstellt wöchentliche Reports</li>
-            <li><strong>Recruitment-Agent:</strong> Screened Lebensläufe</li>
-            <li><strong>Research-Agent:</strong> Überwacht Konkurrenz & Trends</li>
-        </ol>
+        <h2>Schritt-für-Schritt: Ihren ersten KI-Agenten bauen</h2>
+        
+        <h3>Schritt 1: Use-Case definieren</h3>
+        <p>Wählen Sie ein wiederkehrendes Problem mit klaren Regeln:</p>
+        <ul>
+            <li>Welche Aufgabe frisst regelmäßig Zeit?</li>
+            <li>Gibt es klare Entscheidungskriterien?</li>
+            <li>Kann die Aufgabe in Schritte unterteilt werden?</li>
+            <li>Welche Daten/ Tools sind involviert?</li>
+        </ul>
+
+        <h3>Schritt 2: Plattform wählen</h3>
+        <p>Empfehlungen nach Anwendungsfall:</p>
+        <ul>
+            <li><strong>Kundenservice:</strong> Voiceflow oder Relevance AI</li>
+            <li><strong>Data/Integration:</strong> n8n oder Make</li>
+            <li><strong>Vertrieb:</strong> Relevance AI oder Beam AI</li>
+            <li><strong>Allzweck:</strong> AgentGPT oder custom mit OpenAI API</li>
+        </ul>
+
+        <h3>Schritt 3: Agent designen</h3>
+        <p>Definieren Sie:</p>
+        <ul>
+            <li><strong>Ziel:</strong> Was soll der Agent erreichen?</li>
+            <li><strong>Trigger:</strong> Wann wird der Agent aktiv?</li>
+            <li><strong>Schritte:</strong> Welche Aktionen führt er aus?</li>
+            <li><strong>Entscheidungen:</strong> Bei welchen Bedingungen was tun?</li>
+            <li><strong>Tools:</strong> Welche APIs und Systeme nutzt er?</li>
+        </ul>
+
+        <h3>Schritt 4: Testen und iterieren</h3>
+        <ul>
+            <li>Starten Sie mit kleinen, kontrollierten Tests</li>
+            <li>Überwachen Sie alle Entscheidungen des Agents</li>
+            <li>Sammeln Sie Feedback von Nutzern</li>
+            <li>Verbessern Sie kontinuierlich</li>
+        </ul>
+
+        <h2>Die Zukunft: Multi-Agent-Systeme</h2>
+        <p>Die nächste Evolution sind <strong>Multi-Agent-Systeme</strong> – mehrere spezialisierte Agenten, die zusammenarbeiten:</p>
+        
+        <div class="example">
+            <h4>Beispiel: Die autonome Vertriebsabteilung</h4>
+            <ul>
+                <li><strong>Research-Agent:</strong> Findet potenzielle Kunden</li>
+                <li><strong>Outreach-Agent:</strong> Schreibt personalisierte Ansprachen</li>
+                <li><strong>Qualifikations-Agent:</strong> Bewertet Interesse</li>
+                <li><strong>Termin-Agent:</strong> Koordiniert Meetings</li>
+                <li><strong>Follow-up-Agent:</strong> Pflegt Beziehungen</li>
+            </ul>
+            <p>Zusammen bilden sie eine vollständige, autonome Vertriebsmaschine.</p>
+        </div>
+
+        <h2>Die ROI-Rechnung: Was KI-Agenten wirklich bringen</h2>
+        
+        <div class="roi-box">
+            <p style="margin-bottom: 10px;"><strong>Return on Investment</strong></p>
+            <div class="big-number">500-1.500%</div>
+            <p style="margin-top: 15px;">je nach Anwendungsfall und Implementierung</p>
+        </div>
+        
+        <table>
+            <tr><th>Kostenfaktor (jährlich)</th><th>Betrag</th></tr>
+            <tr><td>Plattform-Lizenzen (pro Agent)</td><td>500-2.000€</td></tr>
+            <tr><td>Setup & Konfiguration (einmalig)</td><td>2.000-10.000€</td></tr>
+            <tr><td>Wartung & Optimierung</td><td>1.000-3.000€</td></tr>
+            <tr><td><strong>Gesamtkosten</strong></td><td><strong>3.500-15.000€</strong></td></tr>
+        </table>
+        
+        <table>
+            <tr><th>Nutzenfaktor (jährlich)</th><th>Betrag</th></tr>
+            <tr><td>Zeitersparnis (20h/Woche × 50€ × 48 Wochen)</td><td>48.000€</td></tr>
+            <tr><td>Höhere Conversion (Lead-Qualifizierung)</td><td>25.000€</td></tr>
+            <tr><td>Schnellere Reaktionszeiten (Kundenservice)</td><td>15.000€</td></tr>
+            <tr><td>Weniger Fehler (Reports, Daten)</td><td>10.000€</td></tr>
+            <tr><td><strong>Gesamtnutzen</strong></td><td><strong>98.000€</strong></td></tr>
+        </table>
+
+        <h2>Herausforderungen und wie Sie sie meistern</h2>
+        
+        <div class="highlight">
+            <h4>⚠️ Herausforderung 1: Fehlerhafte Entscheidungen</h4>
+            <p><strong>Lösung:</strong> Bauen Sie Menschen-in-der-Schleife ein für kritische Entscheidungen. Starten Sie mit niedrigem Risiko.</p>
+        </div>
+        
+        <div class="highlight">
+            <h4>⚠️ Herausforderung 2: Akzeptanz im Team</h4>
+            <p><strong>Lösung:</strong> Kommunizieren Sie: Der Agent unterstützt, nicht ersetzt. Zeigen Sie konkrete Zeitersparnis.</p>
+        </div>
+        
+        <div class="highlight">
+            <h4>⚠️ Herausforderung 3: Abhängigkeit von Plattformen</h4>
+            <p><strong>Lösung:</strong> Dokumentieren Sie alle Workflows. Planen Sie für Vendor-Wechsel.</p>
+        </div>
+
+        <h2>Fazit: Starten Sie jetzt</h2>
+        <p>KI-Agenten sind kein Hype – sie sind das nächste große Produktivitäts-Tool für Unternehmen. Wer jetzt startet, lernt, experimentiert und erste Agenten im Einsatz hat, wird den Wettbewerbsvorsprung der kommenden Jahre sichern.</p>
+        
+        <p>Der Einstieg ist einfacher denn je: No-Code Plattformen, gute Dokumentation, und eine wachsende Community machen es möglich, ohne Programmierkenntnisse loszulegen.</p>
 
         <div class="cta-box">
             <h2>KI-Agenten für Ihr Unternehmen?</h2>
-            <p>Wir entwickeln maßgeschneiderte Agenten für Ihre spezifischen Prozesse.</p>
-            <a href="/kontakt.html" class="btn">Gespräch vereinbaren</a>
+            <p>In unserem Kurs "KI-Agenten & Automation" lernen Sie, wie Sie maßgeschneiderte KI-Agenten für Ihre spezifischen Geschäftsprozesse entwickeln – von der Strategie bis zur produktiven Umsetzung.</p>
+            <a href="https://ki-expertenraum.de/kurse/ki-agenten" class="btn">Kurs entdecken</a>
         </div>
     </main>
 
