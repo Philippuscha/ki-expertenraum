@@ -62,39 +62,17 @@
         .btn-secondary { background: transparent; color: var(--text); border: 2px solid var(--border); }
         .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
         
-        /* 3D TILT CONTAINER */
+        /* STATISCHES BILD - KEIN 3D EFFEKT */
         .hero-image-container { 
-            perspective: 1000px; 
-            transform-style: preserve-3d;
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative;
         }
         
-        /* 3D TILT IMAGE - KEIN FLOAT MEHR */
         .hero-image { 
             max-width: 100%; 
             height: auto; 
-            filter: drop-shadow(0 20px 40px rgba(59, 130, 246, 0.3));
-            transition: transform 0.1s ease-out;
-            transform-style: preserve-3d;
-        }
-        
-        /* Glow effect behind image */
-        .hero-image-container::before {
-            content: '';
-            position: absolute;
-            width: 80%;
-            height: 80%;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
-            z-index: -1;
-            filter: blur(40px);
-            animation: pulse 4s ease-in-out infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 0.5; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.1); }
+            filter: drop-shadow(0 10px 30px rgba(59, 130, 246, 0.2));
         }
         
         .stats { display: flex; gap: 50px; margin-top: 50px; padding-top: 30px; border-top: 1px solid var(--border); }
@@ -162,11 +140,6 @@
             .cta-box h2 { font-size: 32px; }
             .footer { padding: 40px 30px; }
             .footer-container { flex-direction: column; gap: 25px; text-align: center; }
-            
-            /* Touch-Geräte: Sanfte Perspektive statt Tilt */
-            .hero-image {
-                transform: perspective(1000px) rotateY(-5deg);
-            }
         }
     </style>
 </head>
@@ -221,11 +194,11 @@
             </div>
         </div>
         <div class="hero-image-container">
-            <img src="images/ki-humanoid.png" alt="KI Humanoid" class="hero-image">
+            <img src="humanoid.png" alt="KI Humanoid" class="hero-image">
         </div>
     </section>
 
-    <section id="ebooks" class="section">
+    <section class="section" id="ebooks">
         <div class="section-header">
             <span class="section-label">Kostenlose Ressourcen</span>
             <h2 class="section-title">Kostenlose eBooks & Guides</h2>
@@ -240,7 +213,7 @@
                     <span>📄 45 Seiten</span>
                     <span>⏱️ 37 Min Lesezeit</span>
                 </div>
-                <a href="[DROPBOX-LINK-1]" class="btn btn-primary" download>Jetzt downloaden →</a>
+                <a href="#" class="btn btn-primary">Jetzt downloaden →</a>
             </div>
             <div class="ebook-card">
                 <div class="ebook-icon">📗</div>
@@ -250,12 +223,12 @@
                     <span>📄 32 Seiten</span>
                     <span>⏱️ 25 Min Lesezeit</span>
                 </div>
-                <a href="[DROPBOX-LINK-2]" class="btn btn-primary" download>Jetzt downloaden →</a>
+                <a href="#" class="btn btn-primary">Jetzt downloaden →</a>
             </div>
         </div>
     </section>
 
-    <section id="work" class="section">
+    <section class="section" id="work">
         <div class="section-header">
             <span class="section-label">Unsere Kurse</span>
             <h2 class="section-title">Praxisnahe KI-Kurse</h2>
@@ -313,7 +286,7 @@
         <div class="cta-box">
             <h2>Bereit für die KI-Revolution?</h2>
             <p>Starte jetzt mit unseren kostenlosen eBooks oder buche direkt einen Kurs. Wir begleiten dich auf deinem Weg zum KI-Experten.</p>
-            <a href="#ebooks" class="btn btn-primary" style="font-size: 17px; padding: 18px 40px;">Jetzt durchstarten →</a>
+            <a href="#ebooks" class="btn btn-primary">Jetzt durchstarten →</a>
         </div>
     </section>
 
@@ -330,11 +303,13 @@
                 <a href="#">Impressum</a>
             </div>
         </div>
-        <div class="footer-bottom">© 2026 KI Expertenraum. Alle Rechte vorbehalten.</div>
+        <div class="footer-bottom">
+            © 2026 KI Expertenraum. Alle Rechte vorbehalten.
+        </div>
     </footer>
 
     <script>
-        // Scroll Effect für Navigation
+        // Navigation scroll effect
         window.addEventListener('scroll', function() {
             const nav = document.getElementById('nav');
             if (window.scrollY > 50) {
@@ -343,36 +318,13 @@
                 nav.classList.remove('scrolled');
             }
         });
-        
-        // Mobile Menu Toggle
+
+        // Mobile menu toggle
         function toggleMobileMenu() {
             const toggle = document.getElementById('mobileMenuToggle');
             const menu = document.getElementById('mobileMenu');
             toggle.classList.toggle('active');
             menu.classList.toggle('active');
-            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
-        }
-        
-        // 3D TILT EFFECT für Hero Image (NUR Desktop)
-        const heroImage = document.querySelector('.hero-image');
-        const heroContainer = document.querySelector('.hero-image-container');
-        
-        if (heroImage && !window.matchMedia('(pointer: coarse)').matches) {
-            heroContainer.addEventListener('mousemove', (e) => {
-                const rect = heroContainer.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const rotateX = ((y - centerY) / centerY) * -15;
-                const rotateY = ((x - centerX) / centerX) * 15;
-                
-                heroImage.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
-            });
-            
-            heroContainer.addEventListener('mouseleave', () => {
-                heroImage.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
-            });
         }
     </script>
 </body>
