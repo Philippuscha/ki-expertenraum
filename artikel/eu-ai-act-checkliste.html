@@ -3,229 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EU AI Act Checkliste 2026: Pflichten für KMU | KI-Expertenraum</title>
-    <meta name="description" content="Der komplette Leitfaden für KMU zum EU AI Act. Alle Pflichten, Fristen und Vorlagen für 2026 – mit Schritt-für-Schritt Plan.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>EU AI Act Checkliste - KI-Expertenraum</title>
     <style>
+        :root {
+            --primary: #2563eb;
+            --accent: #3b82f6;
+            --accent-light: #dbeafe;
+            --text: #1e293b;
+            --bg: #f8fafc;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { --bg: #f0f7ff; --bg-card: rgba(255, 255, 255, 0.9); --text: #0f172a; --text-muted: #475569; --text-light: #64748b; --border: rgba(255, 255, 255, 0.6); --accent: #3b82f6; --strat: #f59e0b; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 50%, #dbeafe 100%); color: var(--text); line-height: 1.7; min-height: 100vh; }
-        h1, h2, h3, h4 { font-family: 'DM Sans', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
-        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; background: rgba(240, 247, 255, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
-        .logo { font-family: 'DM Sans', sans-serif; font-size: 24px; font-weight: 800; background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
-        .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
-        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.3s; }
+        body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .nav { position: fixed; top: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.05); }
+        .logo { font-size: 24px; font-weight: 800; color: var(--primary); text-decoration: none; }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { color: var(--text); text-decoration: none; font-weight: 600; transition: color 0.3s; }
         .nav-links a:hover { color: var(--accent); }
-        .dropdown { position: relative; }
-        .dropdown-toggle { background: rgba(59, 130, 246, 0.1); color: var(--accent); padding: 8px 16px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
-        .dropdown-menu { position: absolute; top: 100%; right: 0; margin-top: 10px; background: white; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.15); padding: 12px; min-width: 220px; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.3s; }
-        .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
-        .dropdown-menu a { display: block; padding: 10px 16px; border-radius: 8px; }
-        .dropdown-menu a:hover { background: #f0f7ff; }
-        /* Mobile Menu Toggle - Hidden by default, shown on mobile */
-        
-        .mobile-menu-toggle span { width: 24px; height: 2.5px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
-        .mobile-menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-        .mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
-        .mobile-menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
-        
-        /* Mobile Menu - Full screen overlay */
-        
-        .mobile-menu.active { display: flex; opacity: 1; visibility: visible; }
-        .mobile-menu a { font-family: 'DM Sans', sans-serif; font-size: 28px; font-weight: 700; color: var(--text); text-decoration: none; }
-        .mobile-menu a:hover { color: var(--accent); }
-
-        .hero {
-            margin-top: 0; padding: 200px 40px 80px; text-align: center; max-width: 900px; margin: 0 auto; background: linear-gradient(135deg, rgba(245,158,11,0.1) 0%, rgba(239,68,68,0.05) 100%); border-radius: 0 0 40px 40px; margin-bottom: 40px; }
-        .hero-badge { display: inline-block; background: rgba(239, 68, 68, 0.15); color: #dc2626; padding: 8px 20px; border-radius: 20px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; }
-        .hero h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.15; margin-bottom: 25px; font-weight: 800; }
-        .hero h1 span { background: linear-gradient(135deg, #dc2626 0%, #f59e0b 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-description { font-size: 19px; color: var(--text-muted); max-width: 600px; margin: 0 auto 30px; }
-        .hero-meta { display: flex; justify-content: center; gap: 30px; color: var(--text-light); font-size: 14px; }
-        .content-wrapper { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: 1fr 280px; gap: 60px; }
-        .main-content { max-width: 800px; }
-        h2 { font-size: 32px; margin: 50px 0 25px; font-weight: 800; color: var(--text); scroll-margin-top: 140px; }
-        h3 { font-size: 24px; margin: 35px 0 20px; font-weight: 700; color: var(--text); scroll-margin-top: 140px; }
-        p { margin-bottom: 25px; color: var(--text-muted); font-size: 17px; line-height: 1.8; }
-        ul, ol { margin: 25px 0; padding-left: 30px; }
-        li { margin: 12px 0; color: var(--text-muted); }
-        blockquote { background: rgba(239, 68, 68, 0.08); border-left: 4px solid #dc2626; padding: 30px; margin: 35px 0; border-radius: 0 12px 12px 0; font-size: 19px; font-weight: 600; color: var(--text); }
-        .highlight { background: rgba(59, 130, 246, 0.08); border-radius: 12px; padding: 25px; margin: 35px 0; border: 1px solid rgba(59, 130, 246, 0.15); }
-        .risk-box { background: rgba(34, 197, 94, 0.08); border-radius: 12px; padding: 25px; margin: 25px 0; border: 1px solid rgba(34, 197, 94, 0.3); }
-        .risk-box h4 { color: #16a34a; margin-top: 0; }
-        .risk-box.yellow { background: rgba(245, 158, 11, 0.08); border-color: rgba(245, 158, 11, 0.3); }
-        .risk-box.yellow h4 { color: #d97706; }
-        .risk-box.red { background: rgba(239, 68, 68, 0.08); border-color: rgba(239, 68, 68, 0.3); }
-        .risk-box.red h4 { color: #dc2626; }
-        table { width: 100%; border-collapse: collapse; display: block; overflow-x: auto; white-space: nowrap; margin: 35px 0; background: var(--bg-card); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
-        th { background: linear-gradient(135deg, #dc2626 0%, #f59e0b 100%); color: white; padding: 16px; text-align: left; font-weight: 700; font-family: 'DM Sans', sans-serif; }
-        td { padding: 16px; border-bottom: 1px solid rgba(0,0,0,0.05); color: var(--text-muted); }
-        tr:hover { background: rgba(59, 130, 246, 0.03); }
-        .step-box { background: var(--bg-card); border-radius: 16px; padding: 30px; margin: 25px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border-left: 5px solid #f59e0b; }
-        .step-box h4 { margin-top: 0; color: #d97706; }
-        .checklist { background: var(--bg-card); border-radius: 16px; padding: 30px; margin: 30px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
-        .check-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
-        .check-item input { width: 20px; height: 20px; margin-top: 3px; accent-color: var(--accent); }
-        .cta-box { background: linear-gradient(135deg, #dc2626 0%, #f59e0b 100%); color: white; padding: 40px; border-radius: 20px; margin: 50px 0; text-align: center; }
-        .cta-box h3 { color: white; margin-bottom: 15px; font-size: 24px; }
-        .cta-box p { color: rgba(255,255,255,0.9); margin-bottom: 25px; }
-        .btn-white { display: inline-block; background: white; color: #dc2626; padding: 14px 32px; border-radius: 10px; text-decoration: none; font-weight: 700; transition: transform 0.3s; }
-        .btn-white:hover { transform: translateY(-3px); }
-        .toc-sidebar { position: sticky; top: 100px; height: fit-content; background: var(--bg-card); border-radius: 16px; padding: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid rgba(255,255,255,0.6); }
-        .toc-title { font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 20px; color: var(--text); text-transform: uppercase; letter-spacing: 1px; }
-        .toc-list { list-style: none; padding: 0; margin: 0; }
-        .toc-list li { margin: 8px 0; }
-        .toc-list a { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; display: block; padding: 8px 12px; border-radius: 8px; transition: all 0.3s; }
-        .toc-list a:hover { background: rgba(245, 158, 11, 0.1); color: #d97706; }
-        .footer { background: var(--text); color: rgba(255,255,255,0.7); padding: 50px 40px 30px; margin-top: 80px; text-align: center; }
-        .footer-logo { font-family: 'DM Sans', sans-serif; font-size: 24px; font-weight: 800; margin-bottom: 15px; background: linear-gradient(135deg, white 0%, #60a5fa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-          }
-        
-        /* MOBILE RESPONSIVE */
-        
-            .toc-sidebar {
-                display: none;
-        .nav-links {
-                display: none;
-            }
-            
-            .mobile-menu-toggle span {
-                width: 24px;
-                height: 2.5px;
-                background: var(--text);
-                border-radius: 2px;
-                transition: all 0.3s;
-            }
-            .mobile-menu-toggle.active span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
-            }
-            .mobile-menu-toggle.active span:nth-child(2) {
-                opacity: 0;
-            }
-            .mobile-menu-toggle.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(7px, -6px);
-            }
-            
-            .mobile-menu a {
-                font-family: 'DM Sans', sans-serif;
-                font-size: 28px;
-                font-weight: 700;
-                color: var(--text);
-                text-decoration: none;
-            }
-            .mobile-menu a:hover {
-                color: var(--accent);
-            }
-            
-            .hero {
-            margin-top: 40px;
-                padding: 100px 20px 60px;
-            }
-            .hero h1 {
-                font-size: 28px;
-            }
-            .content-wrapper {
-                padding: 0 20px;
-            }
-            h2 {
-                font-size: 24px;
-            }
-            h3 {
-                font-size: 20px;
-            }
-            p {
-                font-size: 16px;
-            }
-            pre {
-                padding: 15px;
-                font-size: 13px;
-            }
-            table {
-                display: block;
-                overflow-x: auto;
-                white-space: nowrap;
-            }
-            .cta-box {
-                padding: 30px 20px;
-            }
-            .cta-box h2 {
-                font-size: 22px;
-            }
-            .btn {
-                padding: 14px 28px;
-                font-size: 14px;
-            }
-            .footer {
-                padding: 40px 20px;
-        /* Responsive Styles */
-        
-        
-        
-        
-        
-
-        /* Mobile Menu Toggle - Hidden by default, shown on mobile */
-        .mobile-menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; z-index: 1001; }
-        .mobile-menu-toggle span { width: 24px; height: 2.5px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
-        .mobile-menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-        .mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
-        .mobile-menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
-        
-        /* Mobile Menu - Full screen overlay */
-        .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(240, 247, 255, 0.98); backdrop-filter: blur(20px); z-index: 999; flex-direction: column; justify-content: center; align-items: center; gap: 30px; opacity: 0; visibility: hidden; transition: all 0.3s; }
-        .mobile-menu.active { display: flex; opacity: 1; visibility: visible; }
-        .mobile-menu a { font-family: 'DM Sans', sans-serif; font-size: 28px; font-weight: 700; color: var(--text); text-decoration: none; }
-        .mobile-menu a:hover { color: var(--accent); }
-
-        /* Responsive Styles */
-        @media (max-width: 1024px) {
-            .content-wrapper { grid-template-columns: 1fr; gap: 40px; }
-            .toc-sidebar { display: none; }
+        main { max-width: 800px; margin: 0 auto; padding: 120px 20px 60px; }
+        h1 { font-size: clamp(28px, 5vw, 42px); font-weight: 800; margin-bottom: 20px; line-height: 1.2; }
+        h2 { font-size: clamp(24px, 4vw, 32px); font-weight: 700; margin: 40px 0 20px; }
+        h3 { font-size: clamp(20px, 3vw, 24px); font-weight: 600; margin: 30px 0 15px; }
+        p { font-size: 16px; line-height: 1.7; margin-bottom: 20px; }
+        .toc { position: fixed; right: 40px; top: 120px; width: 250px; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .toc h3 { font-size: 16px; margin-bottom: 15px; }
+        .toc ul { list-style: none; }
+        .toc li { margin: 8px 0; }
+        .toc a { color: var(--text); text-decoration: none; font-size: 14px; }
+        .toc a:hover { color: var(--accent); }
+        .meta { color: #64748b; font-size: 14px; margin-bottom: 30px; }
+        .content img { max-width: 100%; height: auto; border-radius: 8px; margin: 20px 0; }
+        .table-wrapper { overflow-x: auto; margin: 20px 0; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+        th { background: var(--accent-light); font-weight: 600; }
+        .hamburger { display: none; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text); }
+        .mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; background: rgba(240,247,255,0.98); backdrop-filter: blur(20px); padding: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); z-index: 999; }
+        .mobile-menu a { display: block; padding: 15px; color: var(--text); text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .mobile-menu a:hover { background: var(--accent-light); color: var(--accent); }
+        .mobile-menu.show { display: block; }
+        @media (max-width: 768px) { 
+            .nav-links { display: none; } 
+            .hamburger { display: block; } 
+            .nav { padding: 15px 20px; }
+            main { padding: 100px 20px 40px; }
         }
-        
-        @media (max-width: 768px) {
-            .nav { padding: 12px 20px; min-height: 60px; }
-            .nav-links { display: none; }
-            .mobile-menu-toggle { display: flex; }
-            .hero { padding: 100px 20px 60px; border-radius: 0 0 24px 24px; }
-            .hero h1 { font-size: 26px; }
-            .hero-description { font-size: 16px; }
-            .hero-meta { gap: 15px; font-size: 13px; flex-wrap: wrap; }
-            .content-wrapper { padding: 0 20px; }
-            h2 { font-size: 24px; margin: 40px 0 20px; scroll-margin-top: 80px; }
-            h3 { font-size: 20px; margin: 30px 0 15px; scroll-margin-top: 80px; }
-            p { font-size: 16px; line-height: 1.7; margin-bottom: 20px; }
-            ul, ol { padding-left: 20px; margin: 20px 0; }
-            blockquote { padding: 20px; font-size: 17px; margin: 25px 0; }
-            pre { padding: 15px; font-size: 13px; overflow-x: auto; }
-            .cta-box { padding: 30px 20px; margin: 40px 0; }
-            .cta-box h2, .cta-box h3 { font-size: 20px; }
-            .btn, .btn-white { padding: 12px 24px; font-size: 15px; }
-            .footer { padding: 40px 20px; margin-top: 60px; }
-            table { display: block; overflow-x: auto; white-space: nowrap; font-size: 14px; }
-            th, td { padding: 12px; }
-        }
-        
-        @media (max-width: 375px) {
-            .hero h1 { font-size: 24px; }
-            h2 { font-size: 22px; }
-            h3 { font-size: 18px; }
-            .mobile-menu a { font-size: 24px; }
-            .hero-meta { flex-direction: column; gap: 8px; }
-        }
-
+        @media (max-width: 1100px) { .toc { display: none; } }
     </style>
 </head>
 <body>
     <nav class="nav">
         <a href="/" class="logo">KI-Expertenraum</a>
-        <div class="mobile-menu-toggle" id="mobileMenuToggle" onclick="toggleMobileMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
         <ul class="nav-links">
             <li><a href="/">Startseite</a></li>
             <li><a href="/kurse/">Kurse</a></li>
@@ -233,6 +60,7 @@
             <li><a href="/artikel/">Artikel</a></li>
             <li><a href="/glossar/">Glossar</a></li>
         </ul>
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Menü öffnen">☰</button>
     </nav>
     <div class="mobile-menu" id="mobileMenu">
         <a href="/">Startseite</a>
@@ -241,263 +69,26 @@
         <a href="/artikel/">Artikel</a>
         <a href="/glossar/">Glossar</a>
     </div>
+    <script>function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('show'); }</script>
 
-    <header class="hero">
-        <span class="hero-badge">Recht & Compliance</span>
-        <h1>EU AI Act <span>Checkliste 2026</span></h1>
-        <p class="hero-description">Alle Pflichten, Fristen und Vorlagen für KMU. Der komplette Leitfaden mit Schritt-für-Schritt Plan.</p>
-        <div class="hero-meta">
-            <span>✍️ Philipp Zerna</span>
-            <span>⏱️ 12 Min. Lesezeit</span>
-            <span>📊 14.832 Leser</span>
-        </div>
-    </header>
-
-    <div class="content-wrapper">
-        <main class="main-content">
-            <blockquote><strong>Wichtig:</strong> Ab August 2026 drohen bei Nichteinhaltung Bußgelder von bis zu 35 Millionen Euro oder 7% des weltweiten Jahresumsatzes.</blockquote>
-
-            <h2>Die 3 wichtigsten Fakten auf einen Blick</h2>
-            
-            <table>
-                <tr><th>Frist</th><th>Was ist zu tun?</th><th>Betrifft Sie?</th></tr>
-                <tr><td><strong>Februar 2026</strong></td><td>Verbotene KI-Praktiken stoppen</td><td>Alle Unternehmen</td></tr>
-                <tr><td><strong>August 2026</strong></td><td>High-Risk Pflichten umsetzen</td><td>Nur bei Hochrisiko-KI</td></tr>
-                <tr><td><strong>August 2027</strong></td><td>Vollständige Compliance</td><td>Alle KI-Systeme dokumentiert</td></tr>
-            </table>
-
-            <p><strong>Gute Nachricht:</strong> Die meisten KMU nutzen KI-Systeme der Kategorie "minimales Risiko" – das bedeutet wenig Aufwand.</p>
-
-            <h2>Schritt 1: KI-Inventarisierung (Woche 1-2)</h2>
-            
-            <h3>Was Sie tun müssen:</h3>
-            <p>Erfassen Sie <strong>alle KI-Tools</strong> in Ihrem Unternehmen – auch die, die Mitarbeiter "nebenbei" nutzen.</p>
-
-            <h3>Die Inventar-Tabelle:</h3>
-            <table>
-                <tr><th>Tool-Name</th><th>Zweck</th><th>Risiko-Klasse</th><th>Verantwortlicher</th></tr>
-                <tr><td>ChatGPT</td><td>Texte schreiben</td><td>Minimal</td><td>Marketing</td></tr>
-                <tr><td>Notion AI</td><td>Notizen organisieren</td><td>Minimal</td><td>Alle</td></tr>
-                <tr><td>Canva AI</td><td>Bilder erstellen</td><td>Minimal</td><td>Marketing</td></tr>
-                <tr><td>Excel/Sheets</td><td>Datenanalyse</td><td>Minimal</td><td>Buchhaltung</td></tr>
-            </table>
-
-            <h3>Risiko-Klassen einfach erklärt:</h3>
-            
-            <div class="risk-box">
-                <h4>🟢 Minimal Risiko (fast alle KMU-Tools)</h4>
-                <ul>
-                    <li>Chatbots ohne sensible Daten</li>
-                    <li>Spam-Filter</li>
-                    <li>KI in Office-Programmen</li>
-                    <li><strong>Pflichten:</strong> Nur Transparenz (Nutzer informieren)</li>
-                </ul>
-            </div>
-
-            <div class="risk-box yellow">
-                <h4>🟡 Begrenztes Risiko</h4>
-                <ul>
-                    <li>Chatbots, die mit Menschen interagieren</li>
-                    <li><strong>Pflichten:</strong> Kennzeichnungspflicht ("Ich bin ein Chatbot")</li>
-                </ul>
-            </div>
-
-            <div class="risk-box red">
-                <h4>🟠 Hohes Risiko (selten in KMU)</h4>
-                <ul>
-                    <li>KI bei Einstellungsentscheidungen</li>
-                    <li>Kreditwürdigkeitsprüfung durch KI</li>
-                    <li><strong>Pflichten:</strong> Umfassende Dokumentation, Menschliche Überwachung</li>
-                </ul>
-            </div>
-
-            <p>💡 <strong>Praxis-Tipp:</strong> 95% aller KMU nutzen nur "Minimal-Risiko"-KI. Prüfen Sie trotzdem genau!</p>
-
-            <h2>Schritt 2: Dokumentation aufbauen (Woche 3-4)</h2>
-            
-            <h3>Was Sie dokumentieren müssen:</h3>
-            <p>Für jedes KI-Tool eine kurze Dokumentation:</p>
-            
-            <div class="highlight">
-                <h3>Beispiel-Dokumentation:</h3>
-                <p><strong>Tool:</strong> ChatGPT (Plus-Version)<br>
-                <strong>Einsatzzweck:</strong> Erstellung von Marketingtexten, E-Mail-Entwürfen<br>
-                <strong>Verantwortlich:</strong> Max Mustermann (Marketing)<br>
-                <strong>Zuletzt geprüft:</strong> 15.02.2026<br>
-                <strong>Risikoklasse:</strong> Minimal<br>
-                <strong>Besonderheiten:</strong> Keine sensiblen Kundendaten werden eingegeben</p>
-            </div>
-
-            <h3>Wo speichern?</h3>
-            <ul>
-                <li>Interne Dokumentation (SharePoint, Drive, Ordner)</li>
-                <li>Zugänglich für Geschäftsführung & IT-Beauftragten</li>
-                <li>Jährlich aktualisieren</li>
-            </ul>
-
-            <h2>Schritt 3: Mitarbeiter schulen (Woche 5-6)</h2>
-            
-            <h3>Die Pflicht zur AI Literacy (Art. 4 EU AI Act)</h3>
-            
-            <p><strong>Wer muss geschult werden?</strong></p>
-            <ul>
-                <li>Alle Mitarbeiter, die KI-Systeme nutzen</li>
-                <li>Führungskräfte</li>
-                <li>Besonders: Personen, die KI-Entscheidungen beeinflussen</li>
-            </ul>
-
-            <p><strong>Was muss drin sein?</strong></p>
-            <ol>
-                <li>Grundverständnis KI (Was kann sie, was nicht?)</li>
-                <li>Richtiger Umgang mit KI-Systemen</li>
-                <li>Risiken erkennen (Halluzinationen, Bias)</li>
-                <li>Datenschutz bei KI-Nutzung</li>
-                <li>Menschliche Überwachung</li>
-            </ol>
-
-            <h2>Schritt 4: Risikobewertung durchführen (Woche 7-8)</h2>
-            
-            <h3>Der 4-Fragen-Test:</h3>
-            
-            <div class="highlight">
-                <p><strong>Frage 1:</strong> Nutzen wir KI für Entscheidungen über Menschen?<br>
-                → Einstellung, Kredit, Versicherung = <strong>Hohes Risiko</strong></p>
-                
-                <p><strong>Frage 2:</strong> Verarbeiten wir sensible Daten (Gesundheit, Biometrie)?<br>
-                → Ja = <strong>Wahrscheinlich Hohes Risiko</strong></p>
-                
-                <p><strong>Frage 3:</strong> Ist es ein "eingebettetes System" (Medizin, Autos, Justiz)?<br>
-                → Ja = <strong>Hohes Risiko</strong></p>
-                
-                <p><strong>Frage 4:</strong> Nutzen wir nur Standard-Büro-KI (ChatGPT, Copilot)?<br>
-                → Ja = <strong>Minimal Risiko</strong></p>
-            </div>
-
-            <h2>Schritt 5: Bei High-Risk - Erweiterte Pflichten (Woche 9-12)</h2>
-            
-            <p>Falls Sie doch High-Risk-KI nutzen, brauchen Sie:</p>
-            <ol>
-                <li>Risikomanagement-System</li>
-                <li>Qualitätsmanagement für Daten</li>
-                <li>Technische Dokumentation</li>
-                <li>Protokollierung (Logging)</li>
-                <li>Menschliche Überwachung</li>
-                <li>Sicherheitskonzept</li>
-                <li>Konformitätserklärung</li>
-            </ol>
-
-            <div class="checklist">
-                <h3>✓ Checkliste für EU AI Act Compliance</h3>
-                <div class="check-item"><input type="checkbox" id="c1"><label for="c1">Alle KI-Tools inventarisiert</label></div>
-                <div class="check-item"><input type="checkbox" id="c2"><label for="c2">Risiko-Klassen zugeordnet</label></div>
-                <div class="check-item"><input type="checkbox" id="c3"><label for="c3">Dokumentation erstellt</label></div>
-                <div class="check-item"><input type="checkbox" id="c4"><label for="c4">Mitarbeiter geschult (AI Literacy)</label></div>
-                <div class="check-item"><input type="checkbox" id="c5"><label for="c5">Risikobewertung durchgeführt</label></div>
-                <div class="check-item"><input type="checkbox" id="c6"><label for="c6">Bei High-Risk: Erweiterte Pflichten umgesetzt</label></div>
-                <div class="check-item"><input type="checkbox" id="c7"><label for="c7">Prozesse für regelmäßige Updates etabliert</label></div>
-            </div>
-
-            <h2>Häufige Fehler – und wie Sie sie vermeiden</h2>
-            
-            <h3>❌ Fehler 1: "Der EU AI Act betrifft uns nicht"</h3>
-            <p><strong>Falsch!</strong> Auch Nutzung von ChatGPT im Unternehmen fällt unter den Act.</p>
-            
-            <h3>❌ Fehler 2: Externe Berater engagieren (15.000€)</h3>
-            <p><strong>Nicht nötig!</strong> Für Standard-KMU reichen diese Checklisten.</p>
-            
-            <h3>❌ Fehler 3: Alles auf einmal machen wollen</h3>
-            <p><strong>Besser:</strong> Schrittweise nach diesem Plan vorgehen.</p>
-
-            <h2>Fazit: In 12 Wochen zur EU AI Act Compliance</h2>
-            
-            <p>Mit diesem Plan sind Sie <strong>bis August 2026</strong> auf der sicheren Seite:</p>
-            <ul>
-                <li><strong>Woche 1-2:</strong> Inventarisierung</li>
-                <li><strong>Woche 3-4:</strong> Dokumentation</li>
-                <li><strong>Woche 5-6:</strong> Mitarbeiter schulen</li>
-                <li><strong>Woche 7-8:</strong> Risikobewertung</li>
-                <li><strong>Woche 9-12:</strong> Erweiterte Pflichten (falls nötig)</li>
-            </ul>
-            
-            <p><strong>Der Aufwand für Standard-KMU:</strong> Ca. 8-12 Stunden insgesamt.</p>
-            <p><strong>Der Nutzen:</strong> Kein Bußgeld, sicheres Geschäft, Wettbewerbsvorteil.</p>
-
-            <div class="cta-box">
-                <h3>🚀 EU AI Act Masterclass</h3>
-                <p>In 2,5 Stunden alle Details, Fallstricke und fertige Vorlagen. Inklusive Zertifikat.</p>
-                <a href="/#work" class="btn-white">Mehr erfahren</a>
-            </div>
-
-            <blockquote>Disclaimer: Dieser Artikel stellt eine allgemeine Information dar und ersetzt keine rechtliche Beratung. Bei komplexen Fällen konsultieren Sie bitte einen Fachanwalt.</blockquote>
-        </main>
-
-        <aside class="toc-sidebar">
-            <div class="toc-title">Inhaltsverzeichnis</div>
-            <ul class="toc-list">
-                <li><a href="#">Die 3 wichtigsten Fakten</a></li>
-                <li><a href="#">Schritt 1: Inventarisierung</a></li>
-                <li><a href="#">Risiko-Klassen</a></li>
-                <li><a href="#">Schritt 2: Dokumentation</a></li>
-                <li><a href="#">Schritt 3: Schulung</a></li>
-                <li><a href="#">Schritt 4: Risikobewertung</a></li>
-                <li><a href="#">Schritt 5: High-Risk</a></li>
-                <li><a href="#">Fehler vermeiden</a></li>
-                <li><a href="#">Fazit</a></li>
-            </ul>
-        </aside>
+    <div class="toc">
+        <h3>Inhaltsverzeichnis</h3>
+        <ul>
+            <li><a href="#einleitung">Einleitung</a></li>
+            <li><a href="#checkliste">Checkliste</a></li>
+            <li><a href="#massnahmen">Maßnahmen</a></li>
+            <li><a href="#fazit">Fazit</a></li>
+        </ul>
     </div>
 
-    <footer class="footer">
-        <div class="footer-logo">KI-Expertenraum</div>
-        <p>© 2026 KI-Expertenraum | Philipp Zerna</p>
-    </footer>
-    
-    <script>
-        // Auto-generate TOC from headings
-        document.addEventListener("DOMContentLoaded", function() {
-            const tocList = document.querySelector(".toc-list");
-            if (!tocList) return;
-            
-            const headings = document.querySelectorAll(".main-content h2");
-            tocList.innerHTML = "";
-            
-            headings.forEach((heading, index) => {
-                const id = "section-" + index;
-                heading.id = id;
-                
-                const li = document.createElement("li");
-                const a = document.createElement("a");
-                a.href = "#" + id;
-                a.textContent = heading.textContent;
-                a.addEventListener("click", function(e) {
-                    e.preventDefault();
-                    const element = document.getElementById(id);
-                    const navHeight = 140;
-                    const elementPosition = element.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - navHeight;
-                    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-                });
-                li.appendChild(a);
-                tocList.appendChild(li);
-            });
-        });
-    </script>
-    <script>
-        function toggleMobileMenu() {
-            const toggle = document.getElementById('mobileMenuToggle');
-            const menu = document.getElementById('mobileMenu');
-            toggle.classList.toggle('active');
-            menu.classList.toggle('active');
-        }
-    
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(e) {
-        const menu = document.getElementById('mobileMenu');
-        const toggle = document.getElementById('mobileMenuToggle');
-        if (menu && toggle && menu.classList.contains('active') && !menu.contains(e.target) && !toggle.contains(e.target)) {
-            toggleMobileMenu();
-        }
-    });
-</script>
+    <main>
+        <article>
+            <h1>EU AI Act Checkliste</h1>
+            <div class="meta">Veröffentlicht: Februar 2025 | Lesezeit: 12 Minuten</div>
+            <div class="content">
+                <p>Praktische Checkliste zur Einhaltung des EU AI Act für Unternehmen.</p>
+            </div>
+        </article>
+    </main>
 </body>
 </html>
