@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KI Expertenraum - Praxisnahe KI-Kurse für Unternehmer</title>
-    <meta name="description" content="Lerne KI praxisnah anzuwenden. Von Prompt Engineering bis zum AI Act – wir machen dich fit für die Zukunft.">
+    <title>Impressum | KI-Expertenraum</title>
+    <meta name="description" content="Impressum und Kontaktinformationen von Philipp Zerna, KI-Expertenraum.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root { 
             --bg: #f0f7ff; 
-            --bg-card: rgba(255, 255, 255, 0.85);
+            --bg-card: rgba(255, 255, 255, 0.9);
             --text: #0f172a; 
             --text-muted: #475569; 
             --text-light: #64748b; 
@@ -20,350 +20,184 @@
             --accent-glow: rgba(59, 130, 246, 0.3);
         }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 50%, #dbeafe 100%); color: var(--text); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; min-height: 100vh; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 50%, #dbeafe 100%); 
+            color: var(--text); 
+            line-height: 1.7;
+            min-height: 100vh;
+        }
         h1, h2, h3, h4 { font-family: 'DM Sans', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
         
-        .bg-animation { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; }
-        .orb { position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.35; animation: float 25s infinite ease-in-out; }
-        .orb-1 { width: 500px; height: 500px; background: var(--accent); top: -150px; left: -100px; }
-        .orb-2 { width: 400px; height: 400px; background: #8b5cf6; bottom: -100px; right: -100px; animation-delay: -8s; opacity: 0.25; }
-        @keyframes float { 0%, 100% { transform: translate(0, 0) scale(1); } 33% { transform: translate(40px, -40px) scale(1.1); } 66% { transform: translate(-30px, 30px) scale(0.9); } }
-        
-        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 25px 80px; display: flex; justify-content: space-between; align-items: center; background: rgba(240, 247, 255, 0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); transition: all 0.4s ease; }
-        .nav.scrolled { padding: 15px 80px; background: rgba(240, 247, 255, 0.95); box-shadow: 0 4px 30px rgba(0,0,0,0.08); }
-        .logo { font-family: 'DM Sans', sans-serif; font-size: 26px; font-weight: 800; background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .logo a { text-decoration: none; }
-        .nav-links { display: flex; gap: 40px; list-style: none; }
-        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 600; transition: all 0.3s; position: relative; }
-        .nav-links a:hover { color: var(--accent); }
-        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--accent); transition: width 0.3s; }
-        .nav-links a:hover::after { width: 100%; }
-        
-        /* Dropdown Menü */
-        .dropdown { position: relative; }
-        .dropdown-content { 
-            display: none; 
-            position: absolute; 
-            top: 100%; 
-            left: 0; 
-            background: rgba(255, 255, 255, 0.95); 
-            backdrop-filter: blur(20px);
-            min-width: 180px; 
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1); 
-            border-radius: 12px; 
-            padding: 10px 0; 
-            margin-top: 10px;
-            border: 1px solid var(--border);
+        .nav { 
+            position: fixed; 
+            top: 0; left: 0; right: 0; 
+            z-index: 1000; 
+            padding: 20px 40px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            background: rgba(240, 247, 255, 0.95); 
+            backdrop-filter: blur(20px); 
+            border-bottom: 1px solid var(--border);
         }
-        .dropdown-content a { 
-            display: block; 
-            padding: 10px 20px; 
-            color: var(--text); 
+        .logo { 
+            font-family: 'DM Sans', sans-serif; 
+            font-size: 24px; 
+            font-weight: 800; 
+            background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { 
+            color: var(--text-muted); 
             text-decoration: none; 
-            font-size: 14px;
+            font-size: 15px; 
+            font-weight: 600; 
+            transition: color 0.3s;
         }
-        .dropdown-content a:hover { 
-            background: rgba(59, 130, 246, 0.1); 
+        .nav-links a:hover { color: var(--accent); }
+        
+        .hero { 
+            padding: 160px 40px 80px; 
+            text-align: center; 
+            max-width: 900px; 
+            margin: 0 auto;
+        }
+        .hero h1 { 
+            font-size: clamp(36px, 5vw, 52px); 
+            line-height: 1.15; 
+            margin-bottom: 25px; 
+            font-weight: 800;
+        }
+        .hero h1 span { 
+            background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 40px 80px; }
+        
+        .impressum-section {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        
+        h2 { 
+            font-size: 28px; 
+            margin: 40px 0 20px; 
+            font-weight: 800; 
+            color: var(--text);
+        }
+        h3 { 
+            font-size: 22px; 
+            margin: 30px 0 15px; 
+            font-weight: 700;
+            color: var(--text);
+        }
+        p { 
+            margin-bottom: 20px; 
+            color: var(--text-muted); 
+            font-size: 17px;
+            line-height: 1.8;
+        }
+        
+        .contact-box {
+            background: linear-gradient(135deg, rgba(59,130,246,0.1) 0%, rgba(139,92,246,0.1) 100%);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 1px solid rgba(59,130,246,0.2);
+        }
+        .contact-box h3 {
+            margin-top: 0;
             color: var(--accent);
         }
-        .dropdown:hover .dropdown-content { display: block; }
         
-        .mobile-menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; z-index: 1001; }
-        .mobile-menu-toggle span { width: 24px; height: 2.5px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
-        .mobile-menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-        .mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
-        .mobile-menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
-        
-        .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(240, 247, 255, 0.98); backdrop-filter: blur(20px); z-index: 999; flex-direction: column; justify-content: center; align-items: center; gap: 30px; opacity: 0; visibility: hidden; transition: all 0.3s; }
-        .mobile-menu.active { opacity: 1; visibility: visible; }
-        .mobile-menu a { font-family: 'DM Sans', sans-serif; font-size: 28px; font-weight: 700; color: var(--text); text-decoration: none; }
-        .mobile-menu a:hover { color: var(--accent); }
-        
-        .hero { padding: 160px 80px 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1400px; margin: 0 auto; }
-        .hero-badge { display: inline-block; background: rgba(59, 130, 246, 0.1); color: var(--accent); padding: 8px 20px; border-radius: 20px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; border: 1px solid rgba(59, 130, 246, 0.2); }
-        .hero-title { font-size: clamp(40px, 5vw, 64px); line-height: 1.1; margin-bottom: 25px; font-weight: 800; }
-        .hero-title span { background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-description { font-size: 18px; color: var(--text-muted); max-width: 520px; margin-bottom: 35px; line-height: 1.8; }
-        .hero-cta { display: flex; gap: 20px; flex-wrap: wrap; }
-        .btn { padding: 16px 32px; border-radius: 12px; font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-block; font-family: inherit; }
-        .btn-primary { background: linear-gradient(135deg, var(--accent) 0%, #2563eb 100%); color: white; border: none; box-shadow: 0 4px 15px var(--accent-glow); }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4); }
-        .btn-secondary { background: transparent; color: var(--text); border: 2px solid var(--border); }
-        .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
-        
-        /* STATISCHES BILD - KEIN 3D EFFEKT */
-        .hero-image-container { 
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .footer { 
+            background: var(--text); 
+            color: rgba(255,255,255,0.7); 
+            padding: 50px 40px 30px; 
+            margin-top: 80px; 
+            text-align: center;
+        }
+        .footer-logo { 
+            font-family: 'DM Sans', sans-serif; 
+            font-size: 24px; 
+            font-weight: 800; 
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, white 0%, #60a5fa 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent;
         }
         
-        .hero-image { 
-            max-width: 100%; 
-            height: auto; 
-            filter: drop-shadow(0 10px 30px rgba(59, 130, 246, 0.2));
-        }
-        
-        .stats { display: flex; gap: 50px; margin-top: 50px; padding-top: 30px; border-top: 1px solid var(--border); }
-        .stat-item h3 { font-size: 36px; color: var(--accent); font-weight: 800; margin-bottom: 5px; }
-        .stat-item p { font-size: 14px; color: var(--text-muted); font-weight: 500; }
-        
-        .section { padding: 100px 80px; }
-        .section-header { text-align: center; max-width: 700px; margin: 0 auto 70px; }
-        .section-label { font-size: 14px; color: var(--accent); text-transform: uppercase; letter-spacing: 3px; font-weight: 700; margin-bottom: 15px; display: block; }
-        .section-title { font-size: clamp(36px, 4vw, 48px); margin-bottom: 20px; font-weight: 800; }
-        .section-subtitle { font-size: 18px; color: var(--text-muted); line-height: 1.7; }
-        
-        .ebook-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
-        .ebook-card { background: var(--bg-card); backdrop-filter: blur(20px); border-radius: 24px; padding: 40px; border: 1px solid rgba(255,255,255,0.7); box-shadow: 0 20px 50px rgba(0,0,0,0.1); transition: all 0.4s; display: flex; flex-direction: column; }
-        .ebook-card:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(0,0,0,0.15); }
-        .ebook-icon { font-size: 50px; margin-bottom: 25px; }
-        .ebook-card h3 { font-size: 26px; margin-bottom: 15px; font-weight: 700; }
-        .ebook-card p { color: var(--text-muted); font-size: 16px; line-height: 1.7; margin-bottom: 25px; flex-grow: 1; }
-        .ebook-meta { display: flex; gap: 20px; font-size: 14px; color: var(--text-light); margin-bottom: 25px; font-weight: 600; }
-        .ebook-meta span { display: flex; align-items: center; gap: 6px; }
-        
-        .work-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
-        .work-card { background: var(--bg-card); backdrop-filter: blur(20px); border-radius: 24px; overflow: hidden; border: 1px solid rgba(255,255,255,0.7); box-shadow: 0 20px 50px rgba(0,0,0,0.1); transition: all 0.4s; }
-        .work-card:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(0,0,0,0.15); }
-        .work-image { aspect-ratio: 16/10; background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 50%, #f0e9ff 100%); display: flex; align-items: center; justify-content: center; font-size: 60px; border-bottom: 1px solid var(--border); }
-        .work-content { padding: 35px; }
-        .work-content h3 { font-size: 24px; margin-bottom: 12px; font-weight: 700; }
-        .work-content p { color: var(--text-muted); font-size: 15px; line-height: 1.7; margin-bottom: 20px; }
-        .work-meta { display: flex; gap: 15px; flex-wrap: wrap; }
-        .work-tag { background: rgba(59, 130, 246, 0.1); color: var(--accent); padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; }
-        
-        .cta-section { padding: 120px 80px; background: linear-gradient(135deg, var(--bg) 0%, #e0e7ff 50%, #f0e9ff 100%); text-align: center; }
-        .cta-box { max-width: 700px; margin: 0 auto; background: var(--bg-card); backdrop-filter: blur(20px); padding: 60px; border-radius: 30px; box-shadow: 0 30px 60px rgba(0,0,0,0.12); border: 1px solid rgba(255,255,255,0.8); }
-        .cta-box h2 { font-size: 42px; margin-bottom: 20px; font-weight: 800; }
-        .cta-box p { color: var(--text-muted); font-size: 18px; line-height: 1.7; margin-bottom: 35px; }
-        
-        .footer { padding: 50px 80px; background: var(--bg-card); backdrop-filter: blur(20px); border-top: 1px solid var(--border); }
-        .footer-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .footer-brand h3 { font-size: 24px; margin-bottom: 8px; font-weight: 800; background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .footer-brand p { color: var(--text-muted); font-size: 15px; }
-        .footer-links { display: flex; gap: 35px; }
-        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.3s; }
-        .footer-links a:hover { color: var(--accent); }
-        .footer-bottom { max-width: 1200px; margin: 35px auto 0; padding-top: 25px; border-top: 1px solid var(--border); text-align: center; font-size: 14px; color: var(--text-light); }
-        
-        @media (max-width: 1024px) {
-            .nav { padding: 20px 40px; }
-            .hero { padding: 140px 40px 80px; grid-template-columns: 1fr; text-align: center; }
-            .hero-description { max-width: 100%; }
-            .hero-cta { justify-content: center; }
-            .stats { justify-content: center; }
-            .section { padding: 80px 40px; }
-            .ebook-grid, .work-grid { grid-template-columns: 1fr; }
-        }
         @media (max-width: 768px) {
-            .nav { padding: 12px 20px !important; min-height: 60px; }
+            .nav { padding: 15px 20px; }
             .nav-links { display: none; }
-            .mobile-menu-toggle { display: flex; }
-            .mobile-menu { display: flex; }
-            .hero { padding: 120px 30px 60px; }
-            .hero-title { font-size: 36px; }
-            .section { padding: 60px 30px; }
-            .cta-section { padding: 80px 30px; }
-            .cta-box { padding: 40px 30px; }
-            .cta-box h2 { font-size: 32px; }
-            .footer { padding: 40px 30px; }
-            .footer-container { flex-direction: column; gap: 25px; text-align: center; }
+            .hero { padding: 120px 20px 60px; }
+            .container { padding: 30px 20px 60px; }
+            .impressum-section { padding: 25px; }
         }
     </style>
 </head>
 <body>
-    <div class="bg-animation">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-    </div>
-
-    <nav class="nav" id="nav">
-        <div class="logo"><a href="index.html">KI Expertenraum</a></div>
+    <nav class="nav">
+        <a href="/" class="logo">KI-Expertenraum</a>
         <ul class="nav-links">
+            <li><a href="/">Startseite</a></li>
+            <li><a href="/artikel/">Artikel</a></li>
             <li><a href="/services/">Services</a></li>
+            <li><a href="/kurse/">Kurse</a></li>
             <li><a href="/glossar/">Glossar</a></li>
-            <li><a href="#work">Kurse</a></li>
-            <li class="dropdown">
-                <a href="artikel/">Artikel</a>
-                <div class="dropdown-content">
-                    <a href="artikel/">Alle Artikel</a>
-                    <a href="artikel/#ki-tools">KI-Tools</a>
-                    <a href="artikel/#automation">Automation</a>
-                    <a href="artikel/#strategie">Strategie</a>
-                </div>
-            </li>
         </ul>
-        <div class="mobile-menu-toggle" id="mobileMenuToggle" onclick="toggleMobileMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
     </nav>
-    
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="#ebooks" onclick="toggleMobileMenu()">eBooks</a>
-        <a href="#work" onclick="toggleMobileMenu()">Kurse</a>
-        <a href="artikel/" onclick="toggleMobileMenu()">Artikel</a>
-    </div>
 
-    <section class="hero">
-        <div>
-            <span class="hero-badge">KI Experte seit 2023</span>
-            <h1 class="hero-title">KI verstehen.<br><span>Anwenden.</span><br>Profitieren.</h1>
-            <p class="hero-description">Praxisnahe Kurse, kostenlose Guides und aktuelle Insights – ohne Hype, ohne Fachchinesisch. Wir machen dich fit für die KI-Revolution.</p>
-            <div class="hero-cta">
-                <a href="#work" class="btn btn-primary">Kurse entdecken →</a>
-                <a href="#ebooks" class="btn btn-secondary">Gratis eBooks</a>
-            </div>
-            <div class="stats">
-                <div class="stat-item">
-                    <h3>2.500+</h3>
-                    <p>Kursteilnehmer</p>
-                </div>
-                <div class="stat-item">
-                    <h3>15+</h3>
-                    <p>Praxis-Kurse</p>
-                </div>
-                <div class="stat-item">
-                    <h3>4.9/5</h3>
-                    <p>Bewertung</p>
-                </div>
-            </div>
-        </div>
-        <div class="hero-image-container">
-            <img src="/public/images/ki-humanoid.png" alt="KI Humanoid" class="hero-image">
-        </div>
-    </section>
+    <header class="hero">
+        <h1><span>Impressum</span></h1>
+    </header>
 
-    <section class="section" id="ebooks">
-        <div class="section-header">
-            <span class="section-label">Kostenlose Ressourcen</span>
-            <h2 class="section-title">Kostenlose eBooks & Guides</h2>
-            <p class="section-subtitle">Sofort anwendbares Wissen – ohne Anmeldung, ohne Kosten.</p>
+    <main class="container">
+        <div class="impressum-section">
+            <h2>Angaben gemäß § 5 TMG</h2>
+            
+            <div class="contact-box">
+                <h3>Philipp Zerna</h3>
+                <p><strong>Adresse:</strong><br>
+                Friedensstraße 30b<br>
+                68804 Altlußheim</p>
+                
+                <p><strong>Kontakt:</strong><br>
+                E-Mail: <a href="mailto:zernaphilipp@gmail.com" style="color: var(--accent);">zernaphilipp@gmail.com</a></p>
+            </div>
+            
+            <h3>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
+            <p>Philipp Zerna<br>
+            Friedensstraße 30b<br>
+            68804 Altlußheim</p>
+            
+            <h3>Haftungsausschluss</h3>
+            <p><strong>Haftung für Inhalte</strong><br>
+            Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.</p>
+            
+            <p><strong>Haftung für Links</strong><br>
+            Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.</p>
+            
+            <h3>Urheberrecht</h3>
+            <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
+            
+            <h3>Datenschutz</h3>
+            <p>Die Nutzung unserer Website ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder E-Mail-Adressen) erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis.</p>
         </div>
-        <div class="ebook-grid">
-            <div class="ebook-card">
-                <div class="ebook-icon">📘</div>
-                <h3>Der KI Tools Survival Guide</h3>
-                <p>Die 17 wichtigsten KI-Tools für Unternehmer im Überblick – mit Preisen, Limits und Datenschutz-Einschätzungen.</p>
-                <div class="ebook-meta">
-                    <span>📄 45 Seiten</span>
-                    <span>⏱️ 37 Min Lesezeit</span>
-                </div>
-                <a href="#" class="btn btn-primary">Jetzt downloaden →</a>
-            </div>
-            <div class="ebook-card">
-                <div class="ebook-icon">📗</div>
-                <h3>EU AI Act: Was Unternehmer wissen müssen</h3>
-                <p>Alles was du zum EU AI Act wissen musst – in verständlich. Inklusive Checkliste und Umsetzungsplan.</p>
-                <div class="ebook-meta">
-                    <span>📄 32 Seiten</span>
-                    <span>⏱️ 25 Min Lesezeit</span>
-                </div>
-                <a href="#" class="btn btn-primary">Jetzt downloaden →</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="work">
-        <div class="section-header">
-            <span class="section-label">Unsere Kurse</span>
-            <h2 class="section-title">Praxisnahe KI-Kurse</h2>
-            <p class="section-subtitle">Von der ersten Prompt-Eingabe bis zur automatisierten Content-Pipeline – wir begleiten dich Schritt für Schritt.</p>
-        </div>
-        <div class="work-grid">
-            <div class="work-card">
-                <div class="work-image">🚀</div>
-                <div class="work-content">
-                    <h3>KI Starter Masterclass</h3>
-                    <p>Der komplette Einstieg in die Welt der KI. ChatGPT, Claude, Midjourney & Co. richtig nutzen.</p>
-                    <div class="work-meta">
-                        <span class="work-tag">Einsteiger</span>
-                        <span class="work-tag">6 Stunden</span>
-                    </div>
-                </div>
-            </div>
-            <div class="work-card">
-                <div class="work-image">⚡</div>
-                <div class="work-content">
-                    <h3>Prompt Engineering Pro</h3>
-                    <p>Lerne, wie die Profis prompten. Mit Frameworks, Templates und Feedback-Systemen.</p>
-                    <div class="work-meta">
-                        <span class="work-tag">Fortgeschritten</span>
-                        <span class="work-tag">8 Stunden</span>
-                    </div>
-                </div>
-            </div>
-            <div class="work-card">
-                <div class="work-image">🤖</div>
-                <div class="work-content">
-                    <h3>KI Automation Workshop</h3>
-                    <p>Automatisiere wiederkehrende Aufgaben mit KI. Von der Idee bis zur fertigen Automation.</p>
-                    <div class="work-meta">
-                        <span class="work-tag">Experte</span>
-                        <span class="work-tag">10 Stunden</span>
-                    </div>
-                </div>
-            </div>
-            <div class="work-card">
-                <div class="work-image">🎨</div>
-                <div class="work-content">
-                    <h3>KI für Designer & Creator</h3>
-                    <p>Midjourney, DALL-E, Runway und mehr. Der komplette Guide für visuelle Kreativarbeit.</p>
-                    <div class="work-meta">
-                        <span class="work-tag">Kreativ</span>
-                        <span class="work-tag">8 Stunden</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta-section">
-        <div class="cta-box">
-            <h2>Bereit für die KI-Revolution?</h2>
-            <p>Starte jetzt mit unseren kostenlosen eBooks oder buche direkt einen Kurs. Wir begleiten dich auf deinem Weg zum KI-Experten.</p>
-            <a href="#ebooks" class="btn btn-primary">Jetzt durchstarten →</a>
-        </div>
-    </section>
+    </main>
 
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-brand">
-                <h3>KI Expertenraum</h3>
-                <p>Dein Zugang zur KI-Elite. Praxisnahe Kurse für Unternehmer und Fachkräfte.</p>
-            </div>
-            <div class="footer-links">
-                <a href="#ebooks">eBooks</a>
-                <a href="#work">Kurse</a>
-                <a href="blog.html">Blog</a>
-                <a href="#">Impressum</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            © 2026 KI Expertenraum. Alle Rechte vorbehalten.
-        </div>
+        <div class="footer-logo">KI-Expertenraum</div>
+        <p>© 2026 KI-Expertenraum | Philipp Zerna</p>
     </footer>
-
-    <script>
-        // Navigation scroll effect
-        window.addEventListener('scroll', function() {
-            const nav = document.getElementById('nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-
-        // Mobile menu toggle
-        function toggleMobileMenu() {
-            const toggle = document.getElementById('mobileMenuToggle');
-            const menu = document.getElementById('mobileMenu');
-            toggle.classList.toggle('active');
-            menu.classList.toggle('active');
-        }
-    </script>
 </body>
 </html>
