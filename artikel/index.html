@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impressum | KI-Expertenraum</title>
-    <meta name="description" content="Impressum und Kontaktinformationen von Philipp Zerna, KI-Expertenraum.">
+    <title>Alle Artikel | KI-Expertenraum - Praxiswissen für Unternehmer</title>
+    <meta name="description" content="Alle KI-Artikel auf einen Blick: KI-Tools, Automation & Strategie. Praxisnah, ohne Hype, sofort umsetzbar.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
@@ -18,6 +18,9 @@
             --border: rgba(255, 255, 255, 0.6);
             --accent: #3b82f6;
             --accent-glow: rgba(59, 130, 246, 0.3);
+            --category-ki: #8b5cf6;
+            --category-auto: #22c55e;
+            --category-strat: #f59e0b;
         }
         html { scroll-behavior: smooth; }
         body { 
@@ -29,6 +32,7 @@
         }
         h1, h2, h3, h4 { font-family: 'DM Sans', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
         
+        /* Navigation */
         .nav { 
             position: fixed; 
             top: 0; left: 0; right: 0; 
@@ -50,7 +54,7 @@
             -webkit-text-fill-color: transparent;
             text-decoration: none;
         }
-        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
         .nav-links a { 
             color: var(--text-muted); 
             text-decoration: none; 
@@ -60,11 +64,66 @@
         }
         .nav-links a:hover { color: var(--accent); }
         
+        /* Dropdown */
+        .dropdown { position: relative; }
+        .dropdown-toggle {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+        .dropdown-toggle:hover { background: rgba(59, 130, 246, 0.2); }
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 10px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            padding: 12px;
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s;
+        }
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 16px;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+        .dropdown-menu a:hover { background: #f0f7ff; }
+        
+        /* Hero */
         .hero { 
-            padding: 160px 40px 80px; 
+            padding: 140px 40px 60px; 
             text-align: center; 
             max-width: 900px; 
             margin: 0 auto;
+        }
+        .hero-badge { 
+            display: inline-block; 
+            background: rgba(59, 130, 246, 0.1); 
+            color: var(--accent); 
+            padding: 8px 20px; 
+            border-radius: 20px; 
+            font-size: 13px; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            margin-bottom: 25px;
         }
         .hero h1 { 
             font-size: clamp(36px, 5vw, 52px); 
@@ -77,53 +136,169 @@
             -webkit-background-clip: text; 
             -webkit-text-fill-color: transparent;
         }
+        .hero-description { 
+            font-size: 19px; 
+            color: var(--text-muted); 
+            max-width: 600px; 
+            margin: 0 auto 40px;
+        }
         
-        .container { max-width: 800px; margin: 0 auto; padding: 40px 40px 80px; }
+        /* Filter */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin: 40px auto 60px;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+        .filter-btn {
+            padding: 16px 32px;
+            border-radius: 16px;
+            border: 2px solid transparent;
+            background: white;
+            color: var(--text-muted);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .filter-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+        .filter-btn.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+        .filter-btn[data-filter="ki-tools"]:hover,
+        .filter-btn[data-filter="ki-tools"].active {
+            background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
+            border-color: #8b5cf6;
+            color: white;
+        }
+        .filter-btn[data-filter="automation"]:hover,
+        .filter-btn[data-filter="automation"].active {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            border-color: #22c55e;
+            color: white;
+        }
+        .filter-btn[data-filter="strategie"]:hover,
+        .filter-btn[data-filter="strategie"].active {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            border-color: #f59e0b;
+            color: white;
+        }
+        .filter-count {
+            background: rgba(0,0,0,0.1);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .filter-btn.active .filter-count {
+            background: rgba(255,255,255,0.25);
+        }
         
-        .impressum-section {
+        /* Article Grid */
+        .articles-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px 80px;
+        }
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        /* Article Card */
+        .article-card {
             background: var(--bg-card);
             border-radius: 20px;
-            padding: 40px;
-            margin: 30px 0;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.4s;
+            border: 1px solid rgba(255,255,255,0.6);
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
         }
+        .article-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+        .article-card.hidden { display: none; }
         
-        h2 { 
-            font-size: 28px; 
-            margin: 40px 0 20px; 
-            font-weight: 800; 
-            color: var(--text);
+        .card-image {
+            height: 180px;
+            background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            position: relative;
         }
-        h3 { 
-            font-size: 22px; 
-            margin: 30px 0 15px; 
+        .card-image.ki-tools { background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%); }
+        .card-image.automation { background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); }
+        .card-image.strategie { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+        
+        .card-category {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
             font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: white;
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .card-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.3;
             color: var(--text);
         }
-        p { 
-            margin-bottom: 20px; 
-            color: var(--text-muted); 
-            font-size: 17px;
-            line-height: 1.8;
+        .card-description {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        .card-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 13px;
+            color: var(--text-light);
+            font-weight: 500;
         }
         
-        .contact-box {
-            background: linear-gradient(135deg, rgba(59,130,246,0.1) 0%, rgba(139,92,246,0.1) 100%);
-            border-radius: 16px;
-            padding: 30px;
-            margin: 30px 0;
-            border: 1px solid rgba(59,130,246,0.2);
-        }
-        .contact-box h3 {
-            margin-top: 0;
-            color: var(--accent);
-        }
-        
+        /* Footer */
         .footer { 
             background: var(--text); 
             color: rgba(255,255,255,0.7); 
             padding: 50px 40px 30px; 
-            margin-top: 80px; 
             text-align: center;
         }
         .footer-logo { 
@@ -139,9 +314,11 @@
         @media (max-width: 768px) {
             .nav { padding: 15px 20px; }
             .nav-links { display: none; }
-            .hero { padding: 120px 20px 60px; }
-            .container { padding: 30px 20px 60px; }
-            .impressum-section { padding: 25px; }
+            .hero { padding: 100px 20px 40px; }
+            .articles-section { padding: 0 20px 60px; }
+            .articles-grid { grid-template-columns: 1fr; }
+            .filter-btn { padding: 14px 24px; font-size: 15px; }
+            .filter-container { gap: 12px; margin: 30px auto 40px; }
         }
     </style>
 </head>
@@ -158,46 +335,274 @@
     </nav>
 
     <header class="hero">
-        <h1><span>Impressum</span></h1>
+        <span class="hero-badge">Wissensdatenbank</span>
+        <h1>Alle KI-Artikel <span>auf einen Blick</span></h1>
+        <p class="hero-description">Praxisnahe Guides, Tools-Vergleiche und Strategien – ohne Hype, sofort umsetzbar. Wähle deine Kategorie oder stöbere durch alle Artikel.</p>
     </header>
 
-    <main class="container">
-        <div class="impressum-section">
-            <h2>Angaben gemäß § 5 TMG</h2>
-            
-            <div class="contact-box">
-                <h3>Philipp Zerna</h3>
-                <p><strong>Adresse:</strong><br>
-                Friedensstraße 30b<br>
-                68804 Altlußheim</p>
-                
-                <p><strong>Kontakt:</strong><br>
-                E-Mail: <a href="mailto:zernaphilipp@gmail.com" style="color: var(--accent);">zernaphilipp@gmail.com</a></p>
-            </div>
-            
-            <h3>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
-            <p>Philipp Zerna<br>
-            Friedensstraße 30b<br>
-            68804 Altlußheim</p>
-            
-            <h3>Haftungsausschluss</h3>
-            <p><strong>Haftung für Inhalte</strong><br>
-            Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.</p>
-            
-            <p><strong>Haftung für Links</strong><br>
-            Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.</p>
-            
-            <h3>Urheberrecht</h3>
-            <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
-            
-            <h3>Datenschutz</h3>
-            <p>Die Nutzung unserer Website ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder E-Mail-Adressen) erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis.</p>
+    <div class="filter-container">
+        <button class="filter-btn active" data-filter="all">
+            <span>Alle Artikel</span>
+            <span class="filter-count">14</span>
+        </button>
+        <button class="filter-btn" data-filter="ki-tools">
+            <span>🤖 KI-Tools</span>
+            <span class="filter-count">5</span>
+        </button>
+        <button class="filter-btn" data-filter="automation">
+            <span>⚡ Automation</span>
+            <span class="filter-count">3</span>
+        </button>
+        <button class="filter-btn" data-filter="strategie">
+            <span>📊 Strategie</span>
+            <span class="filter-count">6</span>
+        </button>
+    </div>
+
+    <section class="articles-section">
+        <div class="articles-grid">
+            <!-- KI-TOOLS (5 Artikel) -->
+            <a href="/artikel/microsoft-copilot.html" class="article-card" data-category="ki-tools">
+                <div class="card-image ki-tools">
+                    <span>🤖</span>
+                    <span class="card-category">KI-Tools</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Microsoft Copilot für Unternehmen 2026</h3>
+                    <p class="card-description">Der komplette Guide mit Praxis-Workflows für HR, Vertrieb & Assistenz. DSGVO-konform mit ROI-Rechnung.</p>
+                    <div class="card-meta">
+                        <span>⏱️ 15 Min.</span>
+                        <span>📊 18.432 Leser</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="/artikel/openclaw.html" class="article-card" data-category="ki-tools">
+                <div class="card-image ki-tools">
+                    <span>🦾</span>
+                    <span class="card-category">KI-Tools</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">OpenClaw Masterclass</h3>
+                    <p class="card-description">Die lokale KI-Alternative: Datenschutz-konform, kostengünstig, vollständig unter Ihrer Kontrolle.</p>
+                    <div class="card-meta">
+                        <span>⏱️ 12 Min.</span>
+                        <span>📊 8.521 Leser</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="/artikel/chatgpt-vs-claude.html" class="article-card" data-category="ki-tools">
+                <div class="card-image ki-tools">
+                    <span>⚡</span>
+                    <span class="card-category">KI-Tools</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">ChatGPT vs Claude 2026</h3>
+                    <p class="card-description">Der ultimative Vergleich in 8 Kategorien mit praxisnahen Tests. Unsere Empfehlung für Unternehmer.</p>
+                    <div class="card-meta">
+                        <span>⏱️ 12 Min.</span>
+                        <span>📊 15.234 Leser</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="/artikel/ki-tools-text-produktivitaet.html" class="article-card" data-category="ki-tools">
+                <div class="card-image ki-tools">
+                    <span>📝</span>
+                    <span class="card-category">KI-Tools</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">KI-Tools für Text & Produktivität</h3>
+                    <p class="card-description">Die besten KI-Tools für Content, E-Mails, Dokumente und mehr – mit Preisen, Limits und Datenschutz-Einschätzung.</p>
+                    <div class="card-meta">
+                        <span>⏱️ 18 Min.</span>
+                        <span>📊 12.847 Leser</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="/artikel/ki-tools-bild-video-kreativ.html" class="article-card" data-category="ki-tools">
+                <div class="card-image ki-tools">
+                    <span>🎨</span>
+                    <span class="card-category">KI-Tools</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">KI-Tools für Bild & Video</h3>
+                    <p class="card-description">Midjourney, DALL-E, Runway und mehr. Der komplette Guide für visuelle Kreativarbeit mit KI.</p>
+                    <div class="card-meta">
+                        <span>⏱️ 16 Min.</span>
+                        <span>📊 11.234 Leser</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- AUTOMATION (3 Artikel) -->
+            <a href="/artikel/bueroautomatisierung.html" class="article-card" data-category="automation">
+                <div class="card-image automation">
+                    <span>⚙️</span>
+                    <span class="card-category">Automation</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Büroautomatisierung: 10 Workflows</h3>
+                    <p class="card-description">Sofort umsetzbare No-Code Automationen für E-Mail-Management, Rechnungen, Onboarding & mehr.</p>
+                    <div class="card-meta">
+                        <span>⏱️ 18 Min.</span>
+                        <span>📊 12.847 Leser</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="/artikel/ki-agenten.html" class="article-card" data-category="automation">
+                <div class="card-image automation">
+                    <span>🤖</span>
+                    <span class="card-category">Automation</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">KI-Agenten für Unternehmen 2026</h3>
+                    <p class="card-description">Automatisieren Sie Geschäftsprozesse mit autonomen KI-Assistenten – ohne Programmieren.</p>
+                    <div class="card-meta">
+                        <span>⏱️ 16 Min.</span>
+                        <span>📊 11.234 Leser</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="/artikel/excel-ki-automatisierung.html" class="article-card" data-category="automation">
+                <div class="card-image automation">
+                    <span>📊</span>
+                    <span class="card-category">Automation</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Excel KI Automatisierung</h3>
+                    <p class="card-description">Formeln per KI generieren, Daten analysieren, Berichte erstellen – ganz ohne VBA oder Programmieren.</p>
+                    <div class="card-meta">
+                        <span>⏱️ 14 Min.</span>
+                        <span>📊 9.876 Leser</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- STRATEGIE (6 Artikel) -->
+            <a href="/artikel/ki-einfuehrung.html" class="article-card" data-category="strategie">
+                <div class="card-image strategie">
+                    <span>🎯</span>
+                    <span class="card-category">Strategie</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">KI im Mittelstand einführen</h3>
+                    <p class="card-description">Die bewährte 90-Tage-Roadmap von der Strategie bis zur produktiven Nutzung mit messbarem ROI.</p>
+                    <div class="card-meta">
+                        <span>⏱️ 16 Min.</span>
+                        <span>📊 9.231 Leser</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="/artikel/ki-beauftragter.html" class="article-card" data-category="strategie">
+                <div class="card-image strategie">
+                    <span>👔</span>
+                    <span class="card-category">Strategie</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">KI-Beauftragter in 30 Tagen</h3>
+                    <p class="card-description">Der komplette Plan für Ihre neue Rolle als KI-Beauftragter mit Checklisten, Templates und Priorisierung.</p>
+                    <div class="card-meta">
+                        <span>⏱️ 14 Min.</span>
+                        <span>📊 7.543 Leser</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="/artikel/25-ki-prompts.html" class="article-card" data-category="strategie">
+                <div class="card-image strategie">
+                    <span>💬</span>
+                    <span class="card-category">Strategie</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">25 KI-Prompts für KMU</h3>
+                    <p class="card-description">Fertige, optimierte Prompts für Marketing, Vertrieb, Büro. Copy & Paste-fertig – sparen Sie 10h/Woche.</p>
+                    <div class="card-meta">
+                        <span>⏱️ 15 Min.</span>
+                        <span>📊 21.456 Leser</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="/artikel/eu-ai-act-checkliste.html" class="article-card" data-category="strategie">
+                <div class="card-image strategie">
+                    <span>⚖️</span>
+                    <span class="card-category">Strategie</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">EU AI Act Checkliste 2026</h3>
+                    <p class="card-description">Alle Pflichten, Fristen und Vorlagen für KMU. Der komplette Leitfaden mit Schritt-für-Schritt Plan.</p>
+                    <div class="card-meta">
+                        <span>⏱️ 12 Min.</span>
+                        <span>📊 14.832 Leser</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="/artikel/ki-rechtssicher-nutzen.html" class="article-card" data-category="strategie">
+                <div class="card-image strategie">
+                    <span>🛡️</span>
+                    <span class="card-category">Strategie</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">KI rechtssicher nutzen</h3>
+                    <p class="card-description">DSGVO, Urheberrecht, Haftung – alles was Unternehmer wissen müssen für compliance-konforme KI-Nutzung.</p>
+                    <div class="card-meta">
+                        <span>⏱️ 13 Min.</span>
+                        <span>📊 10.123 Leser</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="/artikel/ki-im-vertrieb.html" class="article-card" data-category="strategie">
+                <div class="card-image strategie">
+                    <span>📈</span>
+                    <span class="card-category">Strategie</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">KI im Vertrieb: 12 Strategien</h3>
+                    <p class="card-description">Cold-Emails, Angebotsautomatisierung, Lead-Qualifizierung. Bewährte Strategien mit messbarem ROI.</p>
+                    <div class="card-meta">
+                        <span>⏱️ 16 Min.</span>
+                        <span>📊 13.567 Leser</span>
+                    </div>
+                </div>
+            </a>
         </div>
-    </main>
+    </section>
 
     <footer class="footer">
         <div class="footer-logo">KI-Expertenraum</div>
         <p>© 2026 KI-Expertenraum | Philipp Zerna</p>
     </footer>
+
+    <script>
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const articleCards = document.querySelectorAll('.article-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Filter articles
+                const filter = btn.dataset.filter;
+                articleCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
