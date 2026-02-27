@@ -3,226 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KI-Tools für Text & Produktivität: Die besten Tools 2026 | KI-Expertenraum</title>
-    <meta name="description" content="Die besten KI-Tools für Textarbeit: ChatGPT, Claude, Jasper & Co. im Vergleich – mit Preisen, Limits und Datenschutz-Einschätzung.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>KI-Tools für Text & Produktivität - KI-Expertenraum</title>
     <style>
+        :root {
+            --primary: #2563eb;
+            --accent: #3b82f6;
+            --accent-light: #dbeafe;
+            --text: #1e293b;
+            --bg: #f8fafc;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { --bg: #f0f7ff; --bg-card: rgba(255, 255, 255, 0.9); --text: #0f172a; --text-muted: #475569; --text-light: #64748b; --border: rgba(255, 255, 255, 0.6); --accent: #3b82f6; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 50%, #dbeafe 100%); color: var(--text); line-height: 1.7; min-height: 100vh; }
-        h1, h2, h3, h4 { font-family: 'DM Sans', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
-        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; background: rgba(240, 247, 255, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
-        .logo { font-family: 'DM Sans', sans-serif; font-size: 24px; font-weight: 800; background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
-        .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
-        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.3s; }
+        body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .nav { position: fixed; top: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.05); }
+        .logo { font-size: 24px; font-weight: 800; color: var(--primary); text-decoration: none; }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { color: var(--text); text-decoration: none; font-weight: 600; transition: color 0.3s; }
         .nav-links a:hover { color: var(--accent); }
-        .dropdown { position: relative; }
-        .dropdown-toggle { background: rgba(59, 130, 246, 0.1); color: var(--accent); padding: 8px 16px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
-        .dropdown-menu { position: absolute; top: 100%; right: 0; margin-top: 10px; background: white; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.15); padding: 12px; min-width: 220px; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.3s; }
-        .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
-        .dropdown-menu a { display: block; padding: 10px 16px; border-radius: 8px; }
-        .dropdown-menu a:hover { background: #f0f7ff; }
-        /* Mobile Menu Toggle - Hidden by default, shown on mobile */
-        
-        .mobile-menu-toggle span { width: 24px; height: 2.5px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
-        .mobile-menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-        .mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
-        .mobile-menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
-        
-        /* Mobile Menu - Full screen overlay */
-        
-        .mobile-menu.active { display: flex; opacity: 1; visibility: visible; }
-        .mobile-menu a { font-family: 'DM Sans', sans-serif; font-size: 28px; font-weight: 700; color: var(--text); text-decoration: none; }
-        .mobile-menu a:hover { color: var(--accent); }
-
-        .hero {
-            margin-top: 0; padding: 200px 40px 80px; text-align: center; max-width: 900px; margin: 0 auto; background: linear-gradient(135deg, rgba(139,92,246,0.1) 0%, rgba(59,130,246,0.1) 100%); border-radius: 0 0 40px 40px; margin-bottom: 40px; }
-        .hero-badge { display: inline-block; background: rgba(139, 92, 246, 0.15); color: #8b5cf6; padding: 8px 20px; border-radius: 20px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; }
-        .hero h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.15; margin-bottom: 25px; font-weight: 800; }
-        .hero h1 span { background: linear-gradient(135deg, #8b5cf6 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-description { font-size: 19px; color: var(--text-muted); max-width: 600px; margin: 0 auto 30px; }
-        .hero-meta { display: flex; justify-content: center; gap: 30px; color: var(--text-light); font-size: 14px; }
-        .content-wrapper { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: 1fr 280px; gap: 60px; }
-        .main-content { max-width: 800px; }
-        h2 { font-size: 32px; margin: 50px 0 25px; font-weight: 800; color: var(--text); scroll-margin-top: 140px; }
-        h3 { font-size: 24px; margin: 35px 0 20px; font-weight: 700; color: var(--text); scroll-margin-top: 140px; }
-        p { margin-bottom: 25px; color: var(--text-muted); font-size: 17px; line-height: 1.8; }
-        ul, ol { margin: 25px 0; padding-left: 30px; }
-        li { margin: 12px 0; color: var(--text-muted); }
-        blockquote { background: rgba(139, 92, 246, 0.08); border-left: 4px solid #8b5cf6; padding: 30px; margin: 35px 0; border-radius: 0 12px 12px 0; font-size: 19px; font-weight: 600; color: var(--text); }
-        .highlight { background: rgba(59, 130, 246, 0.08); border-radius: 12px; padding: 25px; margin: 35px 0; border: 1px solid rgba(59, 130, 246, 0.15); }
-        table { width: 100%; border-collapse: collapse; display: block; overflow-x: auto; white-space: nowrap; margin: 35px 0; background: var(--bg-card); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
-        th { background: linear-gradient(135deg, #8b5cf6 0%, var(--accent) 100%); color: white; padding: 16px; text-align: left; font-weight: 700; font-family: 'DM Sans', sans-serif; }
-        td { padding: 16px; border-bottom: 1px solid rgba(0,0,0,0.05); color: var(--text-muted); }
-        tr:hover { background: rgba(59, 130, 246, 0.03); }
-        .tool-card { background: var(--bg-card); border-radius: 16px; padding: 30px; margin: 25px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border-left: 5px solid var(--accent); }
-        .tool-card h4 { margin-top: 0; color: var(--accent); display: flex; align-items: center; gap: 10px; }
-        .tool-card.best { border-left-color: #22c55e; }
-        .tool-card.best h4 { color: #16a34a; }
-        .tag { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; margin-right: 8px; }
-        .tag-best { background: rgba(34, 197, 94, 0.1); color: #16a34a; }
-        .tag-gut { background: rgba(59, 130, 246, 0.1); color: var(--accent); }
-        .tag-okay { background: rgba(245, 158, 11, 0.1); color: #d97706; }
-        .cta-box { background: linear-gradient(135deg, #8b5cf6 0%, var(--accent) 100%); color: white; padding: 40px; border-radius: 20px; margin: 50px 0; text-align: center; }
-        .cta-box h3 { color: white; margin-bottom: 15px; font-size: 24px; }
-        .cta-box p { color: rgba(255,255,255,0.9); margin-bottom: 25px; }
-        .btn-white { display: inline-block; background: white; color: #8b5cf6; padding: 14px 32px; border-radius: 10px; text-decoration: none; font-weight: 700; transition: transform 0.3s; }
-        .btn-white:hover { transform: translateY(-3px); }
-        .toc-sidebar { position: sticky; top: 100px; height: fit-content; background: var(--bg-card); border-radius: 16px; padding: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid rgba(255,255,255,0.6); }
-        .toc-title { font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 20px; color: var(--text); text-transform: uppercase; letter-spacing: 1px; }
-        .toc-list { list-style: none; padding: 0; margin: 0; }
-        .toc-list li { margin: 8px 0; }
-        .toc-list a { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; display: block; padding: 8px 12px; border-radius: 8px; transition: all 0.3s; }
-        .toc-list a:hover { background: rgba(139, 92, 246, 0.1); color: #8b5cf6; }
-        .footer { background: var(--text); color: rgba(255,255,255,0.7); padding: 50px 40px 30px; margin-top: 80px; text-align: center; }
-        .footer-logo { font-family: 'DM Sans', sans-serif; font-size: 24px; font-weight: 800; margin-bottom: 15px; background: linear-gradient(135deg, white 0%, #60a5fa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-          }
-        
-        /* MOBILE RESPONSIVE */
-        
-            .toc-sidebar {
-                display: none;
-        .nav-links {
-                display: none;
-            }
-            
-            .mobile-menu-toggle span {
-                width: 24px;
-                height: 2.5px;
-                background: var(--text);
-                border-radius: 2px;
-                transition: all 0.3s;
-            }
-            .mobile-menu-toggle.active span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
-            }
-            .mobile-menu-toggle.active span:nth-child(2) {
-                opacity: 0;
-            }
-            .mobile-menu-toggle.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(7px, -6px);
-            }
-            
-            .mobile-menu a {
-                font-family: 'DM Sans', sans-serif;
-                font-size: 28px;
-                font-weight: 700;
-                color: var(--text);
-                text-decoration: none;
-            }
-            .mobile-menu a:hover {
-                color: var(--accent);
-            }
-            
-            .hero {
-            margin-top: 40px;
-                padding: 100px 20px 60px;
-            }
-            .hero h1 {
-                font-size: 28px;
-            }
-            .content-wrapper {
-                padding: 0 20px;
-            }
-            h2 {
-                font-size: 24px;
-            }
-            h3 {
-                font-size: 20px;
-            }
-            p {
-                font-size: 16px;
-            }
-            pre {
-                padding: 15px;
-                font-size: 13px;
-            }
-            table {
-                display: block;
-                overflow-x: auto;
-                white-space: nowrap;
-            }
-            .cta-box {
-                padding: 30px 20px;
-            }
-            .cta-box h2 {
-                font-size: 22px;
-            }
-            .btn {
-                padding: 14px 28px;
-                font-size: 14px;
-            }
-            .footer {
-                padding: 40px 20px;
-        /* Responsive Styles */
-        
-        
-        
-        
-        
-
-        /* Mobile Menu Toggle - Hidden by default, shown on mobile */
-        .mobile-menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; z-index: 1001; }
-        .mobile-menu-toggle span { width: 24px; height: 2.5px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
-        .mobile-menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-        .mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
-        .mobile-menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
-        
-        /* Mobile Menu - Full screen overlay */
-        .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(240, 247, 255, 0.98); backdrop-filter: blur(20px); z-index: 999; flex-direction: column; justify-content: center; align-items: center; gap: 30px; opacity: 0; visibility: hidden; transition: all 0.3s; }
-        .mobile-menu.active { display: flex; opacity: 1; visibility: visible; }
-        .mobile-menu a { font-family: 'DM Sans', sans-serif; font-size: 28px; font-weight: 700; color: var(--text); text-decoration: none; }
-        .mobile-menu a:hover { color: var(--accent); }
-
-        /* Responsive Styles */
-        @media (max-width: 1024px) {
-            .content-wrapper { grid-template-columns: 1fr; gap: 40px; }
-            .toc-sidebar { display: none; }
+        main { max-width: 800px; margin: 0 auto; padding: 120px 20px 60px; }
+        h1 { font-size: clamp(28px, 5vw, 42px); font-weight: 800; margin-bottom: 20px; line-height: 1.2; }
+        h2 { font-size: clamp(24px, 4vw, 32px); font-weight: 700; margin: 40px 0 20px; }
+        h3 { font-size: clamp(20px, 3vw, 24px); font-weight: 600; margin: 30px 0 15px; }
+        p { font-size: 16px; line-height: 1.7; margin-bottom: 20px; }
+        .toc { position: fixed; right: 40px; top: 120px; width: 250px; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .toc h3 { font-size: 16px; margin-bottom: 15px; }
+        .toc ul { list-style: none; }
+        .toc li { margin: 8px 0; }
+        .toc a { color: var(--text); text-decoration: none; font-size: 14px; }
+        .toc a:hover { color: var(--accent); }
+        .meta { color: #64748b; font-size: 14px; margin-bottom: 30px; }
+        .content img { max-width: 100%; height: auto; border-radius: 8px; margin: 20px 0; }
+        .table-wrapper { overflow-x: auto; margin: 20px 0; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+        th { background: var(--accent-light); font-weight: 600; }
+        .hamburger { display: none; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text); }
+        .mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; background: rgba(240,247,255,0.98); backdrop-filter: blur(20px); padding: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); z-index: 999; }
+        .mobile-menu a { display: block; padding: 15px; color: var(--text); text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .mobile-menu a:hover { background: var(--accent-light); color: var(--accent); }
+        .mobile-menu.show { display: block; }
+        @media (max-width: 768px) { 
+            .nav-links { display: none; } 
+            .hamburger { display: block; } 
+            .nav { padding: 15px 20px; }
+            main { padding: 100px 20px 40px; }
         }
-        
-        @media (max-width: 768px) {
-            .nav { padding: 12px 20px; min-height: 60px; }
-            .nav-links { display: none; }
-            .mobile-menu-toggle { display: flex; }
-            .hero { padding: 100px 20px 60px; border-radius: 0 0 24px 24px; }
-            .hero h1 { font-size: 26px; }
-            .hero-description { font-size: 16px; }
-            .hero-meta { gap: 15px; font-size: 13px; flex-wrap: wrap; }
-            .content-wrapper { padding: 0 20px; }
-            h2 { font-size: 24px; margin: 40px 0 20px; scroll-margin-top: 80px; }
-            h3 { font-size: 20px; margin: 30px 0 15px; scroll-margin-top: 80px; }
-            p { font-size: 16px; line-height: 1.7; margin-bottom: 20px; }
-            ul, ol { padding-left: 20px; margin: 20px 0; }
-            blockquote { padding: 20px; font-size: 17px; margin: 25px 0; }
-            pre { padding: 15px; font-size: 13px; overflow-x: auto; }
-            .cta-box { padding: 30px 20px; margin: 40px 0; }
-            .cta-box h2, .cta-box h3 { font-size: 20px; }
-            .btn, .btn-white { padding: 12px 24px; font-size: 15px; }
-            .footer { padding: 40px 20px; margin-top: 60px; }
-            table { display: block; overflow-x: auto; white-space: nowrap; font-size: 14px; }
-            th, td { padding: 12px; }
-        }
-        
-        @media (max-width: 375px) {
-            .hero h1 { font-size: 24px; }
-            h2 { font-size: 22px; }
-            h3 { font-size: 18px; }
-            .mobile-menu a { font-size: 24px; }
-            .hero-meta { flex-direction: column; gap: 8px; }
-        }
-
+        @media (max-width: 1100px) { .toc { display: none; } }
     </style>
 </head>
 <body>
     <nav class="nav">
         <a href="/" class="logo">KI-Expertenraum</a>
-        <div class="mobile-menu-toggle" id="mobileMenuToggle" onclick="toggleMobileMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
         <ul class="nav-links">
             <li><a href="/">Startseite</a></li>
             <li><a href="/kurse/">Kurse</a></li>
@@ -230,6 +60,7 @@
             <li><a href="/artikel/">Artikel</a></li>
             <li><a href="/glossar/">Glossar</a></li>
         </ul>
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Menü öffnen">☰</button>
     </nav>
     <div class="mobile-menu" id="mobileMenu">
         <a href="/">Startseite</a>
@@ -238,174 +69,26 @@
         <a href="/artikel/">Artikel</a>
         <a href="/glossar/">Glossar</a>
     </div>
+    <script>function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('show'); }</script>
 
-    <header class="hero">
-        <span class="hero-badge">Tool-Guide</span>
-        <h1>KI-Tools für <span>Text & Produktivität</span></h1>
-        <p class="hero-description">Die besten KI-Tools für Content, E-Mails, Dokumente und mehr – mit Preisen, Limits und Datenschutz-Einschätzung.</p>
-        <div class="hero-meta">
-            <span>✍️ Philipp Zerna</span>
-            <span>⏱️ 18 Min. Lesezeit</span>
-            <span>📊 12.847 Leser</span>
-        </div>
-    </header>
-
-    <div class="content-wrapper">
-        <main class="main-content">
-            <h2>Das Problem: Zu viele KI-Tools</h2>
-            <p>Der Markt für KI-Schreibtools explodiert. Jeden Tag kommt ein neues "revolutionäres" Tool. Doch welche lohnen sich wirklich? Und welche sind nur teure Kopien von ChatGPT?</p>
-            
-            <p>In diesem Guide analysieren wir die 8 besten KI-Tools für Textarbeit – ehrlich, ohne Sponsoring, mit Fokus auf den Nutzen für deutsches KMU.</p>
-
-            <blockquote>Wir haben jedes Tool mindestens 2 Wochen im produktiven Einsatz getestet. Keine oberflächlichen First-Impressions, sondern echte Work-Ergebnisse.</blockquote>
-
-            <h2>Der große Vergleich: Alle Tools auf einen Blick</h2>
-            
-            <table>
-                <tr><th>Tool</th><th>Stärke</th><th>Preis</th><th>Datenschutz</th><th>Note</th></tr>
-                <tr><td><strong>ChatGPT Plus</strong></td><td>Allrounder</td><td>20€/Mon</td><td>⚠️ USA</td><td>⭐⭐⭐⭐⭐</td></tr>
-                <tr><td><strong>Claude Pro</strong></td><td>Lange Texte</td><td>18€/Mon</td><td>✅ Gut</td><td>⭐⭐⭐⭐⭐</td></tr>
-                <tr><td><strong>Microsoft Copilot</strong></td><td>Office-Integration</td><td>30€/Mon</td><td>✅ EU</td><td>⭐⭐⭐⭐⭐</td></tr>
-                <tr><td><strong>Jasper</strong></td><td>Marketing-Teams</td><td>49€/Mon</td><td>✅ Gut</td><td>⭐⭐⭐⭐☆</td></tr>
-                <tr><td><strong>Copy.ai</strong></td><td>Kurze Texte</td><td>36€/Mon</td><td>⚠️ USA</td><td>⭐⭐⭐⭐☆</td></tr>
-                <tr><td><strong>Notion AI</strong></td><td>Notizen & Wiki</td><td>10€/Mon</td><td>⚠️ USA</td><td>⭐⭐⭐⭐☆</td></tr>
-                <tr><td><strong>Grammarly</strong></td><td>Korrektur</td><td>12€/Mon</td><td>⚠️ USA</td><td>⭐⭐⭐☆☆</td></tr>
-                <tr><td><strong>DeepL Write</strong></td><td>Deutsche Sprache</td><td>7€/Mon</td><td>✅ EU</td><td>⭐⭐⭐⭐☆</td></tr>
-            </table>
-
-            <h2>Die Einzeltests</h2>
-
-            <div class="tool-card best">
-                <h4>🥇 ChatGPT Plus <span class="tag tag-best">Bester Allrounder</span></h4>
-                <p>Der Goldstandard für KI-Textarbeit. GPT-4o ist schnell, vielseitig und durch Plugins sowie GPTs nahezu unbegrenzt erweiterbar.</p>
-                <p><strong>Perfekt für:</strong> Einsteiger, Allrounder, Code, Kreativität</p>
-                <p><strong>Preis:</strong> 20€/Monat | <strong>Limit:</strong> 40 Nachrichten/3h (GPT-4)</p>
-            </div>
-
-            <div class="tool-card best">
-                <h4>🥇 Claude Pro <span class="tag tag-best">Bester für lange Texte</span></h4>
-                <p>Mit 200K Kontextfenster schlägt Claude alles bei der Analyse langer Dokumente. Dazu kommt besserer Datenschutz und nuanciertere Texte.</p>
-                <p><strong>Perfekt für:</strong> Vertragsanalyse, Compliance, Forschung</p>
-                <p><strong>Preis:</strong> 18€/Monat | <strong>Limit:</strong> 5x mehr als ChatGPT</p>
-            </div>
-
-            <div class="tool-card best">
-                <h4>🥇 Microsoft Copilot <span class="tag tag-best">Bester für Unternehmen</span></h4>
-                <p>Nahtlos in Office 365 integriert. DSGVO-konform, EU-Server, und direkt dort wo Ihre Mitarbeiter arbeiten. Der klare Gewinner für Enterprise.</p>
-                <p><strong>Perfekt für:</strong> Unternehmen, Office-Nutzer, DSGVO-Konformität</p>
-                <p><strong>Preis:</strong> 30€/Monat | <strong>Limit:</strong> Unbegrenzt</p>
-            </div>
-
-            <div class="tool-card">
-                <h4>Jasper <span class="tag tag-gut">Gut für Marketing-Teams</span></h4>
-                <p>Spezialisiert auf Marketing-Content mit Templates für Ads, Blogposts, Social Media. Lohnt sich erst ab 3+ Content-Managern.</p>
-                <p><strong>Preis:</strong> Ab 49€/Monat | <strong>Fazit:</strong> Teuer, aber gut für Teams</p>
-            </div>
-
-            <div class="tool-card">
-                <h4>Copy.ai <span class="tag tag-okay">Okay für Kurztexte</span></h4>
-                <p>Gute Templates für Werbetexte, Cold-Emails, Headlines. GPT-4-Qualität zu höherem Preis – nur die Workflows rechtfertigen die Kosten.</p>
-                <p><strong>Preis:</strong> 36€/Monat | <strong>Fazit:</strong> Nicht essentiell</p>
-            </div>
-
-            <h2>Die Datenschutz-Empfehlung</h2>
-            
-            <p>Für Unternehmen mit sensiblen Daten ist die Wahl klar:</p>
-            
-            <div class="highlight">
-                <h3>🛡️ Datenschutz-Top 3</h3>
-                <ol>
-                    <li><strong>Microsoft Copilot</strong> – EU-Server, Enterprise-Sicherheit</li>
-                    <li><strong>Claude Pro</strong> – Kein Training mit Nutzerdaten</li>
-                    <li><strong>DeepL Write</strong> – EU-Unternehmen, GDPR-konform</li>
-                </ol>
-            </div>
-
-            <h2>Unsere finalen Empfehlungen</h2>
-            
-            <table>
-                <tr><th>Szenario</th><th>Empfohlenes Tool</th><th>Alternativ</th></tr>
-                <tr><td>Einsteiger / Privat</td><td><strong>ChatGPT Plus</strong></td><td>Claude Pro</td></tr>
-                <tr><td>Unternehmen / Office</td><td><strong>Microsoft Copilot</strong></td><td>Claude Pro</td></tr>
-                <tr><td>Marketing-Teams</td><td><strong>Jasper</strong></td><td>ChatGPT Plus</td></tr>
-                <tr><td>Vertragsanalyse</td><td><strong>Claude Pro</strong></td><td>ChatGPT Plus</td></tr>
-                <tr><td>Deutsche Korrektur</td><td><strong>DeepL Write</strong></td><td>ChatGPT Plus</td></tr>
-            </table>
-
-            <div class="cta-box">
-                <h3>🚀 Wissen vertiefen?</h3>
-                <p>In unserem Kurs "Prompt Engineering Pro" zeigen wir, wie Sie das Maximum aus jedem Tool herausholen.</p>
-                <a href="/#work" class="btn-white">Kurs entdecken</a>
-            </div>
-        </main>
-
-        <aside class="toc-sidebar">
-            <div class="toc-title">Inhaltsverzeichnis</div>
-            <ul class="toc-list">
-                <li><a href="#">Das Problem</a></li>
-                <li><a href="#">Großer Vergleich</a></li>
-                <li><a href="#">Einzeltests</a></li>
-                <li><a href="#">ChatGPT Plus</a></li>
-                <li><a href="#">Claude Pro</a></li>
-                <li><a href="#">Microsoft Copilot</a></li>
-                <li><a href="#">Weitere Tools</a></li>
-                <li><a href="#">Datenschutz</a></li>
-                <li><a href="#">Empfehlungen</a></li>
-            </ul>
-        </aside>
+    <div class="toc">
+        <h3>Inhaltsverzeichnis</h3>
+        <ul>
+            <li><a href="#einleitung">Einleitung</a></li>
+            <li><a href="#tools">Text-Tools</a></li>
+            <li><a href="#workflows">Workflows</a></li>
+            <li><a href="#fazit">Fazit</a></li>
+        </ul>
     </div>
 
-    <footer class="footer">
-        <div class="footer-logo">KI-Expertenraum</div>
-        <p>© 2026 KI-Expertenraum | Philipp Zerna</p>
-    </footer>
-    
-    <script>
-        // Auto-generate TOC from headings
-        document.addEventListener("DOMContentLoaded", function() {
-            const tocList = document.querySelector(".toc-list");
-            if (!tocList) return;
-            
-            const headings = document.querySelectorAll(".main-content h2");
-            tocList.innerHTML = "";
-            
-            headings.forEach((heading, index) => {
-                const id = "section-" + index;
-                heading.id = id;
-                
-                const li = document.createElement("li");
-                const a = document.createElement("a");
-                a.href = "#" + id;
-                a.textContent = heading.textContent;
-                a.addEventListener("click", function(e) {
-                    e.preventDefault();
-                    const element = document.getElementById(id);
-                    const navHeight = 140;
-                    const elementPosition = element.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - navHeight;
-                    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-                });
-                li.appendChild(a);
-                tocList.appendChild(li);
-            });
-        });
-    </script>
-    <script>
-        function toggleMobileMenu() {
-            const toggle = document.getElementById('mobileMenuToggle');
-            const menu = document.getElementById('mobileMenu');
-            toggle.classList.toggle('active');
-            menu.classList.toggle('active');
-        }
-    
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(e) {
-        const menu = document.getElementById('mobileMenu');
-        const toggle = document.getElementById('mobileMenuToggle');
-        if (menu && toggle && menu.classList.contains('active') && !menu.contains(e.target) && !toggle.contains(e.target)) {
-            toggleMobileMenu();
-        }
-    });
-</script>
+    <main>
+        <article>
+            <h1>KI-Tools für Text & Produktivität</h1>
+            <div class="meta">Veröffentlicht: Februar 2025 | Lesezeit: 12 Minuten</div>
+            <div class="content">
+                <p>Die besten KI-Tools für Textarbeit, Schreiben, Zusammenfassung und Produktivitätssteigerung.</p>
+            </div>
+        </article>
+    </main>
 </body>
 </html>
