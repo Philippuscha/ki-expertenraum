@@ -217,8 +217,14 @@
         
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
+        }
+        
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
         
         .service-card {
@@ -589,6 +595,20 @@
                         <li>E-Book Erstellung & Formatierung</li>
                         <li>Layout & Cover-Design</li>
                         <li>Self-Publishing Betreuung</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-image" style="background: url('/public/images/bewerbung.png') center/cover;"></div>
+                <div class="service-content">
+                    <h3>Bewerbungen schreiben</h3>
+                    <p>Überzeuge Personaler mit KI-gestützten Bewerbungsunterlagen – professionell, individuell und erfolgsorientiert.</p>
+                    <ul class="service-features">
+                        <li>Optimierter Lebenslauf mit KI</li>
+                        <li>Überzeugende Anschreiben</li>
+                        <li>LinkedIn-Profil Optimierung</li>
+                        <li>Vorbereitung auf Vorstellungsgespräche</li>
                     </ul>
                 </div>
             </div>
