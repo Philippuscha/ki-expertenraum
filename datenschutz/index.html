@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenschutz | KI-Expertenraum</title>
+    <meta name="description" content="Datenschutzerklärung von KI-Expertenraum. Informationen zur Datenverarbeitung nach DSGVO.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { 
+            --bg: #f0f7ff; 
+            --bg-card: rgba(255, 255, 255, 0.95);
+            --text: #0f172a; 
+            --text-muted: #475569; 
+            --accent: #3b82f6;
+            --accent-light: #dbeafe;
+        }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 50%, #dbeafe 100%); 
+            color: var(--text); 
+            line-height: 1.7;
+        }
+        h1, h2, h3 { font-family: 'DM Sans', sans-serif; font-weight: 700; }
+        
+        /* Navigation */
+        .nav { 
+            position: fixed; 
+            top: 0; left: 0; right: 0; 
+            z-index: 1000; 
+            padding: 20px 40px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            background: rgba(240, 247, 255, 0.95); 
+            backdrop-filter: blur(20px); 
+            border-bottom: 1px solid rgba(255,255,255,0.6);
+        }
+        .logo { 
+            font-family: 'DM Sans', sans-serif; 
+            font-size: 24px; 
+            font-weight: 800; 
+            background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { 
+            color: var(--text-muted); 
+            text-decoration: none; 
+            font-size: 15px; 
+            font-weight: 600; 
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--accent); }
+        .hamburger { display: none; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text); }
+        .mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; background: rgba(240,247,255,0.98); backdrop-filter: blur(20px); padding: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); z-index: 999; }
+        .mobile-menu a { display: block; padding: 15px; color: var(--text); text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .mobile-menu a:hover { background: var(--accent-light); color: var(--accent); }
+        .mobile-menu.show { display: block; }
+        @media (max-width: 768px) { .nav-links { display: none; } .hamburger { display: block; } .nav { padding: 15px 20px; } }
+        
+        /* Hero */
+        .hero { 
+            padding: 140px 40px 60px; 
+            text-align: center; 
+            max-width: 800px; 
+            margin: 0 auto;
+        }
+        .hero h1 { 
+            font-size: clamp(32px, 5vw, 48px); 
+            line-height: 1.15; 
+            margin-bottom: 20px; 
+        }
+        .hero h1 span { 
+            background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Content */
+        .container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 0 40px 80px;
+        }
+        .section { 
+            background: var(--bg-card); 
+            border-radius: 20px; 
+            padding: 40px; 
+            margin-bottom: 30px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        .section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        .section h3 {
+            font-size: 22px;
+            margin: 30px 0 15px;
+            color: var(--text);
+        }
+        .section p {
+            margin-bottom: 15px;
+            color: var(--text-muted);
+        }
+        .section ul {
+            margin-left: 25px;
+            margin-bottom: 15px;
+            color: var(--text-muted);
+        }
+        .section li {
+            margin-bottom: 8px;
+        }
+        .highlight {
+            background: var(--accent-light);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+            margin: 20px 0;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .container { padding: 0 20px 60px; }
+            .section { padding: 25px; }
+            .section h2 { font-size: 24px; }
+            .section h3 { font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="/" class="logo">KI-Expertenraum</a>
+        <ul class="nav-links">
+            <li><a href="/">Startseite</a></li>
+            <li><a href="/kurse/">Kurse</a></li>
+            <li><a href="/services/">Services</a></li>
+            <li><a href="/artikel/">Artikel</a></li>
+            <li><a href="/glossar/">Glossar</a></li>
+        </ul>
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Menü öffnen">☰</button>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="/">Startseite</a>
+        <a href="/kurse/">Kurse</a>
+        <a href="/services/">Services</a>
+        <a href="/artikel/">Artikel</a>
+        <a href="/glossar/">Glossar</a>
+    </div>
+    <script>function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('show'); }</script>
+
+    <header class="hero">
+        <h1><span>Datenschutz</span>erklärung</h1>
+    </header>
+
+    <main class="container">
+        <div class="section">
+            <h2>1. Datenschutz auf einen Blick</h2>
+            
+            <h3>Allgemeine Hinweise</h3>
+            <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
+            
+            <h3>Datenerfassung auf dieser Website</h3>
+            <p><strong>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong></p>
+            <p>Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.</p>
+            
+            <p><strong>Wie erfassen wir Ihre Daten?</strong></p>
+            <p>Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen (z.B. per E-Mail). Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst.</p>
+            
+            <p><strong>Wofür nutzen wir Ihre Daten?</strong></p>
+            <p>Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.</p>
+        </div>
+
+        <div class="section">
+            <h2>2. Hosting</h2>
+            <p>Wir hosten die Inhalte unserer Website bei folgendem Anbieter:</p>
+            
+            <h3>Hostinger</h3>
+            <p>Anbieter ist die Hostinger International Ltd., 61 Lordou Vironos Street, 6023 Larnaca, Zypern.</p>
+            <p>Details entnehmen Sie der Datenschutzerklärung von Hostinger: <a href="https://www.hostinger.de/datenschutz" target="_blank">https://www.hostinger.de/datenschutz</a></p>
+            <p>Die Verwendung von Hostinger erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein berechtigtes Interesse an einer möglichst zuverlässigen Darstellung unserer Website.</p>
+        </div>
+
+        <div class="section">
+            <h2>3. Allgemeine Hinweise und Pflichtinformationen</h2>
+            
+            <h3>Datenschutz</h3>
+            <p>Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
+            
+            <h3>Hinweis zur verantwortlichen Stelle</h3>
+            <div class="highlight">
+                <p><strong>Verantwortlich für die Datenverarbeitung auf dieser Website ist:</strong></p>
+                <p>Philipp Zerna<br>
+                E-Mail: zernaphilipp@gmail.com</p>
+                <p>Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten entscheidet.</p>
+            </div>
+            
+            <h3>Speicherdauer</h3>
+            <p>Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die Datenverarbeitung entfällt.</p>
+            
+            <h3>Allgemeine Hinweise zu den Rechtsgrundlagen</h3>
+            <p>Die Datenverarbeitung auf dieser Website erfolgt auf Grundlage von:</p>
+            <ul>
+                <li>Art. 6 Abs. 1 lit. a DSGVO (Einwilligung)</li>
+                <li>Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)</li>
+                <li>Art. 6 Abs. 1 lit. f DSGVO (Berechtigtes Interesse)</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>4. Datenerfassung auf dieser Website</h2>
+            
+            <h3>Server-Log-Dateien</h3>
+            <p>Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:</p>
+            <ul>
+                <li>Browsertyp und Browserversion</li>
+                <li>Verwendetes Betriebssystem</li>
+                <li>Referrer URL</li>
+                <li>Hostname des zugreifenden Rechners</li>
+                <li>Uhrzeit der Serveranfrage</li>
+                <li>IP-Adresse</li>
+            </ul>
+            <p>Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.</p>
+            
+            <h3>Kontaktaufnahme per E-Mail</h3>
+            <p>Wenn Sie uns per E-Mail kontaktieren, wird Ihre Anfrage inklusive aller daraus hervorgehenden personenbezogenen Daten zum Zwecke der Bearbeitung Ihres Anliegens bei uns gespeichert und verarbeitet. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
+            <p>Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt.</p>
+        </div>
+
+        <div class="section">
+            <h2>5. Ihre Rechte</h2>
+            <p>Sie haben jederzeit das Recht:</p>
+            <ul>
+                <li><strong>Auskunft (Art. 15 DSGVO):</strong> Über Ihre bei uns gespeicherten personenbezogenen Daten</li>
+                <li><strong>Berichtigung (Art. 16 DSGVO):</strong> Unrichtige Daten korrigieren zu lassen</li>
+                <li><strong>Löschung (Art. 17 DSGVO):</strong> Ihre Daten löschen zu lassen („Recht auf Vergessenwerden")</li>
+                <li><strong>Einschränkung (Art. 18 DSGVO):</strong> Die Verarbeitung einschränken zu lassen</li>
+                <li><strong>Datenübertragbarkeit (Art. 20 DSGVO):</strong> Ihre Daten in maschinenlesbarem Format zu erhalten</li>
+                <li><strong>Widerspruch (Art. 21 DSGVO):</strong> Der Verarbeitung zu widersprechen</li>
+            </ul>
+            <p>Zur Ausübung Ihrer Rechte kontaktieren Sie uns bitte unter: <a href="mailto:zernaphilipp@gmail.com">zernaphilipp@gmail.com</a></p>
+            <p>Beschwerderecht: Sie haben das Recht, sich bei einer Aufsichtsbehörde zu beschweren (Art. 77 DSGVO).</p>
+        </div>
+
+        <div class="section">
+            <h2>6. Cookies</h2>
+            <p>Unsere Website verwendet derzeit keine Cookies zur Nachverfolgung oder Analyse. Es werden lediglich technisch notwendige Session-Cookies eingesetzt, die für die Funktionalität der Website erforderlich sind.</p>
+        </div>
+
+        <div class="section">
+            <h2>7. Newsletter</h2>
+            <p>Falls Sie sich für unseren Newsletter anmelden, verwenden wir Ihre E-Mail-Adresse ausschließlich für den Versand des Newsletters. Sie können sich jederzeit über den Abmelde-Link im Newsletter oder per E-Mail abmelden.</p>
+        </div>
+
+        <div class="section">
+            <h2>8. Änderungen dieser Datenschutzerklärung</h2>
+            <p>Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen in der Datenschutzerklärung umzusetzen. Für Ihren erneuten Besuch gilt dann die neue Datenschutzerklärung.</p>
+            <p>Stand: Februar 2026</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Philipp Zerna | <a href="/impressum/">Impressum</a> | <a href="/datenschutz/">Datenschutz</a></p>
+    </footer>
+</body>
+</html>
