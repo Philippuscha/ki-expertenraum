@@ -59,15 +59,18 @@
         }
         .nav-links a:hover { color: var(--accent); }
         
-        /* Mobile Menu */
+        /* Mobile Menu Button */
         .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
-            font-size: 24px;
+            font-size: 28px;
             cursor: pointer;
-            padding: 8px;
+            padding: 8px 12px;
+            color: var(--text);
         }
+        
+        /* Mobile Menu Panel */
         .mobile-menu {
             display: none;
             position: fixed;
@@ -76,17 +79,28 @@
             right: 0;
             background: white;
             padding: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
             z-index: 999;
+            border-radius: 0 0 20px 20px;
         }
-        .mobile-menu.active { display: block; }
+        .mobile-menu.show {
+            display: block;
+        }
         .mobile-menu a {
             display: block;
-            padding: 16px;
+            padding: 16px 20px;
             color: var(--text);
             text-decoration: none;
             font-weight: 600;
+            font-size: 16px;
             border-bottom: 1px solid #f0f0f0;
+            transition: background 0.2s;
+        }
+        .mobile-menu a:hover {
+            background: #f8fafc;
+        }
+        .mobile-menu a:last-child {
+            border-bottom: none;
         }
         
         /* HERO */
@@ -464,6 +478,7 @@
         @media (max-width: 768px) {
             .nav { padding: 15px 20px; }
             .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
             .hero { padding: 120px 20px 60px; }
             .hero-content h1 { font-size: 36px; }
             .features { padding: 60px 20px; }
@@ -485,15 +500,20 @@
             <li><a href="/kurse/">Kurse</a></li>
             <li><a href="/glossar/">Glossar</a></li>
         </ul>
+        <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
     </nav>
-    <button class="mobile-menu-btn" onclick="document.querySelector('.mobile-menu').classList.toggle('active')">☰</button>
-    <div class="mobile-menu">
+    <div class="mobile-menu" id="mobileMenu">
         <a href="/">Startseite</a>
         <a href="/artikel/">Artikel</a>
         <a href="/services/">Services</a>
         <a href="/kurse/">Kurse</a>
         <a href="/glossar/">Glossar</a>
     </div>
+    <script>
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('show');
+        }
+    </script>
 
     <header class="hero">
         <div class="hero-content">
