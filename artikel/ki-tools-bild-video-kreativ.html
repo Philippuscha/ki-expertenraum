@@ -24,9 +24,21 @@
         .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
         .dropdown-menu a { display: block; padding: 10px 16px; border-radius: 8px; }
         .dropdown-menu a:hover { background: #f0f7ff; }
+        /* Mobile Menu Toggle - Hidden by default, shown on mobile */
+        
+        .mobile-menu-toggle span { width: 24px; height: 2.5px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
+        .mobile-menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .mobile-menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+        
+        /* Mobile Menu - Full screen overlay */
+        
+        .mobile-menu.active { display: flex; opacity: 1; visibility: visible; }
+        .mobile-menu a { font-family: 'DM Sans', sans-serif; font-size: 28px; font-weight: 700; color: var(--text); text-decoration: none; }
+        .mobile-menu a:hover { color: var(--accent); }
+
         .hero {
-            margin-top: 40px;
-            margin-top: 40px; padding: 200px 40px 80px; text-align: center; max-width: 900px; margin: 0 auto; background: linear-gradient(135deg, rgba(236,72,153,0.1) 0%, rgba(139,92,246,0.1) 100%); border-radius: 0 0 40px 40px; margin-bottom: 40px; }
+            margin-top: 0; padding: 200px 40px 80px; text-align: center; max-width: 900px; margin: 0 auto; background: linear-gradient(135deg, rgba(236,72,153,0.1) 0%, rgba(139,92,246,0.1) 100%); border-radius: 0 0 40px 40px; margin-bottom: 40px; }
         .hero-badge { display: inline-block; background: rgba(236, 72, 153, 0.15); color: #db2777; padding: 8px 20px; border-radius: 20px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; }
         .hero h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.15; margin-bottom: 25px; font-weight: 800; }
         .hero h1 span { background: linear-gradient(135deg, #db2777 0%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -41,7 +53,7 @@
         li { margin: 12px 0; color: var(--text-muted); }
         blockquote { background: rgba(236, 72, 153, 0.08); border-left: 4px solid #db2777; padding: 30px; margin: 35px 0; border-radius: 0 12px 12px 0; font-size: 19px; font-weight: 600; color: var(--text); }
         .highlight { background: rgba(59, 130, 246, 0.08); border-radius: 12px; padding: 25px; margin: 35px 0; border: 1px solid rgba(59, 130, 246, 0.15); }
-        table { width: 100%; border-collapse: collapse; margin: 35px 0; background: var(--bg-card); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        table { width: 100%; border-collapse: collapse; display: block; overflow-x: auto; white-space: nowrap; margin: 35px 0; background: var(--bg-card); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
         th { background: linear-gradient(135deg, #db2777 0%, #8b5cf6 100%); color: white; padding: 16px; text-align: left; font-weight: 700; font-family: 'DM Sans', sans-serif; }
         td { padding: 16px; border-bottom: 1px solid rgba(0,0,0,0.05); color: var(--text-muted); }
         tr:hover { background: rgba(59, 130, 246, 0.03); }
@@ -64,35 +76,16 @@
         .toc-list a:hover { background: rgba(236, 72, 153, 0.1); color: #db2777; }
         .footer { background: var(--text); color: rgba(255,255,255,0.7); padding: 50px 40px 30px; margin-top: 80px; text-align: center; }
         .footer-logo { font-family: 'DM Sans', sans-serif; font-size: 24px; font-weight: 800; margin-bottom: 15px; background: linear-gradient(135deg, white 0%, #60a5fa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        @media (max-width: 1024px) { .content-wrapper { grid-template-columns: 1fr; }  }
+          }
         
         /* MOBILE RESPONSIVE */
-        @media (max-width: 1024px) {
-            .content-wrapper {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
+        
             .toc-sidebar {
                 display: none;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav {
-                padding: 12px 20px;
-                min-height: 60px;
-            }
-            .nav-links {
+        .nav-links {
                 display: none;
             }
-            .mobile-menu-toggle {
-                display: flex;
-                flex-direction: column;
-                gap: 5px;
-                cursor: pointer;
-                padding: 8px;
-                z-index: 1001;
-            }
+            
             .mobile-menu-toggle span {
                 width: 24px;
                 height: 2.5px;
@@ -109,29 +102,7 @@
             .mobile-menu-toggle.active span:nth-child(3) {
                 transform: rotate(-45deg) translate(7px, -6px);
             }
-            .mobile-menu {
-                display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: rgba(240, 247, 255, 0.98);
-                backdrop-filter: blur(20px);
-                z-index: 999;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 30px;
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.3s;
-            }
-            .mobile-menu.active {
-                display: flex;
-                opacity: 1;
-                visibility: visible;
-            }
+            
             .mobile-menu a {
                 font-family: 'DM Sans', sans-serif;
                 font-size: 28px;
@@ -183,8 +154,63 @@
             }
             .footer {
                 padding: 40px 20px;
-            }
+        /* Responsive Styles */
+        
+        
+        
+        
+        
+
+        /* Mobile Menu Toggle - Hidden by default, shown on mobile */
+        .mobile-menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; z-index: 1001; }
+        .mobile-menu-toggle span { width: 24px; height: 2.5px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
+        .mobile-menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .mobile-menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+        
+        /* Mobile Menu - Full screen overlay */
+        .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(240, 247, 255, 0.98); backdrop-filter: blur(20px); z-index: 999; flex-direction: column; justify-content: center; align-items: center; gap: 30px; opacity: 0; visibility: hidden; transition: all 0.3s; }
+        .mobile-menu.active { display: flex; opacity: 1; visibility: visible; }
+        .mobile-menu a { font-family: 'DM Sans', sans-serif; font-size: 28px; font-weight: 700; color: var(--text); text-decoration: none; }
+        .mobile-menu a:hover { color: var(--accent); }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .content-wrapper { grid-template-columns: 1fr; gap: 40px; }
+            .toc-sidebar { display: none; }
         }
+        
+        @media (max-width: 768px) {
+            .nav { padding: 12px 20px; min-height: 60px; }
+            .nav-links { display: none; }
+            .mobile-menu-toggle { display: flex; }
+            .hero { padding: 100px 20px 60px; border-radius: 0 0 24px 24px; }
+            .hero h1 { font-size: 26px; }
+            .hero-description { font-size: 16px; }
+            .hero-meta { gap: 15px; font-size: 13px; flex-wrap: wrap; }
+            .content-wrapper { padding: 0 20px; }
+            h2 { font-size: 24px; margin: 40px 0 20px; scroll-margin-top: 80px; }
+            h3 { font-size: 20px; margin: 30px 0 15px; scroll-margin-top: 80px; }
+            p { font-size: 16px; line-height: 1.7; margin-bottom: 20px; }
+            ul, ol { padding-left: 20px; margin: 20px 0; }
+            blockquote { padding: 20px; font-size: 17px; margin: 25px 0; }
+            pre { padding: 15px; font-size: 13px; overflow-x: auto; }
+            .cta-box { padding: 30px 20px; margin: 40px 0; }
+            .cta-box h2, .cta-box h3 { font-size: 20px; }
+            .btn, .btn-white { padding: 12px 24px; font-size: 15px; }
+            .footer { padding: 40px 20px; margin-top: 60px; }
+            table { display: block; overflow-x: auto; white-space: nowrap; font-size: 14px; }
+            th, td { padding: 12px; }
+        }
+        
+        @media (max-width: 375px) {
+            .hero h1 { font-size: 24px; }
+            h2 { font-size: 22px; }
+            h3 { font-size: 18px; }
+            .mobile-menu a { font-size: 24px; }
+            .hero-meta { flex-direction: column; gap: 8px; }
+        }
+
     </style>
 </head>
 <body>
@@ -386,6 +412,15 @@
             toggle.classList.toggle('active');
             menu.classList.toggle('active');
         }
-    </script>
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        const menu = document.getElementById('mobileMenu');
+        const toggle = document.getElementById('mobileMenuToggle');
+        if (menu && toggle && menu.classList.contains('active') && !menu.contains(e.target) && !toggle.contains(e.target)) {
+            toggleMobileMenu();
+        }
+    });
+</script>
 </body>
 </html>
