@@ -58,6 +58,12 @@
             transition: color 0.3s;
         }
         .nav-links a:hover { color: var(--accent); }
+        .hamburger { display: none; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text); }
+        .mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; background: rgba(240,247,255,0.98); backdrop-filter: blur(20px); padding: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); z-index: 999; }
+        .mobile-menu a { display: block; padding: 15px; color: var(--text); text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .mobile-menu a:hover { background: var(--accent-light); color: var(--accent); }
+        .mobile-menu.show { display: block; }
+        @media (max-width: 768px) { .nav-links { display: none; } .hamburger { display: block; } .nav { padding: 15px 20px; } }
         
         /* HERO SECTION */
         .hero {
@@ -486,12 +492,21 @@
         <a href="/" class="logo">KI-Expertenraum</a>
         <ul class="nav-links">
             <li><a href="/">Startseite</a></li>
-            <li><a href="/artikel/">Artikel</a></li>
+            <li><a href="/kurse/">Kurse</a></li>
             <li><a href="/services/">Services</a></li>
+            <li><a href="/artikel/">Artikel</a></li>
             <li><a href="/glossar/">Glossar</a></li>
-            <li><a href="/#work">Kurse</a></li>
         </ul>
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Menü öffnen">☰</button>
     </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="/">Startseite</a>
+        <a href="/kurse/">Kurse</a>
+        <a href="/services/">Services</a>
+        <a href="/artikel/">Artikel</a>
+        <a href="/glossar/">Glossar</a>
+    </div>
+    <script>function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('show'); }</script>
 
     <header class="hero">
         <div class="hero-content">
