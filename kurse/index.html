@@ -188,18 +188,24 @@
             border: 2px solid var(--warning);
         }
         .course-image {
-            height: 200px;
+            height: 220px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 64px;
             position: relative;
             overflow: hidden;
+            background: #f0f7ff;
         }
         .course-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+        .course-image img.position-bottom {
+            object-position: center 70%;
         }
         .course-content {
             padding: 30px;
@@ -586,7 +592,7 @@
             <!-- KURS 5: Büroautomatisierung -->
             <div class="course-card">
                 <div class="course-image">
-                    <img src="/public/images/kurs5_b%C3%BCroauto.png" alt="Büroautomatisierung">
+                    <img src="/public/images/kurs5_b%C3%BCroauto.png" alt="Büroautomatisierung" class="position-bottom">
                 </div>
                 <div class="course-content">
                     <span class="priority-badge priority-new">🚀 Neu</span>
@@ -605,7 +611,7 @@
             <!-- KURS 6: KI-Beauftragter -->
             <div class="course-card">
                 <div class="course-image">
-                    <img src="/public/images/kurs6_roadmap.png" alt="KI-Beauftragter">
+                    <img src="/public/images/kurs6_roadmap.png" alt="KI-Beauftragter" class="position-bottom">
                 </div>
                 <div class="course-content">
                     <span class="course-level level-advanced">Experte</span>
