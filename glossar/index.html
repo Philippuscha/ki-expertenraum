@@ -53,7 +53,7 @@
         .cta-button { display: inline-block; background: white; color: var(--primary); padding: 1rem 2rem; border-radius: 9999px; text-decoration: none; font-weight: 600; transition: all 0.3s; }
         .cta-button:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
         .footer { text-align: center; padding: 2rem; color: var(--text-muted); border-top: 1px solid var(--border); margin-top: 3rem; }
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; scroll-padding-top: 160px; }
         .hidden { display: none !important; }
     </style>
 </head>
@@ -1013,6 +1013,25 @@
         <p>KI-Glossar: 100 Fachbegriffe verstaendlich erklaert</p>
     </footer>
     <script>
+        // Smooth scroll für Anker-Links
+        document.querySelectorAll('.alpha-nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    const headerOffset = 160; // Abstand für sticky Header
+                    const elementPosition = targetSection.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
         document.getElementById('searchInput').addEventListener('input', function(e) {
             const searchTerm = e.target.value.toLowerCase();
             const cards = document.querySelectorAll('.card');
