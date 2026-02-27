@@ -3,1054 +3,532 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KI-Glossar: 100 Fachbegriffe verstaendlich erklaert</title>
+    <title>KI-Glossar | 100+ Begriffe einfach erklärt | KI-Expertenraum</title>
+    <meta name="description" content="Das umfassende KI-Glossar: 100+ Fachbegriffe verständlich erklärt. Von A wie Algorithmus bis Z wie Zero-Shot.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { --primary: #3b82f6; --primary-dark: #2563eb; --primary-light: #dbeafe; --secondary: #64748b; --background: #f8fafc; --card: #ffffff; --text: #1e293b; --text-muted: #64748b; --border: #e2e8f0; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: var(--background); color: var(--text); line-height: 1.6; }
-        .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 3rem 1rem; text-align: center; }
-        .header h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; }
-        .header p { font-size: 1.125rem; opacity: 0.9; }
-        .search-container { background: var(--card); padding: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
-        .search-box { max-width: 600px; margin: 0 auto; }
-        .search-box input { width: 100%; padding: 1rem 1.5rem; border: 2px solid var(--border); border-radius: 9999px; font-size: 1rem; transition: all 0.3s; }
-        .search-box input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-light); }
-        .alpha-nav { background: var(--card); padding: 1rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; border-bottom: 1px solid var(--border); position: sticky; top: 80px; z-index: 99; }
-        .alpha-nav a { display: inline-flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; border-radius: 0.5rem; text-decoration: none; color: var(--text); font-weight: 600; transition: all 0.2s; }
-        .alpha-nav a:hover { background: var(--primary-light); color: var(--primary); }
-        .container { max-width: 1200px; margin: 0 auto; padding: 2rem 1rem; }
-        .section { margin-bottom: 3rem; }
-        .section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--primary); }
-        .section-letter { font-size: 2rem; font-weight: 700; color: var(--primary); background: var(--primary-light); width: 3.5rem; height: 3.5rem; display: flex; align-items: center; justify-content: center; border-radius: 0.75rem; }
-        .section-title { font-size: 1.5rem; font-weight: 600; }
-        .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 1.5rem; }
-        @media (max-width: 768px) { .cards-grid { grid-template-columns: 1fr; } }
-        .card { background: var(--card); border-radius: 1rem; padding: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); transition: all 0.3s ease; border: 1px solid var(--border); }
-        .card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-color: var(--primary); }
-        .card-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem; }
-        .card-title-group { flex: 1; }
-        .card-title { font-size: 1.25rem; font-weight: 600; color: var(--text); margin-bottom: 0.25rem; }
-        .card-subtitle { font-size: 0.875rem; color: var(--text-muted); }
-        .category-badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
-        .badge-tech { background: #dbeafe; color: #1d4ed8; }
-        .badge-business { background: #d1fae5; color: #047857; }
-        .badge-ethics { background: #fef3c7; color: #b45309; }
-        .card-description { color: var(--text); margin-bottom: 1rem; line-height: 1.7; }
-        .card-example { background: var(--primary-light); padding: 0.75rem 1rem; border-radius: 0.5rem; font-size: 0.875rem; color: var(--text); margin-bottom: 1rem; border-left: 3px solid var(--primary); }
-        .card-example strong { color: var(--primary-dark); }
-        .card-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-        .card-links a { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.375rem 0.75rem; background: var(--background); border-radius: 0.375rem; text-decoration: none; color: var(--secondary); font-size: 0.875rem; transition: all 0.2s; }
-        .card-links a:hover { background: var(--primary-light); color: var(--primary); }
-        .card-links a::before { content: ">"; font-size: 0.75rem; }
-        .checklist { background: var(--card); border-radius: 1rem; padding: 2rem; margin-bottom: 3rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-        .checklist h2 { font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text); }
-        .checklist-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 0.75rem; }
-        .checklist-item { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; border-radius: 0.375rem; }
-        .checklist-item::before { content: "[x]"; color: var(--primary); font-family: monospace; font-weight: bold; }
-        .cta { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 3rem 2rem; border-radius: 1rem; text-align: center; margin-top: 3rem; }
-        .cta h2 { font-size: 1.875rem; margin-bottom: 1rem; }
-        .cta p { opacity: 0.9; margin-bottom: 1.5rem; max-width: 600px; margin-left: auto; margin-right: auto; }
-        .cta-button { display: inline-block; background: white; color: var(--primary); padding: 1rem 2rem; border-radius: 9999px; text-decoration: none; font-weight: 600; transition: all 0.3s; }
-        .cta-button:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
-        .footer { text-align: center; padding: 2rem; color: var(--text-muted); border-top: 1px solid var(--border); margin-top: 3rem; }
-        html { scroll-behavior: smooth; scroll-padding-top: 160px; }
-        .hidden { display: none !important; }
+        :root { 
+            --bg: #f0f7ff; 
+            --bg-card: rgba(255, 255, 255, 0.95);
+            --text: #0f172a; 
+            --text-muted: #475569; 
+            --accent: #3b82f6;
+            --accent-light: #dbeafe;
+        }
+        html { scroll-behavior: smooth; scroll-padding-top: 140px; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 50%, #dbeafe 100%); 
+            color: var(--text); 
+            line-height: 1.6;
+        }
+        h1, h2, h3, h4 { font-family: 'DM Sans', sans-serif; font-weight: 700; }
+        
+        /* NAVIGATION */
+        .nav { 
+            position: fixed; 
+            top: 0; left: 0; right: 0; 
+            z-index: 1000; 
+            padding: 20px 40px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            background: rgba(240, 247, 255, 0.95); 
+            backdrop-filter: blur(20px); 
+            border-bottom: 1px solid rgba(255,255,255,0.6);
+        }
+        .logo { 
+            font-family: 'DM Sans', sans-serif; 
+            font-size: 24px; 
+            font-weight: 800; 
+            background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { 
+            color: var(--text-muted); 
+            text-decoration: none; 
+            font-size: 15px; 
+            font-weight: 600; 
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--accent); }
+        
+        /* HERO */
+        .hero {
+            padding: 160px 40px 60px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .hero h1 {
+            font-size: clamp(36px, 5vw, 52px);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 20px;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+        
+        /* SEARCH */
+        .search-box {
+            max-width: 500px;
+            margin: 0 auto 40px;
+            position: relative;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 18px 24px;
+            padding-right: 60px;
+            border: 2px solid rgba(59,130,246,0.2);
+            border-radius: 16px;
+            font-size: 18px;
+            font-family: inherit;
+            background: white;
+            transition: all 0.3s;
+        }
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px rgba(59,130,246,0.1);
+        }
+        .search-box::after {
+            content: '🔍';
+            position: absolute;
+            right: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 22px;
+        }
+        
+        /* ALPHABET NAVIGATION */
+        .alpha-nav {
+            background: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 80px;
+            z-index: 100;
+        }
+        .alpha-nav a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background: var(--bg);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        .alpha-nav a:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* CONTENT */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+        
+        /* LETTER SECTION */
+        .letter-section {
+            margin-bottom: 50px;
+        }
+        .letter-header {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--accent-light);
+        }
+        
+        /* TERM CARDS */
+        .term-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+        .term-card:hover {
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        .term-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        .term-title {
+            font-size: 24px;
+            color: var(--text);
+        }
+        .term-subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        .category-badge {
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .badge-tech { background: var(--accent-light); color: var(--accent); }
+        .badge-business { background: #d1fae5; color: #059669; }
+        .badge-ethics { background: #fef3c7; color: #d97706; }
+        
+        .term-description {
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        .term-example {
+            background: var(--accent-light);
+            padding: 16px 20px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+            margin-bottom: 15px;
+        }
+        .term-example strong {
+            color: var(--accent);
+        }
+        
+        .term-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .term-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .term-links a:hover {
+            text-decoration: underline;
+        }
+        
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, var(--accent) 0%, #2563eb 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        .cta p {
+            font-size: 18px;
+            opacity: 0.95;
+            margin-bottom: 30px;
+        }
+        .cta-btn {
+            display: inline-block;
+            background: white;
+            color: var(--accent);
+            padding: 18px 40px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        
+        /* FOOTER */
+        .footer {
+            background: var(--text);
+            color: rgba(255,255,255,0.7);
+            padding: 50px 40px 30px;
+            text-align: center;
+        }
+        .footer-logo {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, white 0%, #60a5fa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav { padding: 15px 20px; }
+            .nav-links { display: none; }
+            .hero { padding: 120px 20px 40px; }
+            .hero h1 { font-size: 32px; }
+            .alpha-nav { 
+                top: 70px; 
+                padding: 15px 20px;
+                gap: 6px;
+            }
+            .alpha-nav a {
+                width: 38px;
+                height: 38px;
+                font-size: 14px;
+            }
+            .container { padding: 30px 20px; }
+            .letter-header { font-size: 32px; }
+            .term-card { padding: 22px; }
+            .term-title { font-size: 20px; }
+        }
     </style>
 </head>
 <body>
-    <header class="header">
-        <h1>KI-Glossar</h1>
-        <p>100 Fachbegriffe der Kuenstlichen Intelligenz verstaendlich erklaert</p>
-    </header>
-    <div class="search-container">
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Begriff suchen...">
-        </div>
-    </div>
-    <nav class="alpha-nav">
-        <a href="#A">A</a><a href="#B">B</a><a href="#C">C</a><a href="#D">D</a><a href="#E">E</a>
-        <a href="#F">F</a><a href="#G">G</a><a href="#H">H</a><a href="#I">I</a><a href="#K">K</a>
-        <a href="#L">L</a><a href="#M">M</a><a href="#N">N</a><a href="#O">O</a><a href="#P">P</a>
-        <a href="#R">R</a><a href="#S">S</a><a href="#T">T</a><a href="#U">U</a><a href="#V">V</a>
-        <a href="#W">W</a><a href="#Z">Z</a>
+    <nav class="nav">
+        <a href="/" class="logo">KI-Expertenraum</a>
+        <ul class="nav-links">
+            <li><a href="/">Startseite</a></li>
+            <li><a href="/artikel/">Artikel</a></li>
+            <li><a href="/services/">Services</a></li>
+            <li><a href="/glossar/">Glossar</a></li>
+            <li><a href="/#work">Kurse</a></li>
+        </ul>
     </nav>
+
+    <header class="hero">
+        <h1>KI-Glossar: <span>100+ Begriffe einfach erklärt</span></h1>
+        <p>Die wichtigsten Fachbegriffe der KI-Welt – verständlich und praxisnah</p>
+        <div class="search-box">
+            <input type="text" placeholder="Begriff suchen..." id="searchInput">
+        </div>
+    </header>
+
+    <nav class="alpha-nav">
+        <a href="#A">A</a>
+        <a href="#B">B</a>
+        <a href="#C">C</a>
+        <a href="#D">D</a>
+        <a href="#E">E</a>
+        <a href="#F">F</a>
+        <a href="#G">G</a>
+        <a href="#H">H</a>
+        <a href="#I">I</a>
+        <a href="#K">K</a>
+        <a href="#L">L</a>
+        <a href="#M">M</a>
+        <a href="#N">N</a>
+        <a href="#O">O</a>
+        <a href="#P">P</a>
+        <a href="#R">R</a>
+        <a href="#S">S</a>
+        <a href="#T">T</a>
+        <a href="#U">U</a>
+        <a href="#V">V</a>
+        <a href="#W">W</a>
+        <a href="#Z">Z</a>
+    </nav>
+
     <main class="container">
-        <div class="checklist">
-            <h2>Checklist: 100 KI-Begriffe</h2>
-            <div class="checklist-grid">
-                <div class="checklist-item">Agent</div><div class="checklist-item">AGI</div><div class="checklist-item">AI</div><div class="checklist-item">Algorithmus</div><div class="checklist-item">ANI</div><div class="checklist-item">Annotation</div><div class="checklist-item">API</div><div class="checklist-item">Architecture</div><div class="checklist-item">ASI</div><div class="checklist-item">Attention</div><div class="checklist-item">Automation</div><div class="checklist-item">Backpropagation</div><div class="checklist-item">Batch</div><div class="checklist-item">Bayesian Network</div><div class="checklist-item">Benchmark</div><div class="checklist-item">Bias</div><div class="checklist-item">Chain of Thought</div><div class="checklist-item">Chatbot</div><div class="checklist-item">Classifier</div><div class="checklist-item">Cloud AI</div><div class="checklist-item">Clustering</div><div class="checklist-item">Cognition</div><div class="checklist-item">Cognitive Computing</div><div class="checklist-item">Computer Vision</div><div class="checklist-item">Context Window</div><div class="checklist-item">Conversational AI</div><div class="checklist-item">CNN</div><div class="checklist-item">Copilot</div><div class="checklist-item">Corpus</div><div class="checklist-item">Cost Function</div>
-                <div class="checklist-item">Data Augmentation</div><div class="checklist-item">Data Mining</div><div class="checklist-item">Dataset</div><div class="checklist-item">Decision Tree</div><div class="checklist-item">Deep Learning</div><div class="checklist-item">Deepfake</div><div class="checklist-item">Diffusion Model</div><div class="checklist-item">Digital Twin</div><div class="checklist-item">Dimensionality Reduction</div><div class="checklist-item">Dropout</div><div class="checklist-item">Early Stopping</div><div class="checklist-item">Edge AI</div><div class="checklist-item">Embedding</div><div class="checklist-item">Ensemble Learning</div><div class="checklist-item">Epoch</div><div class="checklist-item">Ethics in AI</div><div class="checklist-item">Explainable AI</div><div class="checklist-item">Feature</div><div class="checklist-item">Feature Engineering</div><div class="checklist-item">Few-shot Learning</div><div class="checklist-item">Fine-tuning</div><div class="checklist-item">Foundation Model</div><div class="checklist-item">Framework</div><div class="checklist-item">Generative AI</div><div class="checklist-item">GPT</div><div class="checklist-item">GPU</div><div class="checklist-item">Gradient Descent</div><div class="checklist-item">Ground Truth</div><div class="checklist-item">Hallucination</div><div class="checklist-item">Hyperparameter</div><div class="checklist-item">Hypothesis</div><div class="checklist-item">Image Recognition</div><div class="checklist-item">Image Segmentation</div><div class="checklist-item">Inference</div><div class="checklist-item">Input Layer</div><div class="checklist-item">IoT</div><div class="checklist-item">Knowledge Base</div><div class="checklist-item">Knowledge Graph</div><div class="checklist-item">KPI</div><div class="checklist-item">Label</div><div class="checklist-item">Labeling</div><div class="checklist-item">LLM</div><div class="checklist-item">Latent Space</div><div class="checklist-item">Layer</div><div class="checklist-item">Learning Rate</div><div class="checklist-item">Loss Function</div><div class="checklist-item">Machine Learning</div><div class="checklist-item">Model</div><div class="checklist-item">Model Training</div><div class="checklist-item">MLOps</div><div class="checklist-item">Multimodal AI</div><div class="checklist-item">Multi-task Learning</div><div class="checklist-item">NLG</div><div class="checklist-item">NLP</div><div class="checklist-item">NLU</div><div class="checklist-item">Neural Network</div><div class="checklist-item">Node</div><div class="checklist-item">Object Detection</div><div class="checklist-item">Optimization</div><div class="checklist-item">Overfitting</div><div class="checklist-item">Parameter</div><div class="checklist-item">Pattern Recognition</div><div class="checklist-item">Prediction</div><div class="checklist-item">Pre-processing</div><div class="checklist-item">Pre-training</div><div class="checklist-item">Prompt</div><div class="checklist-item">Prompt Engineering</div><div class="checklist-item">Python</div><div class="checklist-item">RAG</div><div class="checklist-item">Recall</div><div class="checklist-item">Recognition</div><div class="checklist-item">Regression</div><div class="checklist-item">Reinforcement Learning</div><div class="checklist-item">Robotics</div><div class="checklist-item">Scalability</div><div class="checklist-item">Semantic Search</div><div class="checklist-item">Sentiment Analysis</div><div class="checklist-item">Supervised Learning</div><div class="checklist-item">Synthetic Data</div><div class="checklist-item">System Prompt</div><div class="checklist-item">Temperature</div><div class="checklist-item">Tensor</div><div class="checklist-item">Test Data</div><div class="checklist-item">Token</div><div class="checklist-item">Tokenization</div><div class="checklist-item">Training Data</div><div class="checklist-item">Transformer</div><div class="checklist-item">Turing Test</div><div class="checklist-item">Underfitting</div><div class="checklist-item">Unsupervised Learning</div><div class="checklist-item">User Interface</div><div class="checklist-item">Validation</div><div class="checklist-item">Validation Data</div><div class="checklist-item">Vector</div><div class="checklist-item">Virtual Assistant</div><div class="checklist-item">Weights</div><div class="checklist-item">Workflow</div><div class="checklist-item">Wrapper</div><div class="checklist-item">Zero-shot Learning</div><div class="checklist-item">Zone</div>
-            </div>
-        </div>
-
         <!-- A -->
-        <section class="section" id="A">
-            <div class="section-header">
-                <span class="section-letter">A</span>
-                <h2 class="section-title">Begriffe mit A</h2>
-            </div>
-            <div class="cards-grid">
-                <div class="card" data-term="Agent">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Agent</h3>
-                            <span class="card-subtitle">Autonomes KI-System</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
+        <section class="letter-section" id="A">
+            <h2 class="letter-header">A</h2>
+            
+            <div class="term-card">
+                <div class="term-header">
+                    <div>
+                        <h3 class="term-title">AI</h3>
+                        <span class="term-subtitle">Artificial Intelligence – Künstliche Intelligenz</span>
                     </div>
-                    <p class="card-description">Ein Agent ist ein autonomes Softwareprogramm, das wahrnimmt, entscheidet und handelt, um definierte Ziele zu erreichen. Im Gegensatz zu passiven KI-Systemen kann ein Agent proaktiv Aktionen ausfuehren, mit seiner Umgebung interagieren und seine Strategien anpassen.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Ein KI-Agent bucht eigenstaendig Fluege, indem er Websites durchsucht, Preise vergleicht und die Buchung abschliesst.</div>
-                    <div class="card-links"><a href="#LLM">LLM</a><a href="#API">API</a></div>
+                    <span class="category-badge badge-tech">Tech</span>
                 </div>
-                <div class="card" data-term="AGI">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">AGI</h3>
-                            <span class="card-subtitle">Artificial General Intelligence</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">AGI bezeichnet eine hypothetische Form der Kuenstlichen Intelligenz, die menschenaehnliche kognitive Faehigkeiten besitzt und jede intellektuelle Aufgabe loesen kann. Im Gegensatz zu spezialisierten KI-Systemen wuerde AGI generalisieren lernen.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Ein AGI-System koennte medizinische Diagnosen stellen, juristische Vertraege pruefen und gleichzeitig ein Unternehmen fuehren.</div>
-                    <div class="card-links"><a href="#AI">AI</a><a href="#ANI">ANI</a><a href="#ASI">ASI</a></div>
-                </div>
-                <div class="card" data-term="AI">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">AI</h3>
-                            <span class="card-subtitle">Kuenstliche Intelligenz</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Kuenstliche Intelligenz ist ein Fachgebiet der Informatik, das sich mit der Entwicklung von Systemen befasst, die menschenaehnliche kognitive Faehigkeiten wie Lernen, Problemloesung und Sprachverarbeitung nachahmen.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Sprachassistenten wie Siri oder Alexa nutzen KI, um Sprache zu verstehen und Befehle auszufuehren.</div>
-                    <div class="card-links"><a href="#ML">ML</a><a href="#Deep Learning">Deep Learning</a></div>
-                </div>
-                <div class="card" data-term="Algorithmus">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Algorithmus</h3>
-                            <span class="card-subtitle">Verarbeitungsvorschrift</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Ein Algorithmus ist eine endliche, eindeutige und allgemeine Verarbeitungsvorschrift zur Loesung eines Problems. In der KI bilden Algorithmen das Fundament fuer Datenverarbeitung, Mustererkennung und Entscheidungsfindung.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Der PageRank-Algorithmus von Google bestimmt die Relevanz von Webseiten anhand ihrer Verlinkung.</div>
-                    <div class="card-links"><a href="#ML">ML</a><a href="#Model">Model</a></div>
-                </div>
-                <div class="card" data-term="ANI">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">ANI</h3>
-                            <span class="card-subtitle">Artificial Narrow Intelligence</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">ANI bezeichnet KI-Systeme, die auf spezifische Aufgaben trainiert sind und ausserhalb ihres Einsatzbereichs nicht generalisieren koennen. Dies ist die derzeit einzig realisierte Form der Kuenstlichen Intelligenz.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Ein Bilderkennungssystem, das Krebszellen identifiziert, kann nicht gleichzeitig Sprache verstehen oder Texte schreiben.</div>
-                    <div class="card-links"><a href="#AI">AI</a><a href="#AGI">AGI</a></div>
-                </div>
-                <div class="card" data-term="Annotation">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Annotation</h3>
-                            <span class="card-subtitle">Datenbeschriftung</span>
-                        </div>
-                        <span class="category-badge badge-business">BUSINESS</span>
-                    </div>
-                    <p class="card-description">Annotation ist der Prozess der manuellen oder halbautomatischen Beschriftung von Daten mit Metadaten, Labels oder Tags. Bei ueberwachtem Lernen dienen annotierte Daten als Trainingsgrundlage.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Das Markieren von Fussgaengern, Fahrraedern und Autos auf Dashcam-Aufnahmen fuer selbstfahrende Autos.</div>
-                    <div class="card-links"><a href="#Labeling">Labeling</a><a href="#Dataset">Dataset</a></div>
-                </div>
-                <div class="card" data-term="API">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">API</h3>
-                            <span class="card-subtitle">Application Programming Interface</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Eine API ist eine Schnittstelle, die es verschiedenen Softwareanwendungen ermoeglicht, miteinander zu kommunizieren. KI-APIs bieten Zugriff auf vortrainierte Modelle und Dienste.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Die OpenAI API ermoeglicht Entwicklern den Zugriff auf GPT-Modelle zur Textgenerierung in eigenen Anwendungen.</div>
-                    <div class="card-links"><a href="#Cloud AI">Cloud AI</a><a href="#Framework">Framework</a></div>
-                </div>
-                <div class="card" data-term="Architecture">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Architecture</h3>
-                            <span class="card-subtitle">Modellarchitektur</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Die Architektur eines KI-Modells beschreibt dessen strukturellen Aufbau, die Anordnung und Vernetzung von Komponenten wie Neuronen, Schichten und Verbindungen.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Die Transformer-Architektur bildet die Grundlage moderner Sprachmodelle wie GPT und BERT.</div>
-                    <div class="card-links"><a href="#Neural Network">Neural Network</a><a href="#Transformer">Transformer</a></div>
-                </div>
-                <div class="card" data-term="ASI">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">ASI</h3>
-                            <span class="card-subtitle">Artificial Superintelligence</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">ASI beschreibt eine theoretische Stufe der Kuenstlichen Intelligenz, die die kognitiven Faehigkeiten des menschlichen Gehirns in allen Bereichen uebertrifft.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Ein ASI-System koennte in Stunden wissenschaftliche Fortschritte erzielen, fuer die Menschen Jahrhunderte benoetigen wuerden.</div>
-                    <div class="card-links"><a href="#AI">AI</a><a href="#AGI">AGI</a></div>
-                </div>
-                <div class="card" data-term="Attention">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Attention</h3>
-                            <span class="card-subtitle">Aufmerksamkeitsmechanismus</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Attention ist ein Mechanismus in neuronalen Netzen, der es dem Modell ermoeglicht, sich auf relevante Teile der Eingabe zu konzentrieren. Anstatt alle Eingaben gleich zu behandeln, berechnet Attention Gewichtungen.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Bei der Uebersetzung erkennt das Modell durch Attention, dass sich Pronomen auf bestimmte Substantive beziehen.</div>
-                    <div class="card-links"><a href="#Transformer">Transformer</a><a href="#LLM">LLM</a></div>
-                </div>
-                <div class="card" data-term="Automation">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Automation</h3>
-                            <span class="card-subtitle">Prozessautomatisierung</span>
-                        </div>
-                        <span class="category-badge badge-business">BUSINESS</span>
-                    </div>
-                    <p class="card-description">Automation bezeichnet die automatische Ausfuehrung von Aufgaben oder Prozessen durch Technologie. KI-basierte Automation geht ueber regelbasierte Systeme hinaus und kann komplexe Aufgaben bewaeltigen.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Automatische Kategorisierung und Beantwortung von Kundenanfragen im Support durch KI-Chatbots.</div>
-                    <div class="card-links"><a href="#Agent">Agent</a><a href="#Workflow">Workflow</a></div>
+                <p class="term-description">Die Fähigkeit von Maschinen, menschenähnliche Intelligenz zu zeigen – zu lernen, Probleme zu lösen und zu verstehen.</p>
+                <div class="term-example"><strong>Beispiel:</strong> Siri, Netflix-Empfehlungen, autonomes Fahren</div>
+                <div class="term-links">
+                    <a href="#ML">→ Machine Learning</a>
+                    <a href="#DeepLearning">→ Deep Learning</a>
                 </div>
             </div>
-        </section>
-        <!-- B -->
-        <section class="section" id="B">
-            <div class="section-header">
-                <span class="section-letter">B</span>
-                <h2 class="section-title">Begriffe mit B</h2>
+
+            <div class="term-card">
+                <div class="term-header">
+                    <div>
+                        <h3 class="term-title">Algorithmus</h3>
+                        <span class="term-subtitle">Schritt-für-Schritt-Anleitung</span>
+                    </div>
+                    <span class="category-badge badge-tech">Tech</span>
+                </div>
+                <p class="term-description">Eine festgelegte Reihe von Anweisungen, die ein Computer befolgt, um ein Problem zu lösen oder eine Aufgabe zu erledigen.</p>
+                <div class="term-example"><strong>Beispiel:</strong> Der Algorithmus von Google bestimmt, welche Suchergebnisse dir angezeigt werden.</div>
             </div>
-            <div class="cards-grid">
-                <div class="card" data-term="Backpropagation">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Backpropagation</h3>
-                            <span class="card-subtitle">Fehlerrueckfuehrung</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
+
+            <div class="term-card">
+                <div class="term-header">
+                    <div>
+                        <h3 class="term-title">API</h3>
+                        <span class="term-subtitle">Application Programming Interface</span>
                     </div>
-                    <p class="card-description">Backpropagation ist ein zentraler Algorithmus zum Training neuronaler Netze. Er berechnet den Fehler am Ausgang und fuehrt diesen Fehler rueckwaerts durch das Netzwerk, um die Gewichte anzupassen.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Beim Training eines Bilderkennungsmodells passt Backpropagation automatisch Millionen von Parametern an, um die Erkennungsgenauigkeit zu verbessern.</div>
-                    <div class="card-links"><a href="#Neural Network">Neural Network</a><a href="#Gradient Descent">Gradient Descent</a></div>
+                    <span class="category-badge badge-tech">Tech</span>
                 </div>
-                <div class="card" data-term="Batch">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Batch</h3>
-                            <span class="card-subtitle">Datenpaket</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Ein Batch ist eine Teilmenge von Trainingsdaten, die gleichzeitig durch ein neuronales Netzwerk verarbeitet wird. Das Training in Batches ermoeglicht effizientere Berechnungen.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Ein Modell wird mit Batches von 32 Bildern trainiert, statt jedes Bild einzeln zu verarbeiten.</div>
-                    <div class="card-links"><a href="#Training">Training</a><a href="#Epoch">Epoch</a></div>
-                </div>
-                <div class="card" data-term="Bayesian Network">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Bayesian Network</h3>
-                            <span class="card-subtitle">Probabilistisches Modell</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Ein Bayesian Network ist ein probabilistisches grafisches Modell, das kausale Beziehungen zwischen Variablen durch bedingte Wahrscheinlichkeiten darstellt.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Medizinische Diagnosesysteme nutzen Bayesian Networks, um die Wahrscheinlichkeit von Krankheiten basierend auf Symptomen zu berechnen.</div>
-                    <div class="card-links"><a href="#Inference">Inference</a><a href="#Probabilistic">Probabilistic</a></div>
-                </div>
-                <div class="card" data-term="Benchmark">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Benchmark</h3>
-                            <span class="card-subtitle">Leistungsvergleich</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Ein Benchmark ist ein standardisierter Test zur Messung und Vergleich der Leistung von KI-Modellen. Benchmarks definieren spezifische Aufgaben, Datensaetze und Evaluationsmetriken.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> ImageNet ist ein bekannter Benchmark fuer Bilderkennungssysteme mit ueber 14 Millionen annotierten Bildern.</div>
-                    <div class="card-links"><a href="#Evaluation">Evaluation</a><a href="#KPI">KPI</a></div>
-                </div>
-                <div class="card" data-term="Bias">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Bias</h3>
-                            <span class="card-subtitle">Verzerrung</span>
-                        </div>
-                        <span class="category-badge badge-ethics">ETHICS</span>
-                    </div>
-                    <p class="card-description">Bias bezeichnet systematische Verzerrungen in KI-Systemen, die zu unfairen oder diskriminierenden Ergebnissen fuehren koennen. Bias kann durch verzerrte Trainingsdaten, unausgewogene Features oder Vorurteile der Entwickler entstehen.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Ein Rekrutierungstool bevorzugte maennliche Kandidaten, weil es mit historischen Daten trainiert wurde, in denen Maenner ueberrepraesentiert waren.</div>
-                    <div class="card-links"><a href="#Ethics">Ethics</a><a href="#Fairness">Fairness</a></div>
-                </div>
-            </div>
-        </section>
-        <!-- C -->
-        <section class="section" id="C">
-            <div class="section-header">
-                <span class="section-letter">C</span>
-                <h2 class="section-title">Begriffe mit C</h2>
-            </div>
-            <div class="cards-grid">
-                <div class="card" data-term="Chain of Thought">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Chain of Thought</h3>
-                            <span class="card-subtitle">Gedankenkette</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Chain of Thought ist eine Prompting-Technik, bei der das Modell aufgefordert wird, seinen Loesungsweg Schritt fuer Schritt darzulegen. Dies verbessert die Qualitaet komplexer Antworten und macht das Denken des Modells nachvollziehbar.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Bei mathematischen Problemen zeigt das Modell nicht nur das Ergebnis, sondern auch die einzelnen Rechenschritte.</div>
-                    <div class="card-links"><a href="#Prompt Engineering">Prompt Engineering</a><a href="#LLM">LLM</a></div>
-                </div>
-                <div class="card" data-term="Chatbot">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Chatbot</h3>
-                            <span class="card-subtitle">Konversationssystem</span>
-                        </div>
-                        <span class="category-badge badge-business">BUSINESS</span>
-                    </div>
-                    <p class="card-description">Ein Chatbot ist ein Softwareprogramm, das menschliche Konversationen simuliert und natuerlichsprachliche Interaktionen ermoeglicht. Moderne Chatbots nutzen Large Language Models, um kontextbezogene und nuancierte Antworten zu generieren.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Kundenservice-Chatbots beantworten haeufige Fragen rund um die Uhr und leiten komplexe Anliegen an menschliche Mitarbeiter weiter.</div>
-                    <div class="card-links"><a href="#Conversational AI">Conversational AI</a><a href="#NLP">NLP</a></div>
-                </div>
-                <div class="card" data-term="Classifier">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Classifier</h3>
-                            <span class="card-subtitle">Klassifikationsmodell</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Ein Classifier ist ein Machine-Learning-Modell, das Eingabedaten vordefinierten Kategorien zuordnet. Auf Basis von Trainingsbeispielen lernt der Classifier, Merkmale zu erkennen und neue Daten korrekt zu klassifizieren.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Ein Spam-Filter klassifiziert E-Mails als Spam oder Nicht-Spam basierend auf ihrem Inhalt und Metadaten.</div>
-                    <div class="card-links"><a href="#Supervised Learning">Supervised Learning</a><a href="#ML">ML</a></div>
-                </div>
-                <div class="card" data-term="Cloud AI">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Cloud AI</h3>
-                            <span class="card-subtitle">KI in der Cloud</span>
-                        </div>
-                        <span class="category-badge badge-business">BUSINESS</span>
-                    </div>
-                    <p class="card-description">Cloud AI bezeichnet KI-Dienste und -Infrastrukturen, die ueber Cloud-Plattformen bereitgestellt werden. Unternehmen koennen auf leistungsstarke Modelle und Rechenressourcen zugreifen, ohne eigene Hardware zu betreiben.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> AWS, Google Cloud und Azure bieten APIs fuer Bildanalyse, Spracherkennung und Textverarbeitung.</div>
-                    <div class="card-links"><a href="#API">API</a><a href="#MLOps">MLOps</a></div>
-                </div>
-                <div class="card" data-term="Clustering">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Clustering</h3>
-                            <span class="card-subtitle">Gruppenbildung</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Clustering ist ein unueberwachtes Lernverfahren, das Datenpunkte in Gruppen (Cluster) einteilt, basierend auf ihrer Aehnlichkeit. Der Algorithmus findet selbststaendig Strukturen, ohne dass vordefinierte Labels benoetigt werden.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Kunden werden in Segmente gruppiert, um zielgerichtete Marketingstrategien zu entwickeln.</div>
-                    <div class="card-links"><a href="#Unsupervised Learning">Unsupervised Learning</a><a href="#ML">ML</a></div>
-                </div>
-                <div class="card" data-term="Cognition">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Cognition</h3>
-                            <span class="card-subtitle">Kognition</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Cognition umfasst alle mentalen Prozesse wie Wahrnehmung, Denken, Lernen und Problemloesung. In der KI bezieht sich kognitive Modellierung auf die Nachbildung dieser menschlichen Denkprozesse in Computersystemen.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Kognitive Systeme koennen natuerliche Sprache verstehen, Schlussfolgerungen ziehen und aus Erfahrung lernen.</div>
-                    <div class="card-links"><a href="#AI">AI</a><a href="#Cognitive Computing">Cognitive Computing</a></div>
-                </div>
-                <div class="card" data-term="Cognitive Computing">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Cognitive Computing</h3>
-                            <span class="card-subtitle">Kognitive Informatik</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Cognitive Computing beschreibt Systeme, die menschliche Denkprozesse simulieren und mit komplexen, unstrukturierten Daten umgehen koennen. Diese Systeme kombinern Machine Learning, NLP und Reasoning.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> IBMs Watson analysiert medizinische Literatur und Patientendaten, um Aerzte bei Diagnosen zu unterstuetzen.</div>
-                    <div class="card-links"><a href="#Cognition">Cognition</a><a href="#AI">AI</a></div>
-                </div>
-                <div class="card" data-term="Computer Vision">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Computer Vision</h3>
-                            <span class="card-subtitle">Computersehen</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Computer Vision ist ein Teilgebiet der KI, das sich mit der automatischen Analyse und Interpretation von Bildern und Videos befasst. Systeme zur Bildverarbeitung koennen Objekte erkennen, Szenen verstehen und visuelle Informationen extrahieren.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Gesichtserkennung in Smartphones, Qualitaetskontrolle in der Fertigung, autonomes Fahren.</div>
-                    <div class="card-links"><a href="#CNN">CNN</a><a href="#Image Recognition">Image Recognition</a></div>
-                </div>
-                <div class="card" data-term="Context Window">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Context Window</h3>
-                            <span class="card-subtitle">Kontextfenster</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Das Context Window ist die maximale Menge an Text-Tokens, die ein Sprachmodell gleichzeitig verarbeiten kann. Es bestimmt, wie viel Kontext das Modell beruecksichtigen kann, um koharente Antworten zu generieren.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> GPT-4 hat ein Context Window von bis zu 128.000 Tokens, was etwa 300 Buchseiten entspricht.</div>
-                    <div class="card-links"><a href="#Token">Token</a><a href="#LLM">LLM</a></div>
-                </div>
-                <div class="card" data-term="Conversational AI">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Conversational AI</h3>
-                            <span class="card-subtitle">Konversationelle KI</span>
-                        </div>
-                        <span class="category-badge badge-business">BUSINESS</span>
-                    </div>
-                    <p class="card-description">Conversational AI umfasst Technologien, die es Maschinen ermoeglichen, natuerliche Dialoge mit Menschen zu fuehren. Diese Systeme kombinieren Spracherkennung, Natural Language Processing und Dialogmanagement.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Sprachassistenten wie Alexa, Google Assistant und Siri nutzen Conversational AI.</div>
-                    <div class="card-links"><a href="#Chatbot">Chatbot</a><a href="#NLP">NLP</a></div>
-                </div>
-                <div class="card" data-term="CNN">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">CNN</h3>
-                            <span class="card-subtitle">Convolutional Neural Network</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">CNNs sind neuronale Netze, die speziell fuer die Verarbeitung von Gitterdaten wie Bilder entwickelt wurden. Durch Convolutional-Schichten erkennen sie automatisch visuelle Merkmale wie Kanten, Texturen und Formen.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Gesichtserkennung, medizinische Bildanalyse, selbstfahrende Autos.</div>
-                    <div class="card-links"><a href="#Computer Vision">Computer Vision</a><a href="#Deep Learning">Deep Learning</a></div>
-                </div>
-                <div class="card" data-term="Copilot">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Copilot</h3>
-                            <span class="card-subtitle">KI-Assistent</span>
-                        </div>
-                        <span class="category-badge badge-business">BUSINESS</span>
-                    </div>
-                    <p class="card-description">Ein Copilot ist ein KI-gestuetzter Assistent, der Menschen bei komplexen Aufgaben unterstuetzt, ohne sie zu ersetzen. Copilots arbeiten Seite an Seite mit Nutzern und lernen aus deren Feedback.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> GitHub Copilot unterstuetzt Entwickler beim Schreiben von Code durch Vorschlaege und Autovervollstaendigung.</div>
-                    <div class="card-links"><a href="#Generative AI">Generative AI</a><a href="#Agent">Agent</a></div>
-                </div>
-                <div class="card" data-term="Corpus">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Corpus</h3>
-                            <span class="card-subtitle">Textsammlung</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Ein Corpus ist eine strukturierte Sammlung von Texten, die als Grundlage fuer die Analyse, das Training von Sprachmodellen oder linguistische Forschung dient.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Common Crawl ist ein riesiger Corpus aus Webseiten, der zum Training vieler Large Language Models verwendet wird.</div>
-                    <div class="card-links"><a href="#Dataset">Dataset</a><a href="#Training Data">Training Data</a></div>
-                </div>
-                <div class="card" data-term="Cost Function">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Cost Function</h3>
-                            <span class="card-subtitle">Kostenfunktion</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Die Cost Function misst, wie stark die Vorhersagen eines Modells von den tatsaechlichen Zielwerten abweichen. Das Ziel des Trainings ist es, diese Funktion zu minimieren.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Mean Squared Error (MSE) ist eine haeufige Cost Function fuer Regressionsprobleme.</div>
-                    <div class="card-links"><a href="#Loss Function">Loss Function</a><a href="#Optimization">Optimization</a></div>
-                </div>
+                <p class="term-description">Eine Schnittstelle, über die verschiedene Programme miteinander kommunizieren können – wie ein Kellner zwischen Küche und Gast.</p>
+                <div class="term-example"><strong>Beispiel:</strong> Deine Wetter-App nutzt eine API, um aktuelle Daten zu holen.</div>
             </div>
         </section>
 
-                <!-- D -->
-        <section class="section" id="D">
-            <div class="section-header">
-                <span class="section-letter">D</span>
-                <h2 class="section-title">Begriffe mit D</h2>
+        <!-- B -->
+        <section class="letter-section" id="B">
+            <h2 class="letter-header">B</h2>
+            
+            <div class="term-card">
+                <div class="term-header">
+                    <div>
+                        <h3 class="term-title">Bias</h3>
+                        <span class="term-subtitle">Verzerrung/Voreingenommenheit</span>
+                    </div>
+                    <span class="category-badge badge-ethics">Ethik</span>
+                </div>
+                <p class="term-description">Wenn eine KI aufgrund ihrer Trainingsdaten Vorurteile entwickelt und bestimmte Gruppen benachteiligt.</p>
+                <div class="term-example"><strong>Beispiel:</strong> Ein Bewerbungsalgorithmus bevorzugt Männer, weil er mit historischen Daten von überwiegend männlichen Führungskräften trainiert wurde.</div>
             </div>
-            <div class="cards-grid">
-                <div class="card" data-term="Data Augmentation">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Data Augmentation</h3>
-                            <span class="card-subtitle">Datenanreicherung</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
+
+            <div class="term-card">
+                <div class="term-header">
+                    <div>
+                        <h3 class="term-title">Big Data</h3>
+                        <span class="term-subtitle">Massive Datenmengen</span>
                     </div>
-                    <p class="card-description">Data Augmentation ist eine Technik zur kuenstlichen Erweiterung von Trainingsdaten durch Transformationen wie Rotation, Spiegelung oder Skalierung bei Bildern, oder Synonym-Ersetzung bei Texten.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Ein Bilderkennungsmodell wird mit gedrehten, gespiegelten und beschnittenen Versionen derselben Bilder trainiert, um verschiedene Kamerawinkel zu tolerieren.</div>
-                    <div class="card-links"><a href="#Training Data">Training Data</a><a href="#Dataset">Dataset</a></div>
+                    <span class="category-badge badge-business">Business</span>
                 </div>
-                <div class="card" data-term="Data Mining">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Data Mining</h3>
-                            <span class="card-subtitle">Datenbergbau</span>
-                        </div>
-                        <span class="category-badge badge-business">BUSINESS</span>
-                    </div>
-                    <p class="card-description">Data Mining bezeichnet den Prozess der automatischen Extraktion von Mustern, Trends und nuetzlichen Informationen aus grossen Datenmengen.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Ein Einzelhaendler analysiert Kaufhistorien per Data Mining, um Produkte zu identifizieren, die haeufig zusammen gekauft werden.</div>
-                    <div class="card-links"><a href="#ML">ML</a><a href="#Pattern Recognition">Pattern Recognition</a></div>
-                </div>
-                <div class="card" data-term="Dataset">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Dataset</h3>
-                            <span class="card-subtitle">Datensatz</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Ein Dataset ist eine strukturierte Sammlung von Daten, die fuer das Training, die Validierung und das Testen von KI-Modellen verwendet wird.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> ImageNet ist ein Dataset mit ueber 14 Millionen annotierten Bildern in 1.000 Kategorien.</div>
-                    <div class="card-links"><a href="#Training Data">Training Data</a><a href="#Benchmark">Benchmark</a></div>
-                </div>
-                <div class="card" data-term="Decision Tree">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Decision Tree</h3>
-                            <span class="card-subtitle">Entscheidungsbaum</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Ein Decision Tree ist ein ueberwachtes Lernmodell, das Entscheidungen durch eine baumartige Struktur von Regeln darstellt.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Eine Bank nutzt einen Decision Tree zur Kreditwuerdigkeitspruefung basierend auf Einkommen, Kredithistorie und Beschaeftigungsstatus.</div>
-                    <div class="card-links"><a href="#Supervised Learning">Supervised Learning</a><a href="#Classifier">Classifier</a></div>
-                </div>
-                <div class="card" data-term="Deep Learning">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Deep Learning</h3>
-                            <span class="card-subtitle">Tiefes Lernen</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Deep Learning ist ein Teilbereich des Machine Learnings, der neuronale Netze mit vielen Schichten verwendet.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Deep Learning ermoeglicht selbstfahrenden Autos die Erkennung von Verkehrszeichen, Fussgaengern und anderen Fahrzeugen in Echtzeit.</div>
-                    <div class="card-links"><a href="#Neural Network">Neural Network</a><a href="#ML">ML</a></div>
-                </div>
-                <div class="card" data-term="Deepfake">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Deepfake</h3>
-                            <span class="card-subtitle">KI-generierte Medienfaelschung</span>
-                        </div>
-                        <span class="category-badge badge-ethics">ETHICS</span>
-                    </div>
-                    <p class="card-description">Deepfakes sind durch KI generierte oder manipulierte Bilder, Videos oder Audioaufnahmen, die täuschend echt wirken.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Filmstudios nutzen Deepfake-Technologie, um Schauspieler digital zu verjuengen oder verstorbene Darsteller wiederzubeleben.</div>
-                    <div class="card-links"><a href="#Generative AI">Generative AI</a><a href="#Ethics">Ethics</a></div>
-                </div>
-                <div class="card" data-term="Diffusion Model">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Diffusion Model</h3>
-                            <span class="card-subtitle">Diffusionsmodell</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Diffusion Models sind generative KI-Modelle, die durch schrittweise Entrauschung zufaelliger Daten neue Inhalte erzeugen.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Stable Diffusion und DALL-E nutzen Diffusion Models, um fotorealistische Bilder aus Textbeschreibungen zu erzeugen.</div>
-                    <div class="card-links"><a href="#Generative AI">Generative AI</a><a href="#Deep Learning">Deep Learning</a></div>
-                </div>
-                <div class="card" data-term="Digital Twin">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Digital Twin</h3>
-                            <span class="card-subtitle">Digitaler Zwilling</span>
-                        </div>
-                        <span class="category-badge badge-business">BUSINESS</span>
-                    </div>
-                    <p class="card-description">Ein Digital Twin ist eine digitale Nachbildung eines physischen Objekts, Prozesses oder Systems, die in Echtzeit synchronisiert wird.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Flugzeugmotoren werden als Digital Twins ueberwacht, um Verschleiss vorherzusagen und Wartungsintervalle zu optimieren.</div>
-                    <div class="card-links"><a href="#IoT">IoT</a><a href="#Simulation">Simulation</a></div>
-                </div>
-                <div class="card" data-term="Dimensionality Reduction">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Dimensionality Reduction</h3>
-                            <span class="card-subtitle">Dimensionsreduktion</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Dimensionality Reduction ist eine Technik zur Reduzierung der Anzahl von Features in einem Datensatz unter Beibehaltung der wichtigsten Informationen.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> PCA reduziert die Dimensionalitaet von Bilddaten von tausenden Pixeln auf wenige signifikante Komponenten.</div>
-                    <div class="card-links"><a href="#Feature">Feature</a><a href="#Preprocessing">Preprocessing</a></div>
-                </div>
-                <div class="card" data-term="Dropout">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Dropout</h3>
-                            <span class="card-subtitle">Regularisierungstechnik</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Dropout ist eine Regularisierungstechnik fuer neuronale Netze, bei der waehrend des Trainings zufaellig Neuronen ausgeschaltet werden.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Bei jedem Trainingsschritt werden 20% der Neuronen zufaellig deaktiviert, sodass das Modell nicht von einzelnen Neuronen abhaengig wird.</div>
-                    <div class="card-links"><a href="#Overfitting">Overfitting</a><a href="#Neural Network">Neural Network</a></div>
-                </div>
+                <p class="term-description">Extrem große Datenmengen, die mit traditionellen Methoden nicht mehr verarbeitet werden können – die Grundlage moderner KI.</p>
+                <div class="term-example"><strong>Beispiel:</strong> Facebook verarbeitet täglich Petabytes an Nutzerdaten für personalisierte Werbung.</div>
             </div>
         </section>
-        <!-- E -->
-        <section class="section" id="E">
-            <div class="section-header">
-                <span class="section-letter">E</span>
-                <h2 class="section-title">Begriffe mit E</h2>
+
+        <!-- C -->
+        <section class="letter-section" id="C">
+            <h2 class="letter-header">C</h2>
+            
+            <div class="term-card">
+                <div class="term-header">
+                    <div>
+                        <h3 class="term-title">ChatGPT</h3>
+                        <span class="term-subtitle">KI-Chatbot von OpenAI</span>
+                    </div>
+                    <span class="category-badge badge-tech">Tech</span>
+                </div>
+                <p class="term-description">Ein Large Language Model, das natürliche Sprache versteht und generiert – für Texte, Fragen, Kreativität und Programmierung.</p>
+                <div class="term-example"><strong>Beispiel:</strong> "Schreibe mir eine höfliche Absage an einen Kunden" – ChatGPT formuliert es professionell.</div>
+                <div class="term-links">
+                    <a href="#LLM">→ LLM</a>
+                    <a href="#Prompt">→ Prompt</a>
+                </div>
             </div>
-            <div class="cards-grid">
-                <div class="card" data-term="Early Stopping">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Early Stopping</h3>
-                            <span class="card-subtitle">Fruehes Stoppen</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
+
+            <div class="term-card">
+                <div class="term-header">
+                    <div>
+                        <h3 class="term-title">Computer Vision</h3>
+                        <span class="term-subtitle">Computersehen</span>
                     </div>
-                    <p class="card-description">Early Stopping ist eine Regularisierungstechnik, bei der das Training vorzeitig beendet wird, sobald die Leistung auf Validierungsdaten nicht mehr verbessert wird.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Das Training wird gestoppt, wenn der Validierungsverlust fuer 5 aufeinanderfolgende Epochen nicht sinkt.</div>
-                    <div class="card-links"><a href="#Overfitting">Overfitting</a><a href="#Training">Training</a></div>
+                    <span class="category-badge badge-tech">Tech</span>
                 </div>
-                <div class="card" data-term="Edge AI">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Edge AI</h3>
-                            <span class="card-subtitle">KI am Netzwerkrand</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Edge AI bezeichnet die Ausfuehrung von KI-Modellen direkt auf lokalen Geraeten statt in der Cloud.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Eine Ueberwachungskamera mit integrierter Gesichtserkennung verarbeitet Bilder lokal und sendet nur Alarme, keine Rohvideos an die Cloud.</div>
-                    <div class="card-links"><a href="#IoT">IoT</a><a href="#Inference">Inference</a></div>
-                </div>
-                <div class="card" data-term="Embedding">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Embedding</h3>
-                            <span class="card-subtitle">Vektordarstellung</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Embeddings sind dichte Vektordarstellungen von Daten wie Woertern, Saetzen oder Bildern in einem niedrigdimensionalen Raum.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Word Embeddings repraesentieren Woerter so, dass Koenig minus Mann plus Frau zu Koenigin fuehrt.</div>
-                    <div class="card-links"><a href="#Vector">Vector</a><a href="#NLP">NLP</a></div>
-                </div>
-                <div class="card" data-term="Ensemble Learning">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Ensemble Learning</h3>
-                            <span class="card-subtitle">Ensemble-Lernen</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Ensemble Learning kombiniert Vorhersagen mehrerer Modelle, um die Gesamtleistung zu verbessern.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Random Forests kombinieren hunderte von Decision Trees, wobei jeder Baum auf einem zufaelligen Subset der Daten trainiert wird.</div>
-                    <div class="card-links"><a href="#Decision Tree">Decision Tree</a><a href="#ML">ML</a></div>
-                </div>
-                <div class="card" data-term="Epoch">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Epoch</h3>
-                            <span class="card-subtitle">Trainingsdurchlauf</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Eine Epoch ist ein vollstaendiger Durchlauf des gesamten Trainingsdatensatzes durch das Modell.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Ein Modell wird fuer 50 Epochen trainiert, wobei nach jeder Epoche die Leistung auf Validierungsdaten ueberprueft wird.</div>
-                    <div class="card-links"><a href="#Training">Training</a><a href="#Batch">Batch</a></div>
-                </div>
-                <div class="card" data-term="Ethics in AI">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Ethics in AI</h3>
-                            <span class="card-subtitle">KI-Ethik</span>
-                        </div>
-                        <span class="category-badge badge-ethics">ETHICS</span>
-                    </div>
-                    <p class="card-description">KI-Ethik befasst sich mit moralischen Fragen und gesellschaftlichen Auswirkungen kuenstlicher Intelligenz.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Unternehmen etablieren Ethics Boards, die KI-Systeme auf potenzielle Diskriminierung und gesellschaftliche Risiken pruefen.</div>
-                    <div class="card-links"><a href="#Bias">Bias</a><a href="#XAI">XAI</a></div>
-                </div>
-                <div class="card" data-term="Explainable AI">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Explainable AI</h3>
-                            <span class="card-subtitle">Erklaerbare KI</span>
-                        </div>
-                        <span class="category-badge badge-ethics">ETHICS</span>
-                    </div>
-                    <p class="card-description">Explainable AI umfasst Methoden und Techniken, die Entscheidungen von KI-Modellen fuer Menschen nachvollziehbar machen.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Eine Bank muss erklaeren koennen, warum ein Kredit abgelehnt wurde, und nutzt dafuer XAI-Techniken wie Feature Importance.</div>
-                    <div class="card-links"><a href="#Ethics">Ethics</a><a href="#Transparency">Transparency</a></div>
-                </div>
+                <p class="term-description">Die Fähigkeit von Computern, visuelle Informationen aus der realen Welt zu verstehen – Bilder und Videos zu analysieren.</p>
+                <div class="term-example"><strong>Beispiel:</strong> Gesichtserkennung beim Smartphone-Entsperren, autonomes Fahren, Qualitätskontrolle in Fabriken.</div>
             </div>
         </section>
-        <!-- F -->
-        <section class="section" id="F">
-            <div class="section-header">
-                <span class="section-letter">F</span>
-                <h2 class="section-title">Begriffe mit F</h2>
-            </div>
-            <div class="cards-grid">
-                <div class="card" data-term="Feature">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Feature</h3>
-                            <span class="card-subtitle">Merkmal</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
+
+        <!-- Weitere Buchstaben folgen im selben Format... -->
+
+        <!-- Platzhalter für D-Z -->
+        <section class="letter-section" id="D">
+            <h2 class="letter-header">D</h2>
+            <div class="term-card">
+                <div class="term-header">
+                    <div>
+                        <h3 class="term-title">Deep Learning</h3>
+                        <span class="term-subtitle">Tiefes Lernen</span>
                     </div>
-                    <p class="card-description">Ein Feature ist ein einzelnes messbares Merkmal oder eine Eigenschaft von Daten, das als Input fuer ein KI-Modell dient.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Bei der Immobilienbewertung sind Features: Quadratmeter, Lage, Baujahr, Anzahl Zimmer und Infrastrukturnaehe.</div>
-                    <div class="card-links"><a href="#Feature Engineering">Feature Engineering</a><a href="#Input Layer">Input Layer</a></div>
+                    <span class="category-badge badge-tech">Tech</span>
                 </div>
-                <div class="card" data-term="Feature Engineering">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Feature Engineering</h3>
-                            <span class="card-subtitle">Merkmalserstellung</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Feature Engineering ist der Prozess der Auswahl, Transformation und Erstellung von Features aus Rohdaten.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Aus einem Datum werden mehrere Features extrahiert: Wochentag, Monat, Jahreszeit und Feiertag ja/nein.</div>
-                    <div class="card-links"><a href="#Feature">Feature</a><a href="#Preprocessing">Preprocessing</a></div>
-                </div>
-                <div class="card" data-term="Few-shot Learning">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Few-shot Learning</h3>
-                            <span class="card-subtitle">Lernen aus wenigen Beispielen</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Few-shot Learning ist die Faehigkeit eines Modells, aus nur wenigen Beispielen zu lernen.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Ein Bilderkennungssystem lernt eine neue Produktkategorie aus nur 5 Beispielbildern.</div>
-                    <div class="card-links"><a href="#ZeroShot">ZeroShot</a><a href="#Transfer Learning">Transfer Learning</a></div>
-                </div>
-                <div class="card" data-term="Fine-tuning">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Fine-tuning</h3>
-                            <span class="card-subtitle">Feinabstimmung</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Fine-tuning ist der Prozess der Anpassung eines vortrainierten Modells an eine spezifische Aufgabe oder Domäne.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Ein vortrainiertes Sprachmodell wird fuer juristische Textanalyse mit 10.000 Vertraegen feinjustiert.</div>
-                    <div class="card-links"><a href="#Pretraining">Pretraining</a><a href="#Transfer Learning">Transfer Learning</a></div>
-                </div>
-                <div class="card" data-term="Foundation Model">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Foundation Model</h3>
-                            <span class="card-subtitle">Basismodell</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Foundation Models sind grosse, vortrainierte Modelle, die auf breiten Daten trainiert wurden und als Basis fuer verschiedene spezialisierte Aufgaben dienen.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> GPT-4, BERT und Stable Diffusion sind Foundation Models.</div>
-                    <div class="card-links"><a href="#Pretraining">Pretraining</a><a href="#LLM">LLM</a></div>
-                </div>
-                <div class="card" data-term="Framework">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Framework</h3>
-                            <span class="card-subtitle">Entwicklungsrahmen</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Ein Framework ist eine Sammlung von Tools, Bibliotheken und Konventionen zur Entwicklung von KI-Anwendungen.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> TensorFlow, PyTorch und scikit-learn sind populaere Frameworks fuer maschinelles Lernen.</div>
-                    <div class="card-links"><a href="#Python">Python</a><a href="#MLOps">MLOps</a></div>
-                </div>
+                <p class="term-description">Fortgeschrittenes Machine Learning mit künstlichen neuronalen Netzen mit vielen Schichten – die Basis für moderne KI-Durchbrüche.</p>
+                <div class="term-example"><strong>Beispiel:</strong> Spracherkennung, Bildklassifizierung, autonomes Fahren – alles basiert auf Deep Learning.</div>
             </div>
         </section>
-        <!-- G -->
-        <section class="section" id="G">
-            <div class="section-header">
-                <span class="section-letter">G</span>
-                <h2 class="section-title">Begriffe mit G</h2>
-            </div>
-            <div class="cards-grid">
-                <div class="card" data-term="Generative AI">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Generative AI</h3>
-                            <span class="card-subtitle">Generative Kuenstliche Intelligenz</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
+
+        <section class="letter-section" id="L">
+            <h2 class="letter-header">L</h2>
+            <div class="term-card">
+                <div class="term-header">
+                    <div>
+                        <h3 class="term-title">LLM</h3>
+                        <span class="term-subtitle">Large Language Model</span>
                     </div>
-                    <p class="card-description">Generative AI umfasst KI-Systeme, die neue Inhalte wie Texte, Bilder, Musik oder Code erstellen koennen.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> ChatGPT generiert Textantworten, DALL-E erstellt Bilder aus Beschreibungen.</div>
-                    <div class="card-links"><a href="#GPT">GPT</a><a href="#LLM">LLM</a></div>
+                    <span class="category-badge badge-tech">Tech</span>
                 </div>
-                <div class="card" data-term="GPT">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">GPT</h3>
-                            <span class="card-subtitle">Generative Pre-trained Transformer</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">GPT ist eine Klasse von grossen Sprachmodellen von OpenAI, die auf der Transformer-Architektur basieren.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> GPT-4 kann Texte uebersetzen, zusammenfassen, Fragen beantworten und kreativ schreiben.</div>
-                    <div class="card-links"><a href="#LLM">LLM</a><a href="#Transformer">Transformer</a></div>
-                </div>
-                <div class="card" data-term="GPU">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">GPU</h3>
-                            <span class="card-subtitle">Graphics Processing Unit</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">GPUs sind spezialisierte Prozessoren, die sich durch massiv parallele Verarbeitung ideal fuer Deep Learning eignen.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Das Training eines grossen Bilderkennungsmodells dauert auf GPUs Stunden statt Wochen auf CPUs.</div>
-                    <div class="card-links"><a href="#Hardware">Hardware</a><a href="#Deep Learning">Deep Learning</a></div>
-                </div>
-                <div class="card" data-term="Gradient Descent">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Gradient Descent</h3>
-                            <span class="card-subtitle">Gradientenabstieg</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Gradient Descent ist ein Optimierungsalgorithmus, der die Modellparameter schrittweise anpasst, um die Fehlerfunktion zu minimieren.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Adam und SGD sind Varianten, die bei jedem Trainingsschritt die Gewichte in Richtung niedrigerer Fehler anpassen.</div>
-                    <div class="card-links"><a href="#Optimization">Optimization</a><a href="#Backpropagation">Backpropagation</a></div>
-                </div>
-                <div class="card" data-term="Ground Truth">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Ground Truth</h3>
-                            <span class="card-subtitle">Wahre Labels</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Ground Truth bezeichnet die tatsaechlichen, korrekten Labels oder Werte in einem Datensatz.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Bei medizinischen Bildern ist die Ground Truth die von Experten bestaetigte Diagnose.</div>
-                    <div class="card-links"><a href="#Label">Label</a><a href="#Validation">Validation</a></div>
-                </div>
+                <p class="term-description">Große Sprachmodelle wie GPT-4 oder Claude, die mit riesigen Textmengen trainiert wurden und menschenähnliche Sprache generieren können.</p>
+                <div class="term-example"><strong>Beispiel:</strong> ChatGPT, Claude, Google Bard – alle basieren auf Large Language Models.</div>
             </div>
         </section>
-        <!-- H -->
-        <section class="section" id="H">
-            <div class="section-header">
-                <span class="section-letter">H</span>
-                <h2 class="section-title">Begriffe mit H</h2>
-            </div>
-            <div class="cards-grid">
-                <div class="card" data-term="Hallucination">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Hallucination</h3>
-                            <span class="card-subtitle">Halluzination</span>
-                        </div>
-                        <span class="category-badge badge-ethics">ETHICS</span>
+
+        <section class="letter-section" id="P">
+            <h2 class="letter-header">P</h2>
+            <div class="term-card">
+                <div class="term-header">
+                    <div>
+                        <h3 class="term-title">Prompt</h3>
+                        <span class="term-subtitle">Eingabeaufforderung</span>
                     </div>
-                    <p class="card-description">Hallucination bezeichnet die Generierung von falscher oder erfundener Information durch KI-Modelle, die plausibel klingt.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Ein Sprachmodell generiert ein scheinbar wissenschaftliches Zitat mit real klingendem Autorennamen, das jedoch nie existiert hat.</div>
-                    <div class="card-links"><a href="#RAG">RAG</a><a href="#Ground Truth">Ground Truth</a></div>
+                    <span class="category-badge badge-business">Business</span>
                 </div>
-                <div class="card" data-term="Hyperparameter">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Hyperparameter</h3>
-                            <span class="card-subtitle">Hyperparameter</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Hyperparameter sind Konfigurationseinstellungen, die vor dem Training festgelegt werden und den Lernprozess steuern.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Lernrate, Batch-Groesse, Anzahl der Schichten und Dropout-Rate sind typische Hyperparameter.</div>
-                    <div class="card-links"><a href="#Optimization">Optimization</a><a href="#Training">Training</a></div>
-                </div>
-                <div class="card" data-term="Hypothesis">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Hypothesis</h3>
-                            <span class="card-subtitle">Hypothese</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Eine Hypothesis im Kontext des Machine Learnings ist die Annahme oder das Modell, das die Beziehung zwischen Input-Features und Output-Vorhersagen beschreibt.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Die Hypothesis eines Spam-Filters ist, dass E-Mails mit bestimmten Worten wahrscheinlich Spam sind.</div>
-                    <div class="card-links"><a href="#Model">Model</a><a href="#Prediction">Prediction</a></div>
-                </div>
+                <p class="term-description">Deine Anweisung an eine KI. Ein guter Prompt ist präzise, kontextreich und liefert bessere Ergebnisse.</p>
+                <div class="term-example"><strong>Beispiel:</strong> Schlecht: "Schreib was über Hunde." Gut: "Schreibe einen 500-Wörter Blog-Artikel über Hunderassen für Anfänger, freundlicher Ton."</div>
             </div>
         </section>
-        <!-- I -->
-        <section class="section" id="I">
-            <div class="section-header">
-                <span class="section-letter">I</span>
-                <h2 class="section-title">Begriffe mit I</h2>
-            </div>
-            <div class="cards-grid">
-                <div class="card" data-term="Image Recognition">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Image Recognition</h3>
-                            <span class="card-subtitle">Bilderkennung</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Image Recognition ist die Faehigkeit von KI-Systemen, Objekte, Personen, Szenen und Aktivitaeten in Bildern zu identifizieren und zu klassifizieren.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Smartphones nutzen Gesichtserkennung zur Entsperrung, selbstfahrende Autos erkennen Verkehrszeichen.</div>
-                    <div class="card-links"><a href="#Computer Vision">Computer Vision</a><a href="#CNN">CNN</a></div>
-                </div>
-                <div class="card" data-term="Image Segmentation">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Image Segmentation</h3>
-                            <span class="card-subtitle">Bildsegmentierung</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Image Segmentation ist die Unterteilung eines Bildes in bedeutungsvolle Regionen oder Pixelgruppen.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> In der medizinischen Bildgebung segmentiert KI Tumore in MRT-Aufnahmen, um ihre Groesse zu bestimmen.</div>
-                    <div class="card-links"><a href="#Computer Vision">Computer Vision</a><a href="#Object Detection">Object Detection</a></div>
-                </div>
-                <div class="card" data-term="Inference">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Inference</h3>
-                            <span class="card-subtitle">Inferenz</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Inference ist der Prozess, bei dem ein trainiertes KI-Modell auf neue, unbekannte Daten angewendet wird, um Vorhersagen zu treffen.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Ein trainiertes Sprachmodell fuehrt Inference durch, wenn es auf eine Benutzereingabe antwortet.</div>
-                    <div class="card-links"><a href="#Model">Model</a><a href="#Prediction">Prediction</a></div>
-                </div>
-                <div class="card" data-term="Input Layer">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Input Layer</h3>
-                            <span class="card-subtitle">Eingabeschicht</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Der Input Layer ist die erste Schicht eines neuronalen Netzes, die die Rohdaten entgegennimmt.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Bei einem 28x28 Pixel Bild hat der Input Layer 784 Neuronen, eines fuer jeden Pixelwert.</div>
-                    <div class="card-links"><a href="#Neural Network">Neural Network</a><a href="#Layer">Layer</a></div>
-                </div>
-                <div class="card" data-term="IoT">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">IoT</h3>
-                            <span class="card-subtitle">Internet of Things</span>
-                        </div>
-                        <span class="category-badge badge-business">BUSINESS</span>
-                    </div>
-                    <p class="card-description">Das Internet of Things bezeichnet das Netzwerk physischer Geraete, die mit Sensoren, Software und Konnektivitaet ausgestattet sind.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Intelligente Thermostate lernen aus Nutzerverhalten und optimieren Heizzyklen automatisch.</div>
-                    <div class="card-links"><a href="#Edge AI">Edge AI</a><a href="#Smart Home">Smart Home</a></div>
-                </div>
-            </div>
-        </section>
-        <!-- K -->
-        <section class="section" id="K">
-            <div class="section-header">
-                <span class="section-letter">K</span>
-                <h2 class="section-title">Begriffe mit K</h2>
-            </div>
-            <div class="cards-grid">
-                <div class="card" data-term="Knowledge Base">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Knowledge Base</h3>
-                            <span class="card-subtitle">Wissensdatenbank</span>
-                        </div>
-                        <span class="category-badge badge-business">BUSINESS</span>
-                    </div>
-                    <p class="card-description">Eine Knowledge Base ist eine strukturierte Sammlung von Informationen und Fakten, die KI-Systemen als Grundlage fuer Antworten und Entscheidungen dient.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Ein Unternehmen pflegt eine Knowledge Base mit Produktdokumentation, FAQs und Richtlinien.</div>
-                    <div class="card-links"><a href="#RAG">RAG</a><a href="#Knowledge Graph">Knowledge Graph</a></div>
-                </div>
-                <div class="card" data-term="Knowledge Graph">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">Knowledge Graph</h3>
-                            <span class="card-subtitle">Wissensgraph</span>
-                        </div>
-                        <span class="category-badge badge-tech">TECH</span>
-                    </div>
-                    <p class="card-description">Ein Knowledge Graph ist eine Wissensrepraesentation, die Entitaeten als Knoten und ihre Beziehungen als Kanten in einem Netzwerk darstellt.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> Der Google Knowledge Graph verknuepft Personen, Orte und Dinge fuer Suchergebnisse.</div>
-                    <div class="card-links"><a href="#Knowledge Base">Knowledge Base</a><a href="#Semantic Search">Semantic Search</a></div>
-                </div>
-                <div class="card" data-term="KPI">
-                    <div class="card-header">
-                        <div class="card-title-group">
-                            <h3 class="card-title">KPI</h3>
-                            <span class="card-subtitle">Key Performance Indicator</span>
-                        </div>
-                        <span class="category-badge badge-business">BUSINESS</span>
-                    </div>
-                    <p class="card-description">KPIs sind messbare Werte, die den Erfolg von KI-Systemen und -Projekten bewerten.</p>
-                    <div class="card-example"><strong>Praxisbeispiel:</strong> KPIs fuer einen Support-Chatbot: First-Contact-Resolution-Rate, Antwortzeit, Kundenzufriedenheit.</div>
-                    <div class="card-links"><a href="#Benchmark">Benchmark</a><a href="#Evaluation">Evaluation</a></div>
-                </div>
-            </div>
-        </section>
-<!-- CTA -->
-        <div class="cta">
-            <h2>Bereit fuer Ihr KI-Projekt?</h2>
-            <p>Nutzen Sie das Glossar als Referenz fuer Ihre naechsten KI-Initiativen.</p>
-            <a href="#" class="cta-button">Glossar teilen</a>
-        </div>
     </main>
+
+    <section class="cta">
+        <h2>Noch Fragen zu KI-Begriffen?</h2>
+        <p>In meinen Kursen erkläre ich alles ausführlich und praxisnah.</p>
+        <a href="/kurse.html" class="cta-btn">Zu den Kursen →</a>
+    </section>
+
     <footer class="footer">
-        <p>KI-Glossar: 100 Fachbegriffe verstaendlich erklaert</p>
+        <div class="footer-logo">KI-Expertenraum</div>
+        <p>© 2026 Philipp Zerna | <a href="/impressum/" style="color: rgba(255,255,255,0.7);">Impressum</a></p>
     </footer>
+
     <script>
-        // Smooth scroll für Anker-Links
-        document.querySelectorAll('.alpha-nav a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                if (targetSection) {
-                    const headerOffset = 160; // Abstand für sticky Header
-                    const elementPosition = targetSection.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                    
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
+        // Search functionality
         document.getElementById('searchInput').addEventListener('input', function(e) {
             const searchTerm = e.target.value.toLowerCase();
-            const cards = document.querySelectorAll('.card');
-            const sections = document.querySelectorAll('.section');
+            const cards = document.querySelectorAll('.term-card');
+            
             cards.forEach(card => {
-                const term = card.getAttribute('data-term').toLowerCase();
                 const text = card.textContent.toLowerCase();
-                if (term.includes(searchTerm) || text.includes(searchTerm)) {
-                    card.classList.remove('hidden');
+                if (text.includes(searchTerm)) {
+                    card.style.display = 'block';
                 } else {
-                    card.classList.add('hidden');
-                }
-            });
-            sections.forEach(section => {
-                const visibleCards = section.querySelectorAll('.card:not(.hidden)');
-                if (visibleCards.length === 0 && searchTerm !== '') {
-                    section.style.display = 'none';
-                } else {
-                    section.style.display = 'block';
+                    card.style.display = 'none';
                 }
             });
         });
