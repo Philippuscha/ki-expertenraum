@@ -18,36 +18,6 @@
         .nav-links { display: flex; gap: 30px; list-style: none; }
         .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.3s; }
         .nav-links a:hover { color: var(--accent); }
-        
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            padding: 8px;
-        }
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 70px;
-            left: 0;
-            right: 0;
-            background: white;
-            padding: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            z-index: 999;
-        }
-        .mobile-menu.active { display: block; }
-        .mobile-menu a {
-            display: block;
-            padding: 16px;
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 600;
-            border-bottom: 1px solid #f0f0f0;
-        }
         .hero { padding: 160px 40px 60px; text-align: center; max-width: 800px; margin: 0 auto; }
         .hero h1 { font-size: clamp(36px, 5vw, 52px); line-height: 1.1; margin-bottom: 20px; }
         .hero h1 span { background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -108,14 +78,6 @@
             <li><a href="/#work">Kurse</a></li>
         </ul>
     </nav>
-    <button class="mobile-menu-btn" onclick="document.querySelector('.mobile-menu').classList.toggle('active')">☰</button>
-    <div class="mobile-menu">
-        <a href="/">Startseite</a>
-        <a href="/artikel/">Artikel</a>
-        <a href="/services/">Services</a>
-        <a href="/kurse/">Kurse</a>
-        <a href="/glossar/">Glossar</a>
-    </div>
 
     <header class="hero">
         <h1>KI-Glossar: <span>100+ Begriffe einfach erklärt</span></h1>
@@ -132,14 +94,6 @@
         <a href="#P">P</a><a href="#Q">Q</a><a href="#R">R</a><a href="#S">S</a><a href="#T">T</a>
         <a href="#U">U</a><a href="#V">V</a><a href="#W">W</a><a href="#X">X</a><a href="#Y">Y</a><a href="#Z">Z</a>
     </nav>
-    <button class="mobile-menu-btn" onclick="document.querySelector('.mobile-menu').classList.toggle('active')">☰</button>
-    <div class="mobile-menu">
-        <a href="/">Startseite</a>
-        <a href="/artikel/">Artikel</a>
-        <a href="/services/">Services</a>
-        <a href="/kurse/">Kurse</a>
-        <a href="/glossar/">Glossar</a>
-    </div>
 
     <main class="container">
         <!-- A -->
