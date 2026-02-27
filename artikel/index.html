@@ -64,36 +64,6 @@
         }
         .nav-links a:hover { color: var(--accent); }
         
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            padding: 8px;
-        }
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 70px;
-            left: 0;
-            right: 0;
-            background: white;
-            padding: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            z-index: 999;
-        }
-        .mobile-menu.active { display: block; }
-        .mobile-menu a {
-            display: block;
-            padding: 16px;
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 600;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        
         /* Dropdown */
         .dropdown { position: relative; }
         .dropdown-toggle {
@@ -364,14 +334,6 @@
             <li><a href="/glossar/">Glossar</a></li>
         </ul>
     </nav>
-    <button class="mobile-menu-btn" onclick="document.querySelector('.mobile-menu').classList.toggle('active')">☰</button>
-    <div class="mobile-menu">
-        <a href="/">Startseite</a>
-        <a href="/artikel/">Artikel</a>
-        <a href="/services/">Services</a>
-        <a href="/kurse/">Kurse</a>
-        <a href="/glossar/">Glossar</a>
-    </div>
 
     <header class="hero">
         <span class="hero-badge">Wissensdatenbank</span>
@@ -422,7 +384,7 @@
                     <span class="card-category">KI-Tools</span>
                 </div>
                 <div class="card-content">
-                    <h3 class="card-title">OpenClaw Masterclass</h3>
+                    <h3 class="card-title">OpenClaw: Lokale KI für Unternehmen</h3>
                     <p class="card-description">Die lokale KI-Alternative: Datenschutz-konform, kostengünstig, vollständig unter Ihrer Kontrolle.</p>
                     <div class="card-meta">
                         <span>⏱️ 12 Min.</span>
