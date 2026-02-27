@@ -13,6 +13,8 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 50%, #dbeafe 100%); color: var(--text); line-height: 1.7; min-height: 100vh; }
         h1, h2, h3, h4 { font-family: 'DM Sans', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
+        
+        /* Navigation */
         .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; background: rgba(240, 247, 255, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
         .logo { font-family: 'DM Sans', sans-serif; font-size: 24px; font-weight: 800; background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
         .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
@@ -24,163 +26,121 @@
         .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
         .dropdown-menu a { display: block; padding: 10px 16px; border-radius: 8px; }
         .dropdown-menu a:hover { background: #f0f7ff; }
-        .hero {
-            margin-top: 40px;
-            margin-top: 40px; padding: 200px 40px 80px; text-align: center; max-width: 900px; margin: 0 auto; background: linear-gradient(135deg, rgba(245,158,11,0.1) 0%, rgba(59,130,246,0.1) 100%); border-radius: 0 0 40px 40px; margin-bottom: 40px; }
+        
+        /* Mobile Menu Toggle */
+        
+        .mobile-menu-toggle span { width: 24px; height: 2.5px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
+        .mobile-menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .mobile-menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+        
+        /* Mobile Menu */
+        
+        .mobile-menu.active { display: flex; opacity: 1; visibility: visible; }
+        .mobile-menu a { font-family: 'DM Sans', sans-serif; font-size: 28px; font-weight: 700; color: var(--text); text-decoration: none; }
+        .mobile-menu a:hover { color: var(--accent); }
+        
+        /* Hero */
+        .hero { padding: 180px 40px 80px; text-align: center; max-width: 900px; margin: 0 auto; background: linear-gradient(135deg, rgba(245,158,11,0.1) 0%, rgba(59,130,246,0.1) 100%); border-radius: 0 0 40px 40px; margin-bottom: 40px; }
         .hero-badge { display: inline-block; background: rgba(245, 158, 11, 0.15); color: #d97706; padding: 8px 20px; border-radius: 20px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; }
-        .hero h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.15; margin-bottom: 25px; font-weight: 800; }
+        .hero h1 { font-size: clamp(28px, 5vw, 48px); line-height: 1.15; margin-bottom: 25px; font-weight: 800; }
         .hero h1 span { background: linear-gradient(135deg, #d97706 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hero-description { font-size: 19px; color: var(--text-muted); max-width: 600px; margin: 0 auto 30px; }
-        .hero-meta { display: flex; justify-content: center; gap: 30px; color: var(--text-light); font-size: 14px; }
+        .hero-meta { display: flex; justify-content: center; gap: 30px; color: var(--text-light); font-size: 14px; flex-wrap: wrap; }
+        
+        /* Content */
         .content-wrapper { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: 1fr 280px; gap: 60px; }
         .main-content { max-width: 800px; }
-        h2 { font-size: 32px; margin: 50px 0 25px; font-weight: 800; color: var(--text); scroll-margin-top: 140px; }
-        h3 { font-size: 24px; margin: 35px 0 20px; font-weight: 700; color: var(--text); scroll-margin-top: 140px; }
+        h2 { font-size: 32px; margin: 50px 0 25px; font-weight: 800; color: var(--text); scroll-margin-top: 100px; }
+        h3 { font-size: 24px; margin: 35px 0 20px; font-weight: 700; color: var(--text); scroll-margin-top: 100px; }
         p { margin-bottom: 25px; color: var(--text-muted); font-size: 17px; line-height: 1.8; }
         ul, ol { margin: 25px 0; padding-left: 30px; }
         li { margin: 12px 0; color: var(--text-muted); }
         blockquote { background: rgba(245, 158, 11, 0.08); border-left: 4px solid #f59e0b; padding: 30px; margin: 35px 0; border-radius: 0 12px 12px 0; font-size: 19px; font-weight: 600; color: var(--text); }
+        
+        /* Components */
         .highlight { background: rgba(59, 130, 246, 0.08); border-radius: 12px; padding: 25px; margin: 35px 0; border: 1px solid rgba(59, 130, 246, 0.15); }
-        .prompt-box { background: #1e293b; border-radius: 16px; padding: 25px; margin: 25px 0; color: #e2e8f0; font-family: 'Monaco', 'Consolas', monospace; font-size: 14px; line-height: 1.6; position: relative; }
+        .prompt-box { background: #1e293b; border-radius: 16px; padding: 25px; margin: 25px 0; color: #e2e8f0; font-family: 'Monaco', 'Consolas', monospace; font-size: 14px; line-height: 1.6; position: relative; overflow-x: auto; }
         .prompt-box::before { content: 'PROMPT'; position: absolute; top: 10px; right: 15px; font-size: 11px; color: #64748b; font-family: 'DM Sans', sans-serif; font-weight: 700; }
         .time-save { display: inline-block; background: linear-gradient(135deg, #22c55e, #16a34a); color: white; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 700; margin: 15px 0; }
         .checklist { background: var(--bg-card); border-radius: 16px; padding: 30px; margin: 30px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
         .check-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
-        .check-item input { width: 20px; height: 20px; margin-top: 3px; accent-color: var(--accent); }
+        .check-item input { width: 20px; height: 20px; margin-top: 3px; accent-color: var(--accent); flex-shrink: 0; }
         .cta-box { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white; padding: 40px; border-radius: 20px; margin: 50px 0; text-align: center; }
         .cta-box h3 { color: white; margin-bottom: 15px; font-size: 24px; }
         .cta-box p { color: rgba(255,255,255,0.9); margin-bottom: 25px; }
         .btn-white { display: inline-block; background: white; color: #d97706; padding: 14px 32px; border-radius: 10px; text-decoration: none; font-weight: 700; transition: transform 0.3s; }
         .btn-white:hover { transform: translateY(-3px); }
+        
+        /* TOC Sidebar */
         .toc-sidebar { position: sticky; top: 100px; height: fit-content; background: var(--bg-card); border-radius: 16px; padding: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid rgba(255,255,255,0.6); }
         .toc-title { font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 20px; color: var(--text); text-transform: uppercase; letter-spacing: 1px; }
         .toc-list { list-style: none; padding: 0; margin: 0; }
         .toc-list li { margin: 8px 0; }
         .toc-list a { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; display: block; padding: 8px 12px; border-radius: 8px; transition: all 0.3s; }
         .toc-list a:hover { background: rgba(245, 158, 11, 0.1); color: #d97706; }
+        
+        /* Footer */
         .footer { background: var(--text); color: rgba(255,255,255,0.7); padding: 50px 40px 30px; margin-top: 80px; text-align: center; }
         .footer-logo { font-family: 'DM Sans', sans-serif; font-size: 24px; font-weight: 800; margin-bottom: 15px; background: linear-gradient(135deg, white 0%, #60a5fa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        @media (max-width: 1024px) { .content-wrapper { grid-template-columns: 1fr; }  }
         
-        /* MOBILE RESPONSIVE */
+        /* Responsive */
+        
+        
+        
+        
+        
+    
+        /* Mobile Menu Toggle - Hidden by default, shown on mobile */
+        .mobile-menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; z-index: 1001; }
+        .mobile-menu-toggle span { width: 24px; height: 2.5px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
+        .mobile-menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .mobile-menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+        
+        /* Mobile Menu - Full screen overlay */
+        .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(240, 247, 255, 0.98); backdrop-filter: blur(20px); z-index: 999; flex-direction: column; justify-content: center; align-items: center; gap: 30px; opacity: 0; visibility: hidden; transition: all 0.3s; }
+        .mobile-menu.active { display: flex; opacity: 1; visibility: visible; }
+        .mobile-menu a { font-family: 'DM Sans', sans-serif; font-size: 28px; font-weight: 700; color: var(--text); text-decoration: none; }
+        .mobile-menu a:hover { color: var(--accent); }
+
+        /* Responsive Styles */
         @media (max-width: 1024px) {
-            .content-wrapper {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            .toc-sidebar {
-                display: none;
-            }
+            .content-wrapper { grid-template-columns: 1fr; gap: 40px; }
+            .toc-sidebar { display: none; }
+        }
+        
+        @media (max-width: 768px) {
+            .nav { padding: 12px 20px; min-height: 60px; }
+            .nav-links { display: none; }
+            .mobile-menu-toggle { display: flex; }
+            .hero { padding: 100px 20px 60px; border-radius: 0 0 24px 24px; }
+            .hero h1 { font-size: 26px; }
+            .hero-description { font-size: 16px; }
+            .hero-meta { gap: 15px; font-size: 13px; flex-wrap: wrap; }
+            .content-wrapper { padding: 0 20px; }
+            h2 { font-size: 24px; margin: 40px 0 20px; scroll-margin-top: 80px; }
+            h3 { font-size: 20px; margin: 30px 0 15px; scroll-margin-top: 80px; }
+            p { font-size: 16px; line-height: 1.7; margin-bottom: 20px; }
+            ul, ol { padding-left: 20px; margin: 20px 0; }
+            blockquote { padding: 20px; font-size: 17px; margin: 25px 0; }
+            pre { padding: 15px; font-size: 13px; overflow-x: auto; }
+            .cta-box { padding: 30px 20px; margin: 40px 0; }
+            .cta-box h2, .cta-box h3 { font-size: 20px; }
+            .btn, .btn-white { padding: 12px 24px; font-size: 15px; }
+            .footer { padding: 40px 20px; margin-top: 60px; }
+            table { display: block; overflow-x: auto; white-space: nowrap; font-size: 14px; }
+            th, td { padding: 12px; }
+        }
+        
+        @media (max-width: 375px) {
+            .hero h1 { font-size: 24px; }
+            h2 { font-size: 22px; }
+            h3 { font-size: 18px; }
+            .mobile-menu a { font-size: 24px; }
+            .hero-meta { flex-direction: column; gap: 8px; }
         }
 
-        @media (max-width: 768px) {
-            .nav {
-                padding: 12px 20px;
-                min-height: 60px;
-            }
-            .nav-links {
-                display: none;
-            }
-            .mobile-menu-toggle {
-                display: flex;
-                flex-direction: column;
-                gap: 5px;
-                cursor: pointer;
-                padding: 8px;
-                z-index: 1001;
-            }
-            .mobile-menu-toggle span {
-                width: 24px;
-                height: 2.5px;
-                background: var(--text);
-                border-radius: 2px;
-                transition: all 0.3s;
-            }
-            .mobile-menu-toggle.active span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
-            }
-            .mobile-menu-toggle.active span:nth-child(2) {
-                opacity: 0;
-            }
-            .mobile-menu-toggle.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(7px, -6px);
-            }
-            .mobile-menu {
-                display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: rgba(240, 247, 255, 0.98);
-                backdrop-filter: blur(20px);
-                z-index: 999;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 30px;
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.3s;
-            }
-            .mobile-menu.active {
-                display: flex;
-                opacity: 1;
-                visibility: visible;
-            }
-            .mobile-menu a {
-                font-family: 'DM Sans', sans-serif;
-                font-size: 28px;
-                font-weight: 700;
-                color: var(--text);
-                text-decoration: none;
-            }
-            .mobile-menu a:hover {
-                color: var(--accent);
-            }
-            
-            .hero {
-            margin-top: 40px;
-                padding: 100px 20px 60px;
-            }
-            .hero h1 {
-                font-size: 28px;
-            }
-            .content-wrapper {
-                padding: 0 20px;
-            }
-            h2 {
-                font-size: 24px;
-            }
-            h3 {
-                font-size: 20px;
-            }
-            p {
-                font-size: 16px;
-            }
-            pre {
-                padding: 15px;
-                font-size: 13px;
-            }
-            table {
-                display: block;
-                overflow-x: auto;
-                white-space: nowrap;
-            }
-            .cta-box {
-                padding: 30px 20px;
-            }
-            .cta-box h2 {
-                font-size: 22px;
-            }
-            .btn {
-                padding: 14px 28px;
-                font-size: 14px;
-            }
-            .footer {
-                padding: 40px 20px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -279,78 +239,6 @@ Aufbau:
 Länge: Max. 150 Wörter. Ton: Professionell, aber menschlich.</div>
             <div class="time-save">⏱️ Zeitersparnis: 30 Minuten pro E-Mail</div>
 
-            <h3>Prompt 3: Website-Texte, die verkaufen</h3>
-            <div class="prompt-box">Erstelle Website-Texte für meine [SEITE]:
-
-Unternehmen: [NAME, BRANCHE, USP]
-Zielgruppe: [BESCHREIBUNG]
-Ziel der Seite: [INFORMIEREN/VERKAUFEN/KONTAKT]
-
-Benötigt:
-1. Headline (H1): Emotional + rational, max. 60 Zeichen
-2. Subheadline: Erklärt das Versprechen
-3. 3 Bullet Points mit Hauptnutzen
-4. Einleitungstext (80-100 Wörter)
-5. Call-to-Action-Button Text (2-3 Wörter)
-
-Sprache: Aktiv. Sie-Form. Kein Fachjargon.</div>
-            <div class="time-save">⏱️ Zeitersparnis: 2 Stunden pro Seite</div>
-
-            <h2>Kategorie 2: Büro & Administration</h2>
-            
-            <h3>Prompt 4: Excel-Formel erklären & erstellen</h3>
-            <div class="prompt-box">Ich brauche eine Excel-Formel für folgendes Problem:
-
-Was ich habe: [DATENBESCHREIBUNG]
-Was ich will: [GEWÜNSCHTES ERGEBNIS]
-Mein Excel-Level: [ANFÄNGER/FORTGESCHRITTEN]
-
-Bitte:
-1. Die komplette Formel
-2. Schritt-für-Schritt Erklärung
-3. Ein konkretes Beispiel mit Zahlen
-4. Typische Fehler, die vermieden werden sollten
-5. Alternative (einfachere) Lösung, falls möglich</div>
-            <div class="time-save">⏱️ Zeitersparnis: 1-2 Stunden pro Formel</div>
-
-            <h3>Prompt 5: E-Mail kurz & prägnant machen</h3>
-            <div class="prompt-box">Hier ist mein E-Mail-Entwurf. Bitte kürzen und verbessern:
-
-[E-MAIL-TEXT EINFÜGEN]
-
-Anforderungen:
-- Kürze auf max. 100 Wörter
-- Entferne Füllwörter und redundante Sätze
-- Mache die Kernbotschaft klarer
-- Prüfe auf höflichen, professionellen Ton
-- Verbessere die Call-to-Action
-
-Ziel: Der Empfänger versteht sofort, was ich will.</div>
-            <div class="time-save">⏱️ Zeitersparnis: 15 Minuten pro E-Mail</div>
-
-            <h3>Prompt 6: Meeting-Protokoll strukturieren</h3>
-            <div class="prompt-box">Strukturiere dieses Meeting-Protokoll:
-
-[ROHER TEXT/ZUSAMMENFASSUNG EINFÜGEN]
-
-Format:
-## Meeting: [THEMA] | [DATUM]
-**Teilnehmer:** [NAMEN]
-
-### 1. Besprochene Themen
-- Punkt 1
-- Punkt 2
-
-### 2. Getroffene Entscheidungen
-- Entscheidung A → Verantwortlich: [NAME] | Deadline: [DATUM]
-
-### 3. Offene Punkte / To-Dos
-- [ ] Aufgabe 1 (@Person)
-
-### 4. Nächster Termin
-[DATUM, ZEIT, ORT]</div>
-            <div class="time-save">⏱️ Zeitersparnis: 20 Minuten pro Protokoll</div>
-
             <h2>Die GOLDENE REGEL der KI-Nutzung</h2>
             
             <div class="highlight" style="border-color: #ef4444;">
@@ -372,21 +260,6 @@ Format:
                 <div class="check-item"><input type="checkbox" id="check5"><label for="check5">Beispiele gegeben (falls möglich)</label></div>
             </div>
 
-            <div class="highlight">
-                <h3>🎯 Weitere 19 Prompts im vollständigen Guide</h3>
-                <ul>
-                    <li>Google Bewertungen professionell beantworten</li>
-                    <li>Angebots-Texte erstellen</li>
-                    <li>LinkedIn B2B Content</li>
-                    <li>Kaltakquise Telefon-Scripts</li>
-                    <li>Rechtliche Texte prüfen</li>
-                    <li>Kundenansprache personalisieren</li>
-                    <li>Newsletter-Subject Lines</li>
-                    <li>Präsentationen strukturieren</li>
-                    <li>Und 11 weitere...</li>
-                </ul>
-            </div>
-
             <div class="cta-box">
                 <h3>📥 Alle 25 Prompts als PDF</h3>
                 <p>Laden Sie unsere kostenlose PDF-Version herunter – mit allen 25 Prompts ausführlich ausgearbeitet und mit Beispielen.</p>
@@ -402,10 +275,6 @@ Format:
                 <li><a href="#">Das Problem</a></li>
                 <li><a href="#">Social Media Post</a></li>
                 <li><a href="#">Verkaufs-E-Mail</a></li>
-                <li><a href="#">Website-Texte</a></li>
-                <li><a href="#">Excel-Formeln</a></li>
-                <li><a href="#">E-Mail optimieren</a></li>
-                <li><a href="#">Meeting-Protokoll</a></li>
                 <li><a href="#">Goldene Regel</a></li>
                 <li><a href="#">Checkliste</a></li>
             </ul>
@@ -418,42 +287,19 @@ Format:
     </footer>
     
     <script>
-        // Auto-generate TOC from headings
-        document.addEventListener("DOMContentLoaded", function() {
-            const tocList = document.querySelector(".toc-list");
-            if (!tocList) return;
-            
-            const headings = document.querySelectorAll(".main-content h2");
-            tocList.innerHTML = "";
-            
-            headings.forEach((heading, index) => {
-                const id = "section-" + index;
-                heading.id = id;
-                
-                const li = document.createElement("li");
-                const a = document.createElement("a");
-                a.href = "#" + id;
-                a.textContent = heading.textContent;
-                a.addEventListener("click", function(e) {
-                    e.preventDefault();
-                    const element = document.getElementById(id);
-                    const navHeight = 140;
-                    const elementPosition = element.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - navHeight;
-                    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-                });
-                li.appendChild(a);
-                tocList.appendChild(li);
-            });
-        });
-    </script>
-    <script>
         function toggleMobileMenu() {
             const toggle = document.getElementById('mobileMenuToggle');
             const menu = document.getElementById('mobileMenu');
             toggle.classList.toggle('active');
             menu.classList.toggle('active');
         }
+        document.addEventListener('click', function(e) {
+            const menu = document.getElementById('mobileMenu');
+            const toggle = document.getElementById('mobileMenuToggle');
+            if (menu.classList.contains('active') && !menu.contains(e.target) && !toggle.contains(e.target)) {
+                toggleMobileMenu();
+            }
+        });
     </script>
 </body>
 </html>
