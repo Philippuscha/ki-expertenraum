@@ -33,6 +33,7 @@
         .search-box input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(59,130,246,0.1); }
         .search-box::after { content: '🔍'; position: absolute; right: 24px; top: 50%; transform: translateY(-50%); font-size: 22px; }
         .alpha-nav { background: white; padding: 20px 40px; display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); position: sticky; top: 80px; z-index: 100; }
+        @media (max-width: 768px) { .alpha-nav { position: relative; top: 0; padding: 15px 10px; gap: 6px; } .alpha-nav a { width: 36px; height: 36px; font-size: 14px; } }
         .alpha-nav a { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: var(--bg); border-radius: 12px; text-decoration: none; color: var(--text); font-weight: 700; font-size: 16px; transition: all 0.3s; }
         .alpha-nav a:hover { background: var(--accent); color: white; transform: translateY(-2px); }
         .container { max-width: 1000px; margin: 0 auto; padding: 40px; }
