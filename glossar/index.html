@@ -31,7 +31,14 @@
         .search-box { max-width: 500px; margin: 0 auto 40px; position: relative; }
         .search-box input { width: 100%; padding: 18px 24px; padding-right: 60px; border: 2px solid rgba(59,130,246,0.2); border-radius: 16px; font-size: 18px; font-family: inherit; background: white; transition: all 0.3s; }
         .search-box input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(59,130,246,0.1); }
-        .search-box::after { content: '🔍'; position: absolute; right: 24px; top: 50%; transform: translateY(-50%); font-size: 22px; }
+        .search-box::after { content: '🔍'; position: absolute; right: 24px; top: 50%; transform: translateY(-50%); font-size: 22px; pointer-events: none; }
+        .search-dropdown { display: none; position: absolute; top: 100%; left: 0; right: 0; background: white; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.15); margin-top: 8px; max-height: 300px; overflow-y: auto; z-index: 1000; }
+        .search-dropdown.show { display: block; }
+        .search-item { padding: 12px 20px; cursor: pointer; border-bottom: 1px solid #f0f0f0; transition: all 0.2s; }
+        .search-item:hover { background: var(--accent-light); }
+        .search-item strong { color: var(--accent); }
+        .search-item small { display: block; color: var(--text-muted); font-size: 13px; margin-top: 2px; }
+        .no-results { padding: 20px; text-align: center; color: var(--text-muted); }
         .alpha-nav { background: white; padding: 20px 40px; display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); position: sticky; top: 80px; z-index: 100; }
         @media (max-width: 768px) { .alpha-nav { position: relative; top: 0; padding: 15px 10px; gap: 6px; } .alpha-nav a { width: 36px; height: 36px; font-size: 14px; } }
         .alpha-nav a { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: var(--bg); border-radius: 12px; text-decoration: none; color: var(--text); font-weight: 700; font-size: 16px; transition: all 0.3s; }
@@ -93,7 +100,97 @@
         <a href="/artikel/">Artikel</a>
         <a href="/glossar/">Glossar</a>
     </div>
-    <script>function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('show'); }</script>
+    <script>
+        function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('show'); }
+        
+        // Glossar-Suche mit Autocomplete
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const dropdown = document.createElement('div');
+            dropdown.className = 'search-dropdown';
+            dropdown.id = 'searchDropdown';
+            searchInput.parentNode.appendChild(dropdown);
+            
+            // Alle Begriffe aus dem DOM sammeln
+            const terms = [];
+            document.querySelectorAll('.term-card').forEach(card => {
+                const title = card.querySelector('.term-title')?.textContent?.trim();
+                const subtitle = card.querySelector('.term-subtitle')?.textContent?.trim();
+                const desc = card.querySelector('.term-description')?.textContent?.trim();
+                if (title) {
+                    terms.push({ title, subtitle, desc, element: card });
+                }
+            });
+            
+            // Suchfunktion
+            searchInput.addEventListener('input', function() {
+                const query = this.value.toLowerCase().trim();
+                dropdown.innerHTML = '';
+                
+                if (query.length === 0) {
+                    dropdown.classList.remove('show');
+                    return;
+                }
+                
+                const matches = terms.filter(t => 
+                    t.title.toLowerCase().includes(query) || 
+                    t.subtitle?.toLowerCase().includes(query) ||
+                    t.desc?.toLowerCase().includes(query)
+                ).slice(0, 8); // Max 8 Ergebnisse
+                
+                if (matches.length === 0) {
+                    dropdown.innerHTML = '<div class="no-results">Keine Begriffe gefunden</div>';
+                } else {
+                    matches.forEach(match => {
+                        const div = document.createElement('div');
+                        div.className = 'search-item';
+                        div.innerHTML = `<strong>${highlightMatch(match.title, query)}</strong><small>${match.subtitle || ''}</small>`;
+                        div.addEventListener('click', () => {
+                            match.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            match.element.style.animation = 'highlight 2s';
+                            dropdown.classList.remove('show');
+                            searchInput.value = match.title;
+                        });
+                        dropdown.appendChild(div);
+                    });
+                }
+                
+                dropdown.classList.add('show');
+            });
+            
+            // Highlight-Funktion
+            function highlightMatch(text, query) {
+                const regex = new RegExp(`(${query})`, 'gi');
+                return text.replace(regex, '<mark style="background:#fef3c7;padding:2px 4px;border-radius:4px;">$1</mark>');
+            }
+            
+            // Dropdown schließen bei Klick außerhalb
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.search-box')) {
+                    dropdown.classList.remove('show');
+                }
+            });
+            
+            // Enter-Taste = erstes Ergebnis
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    const firstItem = dropdown.querySelector('.search-item');
+                    if (firstItem) firstItem.click();
+                }
+            });
+        });
+        
+        // Highlight Animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes highlight {
+                0% { box-shadow: 0 0 0 0 rgba(59,130,246,0.7); }
+                50% { box-shadow: 0 0 0 10px rgba(59,130,246,0); }
+                100% { box-shadow: 0 0 0 0 rgba(59,130,246,0); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 
     <header class="hero">
         <h1>KI-Glossar: <span>100+ Begriffe einfach erklärt</span></h1>
