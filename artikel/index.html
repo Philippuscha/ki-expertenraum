@@ -64,40 +64,6 @@
         }
         .nav-links a:hover { color: var(--accent); }
         
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 28px;
-            cursor: pointer;
-            padding: 8px 12px;
-            color: var(--text);
-        }
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 70px;
-            left: 0;
-            right: 0;
-            background: white;
-            padding: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-            z-index: 999;
-            border-radius: 0 0 20px 20px;
-        }
-        .mobile-menu.show { display: block; }
-        .mobile-menu a {
-            display: block;
-            padding: 16px 20px;
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        .mobile-menu a:hover { background: #f8fafc; }
-        
         /* Dropdown */
         .dropdown { position: relative; }
         .dropdown-toggle {
@@ -368,16 +334,6 @@
             <li><a href="/glossar/">Glossar</a></li>
         </ul>
     </nav>
-        <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
-    </nav>
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="/">Startseite</a>
-        <a href="/artikel/">Artikel</a>
-        <a href="/services/">Services</a>
-        <a href="/kurse/">Kurse</a>
-        <a href="/glossar/">Glossar</a>
-    </div>
-    <script>function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('show'); }</script>
 
     <header class="hero">
         <span class="hero-badge">Wissensdatenbank</span>
@@ -438,8 +394,7 @@
             </a>
 
             <a href="/artikel/chatgpt-vs-claude.html" class="article-card" data-category="ki-tools">
-                <div class="card-image ki-tools">
-                    <span>⚡</span>
+                <div class="card-image ki-tools" style="background: url('/public/images/Artikel%203_ChatGPT%20vs-%20Claude.png') center/cover;">
                     <span class="card-category">KI-Tools</span>
                 </div>
                 <div class="card-content">
@@ -453,8 +408,7 @@
             </a>
 
             <a href="/artikel/ki-tools-text-produktivitaet.html" class="article-card" data-category="ki-tools">
-                <div class="card-image ki-tools">
-                    <span>📝</span>
+                <div class="card-image ki-tools" style="background: url('/public/images/Artikel%204_KI%20f%C3%BCr%20Text%20und%20Produktivit%C3%A4t.png') center/cover;">
                     <span class="card-category">KI-Tools</span>
                 </div>
                 <div class="card-content">
@@ -468,8 +422,7 @@
             </a>
 
             <a href="/artikel/ki-tools-bild-video-kreativ.html" class="article-card" data-category="ki-tools">
-                <div class="card-image ki-tools">
-                    <span>🎨</span>
+                <div class="card-image ki-tools" style="background: url('/public/images/Artikel%205_KI%20f%C3%BCr%20Bild%20und%20Video.png') center/cover;">
                     <span class="card-category">KI-Tools</span>
                 </div>
                 <div class="card-content">
@@ -484,8 +437,7 @@
 
             <!-- AUTOMATION (3 Artikel) -->
             <a href="/artikel/bueroautomatisierung.html" class="article-card" data-category="automation">
-                <div class="card-image automation">
-                    <span>⚙️</span>
+                <div class="card-image automation" style="background: url('/public/images/Artikel%206_B%C3%BCroautomatisierung%2010%20Prozesse%20mit%20No-Code%20Tools.png') center/cover;">
                     <span class="card-category">Automation</span>
                 </div>
                 <div class="card-content">
