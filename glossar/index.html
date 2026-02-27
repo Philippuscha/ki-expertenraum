@@ -3,67 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KI-Glossar | 100+ Begriffe einfach erklärt | KI-Expertenraum</title>
-    <meta name="description" content="Das umfassende KI-Glossar: 100+ Fachbegriffe verständlich erklärt. Von A wie Algorithmus bis Z wie Zero-Shot.">
+    <title>Impressum | KI-Expertenraum</title>
+    <meta name="description" content="Impressum und Kontaktinformationen von Philipp Zerna, KI-Expertenraum.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { --bg: #f0f7ff; --bg-card: rgba(255,255,255,0.95); --text: #0f172a; --text-muted: #475569; --accent: #3b82f6; --accent-light: #dbeafe; }
-        html { scroll-behavior: smooth; scroll-padding-top: 140px; }
-        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 50%, #dbeafe 100%); color: var(--text); line-height: 1.6; }
-        h1, h2, h3, h4 { font-family: 'DM Sans', sans-serif; font-weight: 700; }
-        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; background: rgba(240,247,255,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.6); }
-        .logo { font-family: 'DM Sans', sans-serif; font-size: 24px; font-weight: 800; background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
+        :root { 
+            --bg: #f0f7ff; 
+            --bg-card: rgba(255, 255, 255, 0.9);
+            --text: #0f172a; 
+            --text-muted: #475569; 
+            --text-light: #64748b; 
+            --border: rgba(255, 255, 255, 0.6);
+            --accent: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.3);
+        }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 50%, #dbeafe 100%); 
+            color: var(--text); 
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        h1, h2, h3, h4 { font-family: 'DM Sans', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
+        
+        .nav { 
+            position: fixed; 
+            top: 0; left: 0; right: 0; 
+            z-index: 1000; 
+            padding: 20px 40px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            background: rgba(240, 247, 255, 0.95); 
+            backdrop-filter: blur(20px); 
+            border-bottom: 1px solid var(--border);
+        }
+        .logo { 
+            font-family: 'DM Sans', sans-serif; 
+            font-size: 24px; 
+            font-weight: 800; 
+            background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
         .nav-links { display: flex; gap: 30px; list-style: none; }
-        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.3s; }
+        .nav-links a { 
+            color: var(--text-muted); 
+            text-decoration: none; 
+            font-size: 15px; 
+            font-weight: 600; 
+            transition: color 0.3s;
+        }
         .nav-links a:hover { color: var(--accent); }
-        .hero { padding: 160px 40px 60px; text-align: center; max-width: 800px; margin: 0 auto; }
-        .hero h1 { font-size: clamp(36px, 5vw, 52px); line-height: 1.1; margin-bottom: 20px; }
-        .hero h1 span { background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { font-size: 20px; color: var(--text-muted); margin-bottom: 40px; }
-        .search-box { max-width: 500px; margin: 0 auto 40px; position: relative; }
-        .search-box input { width: 100%; padding: 18px 24px; padding-right: 60px; border: 2px solid rgba(59,130,246,0.2); border-radius: 16px; font-size: 18px; font-family: inherit; background: white; transition: all 0.3s; }
-        .search-box input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(59,130,246,0.1); }
-        .search-box::after { content: '🔍'; position: absolute; right: 24px; top: 50%; transform: translateY(-50%); font-size: 22px; }
-        .alpha-nav { background: white; padding: 20px 40px; display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); position: sticky; top: 80px; z-index: 100; }
-        .alpha-nav a { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: var(--bg); border-radius: 12px; text-decoration: none; color: var(--text); font-weight: 700; font-size: 16px; transition: all 0.3s; }
-        .alpha-nav a:hover { background: var(--accent); color: white; transform: translateY(-2px); }
-        .container { max-width: 1000px; margin: 0 auto; padding: 40px; }
-        .letter-section { margin-bottom: 50px; }
-        .letter-header { font-size: 42px; font-weight: 800; color: var(--accent); margin-bottom: 25px; padding-bottom: 15px; border-bottom: 3px solid var(--accent-light); }
-        .term-card { background: var(--bg-card); border-radius: 16px; padding: 28px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); transition: all 0.3s; }
-        .term-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.1); transform: translateY(-2px); }
-        .term-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
-        .term-title { font-size: 24px; color: var(--text); }
-        .term-subtitle { font-size: 14px; color: var(--text-muted); font-weight: 500; }
-        .category-badge { padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; text-transform: uppercase; }
-        .badge-tech { background: var(--accent-light); color: var(--accent); }
-        .badge-business { background: #d1fae5; color: #059669; }
-        .badge-ethics { background: #fef3c7; color: #d97706; }
-        .term-description { color: var(--text-muted); line-height: 1.7; margin-bottom: 15px; }
-        .term-example { background: var(--accent-light); padding: 16px 20px; border-radius: 12px; border-left: 4px solid var(--accent); margin-bottom: 15px; }
-        .term-example strong { color: var(--accent); }
-        .term-links { display: flex; flex-wrap: wrap; gap: 10px; }
-        .term-links a { color: var(--accent); text-decoration: none; font-size: 14px; font-weight: 600; }
-        .term-links a:hover { text-decoration: underline; }
-        .cta { background: linear-gradient(135deg, var(--accent) 0%, #2563eb 100%); color: white; padding: 80px 40px; text-align: center; margin-top: 60px; }
-        .cta h2 { font-size: 36px; margin-bottom: 15px; }
-        .cta p { font-size: 18px; opacity: 0.95; margin-bottom: 30px; }
-        .cta-btn { display: inline-block; background: white; color: var(--accent); padding: 18px 40px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 16px; }
-        .footer { background: var(--text); color: rgba(255,255,255,0.7); padding: 50px 40px 30px; text-align: center; }
-        .footer-logo { font-family: 'DM Sans', sans-serif; font-size: 24px; font-weight: 800; margin-bottom: 15px; background: linear-gradient(135deg, white 0%, #60a5fa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        .hero { 
+            padding: 160px 40px 80px; 
+            text-align: center; 
+            max-width: 900px; 
+            margin: 0 auto;
+        }
+        .hero h1 { 
+            font-size: clamp(36px, 5vw, 52px); 
+            line-height: 1.15; 
+            margin-bottom: 25px; 
+            font-weight: 800;
+        }
+        .hero h1 span { 
+            background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 40px 80px; }
+        
+        .impressum-section {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        
+        h2 { 
+            font-size: 28px; 
+            margin: 40px 0 20px; 
+            font-weight: 800; 
+            color: var(--text);
+        }
+        h3 { 
+            font-size: 22px; 
+            margin: 30px 0 15px; 
+            font-weight: 700;
+            color: var(--text);
+        }
+        p { 
+            margin-bottom: 20px; 
+            color: var(--text-muted); 
+            font-size: 17px;
+            line-height: 1.8;
+        }
+        
+        .contact-box {
+            background: linear-gradient(135deg, rgba(59,130,246,0.1) 0%, rgba(139,92,246,0.1) 100%);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 1px solid rgba(59,130,246,0.2);
+        }
+        .contact-box h3 {
+            margin-top: 0;
+            color: var(--accent);
+        }
+        
+        .footer { 
+            background: var(--text); 
+            color: rgba(255,255,255,0.7); 
+            padding: 50px 40px 30px; 
+            margin-top: 80px; 
+            text-align: center;
+        }
+        .footer-logo { 
+            font-family: 'DM Sans', sans-serif; 
+            font-size: 24px; 
+            font-weight: 800; 
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, white 0%, #60a5fa 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent;
+        }
+        
         @media (max-width: 768px) {
             .nav { padding: 15px 20px; }
             .nav-links { display: none; }
-            .hero { padding: 120px 20px 40px; }
-            .hero h1 { font-size: 32px; }
-            .alpha-nav { top: 70px; padding: 15px 20px; gap: 6px; }
-            .alpha-nav a { width: 38px; height: 38px; font-size: 14px; }
-            .container { padding: 30px 20px; }
-            .letter-header { font-size: 32px; }
-            .term-card { padding: 22px; }
-            .term-title { font-size: 20px; }
+            .hero { padding: 120px 20px 60px; }
+            .container { padding: 30px 20px 60px; }
+            .impressum-section { padding: 25px; }
         }
     </style>
 </head>
@@ -74,265 +152,52 @@
             <li><a href="/">Startseite</a></li>
             <li><a href="/artikel/">Artikel</a></li>
             <li><a href="/services/">Services</a></li>
+            <li><a href="/kurse/">Kurse</a></li>
             <li><a href="/glossar/">Glossar</a></li>
-            <li><a href="/#work">Kurse</a></li>
         </ul>
     </nav>
 
     <header class="hero">
-        <h1>KI-Glossar: <span>100+ Begriffe einfach erklärt</span></h1>
-        <p>Die wichtigsten Fachbegriffe der KI-Welt – verständlich und praxisnah</p>
-        <div class="search-box">
-            <input type="text" placeholder="Begriff suchen..." id="searchInput">
-        </div>
+        <h1><span>Impressum</span></h1>
     </header>
 
-    <nav class="alpha-nav">
-        <a href="#A">A</a><a href="#B">B</a><a href="#C">C</a><a href="#D">D</a><a href="#E">E</a>
-        <a href="#F">F</a><a href="#G">G</a><a href="#H">H</a><a href="#I">I</a><a href="#J">J</a>
-        <a href="#K">K</a><a href="#L">L</a><a href="#M">M</a><a href="#N">N</a><a href="#O">O</a>
-        <a href="#P">P</a><a href="#Q">Q</a><a href="#R">R</a><a href="#S">S</a><a href="#T">T</a>
-        <a href="#U">U</a><a href="#V">V</a><a href="#W">W</a><a href="#X">X</a><a href="#Y">Y</a><a href="#Z">Z</a>
-    </nav>
-
     <main class="container">
-        <!-- A -->
-        <section class="letter-section" id="A">
-            <h2 class="letter-header">A</h2>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">AI</h3><span class="term-subtitle">Artificial Intelligence</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Die Fähigkeit von Maschinen, menschenähnliche Intelligenz zu zeigen – zu lernen, Probleme zu lösen und zu verstehen.</p><div class="term-example"><strong>Beispiel:</strong> Siri, Netflix-Empfehlungen, autonomes Fahren</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">AGI</h3><span class="term-subtitle">Artificial General Intelligence</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Künstliche Allgemeine Intelligenz – eine hypothetische KI, die alle intellektuellen Aufgaben genauso gut wie ein Mensch lösen kann.</p><div class="term-example"><strong>Beispiel:</strong> Noch Science-Fiction, aber Ziel vieler KI-Forschungslabore.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Algorithmus</h3><span class="term-subtitle">Schritt-für-Schritt-Anleitung</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Eine festgelegte Reihe von Anweisungen, die ein Computer befolgt, um ein Problem zu lösen.</p><div class="term-example"><strong>Beispiel:</strong> Der Algorithmus von Google bestimmt die Suchergebnisse.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">API</h3><span class="term-subtitle">Application Programming Interface</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Eine Schnittstelle, über die verschiedene Programme miteinander kommunizieren können.</p><div class="term-example"><strong>Beispiel:</strong> Deine Wetter-App nutzt eine API für aktuelle Daten.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Attention</h3><span class="term-subtitle">Aufmerksamkeitsmechanismus</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Ein Mechanismus, der bestimmt, auf welche Teile der Eingabe die KI ihr Augenmerk legen soll.</p><div class="term-example"><strong>Beispiel:</strong> Erkennt in Sätzen, welche Wörter zusammengehören.</div></div>
-        </section>
-
-        <!-- B -->
-        <section class="letter-section" id="B">
-            <h2 class="letter-header">B</h2>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Bias</h3><span class="term-subtitle">Verzerrung</span></div><span class="category-badge badge-ethics">Ethik</span></div><p class="term-description">Wenn eine KI aufgrund ihrer Trainingsdaten Vorurteile entwickelt und Gruppen benachteiligt.</p><div class="term-example"><strong>Beispiel:</strong> Ein Bewerbungsalgorithmus bevorzugt bestimmte Geschlechter.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Big Data</h3><span class="term-subtitle">Massive Datenmengen</span></div><span class="category-badge badge-business">Business</span></div><p class="term-description">Extrem große Datenmengen, die mit traditionellen Methoden nicht mehr verarbeitet werden können.</p><div class="term-example"><strong>Beispiel:</strong> Facebook verarbeitet täglich Petabytes an Nutzerdaten.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Backpropagation</h3><span class="term-subtitle">Fehlerrückführung</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Ein Algorithmus zum Training neuronaler Netze – Fehler werden vom Output zurückgeführt.</p><div class="term-example"><strong>Beispiel:</strong> Wie ein Lehrer, der genau erklärt, wo der Fehler liegt.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Benchmark</h3><span class="term-subtitle">Leistungsvergleich</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Standardisierte Tests, um KI-Modelle objektiv zu vergleichen.</p><div class="term-example"><strong>Beispiel:</strong> MMLU, HumanEval – bekannte Benchmarks für Sprachmodelle.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Bot</h3><span class="term-subtitle">Software-Roboter</span></div><span class="category-badge badge-business">Business</span></div><p class="term-description">Ein automatisiertes Programm, das repetitive Aufgaben ausführt.</p><div class="term-example"><strong>Beispiel:</strong> Kunden-Support-Chatbots, Twitter-Bots.</div></div>
-        </section>
-
-        <!-- C -->
-        <section class="letter-section" id="C">
-            <h2 class="letter-header">C</h2>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">ChatGPT</h3><span class="term-subtitle">KI-Chatbot von OpenAI</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Ein Large Language Model, das natürliche Sprache versteht und generiert.</p><div class="term-example"><strong>Beispiel:</strong> Schreibt Texte, beantwortet Fragen, programmiert.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Computer Vision</h3><span class="term-subtitle">Computersehen</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Die Fähigkeit von Computern, visuelle Informationen zu verstehen.</p><div class="term-example"><strong>Beispiel:</strong> Gesichtserkennung, autonomes Fahren.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">CNN</h3><span class="term-subtitle">Convolutional Neural Network</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Spezialisierte neuronale Netze für Bildverarbeitung.</p><div class="term-example"><strong>Beispiel:</strong> Erkennung von Fußgängern in autonomen Fahrzeugen.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Chatbot</h3><span class="term-subtitle">Konversations-KI</span></div><span class="category-badge badge-business">Business</span></div><p class="term-description">Eine KI, die in natürlicher Sprache kommuniziert.</p><div class="term-example"><strong>Beispiel:</strong> WhatsApp-Business-Chatbots für Kundenservice.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Classification</h3><span class="term-subtitle">Klassifizierung</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Daten in vordefinierte Kategorien einteilen.</p><div class="term-example"><strong>Beispiel:</strong> E-Mails als Spam oder Nicht-Spam einordnen.</div></div>
-        </section>
-        <!-- D -->
-        <section class="letter-section" id="D">
-            <h2 class="letter-header">D</h2>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Deep Learning</h3><span class="term-subtitle">Tiefes Lernen</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Fortgeschrittenes Machine Learning mit neuronalen Netzen mit vielen Schichten.</p><div class="term-example"><strong>Beispiel:</strong> Spracherkennung, Bildklassifizierung, autonomes Fahren.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Dataset</h3><span class="term-subtitle">Datensatz</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Eine Sammlung von Daten, die zum Trainieren einer KI verwendet wird.</p><div class="term-example"><strong>Beispiel:</strong> ImageNet mit 14 Millionen Bildern für Bilderkennung.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Data Mining</h3><span class="term-subtitle">Datenauswertung</span></div><span class="category-badge badge-business">Business</span></div><p class="term-description">Das Extrahieren von Mustern und Wissen aus großen Datenmengen.</p><div class="term-example"><strong>Beispiel:</strong> Amazon analysiert Kaufverhalten für Empfehlungen.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Diffusion</h3><span class="term-subtitle">Diffusionsmodell</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Eine Technik zur Bildgenerierung, die Schritt für Schritt Rauschen entfernt.</p><div class="term-example"><strong>Beispiel:</strong> Midjourney, Stable Diffusion – erzeugen Bilder aus Text.</div></div>
-        </section>
-
-        <!-- E -->
-        <section class="letter-section" id="E">
-            <h2 class="letter-header">E</h2>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Embedding</h3><span class="term-subtitle">Vektor-Darstellung</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Numerische Darstellung von Daten als Vektor – ermöglicht semantisches Verständnis.</p><div class="term-example"><strong>Beispiel:</strong> "König - Mann + Frau = Königin" – semantische Beziehungen.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">EU AI Act</h3><span class="term-subtitle">EU-Verordnung</span></div><span class="category-badge badge-ethics">Ethik</span></div><p class="term-description">Die erste umfassende KI-Gesetzgebung weltweit.</p><div class="term-example"><strong>Beispiel:</strong> Klassifiziert KI-Systeme nach Risikostufen.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Epoch</h3><span class="term-subtitle">Trainingsdurchlauf</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Ein kompletter Durchlauf des Trainingsdatensatzes durch das Modell.</p><div class="term-example"><strong>Beispiel:</strong> 10 Epochs = Das Modell hat alle Daten 10 Mal gesehen.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Explainable AI</h3><span class="term-subtitle">Erklärbare KI</span></div><span class="category-badge badge-ethics">Ethik</span></div><p class="term-description">KI-Systeme, die ihre Entscheidungen nachvollziehbar erklären können.</p><div class="term-example"><strong>Beispiel:</strong> Warum wurde ein Kredit abgelehnt? XAI zeigt die Gründe.</div></div>
-        </section>
-
-        <!-- F -->
-        <section class="letter-section" id="F">
-            <h2 class="letter-header">F</h2>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Fine-Tuning</h3><span class="term-subtitle">Modell-Anpassung</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Ein trainiertes Modell mit spezifischen Daten weitertrainieren.</p><div class="term-example"><strong>Beispiel:</strong> GPT-4 für medizinische Diagnosen optimieren.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Foundation Model</h3><span class="term-subtitle">Basis-KI-Modell</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Große vortrainierte Modelle als Basis für viele Anwendungen.</p><div class="term-example"><strong>Beispiel:</strong> GPT-4, Claude, Llama.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Feature</h3><span class="term-subtitle">Merkmal</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Einzelne messbare Eigenschaft der Eingabedaten.</p><div class="term-example"><strong>Beispiel:</strong> Bei Immobilien: Quadratmeter, Lage, Zimmeranzahl.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">F1-Score</h3><span class="term-subtitle">Güte-Maß</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Kennzahl zur Bewertung der Klassifizierungsgenauigkeit.</p><div class="term-example"><strong>Beispiel:</strong> 0.95 bedeutet sehr gute Balance aus Precision und Recall.</div></div>
-        </section>
-        <!-- G -->
-        <section class="letter-section" id="G">
-            <h2 class="letter-header">G</h2>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Generative AI</h3><span class="term-subtitle">Kreative KI</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">KI-Systeme, die neue Inhalte erstellen – Texte, Bilder, Musik.</p><div class="term-example"><strong>Beispiel:</strong> ChatGPT, Midjourney, Suno.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">GPU</h3><span class="term-subtitle">Graphics Processing Unit</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Grafikkarten, die perfekt für KI-Training geeignet sind.</p><div class="term-example"><strong>Beispiel:</strong> NVIDIA GPUs sind das Rückgrat moderner KI.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">GAN</h3><span class="term-subtitle">Generative Adversarial Network</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Zwei neuronale Netze, die gegeneinander arbeiten, um realistische Daten zu erzeugen.</p><div class="term-example"><strong>Beispiel:</strong> Deepfakes, künstliche Gesichter, Kunstwerke.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">GPT</h3><span class="term-subtitle">Generative Pre-trained Transformer</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Eine Klasse von Sprachmodellen von OpenAI.</p><div class="term-example"><strong>Beispiel:</strong> GPT-3.5, GPT-4, ChatGPT.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Gradient Descent</h3><span class="term-subtitle">Gradientenabstieg</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Optimierungsalgorithmus zum Finden des Minimums der Fehlerfunktion.</p><div class="term-example"><strong>Beispiel:</strong> Wie ein Bergsteiger, der den schnellsten Weg ins Tal sucht.</div></div>
-        </section>
-
-        <!-- H -->
-        <section class="letter-section" id="H">
-            <h2 class="letter-header">H</h2>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Halluzination</h3><span class="term-subtitle">KI-Fehlinformation</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Wenn eine KI selbstbewusst falsche Informationen erfindet.</p><div class="term-example"><strong>Beispiel:</strong> Eine KI erfindet falsche Quellen oder Fakten.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Hyperparameter</h3><span class="term-subtitle">Trainingseinstellungen</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Einstellungen vor dem Training, die das Lernverhalten beeinflussen.</p><div class="term-example"><strong>Beispiel:</strong> Lernrate, Batch-Größe, Anzahl der Epochen.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Heuristic</h3><span class="term-subtitle">Heuristik</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Eine pragmatische Regel oder Faustregel zur Problemlösung.</p><div class="term-example"><strong>Beispiel:</strong> Schach-KIs nutzen Heuristiken, um vielversprechende Züge zu priorisieren.</div></div>
-        </section>
-
-        <!-- I -->
-        <section class="letter-section" id="I">
-            <h2 class="letter-header">I</h2>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Inference</h3><span class="term-subtitle">KI-Anwendung</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Die Phase, in der ein trainiertes Modell genutzt wird.</p><div class="term-example"><strong>Beispiel:</strong> Wenn du ChatGPT fragst – es wendet sein Wissen an.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Image Recognition</h3><span class="term-subtitle">Bilderkennung</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Die Fähigkeit, Objekte, Personen oder Szenen in Bildern zu identifizieren.</p><div class="term-example"><strong>Beispiel:</strong> Google Fotos erkennt Gesichter und sortiert automatisch.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">IoT</h3><span class="term-subtitle">Internet of Things</span></div><span class="category-badge badge-business">Business</span></div><p class="term-description">Vernetzte physische Geräte, die Daten sammeln und austauschen.</p><div class="term-example"><strong>Beispiel:</strong> Smart Home, Fitness-Tracker, vernetzte Autos.</div></div>
-        </section>
-
-        <!-- J -->
-        <section class="letter-section" id="J">
-            <h2 class="letter-header">J</h2>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">JSON</h3><span class="term-subtitle">Datenformat</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Ein Standardformat zum Speichern und Austauschen von Daten.</p><div class="term-example"><strong>Beispiel:</strong> APIs liefern Daten oft im JSON-Format.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Jupyter</h3><span class="term-subtitle">Notebook-Umgebung</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Eine interaktive Umgebung für Data Science und KI-Entwicklung.</p><div class="term-example"><strong>Beispiel:</strong> Datenanalysten nutzen Jupyter Notebooks für Experimente.</div></div>
-        </section>
-        <!-- K -->
-        <section class="letter-section" id="K">
-            <h2 class="letter-header">K</h2>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">KI-Agent</h3><span class="term-subtitle">Autonomes KI-System</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Eine KI, die selbstständig Aufgaben erledigt und Entscheidungen trifft.</p><div class="term-example"><strong>Beispiel:</strong> Ein Agent, der E-Mails liest und Termine plant.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Kontextfenster</h3><span class="term-subtitle">Context Window</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Die Menge an Text, die eine KI gleichzeitig verarbeiten kann.</p><div class="term-example"><strong>Beispiel:</strong> Claude kann 200.000 Tokens verarbeiten – ein ganzes Buch.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Knowledge Graph</h3><span class="term-subtitle">Wissensgraph</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Eine Wissensbasis, die Entitäten und ihre Beziehungen vernetzt darstellt.</p><div class="term-example"><strong>Beispiel:</strong> Google nutzt Knowledge Graphs für Infoboxen in der Suche.</div></div>
-        </section>
-
-        <!-- L -->
-        <section class="letter-section" id="L">
-            <h2 class="letter-header">L</h2>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">LLM</h3><span class="term-subtitle">Large Language Model</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Große Sprachmodelle, die menschenähnliche Sprache generieren.</p><div class="term-example"><strong>Beispiel:</strong> GPT-4, Claude, Google Bard.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">LangChain</h3><span class="term-subtitle">KI-Framework</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Ein Framework zur Entwicklung von KI-Anwendungen.</p><div class="term-example"><strong>Beispiel:</strong> Chatbots, die auf Unternehmensdaten zugreifen.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Loss Function</h3><span class="term-subtitle">Verlustfunktion</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Misst, wie gut das Modell performt – je niedriger, desto besser.</p><div class="term-example"><strong>Beispiel:</strong> Während des Trainings wird die Loss Function minimiert.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Labeling</h3><span class="term-subtitle">Datenbeschriftung</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Das Markieren von Trainingsdaten mit der richtigen Antwort.</p><div class="term-example"><strong>Beispiel:</strong> Bilder von Katzen mit dem Label "Katze" versehen.</div></div>
-        </section>
-
-        <!-- M -->
-        <section class="letter-section" id="M">
-            <h2 class="letter-header">M</h2>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Machine Learning</h3><span class="term-subtitle">Maschinelles Lernen</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Computer lernen aus Daten, ohne explizit programmiert zu werden.</p><div class="term-example"><strong>Beispiel:</strong> Spam-Filter lernen aus markierten E-Mails.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Multi-Modal</h3><span class="term-subtitle">Mehrere Eingabearten</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">KI-Systeme, die Text, Bilder, Audio und Video kombiniert verarbeiten.</p><div class="term-example"><strong>Beispiel:</strong> GPT-4V analysiert Bilder und beschreibt sie.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">MLOps</h3><span class="term-subtitle">Machine Learning Operations</span></div><span class="category-badge badge-business">Business</span></div><p class="term-description">Praktiken für den Betrieb und die Bereitstellung von KI-Modellen.</p><div class="term-example"><strong>Beispiel:</strong> Automatisierte Tests, Monitoring, Deployment von KIs.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Model</h3><span class="term-subtitle">KI-Modell</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Das trainierte Programm, das Vorhersagen trifft oder Inhalte generiert.</p><div class="term-example"><strong>Beispiel:</strong> GPT-4 ist ein Model mit 1.8 Billionen Parametern.</div></div>
-        </section>
-
-        <!-- N -->
-        <section class="letter-section" id="N">
-            <h2 class="letter-header">N</h2>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">NLP</h3><span class="term-subtitle">Natural Language Processing</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Die Fähigkeit, menschliche Sprache zu verstehen und zu generieren.</p><div class="term-example"><strong>Beispiel:</strong> Übersetzungstools, Sprachassistenten.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Neuronales Netz</h3><span class="term-subtitle">Neural Network</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Ein Computermodell inspiriert vom menschlichen Gehirn.</p><div class="term-example"><strong>Beispiel:</strong> Ein Netz mit Millionen Verbindungen lernt Muster.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Node</h3><span class="term-subtitle">Knotenpunkt</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Ein einzelnes Verarbeitungselement in einem neuronalen Netz.</p><div class="term-example"><strong>Beispiel:</strong> Jeder Node empfängt Input, verarbeitet ihn und gibt Output weiter.</div></div>
-        </section>
-        <!-- O -->
-        <section class="letter-section" id="O">
-            <h2 class="letter-header">O</h2>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Open Source</h3><span class="term-subtitle">Offener Quellcode</span></div><span class="category-badge badge-business">Business</span></div><p class="term-description">Software mit öffentlich einsehbarem Code – fördert Transparenz.</p><div class="term-example"><strong>Beispiel:</strong> Llama, Mistral – Open-Source-KI-Modelle.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Overfitting</h3><span class="term-subtitle">Überanpassung</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Wenn eine KI Trainingsdaten auswendig lernt, aber neue Daten nicht verarbeitet.</p><div class="term-example"><strong>Beispiel:</strong> Erkennt nur Hunde aus dem Training, nicht aus dem echten Leben.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">OCR</h3><span class="term-subtitle">Optical Character Recognition</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Die Umwandlung von Bildern mit Text in maschinenlesbaren Text.</p><div class="term-example"><strong>Beispiel:</strong> Adobe Scan wandelt Dokument-Fotos in editierbaren Text um.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Optimization</h3><span class="term-subtitle">Optimierung</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Das Verbessern der Modellparameter für beste Performance.</p><div class="term-example"><strong>Beispiel:</strong> Hyperparameter-Tuning für bessere Ergebnisse.</div></div>
-        </section>
-
-        <!-- P -->
-        <section class="letter-section" id="P">
-            <h2 class="letter-header">P</h2>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Prompt</h3><span class="term-subtitle">Eingabeaufforderung</span></div><span class="category-badge badge-business">Business</span></div><p class="term-description">Deine Anweisung an eine KI. Gut formuliert = bessere Ergebnisse.</p><div class="term-example"><strong>Beispiel:</strong> "Schreibe einen Blog-Artikel über Hunde für Anfänger."</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Prompt Engineering</h3><span class="term-subtitle">Prompt-Optimierung</span></div><span class="category-badge badge-business">Business</span></div><p class="term-description">Die Kunst, präzise Anweisungen zu formulieren.</p><div class="term-example"><strong>Beispiel:</strong> Rollen zuweisen, Beispiele geben, Format festlegen.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Python</h3><span class="term-subtitle">Programmiersprache</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Die beliebteste Sprache für KI und Data Science.</p><div class="term-example"><strong>Beispiel:</strong> TensorFlow, PyTorch – alle KI-Frameworks nutzen Python.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Pipeline</h3><span class="term-subtitle">Verarbeitungskette</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Eine Abfolge von Verarbeitungsschritten für Daten.</p><div class="term-example"><strong>Beispiel:</strong> Text → Tokenization → Embedding → Model → Output.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Parameter</h3><span class="term-subtitle">Gewichte</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Die lernbaren Werte eines Modells, die das Wissen speichern.</p><div class="term-example"><strong>Beispiel:</strong> GPT-4 hat ca. 1.8 Billionen Parameter.</div></div>
-        </section>
-
-        <!-- Q -->
-        <section class="letter-section" id="Q">
-            <h2 class="letter-header">Q</h2>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Q-Learning</h3><span class="term-subtitle">Bestärkendes Lernen</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Ein RL-Algorithmus, der lernt, welche Aktionen Belohnungen bringen.</p><div class="term-example"><strong>Beispiel:</strong> Ein Spieler lernt durch Versuch und Irrtum, welche Züge gewinnen.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Quantization</h3><span class="term-subtitle">Quantisierung</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Reduziert die Genauigkeit der Parameter für kleinere Modelle.</p><div class="term-example"><strong>Beispiel:</strong> Ein 70B-Parameter-Modell läuft auf einem Laptop.</div></div>
-        </section>
-
-        <!-- R -->
-        <section class="letter-section" id="R">
-            <h2 class="letter-header">R</h2>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">RAG</h3><span class="term-subtitle">Retrieval Augmented Generation</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">KI greift auf externe Wissensdatenbanken zu.</p><div class="term-example"><strong>Beispiel:</strong> Unternehmenschatbot durchsucht interne Dokumente.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">RLHF</h3><span class="term-subtitle">Reinforcement Learning from Human Feedback</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Training durch menschliches Feedback zur Verbesserung der Antworten.</p><div class="term-example"><strong>Beispiel:</strong> ChatGPT wurde mit RLHF menschlichen Präferenzen angepasst.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Regression</h3><span class="term-subtitle">Regressionsanalyse</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Vorhersage kontinuierlicher Werte statt Kategorien.</p><div class="term-example"><strong>Beispiel:</strong> Vorhersage von Immobilienpreisen oder Aktienkursen.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">RNN</h3><span class="term-subtitle">Recurrent Neural Network</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Neuronale Netze für sequentielle Daten wie Text oder Zeitreihen.</p><div class="term-example"><strong>Beispiel:</strong> Früher für Spracherkennung, heute durch Transformer ersetzt.</div></div>
-        </section>
-        <!-- S -->
-        <section class="letter-section" id="S">
-            <h2 class="letter-header">S</h2>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Supervised Learning</h3><span class="term-subtitle">Überwachtes Lernen</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">KI lernt mit gelabelten Daten – jedes Beispiel hat eine richtige Antwort.</p><div class="term-example"><strong>Beispiel:</strong> Bilder mit Beschriftung "Katze" oder "Hund".</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">System Prompt</h3><span class="term-subtitle">Hintergrundanweisung</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Versteckte Anweisung, die das Verhalten der KI steuert.</p><div class="term-example"><strong>Beispiel:</strong> "Du bist ein hilfreicher Assistent. Antworte höflich."</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Singularity</h3><span class="term-subtitle">Technologische Singularität</span></div><span class="category-badge badge-ethics">Ethik</span></div><p class="term-description">Der hypothetische Zeitpunkt, an dem KI menschliche Intelligenz übertrifft.</p><div class="term-example"><strong>Beispiel:</strong> Ein Punkt, ab dem technologische Entwicklung unvorhersagbar wird.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Speech Recognition</h3><span class="term-subtitle">Spracherkennung</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Die Umwandlung von gesprochener Sprache in Text.</p><div class="term-example"><strong>Beispiel:</strong> Siri, Alexa, Google Assistant verstehen deine Stimme.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Semantic</h3><span class="term-subtitle">Semantisch</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Die Bedeutung von Sprache über die bloßen Wörter hinaus.</p><div class="term-example"><strong>Beispiel:</strong> Semantische Suche findet thematisch ähnliche Begriffe.</div></div>
-        </section>
-
-        <!-- T -->
-        <section class="letter-section" id="T">
-            <h2 class="letter-header">T</h2>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Token</h3><span class="term-subtitle">Texteinheit</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Die kleinste Einheit, die eine KI verarbeitet – Wörter oder Wortteile.</p><div class="term-example"><strong>Beispiel:</strong> "Hallo Welt" = ca. 3 Tokens. 1000 Wörter ≈ 1300-1500 Tokens.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Transformer</h3><span class="term-subtitle">KI-Architektur</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Die revolutionäre Architektur hinter modernen Sprachmodellen.</p><div class="term-example"><strong>Beispiel:</strong> GPT, BERT, T5 basieren auf der Transformer-Architektur.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Training</h3><span class="term-subtitle">Modell-Training</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Der Prozess, bei dem ein Modell aus Daten lernt.</p><div class="term-example"><strong>Beispiel:</strong> GPT-4 wurde mit Billionen von Texten trainiert.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Transfer Learning</h3><span class="term-subtitle">Transfer-Lernen</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Wissen aus einer Aufgabe auf eine andere übertragen.</p><div class="term-example"><strong>Beispiel:</strong> Ein Bilderkennungsmodell für Tiere anpassen auf Pflanzen.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Turing Test</h3><span class="term-subtitle">Intelligenztest</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Test, ob eine Maschine menschliches Verhalten nicht unterscheidbar imitiert.</p><div class="term-example"><strong>Beispiel:</strong> Wenn ein Mensch nicht erkennt, ob er mit Mensch oder KI schreibt.</div></div>
-        </section>
-
-        <!-- U -->
-        <section class="letter-section" id="U">
-            <h2 class="letter-header">U</h2>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Unsupervised Learning</h3><span class="term-subtitle">Unüberwachtes Lernen</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">KI findet selbstständig Muster in ungelabelten Daten.</p><div class="term-example"><strong>Beispiel:</strong> Kunden automatisch nach Kaufverhalten gruppieren.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Unstructured Data</h3><span class="term-subtitle">Unstrukturierte Daten</span></div><span class="category-badge badge-business">Business</span></div><p class="term-description">Daten ohne festes Format – Texte, Bilder, Videos.</p><div class="term-example"><strong>Beispiel:</strong> E-Mails, Social Media Posts, Fotos.</div></div>
-        </section>
-
-        <!-- V -->
-        <section class="letter-section" id="V">
-            <h2 class="letter-header">V</h2>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Vector Database</h3><span class="term-subtitle">Vektor-Datenbank</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Spezialisierte Datenbanken für Embeddings und semantische Suche.</p><div class="term-example"><strong>Beispiel:</strong> Pinecone, Weaviate, Chroma für KI-Anwendungen.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Validation</h3><span class="term-subtitle">Validierung</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Überprüfung der Modellqualität mit separaten Testdaten.</p><div class="term-example"><strong>Beispiel:</strong> 80% Training, 20% Validation zur Bewertung.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Virtual Assistant</h3><span class="term-subtitle">Virtueller Assistent</span></div><span class="category-badge badge-business">Business</span></div><p class="term-description">Eine KI, die Aufgaben im Alltag unterstützt.</p><div class="term-example"><strong>Beispiel:</strong> Siri, Alexa, Google Assistant.</div></div>
-        </section>
-        <!-- W -->
-        <section class="letter-section" id="W">
-            <h2 class="letter-header">W</h2>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Weights</h3><span class="term-subtitle">Gewichte</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Die lernbaren Parameter eines neuronalen Netzes.</p><div class="term-example"><strong>Beispiel:</strong> GPT-4 hat ca. 1.8 Billionen Weights.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Whisper</h3><span class="term-subtitle">OpenAI Spracherkennung</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Ein Open-Source-Modell für hochpräzise Spracherkennung.</p><div class="term-example"><strong>Beispiel:</strong> Transkription von Podcasts, Videos, Meetings.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Workflow</h3><span class="term-subtitle">Arbeitsablauf</span></div><span class="category-badge badge-business">Business</span></div><p class="term-description">Eine Abfolge von Schritten, die durch KI automatisiert werden.</p><div class="term-example"><strong>Beispiel:</strong> E-Mail → KI liest → Kategorisiert → Beantwortet.</div></div>
-        </section>
-
-        <!-- X -->
-        <section class="letter-section" id="X">
-            <h2 class="letter-header">X</h2>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">XAI</h3><span class="term-subtitle">Explainable AI</span></div><span class="category-badge badge-ethics">Ethik</span></div><p class="term-description">Erklärbare KI – Systeme, die transparent ihre Entscheidungen begründen.</p><div class="term-example"><strong>Beispiel:</strong> Warum wurde ein Kredit abgelehnt? XAI zeigt die Gründe.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">XML</h3><span class="term-subtitle">Auszeichnungssprache</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Ein Format zur strukturierten Speicherung von Daten.</p><div class="term-example"><strong>Beispiel:</strong> Konfigurationsdateien, Datenaustausch zwischen Systemen.</div></div>
-        </section>
-
-        <!-- Y -->
-        <section class="letter-section" id="Y">
-            <h2 class="letter-header">Y</h2>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">YOLO</h3><span class="term-subtitle">You Only Look Once</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Ein schnelles Echtzeit-Objekterkennungsverfahren.</p><div class="term-example"><strong>Beispiel:</strong> Erkennt Fußgänger und Autos in Videostreams.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">YAML</h3><span class="term-subtitle">Datenformat</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Ein menschenlesbares Format für Konfigurationsdateien.</p><div class="term-example"><strong>Beispiel:</strong> Docker Compose, GitHub Actions nutzen YAML.</div></div>
-        </section>
-
-        <!-- Z -->
-        <section class="letter-section" id="Z">
-            <h2 class="letter-header">Z</h2>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Zero-Shot</h3><span class="term-subtitle">Ohne Beispiele</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">KI löst eine Aufgabe ohne je ein Beispiel dafür gesehen zu haben.</p><div class="term-example"><strong>Beispiel:</strong> Übersetzung in eine Sprache ohne vorherige Übungen.</div></div>
-            <div class="term-card"><div class="term-header"><div><h3 class="term-title">Z-Score</h3><span class="term-subtitle">Standardisierung</span></div><span class="category-badge badge-tech">Tech</span></div><p class="term-description">Statistische Kennzahl zur Normalisierung von Daten.</p><div class="term-example"><strong>Beispiel:</strong> Daten werden auf eine gemeinsame Skala gebracht.</div></div>
-        </section>
+        <div class="impressum-section">
+            <h2>Angaben gemäß § 5 TMG</h2>
+            
+            <div class="contact-box">
+                <h3>Philipp Zerna</h3>
+                <p><strong>Adresse:</strong><br>
+                Friedensstraße 30b<br>
+                68804 Altlußheim</p>
+                
+                <p><strong>Kontakt:</strong><br>
+                E-Mail: <a href="mailto:zernaphilipp@gmail.com" style="color: var(--accent);">zernaphilipp@gmail.com</a></p>
+            </div>
+            
+            <h3>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
+            <p>Philipp Zerna<br>
+            Friedensstraße 30b<br>
+            68804 Altlußheim</p>
+            
+            <h3>Haftungsausschluss</h3>
+            <p><strong>Haftung für Inhalte</strong><br>
+            Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.</p>
+            
+            <p><strong>Haftung für Links</strong><br>
+            Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.</p>
+            
+            <h3>Urheberrecht</h3>
+            <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
+            
+            <h3>Datenschutz</h3>
+            <p>Die Nutzung unserer Website ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder E-Mail-Adressen) erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis.</p>
+        </div>
     </main>
-
-    <section class="cta">
-        <h2>Noch Fragen zu KI-Begriffen?</h2>
-        <p>In meinen Kursen erkläre ich alles ausführlich und praxisnah.</p>
-        <a href="/kurse.html" class="cta-btn">Zu den Kursen →</a>
-    </section>
 
     <footer class="footer">
         <div class="footer-logo">KI-Expertenraum</div>
-        <p>© 2026 Philipp Zerna | <a href="/impressum/" style="color: rgba(255,255,255,0.7);">Impressum</a></p>
+        <p>© 2026 KI-Expertenraum | Philipp Zerna</p>
     </footer>
-
-    <script>
-        document.getElementById('searchInput').addEventListener('input', function(e) {
-            const searchTerm = e.target.value.toLowerCase();
-            const cards = document.querySelectorAll('.term-card');
-            cards.forEach(card => {
-                card.style.display = card.textContent.toLowerCase().includes(searchTerm) ? 'block' : 'none';
-            });
-        });
-    </script>
 </body>
 </html>
