@@ -254,6 +254,115 @@
             line-height: 1.5;
         }
         
+        /* EBOOKS */
+        .ebooks {
+            padding: 100px 40px;
+            background: linear-gradient(135deg, #f8fafc 0%, #f0f7ff 100%);
+        }
+        .ebooks-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+        .ebooks-header h2 {
+            font-size: 42px;
+            margin-bottom: 16px;
+        }
+        .ebooks-header p {
+            font-size: 19px;
+            color: var(--text-muted);
+        }
+        .ebooks-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .ebook-card {
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 40px;
+            display: flex;
+            gap: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
+        .ebook-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+        .ebook-cover {
+            width: 150px;
+            height: 200px;
+            border-radius: 12px;
+            overflow: hidden;
+            flex-shrink: 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .ebook-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .ebook-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .ebook-badge {
+            display: inline-block;
+            background: var(--success-light);
+            color: var(--success);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            width: fit-content;
+        }
+        .ebook-title {
+            font-size: 24px;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        .ebook-description {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+        .ebook-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: all 0.3s;
+            width: fit-content;
+        }
+        .ebook-btn:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .ebooks { padding: 60px 20px; }
+            .ebooks-header h2 { font-size: 32px; }
+            .ebooks-grid { grid-template-columns: 1fr; }
+            .ebook-card { flex-direction: column; text-align: center; }
+            .ebook-cover { margin: 0 auto; }
+            .ebook-badge { margin: 0 auto 16px; }
+            .ebook-btn { margin: 0 auto; }
+        }
+        
         /* CTA */
         .cta {
             background: linear-gradient(135deg, var(--accent) 0%, #7c3aed 100%);
@@ -414,6 +523,37 @@
                     <span class="article-category">Strategie</span>
                     <h3>KI-Einführung im Unternehmen</h3>
                     <p>Der Roadmap für erfolgreiche Integration</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section class="ebooks">
+        <div class="ebooks-header">
+            <h2>Gratis eBooks</h2>
+            <p>Lade dir meine kostenlosen Ratgeber herunter – sofort verfügbar</p>
+        </div>
+        <div class="ebooks-grid">
+            <a href="https://www.dropbox.com/scl/fi/rt7k1r6w4qwexzs795gkv/Die_10_KI-Prompts_fuer_KMU.pdf?rlkey=wlo2fn2815lt2hwlp1w76ggk3&st=d49shol7&dl=1" class="ebook-card" target="_blank">
+                <div class="ebook-cover">
+                    <img src="/public/images/ebook1.png" alt="Die 10 KI-Prompts für KMU">
+                </div>
+                <div class="ebook-content">
+                    <span class="ebook-badge">Kostenloser Download</span>
+                    <h3 class="ebook-title">Die 10 KI-Prompts für KMU</h3>
+                    <p class="ebook-description">Die wichtigsten Prompts für kleine und mittlere Unternehmen – sofort einsetzbar und erprobt.</p>
+                    <span class="ebook-btn">Jetzt downloaden →</span>
+                </div>
+            </a>
+            <a href="https://www.dropbox.com/scl/fi/qee9tm1p7hbo5oe4eyemt/EU-AI-Act-Survival-Guide.pdf?rlkey=chsnn67os8xsei5epy9ft3x9l&st=foqj4wf8&dl=1" class="ebook-card" target="_blank">
+                <div class="ebook-cover">
+                    <img src="/public/images/ebook2.png" alt="EU AI ACT Survival Guide">
+                </div>
+                <div class="ebook-content">
+                    <span class="ebook-badge">Kostenloser Download</span>
+                    <h3 class="ebook-title">EU AI ACT Survival Guide</h3>
+                    <p class="ebook-description">Alles, was du über die EU KI-Verordnung wissen musst – kompakt und verständlich erklärt.</p>
+                    <span class="ebook-btn">Jetzt downloaden →</span>
                 </div>
             </a>
         </div>
