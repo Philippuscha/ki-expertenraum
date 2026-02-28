@@ -3,51 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>25 KI-Prompts - KI-Expertenraum</title>
+    <title>25 KI-Prompts für Produktivität | KI-Expertenraum</title>
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <meta name="description" content="25 fertige KI-Prompts für Marketing, Vertrieb & Büro. Copy & Paste-fertig für sofortige Zeitersparnis.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #2563eb;
-            --accent: #3b82f6;
-            --accent-light: #dbeafe;
-            --text: #1e293b;
-            --bg: #f8fafc;
-        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-        .nav { position: fixed; top: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.05); }
-        .logo { font-size: 24px; font-weight: 800; color: var(--primary); text-decoration: none; }
-        .nav-links { display: flex; gap: 30px; list-style: none; }
-        .nav-links a { color: var(--text); text-decoration: none; font-weight: 600; transition: color 0.3s; }
+        :root { --bg: #f0f7ff; --bg-card: rgba(255, 255, 255, 0.95); --text: #0f172a; --text-muted: #475569; --text-light: #64748b; --border: rgba(255, 255, 255, 0.6); --accent: #3b82f6; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 50%, #dbeafe 100%); color: var(--text); line-height: 1.7; min-height: 100vh; }
+        h1, h2, h3, h4 { font-family: 'DM Sans', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
+        
+        /* Navigation */
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; background: rgba(240, 247, 255, 0.98); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); min-height: 70px; }
+        .logo { font-family: 'DM Sans', sans-serif; font-size: 22px; font-weight: 800; background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
+        .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.3s; }
         .nav-links a:hover { color: var(--accent); }
-        main { max-width: 800px; margin: 0 auto; padding: 120px 20px 60px; }
-        h1 { font-size: clamp(28px, 5vw, 42px); font-weight: 800; margin-bottom: 20px; line-height: 1.2; }
-        h2 { font-size: clamp(24px, 4vw, 32px); font-weight: 700; margin: 40px 0 20px; }
-        h3 { font-size: clamp(20px, 3vw, 24px); font-weight: 600; margin: 30px 0 15px; }
-        p { font-size: 16px; line-height: 1.7; margin-bottom: 20px; }
-        .toc { position: fixed; right: 40px; top: 120px; width: 250px; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-        .toc h3 { font-size: 16px; margin-bottom: 15px; }
-        .toc ul { list-style: none; }
-        .toc li { margin: 8px 0; }
-        .toc a { color: var(--text); text-decoration: none; font-size: 14px; }
-        .toc a:hover { color: var(--accent); }
-        .meta { color: #64748b; font-size: 14px; margin-bottom: 30px; }
-        .content img { max-width: 100%; height: auto; border-radius: 8px; margin: 20px 0; }
-        .table-wrapper { overflow-x: auto; margin: 20px 0; }
-        table { width: 100%; border-collapse: collapse; }
-        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #e2e8f0; }
-        th { background: var(--accent-light); font-weight: 600; }
-        .hamburger { display: none; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text); }
-        .mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; background: rgba(240,247,255,0.98); backdrop-filter: blur(20px); padding: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); z-index: 999; }
-        .mobile-menu a { display: block; padding: 15px; color: var(--text); text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .mobile-menu a:hover { background: var(--accent-light); color: var(--accent); }
-        .mobile-menu.show { display: block; }
-        @media (max-width: 768px) { 
-            .nav-links { display: none; } 
-            .hamburger { display: block; } 
-            .nav { padding: 15px 20px; }
-            main { padding: 100px 20px 40px; }
+        
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; z-index: 1001; background: none; border: none; }
+        .mobile-menu-toggle span { width: 25px; height: 3px; background: var(--text); border-radius: 3px; transition: all 0.3s; }
+        .mobile-menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+        .mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .mobile-menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+        
+        /* Mobile Menu Overlay */
+        .mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; bottom: 0; background: rgba(240, 247, 255, 0.98); backdrop-filter: blur(20px); z-index: 999; flex-direction: column; justify-content: flex-start; align-items: center; gap: 0; opacity: 0; visibility: hidden; transition: all 0.3s; padding-top: 40px; }
+        .mobile-menu.active { display: flex; opacity: 1; visibility: visible; }
+        .mobile-menu a { font-family: 'DM Sans', sans-serif; font-size: 24px; font-weight: 700; color: var(--text); text-decoration: none; padding: 20px; width: 100%; text-align: center; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .mobile-menu a:hover { color: var(--accent); background: rgba(59,130,246,0.05); }
+        
+        /* Hero Section */
+        .hero { padding: 140px 40px 60px; text-align: center; max-width: 900px; margin: 0 auto; }
+        .hero-badge { display: inline-block; background: rgba(59, 130, 246, 0.1); color: var(--accent); padding: 8px 20px; border-radius: 20px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+        .hero h1 { font-size: clamp(28px, 5vw, 46px); line-height: 1.2; margin-bottom: 20px; font-weight: 800; }
+        .hero h1 span { background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-description { font-size: 18px; color: var(--text-muted); max-width: 600px; margin: 0 auto 20px; line-height: 1.6; }
+        .hero-meta { display: flex; justify-content: center; gap: 25px; color: var(--text-light); font-size: 14px; flex-wrap: wrap; }
+        
+        /* Content */
+        .content-wrapper { max-width: 800px; margin: 0 auto; padding: 20px 40px 60px; }
+        .main-content { max-width: 100%; }
+        h2 { font-size: 28px; margin: 40px 0 20px; font-weight: 800; color: var(--text); }
+        h3 { font-size: 22px; margin: 30px 0 15px; font-weight: 700; color: var(--text); }
+        p { margin-bottom: 20px; color: var(--text-muted); font-size: 16px; line-height: 1.8; }
+        ul, ol { margin: 20px 0; padding-left: 25px; }
+        li { margin: 10px 0; color: var(--text-muted); }
+        blockquote { background: rgba(59, 130, 246, 0.08); border-left: 4px solid var(--accent); padding: 20px; margin: 25px 0; border-radius: 0 12px 12px 0; font-size: 17px; font-weight: 600; color: var(--text); }
+        
+        /* Code boxes */
+        pre { background: #1e293b; border-radius: 12px; padding: 20px; margin: 20px 0; color: #e2e8f0; font-family: 'Monaco', 'Consolas', monospace; font-size: 14px; line-height: 1.6; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word; }
+        code { font-family: 'Monaco', 'Consolas', monospace; background: rgba(59,130,246,0.1); padding: 2px 6px; border-radius: 4px; font-size: 14px; }
+        
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; margin: 25px 0; background: var(--bg-card); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: block; overflow-x: auto; }
+        th { background: linear-gradient(135deg, var(--accent) 0%, #2563eb 100%); color: white; padding: 14px; text-align: left; font-weight: 700; font-size: 14px; }
+        td { padding: 14px; border-bottom: 1px solid rgba(0,0,0,0.05); color: var(--text-muted); font-size: 14px; }
+        tr:last-child td { border-bottom: none; }
+        
+        /* Components */
+        .highlight { background: rgba(59, 130, 246, 0.08); border-radius: 12px; padding: 20px; margin: 25px 0; border: 1px solid rgba(59, 130, 246, 0.15); }
+        .warning { background: rgba(239, 68, 68, 0.08); border-left: 4px solid #ef4444; padding: 15px 20px; margin: 20px 0; border-radius: 0 12px 12px 0; }
+        .warning strong { color: #dc2626; }
+        .tool-card { background: var(--bg-card); border-radius: 12px; padding: 20px; margin: 20px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .cta-box { background: linear-gradient(135deg, var(--accent) 0%, #2563eb 100%); color: white; padding: 30px; border-radius: 16px; margin: 40px 0; text-align: center; }
+        .cta-box h2, .cta-box h3 { color: white; margin-bottom: 15px; font-size: 24px; }
+        .cta-box p { color: rgba(255,255,255,0.9); margin-bottom: 20px; }
+        .btn-white { display: inline-block; background: white; color: var(--accent); padding: 12px 28px; border-radius: 10px; text-decoration: none; font-weight: 700; transition: transform 0.2s; }
+        .btn-white:hover { transform: translateY(-2px); }
+        
+        /* Footer */
+        .footer { background: var(--text); color: rgba(255,255,255,0.7); padding: 40px 40px 30px; margin-top: 60px; text-align: center; }
+        .footer-logo { font-family: 'DM Sans', sans-serif; font-size: 22px; font-weight: 800; margin-bottom: 15px; background: linear-gradient(135deg, white 0%, #60a5fa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* Responsive - MOBILE FIRST */
+        @media (max-width: 768px) {
+            .nav { padding: 12px 20px; min-height: 60px; }
+            .nav-links { display: none; }
+            .mobile-menu-toggle { display: flex; }
+            .hero { padding: 100px 20px 40px; }
+            .hero h1 { font-size: 26px; }
+            .hero-description { font-size: 16px; }
+            .hero-meta { gap: 15px; font-size: 13px; }
+            .content-wrapper { padding: 10px 20px 40px; }
+            h2 { font-size: 22px; margin: 30px 0 15px; }
+            h3 { font-size: 18px; margin: 25px 0 12px; }
+            p { font-size: 15px; line-height: 1.7; margin-bottom: 15px; }
+            ul, ol { padding-left: 20px; margin: 15px 0; }
+            li { margin: 8px 0; }
+            blockquote { padding: 15px; font-size: 15px; margin: 20px 0; }
+            pre { padding: 15px; font-size: 13px; }
+            th, td { padding: 12px; font-size: 13px; }
+            .tool-card { padding: 15px; }
+            .cta-box { padding: 25px 20px; margin: 30px 0; }
+            .cta-box h2, .cta-box h3 { font-size: 20px; }
+            .footer { padding: 30px 20px; margin-top: 40px; }
         }
-        @media (max-width: 1100px) { .toc { display: none; } }
+        
+        @media (max-width: 375px) {
+            .hero h1 { font-size: 24px; }
+            .mobile-menu a { font-size: 20px; padding: 18px; }
+        }
     </style>
 </head>
 <body>
@@ -55,40 +113,141 @@
         <a href="/" class="logo">KI-Expertenraum</a>
         <ul class="nav-links">
             <li><a href="/">Startseite</a></li>
-            <li><a href="/kurse/">Kurse</a></li>
-            <li><a href="/services/">Services</a></li>
             <li><a href="/artikel/">Artikel</a></li>
-            <li><a href="/glossar/">Glossar</a></li>
+            <li><a href="/kurse/">Kurse</a></li>
+            <li><a href="/kontakt.html">Kontakt</a></li>
         </ul>
-        <button class="hamburger" onclick="toggleMenu()" aria-label="Menü öffnen">☰</button>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" onclick="toggleMobileMenu()" aria-label="Menü öffnen">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </nav>
+    
     <div class="mobile-menu" id="mobileMenu">
-        <a href="/">Startseite</a>
-        <a href="/kurse/">Kurse</a>
-        <a href="/services/">Services</a>
-        <a href="/artikel/">Artikel</a>
-        <a href="/glossar/">Glossar</a>
-    </div>
-    <script>function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('show'); }</script>
-
-    <div class="toc">
-        <h3>Inhaltsverzeichnis</h3>
-        <ul>
-            <li><a href="#einleitung">Einleitung</a></li>
-            <li><a href="#prompts">Die 25 Prompts</a></li>
-            <li><a href="#tipps">Tipps</a></li>
-            <li><a href="#fazit">Fazit</a></li>
-        </ul>
+        <a href="/" onclick="toggleMobileMenu()">Startseite</a>
+        <a href="/artikel/" onclick="toggleMobileMenu()">Artikel</a>
+        <a href="/kurse/" onclick="toggleMobileMenu()">Kurse</a>
+        <a href="/kontakt.html" onclick="toggleMobileMenu()">Kontakt</a>
     </div>
 
-    <main>
-        <article>
-            <h1>25 KI-Prompts für Produktivität</h1>
-            <div class="meta">Veröffentlicht: Februar 2025 | Lesezeit: 15 Minuten</div>
-            <div class="content">
-                <p>Die 25 besten Prompts für ChatGPT, Claude und andere KI-Modelle zur Steigerung Ihrer Produktivität.</p>
+    <header class="hero">
+        <span class="hero-badge">Produktivität</span>
+        <h1>25 KI-Prompts für <span>maximale Produktivität</span></h1>
+        <p class="hero-description">Fertige, optimierte Prompts für Marketing, Vertrieb & Büro. Copy & Paste-fertig mit sofort messbarer Zeitersparnis.</p>
+        <div class="hero-meta">
+            <span>✍️ Philipp Zerna</span>
+            <span>⏱️ 12 Min. Lesezeit</span>
+        </div>
+    </header>
+
+    <div class="content-wrapper">
+        <main class="main-content">
+            <h2>Warum die meisten KI-Ergebnisse enttäuschen</h2>
+            <p>90% der Nutzer geben KI-Tools vage Anweisungen wie "Schreibe einen guten Text" – und wundern sich dann über mittelmäßige Ergebnisse.</p>
+            <blockquote>Mit den richtigen Prompts werden Sie vom KI-Anfänger zum Power-User.</blockquote>
+
+            <h2>Die 5 Säulen professionellen Prompt Engineering</h2>
+            
+            <h3>1. Kontext geben (Context is King)</h3>
+            <p>❌ <strong>Schlecht:</strong> "Schreibe eine E-Mail."</p>
+            <p>✅ <strong>Besser:</strong></p>
+            <pre>Kontext: Ich bin Geschäftsführer eines Mittelständlers (50 Mitarbeiter) im Maschinenbau. Wir haben ein Angebot für einen Neukunden erstellt (Volumen: 50.000€), aber seit 2 Wochen keine Rückmeldung.
+
+Aufgabe: Schreibe eine höfliche, aber bestimmte Nachfrage.
+
+Ziel: Wir wollen wissen, ob das Angebot noch aktuell ist.
+
+Ton: Professionell, vertrauensvoll, nicht aufdringlich.</pre>
+
+            <h3>2. Rolle definieren (Role Prompting)</h3>
+            <pre>Du bist ein erfahrener Marketing-Stratege mit 15 Jahren Erfahrung im B2B-Bereich. Du berätst Mittelständler bei der digitalen Transformation. Gib praxisnahe, umsetzbare Tipps.</pre>
+            <p><strong>Warum das funktioniert:</strong> Die KI aktiviert domain-spezifisches Wissen und gibt qualitativere Antworten.</p>
+
+            <h3>3. Struktur vorgeben (Output Format)</h3>
+            <pre>Erstelle eine Marktanalyse im folgenden Format:
+
+## Zusammenfassung (3 Sätze)
+
+## Marktgröße & Wachstum
+- Aktuelle Marktgröße
+- Wachstumsprognose (CAGR)
+
+## Wettbewerbslandschaft
+- Top 3 Wettbewerber
+- Deren Stärken/Schwächen
+
+## Fazit & Next Steps</pre>
+
+            <h3>4. Beispiele geben (Few-Shot Prompting)</h3>
+            <pre>Erstelle 3 Slogans für unsere neue KI-Beratung.
+
+Beispiele für den gewünschten Stil:
+- "KI verstehen. Zukunft gestalten."
+- "Mensch und Maschine. Perfekt kombiniert."
+- "KI-Potenzial entfesseln."
+
+Jetzt deine 3 Vorschläge:</pre>
+
+            <h3>5. Iteration nutzen (Chain of Thought)</h3>
+            <p>Große Aufgaben in kleine Schritte zerlegen:</p>
+            <div class="highlight">
+                <strong>Schritt 1:</strong> Definiere 3 mögliche Zielgruppen<br>
+                <strong>Schritt 2:</strong> Erstelle ein Wertversprechen<br>
+                <strong>Schritt 3:</strong> Entwickle 3 Preismodelle
             </div>
-        </article>
-    </main>
+
+            <h2>Die 10 besten Business-Prompts</h2>
+            
+            <h3>1. Executive Summary</h3>
+            <pre>Fasse diesen 20-seitigen Report in eine 1-seitige Executive Summary für den CEO zusammen. Fokus auf: Zahlen, Entscheidungen, Next Steps.</pre>
+
+            <h3>2. SWOT-Analyse</h3>
+            <pre>Erstelle eine SWOT-Analyse für [Unternehmen/Produkt]. Für jede Kategorie mindestens 3 Punkte mit kurzer Begründung.</pre>
+
+            <h3>3. E-Mail-Optimierung</h3>
+            <pre>Optimiere diese E-Mail für höhere Antwortrate. Zielgruppe: C-Level, Branche: [X]. Gib die verbesserte Version und 3 Alternativ-Betreffzeilen.</pre>
+
+            <h3>4. Präsentations-Struktur</h3>
+            <pre>Erstelle eine Struktur für eine 20-minütige Präsentation zum Thema [X]. Zielgruppe: [Y]. Inklusive: Folien-Anzahl pro Abschnitt, Key Messages.</pre>
+
+            <h3>5. Prozess-Dokumentation</h3>
+            <pre>Dokumentiere diesen Prozess so, dass ein neuer Mitarbeiter ihn versteht. Schritt-für-Schritt, inklusive Verantwortlichkeiten und Tools.</pre>
+
+            <h2>Häufige Fehler vermeiden</h2>
+            <table>
+                <tr><th>❌ Falsch</th><th>✅ Richtig</th></tr>
+                <tr><td>"Schreib was Gutes"</td><td>"Schreibe einen Blogartikel (800 Wörter) über [Thema], Zielgruppe: [X], SEO-Keywords: [Y]"</td></tr>
+                <tr><td>"Ist das gut?"</td><td>"Bewerte diese Idee nach 3 Kriterien: Umsetzbarkeit (1-10), Kosten, Zeitaufwand"</td></tr>
+                <tr><td>Ein Prompt für alles</td><td>Aufgaben in kleine Schritte zerlegen</td></tr>
+            </table>
+
+            <h2>Fazit</h2>
+            <p>Prompt Engineering ist keine Raketenwissenschaft – es ist eine <strong>Fähigkeit, die man lernen kann</strong>. Wer die 5 Säulen beherrscht, bekommt aus KI-Tools das 10-fache an Wert heraus.</p>
+            
+            <blockquote>Investieren Sie 30 Minuten in das Lernen guter Prompts – und sparen Sie danach Stunden bei jeder KI-Nutzung.</blockquote>
+
+            <div class="cta-box">
+                <h3>Meister die KI-Kommunikation!</h3>
+                <p>In unserem Prompt Engineering Kurs lernen Sie fortgeschrittene Techniken für maximale Ergebnisse.</p>
+                <a href="/#work" class="btn-white">Mehr erfahren</a>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-logo">KI-Expertenraum</div>
+        <p>© 2026 KI-Expertenraum | Philipp Zerna</p>
+    </footer>
+    
+    <script>
+        function toggleMobileMenu() {
+            const toggle = document.getElementById('mobileMenuToggle');
+            const menu = document.getElementById('mobileMenu');
+            toggle.classList.toggle('active');
+            menu.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        }
+    </script>
 </body>
 </html>

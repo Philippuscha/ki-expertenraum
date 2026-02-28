@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KI im Mittelstand: Die 90-Tage-Roadmap | KI-Expertenraum</title>
+    <link rel="icon" type="image/png" href="../images/favicon.png">
     <meta name="description" content="Schritt-für-Schritt Guide für Mittelständler: KI erfolgreich im Unternehmen einführen. Von der Strategie bis zur produktiven Nutzung mit ROI.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -213,10 +214,33 @@
             .hero-meta { flex-direction: column; gap: 8px; }
         }
 
-    </style>
+    
+        /* Hamburger Menu */
+        .hamburger { display: none; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text); }
+        .mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; background: rgba(240,247,255,0.98); backdrop-filter: blur(20px); padding: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); z-index: 999; }
+        .mobile-menu a { display: block; padding: 15px; color: var(--text); text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .mobile-menu a:hover { background: var(--accent-light, #dbeafe); color: var(--accent); }
+        .mobile-menu.show { display: block; }
+        
+        @media (max-width: 768px) { 
+            .nav-links { display: none !important; } 
+            .hamburger { display: block !important; } 
+            .nav { padding: 15px 20px !important; }
+            .hero { padding: 120px 20px 40px !important; }
+            .content-wrapper { padding: 0 20px !important; grid-template-columns: 1fr !important; }
+            h1 { font-size: clamp(28px, 5vw, 42px) !important; }
+            h2 { font-size: clamp(24px, 4vw, 32px) !important; }
+            h3 { font-size: clamp(20px, 3vw, 24px) !important; }
+            p { font-size: 16px !important; line-height: 1.7 !important; }
+            table { display: block !important; overflow-x: auto !important; white-space: nowrap !important; }
+            img { max-width: 100% !important; height: auto !important; }
+        }
+        @media (max-width: 1100px) { 
+            .toc-sidebar { display: none !important; } 
+        }</style>
 </head>
 <body>
-    <nav class="nav">
+    <nav class="nav" id="nav">
         <a href="/" class="logo">KI-Expertenraum</a>
         <div class="mobile-menu-toggle" id="mobileMenuToggle" onclick="toggleMobileMenu()">
             <span></span>
@@ -237,12 +261,15 @@
             <li><a href="/#work">Kurse</a></li>
             <li><a href="/kontakt.html">Kontakt</a></li>
         </ul>
+            
     </nav>
+    
     <div class="mobile-menu" id="mobileMenu">
         <a href="/">Startseite</a>
+        <a href="/kurse/">Kurse</a>
+        <a href="/services/">Services</a>
         <a href="/artikel/">Artikel</a>
-        <a href="/#work">Kurse</a>
-        <a href="/kontakt.html">Kontakt</a>
+        <a href="/glossar/">Glossar</a>
     </div>
 
     <header class="hero">

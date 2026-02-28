@@ -3,51 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EU AI Act Checkliste - KI-Expertenraum</title>
+    <title>EU AI Act Checkliste 2026: Alle Pflichten für KMU Schritt-für-Schritt | KI-Expertenraum</title>
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <meta name="description" content="Die komplette EU AI Act Checkliste für KMU: Alle Pflichten, Fristen und Vorlagen für Compliance bis August 2026. Kostenlos downloaden!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #2563eb;
-            --accent: #3b82f6;
-            --accent-light: #dbeafe;
-            --text: #1e293b;
-            --bg: #f8fafc;
-        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-        .nav { position: fixed; top: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.05); }
-        .logo { font-size: 24px; font-weight: 800; color: var(--primary); text-decoration: none; }
-        .nav-links { display: flex; gap: 30px; list-style: none; }
-        .nav-links a { color: var(--text); text-decoration: none; font-weight: 600; transition: color 0.3s; }
+        :root { --bg: #f0f7ff; --bg-card: rgba(255, 255, 255, 0.95); --text: #0f172a; --text-muted: #475569; --text-light: #64748b; --border: rgba(255, 255, 255, 0.6); --accent: #3b82f6; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 50%, #dbeafe 100%); color: var(--text); line-height: 1.7; min-height: 100vh; }
+        h1, h2, h3, h4 { font-family: 'DM Sans', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; background: rgba(240, 247, 255, 0.98); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); min-height: 70px; }
+        .logo { font-family: 'DM Sans', sans-serif; font-size: 22px; font-weight: 800; background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
+        .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.3s; }
         .nav-links a:hover { color: var(--accent); }
-        main { max-width: 800px; margin: 0 auto; padding: 120px 20px 60px; }
-        h1 { font-size: clamp(28px, 5vw, 42px); font-weight: 800; margin-bottom: 20px; line-height: 1.2; }
-        h2 { font-size: clamp(24px, 4vw, 32px); font-weight: 700; margin: 40px 0 20px; }
-        h3 { font-size: clamp(20px, 3vw, 24px); font-weight: 600; margin: 30px 0 15px; }
-        p { font-size: 16px; line-height: 1.7; margin-bottom: 20px; }
-        .toc { position: fixed; right: 40px; top: 120px; width: 250px; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-        .toc h3 { font-size: 16px; margin-bottom: 15px; }
-        .toc ul { list-style: none; }
-        .toc li { margin: 8px 0; }
-        .toc a { color: var(--text); text-decoration: none; font-size: 14px; }
-        .toc a:hover { color: var(--accent); }
-        .meta { color: #64748b; font-size: 14px; margin-bottom: 30px; }
-        .content img { max-width: 100%; height: auto; border-radius: 8px; margin: 20px 0; }
-        .table-wrapper { overflow-x: auto; margin: 20px 0; }
-        table { width: 100%; border-collapse: collapse; }
-        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #e2e8f0; }
-        th { background: var(--accent-light); font-weight: 600; }
-        .hamburger { display: none; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text); }
-        .mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; background: rgba(240,247,255,0.98); backdrop-filter: blur(20px); padding: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); z-index: 999; }
-        .mobile-menu a { display: block; padding: 15px; color: var(--text); text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .mobile-menu a:hover { background: var(--accent-light); color: var(--accent); }
-        .mobile-menu.show { display: block; }
-        @media (max-width: 768px) { 
-            .nav-links { display: none; } 
-            .hamburger { display: block; } 
-            .nav { padding: 15px 20px; }
-            main { padding: 100px 20px 40px; }
+        .mobile-menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; z-index: 1001; background: none; border: none; }
+        .mobile-menu-toggle span { width: 25px; height: 3px; background: var(--text); border-radius: 3px; transition: all 0.3s; }
+        .mobile-menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+        .mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .mobile-menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+        .mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; bottom: 0; background: rgba(240, 247, 255, 0.98); backdrop-filter: blur(20px); z-index: 999; flex-direction: column; justify-content: flex-start; align-items: center; gap: 0; opacity: 0; visibility: hidden; transition: all 0.3s; padding-top: 40px; }
+        .mobile-menu.active { display: flex; opacity: 1; visibility: visible; }
+        .mobile-menu a { font-family: 'DM Sans', sans-serif; font-size: 24px; font-weight: 700; color: var(--text); text-decoration: none; padding: 20px; width: 100%; text-align: center; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .mobile-menu a:hover { color: var(--accent); background: rgba(59,130,246,0.05); }
+        .hero { padding: 140px 40px 60px; text-align: center; max-width: 900px; margin: 0 auto; }
+        .hero-badge { display: inline-block; background: rgba(239, 68, 68, 0.15); color: #dc2626; padding: 8px 20px; border-radius: 20px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+        .hero h1 { font-size: clamp(28px, 5vw, 46px); line-height: 1.2; margin-bottom: 20px; font-weight: 800; }
+        .hero h1 span { background: linear-gradient(135deg, #dc2626 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-description { font-size: 18px; color: var(--text-muted); max-width: 600px; margin: 0 auto 20px; line-height: 1.6; }
+        .hero-meta { display: flex; justify-content: center; gap: 25px; color: var(--text-light); font-size: 14px; flex-wrap: wrap; }
+        .content-wrapper { max-width: 800px; margin: 0 auto; padding: 20px 40px 60px; }
+        .main-content { max-width: 100%; }
+        h2 { font-size: 28px; margin: 40px 0 20px; font-weight: 800; color: var(--text); }
+        h3 { font-size: 22px; margin: 30px 0 15px; font-weight: 700; color: var(--text); }
+        p { margin-bottom: 20px; color: var(--text-muted); font-size: 16px; line-height: 1.8; }
+        ul, ol { margin: 20px 0; padding-left: 25px; }
+        li { margin: 10px 0; color: var(--text-muted); }
+        blockquote { background: rgba(239, 68, 68, 0.08); border-left: 4px solid #ef4444; padding: 20px; margin: 25px 0; border-radius: 0 12px 12px 0; font-size: 17px; font-weight: 600; color: var(--text); }
+        table { width: 100%; border-collapse: collapse; margin: 25px 0; background: var(--bg-card); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: block; overflow-x: auto; }
+        th { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); color: white; padding: 14px; text-align: left; font-weight: 700; font-size: 14px; }
+        td { padding: 14px; border-bottom: 1px solid rgba(0,0,0,0.05); color: var(--text-muted); font-size: 14px; }
+        tr:last-child td { border-bottom: none; }
+        .phase { background: var(--bg-card); border-radius: 16px; padding: 30px; margin: 30px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border: 1px solid rgba(255,255,255,0.5); }
+        .phase-header { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); color: white; padding: 20px 25px; margin: -30px -30px 25px -30px; border-radius: 16px 16px 0 0; }
+        .phase-header h3 { margin: 0; color: white; font-size: 20px; }
+        .warning { background: rgba(245,158,11,0.1); border-left: 4px solid #f59e0b; padding: 15px 20px; margin: 20px 0; border-radius: 0 12px 12px 0; }
+        .warning strong { color: #b45309; }
+        .success { background: rgba(34,197,94,0.1); border-left: 4px solid #22c55e; padding: 15px 20px; margin: 20px 0; border-radius: 0 12px 12px 0; }
+        .success strong { color: #15803d; }
+        .cta-box { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); color: white; padding: 30px; border-radius: 16px; margin: 40px 0; text-align: center; }
+        .cta-box h2, .cta-box h3 { color: white; margin-bottom: 15px; font-size: 24px; }
+        .cta-box p { color: rgba(255,255,255,0.9); margin-bottom: 20px; }
+        .btn-white { display: inline-block; background: white; color: #dc2626; padding: 12px 28px; border-radius: 10px; text-decoration: none; font-weight: 700; transition: transform 0.2s; }
+        .btn-white:hover { transform: translateY(-2px); }
+        .footer { background: var(--text); color: rgba(255,255,255,0.7); padding: 40px 40px 30px; margin-top: 60px; text-align: center; }
+        .footer-logo { font-family: 'DM Sans', sans-serif; font-size: 22px; font-weight: 800; margin-bottom: 15px; background: linear-gradient(135deg, white 0%, #60a5fa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        @media (max-width: 768px) {
+            .nav { padding: 12px 20px; min-height: 60px; }
+            .nav-links { display: none; }
+            .mobile-menu-toggle { display: flex; }
+            .hero { padding: 100px 20px 40px; }
+            .hero h1 { font-size: 26px; }
+            .hero-description { font-size: 16px; }
+            .hero-meta { gap: 15px; font-size: 13px; }
+            .content-wrapper { padding: 10px 20px 40px; }
+            h2 { font-size: 22px; margin: 30px 0 15px; }
+            h3 { font-size: 18px; margin: 25px 0 12px; }
+            p { font-size: 15px; line-height: 1.7; margin-bottom: 15px; }
+            ul, ol { padding-left: 20px; margin: 15px 0; }
+            li { margin: 8px 0; }
+            blockquote { padding: 15px; font-size: 15px; margin: 20px 0; }
+            th, td { padding: 12px; font-size: 13px; }
+            .phase { padding: 25px 20px; }
+            .phase-header { margin: -25px -20px 20px -20px; padding: 15px 20px; }
+            .cta-box { padding: 25px 20px; margin: 30px 0; }
+            .cta-box h2, .cta-box h3 { font-size: 20px; }
+            .footer { padding: 30px 20px; margin-top: 40px; }
         }
-        @media (max-width: 1100px) { .toc { display: none; } }
     </style>
 </head>
 <body>
@@ -55,40 +89,243 @@
         <a href="/" class="logo">KI-Expertenraum</a>
         <ul class="nav-links">
             <li><a href="/">Startseite</a></li>
-            <li><a href="/kurse/">Kurse</a></li>
-            <li><a href="/services/">Services</a></li>
             <li><a href="/artikel/">Artikel</a></li>
-            <li><a href="/glossar/">Glossar</a></li>
+            <li><a href="/kurse/">Kurse</a></li>
+            <li><a href="/kontakt.html">Kontakt</a></li>
         </ul>
-        <button class="hamburger" onclick="toggleMenu()" aria-label="Menü öffnen">☰</button>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" onclick="toggleMobileMenu()" aria-label="Menü öffnen">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </nav>
+    
     <div class="mobile-menu" id="mobileMenu">
-        <a href="/">Startseite</a>
-        <a href="/kurse/">Kurse</a>
-        <a href="/services/">Services</a>
-        <a href="/artikel/">Artikel</a>
-        <a href="/glossar/">Glossar</a>
-    </div>
-    <script>function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('show'); }</script>
-
-    <div class="toc">
-        <h3>Inhaltsverzeichnis</h3>
-        <ul>
-            <li><a href="#einleitung">Einleitung</a></li>
-            <li><a href="#checkliste">Checkliste</a></li>
-            <li><a href="#massnahmen">Maßnahmen</a></li>
-            <li><a href="#fazit">Fazit</a></li>
-        </ul>
+        <a href="/" onclick="toggleMobileMenu()">Startseite</a>
+        <a href="/artikel/" onclick="toggleMobileMenu()">Artikel</a>
+        <a href="/kurse/" onclick="toggleMobileMenu()">Kurse</a>
+        <a href="/kontakt.html" onclick="toggleMobileMenu()">Kontakt</a>
     </div>
 
-    <main>
-        <article>
-            <h1>EU AI Act Checkliste</h1>
-            <div class="meta">Veröffentlicht: Februar 2025 | Lesezeit: 12 Minuten</div>
-            <div class="content">
-                <p>Praktische Checkliste zur Einhaltung des EU AI Act für Unternehmen.</p>
+    <header class="hero">
+        <span class="hero-badge">Compliance-Guide 2026</span>
+        <h1>EU AI Act Checkliste: <span>Alle Pflichten für KMU</span></h1>
+        <p class="hero-description">Die komplette Schritt-für-Schritt-Anleitung für rechtssichere KI-Nutzung bis August 2026 – mit kostenlosen Vorlagen</p>
+        <div class="hero-meta">
+            <span>✍️ Philipp Zerna</span>
+            <span>⏱️ 12 Min. Lesezeit</span>
+        </div>
+    </header>
+
+    <div class="content-wrapper">
+        <main class="main-content">
+            <h2>EU AI Act 2026 – was jetzt wirklich auf Sie zukommt</h2>
+            <p>Der EU AI Act ist nicht mehr "irgendwann". Er ist <strong>ab Februar 2026</strong> für Unternehmen verbindlich. Und das betrifft <strong>auch Sie als KMU</strong> – nicht nur die Tech-Giganten.</p>
+
+            <blockquote>Wichtig: Ab August 2026 drohen bei Nichteinhaltung Bußgelder von bis zu 35 Millionen Euro oder 7% des weltweiten Jahresumsatzes.</blockquote>
+
+            <p>Doch keine Panik: Mit dieser Checkliste erfüllen Sie alle Pflichten <strong>systematisch und ohne externe Berater</strong> (die übrigens 5.000-15.000€ verlangen).</p>
+
+            <h2>Die 3 wichtigsten Fakten auf einen Blick</h2>
+            <table>
+                <tr><th>Frist</th><th>Was ist zu tun?</th><th>Betrifft Sie?</th></tr>
+                <tr><td><strong>Februar 2026</strong></td><td>Verbotene KI-Praktiken stoppen</td><td>Alle Unternehmen</td></tr>
+                <tr><td><strong>August 2026</strong></td><td>High-Risk Pflichten umsetzen</td><td>Nur bei Hochrisiko-KI</td></tr>
+                <tr><td><strong>August 2027</strong></td><td>Vollständige Compliance</td><td>Alle KI-Systeme dokumentiert</td></tr>
+            </table>
+
+            <p><strong>Gute Nachricht:</strong> Die meisten KMU nutzen KI-Systeme der Kategorie "minimales Risiko" – das bedeutet wenig Aufwand.</p>
+
+            <div class="phase">
+                <div class="phase-header">
+                    <h3>📋 Schritt 1: KI-Inventarisierung (Woche 1-2)</h3>
+                </div>
+                <h4>Was Sie tun müssen:</h4>
+                <p>Erfassen Sie <strong>alle KI-Tools</strong> in Ihrem Unternehmen – auch die, die Mitarbeiter "nebenbei" nutzen.</p>
+
+                <h4>Die Inventar-Tabelle:</h4>
+                <table>
+                    <tr><th>Tool-Name</th><th>Zweck</th><th>Risiko-Klasse</th><th>Verantwortlicher</th></tr>
+                    <tr><td>ChatGPT</td><td>Texte schreiben</td><td>Minimal</td><td>Marketing</td></tr>
+                    <tr><td>Notion AI</td><td>Notizen organisieren</td><td>Minimal</td><td>Alle</td></tr>
+                    <tr><td>Canva AI</td><td>Bilder erstellen</td><td>Minimal</td><td>Marketing</td></tr>
+                    <tr><td>Excel/Sheets</td><td>Datenanalyse</td><td>Minimal</td><td>Buchhaltung</td></tr>
+                </table>
+
+                <h4>Risiko-Klassen einfach erklärt:</h4>
+                <p><strong>🟢 Minimal Risiko (fast alle KMU-Tools):</strong></p>
+                <ul>
+                    <li>Chatbots ohne sensible Daten</li>
+                    <li>Spam-Filter</li>
+                    <li>KI in Office-Programmen</li>
+                    <li><strong>Pflichten:</strong> Nur Transparenz (Nutzer informieren)</li>
+                </ul>
+
+                <p><strong>🟡 Begrenztes Risiko:</strong></p>
+                <ul>
+                    <li>Chatbots, die mit Menschen interagieren</li>
+                    <li><strong>Pflichten:</strong> Kennzeichnungspflicht ("Ich bin ein Chatbot")</li>
+                </ul>
+
+                <p><strong>🟠 Hohes Risiko (selten in KMU):</strong></p>
+                <ul>
+                    <li>KI bei Einstellungsentscheidungen</li>
+                    <li>Kreditwürdigkeitsprüfung durch KI</li>
+                    <li><strong>Pflichten:</strong> Umfassende Dokumentation, Menschliche Überwachung</li>
+                </ul>
+
+                <div class="warning">
+                    <strong>💡 Praxis-Tipp:</strong> 95% aller KMU nutzen nur "Minimal-Risiko"-KI. Prüfen Sie trotzdem genau!
+                </div>
             </div>
-        </article>
-    </main>
+
+            <div class="phase">
+                <div class="phase-header">
+                    <h3>📝 Schritt 2: Dokumentation aufbauen (Woche 3-4)</h3>
+                </div>
+                <h4>Was Sie dokumentieren müssen:</h4>
+                <p>Für jedes KI-Tool eine kurze Dokumentation:</p>
+                <ul>
+                    <li><strong>Tool:</strong> ChatGPT (Plus-Version)</li>
+                    <li><strong>Einsatzzweck:</strong> Erstellung von Marketingtexten, E-Mail-Entwürfen</li>
+                    <li><strong>Verantwortlich:</strong> Max Mustermann (Marketing)</li>
+                    <li><strong>Zuletzt geprüft:</strong> 15.02.2026</li>
+                    <li><strong>Risikoklasse:</strong> Minimal</li>
+                    <li><strong>Besonderheiten:</strong> Keine sensiblen Kundendaten werden eingegeben</li>
+                </ul>
+
+                <h4>Wo speichern?</h4>
+                <ul>
+                    <li>Interne Dokumentation (SharePoint, Drive, Ordner)</li>
+                    <li>Zugänglich für Geschäftsführung & IT-Beauftragten</li>
+                    <li>Jährlich aktualisieren</li>
+                </ul>
+            </div>
+
+            <div class="phase">
+                <div class="phase-header">
+                    <h3>👥 Schritt 3: Mitarbeiter schulen (Woche 5-6)</h3>
+                </div>
+                <h4>Die Pflicht zur AI Literacy (Art. 4 EU AI Act)</h4>
+                <p><strong>Wer muss geschult werden?</strong></p>
+                <ul>
+                    <li>Alle Mitarbeiter, die KI-Systeme nutzen</li>
+                    <li>Führungskräfte</li>
+                    <li>Besonders: Personen, die KI-Entscheidungen beeinflussen</li>
+                </ul>
+
+                <p><strong>Was muss drin sein?</strong></p>
+                <ol>
+                    <li>Grundverständnis KI (Was kann sie, was nicht?)</li>
+                    <li>Richtiger Umgang mit KI-Systemen</li>
+                    <li>Risiken erkennen (Halluzinationen, Bias)</li>
+                    <li>Datenschutz bei KI-Nutzung</li>
+                    <li>Menschliche Überwachung</li>
+                </ol>
+
+                <h4>Kostenlose Schulungs-Ressourcen:</h4>
+                <table>
+                    <tr><th>Ressource</th><th>Format</th><th>Dauer</th><th>Kosten</th></tr>
+                    <tr><td>BSI-Leitfaden</td><td>PDF</td><td>Selbststudium</td><td>Gratis</td></tr>
+                    <tr><td>EU AI Act Kurs (Udemy)</td><td>Video</td><td>2h</td><td>29€</td></tr>
+                    <tr><td>KI Expertenraum Kurs</td><td>Video + Praxis</td><td>2,5h</td><td>39€</td></tr>
+                </table>
+            </div>
+
+            <div class="phase">
+                <div class="phase-header">
+                    <h3>⚠️ Schritt 4: Risikobewertung durchführen (Woche 7-8)</h3>
+                </div>
+                <h4>Der 4-Fragen-Test:</h4>
+                <p><strong>Frage 1:</strong> Nutzen wir KI für Entscheidungen über Menschen?</p>
+                <p>→ Einstellung, Kredit, Versicherung = Hohes Risiko</p>
+
+                <p><strong>Frage 2:</strong> Verarbeiten wir sensible Daten (Gesundheit, Biometrie)?</p>
+                <p>→ Ja = Wahrscheinlich Hohes Risiko</p>
+
+                <p><strong>Frage 3:</strong> Ist es ein "eingebettetes System" (Medizin, Autos, Justiz)?</p>
+                <p>→ Ja = Hohes Risiko</p>
+
+                <p><strong>Frage 4:</strong> Nutzen wir nur Standard-Büro-KI (ChatGPT, Copilot)?</p>
+                <p>→ Ja = Minimal Risiko</p>
+            </div>
+
+            <div class="phase">
+                <div class="phase-header">
+                    <h3>🔒 Schritt 5: Bei High-Risk Erweiterte Pflichten (Woche 9-12)</h3>
+                </div>
+                <h4>Falls Sie doch High-Risk-KI nutzen:</h4>
+                <p><strong>Dann brauchen Sie:</strong></p>
+                <ol>
+                    <li>Risikomanagement-System</li>
+                    <li>Qualitätsmanagement für Daten</li>
+                    <li>Technische Dokumentation</li>
+                    <li>Protokollierung (Logging)</li>
+                    <li>Menschliche Überwachung</li>
+                    <li>Sicherheitskonzept</li>
+                    <li>Konformitätserklärung</li>
+                </ol>
+
+                <div class="warning">
+                    <strong>Hinweis:</strong> Für diese Fälle empfehlen wir dringend spezialisierte Beratung.
+                </div>
+            </div>
+
+            <h2>Häufige Fehler – und wie Sie sie vermeiden</h2>
+            <div class="warning">
+                <strong>❌ Fehler 1:</strong> "Der EU AI Act betrifft uns nicht"<br>
+                <strong>Falsch!</strong> Auch Nutzung von ChatGPT im Unternehmen fällt unter den Act.
+            </div>
+
+            <div class="warning">
+                <strong>❌ Fehler 2:</strong> Externe Berater engagieren (15.000€)<br>
+                <strong>Nicht nötig!</strong> Für Standard-KMU reichen diese Checklisten.
+            </div>
+
+            <div class="warning">
+                <strong>❌ Fehler 3:</strong> Alles auf einmal machen wollen<br>
+                <strong>Besser:</strong> Schrittweise nach diesem Plan vorgehen.
+            </div>
+
+            <div class="success">
+                <strong>✅ Fehler 4 vermeiden:</strong> Keine Dokumentation<br>
+                <strong>Bußgeld-Trick:</strong> Wer dokumentiert, kann im Schadensfall nachweisen, dass er pflichtbewusst handelte.
+            </div>
+
+            <h2>Fazit: In 12 Wochen zur EU AI Act Compliance</h2>
+            <p>Mit diesem Plan sind Sie <strong>bis August 2026</strong> auf der sicheren Seite:</p>
+            <ul>
+                <li><strong>Woche 1-2:</strong> Inventarisierung</li>
+                <li><strong>Woche 3-4:</strong> Dokumentation</li>
+                <li><strong>Woche 5-6:</strong> Mitarbeiter schulen</li>
+                <li><strong>Woche 7-8:</strong> Risikobewertung</li>
+                <li><strong>Woche 9-12:</strong> Erweiterte Pflichten (falls nötig)</li>
+            </ul>
+
+            <p><strong>Der Aufwand für Standard-KMU:</strong> Ca. 8-12 Stunden insgesamt.</p>
+            <p><strong>Der Nutzen:</strong> Kein Bußgeld, sicheres Geschäft, Wettbewerbsvorteil gegenüber zögerlichen Mitbewerbern.</p>
+
+            <div class="cta-box">
+                <h3>EU AI Act Kurs für KMU</h3>
+                <p>In unserem Kurs zeige ich Ihnen in 2,5 Stunden alle Details, Fallstricke und gebe Ihnen fertige Vorlagen.</p>
+                <a href="/#work" class="btn-white">Kurs entdecken</a>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-logo">KI-Expertenraum</div>
+        <p>© 2026 KI-Expertenraum | Philipp Zerna</p>
+    </footer>
+    
+    <script>
+        function toggleMobileMenu() {
+            const toggle = document.getElementById('mobileMenuToggle');
+            const menu = document.getElementById('mobileMenu');
+            toggle.classList.toggle('active');
+            menu.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        }
+    </script>
 </body>
 </html>
