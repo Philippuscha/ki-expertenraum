@@ -6,272 +6,92 @@
     <title>KI im Mittelstand: Die 90-Tage-Roadmap | KI-Expertenraum</title>
     <link rel="icon" type="image/png" href="../images/favicon.png">
     <meta name="description" content="Schritt-für-Schritt Guide für Mittelständler: KI erfolgreich im Unternehmen einführen. Von der Strategie bis zur produktiven Nutzung mit ROI.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { --bg: #f0f7ff; --bg-card: rgba(255, 255, 255, 0.9); --text: #0f172a; --text-muted: #475569; --text-light: #64748b; --border: rgba(255, 255, 255, 0.6); --accent: #3b82f6; --strat: #f59e0b; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 50%, #dbeafe 100%); color: var(--text); line-height: 1.7; min-height: 100vh; }
-        h1, h2, h3, h4 { font-family: 'DM Sans', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
-        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; background: rgba(240, 247, 255, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
-        .logo { font-family: 'DM Sans', sans-serif; font-size: 24px; font-weight: 800; background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
-        .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
-        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.3s; }
+        :root { --bg: #f0f7ff; --bg-card: rgba(255,255,255,0.95); --text: #0f172a; --text-muted: #475569; --accent: #3b82f6; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg,#f0f7ff 0%,#e0f0ff 50%,#dbeafe 100%); color: var(--text); line-height: 1.7; min-height: 100vh; }
+        h1,h2,h3 { font-family: 'DM Sans', sans-serif; font-weight: 700; }
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; background: rgba(240,247,255,0.98); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.6); }
+        .logo { font-size: 22px; font-weight: 800; background: linear-gradient(135deg,var(--text) 0%,var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 600; }
         .nav-links a:hover { color: var(--accent); }
-        .dropdown { position: relative; }
-        .dropdown-toggle { background: rgba(59, 130, 246, 0.1); color: var(--accent); padding: 8px 16px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
-        .dropdown-menu { position: absolute; top: 100%; right: 0; margin-top: 10px; background: white; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.15); padding: 12px; min-width: 220px; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.3s; }
-        .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
-        .dropdown-menu a { display: block; padding: 10px 16px; border-radius: 8px; }
-        .dropdown-menu a:hover { background: #f0f7ff; }
-        /* Mobile Menu Toggle - Hidden by default, shown on mobile */
-        
-        .mobile-menu-toggle span { width: 24px; height: 2.5px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
-        .mobile-menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .mobile-menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; background: none; border: none; }
+        .mobile-menu-toggle span { width: 25px; height: 3px; background: var(--text); border-radius: 3px; transition: all 0.3s; }
+        .mobile-menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(6px,6px); }
         .mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
-        .mobile-menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
-        
-        /* Mobile Menu - Full screen overlay */
-        
+        .mobile-menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(6px,-6px); }
+        .mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; bottom: 0; background: rgba(240,247,255,0.98); backdrop-filter: blur(20px); z-index: 999; flex-direction: column; justify-content: flex-start; align-items: center; padding-top: 40px; opacity: 0; visibility: hidden; transition: all 0.3s; }
         .mobile-menu.active { display: flex; opacity: 1; visibility: visible; }
-        .mobile-menu a { font-family: 'DM Sans', sans-serif; font-size: 28px; font-weight: 700; color: var(--text); text-decoration: none; }
-        .mobile-menu a:hover { color: var(--accent); }
-
-        .hero {
-            margin-top: 0; padding: 200px 40px 80px; text-align: center; max-width: 900px; margin: 0 auto; background: linear-gradient(135deg, rgba(245,158,11,0.1) 0%, rgba(59,130,246,0.1) 100%); border-radius: 0 0 40px 40px; margin-bottom: 40px; }
-        .hero-badge { display: inline-block; background: rgba(245, 158, 11, 0.15); color: #d97706; padding: 8px 20px; border-radius: 20px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; }
-        .hero h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.15; margin-bottom: 25px; font-weight: 800; }
-        .hero h1 span { background: linear-gradient(135deg, #d97706 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-description { font-size: 19px; color: var(--text-muted); max-width: 600px; margin: 0 auto 30px; }
-        .hero-meta { display: flex; justify-content: center; gap: 30px; color: var(--text-light); font-size: 14px; }
-        .content-wrapper { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: 1fr 280px; gap: 60px; }
-        .main-content { max-width: 800px; }
-        h2 { font-size: 32px; margin: 50px 0 25px; font-weight: 800; color: var(--text); scroll-margin-top: 140px; }
-        h3 { font-size: 24px; margin: 35px 0 20px; font-weight: 700; color: var(--text); scroll-margin-top: 140px; }
-        p { margin-bottom: 25px; color: var(--text-muted); font-size: 17px; line-height: 1.8; }
-        ul, ol { margin: 25px 0; padding-left: 30px; }
-        li { margin: 12px 0; color: var(--text-muted); }
-        blockquote { background: rgba(245, 158, 11, 0.08); border-left: 4px solid #f59e0b; padding: 30px; margin: 35px 0; border-radius: 0 12px 12px 0; font-size: 19px; font-weight: 600; color: var(--text); }
-        table { width: 100%; border-collapse: collapse; display: block; overflow-x: auto; white-space: nowrap; margin: 35px 0; background: var(--bg-card); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
-        th { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white; padding: 16px; text-align: left; font-weight: 700; font-family: 'DM Sans', sans-serif; }
-        td { padding: 16px; border-bottom: 1px solid rgba(0,0,0,0.05); color: var(--text-muted); }
-        tr:hover { background: rgba(59, 130, 246, 0.03); }
-        .phase { background: var(--bg-card); border-radius: 16px; padding: 35px; margin: 35px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border: 1px solid rgba(255,255,255,0.5); }
-        .phase-header { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white; padding: 20px 25px; margin: -35px -35px 25px -35px; border-radius: 16px 16px 0 0; }
-        .phase-header h3 { margin: 0; color: white; font-size: 22px; }
-        .roi-box { background: linear-gradient(135deg, rgba(245,158,11,0.1) 0%, rgba(59,130,246,0.1) 100%); border-radius: 16px; padding: 35px; margin: 40px 0; text-align: center; border: 2px solid rgba(245,158,11,0.2); }
-        .roi-box .big-number { font-size: 48px; font-weight: 800; color: #d97706; font-family: 'DM Sans', sans-serif; }
-        .warning { background: rgba(245,158,11,0.1); border-left: 4px solid #f59e0b; padding: 20px 25px; margin: 25px 0; border-radius: 0 12px 12px 0; }
-        .warning strong { color: #b45309; }
-        .success { background: rgba(34,197,94,0.1); border-left: 4px solid #22c55e; padding: 20px 25px; margin: 25px 0; border-radius: 0 12px 12px 0; }
-        .success strong { color: #15803d; }
-        .cta-box { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white; padding: 40px; border-radius: 20px; margin: 50px 0; text-align: center; }
-        .cta-box h3 { color: white; margin-bottom: 15px; font-size: 24px; }
-        .cta-box p { color: rgba(255,255,255,0.9); margin-bottom: 25px; }
-        .btn-white { display: inline-block; background: white; color: #d97706; padding: 14px 32px; border-radius: 10px; text-decoration: none; font-weight: 700; transition: transform 0.3s; }
-        .btn-white:hover { transform: translateY(-3px); }
-        .toc-sidebar { position: sticky; top: 100px; height: fit-content; background: var(--bg-card); border-radius: 16px; padding: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid rgba(255,255,255,0.6); }
-        .toc-title { font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 20px; color: var(--text); text-transform: uppercase; letter-spacing: 1px; }
-        .toc-list { list-style: none; padding: 0; margin: 0; }
-        .toc-list li { margin: 8px 0; }
-        .toc-list a { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; display: block; padding: 8px 12px; border-radius: 8px; transition: all 0.3s; }
-        .toc-list a:hover { background: rgba(245, 158, 11, 0.1); color: #d97706; }
-        .footer { background: var(--text); color: rgba(255,255,255,0.7); padding: 50px 40px 30px; margin-top: 80px; text-align: center; }
-        .footer-logo { font-family: 'DM Sans', sans-serif; font-size: 24px; font-weight: 800; margin-bottom: 15px; background: linear-gradient(135deg, white 0%, #60a5fa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-          }
-        
-        /* MOBILE RESPONSIVE */
-        
-            .toc-sidebar {
-                display: none;
-        .nav-links {
-                display: none;
-            }
-            
-            .mobile-menu-toggle span {
-                width: 24px;
-                height: 2.5px;
-                background: var(--text);
-                border-radius: 2px;
-                transition: all 0.3s;
-            }
-            .mobile-menu-toggle.active span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
-            }
-            .mobile-menu-toggle.active span:nth-child(2) {
-                opacity: 0;
-            }
-            .mobile-menu-toggle.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(7px, -6px);
-            }
-            
-            .mobile-menu a {
-                font-family: 'DM Sans', sans-serif;
-                font-size: 28px;
-                font-weight: 700;
-                color: var(--text);
-                text-decoration: none;
-            }
-            .mobile-menu a:hover {
-                color: var(--accent);
-            }
-            
-            .hero {
-            margin-top: 40px;
-                padding: 100px 20px 60px;
-            }
-            .hero h1 {
-                font-size: 28px;
-            }
-            .content-wrapper {
-                padding: 0 20px;
-            }
-            h2 {
-                font-size: 24px;
-            }
-            h3 {
-                font-size: 20px;
-            }
-            p {
-                font-size: 16px;
-            }
-            pre {
-                padding: 15px;
-                font-size: 13px;
-            }
-            table {
-                display: block;
-                overflow-x: auto;
-                white-space: nowrap;
-            }
-            .cta-box {
-                padding: 30px 20px;
-            }
-            .cta-box h2 {
-                font-size: 22px;
-            }
-            .btn {
-                padding: 14px 28px;
-                font-size: 14px;
-            }
-            .footer {
-                padding: 40px 20px;
-        /* Responsive Styles */
-        
-        
-        
-        
-        
-
-        /* Mobile Menu Toggle - Hidden by default, shown on mobile */
-        .mobile-menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; z-index: 1001; }
-        .mobile-menu-toggle span { width: 24px; height: 2.5px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
-        .mobile-menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-        .mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
-        .mobile-menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
-        
-        /* Mobile Menu - Full screen overlay */
-        .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(240, 247, 255, 0.98); backdrop-filter: blur(20px); z-index: 999; flex-direction: column; justify-content: center; align-items: center; gap: 30px; opacity: 0; visibility: hidden; transition: all 0.3s; }
-        .mobile-menu.active { display: flex; opacity: 1; visibility: visible; }
-        .mobile-menu a { font-family: 'DM Sans', sans-serif; font-size: 28px; font-weight: 700; color: var(--text); text-decoration: none; }
-        .mobile-menu a:hover { color: var(--accent); }
-
-        /* Responsive Styles */
-        @media (max-width: 1024px) {
-            .content-wrapper { grid-template-columns: 1fr; gap: 40px; }
-            .toc-sidebar { display: none; }
-        }
-        
+        .mobile-menu a { font-family: 'DM Sans', sans-serif; font-size: 24px; font-weight: 700; color: var(--text); text-decoration: none; padding: 20px; width: 100%; text-align: center; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .mobile-menu a:hover { color: var(--accent); background: rgba(59,130,246,0.05); }
+        .hero { padding: 140px 40px 60px; text-align: center; max-width: 900px; margin: 0 auto; }
+        .hero-badge { display: inline-block; background: rgba(59,130,246,0.1); color: var(--accent); padding: 8px 20px; border-radius: 20px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+        .hero h1 { font-size: clamp(28px,5vw,46px); line-height: 1.2; margin-bottom: 20px; }
+        .hero h1 span { background: linear-gradient(135deg,var(--accent) 0%,#8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-description { font-size: 18px; color: var(--text-muted); max-width: 600px; margin: 0 auto 20px; }
+        .hero-meta { display: flex; justify-content: center; gap: 25px; color: #64748b; font-size: 14px; flex-wrap: wrap; }
+        .content-wrapper { max-width: 800px; margin: 0 auto; padding: 20px 40px 60px; }
+        h2 { font-size: 28px; margin: 40px 0 20px; font-weight: 800; }
+        h3 { font-size: 22px; margin: 30px 0 15px; }
+        p { margin-bottom: 20px; color: var(--text-muted); font-size: 16px; line-height: 1.8; }
+        ul, ol { margin: 20px 0; padding-left: 25px; }
+        li { margin: 10px 0; color: var(--text-muted); }
+        blockquote { background: rgba(59,130,246,0.08); border-left: 4px solid var(--accent); padding: 20px; margin: 25px 0; border-radius: 0 12px 12px 0; font-size: 17px; font-weight: 600; }
+        pre { background: #1e293b; border-radius: 12px; padding: 20px; margin: 20px 0; color: #e2e8f0; font-family: monospace; font-size: 14px; overflow-x: auto; white-space: pre-wrap; }
+        table { width: 100%; border-collapse: collapse; margin: 25px 0; background: rgba(255,255,255,0.95); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: block; overflow-x: auto; }
+        th { background: linear-gradient(135deg,var(--accent) 0%,#2563eb 100%); color: white; padding: 14px; text-align: left; font-weight: 700; font-size: 14px; }
+        td { padding: 14px; border-bottom: 1px solid rgba(0,0,0,0.05); color: var(--text-muted); font-size: 14px; }
+        .highlight { background: rgba(59,130,246,0.08); border-radius: 12px; padding: 20px; margin: 25px 0; border: 1px solid rgba(59,130,246,0.15); }
+        .warning { background: rgba(239,68,68,0.08); border-left: 4px solid #ef4444; padding: 15px 20px; margin: 20px 0; border-radius: 0 12px 12px 0; }
+        .success { background: rgba(34,197,94,0.08); border-left: 4px solid #22c55e; padding: 15px 20px; margin: 20px 0; border-radius: 0 12px 12px 0; }
+        .phase { background: rgba(255,255,255,0.95); border-radius: 12px; padding: 25px; margin: 25px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .phase-header { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white; padding: 15px 20px; margin: -25px -25px 20px -25px; border-radius: 12px 12px 0 0; }
+        .phase-header h3 { margin: 0; color: white; font-size: 20px; }
+        .roi-box { background: linear-gradient(135deg, rgba(245,158,11,0.1) 0%, rgba(59,130,246,0.1) 100%); border-radius: 12px; padding: 30px; margin: 30px 0; text-align: center; border: 2px solid rgba(245,158,11,0.2); }
+        .roi-box .big-number { font-size: 42px; font-weight: 800; color: #d97706; font-family: 'DM Sans', sans-serif; }
+        .tool-card { background: rgba(255,255,255,0.95); border-radius: 12px; padding: 20px; margin: 20px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .cta-box { background: linear-gradient(135deg,var(--accent) 0%,#2563eb 100%); color: white; padding: 30px; border-radius: 16px; margin: 40px 0; text-align: center; }
+        .cta-box h2 { color: white; margin-bottom: 15px; font-size: 24px; }
+        .btn-white { display: inline-block; background: white; color: var(--accent); padding: 12px 28px; border-radius: 10px; text-decoration: none; font-weight: 700; }
+        .footer { background: var(--text); color: rgba(255,255,255,0.7); padding: 40px 40px 30px; margin-top: 60px; text-align: center; }
+        .footer-logo { font-family: 'DM Sans', sans-serif; font-size: 22px; font-weight: 800; margin-bottom: 15px; background: linear-gradient(135deg,white 0%,#60a5fa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         @media (max-width: 768px) {
-            .nav { padding: 12px 20px; min-height: 60px; }
+            .nav { padding: 12px 20px; }
             .nav-links { display: none; }
             .mobile-menu-toggle { display: flex; }
-            .hero { padding: 100px 20px 60px; border-radius: 0 0 24px 24px; }
+            .hero { padding: 100px 20px 40px; }
             .hero h1 { font-size: 26px; }
             .hero-description { font-size: 16px; }
-            .hero-meta { gap: 15px; font-size: 13px; flex-wrap: wrap; }
-            .content-wrapper { padding: 0 20px; }
-            h2 { font-size: 24px; margin: 40px 0 20px; scroll-margin-top: 80px; }
-            h3 { font-size: 20px; margin: 30px 0 15px; scroll-margin-top: 80px; }
-            p { font-size: 16px; line-height: 1.7; margin-bottom: 20px; }
-            ul, ol { padding-left: 20px; margin: 20px 0; }
-            blockquote { padding: 20px; font-size: 17px; margin: 25px 0; }
-            pre { padding: 15px; font-size: 13px; overflow-x: auto; }
-            .cta-box { padding: 30px 20px; margin: 40px 0; }
-            .cta-box h2, .cta-box h3 { font-size: 20px; }
-            .btn, .btn-white { padding: 12px 24px; font-size: 15px; }
-            .footer { padding: 40px 20px; margin-top: 60px; }
-            table { display: block; overflow-x: auto; white-space: nowrap; font-size: 14px; }
+            .content-wrapper { padding: 10px 20px 40px; }
+            h2 { font-size: 22px; margin: 30px 0 15px; }
+            h3 { font-size: 18px; margin: 25px 0 12px; }
+            p { font-size: 15px; line-height: 1.7; }
+            table { font-size: 13px; }
             th, td { padding: 12px; }
         }
-        
-        @media (max-width: 375px) {
-            .hero h1 { font-size: 24px; }
-            h2 { font-size: 22px; }
-            h3 { font-size: 18px; }
-            .mobile-menu a { font-size: 24px; }
-            .hero-meta { flex-direction: column; gap: 8px; }
-        }
-
-    
-        /* Hamburger Menu */
-        .hamburger { display: none; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text); }
-        .mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; background: rgba(240,247,255,0.98); backdrop-filter: blur(20px); padding: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); z-index: 999; }
-        .mobile-menu a { display: block; padding: 15px; color: var(--text); text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .mobile-menu a:hover { background: var(--accent-light, #dbeafe); color: var(--accent); }
-        .mobile-menu.show { display: block; }
-        
-        @media (max-width: 768px) { 
-            .nav-links { display: none !important; } 
-            .hamburger { display: block !important; } 
-            .nav { padding: 15px 20px !important; }
-            .hero { padding: 120px 20px 40px !important; }
-            .content-wrapper { padding: 0 20px !important; grid-template-columns: 1fr !important; }
-            h1 { font-size: clamp(28px, 5vw, 42px) !important; }
-            h2 { font-size: clamp(24px, 4vw, 32px) !important; }
-            h3 { font-size: clamp(20px, 3vw, 24px) !important; }
-            p { font-size: 16px !important; line-height: 1.7 !important; }
-            table { display: block !important; overflow-x: auto !important; white-space: nowrap !important; }
-            img { max-width: 100% !important; height: auto !important; }
-        }
-        @media (max-width: 1100px) { 
-            .toc-sidebar { display: none !important; } 
-        }</style>
+    </style>
 </head>
 <body>
-    <nav class="nav" id="nav">
+    <nav class="nav">
         <a href="/" class="logo">KI-Expertenraum</a>
-        <div class="mobile-menu-toggle" id="mobileMenuToggle" onclick="toggleMobileMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
         <ul class="nav-links">
             <li><a href="/">Startseite</a></li>
-            <li class="dropdown">
-                <span class="dropdown-toggle">Artikel ▼</span>
-                <div class="dropdown-menu">
-                    <a href="/artikel/index.html">Alle Artikel</a>
-                    <a href="/artikel/index.html#ki-tools">KI-Tools</a>
-                    <a href="/artikel/index.html#automation">Automation</a>
-                    <a href="/artikel/index.html#strategie">Strategie</a>
-                </div>
-            </li>
-            <li><a href="/#work">Kurse</a></li>
+            <li><a href="/artikel/">Artikel</a></li>
+            <li><a href="/kurse/">Kurse</a></li>
             <li><a href="/kontakt.html">Kontakt</a></li>
         </ul>
-            
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" onclick="toggleMobileMenu()">
+            <span></span><span></span><span></span>
+        </button>
     </nav>
-    
     <div class="mobile-menu" id="mobileMenu">
-        <a href="/">Startseite</a>
-        <a href="/kurse/">Kurse</a>
-        <a href="/services/">Services</a>
-        <a href="/artikel/">Artikel</a>
-        <a href="/glossar/">Glossar</a>
+        <a href="/" onclick="toggleMobileMenu()">Startseite</a>
+        <a href="/artikel/" onclick="toggleMobileMenu()">Artikel</a>
+        <a href="/kurse/" onclick="toggleMobileMenu()">Kurse</a>
+        <a href="/kontakt.html" onclick="toggleMobileMenu()">Kontakt</a>
     </div>
-
     <header class="hero">
         <span class="hero-badge">Mittelstand-Guide 2026</span>
         <h1>KI im Mittelstand einführen: <span>Die 90-Tage-Roadmap</span></h1>
@@ -279,10 +99,8 @@
         <div class="hero-meta">
             <span>✍️ Philipp Zerna</span>
             <span>⏱️ 16 Min. Lesezeit</span>
-            <span>📊 9.231 Leser</span>
         </div>
     </header>
-
     <div class="content-wrapper">
         <main class="main-content">
             <h2>Warum 70% der KI-Projekte scheitern</h2>
@@ -458,74 +276,19 @@
                 <a href="/#work" class="btn-white">Kurs entdecken</a>
             </div>
         </main>
-
-        <aside class="toc-sidebar">
-            <div class="toc-title">Inhaltsverzeichnis</div>
-            <ul class="toc-list">
-                <li><a href="#">Warum 70% scheitern</a></li>
-                <li><a href="#">Pilot statt Big Bang</a></li>
-                <li><a href="#">Phase 1: Vorbereitung</a></li>
-                <li><a href="#">KI-Reifegrad</a></li>
-                <li><a href="#">Use-Case wählen</a></li>
-                <li><a href="#">Phase 2: Pilotprojekt</a></li>
-                <li><a href="#">Phase 3: Skalierung</a></li>
-                <li><a href="#">Fallstudie</a></li>
-                <li><a href="#">ROI-Rechnung</a></li>
-            </ul>
-        </aside>
     </div>
-
     <footer class="footer">
         <div class="footer-logo">KI-Expertenraum</div>
         <p>© 2026 KI-Expertenraum | Philipp Zerna</p>
     </footer>
-    
-    <script>
-        // Auto-generate TOC from headings
-        document.addEventListener("DOMContentLoaded", function() {
-            const tocList = document.querySelector(".toc-list");
-            if (!tocList) return;
-            
-            const headings = document.querySelectorAll(".main-content h2");
-            tocList.innerHTML = "";
-            
-            headings.forEach((heading, index) => {
-                const id = "section-" + index;
-                heading.id = id;
-                
-                const li = document.createElement("li");
-                const a = document.createElement("a");
-                a.href = "#" + id;
-                a.textContent = heading.textContent;
-                a.addEventListener("click", function(e) {
-                    e.preventDefault();
-                    const element = document.getElementById(id);
-                    const navHeight = 140;
-                    const elementPosition = element.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - navHeight;
-                    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-                });
-                li.appendChild(a);
-                tocList.appendChild(li);
-            });
-        });
-    </script>
     <script>
         function toggleMobileMenu() {
             const toggle = document.getElementById('mobileMenuToggle');
             const menu = document.getElementById('mobileMenu');
             toggle.classList.toggle('active');
             menu.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
         }
-    
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(e) {
-        const menu = document.getElementById('mobileMenu');
-        const toggle = document.getElementById('mobileMenuToggle');
-        if (menu && toggle && menu.classList.contains('active') && !menu.contains(e.target) && !toggle.contains(e.target)) {
-            toggleMobileMenu();
-        }
-    });
-</script>
+    </script>
 </body>
 </html>

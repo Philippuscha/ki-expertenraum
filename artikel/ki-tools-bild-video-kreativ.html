@@ -60,12 +60,12 @@
             <li><a href="/artikel/">Artikel</a></li>
             <li><a href="/#work">Kurse</a></li>
         </ul>
-        <div class="mobile-menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+        <div class="mobile-menu-toggle" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div>
     </nav>
     <div class="mobile-menu" id="mobileMenu">
-        <a href="/" onclick="toggleMenu()">Startseite</a>
-        <a href="/artikel/" onclick="toggleMenu()">Artikel</a>
-        <a href="/#work" onclick="toggleMenu()">Kurse</a>
+        <a href="/" onclick="toggleMobileMenu()">Startseite</a>
+        <a href="/artikel/" onclick="toggleMobileMenu()">Artikel</a>
+        <a href="/#work" onclick="toggleMobileMenu()">Kurse</a>
     </div>
 
     <header class="hero">
@@ -188,9 +188,25 @@
     </footer>
 
     <script>
-        function toggleMenu() {
+        function toggleMobileMenu() {
             document.getElementById('mobileMenu').classList.toggle('active');
         }
     </script>
 </body>
 </html>
+<style>
+        @media (max-width: 768px) {
+            .nav { padding: 12px 20px; }
+            .nav-links { display: none; }
+            .mobile-menu-toggle { display: flex; }
+            .hero { padding: 100px 20px 40px; }
+            .hero h1 { font-size: 26px; }
+            .content-wrapper { padding: 10px 20px 40px; }
+            h2 { font-size: 22px; margin: 30px 0 15px; }
+            h3 { font-size: 18px; margin: 25px 0 12px; }
+            p { font-size: 15px; line-height: 1.7; }
+            table { font-size: 13px; display: block; overflow-x: auto; }
+            th, td { padding: 12px; }
+            .tool-card { padding: 20px; }
+        }
+    </style>
