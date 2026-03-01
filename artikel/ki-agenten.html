@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KI-Agenten für Unternehmen 2026: Der Praxis-Guide | KI-Expertenraum</title>
-    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
     <meta name="description" content="KI-Agenten ohne Programmierung: Automatisieren Sie Geschäftsprozesse mit autonomen KI-Assistenten. Mit No-Code Tools und ROI.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -67,7 +67,24 @@
         .cta-box p { color: rgba(255,255,255,0.9); margin-bottom: 25px; }
         .btn-white { display: inline-block; background: white; color: #d97706; padding: 14px 32px; border-radius: 10px; text-decoration: none; font-weight: 700; transition: transform 0.3s; }
         .btn-white:hover { transform: translateY(-3px); }
-        .toc-sidebar { position: sticky; top: 100px; height: fit-content; background: var(--bg-card); border-radius: 16px; padding: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid rgba(255,255,255,0.6); }
+        .toc-sidebar { display: none; }
+        @media (min-width: 1100px) {
+            .toc-sidebar {
+                display: block;
+                position: fixed;
+                top: 100px;
+                right: calc((100vw - 1200px) / 2 + 40px);
+                width: 260px;
+                max-height: calc(100vh - 120px);
+                overflow-y: auto;
+                background: var(--bg-card);
+                border-radius: 16px;
+                padding: 25px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+                border: 1px solid rgba(255,255,255,0.6);
+                z-index: 100;
+            }
+        }
         .toc-title { font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 20px; color: var(--text); text-transform: uppercase; letter-spacing: 1px; }
         .toc-list { list-style: none; padding: 0; margin: 0; }
         .toc-list li { margin: 8px 0; }
@@ -402,29 +419,20 @@
         </main>
 
         <aside class="toc-sidebar">
-            <div class="toc-title">Inhaltsverzeichnis</div>
-            <ul class="toc-list">
-                <li><a href="#">Von ChatGPT zu Agenten</a></li>
-                <li><a href="#">Was sind KI-Agenten?</a></li>
-                <li><a href="#">No-Code Plattformen</a></li>
-                <li><a href="#">Lead-Qualifizierung</a></li>
-                <li><a href="#">Kundenservice-Agent</a></li>
-                <li><a href="#">Reporting-Agent</a></li>
-                <li><a href="#">ROI-Rechnung</a></li>
-                <li><a href="#">Ersten Agent bauen</a></li>
-            </ul>
+            <h4>Inhalt</h4>
+            <ul id="toc-list"></ul>
         </aside>
     </div>
 
     <footer class="footer">
         <div class="footer-logo">KI-Expertenraum</div>
-        <p>© 2026 KI-Expertenraum | Philipp Zerna</p>
+        <p>© 2026 Philipp Zerna | <a href="/impressum/" style="color: rgba(255,255,255,0.7);">Impressum</a> | <a href="/datenschutz/" style="color: rgba(255,255,255,0.7);">Datenschutz</a></p>
     </footer>
     
     <script>
         // Auto-generate TOC from headings
         document.addEventListener("DOMContentLoaded", function() {
-            const tocList = document.querySelector(".toc-list");
+            const tocList = document.getElementById("toc-list");
             if (!tocList) return;
             
             const headings = document.querySelectorAll(".main-content h2");
