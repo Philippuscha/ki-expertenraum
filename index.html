@@ -524,15 +524,17 @@
             <li><a href="/services/">Services</a></li>
             <li><a href="/artikel/">Artikel</a></li>
             <li><a href="/glossar/">Glossar</a></li>
+            <li><a href="/kontakt.html">Kontakt</a></li>
         </ul>
         <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
     </nav>
     <div class="mobile-menu" id="mobileMenu">
-        <a href="/">Startseite</a>
-        <a href="/kurse/">Kurse</a>
-        <a href="/services/">Services</a>
-        <a href="/artikel/">Artikel</a>
-        <a href="/glossar/">Glossar</a>
+        <a href="/" onclick="toggleMobileMenu()">Startseite</a>
+        <a href="/kurse/" onclick="toggleMobileMenu()">Kurse</a>
+        <a href="/services/" onclick="toggleMobileMenu()">Services</a>
+        <a href="/artikel/" onclick="toggleMobileMenu()">Artikel</a>
+        <a href="/glossar/" onclick="toggleMobileMenu()">Glossar</a>
+        <a href="/kontakt.html" onclick="toggleMobileMenu()">Kontakt</a>
     </div>
     <script>
         function toggleMenu() {

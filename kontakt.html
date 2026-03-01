@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt | Philipp Zerna | KI-Expertenraum</title>
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+    <meta name="description" content="Kontaktieren Sie Philipp Zerna für KI-Beratung, Kurse und Unternehmenslösungen.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --bg: #f0f7ff; --bg-card: rgba(255, 255, 255, 0.95); --text: #0f172a; --text-muted: #475569; --accent: #3b82f6; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 50%, #dbeafe 100%); color: var(--text); line-height: 1.7; min-height: 100vh; }
+        h1, h2, h3 { font-family: 'DM Sans', sans-serif; font-weight: 700; }
+        
+        /* Navigation */
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; background: rgba(240, 247, 255, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.6); }
+        .logo { font-family: 'DM Sans', sans-serif; font-size: 24px; font-weight: 800; background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
+        .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--accent); }
+        .mobile-menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; z-index: 1001; }
+        .mobile-menu-toggle span { width: 24px; height: 2.5px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
+        .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(240, 247, 255, 0.98); backdrop-filter: blur(20px); z-index: 999; flex-direction: column; justify-content: center; align-items: center; gap: 30px; opacity: 0; visibility: hidden; transition: all 0.3s; }
+        .mobile-menu.active { display: flex; opacity: 1; visibility: visible; }
+        .mobile-menu a { font-family: 'DM Sans', sans-serif; font-size: 28px; font-weight: 700; color: var(--text); text-decoration: none; }
+        .mobile-menu a:hover { color: var(--accent); }
+
+        /* Hero */
+        .hero { padding: 160px 40px 80px; text-align: center; max-width: 900px; margin: 0 auto; }
+        .hero h1 { font-size: clamp(32px, 5vw, 48px); margin-bottom: 20px; font-weight: 800; }
+        .hero h1 span { background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 19px; color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+
+        /* Content */
+        .content { max-width: 800px; margin: 0 auto; padding: 0 40px 80px; }
+        
+        /* Profile Card */
+        .profile-card { background: var(--bg-card); border-radius: 20px; padding: 40px; margin: 40px 0; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid rgba(255,255,255,0.6); }
+        .profile-img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin: 0 auto 25px; border: 4px solid var(--accent); box-shadow: 0 4px 20px rgba(59,130,246,0.3); }
+        .profile-name { font-size: 28px; font-weight: 800; margin-bottom: 10px; }
+        .profile-title { font-size: 18px; color: var(--text-muted); margin-bottom: 20px; }
+        .profile-bio { text-align: left; color: var(--text-muted); line-height: 1.8; }
+        
+        /* Contact Options */
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin: 40px 0; }
+        .contact-card { background: var(--bg-card); border-radius: 16px; padding: 30px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid rgba(255,255,255,0.6); transition: transform 0.3s; }
+        .contact-card:hover { transform: translateY(-5px); }
+        .contact-icon { font-size: 48px; margin-bottom: 20px; }
+        .contact-title { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+        .contact-text { color: var(--text-muted); margin-bottom: 20px; }
+        .contact-link { display: inline-block; background: linear-gradient(135deg, var(--accent) 0%, #2563eb 100%); color: white; padding: 12px 28px; border-radius: 10px; text-decoration: none; font-weight: 600; transition: transform 0.3s; }
+        .contact-link:hover { transform: translateY(-2px); }
+        
+        /* Email Section */
+        .email-section { background: linear-gradient(135deg, rgba(59,130,246,0.1) 0%, rgba(139,92,246,0.1) 100%); border-radius: 20px; padding: 40px; margin: 40px 0; text-align: center; border: 2px solid rgba(59,130,246,0.2); }
+        .email-section h2 { margin-bottom: 20px; }
+        .email-address { font-size: 24px; font-weight: 700; color: var(--accent); margin: 20px 0; }
+        .copy-btn { background: white; border: 2px solid var(--accent); color: var(--accent); padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
+        .copy-btn:hover { background: var(--accent); color: white; }
+
+        /* Footer */
+        .footer { background: var(--text); color: rgba(255,255,255,0.7); padding: 50px 40px 30px; margin-top: 80px; text-align: center; }
+        .footer-logo { font-family: 'DM Sans', sans-serif; font-size: 24px; font-weight: 800; margin-bottom: 15px; background: linear-gradient(135deg, white 0%, #60a5fa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        @media (max-width: 768px) {
+            .nav { padding: 15px 20px; }
+            .nav-links { display: none; }
+            .mobile-menu-toggle { display: flex; }
+            .hero { padding: 120px 20px 60px; }
+            .hero h1 { font-size: 28px; }
+            .content { padding: 0 20px 60px; }
+            .profile-img { width: 150px; height: 150px; }
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="/" class="logo">KI-Expertenraum</a>
+        <ul class="nav-links">
+            <li><a href="/">Startseite</a></li>
+            <li><a href="/kurse/">Kurse</a></li>
+            <li><a href="/services/">Services</a></li>
+            <li><a href="/artikel/">Artikel</a></li>
+            <li><a href="/glossar/">Glossar</a></li>
+            <li><a href="/kontakt.html">Kontakt</a></li>
+        </ul>
+        <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+    
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="/" onclick="toggleMobileMenu()">Startseite</a>
+        <a href="/kurse/" onclick="toggleMobileMenu()">Kurse</a>
+        <a href="/services/" onclick="toggleMobileMenu()">Services</a>
+        <a href="/artikel/" onclick="toggleMobileMenu()">Artikel</a>
+        <a href="/glossar/" onclick="toggleMobileMenu()">Glossar</a>
+        <a href="/kontakt.html" onclick="toggleMobileMenu()">Kontakt</a>
+    </div>
+
+    <header class="hero">
+        <h1>Lassen Sie uns <span>connecten</span></h1>
+        <p>Ich freue mich darauf, von Ihnen zu hören. Ob Fragen zu KI, Beratungsanfragen oder Kooperationen – schreiben Sie mir!</p>
+    </header>
+
+    <div class="content">
+        <div class="profile-card">
+            <img src="/images/Philipp Zerna.png" alt="Philipp Zerna" class="profile-img">
+            <h2 class="profile-name">Philipp Zerna</h2>
+            <p class="profile-title">KI-Experte & Unternehmensberater</p>
+            <div class="profile-bio">
+                <p>Ich helfe Unternehmen dabei, Künstliche Intelligenz praxisnah und effektiv einzusetzen. Mit über 5 Jahren Erfahrung in der KI-Implementation begleite ich Sie von der Strategie bis zur produktiven Nutzung.</p>
+                <p>Mein Ziel: Ihr Unternehmen fit für die Zukunft machen – mit KI-Lösungen, die wirklich funktionieren und messbare Ergebnisse liefern.</p>
+            </div>
+        </div>
+
+        <div class="email-section">
+            <h2>📧 Direkter Kontakt</h2>
+            <p>Schreiben Sie mir eine E-Mail – ich antworte in der Regel innerhalb von 24 Stunden.</p>
+            <div class="email-address" id="emailAddress">zernaphilipp@gmail.com</div>
+            <button class="copy-btn" onclick="copyEmail()">📋 E-Mail kopieren</button>
+            <p style="margin-top: 20px;"><a href="mailto:zernaphilipp@gmail.com" class="contact-link">✉️ E-Mail-App öffnen</a></p>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-icon">💼</div>
+                <h3 class="contact-title">Beratung</h3>
+                <p class="contact-text">Individuelle KI-Beratung für Ihr Unternehmen</p>
+                <a href="mailto:zernaphilipp@gmail.com?subject=Beratungsanfrage" class="contact-link">Anfragen</a>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">🎓</div>
+                <h3 class="contact-title">Kurse</h3>
+                <p class="contact-text">Fragen zu Kursen oder Inhouse-Schulungen</p>
+                <a href="mailto:zernaphilipp@gmail.com?subject=Kursanfrage" class="contact-link">Anfragen</a>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">🤝</div>
+                <h3 class="contact-title">Kooperation</h3>
+                <p class="contact-text">Partnerschaften und gemeinsame Projekte</p>
+                <a href="mailto:zernaphilipp@gmail.com?subject=Kooperationsanfrage" class="contact-link">Anfragen</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-logo">KI-Expertenraum</div>
+        <p>© 2026 Philipp Zerna | <a href="/impressum/" style="color: rgba(255,255,255,0.7);">Impressum</a> | <a href="/datenschutz/" style="color: rgba(255,255,255,0.7);">Datenschutz</a></p>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        }
+        
+        function copyEmail() {
+            const email = document.getElementById('emailAddress').textContent;
+            navigator.clipboard.writeText(email).then(() => {
+                alert('E-Mail-Adresse kopiert: ' + email);
+            });
+        }
+    </script>
+</body>
+</html>
