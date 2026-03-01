@@ -79,52 +79,62 @@
         
         
         /* Responsive */
-        /* Table of Contents - Inline */
-.toc-inline {
-    background: var(--bg-card);
+        /* Table of Contents - Sticky Sidebar */
+.toc-sidebar {
+    position: fixed;
+    top: 100px;
+    right: 30px;
+    width: 260px;
+    max-height: calc(100vh - 140px);
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 12px;
-    padding: 25px 30px;
-    margin: 30px auto;
-    max-width: 800px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    border: 1px solid rgba(255,255,255,0.6);
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    border: 1px solid rgba(59,130,246,0.2);
+    z-index: 100;
+    backdrop-filter: blur(10px);
 }
-.toc-inline h4 {
-    font-size: 18px;
+.toc-sidebar h4 {
+    font-size: 14px;
     font-weight: 700;
     margin-bottom: 15px;
     color: var(--text);
-    font-family: 'DM Sans', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
-.toc-inline ul {
+.toc-sidebar ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    columns: 2;
-    column-gap: 30px;
 }
-@media (max-width: 768px) {
-    .toc-inline ul {
-        columns: 1;
-    }
-}
-.toc-inline li {
+.toc-sidebar li {
     margin: 8px 0;
-    break-inside: avoid;
 }
-.toc-inline a {
-    display: block;
-    color: #475569;
+.toc-sidebar a {
+    color: var(--text-muted);
     text-decoration: none;
-    font-size: 15px;
-    line-height: 1.5;
+    font-size: 13px;
+    display: block;
     padding: 6px 10px;
     border-radius: 6px;
     transition: all 0.2s;
+    line-height: 1.4;
 }
-.toc-inline a:hover {
-    color: #3b82f6;
+.toc-sidebar a:hover {
     background: rgba(59,130,246,0.1);
+    color: var(--accent);
+}
+.toc-sidebar a.active {
+    background: rgba(59,130,246,0.15);
+    color: var(--accent);
+    font-weight: 600;
+}
+@media (max-width: 1400px) {
+    .toc-sidebar { right: 20px; width: 220px; }
+}
+@media (max-width: 1100px) {
+    .toc-sidebar { display: none; }
 }
 @media (max-width: 768px) {
             .nav { padding: 12px 20px; min-height: 60px; }
@@ -169,6 +179,11 @@
         </button>
     </nav>
     
+    <aside class="toc-sidebar">
+        <h4>Inhalt</h4>
+        <ul id="toc-list"></ul>
+    </aside>
+    
     <div class="mobile-menu" id="mobileMenu">
         <a href="/" onclick="toggleMobileMenu()">Startseite</a>
         <a href="/kurse/" onclick="toggleMobileMenu()">Kurse</a>
@@ -187,10 +202,6 @@
             <span>⏱️ 18 Min. Lesezeit</span>
         </div>
     </header>
-    <nav class="toc-inline">
-        <h4>Inhalt</h4>
-        <ul id="toc-list"></ul>
-    </nav>
 
     <div class="content-wrapper">
         <main class="main-content">
