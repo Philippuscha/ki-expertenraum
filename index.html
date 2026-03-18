@@ -209,10 +209,12 @@
             justify-content: center;
             align-items: center;
         }
-        .hero-visual svg {
+        .hero-visual img {
             width: 100%;
             max-width: 500px;
-            filter: drop-shadow(0 40px 80px rgba(201, 169, 98, 0.2));
+            height: auto;
+            border-radius: 24px;
+            box-shadow: 0 40px 80px rgba(201, 169, 98, 0.25);
         }
         
         .stats-bar {
@@ -721,104 +723,7 @@
             </div>
         </div>
         <div class="hero-visual">
-            <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="circuitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#C9A962"/>
-                        <stop offset="50%" style="stop-color:#D4A5A5"/>
-                        <stop offset="100%" style="stop-color:#C9A962"/>
-                    </linearGradient>
-                    <linearGradient id="brainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#C9A962;stop-opacity:0.3"/>
-                        <stop offset="100%" style="stop-color:#D4A5A5;stop-opacity:0.2"/>
-                    </linearGradient>
-                    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                        <feMerge>
-                            <feMergeNode in="coloredBlur"/>
-                            <feMergeNode in="SourceGraphic"/>
-                        </feMerge>
-                    </filter>
-                    <filter id="strongGlow" x="-50%" y="-50%" width="200%" height="200%">
-                        <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
-                        <feMerge>
-                            <feMergeNode in="coloredBlur"/>
-                            <feMergeNode in="SourceGraphic"/>
-                        </feMerge>
-                    </filter>
-                </defs>
-                
-                <!-- Background brain shape -->
-                <path d="M250,80 C330,80 400,130 420,200 C440,270 420,350 350,400 C300,440 200,440 150,400 C80,350 60,270 80,200 C100,130 170,80 250,80" 
-                      fill="url(#brainGrad)" opacity="0.5"/>
-                
-                <!-- Circuit board traces - left hemisphere -->
-                <path d="M120,200 L160,200 L180,170 L200,170" stroke="url(#circuitGrad)" stroke-width="2" fill="none" filter="url(#glow)"/>
-                <path d="M120,240 L150,240 L170,260 L200,260" stroke="url(#circuitGrad)" stroke-width="2" fill="none" filter="url(#glow)"/>
-                <path d="M140,280 L170,280 L190,300 L220,300" stroke="url(#circuitGrad)" stroke-width="2" fill="none" filter="url(#glow)"/>
-                <path d="M100,320 L140,320 L160,340 L200,340" stroke="url(#circuitGrad)" stroke-width="2" fill="none" filter="url(#glow)"/>
-                <path d="M130,150 L170,150 L190,130 L230,130" stroke="url(#circuitGrad)" stroke-width="2" fill="none" filter="url(#glow)"/>
-                
-                <!-- Circuit board traces - right hemisphere -->
-                <path d="M380,200 L340,200 L320,170 L300,170" stroke="url(#circuitGrad)" stroke-width="2" fill="none" filter="url(#glow)"/>
-                <path d="M380,240 L350,240 L330,260 L300,260" stroke="url(#circuitGrad)" stroke-width="2" fill="none" filter="url(#glow)"/>
-                <path d="M360,280 L330,280 L310,300 L280,300" stroke="url(#circuitGrad)" stroke-width="2" fill="none" filter="url(#glow)"/>
-                <path d="M400,320 L360,320 L340,340 L300,340" stroke="url(#circuitGrad)" stroke-width="2" fill="none" filter="url(#glow)"/>
-                <path d="M370,150 L330,150 L310,130 L270,130" stroke="url(#circuitGrad)" stroke-width="2" fill="none" filter="url(#glow)"/>
-                
-                <!-- Vertical connections -->
-                <path d="M200,170 L200,260 L230,280 L230,350" stroke="url(#circuitGrad)" stroke-width="1.5" fill="none" opacity="0.7"/>
-                <path d="M300,170 L300,260 L270,280 L270,350" stroke="url(#circuitGrad)" stroke-width="1.5" fill="none" opacity="0.7"/>
-                <path d="M230,130 L230,170" stroke="url(#circuitGrad)" stroke-width="1.5" fill="none" opacity="0.7"/>
-                <path d="M270,130 L270,170" stroke="url(#circuitGrad)" stroke-width="1.5" fill="none" opacity="0.7"/>
-                
-                <!-- Circuit nodes -->
-                <circle cx="160" cy="200" r="5" fill="#C9A962" filter="url(#glow)"/>
-                <circle cx="180" cy="170" r="4" fill="#C9A962" filter="url(#glow)"/>
-                <circle cx="150" cy="240" r="4" fill="#C9A962" filter="url(#glow)"/>
-                <circle cx="170" cy="260" r="5" fill="#C9A962" filter="url(#glow)"/>
-                <circle cx="170" cy="280" r="4" fill="#C9A962" filter="url(#glow)"/>
-                <circle cx="190" cy="300" r="4" fill="#C9A962" filter="url(#glow)"/>
-                <circle cx="140" cy="320" r="5" fill="#C9A962" filter="url(#glow)"/>
-                <circle cx="170" cy="150" r="4" fill="#C9A962" filter="url(#glow)"/>
-                
-                <circle cx="340" cy="200" r="5" fill="#D4A5A5" filter="url(#glow)"/>
-                <circle cx="320" cy="170" r="4" fill="#D4A5A5" filter="url(#glow)"/>
-                <circle cx="350" cy="240" r="4" fill="#D4A5A5" filter="url(#glow)"/>
-                <circle cx="330" cy="260" r="5" fill="#D4A5A5" filter="url(#glow)"/>
-                <circle cx="330" cy="280" r="4" fill="#D4A5A5" filter="url(#glow)"/>
-                <circle cx="310" cy="300" r="4" fill="#D4A5A5" filter="url(#glow)"/>
-                <circle cx="360" cy="320" r="5" fill="#D4A5A5" filter="url(#glow)"/>
-                <circle cx="330" cy="150" r="4" fill="#D4A5A5" filter="url(#glow)"/>
-                
-                <!-- Central processing unit -->
-                <rect x="235" y="235" width="30" height="30" rx="5" fill="none" stroke="url(#circuitGrad)" stroke-width="2" filter="url(#glow)"/>
-                <rect x="240" y="240" width="20" height="20" rx="3" fill="url(#circuitGrad)" opacity="0.3" filter="url(#glow)"/>
-                <circle cx="250" cy="250" r="6" fill="#C9A962" filter="url(#strongGlow)"/>
-                
-                <!-- Connection lines to center -->
-                <line x1="200" y1="260" x2="235" y2="250" stroke="url(#circuitGrad)" stroke-width="1.5" opacity="0.6"/>
-                <line x1="200" y1="340" x2="235" y2="260" stroke="url(#circuitGrad)" stroke-width="1.5" opacity="0.6"/>
-                <line x1="300" y1="260" x2="265" y2="250" stroke="url(#circuitGrad)" stroke-width="1.5" opacity="0.6"/>
-                <line x1="300" y1="340" x2="265" y2="260" stroke="url(#circuitGrad)" stroke-width="1.5" opacity="0.6"/>
-                <line x1="230" y1="170" x2="240" y2="235" stroke="url(#circuitGrad)" stroke-width="1.5" opacity="0.6"/>
-                <line x1="270" y1="170" x2="260" y2="235" stroke="url(#circuitGrad)" stroke-width="1.5" opacity="0.6"/>
-                
-                <!-- Data flow indicators -->
-                <circle cx="190" cy="210" r="2" fill="#C9A962" opacity="0.8">
-                    <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/>
-                </circle>
-                <circle cx="320" cy="230" r="2" fill="#D4A5A5" opacity="0.8">
-                    <animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" repeatCount="indefinite"/>
-                </circle>
-                <circle cx="250" cy="200" r="2" fill="#C9A962" opacity="0.8">
-                    <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" repeatCount="indefinite"/>
-                </circle>
-                
-                <!-- Outer decorative ring -->
-                <circle cx="250" cy="250" r="180" fill="none" stroke="url(#circuitGrad)" stroke-width="0.5" opacity="0.2"/>
-                <circle cx="250" cy="250" r="160" fill="none" stroke="url(#circuitGrad)" stroke-width="0.5" opacity="0.15"/>
-            </svg>
+            <img src="/public/images/hero-ki-brain.png" alt="KI-Visualisierung" loading="eager">
         </div>
     </header>
 
