@@ -1,299 +1,431 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KI-Expertenraum | Strategische KI-Implementierung für Unternehmen</title>
-    <meta name="description" content="Enterprise-grade KI-Beratung und -Implementierung für mittelständische Unternehmen. Von Philipp Zerna – praxiserprobt, DSGVO-konform, messbar erfolgreich.">
-    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --bg-primary: #070b14;
-            --bg-secondary: #0d1321;
-            --bg-card: rgba(13, 19, 33, 0.6);
-            --bg-glass: rgba(255, 255, 255, 0.03);
-            --text-primary: #ffffff;
-            --text-secondary: rgba(255, 255, 255, 0.7);
-            --text-muted: rgba(255, 255, 255, 0.5);
-            --accent-cyan: #00d4ff;
-            --accent-blue: #3b82f6;
-            --accent-purple: #8b5cf6;
-            --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #3b82f6 50%, #8b5cf6 100%);
-            --gradient-glow: radial-gradient(ellipse at center, rgba(0, 212, 255, 0.15) 0%, transparent 70%);
-            --border-subtle: rgba(255, 255, 255, 0.08);
-            --border-glow: rgba(0, 212, 255, 0.3);
+        .footer {
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            padding: 80px 64px 40px;
         }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; }
-        h1, h2, h3, h4, h5, h6 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
-        .ambient-glow { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; background: radial-gradient(ellipse 80% 50% at 20% 40%, rgba(0, 212, 255, 0.08) 0%, transparent 50%), radial-gradient(ellipse 60% 40% at 80% 60%, rgba(139, 92, 246, 0.06) 0%, transparent 50%); }
-        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 48px; display: flex; justify-content: space-between; align-items: center; background: rgba(7, 11, 20, 0.8); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-subtle); }
-        .logo { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 22px; font-weight: 800; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-decoration: none; letter-spacing: -0.02em; }
-        .nav-links { display: flex; gap: 40px; list-style: none; align-items: center; }
-        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.3s ease; position: relative; }
-        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--gradient-primary); transition: width 0.3s ease; }
-        .nav-links a:hover { color: var(--text-primary); }
-        .nav-links a:hover::after { width: 100%; }
-        .nav-cta { background: var(--gradient-primary); color: var(--bg-primary); padding: 10px 24px; border-radius: 8px; font-weight: 600; font-size: 14px; text-decoration: none; transition: all 0.3s ease; }
-        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0, 212, 255, 0.3); }
-        .mobile-menu-btn { display: none; background: none; border: none; font-size: 24px; cursor: pointer; padding: 8px; color: var(--text-primary); }
-        .mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; background: var(--bg-secondary); padding: 24px; z-index: 999; border-bottom: 1px solid var(--border-subtle); }
-        .mobile-menu.show { display: block; }
-        .mobile-menu a { display: block; padding: 16px 0; color: var(--text-secondary); text-decoration: none; font-weight: 500; font-size: 16px; border-bottom: 1px solid var(--border-subtle); transition: color 0.2s; }
-        .mobile-menu a:hover { color: var(--accent-cyan); }
-        .hero { min-height: 100vh; padding: 160px 48px 100px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: center; max-width: 1400px; margin: 0 auto; position: relative; }
-        .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: var(--bg-glass); border: 1px solid var(--border-subtle); border-radius: 100px; font-size: 13px; font-weight: 500; color: var(--accent-cyan); margin-bottom: 32px; }
-        .hero-badge::before { content: ''; width: 8px; height: 8px; background: var(--accent-cyan); border-radius: 50%; box-shadow: 0 0 10px var(--accent-cyan); }
-        .hero-content h1 { font-size: clamp(42px, 5vw, 64px); line-height: 1.1; margin-bottom: 28px; font-weight: 800; }
-        .hero-content h1 span { background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .hero-content p { font-size: 19px; color: var(--text-secondary); margin-bottom: 40px; line-height: 1.8; max-width: 540px; }
-        .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
-        .btn { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 15px; transition: all 0.3s ease; border: none; cursor: pointer; }
-        .btn-primary { background: var(--gradient-primary); color: var(--bg-primary); }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0, 212, 255, 0.35); }
-        .btn-secondary { background: transparent; color: var(--text-primary); border: 1px solid var(--border-subtle); }
-        .btn-secondary:hover { border-color: var(--border-glow); background: var(--bg-glass); }
-        .hero-visual { position: relative; width: 100%; max-width: 520px; aspect-ratio: 1; }
-        .hero-visual svg { width: 100%; height: 100%; }
-        .stats-bar { display: flex; justify-content: center; gap: 80px; padding: 40px 48px; background: var(--bg-secondary); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); }
-        .stat-item { text-align: center; }
-        .stat-number { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 36px; font-weight: 800; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: block; }
-        .stat-label { font-size: 14px; color: var(--text-muted); margin-top: 4px; }
-        .section-header { text-align: center; max-width: 700px; margin: 0 auto 64px; }
-        .section-label { display: inline-block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent-cyan); margin-bottom: 16px; }
-        .section-header h2 { font-size: 42px; margin-bottom: 16px; line-height: 1.2; }
-        .section-header p { font-size: 18px; color: var(--text-secondary); }
-        .services { padding: 120px 48px; max-width: 1400px; margin: 0 auto; }
-        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-        .service-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 20px; padding: 40px 32px; transition: all 0.4s ease; text-decoration: none; color: inherit; position: relative; overflow: hidden; }
-        .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--gradient-primary); opacity: 0; transition: opacity 0.4s ease; }
-        .service-card:hover { transform: translateY(-8px); border-color: var(--border-glow); box-shadow: 0 20px 60px rgba(0, 212, 255, 0.1); }
-        .service-card:hover::before { opacity: 1; }
-        .service-icon { width: 56px; height: 56px; background: var(--bg-glass); border: 1px solid var(--border-subtle); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 24px; }
-        .service-card h3 { font-size: 22px; margin-bottom: 12px; }
-        .service-card p { color: var(--text-secondary); font-size: 15px; line-height: 1.7; margin-bottom: 24px; }
-        .service-link { display: inline-flex; align-items: center; gap: 6px; color: var(--accent-cyan); font-weight: 600; font-size: 14px; text-decoration: none; }
-        .service-link:hover { gap: 10px; }
-        .kurse { padding: 120px 48px; background: var(--bg-secondary); }
-        .kurse-container { max-width: 1400px; margin: 0 auto; }
-        .kurse-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-        .kurs-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 20px; overflow: hidden; transition: all 0.4s ease; text-decoration: none; color: inherit; }
-        .kurs-card:hover { transform: translateY(-8px); border-color: var(--border-glow); box-shadow: 0 20px 60px rgba(0, 212, 255, 0.1); }
-        .kurs-image { height: 200px; background-size: cover; background-position: center; position: relative; }
-        .kurs-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, var(--bg-card) 0%, transparent 50%); }
-        .kurs-badge { position: absolute; top: 16px; left: 16px; padding: 6px 12px; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(10px); border-radius: 6px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; z-index: 1; }
-        .kurs-badge.bestseller { background: rgba(217, 119, 6, 0.9); color: white; }
-        .kurs-badge.popular { background: rgba(5, 150, 105, 0.9); color: white; }
-        .kurs-badge.advanced { background: rgba(124, 58, 237, 0.9); color: white; }
-        .kurs-content { padding: 24px; }
-        .kurs-content h3 { font-size: 20px; margin-bottom: 8px; }
-        .kurs-content p { color: var(--text-secondary); font-size: 14px; line-height: 1.6; }
-        .ebooks { padding: 120px 48px; max-width: 1400px; margin: 0 auto; }
-        .ebooks-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
-        .ebook-card { display: flex; gap: 32px; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 20px; padding: 32px; transition: all 0.4s ease; text-decoration: none; color: inherit; }
-        .ebook-card:hover { border-color: var(--border-glow); box-shadow: 0 20px 60px rgba(0, 212, 255, 0.1); }
-        .ebook-cover { width: 140px; height: 180px; border-radius: 12px; overflow: hidden; flex-shrink: 0; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); }
-        .ebook-cover img { width: 100%; height: 100%; object-fit: cover; }
-        .ebook-content { flex: 1; display: flex; flex-direction: column; justify-content: center; }
-        .ebook-badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; background: var(--bg-glass); border: 1px solid var(--border-subtle); border-radius: 6px; font-size: 12px; font-weight: 600; color: var(--accent-cyan); width: fit-content; margin-bottom: 16px; }
-        .ebook-title { font-size: 22px; margin-bottom: 12px; line-height: 1.3; }
-        .ebook-description { color: var(--text-secondary); font-size: 15px; line-height: 1.6; margin-bottom: 24px; }
-        .ebook-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: var(--gradient-primary); color: var(--bg-primary); border-radius: 8px; font-weight: 600; font-size: 14px; text-decoration: none; width: fit-content; transition: all 0.3s ease; }
-        .ebook-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0, 212, 255, 0.35); }
-        .cta { padding: 120px 48px; text-align: center; position: relative; overflow: hidden; }
-        .cta::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 800px; height: 400px; background: var(--gradient-glow); z-index: -1; }
-        .cta h2 { font-size: 48px; margin-bottom: 20px; }
-        .cta p { font-size: 18px; color: var(--text-secondary); margin-bottom: 40px; max-width: 500px; margin-left: auto; margin-right: auto; }
-        .footer { background: var(--bg-secondary); border-top: 1px solid var(--border-subtle); padding: 60px 48px 40px; }
-        .footer-content { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 48px; }
-        .footer-brand .logo { margin-bottom: 16px; display: inline-block; }
-        .footer-brand p { color: var(--text-muted); font-size: 14px; line-height: 1.7; }
-        .footer-col h4 { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; color: var(--text-primary); }
-        .footer-col a { display: block; color: var(--text-muted); text-decoration: none; font-size: 14px; margin-bottom: 12px; transition: color 0.2s; }
-        .footer-col a:hover { color: var(--accent-cyan); }
-        .footer-bottom { max-width: 1400px; margin: 0 auto; padding-top: 32px; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; }
-        .footer-bottom p { color: var(--text-muted); font-size: 13px; }
-        .footer-bottom a { color: var(--text-muted); text-decoration: none; margin-left: 24px; font-size: 13px; transition: color 0.2s; }
-        .footer-bottom a:hover { color: var(--accent-cyan); }
+        
+        .footer-content {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 80px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-brand .logo {
+            color: var(--bg-primary);
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .footer-brand p {
+            color: rgba(245, 245, 240, 0.6);
+            font-size: 14px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+        
+        .footer-col h4 {
+            font-family: var(--font-display);
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 24px;
+            color: var(--bg-primary);
+            letter-spacing: 0.05em;
+        }
+        
+        .footer-col a {
+            display: block;
+            color: rgba(245, 245, 240, 0.5);
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 14px;
+            transition: color 0.3s ease;
+            font-weight: 300;
+        }
+        
+        .footer-col a:hover {
+            color: var(--accent-gold);
+        }
+        
+        .footer-bottom {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid rgba(245, 245, 240, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-bottom p {
+            color: rgba(245, 245, 240, 0.4);
+            font-size: 13px;
+            font-weight: 300;
+        }
+        
+        .footer-bottom a {
+            color: rgba(245, 245, 240, 0.4);
+            text-decoration: none;
+            margin-left: 32px;
+            font-size: 13px;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-bottom a:hover {
+            color: var(--accent-gold);
+        }
+        
+        /* ===== FADE IN ANIMATION ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* ===== PARALLAX ELEMENTS ===== */
+        .parallax-slow {
+            will-change: transform;
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1200px) {
+            .hero {
+                grid-template-columns: 1fr 0.7fr;
+                gap: 60px;
+            }
+            
+            .services-grid, .kurse-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .stats-bar {
+                gap: 80px;
+            }
+            
+            .stat-item::after {
+                right: -40px;
+            }
+        }
+        
         @media (max-width: 1024px) {
-            .hero { grid-template-columns: 1fr; text-align: center; gap: 60px; }
-            .hero-content p { margin-left: auto; margin-right: auto; }
-            .hero-buttons { justify-content: center; }
-            .hero-visual { order: -1; max-width: 400px; margin: 0 auto; }
-            .services-grid, .kurse-grid { grid-template-columns: 1fr; }
-            .ebooks-grid { grid-template-columns: 1fr; }
-            .footer-content { grid-template-columns: 1fr 1fr; }
-            .stats-bar { gap: 40px; }
+            :root {
+                --section-padding: 120px;
+            }
+            
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 60px;
+                padding: 160px 48px 100px;
+            }
+            
+            .hero-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .hero-visual {
+                order: -1;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            
+            .services-grid, .kurse-grid {
+                grid-template-columns: 1fr;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            
+            .ebooks-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 60px;
+            }
+            
+            .stats-bar {
+                gap: 60px;
+                flex-wrap: wrap;
+            }
+            
+            .stat-item::after {
+                display: none;
+            }
         }
+        
         @media (max-width: 768px) {
-            .nav { padding: 16px 24px; }
-            .nav-links { display: none; }
-            .nav-cta { display: none; }
-            .mobile-menu-btn { display: block; }
-            .hero { padding: 120px 24px 80px; }
-            .hero-content h1 { font-size: 36px; }
-            .services, .kurse, .ebooks, .cta { padding: 80px 24px; }
-            .section-header h2 { font-size: 32px; }
-            .stats-bar { flex-direction: column; gap: 24px; }
-            .ebook-card { flex-direction: column; text-align: center; }
-            .ebook-cover { margin: 0 auto; }
-            .ebook-btn { margin: 0 auto; }
-            .footer-content { grid-template-columns: 1fr; gap: 40px; }
-            .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
-            .footer-bottom a { margin: 0 12px; }
+            :root {
+                --section-padding: 80px;
+            }
+            
+            .nav {
+                padding: 20px 24px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .nav-cta {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero {
+                padding: 120px 24px 80px;
+            }
+            
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            
+            .services, .kurse, .ebooks, .cta, .footer {
+                padding-left: 24px;
+                padding-right: 24px;
+            }
+            
+            .section-header h2 {
+                font-size: 32px;
+            }
+            
+            .stats-bar {
+                flex-direction: column;
+                gap: 32px;
+                padding: 40px 24px;
+            }
+            
+            .stat-number {
+                font-size: 36px;
+            }
+            
+            .ebook-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .ebook-cover {
+                margin: 0 auto;
+            }
+            
+            .ebook-btn {
+                margin: 0 auto;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            
+            .footer-bottom a {
+                margin: 0 12px;
+            }
+            
+            .cursor-glow {
+                display: none;
+            }
+        }
+        
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            .text-reveal-inner {
+                transform: none;
+                opacity: 1;
+            }
+            
+            .fade-in {
+                opacity: 1;
+                transform: none;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="ambient-glow"></div>
+    <!-- Mouse Following Glow -->
+    <div class="cursor-glow" id="cursorGlow"></div>
     
-    <nav class="nav">
+    <!-- Navigation -->
+    <nav class="nav" id="navbar">
         <a href="/" class="logo">KI-Expertenraum</a>
         <ul class="nav-links">
-            <li><a href="/">Start</a></li>
-            <li><a href="/services/">Services</a></li>
-            <li><a href="/kurse/">Kurse</a></li>
-            <li><a href="/artikel/">Insights</a></li>
-            <li><a href="/kontakt.html">Kontakt</a></li>
+            <li><a href="#hero">Start</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#kurse">Kurse</a></li>
+            <li><a href="#ebooks">Ressourcen</a></li>
+            <li><a href="#contact">Kontakt</a></li>
         </ul>
-        <a href="/kontakt.html" class="nav-cta">Beratung anfragen</a>
+        <a href="#contact" class="nav-cta">Beratung anfragen</a>
         <button class="mobile-menu-btn" onclick="document.getElementById('mobileMenu').classList.toggle('show')">☰</button>
     </nav>
     
     <div class="mobile-menu" id="mobileMenu">
-        <a href="/">Start</a>
-        <a href="/services/">Services</a>
-        <a href="/kurse/">Kurse</a>
-        <a href="/artikel/">Insights</a>
-        <a href="/kontakt.html">Kontakt</a>
+        <a href="#hero" onclick="closeMobileMenu()">Start</a>
+        <a href="#services" onclick="closeMobileMenu()">Services</a>
+        <a href="#kurse" onclick="closeMobileMenu()">Kurse</a>
+        <a href="#ebooks" onclick="closeMobileMenu()">Ressourcen</a>
+        <a href="#contact" onclick="closeMobileMenu()">Kontakt</a>
     </div>
 
-    <header class="hero">
+    <!-- Hero Section -->
+    <header class="hero" id="hero">
         <div class="hero-content">
-            <div class="hero-badge">Verfügbar für neue Projekte</div>
-            <h1>Strategische KI-Implementierung <span>für Ihr Unternehmen</span></h1>
-            <p>Enterprise-grade KI-Beratung für den Mittelstand. Praxiserprobt, DSGVO-konform, messbar erfolgreich. Von der Strategie bis zur Umsetzung.</p>
-            <div class="hero-buttons">
-                <a href="/services/" class="btn btn-primary">Services entdecken →</a>
-                <a href="/kurse/" class="btn btn-secondary">Kurse ansehen</a>
+            <div class="hero-badge fade-in">Verfügbar für neue Projekte</div>
+            <h1 class="text-reveal">
+                <span class="text-reveal-inner">Strategische</span><br>
+                <span class="text-reveal-inner">KI-Implementierung</span><br>
+                <span class="text-reveal-inner"><em>für Ihr Unternehmen</em></span>
+            </h1>
+            <p class="fade-in">Enterprise-grade KI-Beratung für den Mittelstand. Praxiserprobt, DSGVO-konform, messbar erfolgreich. Von der Strategie bis zur Umsetzung.</p>
+            <div class="hero-buttons fade-in">
+                <a href="#services" class="magnetic-btn magnetic-btn-primary">
+                    <span>Services entdecken <span class="btn-arrow">→</span></span>
+                </a>
+                <a href="#kurse" class="magnetic-btn magnetic-btn-secondary">
+                    <span>Kurse ansehen</span>
+                </a>
             </div>
         </div>
-        <div class="hero-visual">
-            <svg viewBox="0 0 520 520" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
-                        <stop offset="50%" style="stop-color:#3b82f6;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
-                    </linearGradient>
-                    <linearGradient id="grad2" x1="100%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.3" />
-                        <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.1" />
-                    </linearGradient>
-                    <filter id="glow"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-                </defs>
-                <circle cx="260" cy="260" r="200" stroke="url(#grad2)" stroke-width="1" fill="none"/>
-                <circle cx="260" cy="260" r="160" stroke="url(#grad2)" stroke-width="1" fill="none"/>
-                <circle cx="260" cy="260" r="120" stroke="url(#grad2)" stroke-width="1" fill="none"/>
-                <circle cx="260" cy="260" r="80" stroke="url(#grad2)" stroke-width="1" fill="none"/>
-                <circle cx="260" cy="260" r="40" stroke="url(#grad1)" stroke-width="2" fill="none" filter="url(#glow)"/>
-                <circle cx="260" cy="260" r="8" fill="url(#grad1)" filter="url(#glow)"/>
-                <circle cx="260" cy="60" r="6" fill="#00d4ff" filter="url(#glow)"/>
-                <circle cx="260" cy="460" r="6" fill="#00d4ff" filter="url(#glow)"/>
-                <circle cx="60" cy="260" r="6" fill="#00d4ff" filter="url(#glow)"/>
-                <circle cx="460" cy="260" r="6" fill="#00d4ff" filter="url(#glow)"/>
-                <line x1="260" y1="260" x2="260" y2="60" stroke="url(#grad1)" stroke-width="1" opacity="0.5"/>
-                <line x1="260" y1="260" x2="260" y2="460" stroke="url(#grad1)" stroke-width="1" opacity="0.5"/>
-                <line x1="260" y1="260" x2="60" y2="260" stroke="url(#grad1)" stroke-width="1" opacity="0.5"/>
-                <line x1="260" y1="260" x2="460" y2="260" stroke="url(#grad1)" stroke-width="1" opacity="0.5"/>
-                <line x1="260" y1="260" x2="119" y2="119" stroke="url(#grad1)" stroke-width="1" opacity="0.3"/>
-                <line x1="260" y1="260" x2="401" y2="119" stroke="url(#grad1)" stroke-width="1" opacity="0.3"/>
-                <line x1="260" y1="260" x2="119" y2="401" stroke="url(#grad1)" stroke-width="1" opacity="0.3"/>
-                <line x1="260" y1="260" x2="401" y2="401" stroke="url(#grad1)" stroke-width="1" opacity="0.3"/>
-                <circle cx="119" cy="119" r="4" fill="#3b82f6" opacity="0.6"/>
-                <circle cx="401" cy="119" r="4" fill="#3b82f6" opacity="0.6"/>
-                <circle cx="119" cy="401" r="4" fill="#3b82f6" opacity="0.6"/>
-                <circle cx="401" cy="401" r="4" fill="#3b82f6" opacity="0.6"/>
-                <circle cx="180" cy="100" r="3" fill="#8b5cf6" opacity="0.4"/>
-                <circle cx="340" cy="100" r="3" fill="#8b5cf6" opacity="0.4"/>
-                <circle cx="180" cy="420" r="3" fill="#8b5cf6" opacity="0.4"/>
-                <circle cx="340" cy="420" r="3" fill="#8b5cf6" opacity="0.4"/>
-            </svg>
+        <div class="hero-visual parallax-slow">
+            <div class="hero-visual-inner">
+                <div class="abstract-art">
+                    <div class="art-circle art-circle-1"></div>
+                    <div class="art-circle art-circle-2"></div>
+                    <div class="art-circle art-circle-3"></div>
+                    <div class="art-lines"></div>
+                    <span class="floating-label">KI · Strategie · Erfolg</span>
+                </div>
+            </div>
         </div>
     </header>
 
+    <!-- Stats Bar -->
     <div class="stats-bar">
-        <div class="stat-item"><span class="stat-number">50+</span><span class="stat-label">KI-Projekte</span></div>
-        <div class="stat-item"><span class="stat-number">20</span><span class="stat-label">Enterprise-Kurse</span></div>
-        <div class="stat-item"><span class="stat-number">100%</span><span class="stat-label">DSGVO-konform</span></div>
-        <div class="stat-item"><span class="stat-number">14</span><span class="stat-label">Praxisguides</span></div>
+        <div class="stat-item fade-in">
+            <span class="stat-number"><span>50</span>+</span>
+            <span class="stat-label">KI-Projekte</span>
+        </div>
+        <div class="stat-item fade-in">
+            <span class="stat-number"><span>20</span></span>
+            <span class="stat-label">Enterprise-Kurse</span>
+        </div>
+        <div class="stat-item fade-in">
+            <span class="stat-number"><span>100</span>%</span>
+            <span class="stat-label">DSGVO-konform</span>
+        </div>
+        <div class="stat-item fade-in">
+            <span class="stat-number"><span>14</span></span>
+            <span class="stat-label">Praxisguides</span>
+        </div>
     </div>
 
-    <section class="services">
-        <div class="section-header">
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-header fade-in">
             <span class="section-label">Leistungen</span>
             <h2>End-to-End KI-Implementierung</h2>
             <p>Von der ersten Strategie bis zur vollständigen Integration in Ihre Geschäftsprozesse</p>
         </div>
         <div class="services-grid">
-            <a href="/services/" class="service-card">
+            <a href="/services/" class="service-card tilt-card fade-in" data-tilt>
                 <div class="service-icon">🎯</div>
                 <h3>KI-Strategie</h3>
                 <p>Maßgeschneiderte Roadmaps für Ihre KI-Transformation. Potenzialanalyse, Use-Case-Priorisierung, ROI-Berechnung.</p>
                 <span class="service-link">Mehr erfahren →</span>
             </a>
-            <a href="/services/" class="service-card">
+            <a href="/services/" class="service-card tilt-card fade-in" data-tilt>
                 <div class="service-icon">⚙️</div>
                 <h3>Implementierung</h3>
                 <p>Technische Umsetzung von KI-Workflows, Automation und Integration in bestehende Systemlandschaften.</p>
                 <span class="service-link">Mehr erfahren →</span>
             </a>
-            <a href="/services/" class="service-card">
+            <a href="/services/" class="service-card tilt-card fade-in" data-tilt>
                 <div class="service-icon">🛡️</div>
-                <h3>Compliance &amp; Governance</h3>
+                <h3>Compliance & Governance</h3>
                 <p>EU AI Act, DSGVO und interne Richtlinien. Rechtssichere KI-Nutzung mit dokumentierten Prozessen.</p>
                 <span class="service-link">Mehr erfahren →</span>
             </a>
         </div>
     </section>
 
-    <section class="kurse">
+    <!-- Kurse Section -->
+    <section class="kurse" id="kurse">
         <div class="kurse-container">
-            <div class="section-header">
+            <div class="section-header fade-in">
                 <span class="section-label">Academy</span>
                 <h2>Enterprise KI-Kurse</h2>
                 <p>Zertifizierte Weiterbildung für Führungskräfte und Fachabteilungen</p>
             </div>
             <div class="kurse-grid">
-                <a href="/kurse/" class="kurs-card">
-                    <div class="kurs-image" style="background-image: url('/public/images/kurs1_eu%20au%20ai%20act.png?v=2');"><span class="kurs-badge bestseller">Bestseller</span></div>
-                    <div class="kurs-content"><h3>EU AI Act für Unternehmen</h3><p>Rechtssichere KI-Nutzung mit Compliance-Framework bis 2026</p></div>
+                <a href="/kurse/" class="kurs-card tilt-card fade-in" data-tilt>
+                    <div class="kurs-image" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80');">
+                        <span class="kurs-badge bestseller">Bestseller</span>
+                    </div>
+                    <div class="kurs-content">
+                        <h3>EU AI Act für Unternehmen</h3>
+                        <p>Rechtssichere KI-Nutzung mit Compliance-Framework bis 2026</p>
+                    </div>
                 </a>
-                <a href="/kurse/" class="kurs-card">
-                    <div class="kurs-image" style="background-image: url('/public/images/kurs2_chatgpt.png?v=2');"><span class="kurs-badge popular">Beliebt</span></div>
-                    <div class="kurs-content"><h3>ChatGPT für Professionals</h3><p>Enterprise Prompt Engineering für maximale Produktivität</p></div>
+                <a href="/kurse/" class="kurs-card tilt-card fade-in" data-tilt>
+                    <div class="kurs-image" style="background-image: url('https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&q=80');">
+                        <span class="kurs-badge popular">Beliebt</span>
+                    </div>
+                    <div class="kurs-content">
+                        <h3>ChatGPT für Professionals</h3>
+                        <p>Enterprise Prompt Engineering für maximale Produktivität</p>
+                    </div>
                 </a>
-                <a href="/kurse/" class="kurs-card">
-                    <div class="kurs-image" style="background-image: url('/public/images/kurs3_prompt.png?v=2');"><span class="kurs-badge advanced">Advanced</span></div>
-                    <div class="kurs-content"><h3>Prompt Engineering</h3><p>Professionelle Prompts für maximale Ergebnisse</p></div>
+                <a href="/kurse/" class="kurs-card tilt-card fade-in" data-tilt>
+                    <div class="kurs-image" style="background-image: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&q=80');">
+                        <span class="kurs-badge advanced">Advanced</span>
+                    </div>
+                    <div class="kurs-content">
+                        <h3>Prompt Engineering</h3>
+                        <p>Professionelle Prompts für maximale Ergebnisse</p>
+                    </div>
                 </a>
             </div>
         </div>
     </section>
 
-    <section class="ebooks">
-        <div class="section-header">
+    <!-- eBooks Section -->
+    <section class="ebooks" id="ebooks">
+        <div class="section-header fade-in">
             <span class="section-label">Ressourcen</span>
             <h2>Kostenlose eBooks</h2>
             <p>Praxisnahe Guides für sofortige Umsetzung</p>
         </div>
         <div class="ebooks-grid">
-            <a href="https://www.dropbox.com/scl/fi/rt7k1r6w4qwexzs795gkv/Die_10_KI-Prompts_fuer_KMU.pdf?rlkey=wlo2fn2815lt2hwlp1w76ggk3&st=d49shol7&dl=1" class="ebook-card" target="_blank">
-                <div class="ebook-cover"><img src="/public/images/ebook1.png?v=2" alt="Die 10 KI-Prompts für KMU"></div>
+            <a href="https://www.dropbox.com/scl/fi/rt7k1r6w4qwexzs795gkv/Die_10_KI-Prompts_fuer_KMU.pdf?rlkey=wlo2fn2815lt2hwlp1w76ggk3&st=d49shol7&dl=1" class="ebook-card fade-in" target="_blank">
+                <div class="ebook-cover">
+                    <img src="/public/images/ebook1.png?v=2" alt="Die 10 KI-Prompts für KMU" onerror="this.src='https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&q=80'">
+                </div>
                 <div class="ebook-content">
                     <span class="ebook-badge">Kostenloser Download</span>
                     <h3 class="ebook-title">Die 10 KI-Prompts für KMU</h3>
@@ -301,8 +433,10 @@
                     <span class="ebook-btn">Jetzt downloaden →</span>
                 </div>
             </a>
-            <a href="https://www.dropbox.com/scl/fi/qee9tm1p7hbo5oe4eyemt/EU-AI-Act-Survival-Guide.pdf?rlkey=chsnn67os8xsei5epy9ft3x9l&st=foqj4wf8&dl=1" class="ebook-card" target="_blank">
-                <div class="ebook-cover"><img src="/public/images/ebook2.png?v=2" alt="EU AI ACT Survival Guide"></div>
+            <a href="https://www.dropbox.com/scl/fi/qee9tm1p7hbo5oe4eyemt/EU-AI-Act-Survival-Guide.pdf?rlkey=chsnn67os8xsei5epy9ft3x9l&st=foqj4wf8&dl=1" class="ebook-card fade-in" target="_blank">
+                <div class="ebook-cover">
+                    <img src="/public/images/ebook2.png?v=2" alt="EU AI ACT Survival Guide" onerror="this.src='https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&q=80'">
+                </div>
                 <div class="ebook-content">
                     <span class="ebook-badge">Kostenloser Download</span>
                     <h3 class="ebook-title">EU AI ACT Survival Guide</h3>
@@ -313,12 +447,19 @@
         </div>
     </section>
 
-    <section class="cta">
-        <h2>Bereit für Ihre KI-Transformation?</h2>
-        <p>Lassen Sie uns gemeinsam Ihr Potenzial analysieren und einen maßgeschneiderten Fahrplan erstellen.</p>
-        <a href="/kontakt.html" class="btn btn-primary">Beratung anfragen →</a>
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <h2 class="text-reveal fade-in">
+            <span class="text-reveal-inner">Bereit für Ihre</span><br>
+            <span class="text-reveal-inner"><em>KI-Transformation?</em></span>
+        </h2>
+        <p class="fade-in">Lassen Sie uns gemeinsam Ihr Potenzial analysieren und einen maßgeschneiderten Fahrplan erstellen.</p>
+        <a href="/kontakt.html" class="magnetic-btn magnetic-btn-primary fade-in">
+            <span>Beratung anfragen <span class="btn-arrow">→</span></span>
+        </a>
     </section>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-brand">
@@ -351,5 +492,210 @@
             </div>
         </div>
     </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // ===== LENIS SMOOTH SCROLL =====
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            mouseMultiplier: 1,
+            smoothTouch: false,
+            touchMultiplier: 2,
+            infinite: false,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // ===== MOUSE FOLLOWING GLOW =====
+        const cursorGlow = document.getElementById('cursorGlow');
+        let mouseX = 0, mouseY = 0;
+        let glowX = 0, glowY = 0;
+        const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
+
+        if (!isTouchDevice && cursorGlow) {
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            }, { passive: true });
+
+            function animateGlow() {
+                const dx = mouseX - glowX;
+                const dy = mouseY - glowY;
+                
+                glowX += dx * 0.08;
+                glowY += dy * 0.08;
+                
+                cursorGlow.style.left = glowX + 'px';
+                cursorGlow.style.top = glowY + 'px';
+                
+                requestAnimationFrame(animateGlow);
+            }
+            animateGlow();
+
+            // Hide glow when leaving window
+            document.addEventListener('mouseleave', () => {
+                cursorGlow.classList.add('hidden');
+            });
+            document.addEventListener('mouseenter', () => {
+                cursorGlow.classList.remove('hidden');
+            });
+        }
+
+        // ===== NAVBAR SCROLL EFFECT =====
+        const navbar = document.getElementById('navbar');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            lastScroll = currentScroll;
+        }, { passive: true });
+
+        // ===== MAGNETIC BUTTONS =====
+        const magneticBtns = document.querySelectorAll('.magnetic-btn');
+        
+        if (!isTouchDevice) {
+            magneticBtns.forEach(btn => {
+                btn.addEventListener('mousemove', (e) => {
+                    const rect = btn.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    
+                    const distance = Math.sqrt(x * x + y * y);
+                    const maxDistance = 50;
+                    
+                    if (distance < maxDistance) {
+                        const strength = (maxDistance - distance) / maxDistance;
+                        btn.style.transform = `translate(${x * strength * 0.3}px, ${y * strength * 0.3}px)`;
+                    }
+                });
+                
+                btn.addEventListener('mouseleave', () => {
+                    btn.style.transform = '';
+                });
+            });
+        }
+
+        // ===== 3D TILT CARDS =====
+        const tiltCards = document.querySelectorAll('.tilt-card');
+        
+        if (!isTouchDevice) {
+            tiltCards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = (y - centerY) / 20;
+                    const rotateY = (centerX - x) / 20;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+                });
+            });
+        }
+
+        // ===== TEXT REVEAL ANIMATION =====
+        const textRevealElements = document.querySelectorAll('.text-reveal-inner');
+        
+        const textRevealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('revealed');
+                    }, index * 100);
+                    textRevealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        textRevealElements.forEach(el => textRevealObserver.observe(el));
+
+        // ===== FADE IN ANIMATION =====
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 100);
+                    fadeObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        fadeElements.forEach(el => fadeObserver.observe(el));
+
+        // ===== PARALLAX HERO =====
+        const parallaxElements = document.querySelectorAll('.parallax-slow');
+        
+        if (!isTouchDevice) {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                parallaxElements.forEach(el => {
+                    const speed = 0.3;
+                    el.style.transform = `translateY(${scrolled * speed}px)`;
+                });
+            }, { passive: true });
+        }
+
+        // ===== MOBILE MENU =====
+        function closeMobileMenu() {
+            document.getElementById('mobileMenu').classList.remove('show');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                mobileMenu.classList.remove('show');
+            }
+        });
+
+        // ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    lenis.scrollTo(targetElement, {
+                        offset: -80,
+                        duration: 1.2
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
