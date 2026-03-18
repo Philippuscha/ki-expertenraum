@@ -208,13 +208,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            background: linear-gradient(135deg, rgba(201, 169, 98, 0.1) 0%, rgba(212, 165, 165, 0.1) 100%);
+            border-radius: 30px;
+            padding: 40px;
         }
-        .hero-visual img {
+        .hero-visual svg {
             width: 100%;
-            max-width: 500px;
-            height: auto;
-            border-radius: 24px;
-            box-shadow: 0 40px 80px rgba(201, 169, 98, 0.25);
+            max-width: 400px;
+            filter: drop-shadow(0 20px 40px rgba(201, 169, 98, 0.3));
         }
         
         .stats-bar {
@@ -723,7 +724,61 @@
             </div>
         </div>
         <div class="hero-visual">
-            <img src="/public/images/hero-ki-brain.png" alt="KI-Visualisierung" loading="eager">
+            <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#C9A962"/>
+                        <stop offset="100%" style="stop-color:#D4A5A5"/>
+                    </linearGradient>
+                    <filter id="glow">
+                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                        <feMerge>
+                            <feMergeNode in="coloredBlur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                </defs>
+                
+                <!-- Elegant geometric brain shape -->
+                <path d="M200 60 C260 60 310 100 330 160 C350 220 330 290 280 330 C250 355 200 365 150 350 C100 335 70 280 70 220 C70 160 100 100 150 80 C170 70 185 60 200 60" 
+                      fill="url(#goldGrad)" opacity="0.1"/>
+                
+                <!-- Main brain outline -->
+                <path d="M200 80 C250 80 290 115 305 165 C320 215 305 275 265 305 C240 325 200 335 160 320 C120 305 95 260 95 210 C95 160 120 115 155 100 C170 90 185 80 200 80" 
+                      stroke="url(#goldGrad)" stroke-width="2" fill="none" filter="url(#glow)"/>
+                
+                <!-- Hemisphere divider -->
+                <path d="M200 85 L200 330" stroke="url(#goldGrad)" stroke-width="1" opacity="0.4"/>
+                
+                <!-- Circuit lines left -->
+                <path d="M120 140 L160 140 L180 120 L200 120" stroke="#C9A962" stroke-width="1.5" fill="none" opacity="0.7"/>
+                <path d="M110 180 L150 180 L170 200 L200 200" stroke="#C9A962" stroke-width="1.5" fill="none" opacity="0.7"/>
+                <path d="M115 240 L155 240 L175 260 L200 260" stroke="#C9A962" stroke-width="1.5" fill="none" opacity="0.7"/>
+                
+                <!-- Circuit lines right -->
+                <path d="M280 140 L240 140 L220 120 L200 120" stroke="#D4A5A5" stroke-width="1.5" fill="none" opacity="0.7"/>
+                <path d="M290 180 L250 180 L230 200 L200 200" stroke="#D4A5A5" stroke-width="1.5" fill="none" opacity="0.7"/>
+                <path d="M285 240 L245 240 L225 260 L200 260" stroke="#D4A5A5" stroke-width="1.5" fill="none" opacity="0.7"/>
+                
+                <!-- Connection nodes -->
+                <circle cx="160" cy="140" r="5" fill="#C9A962" filter="url(#glow)"/>
+                <circle cx="150" cy="180" r="4" fill="#C9A962" filter="url(#glow)"/>
+                <circle cx="155" cy="240" r="5" fill="#C9A962" filter="url(#glow)"/>
+                <circle cx="240" cy="140" r="5" fill="#D4A5A5" filter="url(#glow)"/>
+                <circle cx="250" cy="180" r="4" fill="#D4A5A5" filter="url(#glow)"/>
+                <circle cx="245" cy="240" r="5" fill="#D4A5A5" filter="url(#glow)"/>
+                
+                <!-- Central core -->
+                <circle cx="200" cy="210" r="25" fill="url(#goldGrad)" opacity="0.2" filter="url(#glow)"/>
+                <circle cx="200" cy="210" r="15" fill="url(#goldGrad)" opacity="0.4" filter="url(#glow)"/>
+                <circle cx="200" cy="210" r="7" fill="#C9A962" filter="url(#glow)"/>
+                
+                <!-- Data flow indicators -->
+                <circle cx="140" cy="160" r="2" fill="#C9A962" opacity="0.8"/>
+                <circle cx="260" cy="190" r="2" fill="#D4A5A5" opacity="0.8"/>
+                <circle cx="180" cy="280" r="2" fill="#C9A962" opacity="0.8"/>
+                <circle cx="220" cy="250" r="2" fill="#D4A5A5" opacity="0.8"/>
+            </svg>
         </div>
     </header>
 
