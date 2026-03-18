@@ -3,393 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
-    <title>Alle Artikel | KI-Expertenraum - Praxiswissen für Unternehmer</title>
+    <title>Artikel & Insights | KI-Expertenraum</title>
     <meta name="description" content="Alle KI-Artikel auf einen Blick: KI-Tools, Automation & Strategie. Praxisnah, ohne Hype, sofort umsetzbar.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { 
-            --bg: #f0f7ff; 
-            --bg-card: rgba(255, 255, 255, 0.9);
-            --text: #0f172a; 
-            --text-muted: #475569; 
-            --text-light: #64748b; 
-            --border: rgba(255, 255, 255, 0.6);
-            --accent: #3b82f6;
-            --accent-glow: rgba(59, 130, 246, 0.3);
-            --category-ki: #8b5cf6;
-            --category-auto: #22c55e;
-            --category-strat: #f59e0b;
+        :root {
+            --bg-primary: #F5F5F0; --bg-secondary: #FAFAF7; --text-primary: #1a1a1a;
+            --text-secondary: #666666; --text-muted: #999999;
+            --accent-gold: #C9A962; --accent-rose: #D4A5A5;
+            --font-display: 'Playfair Display', serif; --font-body: 'Inter', sans-serif;
         }
         html { scroll-behavior: smooth; }
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 50%, #dbeafe 100%); 
-            color: var(--text); 
-            line-height: 1.7;
-            min-height: 100vh;
-        }
-        h1, h2, h3, h4 { font-family: 'DM Sans', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
+        body { font-family: var(--font-body); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; }
+        h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 500; }
         
-        /* Navigation */
-        .nav { 
-            position: fixed; 
-            top: 0; left: 0; right: 0; 
-            z-index: 1000; 
-            padding: 20px 40px; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            background: rgba(240, 247, 255, 0.95); 
-            backdrop-filter: blur(20px); 
-            border-bottom: 1px solid var(--border);
-        }
-        .logo { 
-            font-family: 'DM Sans', sans-serif; 
-            font-size: 24px; 
-            font-weight: 800; 
-            background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent;
-            text-decoration: none;
-        }
-        .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
-        .nav-links a { 
-            color: var(--text-muted); 
-            text-decoration: none; 
-            font-size: 15px; 
-            font-weight: 600; 
-            transition: color 0.3s;
-        }
-        .nav-links a:hover { color: var(--accent); }
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 24px 64px; display: flex; justify-content: space-between; align-items: center; background: rgba(245, 245, 240, 0.9); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(26, 26, 26, 0.05); }
+        .logo { font-family: var(--font-display); font-size: 26px; font-weight: 600; color: var(--text-primary); text-decoration: none; letter-spacing: -0.02em; }
+        .logo span { color: var(--accent-gold); }
+        .nav-links { display: flex; gap: 48px; list-style: none; align-items: center; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 14px; font-weight: 400; transition: color 0.3s ease; }
+        .nav-links a:hover { color: var(--accent-gold); }
+        .nav-cta { background: var(--text-primary); color: var(--bg-primary); padding: 12px 28px; border-radius: 100px; font-weight: 500; font-size: 13px; text-decoration: none; transition: all 0.3s ease; }
+        .nav-cta:hover { background: var(--accent-gold); color: var(--text-primary); }
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text-primary); z-index: 1001; }
+        .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(245, 245, 240, 0.98); backdrop-filter: blur(20px); z-index: 999; flex-direction: column; justify-content: center; align-items: center; gap: 32px; padding: 80px 40px; }
+        .mobile-menu.show { display: flex; }
+        .mobile-menu a { font-family: var(--font-display); font-size: 32px; font-weight: 500; color: var(--text-primary); text-decoration: none; transition: color 0.3s ease; }
+        .mobile-menu a:hover { color: var(--accent-gold); }
+        .mobile-menu-close { position: absolute; top: 24px; right: 64px; font-size: 32px; background: none; border: none; cursor: pointer; color: var(--text-primary); }
         
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 28px;
-            cursor: pointer;
-            padding: 8px 12px;
-            color: var(--text);
-        }
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 70px;
-            left: 0;
-            right: 0;
-            background: white;
-            padding: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-            z-index: 999;
-            border-radius: 0 0 20px 20px;
-        }
-        .mobile-menu.show { display: block; }
-        .mobile-menu a {
-            display: block;
-            padding: 16px 20px;
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        .mobile-menu a:hover { background: #f8fafc; }
+        .btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 36px; border-radius: 100px; text-decoration: none; font-weight: 500; font-size: 14px; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); border: none; cursor: pointer; }
+        .btn-primary { background: var(--text-primary); color: var(--bg-primary); }
+        .btn-primary:hover { background: var(--accent-gold); transform: translateY(-2px); }
+        .btn-secondary { background: transparent; color: var(--text-primary); border: 1px solid rgba(26, 26, 26, 0.2); }
+        .btn-secondary:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
         
-        /* Dropdown */
-        .dropdown { position: relative; }
-        .dropdown-toggle {
-            background: rgba(59, 130, 246, 0.1);
-            color: var(--accent);
-            padding: 8px 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s;
-        }
-        .dropdown-toggle:hover { background: rgba(59, 130, 246, 0.2); }
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            margin-top: 10px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-            padding: 12px;
-            min-width: 220px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s;
-        }
-        .dropdown:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        .dropdown-menu a {
-            display: block;
-            padding: 10px 16px;
-            border-radius: 8px;
-            transition: background 0.3s;
-        }
-        .dropdown-menu a:hover { background: #f0f7ff; }
+        .hero { min-height: 60vh; padding: 180px 64px 80px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; max-width: 900px; margin: 0 auto; }
+        .hero-label { font-family: var(--font-display); font-size: 14px; font-style: italic; color: var(--accent-gold); margin-bottom: 16px; display: block; }
+        .hero h1 { font-size: clamp(40px, 5vw, 64px); line-height: 1.05; margin-bottom: 24px; font-weight: 500; }
+        .hero h1 span { font-style: italic; color: var(--accent-gold); }
+        .hero p { font-size: 18px; color: var(--text-secondary); line-height: 1.8; max-width: 600px; font-weight: 300; }
         
-        /* Hero */
-        .hero { 
-            padding: 140px 40px 60px; 
-            text-align: center; 
-            max-width: 900px; 
-            margin: 0 auto;
-        }
-        .hero-badge { 
-            display: inline-block; 
-            background: rgba(59, 130, 246, 0.1); 
-            color: var(--accent); 
-            padding: 8px 20px; 
-            border-radius: 20px; 
-            font-size: 13px; 
-            font-weight: 700; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            margin-bottom: 25px;
-        }
-        .hero h1 { 
-            font-size: clamp(36px, 5vw, 52px); 
-            line-height: 1.15; 
-            margin-bottom: 25px; 
-            font-weight: 800;
-        }
-        .hero h1 span { 
-            background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent;
-        }
-        .hero-description { 
-            font-size: 19px; 
-            color: var(--text-muted); 
-            max-width: 600px; 
-            margin: 0 auto 40px;
-        }
+        .filter-container { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin: 0 auto 60px; max-width: 900px; padding: 0 64px; }
+        .filter-btn { padding: 14px 28px; border-radius: 100px; border: 1px solid rgba(26, 26, 26, 0.15); background: white; color: var(--text-secondary); font-family: var(--font-body); font-weight: 500; font-size: 14px; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 10px; }
+        .filter-btn:hover { border-color: var(--accent-gold); color: var(--accent-gold); transform: translateY(-2px); }
+        .filter-btn.active { background: var(--text-primary); color: var(--bg-primary); border-color: var(--text-primary); }
+        .filter-count { background: rgba(0,0,0,0.1); padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+        .filter-btn.active .filter-count { background: rgba(255,255,255,0.2); }
         
-        /* Filter */
-        .filter-container {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin: 30px auto 50px;
-            max-width: 800px;
-            padding: 0 20px;
-        }
-        .filter-btn {
-            padding: 12px 20px;
-            border-radius: 12px;
-            border: 2px solid transparent;
-            background: white;
-            color: var(--text-muted);
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 600;
-            font-size: 15px;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            white-space: nowrap;
-        }
-        .filter-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-        }
-        .filter-btn.active {
-            background: var(--accent);
-            color: white;
-            border-color: var(--accent);
-        }
-        .filter-btn[data-filter="ki-tools"]:hover,
-        .filter-btn[data-filter="ki-tools"].active {
-            background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
-            border-color: #8b5cf6;
-            color: white;
-        }
-        .filter-btn[data-filter="automation"]:hover,
-        .filter-btn[data-filter="automation"].active {
-            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
-            border-color: #22c55e;
-            color: white;
-        }
-        .filter-btn[data-filter="strategie"]:hover,
-        .filter-btn[data-filter="strategie"].active {
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            border-color: #f59e0b;
-            color: white;
-        }
-        .filter-count {
-            background: rgba(0,0,0,0.1);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 700;
-        }
-        .filter-btn.active .filter-count {
-            background: rgba(255,255,255,0.25);
-        }
+        .articles-section { max-width: 1400px; margin: 0 auto; padding: 0 64px 140px; }
+        .articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 32px; }
         
-        /* Article Grid */
-        .articles-section {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 40px 80px;
-        }
-        .articles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-        }
-        
-        /* Article Card */
-        .article-card {
-            background: var(--bg-card);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            transition: all 0.4s;
-            border: 1px solid rgba(255,255,255,0.6);
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column;
-        }
-        .article-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-        }
+        .article-card { background: white; border-radius: 24px; overflow: hidden; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid rgba(26, 26, 26, 0.06); }
+        .article-card:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1); }
         .article-card.hidden { display: none; }
         
-        .card-image {
-            height: 180px;
-            background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 60px;
-            position: relative;
-        }
-        .card-image.ki-tools { background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%); }
-        .card-image.automation { background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); }
-        .card-image.strategie { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+        .card-image { height: 200px; background-size: cover; background-position: center; position: relative; }
+        .card-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 60%); }
+        .card-category { position: absolute; top: 20px; left: 20px; padding: 8px 16px; background: rgba(255,255,255,0.95); border-radius: 100px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; z-index: 1; color: var(--text-primary); }
+        .card-category.ki-tools { color: #7c3aed; }
+        .card-category.automation { color: #059669; }
+        .card-category.strategie { color: #d97706; }
         
-        .card-category {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: white;
-            background: rgba(0,0,0,0.3);
-            backdrop-filter: blur(10px);
-        }
+        .card-content { padding: 32px; flex-grow: 1; display: flex; flex-direction: column; }
+        .card-title { font-family: var(--font-display); font-size: 22px; font-weight: 500; margin-bottom: 12px; line-height: 1.3; color: var(--text-primary); }
+        .card-description { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 24px; flex-grow: 1; font-weight: 300; }
+        .card-meta { display: flex; gap: 24px; font-size: 13px; color: var(--text-muted); font-weight: 400; }
         
-        .card-content {
-            padding: 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        .card-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            line-height: 1.3;
-            color: var(--text);
-        }
-        .card-description {
-            font-size: 15px;
-            color: var(--text-muted);
-            line-height: 1.6;
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
-        .card-meta {
-            display: flex;
-            gap: 20px;
-            font-size: 13px;
-            color: var(--text-light);
-            font-weight: 500;
-        }
+        .footer { background: var(--text-primary); color: var(--bg-primary); padding: 80px 64px 40px; }
+        .footer-content { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 80px; margin-bottom: 60px; }
+        .footer-brand .logo { color: var(--bg-primary); margin-bottom: 20px; display: inline-block; }
+        .footer-brand p { color: rgba(245, 245, 240, 0.5); font-size: 14px; line-height: 1.8; font-weight: 300; }
+        .footer-col h4 { font-family: var(--font-display); font-size: 14px; font-weight: 500; margin-bottom: 24px; color: var(--bg-primary); }
+        .footer-col a { display: block; color: rgba(245, 245, 240, 0.5); text-decoration: none; font-size: 14px; margin-bottom: 14px; transition: color 0.3s ease; font-weight: 300; }
+        .footer-col a:hover { color: var(--accent-gold); }
+        .footer-bottom { max-width: 1400px; margin: 0 auto; padding-top: 40px; border-top: 1px solid rgba(245, 245, 240, 0.1); display: flex; justify-content: space-between; align-items: center; }
+        .footer-bottom p { color: rgba(245, 245, 240, 0.4); font-size: 13px; }
+        .footer-bottom a { color: rgba(245, 245, 240, 0.4); text-decoration: none; margin-left: 32px; font-size: 13px; transition: color 0.3s ease; }
+        .footer-bottom a:hover { color: var(--accent-gold); }
         
-        /* Footer */
-        .footer { 
-            background: var(--text); 
-            color: rgba(255,255,255,0.7); 
-            padding: 50px 40px 30px; 
-            text-align: center;
-        }
-        .footer-logo { 
-            font-family: 'DM Sans', sans-serif; 
-            font-size: 24px; 
-            font-weight: 800; 
-            margin-bottom: 15px;
-            background: linear-gradient(135deg, white 0%, #60a5fa 100%); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent;
-        }
-        
-        @media (max-width: 768px) {
-            .nav { padding: 15px 20px; }
-            .nav-links { display: none; }
-            .mobile-menu-btn { display: block; }
-            .hero { padding: 100px 20px 40px; }
-            .articles-section { padding: 0 20px 60px; }
+        @media (max-width: 1024px) {
+            .nav { padding: 20px 32px; } .nav-links { display: none; } .mobile-menu-btn { display: block; }
+            .hero { padding: 140px 32px 60px; }
             .articles-grid { grid-template-columns: 1fr; }
-            .filter-btn { padding: 10px 16px; font-size: 14px; }
-            .filter-container { gap: 8px; margin: 20px auto 30px; }
+            .filter-container { padding: 0 32px; }
+            .footer-content { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 36px; } 
+            .articles-section { padding: 0 32px 100px; }
+            .footer-content { grid-template-columns: 1fr; text-align: center; } 
+            .footer-bottom { flex-direction: column; gap: 16px; }
         }
     </style>
 </head>
 <body>
     <nav class="nav">
-        <a href="/" class="logo">KI-Expertenraum</a>
+        <a href="/" class="logo">KI<span>.</span>Expertenraum</a>
         <ul class="nav-links">
-            <li><a href="/">Startseite</a></li>
+            <li><a href="/">Start</a></li>
             <li><a href="/kurse/">Kurse</a></li>
             <li><a href="/services/">Services</a></li>
             <li><a href="/artikel/">Artikel</a></li>
             <li><a href="/glossar/">Glossar</a></li>
             <li><a href="/kontakt.html">Kontakt</a></li>
         </ul>
-        <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        <a href="/kontakt.html" class="nav-cta">Beratung anfragen</a>
+        <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menü">☰</button>
     </nav>
+
     <div class="mobile-menu" id="mobileMenu">
-        <a href="/">Startseite</a>
-        <a href="/kurse/">Kurse</a>
-        <a href="/services/">Services</a>
-        <a href="/artikel/">Artikel</a>
-        <a href="/glossar/">Glossar</a>
-        <a href="/kontakt.html">Kontakt</a>
+        <button class="mobile-menu-close" onclick="toggleMenu()">✕</button>
+        <a href="/" onclick="toggleMenu()">Start</a>
+        <a href="/kurse/" onclick="toggleMenu()">Kurse</a>
+        <a href="/services/" onclick="toggleMenu()">Services</a>
+        <a href="/artikel/" onclick="toggleMenu()">Artikel</a>
+        <a href="/glossar/" onclick="toggleMenu()">Glossar</a>
+        <a href="/kontakt.html" onclick="toggleMenu()">Kontakt</a>
     </div>
-    <script>
-        function toggleMenu() {
-            document.getElementById('mobileMenu').classList.toggle('show');
-        }
-    </script>
 
     <header class="hero">
-        <span class="hero-badge">Wissensdatenbank</span>
-        <h1>Alle KI-Artikel <span>auf einen Blick</span></h1>
-        <p class="hero-description">Praxisnahe Guides, Tools-Vergleiche und Strategien – ohne Hype, sofort umsetzbar. Wähle deine Kategorie oder stöbere durch alle Artikel.</p>
+        <span class="hero-label">Wissensdatenbank</span>
+        <h1>Insights & <span>Artikel</span></h1>
+        <p>Praxisnahe Guides, Tools-Vergleiche und Strategien – ohne Hype, sofort umsetzbar. Wählen Sie Ihre Kategorie oder stöbern Sie durch alle Artikel.</p>
     </header>
 
     <div class="filter-container">
@@ -398,15 +136,15 @@
             <span class="filter-count">14</span>
         </button>
         <button class="filter-btn" data-filter="ki-tools">
-            <span>🤖 KI-Tools</span>
+            <span>KI-Tools</span>
             <span class="filter-count">5</span>
         </button>
         <button class="filter-btn" data-filter="automation">
-            <span>⚡ Automation</span>
+            <span>Automation</span>
             <span class="filter-count">3</span>
         </button>
         <button class="filter-btn" data-filter="strategie">
-            <span>📊 Strategie</span>
+            <span>Strategie</span>
             <span class="filter-count">6</span>
         </button>
     </div>
@@ -415,8 +153,8 @@
         <div class="articles-grid">
             <!-- KI-TOOLS (5 Artikel) -->
             <a href="/artikel/microsoft-copilot.html" class="article-card" data-category="ki-tools">
-                <div class="card-image ki-tools" style="background: url('/public/images/Artikel%201_Microsoft%20Copilot%20f%C3%BCr%20Unternehmen%202026.png?v=2') center 20%/cover;">
-                    <span class="card-category">KI-Tools</span>
+                <div class="card-image" style="background-image: url('/public/images/Artikel%201_Microsoft%20Copilot%20f%C3%BCr%20Unternehmen%202026.png?v=2')">
+                    <span class="card-category ki-tools">KI-Tools</span>
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">Microsoft Copilot für Unternehmen 2026</h3>
@@ -429,8 +167,8 @@
             </a>
 
             <a href="/artikel/openclaw.html" class="article-card" data-category="ki-tools">
-                <div class="card-image ki-tools" style="background: url('/public/images/Artikel%202_OpenClaw%20Lokale%20KI%20f%C3%BCr%20Unternehmen.png?v=2') center 20%/cover;">
-                    <span class="card-category">KI-Tools</span>
+                <div class="card-image" style="background-image: url('/public/images/Artikel%202_OpenClaw%20Lokale%20KI%20f%C3%BCr%20Unternehmen.png?v=2')">
+                    <span class="card-category ki-tools">KI-Tools</span>
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">OpenClaw: Lokale KI für Unternehmen</h3>
@@ -443,8 +181,8 @@
             </a>
 
             <a href="/artikel/chatgpt-vs-claude.html" class="article-card" data-category="ki-tools">
-                <div class="card-image ki-tools" style="background: url('/public/images/Artikel%203_ChatGPT%20vs-%20Claude.png?v=2') center 20%/cover;">
-                    <span class="card-category">KI-Tools</span>
+                <div class="card-image" style="background-image: url('/public/images/Artikel%203_ChatGPT%20vs-%20Claude.png?v=2')">
+                    <span class="card-category ki-tools">KI-Tools</span>
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">ChatGPT vs Claude 2026</h3>
@@ -457,8 +195,8 @@
             </a>
 
             <a href="/artikel/ki-tools-text-produktivitaet.html" class="article-card" data-category="ki-tools">
-                <div class="card-image ki-tools" style="background: url('/public/images/Artikel%204_KI%20f%C3%BCr%20Text%20und%20Produktivit%C3%A4t.png?v=2') center 20%/cover;">
-                    <span class="card-category">KI-Tools</span>
+                <div class="card-image" style="background-image: url('/public/images/Artikel%204_KI%20f%C3%BCr%20Text%20und%20Produktivit%C3%A4t.png?v=2')">
+                    <span class="card-category ki-tools">KI-Tools</span>
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">KI-Tools für Text & Produktivität</h3>
@@ -471,8 +209,8 @@
             </a>
 
             <a href="/artikel/ki-tools-bild-video-kreativ.html" class="article-card" data-category="ki-tools">
-                <div class="card-image ki-tools" style="background: url('/public/images/Artikel%205_KI%20f%C3%BCr%20Bild%20und%20Video.png?v=2') center 20%/cover;">
-                    <span class="card-category">KI-Tools</span>
+                <div class="card-image" style="background-image: url('/public/images/Artikel%205_KI%20f%C3%BCr%20Bild%20und%20Video.png?v=2')">
+                    <span class="card-category ki-tools">KI-Tools</span>
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">KI-Tools für Bild & Video</h3>
@@ -486,8 +224,8 @@
 
             <!-- AUTOMATION (3 Artikel) -->
             <a href="/artikel/bueroautomatisierung.html" class="article-card" data-category="automation">
-                <div class="card-image automation" style="background: url('/public/images/Artikel%206_B%C3%BCroautomatisierung%2010%20Prozesse%20mit%20No-Code%20Tools.png?v=2') center 20%/cover;">
-                    <span class="card-category">Automation</span>
+                <div class="card-image" style="background-image: url('/public/images/Artikel%206_B%C3%BCroautomatisierung%2010%20Prozesse%20mit%20No-Code%20Tools.png?v=2')">
+                    <span class="card-category automation">Automation</span>
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">Büroautomatisierung: 10 Workflows</h3>
@@ -500,8 +238,8 @@
             </a>
 
             <a href="/artikel/ki-agenten.html" class="article-card" data-category="automation">
-                <div class="card-image automation" style="background: url('/public/images/Artikel%207_KI-Agenten%20f%C3%BCr%20Unternehmen%202026.png?v=2') center 20%/cover;">
-                    <span class="card-category">Automation</span>
+                <div class="card-image" style="background-image: url('/public/images/Artikel%207_KI-Agenten%20f%C3%BCr%20Unternehmen%202026.png?v=2')">
+                    <span class="card-category automation">Automation</span>
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">KI-Agenten für Unternehmen 2026</h3>
@@ -514,8 +252,8 @@
             </a>
 
             <a href="/artikel/excel-ki-automatisierung.html" class="article-card" data-category="automation">
-                <div class="card-image automation" style="background: url('/public/images/Artikel%208_Excel%20KI%20Automatisierung.png?v=2') center 20%/cover;">
-                    <span class="card-category">Automation</span>
+                <div class="card-image" style="background-image: url('/public/images/Artikel%208_Excel%20KI%20Automatisierung.png?v=2')">
+                    <span class="card-category automation">Automation</span>
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">Excel KI Automatisierung</h3>
@@ -529,8 +267,8 @@
 
             <!-- STRATEGIE (6 Artikel) -->
             <a href="/artikel/ki-einfuehrung.html" class="article-card" data-category="strategie">
-                <div class="card-image strategie" style="background: url('/public/images/Artikel%209_KI-Einf%C3%BChrung%20im%20Mittelstand%20Die%20komplette%20Roadmap%20-%20andere%20farben.png?v=2') center 20%/cover;">
-                    <span class="card-category">Strategie</span>
+                <div class="card-image" style="background-image: url('/public/images/Artikel%209_KI-Einf%C3%BChrung%20im%20Mittelstand%20Die%20komplette%20Roadmap%20-%20andere%20farben.png?v=2')">
+                    <span class="card-category strategie">Strategie</span>
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">KI im Mittelstand einführen</h3>
@@ -543,9 +281,8 @@
             </a>
 
             <a href="/artikel/ki-beauftragter.html" class="article-card" data-category="strategie">
-                <div class="card-image strategie" style="background: url('/public/images/Artikel%2010_Der%20KI-Beauftragte%2030-Tage-Roadmap%20f%C3%BCr%20Ihre%20neue%20Rolle.png?v=2') center 20%/cover;">
-                    <span class="card-category">Strategie</span>
-                    <span class="card-category">Strategie</span>
+                <div class="card-image" style="background-image: url('/public/images/Artikel%2010_Der%20KI-Beauftragte%2030-Tage-Roadmap%20f%C3%BCr%20Ihre%20neue%20Rolle.png?v=2')">
+                    <span class="card-category strategie">Strategie</span>
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">KI-Beauftragter in 30 Tagen</h3>
@@ -558,8 +295,8 @@
             </a>
 
             <a href="/artikel/25-ki-prompts.html" class="article-card" data-category="strategie">
-                <div class="card-image strategie" style="background: url('/public/images/Artikel%2011_25%20KI-Prompts%20f%C3%BCr%20KMU%20So%20sparst%20du%2010hWoche.png?v=2') center 20%/cover;">
-                    <span class="card-category">Strategie</span>
+                <div class="card-image" style="background-image: url('/public/images/Artikel%2011_25%20KI-Prompts%20f%C3%BCr%20KMU%20So%20sparst%20du%2010hWoche.png?v=2')">
+                    <span class="card-category strategie">Strategie</span>
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">25 KI-Prompts für KMU</h3>
@@ -572,8 +309,8 @@
             </a>
 
             <a href="/artikel/eu-ai-act-checkliste.html" class="article-card" data-category="strategie">
-                <div class="card-image strategie" style="background: url('/public/images/Artikel%2012_EU%20AI%20Act%20Checkliste%202026%20Alle%20Pflichten%20f%C3%BCr%20KMU.png?v=2') center 20%/cover;">
-                    <span class="card-category">Strategie</span>
+                <div class="card-image" style="background-image: url('/public/images/Artikel%2012_EU%20AI%20Act%20Checkliste%202026%20Alle%20Pflichten%20f%C3%BCr%20KMU.png?v=2')">
+                    <span class="card-category strategie">Strategie</span>
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">EU AI Act Checkliste 2026</h3>
@@ -586,8 +323,8 @@
             </a>
 
             <a href="/artikel/ki-rechtssicher-nutzen.html" class="article-card" data-category="strategie">
-                <div class="card-image strategie" style="background: url('/public/images/Artikel%2013_KI%20rechtssicher%20nutzen%20DSGVO%20%26%20EU%20AI%20Act.png?v=2') center 20%/cover;">
-                    <span class="card-category">Strategie</span>
+                <div class="card-image" style="background-image: url('/public/images/Artikel%2013_KI%20rechtssicher%20nutzen%20DSGVO%20%26%20EU%20AI%20Act.png?v=2')">
+                    <span class="card-category strategie">Strategie</span>
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">KI rechtssicher nutzen</h3>
@@ -600,8 +337,8 @@
             </a>
 
             <a href="/artikel/ki-im-vertrieb.html" class="article-card" data-category="strategie">
-                <div class="card-image strategie" style="background: url('/public/images/Artikel%2014_KI%20im%20Vertrieb%2012%20Strategien%20f%C3%BCr%20mehr%20Umsatz.png?v=2') center 20%/cover;">
-                    <span class="card-category">Strategie</span>
+                <div class="card-image" style="background-image: url('/public/images/Artikel%2014_KI%20im%20Vertrieb%2012%20Strategien%20f%C3%BCr%20mehr%20Umsatz.png?v=2')">
+                    <span class="card-category strategie">Strategie</span>
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">KI im Vertrieb: 12 Strategien</h3>
@@ -616,22 +353,30 @@
     </section>
 
     <footer class="footer">
-        <div class="footer-logo">KI-Expertenraum</div>
-        <p>© 2026 KI-Expertenraum | Philipp Zerna</p>
+        <div class="footer-content">
+            <div class="footer-brand"><a href="/" class="logo">KI<span>.</span>Expertenraum</a><p>Enterprise-grade KI-Beratung für den Mittelstand. Praxiserprobt, DSGVO-konform, messbar erfolgreich.</p></div>
+            <div class="footer-col"><h4>Angebot</h4><a href="/services/">Services</a><a href="/kurse/">Kurse</a><a href="/artikel/">Insights</a><a href="/glossar/">Glossar</a></div>
+            <div class="footer-col"><h4>Rechtliches</h4><a href="/impressum/">Impressum</a><a href="/datenschutz/">Datenschutz</a></div>
+            <div class="footer-col"><h4>Connect</h4><a href="https://www.youtube.com/@philippzerna" target="_blank">YouTube</a><a href="https://www.linkedin.com/in/philipp-zerna/" target="_blank">LinkedIn</a></div>
+        </div>
+        <div class="footer-bottom"><p>© 2026 Philipp Zerna</p><div><a href="/impressum/">Impressum</a><a href="/datenschutz/">Datenschutz</a></div></div>
     </footer>
 
     <script>
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('show');
+            document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('show') ? 'hidden' : '';
+        }
+
         // Filter functionality
         const filterBtns = document.querySelectorAll('.filter-btn');
         const articleCards = document.querySelectorAll('.article-card');
 
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Update active button
                 filterBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
 
-                // Filter articles
                 const filter = btn.dataset.filter;
                 articleCards.forEach(card => {
                     if (filter === 'all' || card.dataset.category === filter) {
