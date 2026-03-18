@@ -3,650 +3,297 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KI-Expertenraum | Praxiswissen für Unternehmer</title>
-    <meta name="description" content="KI verständlich erklärt: Praxisguides, Tools & Strategien für Unternehmer. Von Philipp Zerna – ohne Hype, sofort umsetzbar.">
+    <title>KI-Expertenraum | Strategische KI-Implementierung für Unternehmen</title>
+    <meta name="description" content="Enterprise-grade KI-Beratung und -Implementierung für mittelständische Unternehmen. Von Philipp Zerna – praxiserprobt, DSGVO-konform, messbar erfolgreich.">
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { 
-            --bg: #f0f7ff; 
-            --bg-card: rgba(255, 255, 255, 0.95);
-            --text: #0f172a; 
-            --text-muted: #475569; 
-            --accent: #3b82f6;
-            --accent-dark: #2563eb;
-            --accent-light: #dbeafe;
+        :root {
+            --bg-primary: #070b14;
+            --bg-secondary: #0d1321;
+            --bg-card: rgba(13, 19, 33, 0.6);
+            --bg-glass: rgba(255, 255, 255, 0.03);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --text-muted: rgba(255, 255, 255, 0.5);
+            --accent-cyan: #00d4ff;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #3b82f6 50%, #8b5cf6 100%);
+            --gradient-glow: radial-gradient(ellipse at center, rgba(0, 212, 255, 0.15) 0%, transparent 70%);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(0, 212, 255, 0.3);
         }
         html { scroll-behavior: smooth; }
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 50%, #dbeafe 100%); 
-            color: var(--text); 
-            line-height: 1.6;
-        }
-        h1, h2, h3, h4 { font-family: 'DM Sans', sans-serif; font-weight: 700; }
-        
-        /* NAVIGATION */
-        .nav { 
-            position: fixed; 
-            top: 0; left: 0; right: 0; 
-            z-index: 1000; 
-            padding: 20px 40px; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            background: rgba(240, 247, 255, 0.95); 
-            backdrop-filter: blur(20px); 
-            border-bottom: 1px solid rgba(255,255,255,0.6);
-        }
-        .logo { 
-            font-family: 'DM Sans', sans-serif; 
-            font-size: 24px; 
-            font-weight: 800; 
-            background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent;
-            text-decoration: none;
-        }
-        .nav-links { display: flex; gap: 30px; list-style: none; }
-        .nav-links a { 
-            color: var(--text-muted); 
-            text-decoration: none; 
-            font-size: 15px; 
-            font-weight: 600; 
-            transition: color 0.3s;
-        }
-        .nav-links a:hover { color: var(--accent); }
-        
-        /* Mobile Menu Button */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 28px;
-            cursor: pointer;
-            padding: 8px 12px;
-            color: var(--text);
-        }
-        
-        /* Mobile Menu Panel */
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 70px;
-            left: 0;
-            right: 0;
-            background: white;
-            padding: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-            z-index: 999;
-            border-radius: 0 0 20px 20px;
-        }
-        .mobile-menu.show {
-            display: block;
-        }
-        .mobile-menu a {
-            display: block;
-            padding: 16px 20px;
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            border-bottom: 1px solid #f0f0f0;
-            transition: background 0.2s;
-        }
-        .mobile-menu a:hover {
-            background: #f8fafc;
-        }
-        .mobile-menu a:last-child {
-            border-bottom: none;
-        }
-        
-        /* HERO */
-        .hero {
-            padding: 160px 40px 100px;
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-        .hero-content h1 {
-            font-size: clamp(40px, 5vw, 56px);
-            line-height: 1.1;
-            margin-bottom: 24px;
-        }
-        .hero-content h1 span {
-            background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero-content p {
-            font-size: 20px;
-            color: var(--text-muted);
-            margin-bottom: 32px;
-            line-height: 1.7;
-        }
-        .hero-buttons {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-        .btn {
-            display: inline-block;
-            padding: 16px 32px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 16px;
-            transition: all 0.3s;
-        }
-        .btn-primary {
-            background: var(--accent);
-            color: white;
-        }
-        .btn-primary:hover {
-            background: var(--accent-dark);
-            transform: translateY(-2px);
-        }
-        .btn-secondary {
-            background: white;
-            color: var(--text);
-            border: 2px solid rgba(59,130,246,0.2);
-        }
-        .btn-secondary:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-        .hero-image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .hero-image img {
-            max-width: 100%;
-            height: auto;
-        }
-        
-        /* FEATURES */
-        .features {
-            padding: 100px 40px;
-            background: white;
-        }
-        .features-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 60px;
-        }
-        .features-header h2 {
-            font-size: 42px;
-            margin-bottom: 16px;
-        }
-        .features-header p {
-            font-size: 19px;
-            color: var(--text-muted);
-        }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        .feature-card {
-            background: var(--bg-card);
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column;
-        }
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-        }
-        .feature-image {
-            height: 200px;
-            width: 100%;
-        }
-        .feature-content {
-            padding: 30px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        .feature-badge {
-            display: inline-block;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-            width: fit-content;
-        }
-        .feature-card h3 {
-            font-size: 24px;
-            margin-bottom: 12px;
-            color: var(--text);
-        }
-        .feature-card p {
-            color: var(--text-muted);
-            font-size: 15px;
-            line-height: 1.7;
-            flex: 1;
-            margin-bottom: 20px;
-        }
-        .feature-link {
-            color: var(--accent);
-            font-weight: 700;
-            font-size: 15px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        /* ARTICLES PREVIEW */
-        .articles-preview {
-            padding: 100px 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 40px;
-        }
-        .section-header h2 {
-            font-size: 36px;
-        }
-        .section-header a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .articles-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-        .article-card {
-            background: var(--bg-card);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s;
-        }
-        .article-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-        }
-        .article-image {
-            height: 160px;
-            background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
-        }
-        .article-content {
-            padding: 24px;
-        }
-        .article-category {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            background: var(--accent-light);
-            color: var(--accent);
-            margin-bottom: 12px;
-        }
-        .article-card h3 {
-            font-size: 18px;
-            margin-bottom: 8px;
-            line-height: 1.4;
-        }
-        .article-card p {
-            color: var(--text-muted);
-            font-size: 14px;
-            line-height: 1.5;
-        }
-        
-        /* EBOOKS */
-        .ebooks {
-            padding: 100px 40px;
-            background: linear-gradient(135deg, #f8fafc 0%, #f0f7ff 100%);
-        }
-        .ebooks-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 60px;
-        }
-        .ebooks-header h2 {
-            font-size: 42px;
-            margin-bottom: 16px;
-        }
-        .ebooks-header p {
-            font-size: 19px;
-            color: var(--text-muted);
-        }
-        .ebooks-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .ebook-card {
-            background: var(--bg-card);
-            border-radius: 24px;
-            padding: 40px;
-            display: flex;
-            gap: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s;
-            text-decoration: none;
-            color: inherit;
-        }
-        .ebook-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-        }
-        .ebook-cover {
-            width: 150px;
-            height: 200px;
-            border-radius: 12px;
-            overflow: hidden;
-            flex-shrink: 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-        .ebook-cover img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .ebook-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .ebook-badge {
-            display: inline-block;
-            background: var(--success-light);
-            color: var(--success);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-            width: fit-content;
-        }
-        .ebook-title {
-            font-size: 24px;
-            margin-bottom: 12px;
-            line-height: 1.3;
-        }
-        .ebook-description {
-            color: var(--text-muted);
-            font-size: 15px;
-            line-height: 1.6;
-            margin-bottom: 24px;
-        }
-        .ebook-btn {
-            display: inline-block;
-            background: var(--accent);
-            color: white;
-            padding: 14px 28px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 15px;
-            transition: all 0.3s;
-            width: fit-content;
-        }
-        .ebook-btn:hover {
-            background: var(--accent-dark);
-            transform: translateY(-2px);
-        }
-        
-        @media (max-width: 768px) {
-            .ebooks { padding: 60px 20px; }
-            .ebooks-header h2 { font-size: 32px; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
+        .ambient-glow { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; background: radial-gradient(ellipse 80% 50% at 20% 40%, rgba(0, 212, 255, 0.08) 0%, transparent 50%), radial-gradient(ellipse 60% 40% at 80% 60%, rgba(139, 92, 246, 0.06) 0%, transparent 50%); }
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 48px; display: flex; justify-content: space-between; align-items: center; background: rgba(7, 11, 20, 0.8); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-subtle); }
+        .logo { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 22px; font-weight: 800; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-decoration: none; letter-spacing: -0.02em; }
+        .nav-links { display: flex; gap: 40px; list-style: none; align-items: center; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.3s ease; position: relative; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--gradient-primary); transition: width 0.3s ease; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-cta { background: var(--gradient-primary); color: var(--bg-primary); padding: 10px 24px; border-radius: 8px; font-weight: 600; font-size: 14px; text-decoration: none; transition: all 0.3s ease; }
+        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0, 212, 255, 0.3); }
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 24px; cursor: pointer; padding: 8px; color: var(--text-primary); }
+        .mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; background: var(--bg-secondary); padding: 24px; z-index: 999; border-bottom: 1px solid var(--border-subtle); }
+        .mobile-menu.show { display: block; }
+        .mobile-menu a { display: block; padding: 16px 0; color: var(--text-secondary); text-decoration: none; font-weight: 500; font-size: 16px; border-bottom: 1px solid var(--border-subtle); transition: color 0.2s; }
+        .mobile-menu a:hover { color: var(--accent-cyan); }
+        .hero { min-height: 100vh; padding: 160px 48px 100px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: center; max-width: 1400px; margin: 0 auto; position: relative; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: var(--bg-glass); border: 1px solid var(--border-subtle); border-radius: 100px; font-size: 13px; font-weight: 500; color: var(--accent-cyan); margin-bottom: 32px; }
+        .hero-badge::before { content: ''; width: 8px; height: 8px; background: var(--accent-cyan); border-radius: 50%; box-shadow: 0 0 10px var(--accent-cyan); }
+        .hero-content h1 { font-size: clamp(42px, 5vw, 64px); line-height: 1.1; margin-bottom: 28px; font-weight: 800; }
+        .hero-content h1 span { background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero-content p { font-size: 19px; color: var(--text-secondary); margin-bottom: 40px; line-height: 1.8; max-width: 540px; }
+        .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+        .btn { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 15px; transition: all 0.3s ease; border: none; cursor: pointer; }
+        .btn-primary { background: var(--gradient-primary); color: var(--bg-primary); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0, 212, 255, 0.35); }
+        .btn-secondary { background: transparent; color: var(--text-primary); border: 1px solid var(--border-subtle); }
+        .btn-secondary:hover { border-color: var(--border-glow); background: var(--bg-glass); }
+        .hero-visual { position: relative; width: 100%; max-width: 520px; aspect-ratio: 1; }
+        .hero-visual svg { width: 100%; height: 100%; }
+        .stats-bar { display: flex; justify-content: center; gap: 80px; padding: 40px 48px; background: var(--bg-secondary); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); }
+        .stat-item { text-align: center; }
+        .stat-number { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 36px; font-weight: 800; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: block; }
+        .stat-label { font-size: 14px; color: var(--text-muted); margin-top: 4px; }
+        .section-header { text-align: center; max-width: 700px; margin: 0 auto 64px; }
+        .section-label { display: inline-block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent-cyan); margin-bottom: 16px; }
+        .section-header h2 { font-size: 42px; margin-bottom: 16px; line-height: 1.2; }
+        .section-header p { font-size: 18px; color: var(--text-secondary); }
+        .services { padding: 120px 48px; max-width: 1400px; margin: 0 auto; }
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .service-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 20px; padding: 40px 32px; transition: all 0.4s ease; text-decoration: none; color: inherit; position: relative; overflow: hidden; }
+        .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--gradient-primary); opacity: 0; transition: opacity 0.4s ease; }
+        .service-card:hover { transform: translateY(-8px); border-color: var(--border-glow); box-shadow: 0 20px 60px rgba(0, 212, 255, 0.1); }
+        .service-card:hover::before { opacity: 1; }
+        .service-icon { width: 56px; height: 56px; background: var(--bg-glass); border: 1px solid var(--border-subtle); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 24px; }
+        .service-card h3 { font-size: 22px; margin-bottom: 12px; }
+        .service-card p { color: var(--text-secondary); font-size: 15px; line-height: 1.7; margin-bottom: 24px; }
+        .service-link { display: inline-flex; align-items: center; gap: 6px; color: var(--accent-cyan); font-weight: 600; font-size: 14px; text-decoration: none; }
+        .service-link:hover { gap: 10px; }
+        .kurse { padding: 120px 48px; background: var(--bg-secondary); }
+        .kurse-container { max-width: 1400px; margin: 0 auto; }
+        .kurse-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .kurs-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 20px; overflow: hidden; transition: all 0.4s ease; text-decoration: none; color: inherit; }
+        .kurs-card:hover { transform: translateY(-8px); border-color: var(--border-glow); box-shadow: 0 20px 60px rgba(0, 212, 255, 0.1); }
+        .kurs-image { height: 200px; background-size: cover; background-position: center; position: relative; }
+        .kurs-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, var(--bg-card) 0%, transparent 50%); }
+        .kurs-badge { position: absolute; top: 16px; left: 16px; padding: 6px 12px; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(10px); border-radius: 6px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; z-index: 1; }
+        .kurs-badge.bestseller { background: rgba(217, 119, 6, 0.9); color: white; }
+        .kurs-badge.popular { background: rgba(5, 150, 105, 0.9); color: white; }
+        .kurs-badge.advanced { background: rgba(124, 58, 237, 0.9); color: white; }
+        .kurs-content { padding: 24px; }
+        .kurs-content h3 { font-size: 20px; margin-bottom: 8px; }
+        .kurs-content p { color: var(--text-secondary); font-size: 14px; line-height: 1.6; }
+        .ebooks { padding: 120px 48px; max-width: 1400px; margin: 0 auto; }
+        .ebooks-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+        .ebook-card { display: flex; gap: 32px; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 20px; padding: 32px; transition: all 0.4s ease; text-decoration: none; color: inherit; }
+        .ebook-card:hover { border-color: var(--border-glow); box-shadow: 0 20px 60px rgba(0, 212, 255, 0.1); }
+        .ebook-cover { width: 140px; height: 180px; border-radius: 12px; overflow: hidden; flex-shrink: 0; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); }
+        .ebook-cover img { width: 100%; height: 100%; object-fit: cover; }
+        .ebook-content { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+        .ebook-badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; background: var(--bg-glass); border: 1px solid var(--border-subtle); border-radius: 6px; font-size: 12px; font-weight: 600; color: var(--accent-cyan); width: fit-content; margin-bottom: 16px; }
+        .ebook-title { font-size: 22px; margin-bottom: 12px; line-height: 1.3; }
+        .ebook-description { color: var(--text-secondary); font-size: 15px; line-height: 1.6; margin-bottom: 24px; }
+        .ebook-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: var(--gradient-primary); color: var(--bg-primary); border-radius: 8px; font-weight: 600; font-size: 14px; text-decoration: none; width: fit-content; transition: all 0.3s ease; }
+        .ebook-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0, 212, 255, 0.35); }
+        .cta { padding: 120px 48px; text-align: center; position: relative; overflow: hidden; }
+        .cta::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 800px; height: 400px; background: var(--gradient-glow); z-index: -1; }
+        .cta h2 { font-size: 48px; margin-bottom: 20px; }
+        .cta p { font-size: 18px; color: var(--text-secondary); margin-bottom: 40px; max-width: 500px; margin-left: auto; margin-right: auto; }
+        .footer { background: var(--bg-secondary); border-top: 1px solid var(--border-subtle); padding: 60px 48px 40px; }
+        .footer-content { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 48px; }
+        .footer-brand .logo { margin-bottom: 16px; display: inline-block; }
+        .footer-brand p { color: var(--text-muted); font-size: 14px; line-height: 1.7; }
+        .footer-col h4 { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; color: var(--text-primary); }
+        .footer-col a { display: block; color: var(--text-muted); text-decoration: none; font-size: 14px; margin-bottom: 12px; transition: color 0.2s; }
+        .footer-col a:hover { color: var(--accent-cyan); }
+        .footer-bottom { max-width: 1400px; margin: 0 auto; padding-top: 32px; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; }
+        .footer-bottom p { color: var(--text-muted); font-size: 13px; }
+        .footer-bottom a { color: var(--text-muted); text-decoration: none; margin-left: 24px; font-size: 13px; transition: color 0.2s; }
+        .footer-bottom a:hover { color: var(--accent-cyan); }
+        @media (max-width: 1024px) {
+            .hero { grid-template-columns: 1fr; text-align: center; gap: 60px; }
+            .hero-content p { margin-left: auto; margin-right: auto; }
+            .hero-buttons { justify-content: center; }
+            .hero-visual { order: -1; max-width: 400px; margin: 0 auto; }
+            .services-grid, .kurse-grid { grid-template-columns: 1fr; }
             .ebooks-grid { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr 1fr; }
+            .stats-bar { gap: 40px; }
+        }
+        @media (max-width: 768px) {
+            .nav { padding: 16px 24px; }
+            .nav-links { display: none; }
+            .nav-cta { display: none; }
+            .mobile-menu-btn { display: block; }
+            .hero { padding: 120px 24px 80px; }
+            .hero-content h1 { font-size: 36px; }
+            .services, .kurse, .ebooks, .cta { padding: 80px 24px; }
+            .section-header h2 { font-size: 32px; }
+            .stats-bar { flex-direction: column; gap: 24px; }
             .ebook-card { flex-direction: column; text-align: center; }
             .ebook-cover { margin: 0 auto; }
-            .ebook-badge { margin: 0 auto 16px; }
             .ebook-btn { margin: 0 auto; }
-        }
-        
-        /* CTA */
-        .cta {
-            background: linear-gradient(135deg, var(--accent) 0%, #7c3aed 100%);
-            color: white;
-            padding: 100px 40px;
-            text-align: center;
-        }
-        .cta h2 {
-            font-size: 42px;
-            margin-bottom: 20px;
-        }
-        .cta p {
-            font-size: 20px;
-            opacity: 0.95;
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .cta-btn {
-            display: inline-block;
-            background: white;
-            color: var(--accent);
-            padding: 18px 40px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 16px;
-            transition: all 0.3s;
-        }
-        .cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-        
-        /* FOOTER */
-        .footer {
-            background: var(--text);
-            color: rgba(255,255,255,0.7);
-            padding: 50px 40px 30px;
-            text-align: center;
-        }
-        .footer-logo {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 24px;
-            font-weight: 800;
-            margin-bottom: 15px;
-            background: linear-gradient(135deg, white 0%, #60a5fa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        /* RESPONSIVE */
-        @media (max-width: 1024px) {
-            .hero {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .hero-image {
-                order: -1;
-            }
-            .hero-buttons {
-                justify-content: center;
-            }
-            .features-grid { grid-template-columns: 1fr; }
-            .articles-grid { grid-template-columns: 1fr; }
-        }
-        
-        @media (max-width: 768px) {
-            .nav { padding: 15px 20px; }
-            .nav-links { display: none; }
-            .mobile-menu-btn { display: block; }
-            .hero { padding: 120px 20px 60px; }
-            .hero-content h1 { font-size: 36px; }
-            .features { padding: 60px 20px; }
-            .features-header h2 { font-size: 32px; }
-            .articles-preview { padding: 60px 20px; }
-            .section-header { flex-direction: column; gap: 16px; text-align: center; }
-            .cta { padding: 60px 20px; }
-            .cta h2 { font-size: 32px; }
+            .footer-content { grid-template-columns: 1fr; gap: 40px; }
+            .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+            .footer-bottom a { margin: 0 12px; }
         }
     </style>
 </head>
 <body>
+    <div class="ambient-glow"></div>
+    
     <nav class="nav">
         <a href="/" class="logo">KI-Expertenraum</a>
         <ul class="nav-links">
-            <li><a href="/">Startseite</a></li>
-            <li><a href="/kurse/">Kurse</a></li>
+            <li><a href="/">Start</a></li>
             <li><a href="/services/">Services</a></li>
-            <li><a href="/artikel/">Artikel</a></li>
-            <li><a href="/glossar/">Glossar</a></li>
+            <li><a href="/kurse/">Kurse</a></li>
+            <li><a href="/artikel/">Insights</a></li>
             <li><a href="/kontakt.html">Kontakt</a></li>
         </ul>
-        <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        <a href="/kontakt.html" class="nav-cta">Beratung anfragen</a>
+        <button class="mobile-menu-btn" onclick="document.getElementById('mobileMenu').classList.toggle('show')">☰</button>
     </nav>
+    
     <div class="mobile-menu" id="mobileMenu">
-        <a href="/" onclick="toggleMobileMenu()">Startseite</a>
-        <a href="/kurse/" onclick="toggleMobileMenu()">Kurse</a>
-        <a href="/services/" onclick="toggleMobileMenu()">Services</a>
-        <a href="/artikel/" onclick="toggleMobileMenu()">Artikel</a>
-        <a href="/glossar/" onclick="toggleMobileMenu()">Glossar</a>
-        <a href="/kontakt.html" onclick="toggleMobileMenu()">Kontakt</a>
+        <a href="/">Start</a>
+        <a href="/services/">Services</a>
+        <a href="/kurse/">Kurse</a>
+        <a href="/artikel/">Insights</a>
+        <a href="/kontakt.html">Kontakt</a>
     </div>
-    <script>
-        function toggleMenu() {
-            document.getElementById('mobileMenu').classList.toggle('show');
-        }
-    </script>
 
     <header class="hero">
         <div class="hero-content">
-            <h1>KI verständlich erklärt <span>für Unternehmer</span></h1>
-            <p>Praxisnahe Guides, Tools & Strategien – ohne Hype, sofort umsetzbar. Lerne, wie du KI effektiv in deinem Business einsetzt.</p>
+            <div class="hero-badge">Verfügbar für neue Projekte</div>
+            <h1>Strategische KI-Implementierung <span>für Ihr Unternehmen</span></h1>
+            <p>Enterprise-grade KI-Beratung für den Mittelstand. Praxiserprobt, DSGVO-konform, messbar erfolgreich. Von der Strategie bis zur Umsetzung.</p>
             <div class="hero-buttons">
-                <a href="/artikel/" class="btn btn-primary">Alle Artikel →</a>
-                <a href="/kurse/" class="btn btn-secondary">Zu den Kursen</a>
+                <a href="/services/" class="btn btn-primary">Services entdecken →</a>
+                <a href="/kurse/" class="btn btn-secondary">Kurse ansehen</a>
             </div>
         </div>
-        <div class="hero-image">
-            <img src="/public/images/ki-humanoid.png?v=2" alt="KI Humanoid" loading="lazy">
+        <div class="hero-visual">
+            <svg viewBox="0 0 520 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:#3b82f6;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="grad2" x1="100%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.3" />
+                        <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.1" />
+                    </linearGradient>
+                    <filter id="glow"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                </defs>
+                <circle cx="260" cy="260" r="200" stroke="url(#grad2)" stroke-width="1" fill="none"/>
+                <circle cx="260" cy="260" r="160" stroke="url(#grad2)" stroke-width="1" fill="none"/>
+                <circle cx="260" cy="260" r="120" stroke="url(#grad2)" stroke-width="1" fill="none"/>
+                <circle cx="260" cy="260" r="80" stroke="url(#grad2)" stroke-width="1" fill="none"/>
+                <circle cx="260" cy="260" r="40" stroke="url(#grad1)" stroke-width="2" fill="none" filter="url(#glow)"/>
+                <circle cx="260" cy="260" r="8" fill="url(#grad1)" filter="url(#glow)"/>
+                <circle cx="260" cy="60" r="6" fill="#00d4ff" filter="url(#glow)"/>
+                <circle cx="260" cy="460" r="6" fill="#00d4ff" filter="url(#glow)"/>
+                <circle cx="60" cy="260" r="6" fill="#00d4ff" filter="url(#glow)"/>
+                <circle cx="460" cy="260" r="6" fill="#00d4ff" filter="url(#glow)"/>
+                <line x1="260" y1="260" x2="260" y2="60" stroke="url(#grad1)" stroke-width="1" opacity="0.5"/>
+                <line x1="260" y1="260" x2="260" y2="460" stroke="url(#grad1)" stroke-width="1" opacity="0.5"/>
+                <line x1="260" y1="260" x2="60" y2="260" stroke="url(#grad1)" stroke-width="1" opacity="0.5"/>
+                <line x1="260" y1="260" x2="460" y2="260" stroke="url(#grad1)" stroke-width="1" opacity="0.5"/>
+                <line x1="260" y1="260" x2="119" y2="119" stroke="url(#grad1)" stroke-width="1" opacity="0.3"/>
+                <line x1="260" y1="260" x2="401" y2="119" stroke="url(#grad1)" stroke-width="1" opacity="0.3"/>
+                <line x1="260" y1="260" x2="119" y2="401" stroke="url(#grad1)" stroke-width="1" opacity="0.3"/>
+                <line x1="260" y1="260" x2="401" y2="401" stroke="url(#grad1)" stroke-width="1" opacity="0.3"/>
+                <circle cx="119" cy="119" r="4" fill="#3b82f6" opacity="0.6"/>
+                <circle cx="401" cy="119" r="4" fill="#3b82f6" opacity="0.6"/>
+                <circle cx="119" cy="401" r="4" fill="#3b82f6" opacity="0.6"/>
+                <circle cx="401" cy="401" r="4" fill="#3b82f6" opacity="0.6"/>
+                <circle cx="180" cy="100" r="3" fill="#8b5cf6" opacity="0.4"/>
+                <circle cx="340" cy="100" r="3" fill="#8b5cf6" opacity="0.4"/>
+                <circle cx="180" cy="420" r="3" fill="#8b5cf6" opacity="0.4"/>
+                <circle cx="340" cy="420" r="3" fill="#8b5cf6" opacity="0.4"/>
+            </svg>
         </div>
     </header>
 
-    <section class="features">
-        <div class="features-header">
-            <h2>Mein Angebot</h2>
-            <p>Wähle, was du brauchst – von der Idee bis zur Umsetzung</p>
+    <div class="stats-bar">
+        <div class="stat-item"><span class="stat-number">50+</span><span class="stat-label">KI-Projekte</span></div>
+        <div class="stat-item"><span class="stat-number">20</span><span class="stat-label">Enterprise-Kurse</span></div>
+        <div class="stat-item"><span class="stat-number">100%</span><span class="stat-label">DSGVO-konform</span></div>
+        <div class="stat-item"><span class="stat-number">14</span><span class="stat-label">Praxisguides</span></div>
+    </div>
+
+    <section class="services">
+        <div class="section-header">
+            <span class="section-label">Leistungen</span>
+            <h2>End-to-End KI-Implementierung</h2>
+            <p>Von der ersten Strategie bis zur vollständigen Integration in Ihre Geschäftsprozesse</p>
         </div>
-        <div class="features-grid">
-            <a href="/kurse/" class="feature-card">
-                <div class="feature-image" style="background: url('/public/images/kurs4_ki%20marketing.png?v=2') center 70%/cover;"></div>
-                <div class="feature-content">
-                    <span class="feature-badge" style="background: #fef3c7; color: #d97706;">🎓 Lernen</span>
-                    <h3>Kurse</h3>
-                    <p>Von EU AI Act bis KI-Marketing – praxisnah, mit Zertifikat, sofort umsetzbar.</p>
-                    <span class="feature-link">Zu den Kursen →</span>
-                </div>
+        <div class="services-grid">
+            <a href="/services/" class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3>KI-Strategie</h3>
+                <p>Maßgeschneiderte Roadmaps für Ihre KI-Transformation. Potenzialanalyse, Use-Case-Priorisierung, ROI-Berechnung.</p>
+                <span class="service-link">Mehr erfahren →</span>
             </a>
-            <a href="/services/" class="feature-card">
-                <div class="feature-image" style="background: url('/public/images/Bilder%20und%20Videos.jpg?v=2') center 70%/cover;"></div>
-                <div class="feature-content">
-                    <span class="feature-badge" style="background: #dbeafe; color: #2563eb;">🛠️ Umsetzung</span>
-                    <h3>Services</h3>
-                    <p>Ich mache es für dich: Websites, Präsentationen, Bilder, Videos, Bewerbungen & mehr.</p>
-                    <span class="feature-link">Services entdecken →</span>
-                </div>
+            <a href="/services/" class="service-card">
+                <div class="service-icon">⚙️</div>
+                <h3>Implementierung</h3>
+                <p>Technische Umsetzung von KI-Workflows, Automation und Integration in bestehende Systemlandschaften.</p>
+                <span class="service-link">Mehr erfahren →</span>
             </a>
-            <a href="/artikel/" class="feature-card">
-                <div class="feature-image" style="background: url('/public/images/Artikel%203_ChatGPT%20vs-%20Claude.png?v=2') center 70%/cover;"></div>
-                <div class="feature-content">
-                    <span class="feature-badge" style="background: #d1fae5; color: #059669;">📖 Wissen</span>
-                    <h3>Artikel</h3>
-                    <p>14 detaillierte Guides zu KI-Tools, Automation & Strategie – gratis und sofort lesbar.</p>
-                    <span class="feature-link">Artikel lesen →</span>
-                </div>
+            <a href="/services/" class="service-card">
+                <div class="service-icon">🛡️</div>
+                <h3>Compliance &amp; Governance</h3>
+                <p>EU AI Act, DSGVO und interne Richtlinien. Rechtssichere KI-Nutzung mit dokumentierten Prozessen.</p>
+                <span class="service-link">Mehr erfahren →</span>
             </a>
         </div>
     </section>
 
-    <section class="articles-preview">
-        <div class="section-header">
-            <h2>Meine Top-Kurse</h2>
-            <a href="/kurse/">Alle Kurse →</a>
-        </div>
-        <style>
-            .top-kurse-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-            .top-kurse-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); text-decoration: none; color: inherit; transition: all 0.3s; }
-            .top-kurse-card:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(0,0,0,0.12); }
-            .top-kurse-image { height: 220px; background-size: cover; background-position: center; }
-            .top-kurse-content { padding: 24px; }
-            .top-kurse-badge { display: inline-block; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; }
-            .top-kurse-title { font-size: 20px; margin-bottom: 8px; font-family: 'DM Sans', sans-serif; font-weight: 700; }
-            .top-kurse-desc { color: var(--text-muted); font-size: 15px; line-height: 1.5; }
-            @media (max-width: 1024px) { .top-kurse-grid { grid-template-columns: repeat(2, 1fr); } }
-            @media (max-width: 640px) { .top-kurse-grid { grid-template-columns: 1fr; } .top-kurse-image { height: 180px; } }
-        </style>
-        <div class="top-kurse-grid">
-            <a href="/kurse/" class="top-kurse-card">
-                <div class="top-kurse-image" style="background-image: url('/public/images/kurs1_eu%20au%20ai%20act.png?v=2');"></div>
-                <div class="top-kurse-content">
-                    <span class="top-kurse-badge" style="background: #fef3c7; color: #d97706;">🏆 Bestseller</span>
-                    <h3 class="top-kurse-title">EU AI Act für KMU</h3>
-                    <p class="top-kurse-desc">Praxisumsetzung mit Checklisten – rechtlich bindend bis 2026</p>
-                </div>
-            </a>
-            <a href="/kurse/" class="top-kurse-card">
-                <div class="top-kurse-image" style="background-image: url('/public/images/kurs2_chatgpt.png?v=2');"></div>
-                <div class="top-kurse-content">
-                    <span class="top-kurse-badge" style="background: #d1fae5; color: #059669;">🔥 Beliebt</span>
-                    <h3 class="top-kurse-title">ChatGPT für Anfänger</h3>
-                    <p class="top-kurse-desc">Die KI-Grundlagen für sofortige Produktivitätssteigerung</p>
-                </div>
-            </a>
-            <a href="/kurse/" class="top-kurse-card">
-                <div class="top-kurse-image" style="background-image: url('/public/images/kurs3_prompt.png?v=2');"></div>
-                <div class="top-kurse-content">
-                    <span class="top-kurse-badge" style="background: #ede9fe; color: #7c3aed;">Fortgeschritten</span>
-                    <h3 class="top-kurse-title">Prompt Engineering</h3>
-                    <p class="top-kurse-desc">Professionelle Prompts für maximale Ergebnisse</p>
-                </div>
-            </a>
+    <section class="kurse">
+        <div class="kurse-container">
+            <div class="section-header">
+                <span class="section-label">Academy</span>
+                <h2>Enterprise KI-Kurse</h2>
+                <p>Zertifizierte Weiterbildung für Führungskräfte und Fachabteilungen</p>
+            </div>
+            <div class="kurse-grid">
+                <a href="/kurse/" class="kurs-card">
+                    <div class="kurs-image" style="background-image: url('/public/images/kurs1_eu%20au%20ai%20act.png?v=2');"><span class="kurs-badge bestseller">Bestseller</span></div>
+                    <div class="kurs-content"><h3>EU AI Act für Unternehmen</h3><p>Rechtssichere KI-Nutzung mit Compliance-Framework bis 2026</p></div>
+                </a>
+                <a href="/kurse/" class="kurs-card">
+                    <div class="kurs-image" style="background-image: url('/public/images/kurs2_chatgpt.png?v=2');"><span class="kurs-badge popular">Beliebt</span></div>
+                    <div class="kurs-content"><h3>ChatGPT für Professionals</h3><p>Enterprise Prompt Engineering für maximale Produktivität</p></div>
+                </a>
+                <a href="/kurse/" class="kurs-card">
+                    <div class="kurs-image" style="background-image: url('/public/images/kurs3_prompt.png?v=2');"><span class="kurs-badge advanced">Advanced</span></div>
+                    <div class="kurs-content"><h3>Prompt Engineering</h3><p>Professionelle Prompts für maximale Ergebnisse</p></div>
+                </a>
+            </div>
         </div>
     </section>
 
     <section class="ebooks">
-        <div class="ebooks-header">
-            <h2>Gratis eBooks</h2>
-            <p>Lade dir meine kostenlosen Ratgeber herunter – sofort verfügbar</p>
+        <div class="section-header">
+            <span class="section-label">Ressourcen</span>
+            <h2>Kostenlose eBooks</h2>
+            <p>Praxisnahe Guides für sofortige Umsetzung</p>
         </div>
         <div class="ebooks-grid">
             <a href="https://www.dropbox.com/scl/fi/rt7k1r6w4qwexzs795gkv/Die_10_KI-Prompts_fuer_KMU.pdf?rlkey=wlo2fn2815lt2hwlp1w76ggk3&st=d49shol7&dl=1" class="ebook-card" target="_blank">
-                <div class="ebook-cover">
-                    <img src="/public/images/ebook1.png?v=2" alt="Die 10 KI-Prompts für KMU" loading="lazy">
-                </div>
+                <div class="ebook-cover"><img src="/public/images/ebook1.png?v=2" alt="Die 10 KI-Prompts für KMU"></div>
                 <div class="ebook-content">
                     <span class="ebook-badge">Kostenloser Download</span>
                     <h3 class="ebook-title">Die 10 KI-Prompts für KMU</h3>
@@ -655,9 +302,7 @@
                 </div>
             </a>
             <a href="https://www.dropbox.com/scl/fi/qee9tm1p7hbo5oe4eyemt/EU-AI-Act-Survival-Guide.pdf?rlkey=chsnn67os8xsei5epy9ft3x9l&st=foqj4wf8&dl=1" class="ebook-card" target="_blank">
-                <div class="ebook-cover">
-                    <img src="/public/images/ebook2.png?v=2" alt="EU AI ACT Survival Guide" loading="lazy">
-                </div>
+                <div class="ebook-cover"><img src="/public/images/ebook2.png?v=2" alt="EU AI ACT Survival Guide"></div>
                 <div class="ebook-content">
                     <span class="ebook-badge">Kostenloser Download</span>
                     <h3 class="ebook-title">EU AI ACT Survival Guide</h3>
@@ -669,14 +314,42 @@
     </section>
 
     <section class="cta">
-        <h2>Bereit, KI zu nutzen?</h2>
-        <p>Starte jetzt mit meinen Kursen oder lass dich von den Artikeln inspirieren.</p>
-        <a href="/kurse/" class="cta-btn">Zu den Kursen →</a>
+        <h2>Bereit für Ihre KI-Transformation?</h2>
+        <p>Lassen Sie uns gemeinsam Ihr Potenzial analysieren und einen maßgeschneiderten Fahrplan erstellen.</p>
+        <a href="/kontakt.html" class="btn btn-primary">Beratung anfragen →</a>
     </section>
 
     <footer class="footer">
-        <div class="footer-logo">KI-Expertenraum</div>
-        <p>© 2026 Philipp Zerna | <a href="/impressum/" style="color: rgba(255,255,255,0.7);">Impressum</a> | <a href="/datenschutz/" style="color: rgba(255,255,255,0.7);">Datenschutz</a></p>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="/" class="logo">KI-Expertenraum</a>
+                <p>Enterprise-grade KI-Beratung für den Mittelstand.<br>Praxiserprobt, DSGVO-konform, messbar erfolgreich.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Angebot</h4>
+                <a href="/services/">Services</a>
+                <a href="/kurse/">Kurse</a>
+                <a href="/artikel/">Insights</a>
+            </div>
+            <div class="footer-col">
+                <h4>Unternehmen</h4>
+                <a href="/kontakt.html">Kontakt</a>
+                <a href="/impressum/">Impressum</a>
+                <a href="/datenschutz/">Datenschutz</a>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <a href="https://www.youtube.com/@philippzerna" target="_blank">YouTube</a>
+                <a href="https://www.linkedin.com/in/philipp-zerna/" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Philipp Zerna. Alle Rechte vorbehalten.</p>
+            <div>
+                <a href="/impressum/">Impressum</a>
+                <a href="/datenschutz/">Datenschutz</a>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
