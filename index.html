@@ -3,212 +3,414 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KI Expertenraum | Premium KI-Kurse</title>
+  <title>KI Expertenraum | Strategische KI-Beratung für Unternehmen</title>
+  <meta name="description" content="Premium KI-Beratung und Kurse für den Mittelstand. EU AI Act Compliance, KI-Strategie, Governance.">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg-primary: #0c0c0c;
+      --bg-secondary: #111111;
+      --bg-elevated: #161616;
+      --text-primary: #fafafa;
+      --text-secondary: #a3a3a3;
+      --text-muted: #737373;
+      --accent: #c9a962;
+      --accent-soft: rgba(201, 169, 98, 0.1);
+      --border: rgba(255, 255, 255, 0.06);
+    }
+    
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', system-ui, sans-serif; background: #050505; color: #fafafa; }
-    .text-gradient { background: linear-gradient(135deg, #00d4ff 0%, #a855f7 50%, #ec4899 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .glass { background: rgba(10, 10, 10, 0.6); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.08); }
-    .glass-card { background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.06); transition: all 0.4s ease; }
-    .glass-card:hover { border-color: rgba(0, 212, 255, 0.3); box-shadow: 0 0 40px rgba(0, 212, 255, 0.1); transform: translateY(-2px); }
-    .btn-primary { background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%); color: #000; font-weight: 600; padding: 1rem 2rem; border-radius: 0.5rem; border: none; cursor: pointer; box-shadow: 0 0 30px rgba(0, 212, 255, 0.3); transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem; }
-    .btn-primary:hover { box-shadow: 0 0 50px rgba(0, 212, 255, 0.5); transform: translateY(-2px); }
-    .btn-secondary { background: transparent; border: 1px solid rgba(255, 255, 255, 0.15); color: white; font-weight: 500; padding: 1rem 2rem; border-radius: 0.5rem; cursor: pointer; transition: all 0.3s ease; }
-    .btn-secondary:hover { border-color: rgba(0, 212, 255, 0.5); background: linear-gradient(135deg, rgba(0,212,255,0.1) 0%, rgba(168,85,247,0.1) 100%); }
-    .badge-ai { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: linear-gradient(135deg, rgba(0,212,255,0.1) 0%, rgba(168,85,247,0.1) 100%); border: 1px solid rgba(0, 212, 255, 0.2); border-radius: 9999px; font-size: 0.875rem; color: #00d4ff; }
-    .grid-bg { background-image: linear-gradient(to right, rgba(0, 212, 255, 0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 212, 255, 0.03) 1px, transparent 1px); background-size: 80px 80px; }
-    .card-premium { background: linear-gradient(145deg, #0a0a0a 0%, #050505 100%); border: 1px solid rgba(255, 255, 255, 0.05); position: relative; overflow: hidden; }
-    .card-premium::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(0,212,255,0.3), transparent); }
-    .glow-orb { position: absolute; border-radius: 50%; filter: blur(120px); animation: pulse 4s ease-in-out infinite; }
-    @keyframes pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 0.8; } }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      letter-spacing: -0.01em;
+    }
+    
+    .font-display {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Executive Card Style */
+    .card-executive {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .card-executive:hover {
+      border-color: rgba(201, 169, 98, 0.3);
+      background: var(--bg-elevated);
+    }
+    
+    /* Subtle Gradient Text */
+    .text-accent {
+      color: var(--accent);
+    }
+    
+    /* Executive Button */
+    .btn-executive {
+      background: var(--accent);
+      color: #0c0c0c;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      padding: 1rem 2.5rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.4s ease;
+    }
+    
+    .btn-executive:hover {
+      background: #d4b56a;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 40px -10px rgba(201, 169, 98, 0.3);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      padding: 1rem 2.5rem;
+      cursor: pointer;
+      transition: all 0.4s ease;
+    }
+    
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    
+    /* Navigation */
+    .nav-link {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      transition: color 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      color: var(--text-primary);
+    }
+    
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+    }
+    
+    .divider-gold {
+      height: 1px;
+      width: 60px;
+      background: var(--accent);
+    }
+    
+    /* Service Item */
+    .service-item {
+      border-left: 1px solid var(--border);
+      padding-left: 2rem;
+      transition: all 0.4s ease;
+    }
+    
+    .service-item:hover {
+      border-left-color: var(--accent);
+    }
+    
+    /* Number styling */
+    .number-display {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 400;
+      color: var(--accent);
+      line-height: 1;
+    }
+    
+    /* Selection */
+    ::selection {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+    
+    /* Scrollbar */
     ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #050505; }
-    ::-webkit-scrollbar-thumb { background: #1a1a1a; border-radius: 3px; }
-    ::selection { background: rgba(0, 212, 255, 0.3); color: white; }
+    ::-webkit-scrollbar-track { background: var(--bg-primary); }
+    ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #3a3a3a; }
+    
+    /* Subtle pattern */
+    .bg-pattern {
+      background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0);
+      background-size: 40px 40px;
+    }
   </style>
 </head>
-<body>
+<body class="bg-pattern">
   <!-- Navigation -->
-  <nav class="fixed top-0 w-full z-50 glass border-b border-white/5">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+  <nav class="fixed top-0 w-full z-50" style="background: rgba(12,12,12,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border);">
+    <div class="max-w-7xl mx-auto px-8 lg:px-12">
       <div class="flex items-center justify-between h-20">
-        <div class="flex items-center space-x-3">
-          <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-          <span class="text-xl font-bold text-white">KI <span style="color:#00d4ff">Expertenraum</span></span>
+        <a href="/" class="flex items-center gap-3">
+          <div class="w-8 h-8 border border-[var(--accent)] flex items-center justify-center">
+            <span class="text-[var(--accent)] font-display text-lg">K</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-sm font-medium tracking-[0.2em] uppercase" style="color: var(--text-primary);">KI Expertenraum</span>
+            <span class="text-[10px] tracking-[0.3em] uppercase" style="color: var(--text-muted);">Strategische Beratung</span>
+          </div>
+        </a>
+        
+        <div class="hidden md:flex items-center gap-10">
+          <a href="/kurse/" class="nav-link">Kurse</a>
+          <a href="/services/" class="nav-link">Services</a>
+          <a href="/artikel/" class="nav-link">Artikel</a>
+          <a href="/glossar/" class="nav-link">Glossar</a>
+          <a href="/kontakt.html" class="nav-link">Kontakt</a>
         </div>
-        <div class="hidden md:flex items-center space-x-8">
-          <a href="#kurse" class="text-sm text-gray-400 hover:text-white transition">Kurse</a>
-          <a href="#kontakt" class="text-sm text-gray-400 hover:text-white transition">Kontakt</a>
-        </div>
-        <button class="btn-primary text-sm px-6 py-2.5">Kurse entdecken</button>
+        
+        <a href="/kontakt.html" class="btn-executive hidden md:block">Beratung anfragen</a>
       </div>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-    <div class="absolute inset-0 grid-bg opacity-30"></div>
-    <div class="glow-orb top-1/4 left-1/4 w-[500px] h-[500px] bg-cyan-500/10"></div>
-    <div class="glow-orb bottom-1/4 right-1/4 w-[600px] h-[600px] bg-purple-500/10" style="animation-delay:2s"></div>
-    
-    <div class="relative max-w-7xl mx-auto px-6 lg:px-8 py-20 text-center">
-      <div class="badge-ai mb-8">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
-        Premium KI-Ausbildung
-        <span style="color:#00d4ff;margin-left:8px">22 Expert-Kurse</span>
+  <!-- Hero Section -->
+  <section class="min-h-screen flex items-center pt-20" style="background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);">
+    <div class="max-w-7xl mx-auto px-8 lg:px-12 py-32">
+      <div class="grid lg:grid-cols-2 gap-20 items-center">
+        <div>
+          <div class="divider-gold mb-8"></div>
+          <p class="text-sm tracking-[0.3em] uppercase mb-6" style="color: var(--accent);">Premium KI-Beratung</p>
+          <h1 class="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-8" style="color: var(--text-primary);">
+            Strategische KI-<br>Implementierung<br>für Unternehmen
+          </h1>
+          <p class="text-lg mb-10 max-w-lg" style="color: var(--text-secondary); line-height: 1.8;">
+            Wir begleiten Entscheider bei der Integration künstlicher Intelligenz. 
+            Rechtssicher, praxiserprobt, messbar erfolgreich.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/kurse/" class="btn-executive">Kurse entdecken</a>
+            <a href="/services/" class="btn-outline">Services übersicht</a>
+          </div>
+        </div>
+        
+        <div class="hidden lg:block">
+          <div class="grid grid-cols-2 gap-px" style="background: var(--border);">
+            <div class="card-executive p-8 aspect-square flex flex-col justify-center">
+              <span class="number-display mb-2">22</span>
+              <span class="text-xs tracking-[0.2em] uppercase" style="color: var(--text-muted);">Spezialisierte Kurse</span>
+            </div>
+            <div class="card-executive p-8 aspect-square flex flex-col justify-center">
+              <span class="number-display mb-2">100%</span>
+              <span class="text-xs tracking-[0.2em] uppercase" style="color: var(--text-muted);">Praxiserprobt</span>
+            </div>
+            <div class="card-executive p-8 aspect-square flex flex-col justify-center">
+              <span class="number-display mb-2">DSGVO</span>
+              <span class="text-xs tracking-[0.2em] uppercase" style="color: var(--text-muted);">Konform</span>
+            </div>
+            <div class="card-executive p-8 aspect-square flex flex-col justify-center">
+              <span class="number-display mb-2">EU</span>
+              <span class="text-xs tracking-[0.2em] uppercase" style="color: var(--text-muted);">AI Act Ready</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Overview -->
+  <section class="py-32" style="background: var(--bg-secondary);">
+    <div class="max-w-7xl mx-auto px-8 lg:px-12">
+      <div class="grid lg:grid-cols-12 gap-16">
+        <div class="lg:col-span-4">
+          <p class="text-sm tracking-[0.3em] uppercase mb-4" style="color: var(--accent);">Leistungen</p>
+          <h2 class="font-display text-4xl md:text-5xl leading-tight" style="color: var(--text-primary);">
+            Maßgeschneiderte KI-Lösungen
+          </h2>
+        </div>
+        
+        <div class="lg:col-span-8 grid md:grid-cols-2 gap-12">
+          <div class="service-item">
+            <span class="text-xs tracking-[0.2em] uppercase block mb-4" style="color: var(--accent);">01</span>
+            <h3 class="text-xl font-medium mb-4" style="color: var(--text-primary);">KI-Strategie & Roadmap</h3>
+            <p style="color: var(--text-secondary); line-height: 1.8;">
+              Entwicklung einer ganzheitlichen KI-Strategie abgestimmt auf Ihre Unternehmensziele und Ressourcen.
+            </p>
+          </div>
+          
+          <div class="service-item">
+            <span class="text-xs tracking-[0.2em] uppercase block mb-4" style="color: var(--accent);">02</span>
+            <h3 class="text-xl font-medium mb-4" style="color: var(--text-primary);">EU AI Act Compliance</h3>
+            <p style="color: var(--text-secondary); line-height: 1.8;">
+              Vollständige Konformität mit dem EU AI Act. Risikobewertung, Dokumentation, Governance-Strukturen.
+            </p>
+          </div>
+          
+          <div class="service-item">
+            <span class="text-xs tracking-[0.2em] uppercase block mb-4" style="color: var(--accent);">03</span>
+            <h3 class="text-xl font-medium mb-4" style="color: var(--text-primary);">KI-Beauftragter 360°</h3>
+            <p style="color: var(--text-secondary); line-height: 1.8;">
+              Interims-KI-Beauftragter oder Coaching für Ihren internen Beauftragten. Inklusive 30-Tage-Roadmap.
+            </p>
+          </div>
+          
+          <div class="service-item">
+            <span class="text-xs tracking-[0.2em] uppercase block mb-4" style="color: var(--accent);">04</span>
+            <h3 class="text-xl font-medium mb-4" style="color: var(--text-primary);">Executive Training</h3>
+            <p style="color: var(--text-secondary); line-height: 1.8;">
+              Spezialisierte Kurse für Entscheider. EU AI Act, KI-Governance, praxisnahe Anwendungsfälle.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Courses -->
+  <section class="py-32" style="background: var(--bg-primary);">
+    <div class="max-w-7xl mx-auto px-8 lg:px-12">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-16">
+        <div>
+          <p class="text-sm tracking-[0.3em] uppercase mb-4" style="color: var(--accent);">Kursangebot</p>
+          <h2 class="font-display text-4xl md:text-5xl" style="color: var(--text-primary);">Ausgewählte Kurse</h2>
+        </div>
+        <a href="/kurse/" class="nav-link mt-6 md:mt-0">Alle Kurse ansehen →</a>
       </div>
       
-      <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8">
-        <span class="block text-white mb-2">Meistere die</span>
-        <span class="block text-gradient mb-2">KI-Revolution</span>
-        <span class="block text-white/90 text-3xl md:text-5xl lg:text-6xl font-medium">praxisnah & ohne Hype</span>
-      </h1>
+      <div class="grid md:grid-cols-3 gap-px" style="background: var(--border);">
+        <a href="/kurse/" class="card-executive p-8 block group">
+          <span class="text-xs tracking-[0.2em] uppercase block mb-6" style="color: var(--text-muted);">Compliance</span>
+          <h3 class="text-xl font-medium mb-4 group-hover:text-[var(--accent)] transition-colors" style="color: var(--text-primary);">EU AI Act für Unternehmen</h3>
+          <p class="text-sm mb-6" style="color: var(--text-secondary);">Vollständige Compliance-Roadmap inkl. Risikoklassifizierung und Dokumentation.</p>
+          <span class="text-xs tracking-[0.1em] uppercase" style="color: var(--accent);">Zum Kurs →</span>
+        </a>
+        
+        <a href="/kurse/" class="card-executive p-8 block group">
+          <span class="text-xs tracking-[0.2em] uppercase block mb-6" style="color: var(--text-muted);">Strategie</span>
+          <h3 class="text-xl font-medium mb-4 group-hover:text-[var(--accent)] transition-colors" style="color: var(--text-primary);">KI-Implementierung im Mittelstand</h3>
+          <p class="text-sm mb-6" style="color: var(--text-secondary);">Praxiserprobte Roadmap von der ersten Analyse bis zum produktiven Einsatz.</p>
+          <span class="text-xs tracking-[0.1em] uppercase" style="color: var(--accent);">Zum Kurs →</span>
+        </a>
+        
+        <a href="/kurse/" class="card-executive p-8 block group">
+          <span class="text-xs tracking-[0.2em] uppercase block mb-6" style="color: var(--text-muted);">Praxis</span>
+          <h3 class="text-xl font-medium mb-4 group-hover:text-[var(--accent)] transition-colors" style="color: var(--text-primary);">Büroautomatisierung mit KI</h3>
+          <p class="text-sm mb-6" style="color: var(--text-secondary);">10 konkrete Workflows für sofortige Effizienzsteigerung im Tagesgeschäft.</p>
+          <span class="text-xs tracking-[0.1em] uppercase" style="color: var(--accent);">Zum Kurs →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Articles -->
+  <section class="py-32" style="background: var(--bg-secondary);">
+    <div class="max-w-7xl mx-auto px-8 lg:px-12">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-16">
+        <div>
+          <p class="text-sm tracking-[0.3em] uppercase mb-4" style="color: var(--accent);">Publikationen</p>
+          <h2 class="font-display text-4xl md:text-5xl" style="color: var(--text-primary);">Aktuelle Artikel</h2>
+        </div>
+        <a href="/artikel/" class="nav-link mt-6 md:mt-0">Alle Artikel →</a>
+      </div>
       
-      <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-12">
-        Von <span class="text-white">EU AI Act Compliance</span> bis zu <span class="text-white">No-Code Automatisierung</span>. Premium-Kurse für Entscheider.
+      <div class="space-y-px" style="background: var(--border);">
+        <a href="/blog/" class="card-executive p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 group">
+          <div class="flex-1">
+            <span class="text-xs tracking-[0.2em] uppercase block mb-2" style="color: var(--accent);">Strategie</span>
+            <h3 class="text-lg font-medium group-hover:text-[var(--accent)] transition-colors" style="color: var(--text-primary);">KI-Einführung im Mittelstand: Die komplette Roadmap</h3>
+          </div>
+          <span class="text-xs tracking-[0.1em] uppercase" style="color: var(--text-muted);">Lesen →</span>
+        </a>
+        
+        <a href="/blog/" class="card-executive p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 group">
+          <div class="flex-1">
+            <span class="text-xs tracking-[0.2em] uppercase block mb-2" style="color: var(--accent);">Recht</span>
+            <h3 class="text-lg font-medium group-hover:text-[var(--accent)] transition-colors" style="color: var(--text-primary);">KI rechtssicher nutzen: DSGVO & EU AI Act im Überblick</h3>
+          </div>
+          <span class="text-xs tracking-[0.1em] uppercase" style="color: var(--text-muted);">Lesen →</span>
+        </a>
+        
+        <a href="/blog/" class="card-executive p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 group">
+          <div class="flex-1">
+            <span class="text-xs tracking-[0.2em] uppercase block mb-2" style="color: var(--accent);">Rolle</span>
+            <h3 class="text-lg font-medium group-hover:text-[var(--accent)] transition-colors" style="color: var(--text-primary);">Der KI-Beauftragte: 30-Tage-Roadmap für Ihre neue Rolle</h3>
+          </div>
+          <span class="text-xs tracking-[0.1em] uppercase" style="color: var(--text-muted);">Lesen →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-32" style="background: var(--bg-primary);">
+    <div class="max-w-4xl mx-auto px-8 lg:px-12 text-center">
+      <div class="divider-gold mx-auto mb-8"></div>
+      <p class="text-sm tracking-[0.3em] uppercase mb-6" style="color: var(--accent);">Beratung</p>
+      <h2 class="font-display text-4xl md:text-5xl lg:text-6xl mb-8" style="color: var(--text-primary);">
+        Starten Sie Ihre KI-Transformation
+      </h2>
+      <p class="text-lg mb-12 max-w-2xl mx-auto" style="color: var(--text-secondary); line-height: 1.8;">
+        Vereinbaren Sie ein unverbindliches Gespräch. Wir analysieren Ihre Ausgangslage und entwickeln einen maßgeschneiderten Fahrplan.
       </p>
-      
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-        <button class="btn-primary">Jetzt starten →</button>
-        <button class="btn-secondary">Kostenlose Vorschau</button>
-      </div>
-      
-      <div class="grid grid-cols-3 gap-6 max-w-3xl mx-auto">
-        <div class="glass-card p-6 rounded-2xl text-center">
-          <div class="text-4xl md:text-5xl font-bold text-gradient mb-2">22</div>
-          <div class="text-sm text-gray-500 uppercase tracking-wider">Expert-Kurse</div>
-        </div>
-        <div class="glass-card p-6 rounded-2xl text-center">
-          <div class="text-4xl md:text-5xl font-bold mb-2" style="background:linear-gradient(135deg,#a855f7 0%,#7c3aed 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent">2.5h</div>
-          <div class="text-sm text-gray-500 uppercase tracking-wider">Ø Kursdauer</div>
-        </div>
-        <div class="glass-card p-6 rounded-2xl text-center">
-          <div class="text-4xl md:text-5xl font-bold text-gradient mb-2">100%</div>
-          <div class="text-sm text-gray-500 uppercase tracking-wider">Praxisnah</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features -->
-  <section class="py-32 relative">
-    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-500/5 to-transparent"></div>
-    <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="text-center mb-20">
-        <div class="badge-ai mb-6">Warum wir anders sind</div>
-        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Kein Theorie-Bullshit.<br><span class="text-gradient">Nur Ergebnisse.</span></h2>
-        <p class="text-gray-400 max-w-2xl mx-auto text-lg">Wir haben die KI-Kurse getestet, die da draußen kursieren. 90% sind Müll. Wir machen die anderen 10%.</p>
-      </div>
-      
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="card-premium p-8 rounded-2xl">
-          <div class="w-14 h-14 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-6">
-            <svg class="w-7 h-7 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-4">Sofort umsetzbar</h3>
-          <p class="text-gray-400 leading-relaxed">Jedes Konzept wird direkt mit praktischen Beispielen erklärt. Wissen, das du heute lernst, morgen anwenden kannst.</p>
-        </div>
-        <div class="card-premium p-8 rounded-2xl">
-          <div class="w-14 h-14 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6">
-            <svg class="w-7 h-7 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-4">Rechtssicher</h3>
-          <p class="text-gray-400 leading-relaxed">EU AI Act, DSGVO, Haftung – wir decken alle rechtlichen Aspekte ab, damit du KI risikofrei nutzt.</p>
-        </div>
-        <div class="card-premium p-8 rounded-2xl">
-          <div class="w-14 h-14 rounded-xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center mb-6">
-            <svg class="w-7 h-7 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-4">Expert-Level</h3>
-          <p class="text-gray-400 leading-relaxed">Ob KMU-Geschäftsführer oder Entscheider – unsere Kurse sind für Profis aufbereitet, die Ergebnisse erwarten.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Kurse -->
-  <section id="kurse" class="py-32 relative">
-    <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="text-center mb-20">
-        <div class="badge-ai mb-6">Kursübersicht</div>
-        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">22 Kurse in 6 Kategorien</h2>
-      </div>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="glass-card p-8 rounded-2xl cursor-pointer">
-          <div class="w-12 h-12 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-6">
-            <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-          </div>
-          <h3 class="text-lg font-bold text-white mb-2">EU AI Act & Compliance</h3>
-          <p class="text-gray-500 text-sm mb-4">Rechtssichere KI-Nutzung</p>
-          <span class="text-sm text-gray-400">4 Kurse</span>
-        </div>
-        <div class="glass-card p-8 rounded-2xl cursor-pointer">
-          <div class="w-12 h-12 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6">
-            <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
-          </div>
-          <h3 class="text-lg font-bold text-white mb-2">KI-Strategie & Governance</h3>
-          <p class="text-gray-500 text-sm mb-4">Strategische Implementierung</p>
-          <span class="text-sm text-gray-400">5 Kurse</span>
-        </div>
-        <div class="glass-card p-8 rounded-2xl cursor-pointer">
-          <div class="w-12 h-12 rounded-lg bg-pink-500/10 border border-pink-500/20 flex items-center justify-center mb-6">
-            <svg class="w-6 h-6 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-          </div>
-          <h3 class="text-lg font-bold text-white mb-2">Praxis-Tools & Automation</h3>
-          <p class="text-gray-500 text-sm mb-4">No-Code & Low-Code Lösungen</p>
-          <span class="text-sm text-gray-400">6 Kurse</span>
-        </div>
-        <div class="glass-card p-8 rounded-2xl cursor-pointer">
-          <div class="w-12 h-12 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-6">
-            <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-          </div>
-          <h3 class="text-lg font-bold text-white mb-2">Datenschutz & Recht</h3>
-          <p class="text-gray-500 text-sm mb-4">DSGVO-konform arbeiten</p>
-          <span class="text-sm text-gray-400">3 Kurse</span>
-        </div>
-        <div class="glass-card p-8 rounded-2xl cursor-pointer">
-          <div class="w-12 h-12 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6">
-            <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          </div>
-          <h3 class="text-lg font-bold text-white mb-2">KI für Spezialisten</h3>
-          <p class="text-gray-500 text-sm mb-4">Branchenspezifisch</p>
-          <span class="text-sm text-gray-400">2 Kurse</span>
-        </div>
-        <div class="glass-card p-8 rounded-2xl cursor-pointer">
-          <div class="w-12 h-12 rounded-lg bg-pink-500/10 border border-pink-500/20 flex items-center justify-center mb-6">
-            <svg class="w-6 h-6 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          </div>
-          <h3 class="text-lg font-bold text-white mb-2">Schnellstart-Kurse</h3>
-          <p class="text-gray-500 text-sm mb-4">In 30 Minuten startklar</p>
-          <span class="text-sm text-gray-400">2 Kurse</span>
-        </div>
-      </div>
-      
-      <div class="text-center mt-16">
-        <button class="btn-primary">Alle 22 Kurse entdecken →</button>
-      </div>
+      <a href="/kontakt.html" class="btn-executive">Beratungsgespräch anfragen</a>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer id="kontakt" class="border-t border-white/5 py-20">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-8">
-        <div class="flex items-center space-x-3">
-          <svg class="w-7 h-7 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-          <span class="text-lg font-bold text-white">KI <span style="color:#00d4ff">Expertenraum</span></span>
+  <footer style="background: var(--bg-secondary); border-top: 1px solid var(--border);">
+    <div class="max-w-7xl mx-auto px-8 lg:px-12 py-20">
+      <div class="grid md:grid-cols-4 gap-12 mb-16">
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-8 h-8 border border-[var(--accent)] flex items-center justify-center">
+              <span class="text-[var(--accent)] font-display text-lg">K</span>
+            </div>
+            <span class="text-sm font-medium tracking-[0.2em] uppercase" style="color: var(--text-primary);">KI Expertenraum</span>
+          </div>
+          <p class="max-w-sm mb-6" style="color: var(--text-secondary); line-height: 1.8;">
+            Premium KI-Beratung für den Mittelstand. Praxiserprobt, rechtssicher, messbar erfolgreich.
+          </p>
+          <a href="mailto:zerna.philipp@gmail.com" class="text-[var(--accent)] hover:underline">zerna.philipp@gmail.com</a>
         </div>
-        <div class="flex items-center gap-8 text-gray-500 text-sm">
-          <a href="#" class="hover:text-white transition">Impressum</a>
-          <a href="#" class="hover:text-white transition">Datenschutz</a>
-          <a href="mailto:zerna.philipp@gmail.com" class="hover:text-cyan-400 transition">zerna.philipp@gmail.com</a>
+        
+        <div>
+          <h4 class="text-xs tracking-[0.2em] uppercase mb-6" style="color: var(--text-primary);">Navigation</h4>
+          <ul class="space-y-3">
+            <li><a href="/kurse/" class="nav-link">Kurse</a></li>
+            <li><a href="/services/" class="nav-link">Services</a></li>
+            <li><a href="/artikel/" class="nav-link">Artikel</a></li>
+            <li><a href="/glossar/" class="nav-link">Glossar</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-xs tracking-[0.2em] uppercase mb-6" style="color: var(--text-primary);">Rechtliches</h4>
+          <ul class="space-y-3">
+            <li><a href="/impressum/" class="nav-link">Impressum</a></li>
+            <li><a href="/datenschutz/" class="nav-link">Datenschutz</a></li>
+            <li><a href="/kontakt.html" class="nav-link">Kontakt</a></li>
+          </ul>
         </div>
       </div>
-      <p class="text-gray-600 text-sm text-center mt-8">© 2026 KI Expertenraum. Alle Rechte vorbehalten.</p>
+      
+      <div class="divider mb-8"></div>
+      
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <p class="text-xs tracking-[0.1em]" style="color: var(--text-muted);">© 2026 KI Expertenraum. Alle Rechte vorbehalten.</p>
+        <p class="text-xs tracking-[0.1em]" style="color: var(--text-muted);">Philipp Zerna · Strategische KI-Beratung</p>
+      </div>
     </div>
   </footer>
 </body>
