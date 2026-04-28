@@ -1,910 +1,215 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KI-Expertenraum | Strategische KI-Implementierung für Unternehmen</title>
-    <meta name="description" content="Enterprise-grade KI-Beratung und -Implementierung für mittelständische Unternehmen. Von Philipp Zerna – praxiserprobt, DSGVO-konform, messbar erfolgreich.">
-    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --bg-primary: #F5F5F0;
-            --bg-secondary: #FAFAF7;
-            --text-primary: #1a1a1a;
-            --text-secondary: #666666;
-            --text-muted: #999999;
-            --accent-gold: #C9A962;
-            --accent-rose: #D4A5A5;
-            --font-display: 'Playfair Display', serif;
-            --font-body: 'Inter', sans-serif;
-        }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: var(--font-body);
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 500; }
-        
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 24px 64px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(245, 245, 240, 0.9);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(26, 26, 26, 0.05);
-        }
-        .logo {
-            font-family: var(--font-display);
-            font-size: 26px;
-            font-weight: 600;
-            color: var(--text-primary);
-            text-decoration: none;
-        }
-        .logo span { color: var(--accent-gold); }
-        .nav-links {
-            display: flex;
-            gap: 48px;
-            list-style: none;
-            align-items: center;
-        }
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 400;
-            transition: color 0.3s ease;
-        }
-        .nav-links a:hover { color: var(--accent-gold); }
-        .nav-cta {
-            background: var(--text-primary);
-            color: var(--bg-primary);
-            padding: 12px 28px;
-            border-radius: 100px;
-            font-weight: 500;
-            font-size: 13px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        .nav-cta:hover {
-            background: var(--accent-gold);
-            color: var(--text-primary);
-        }
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: var(--text-primary);
-            z-index: 1001;
-        }
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--bg-primary);
-            z-index: 999;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 32px;
-        }
-        .mobile-menu.active { display: flex; }
-        .mobile-menu a {
-            font-family: var(--font-display);
-            font-size: 32px;
-            color: var(--text-primary);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        .mobile-menu a:hover { color: var(--accent-gold); }
-        .mobile-menu-close {
-            position: absolute;
-            top: 24px;
-            right: 64px;
-            background: none;
-            border: none;
-            font-size: 32px;
-            cursor: pointer;
-            color: var(--text-primary);
-        }
-        
-        .hero {
-            min-height: 100vh;
-            padding: 160px 64px 100px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            background: rgba(201, 169, 98, 0.1);
-            border: 1px solid rgba(201, 169, 98, 0.2);
-            border-radius: 100px;
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--accent-gold);
-            margin-bottom: 32px;
-        }
-        .hero-content h1 {
-            font-size: clamp(44px, 5vw, 68px);
-            line-height: 1.05;
-            margin-bottom: 28px;
-            font-weight: 500;
-        }
-        .hero-content h1 span {
-            font-style: italic;
-            color: var(--accent-gold);
-        }
-        .hero-content p {
-            font-size: 18px;
-            color: var(--text-secondary);
-            margin-bottom: 40px;
-            line-height: 1.8;
-            max-width: 480px;
-            font-weight: 300;
-        }
-        .hero-buttons {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 16px 32px;
-            border-radius: 100px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            border: none;
-            cursor: pointer;
-        }
-        .btn-primary {
-            background: var(--text-primary);
-            color: var(--bg-primary);
-        }
-        .btn-primary:hover {
-            background: var(--accent-gold);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(201, 169, 98, 0.3);
-        }
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-primary);
-            border: 1px solid rgba(26, 26, 26, 0.2);
-        }
-        .btn-secondary:hover {
-            border-color: var(--accent-gold);
-            color: var(--accent-gold);
-        }
-        
-        .hero-visual {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, rgba(201, 169, 98, 0.1) 0%, rgba(212, 165, 165, 0.1) 100%);
-            border-radius: 30px;
-            padding: 40px;
-        }
-        .hero-visual svg {
-            width: 100%;
-            max-width: 400px;
-            filter: drop-shadow(0 20px 40px rgba(201, 169, 98, 0.3));
-        }
-        
-        .stats-bar {
-            display: flex;
-            justify-content: center;
-            gap: 100px;
-            padding: 60px 64px;
-            background: var(--bg-secondary);
-            border-top: 1px solid rgba(26, 26, 26, 0.05);
-            border-bottom: 1px solid rgba(26, 26, 26, 0.05);
-        }
-        .stat-item { text-align: center; }
-        .stat-number {
-            font-family: var(--font-display);
-            font-size: 48px;
-            font-weight: 500;
-            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-rose) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: block;
-            line-height: 1;
-        }
-        .stat-label {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-top: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-        
-        .section-header {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto 80px;
-        }
-        .section-label {
-            font-family: var(--font-display);
-            font-size: 14px;
-            font-style: italic;
-            color: var(--accent-gold);
-            margin-bottom: 16px;
-            display: block;
-        }
-        .section-header h2 {
-            font-size: 52px;
-            margin-bottom: 20px;
-            font-weight: 500;
-        }
-        .section-header p {
-            font-size: 17px;
-            color: var(--text-secondary);
-            font-weight: 300;
-        }
-        
-        .services {
-            padding: 140px 64px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-        }
-        .service-card {
-            background: white;
-            border: 1px solid rgba(26, 26, 26, 0.06);
-            border-radius: 24px;
-            padding: 48px 40px;
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            text-decoration: none;
-            color: inherit;
-        }
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
-        }
-        .service-icon {
-            width: 64px;
-            height: 64px;
-            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-rose) 100%);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            margin-bottom: 32px;
-            box-shadow: 0 8px 20px rgba(201, 169, 98, 0.2);
-        }
-        .service-card h3 {
-            font-size: 26px;
-            margin-bottom: 16px;
-            font-weight: 500;
-        }
-        .service-card p {
-            color: var(--text-secondary);
-            font-size: 15px;
-            line-height: 1.7;
-            margin-bottom: 28px;
-            font-weight: 300;
-        }
-        .service-link {
-            color: var(--accent-gold);
-            font-weight: 500;
-            font-size: 14px;
-            text-decoration: none;
-        }
-        
-        .kurse {
-            padding: 140px 64px;
-            background: var(--bg-secondary);
-        }
-        .kurse-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .kurse-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-        }
-        .kurs-card {
-            background: white;
-            border-radius: 24px;
-            overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            text-decoration: none;
-            color: inherit;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-        }
-        .kurs-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
-        }
-        .kurs-image {
-            height: 220px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-        .kurs-image::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 60%);
-        }
-        .kurs-badge {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            padding: 8px 16px;
-            background: white;
-            border-radius: 100px;
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            z-index: 1;
-        }
-        .kurs-badge.bestseller { color: #d97706; }
-        .kurs-badge.popular { color: #059669; }
-        .kurs-badge.advanced { color: #7c3aed; }
-        .kurs-content {
-            padding: 32px;
-        }
-        .kurs-content h3 {
-            font-size: 22px;
-            margin-bottom: 12px;
-            font-weight: 500;
-        }
-        .kurs-content p {
-            color: var(--text-secondary);
-            font-size: 15px;
-            line-height: 1.6;
-            font-weight: 300;
-        }
-        
-        .ebooks {
-            padding: 140px 64px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .ebooks-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-        }
-        .ebook-card {
-            display: flex;
-            gap: 40px;
-            background: white;
-            border: 1px solid rgba(26, 26, 26, 0.06);
-            border-radius: 24px;
-            padding: 40px;
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            text-decoration: none;
-            color: inherit;
-        }
-        .ebook-card:hover {
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
-            transform: translateY(-4px);
-        }
-        .ebook-cover {
-            width: 160px;
-            height: 200px;
-            border-radius: 16px;
-            overflow: hidden;
-            flex-shrink: 0;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-        .ebook-cover img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .ebook-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .ebook-badge {
-            display: inline-flex;
-            padding: 8px 16px;
-            background: var(--bg-secondary);
-            border-radius: 100px;
-            font-size: 12px;
-            font-weight: 500;
-            color: var(--accent-gold);
-            width: fit-content;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        .ebook-title {
-            font-family: var(--font-display);
-            font-size: 28px;
-            margin-bottom: 16px;
-            font-weight: 500;
-        }
-        .ebook-description {
-            color: var(--text-secondary);
-            font-size: 15px;
-            line-height: 1.7;
-            margin-bottom: 28px;
-            font-weight: 300;
-        }
-        .ebook-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 14px 28px;
-            background: var(--text-primary);
-            color: var(--bg-primary);
-            border-radius: 100px;
-            font-weight: 500;
-            font-size: 14px;
-            text-decoration: none;
-            width: fit-content;
-            transition: all 0.3s ease;
-        }
-        .ebook-btn:hover {
-            background: var(--accent-gold);
-            color: var(--text-primary);
-        }
-        
-        .cta {
-            padding: 160px 64px;
-            text-align: center;
-            background: var(--text-primary);
-            color: var(--bg-primary);
-            position: relative;
-            overflow: hidden;
-        }
-        .cta::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 800px;
-            height: 400px;
-            background: radial-gradient(ellipse at center, rgba(201, 169, 98, 0.15) 0%, transparent 70%);
-            z-index: 0;
-        }
-        .cta h2 {
-            font-size: 56px;
-            margin-bottom: 24px;
-            font-weight: 500;
-            position: relative;
-            z-index: 1;
-        }
-        .cta h2 span {
-            font-style: italic;
-            color: var(--accent-gold);
-        }
-        .cta p {
-            font-size: 18px;
-            color: rgba(245, 245, 240, 0.6);
-            margin-bottom: 48px;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-            font-weight: 300;
-            position: relative;
-            z-index: 1;
-        }
-        .cta .btn-primary {
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            position: relative;
-            z-index: 1;
-        }
-        .cta .btn-primary:hover {
-            background: var(--accent-gold);
-            color: var(--text-primary);
-        }
-        
-        .footer {
-            background: var(--text-primary);
-            color: var(--bg-primary);
-            padding: 60px 64px 40px;
-        }
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 80px;
-            margin-bottom: 60px;
-        }
-        .footer-brand .logo {
-            color: var(--bg-primary);
-            margin-bottom: 20px;
-            display: inline-block;
-        }
-        .footer-brand p {
-            color: rgba(245, 245, 240, 0.5);
-            font-size: 14px;
-            line-height: 1.8;
-            font-weight: 300;
-        }
-        .footer-col h4 {
-            font-family: var(--font-display);
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 24px;
-            color: var(--bg-primary);
-        }
-        .footer-col a {
-            display: block;
-            color: rgba(245, 245, 240, 0.5);
-            text-decoration: none;
-            font-size: 14px;
-            margin-bottom: 14px;
-            transition: color 0.3s ease;
-            font-weight: 300;
-        }
-        .footer-col a:hover {
-            color: var(--accent-gold);
-        }
-        .footer-bottom {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding-top: 40px;
-            border-top: 1px solid rgba(245, 245, 240, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .footer-bottom p {
-            color: rgba(245, 245, 240, 0.4);
-            font-size: 13px;
-        }
-        .footer-bottom a {
-            color: rgba(245, 245, 240, 0.4);
-            text-decoration: none;
-            margin-left: 32px;
-            font-size: 13px;
-            transition: color 0.3s ease;
-        }
-        .footer-bottom a:hover {
-            color: var(--accent-gold);
-        }
-        
-        @media (max-width: 1024px) {
-            .hero {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 60px;
-            }
-            .hero-content p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .hero-buttons {
-                justify-content: center;
-            }
-            .hero-visual {
-                order: -1;
-                max-width: 400px;
-                margin: 0 auto;
-            }
-            .services-grid, .kurse-grid {
-                grid-template-columns: 1fr;
-            }
-            .ebooks-grid {
-                grid-template-columns: 1fr;
-            }
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-            }
-            .stats-bar {
-                gap: 60px;
-                flex-wrap: wrap;
-            }
-            .nav {
-                padding: 20px 32px;
-            }
-            .nav-links, .nav-cta {
-                display: none;
-            }
-            .mobile-menu-btn {
-                display: block;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .hero {
-                padding: 140px 32px 80px;
-            }
-            .hero-content h1 {
-                font-size: 36px;
-            }
-            .services, .kurse, .ebooks {
-                padding: 100px 32px;
-            }
-            .section-header h2 {
-                font-size: 36px;
-            }
-            .stats-bar {
-                flex-direction: column;
-                gap: 32px;
-            }
-            .ebook-card {
-                flex-direction: column;
-                text-align: center;
-            }
-            .ebook-cover {
-                margin: 0 auto;
-            }
-            .ebook-btn {
-                margin: 0 auto;
-            }
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                text-align: center;
-            }
-            .footer-bottom {
-                flex-direction: column;
-                gap: 16px;
-            }
-            .mobile-menu-close {
-                right: 32px;
-            }
-            .cta h2 {
-                font-size: 36px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KI Expertenraum | Premium KI-Kurse</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #050505; color: #fafafa; }
+    .text-gradient { background: linear-gradient(135deg, #00d4ff 0%, #a855f7 50%, #ec4899 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .glass { background: rgba(10, 10, 10, 0.6); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.08); }
+    .glass-card { background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.06); transition: all 0.4s ease; }
+    .glass-card:hover { border-color: rgba(0, 212, 255, 0.3); box-shadow: 0 0 40px rgba(0, 212, 255, 0.1); transform: translateY(-2px); }
+    .btn-primary { background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%); color: #000; font-weight: 600; padding: 1rem 2rem; border-radius: 0.5rem; border: none; cursor: pointer; box-shadow: 0 0 30px rgba(0, 212, 255, 0.3); transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem; }
+    .btn-primary:hover { box-shadow: 0 0 50px rgba(0, 212, 255, 0.5); transform: translateY(-2px); }
+    .btn-secondary { background: transparent; border: 1px solid rgba(255, 255, 255, 0.15); color: white; font-weight: 500; padding: 1rem 2rem; border-radius: 0.5rem; cursor: pointer; transition: all 0.3s ease; }
+    .btn-secondary:hover { border-color: rgba(0, 212, 255, 0.5); background: linear-gradient(135deg, rgba(0,212,255,0.1) 0%, rgba(168,85,247,0.1) 100%); }
+    .badge-ai { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: linear-gradient(135deg, rgba(0,212,255,0.1) 0%, rgba(168,85,247,0.1) 100%); border: 1px solid rgba(0, 212, 255, 0.2); border-radius: 9999px; font-size: 0.875rem; color: #00d4ff; }
+    .grid-bg { background-image: linear-gradient(to right, rgba(0, 212, 255, 0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 212, 255, 0.03) 1px, transparent 1px); background-size: 80px 80px; }
+    .card-premium { background: linear-gradient(145deg, #0a0a0a 0%, #050505 100%); border: 1px solid rgba(255, 255, 255, 0.05); position: relative; overflow: hidden; }
+    .card-premium::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(0,212,255,0.3), transparent); }
+    .glow-orb { position: absolute; border-radius: 50%; filter: blur(120px); animation: pulse 4s ease-in-out infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 0.8; } }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #050505; }
+    ::-webkit-scrollbar-thumb { background: #1a1a1a; border-radius: 3px; }
+    ::selection { background: rgba(0, 212, 255, 0.3); color: white; }
+  </style>
 </head>
 <body>
-    <nav class="nav">
-        <a href="/" class="logo">KI<span>.</span>Expertenraum</a>
-        <ul class="nav-links">
-            <li><a href="/">Start</a></li>
-            <li><a href="/kurse/">Kurse</a></li>
-            <li><a href="/services/">Services</a></li>
-            <li><a href="/artikel/">Artikel</a></li>
-            <li><a href="/glossar/">Glossar</a></li>
-            <li><a href="/kontakt.html">Kontakt</a></li>
-        </ul>
-        <a href="/kontakt.html" class="nav-cta">Beratung anfragen</a>
-        <button class="mobile-menu-btn" onclick="document.getElementById('mobileMenu').classList.add('active')">☰</button>
-    </nav>
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full z-50 glass border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <div class="flex items-center space-x-3">
+          <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+          <span class="text-xl font-bold text-white">KI <span style="color:#00d4ff">Expertenraum</span></span>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#kurse" class="text-sm text-gray-400 hover:text-white transition">Kurse</a>
+          <a href="#kontakt" class="text-sm text-gray-400 hover:text-white transition">Kontakt</a>
+        </div>
+        <button class="btn-primary text-sm px-6 py-2.5">Kurse entdecken</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+    <div class="absolute inset-0 grid-bg opacity-30"></div>
+    <div class="glow-orb top-1/4 left-1/4 w-[500px] h-[500px] bg-cyan-500/10"></div>
+    <div class="glow-orb bottom-1/4 right-1/4 w-[600px] h-[600px] bg-purple-500/10" style="animation-delay:2s"></div>
     
-    <div class="mobile-menu" id="mobileMenu">
-        <button class="mobile-menu-close" onclick="document.getElementById('mobileMenu').classList.remove('active')">×</button>
-        <a href="/" onclick="document.getElementById('mobileMenu').classList.remove('active')">Start</a>
-        <a href="/kurse/" onclick="document.getElementById('mobileMenu').classList.remove('active')">Kurse</a>
-        <a href="/services/" onclick="document.getElementById('mobileMenu').classList.remove('active')">Services</a>
-        <a href="/artikel/" onclick="document.getElementById('mobileMenu').classList.remove('active')">Artikel</a>
-        <a href="/glossar/" onclick="document.getElementById('mobileMenu').classList.remove('active')">Glossar</a>
-        <a href="/kontakt.html" onclick="document.getElementById('mobileMenu').classList.remove('active')">Kontakt</a>
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-8 py-20 text-center">
+      <div class="badge-ai mb-8">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+        Premium KI-Ausbildung
+        <span style="color:#00d4ff;margin-left:8px">22 Expert-Kurse</span>
+      </div>
+      
+      <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8">
+        <span class="block text-white mb-2">Meistere die</span>
+        <span class="block text-gradient mb-2">KI-Revolution</span>
+        <span class="block text-white/90 text-3xl md:text-5xl lg:text-6xl font-medium">praxisnah & ohne Hype</span>
+      </h1>
+      
+      <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-12">
+        Von <span class="text-white">EU AI Act Compliance</span> bis zu <span class="text-white">No-Code Automatisierung</span>. Premium-Kurse für Entscheider.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+        <button class="btn-primary">Jetzt starten →</button>
+        <button class="btn-secondary">Kostenlose Vorschau</button>
+      </div>
+      
+      <div class="grid grid-cols-3 gap-6 max-w-3xl mx-auto">
+        <div class="glass-card p-6 rounded-2xl text-center">
+          <div class="text-4xl md:text-5xl font-bold text-gradient mb-2">22</div>
+          <div class="text-sm text-gray-500 uppercase tracking-wider">Expert-Kurse</div>
+        </div>
+        <div class="glass-card p-6 rounded-2xl text-center">
+          <div class="text-4xl md:text-5xl font-bold mb-2" style="background:linear-gradient(135deg,#a855f7 0%,#7c3aed 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent">2.5h</div>
+          <div class="text-sm text-gray-500 uppercase tracking-wider">Ø Kursdauer</div>
+        </div>
+        <div class="glass-card p-6 rounded-2xl text-center">
+          <div class="text-4xl md:text-5xl font-bold text-gradient mb-2">100%</div>
+          <div class="text-sm text-gray-500 uppercase tracking-wider">Praxisnah</div>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <header class="hero">
-        <div class="hero-content">
-            <div class="hero-badge">Verfügbar für neue Projekte</div>
-            <h1>Strategische KI-Implementierung <span>für Ihr Unternehmen</span></h1>
-            <p>Enterprise-grade KI-Beratung für den Mittelstand. Praxiserprobt, DSGVO-konform, messbar erfolgreich.</p>
-            <div class="hero-buttons">
-                <a href="/services/" class="btn btn-primary">Services entdecken →</a>
-                <a href="/kurse/" class="btn btn-secondary">Kurse ansehen</a>
-            </div>
+  <!-- Features -->
+  <section class="py-32 relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-500/5 to-transparent"></div>
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-20">
+        <div class="badge-ai mb-6">Warum wir anders sind</div>
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Kein Theorie-Bullshit.<br><span class="text-gradient">Nur Ergebnisse.</span></h2>
+        <p class="text-gray-400 max-w-2xl mx-auto text-lg">Wir haben die KI-Kurse getestet, die da draußen kursieren. 90% sind Müll. Wir machen die anderen 10%.</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="card-premium p-8 rounded-2xl">
+          <div class="w-14 h-14 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-4">Sofort umsetzbar</h3>
+          <p class="text-gray-400 leading-relaxed">Jedes Konzept wird direkt mit praktischen Beispielen erklärt. Wissen, das du heute lernst, morgen anwenden kannst.</p>
         </div>
-        <div class="hero-visual">
-            <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#C9A962"/>
-                        <stop offset="100%" style="stop-color:#D4A5A5"/>
-                    </linearGradient>
-                    <filter id="glow">
-                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                        <feMerge>
-                            <feMergeNode in="coloredBlur"/>
-                            <feMergeNode in="SourceGraphic"/>
-                        </feMerge>
-                    </filter>
-                </defs>
-                
-                <!-- Elegant geometric brain shape -->
-                <path d="M200 60 C260 60 310 100 330 160 C350 220 330 290 280 330 C250 355 200 365 150 350 C100 335 70 280 70 220 C70 160 100 100 150 80 C170 70 185 60 200 60" 
-                      fill="url(#goldGrad)" opacity="0.1"/>
-                
-                <!-- Main brain outline -->
-                <path d="M200 80 C250 80 290 115 305 165 C320 215 305 275 265 305 C240 325 200 335 160 320 C120 305 95 260 95 210 C95 160 120 115 155 100 C170 90 185 80 200 80" 
-                      stroke="url(#goldGrad)" stroke-width="2" fill="none" filter="url(#glow)"/>
-                
-                <!-- Hemisphere divider -->
-                <path d="M200 85 L200 330" stroke="url(#goldGrad)" stroke-width="1" opacity="0.4"/>
-                
-                <!-- Circuit lines left -->
-                <path d="M120 140 L160 140 L180 120 L200 120" stroke="#C9A962" stroke-width="1.5" fill="none" opacity="0.7"/>
-                <path d="M110 180 L150 180 L170 200 L200 200" stroke="#C9A962" stroke-width="1.5" fill="none" opacity="0.7"/>
-                <path d="M115 240 L155 240 L175 260 L200 260" stroke="#C9A962" stroke-width="1.5" fill="none" opacity="0.7"/>
-                
-                <!-- Circuit lines right -->
-                <path d="M280 140 L240 140 L220 120 L200 120" stroke="#D4A5A5" stroke-width="1.5" fill="none" opacity="0.7"/>
-                <path d="M290 180 L250 180 L230 200 L200 200" stroke="#D4A5A5" stroke-width="1.5" fill="none" opacity="0.7"/>
-                <path d="M285 240 L245 240 L225 260 L200 260" stroke="#D4A5A5" stroke-width="1.5" fill="none" opacity="0.7"/>
-                
-                <!-- Connection nodes -->
-                <circle cx="160" cy="140" r="5" fill="#C9A962" filter="url(#glow)"/>
-                <circle cx="150" cy="180" r="4" fill="#C9A962" filter="url(#glow)"/>
-                <circle cx="155" cy="240" r="5" fill="#C9A962" filter="url(#glow)"/>
-                <circle cx="240" cy="140" r="5" fill="#D4A5A5" filter="url(#glow)"/>
-                <circle cx="250" cy="180" r="4" fill="#D4A5A5" filter="url(#glow)"/>
-                <circle cx="245" cy="240" r="5" fill="#D4A5A5" filter="url(#glow)"/>
-                
-                <!-- Central core -->
-                <circle cx="200" cy="210" r="25" fill="url(#goldGrad)" opacity="0.2" filter="url(#glow)"/>
-                <circle cx="200" cy="210" r="15" fill="url(#goldGrad)" opacity="0.4" filter="url(#glow)"/>
-                <circle cx="200" cy="210" r="7" fill="#C9A962" filter="url(#glow)"/>
-                
-                <!-- Data flow indicators -->
-                <circle cx="140" cy="160" r="2" fill="#C9A962" opacity="0.8"/>
-                <circle cx="260" cy="190" r="2" fill="#D4A5A5" opacity="0.8"/>
-                <circle cx="180" cy="280" r="2" fill="#C9A962" opacity="0.8"/>
-                <circle cx="220" cy="250" r="2" fill="#D4A5A5" opacity="0.8"/>
-            </svg>
+        <div class="card-premium p-8 rounded-2xl">
+          <div class="w-14 h-14 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-4">Rechtssicher</h3>
+          <p class="text-gray-400 leading-relaxed">EU AI Act, DSGVO, Haftung – wir decken alle rechtlichen Aspekte ab, damit du KI risikofrei nutzt.</p>
         </div>
-    </header>
-
-    <div class="stats-bar">
-        <div class="stat-item"><span class="stat-number">50+</span><span class="stat-label">KI-Projekte</span></div>
-        <div class="stat-item"><span class="stat-number">20</span><span class="stat-label">Enterprise-Kurse</span></div>
-        <div class="stat-item"><span class="stat-number">100%</span><span class="stat-label">DSGVO-konform</span></div>
-        <div class="stat-item"><span class="stat-number">14</span><span class="stat-label">Praxisguides</span></div>
+        <div class="card-premium p-8 rounded-2xl">
+          <div class="w-14 h-14 rounded-xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-4">Expert-Level</h3>
+          <p class="text-gray-400 leading-relaxed">Ob KMU-Geschäftsführer oder Entscheider – unsere Kurse sind für Profis aufbereitet, die Ergebnisse erwarten.</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <section class="services">
-        <div class="section-header">
-            <span class="section-label">Leistungen</span>
-            <h2>End-to-End KI-Implementierung</h2>
-            <p>Von der ersten Strategie bis zur vollständigen Integration</p>
+  <!-- Kurse -->
+  <section id="kurse" class="py-32 relative">
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-20">
+        <div class="badge-ai mb-6">Kursübersicht</div>
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">22 Kurse in 6 Kategorien</h2>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="glass-card p-8 rounded-2xl cursor-pointer">
+          <div class="w-12 h-12 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">EU AI Act & Compliance</h3>
+          <p class="text-gray-500 text-sm mb-4">Rechtssichere KI-Nutzung</p>
+          <span class="text-sm text-gray-400">4 Kurse</span>
         </div>
-        <div class="services-grid">
-            <a href="/services/" class="service-card">
-                <div class="service-icon">🎯</div>
-                <h3>KI-Strategie</h3>
-                <p>Maßgeschneiderte Roadmaps für Ihre KI-Transformation mit ROI-Berechnung.</p>
-                <span class="service-link">Mehr erfahren →</span>
-            </a>
-            <a href="/services/" class="service-card">
-                <div class="service-icon">⚙️</div>
-                <h3>Implementierung</h3>
-                <p>Technische Umsetzung von KI-Workflows und Systemintegration.</p>
-                <span class="service-link">Mehr erfahren →</span>
-            </a>
-            <a href="/services/" class="service-card">
-                <div class="service-icon">🛡️</div>
-                <h3>Compliance</h3>
-                <p>EU AI Act, DSGVO und rechtssichere KI-Nutzung.</p>
-                <span class="service-link">Mehr erfahren →</span>
-            </a>
+        <div class="glass-card p-8 rounded-2xl cursor-pointer">
+          <div class="w-12 h-12 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">KI-Strategie & Governance</h3>
+          <p class="text-gray-500 text-sm mb-4">Strategische Implementierung</p>
+          <span class="text-sm text-gray-400">5 Kurse</span>
         </div>
-    </section>
+        <div class="glass-card p-8 rounded-2xl cursor-pointer">
+          <div class="w-12 h-12 rounded-lg bg-pink-500/10 border border-pink-500/20 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Praxis-Tools & Automation</h3>
+          <p class="text-gray-500 text-sm mb-4">No-Code & Low-Code Lösungen</p>
+          <span class="text-sm text-gray-400">6 Kurse</span>
+        </div>
+        <div class="glass-card p-8 rounded-2xl cursor-pointer">
+          <div class="w-12 h-12 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Datenschutz & Recht</h3>
+          <p class="text-gray-500 text-sm mb-4">DSGVO-konform arbeiten</p>
+          <span class="text-sm text-gray-400">3 Kurse</span>
+        </div>
+        <div class="glass-card p-8 rounded-2xl cursor-pointer">
+          <div class="w-12 h-12 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">KI für Spezialisten</h3>
+          <p class="text-gray-500 text-sm mb-4">Branchenspezifisch</p>
+          <span class="text-sm text-gray-400">2 Kurse</span>
+        </div>
+        <div class="glass-card p-8 rounded-2xl cursor-pointer">
+          <div class="w-12 h-12 rounded-lg bg-pink-500/10 border border-pink-500/20 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Schnellstart-Kurse</h3>
+          <p class="text-gray-500 text-sm mb-4">In 30 Minuten startklar</p>
+          <span class="text-sm text-gray-400">2 Kurse</span>
+        </div>
+      </div>
+      
+      <div class="text-center mt-16">
+        <button class="btn-primary">Alle 22 Kurse entdecken →</button>
+      </div>
+    </div>
+  </section>
 
-    <section class="kurse">
-        <div class="kurse-container">
-            <div class="section-header">
-                <span class="section-label">Academy</span>
-                <h2>Enterprise KI-Kurse</h2>
-                <p>Zertifizierte Weiterbildung für Führungskräfte</p>
-            </div>
-            <div class="kurse-grid">
-                <a href="/kurse/" class="kurs-card">
-                    <div class="kurs-image" style="background-image: url('/public/images/kurs1_eu%20au%20ai%20act.png?v=2')"><span class="kurs-badge bestseller">Bestseller</span></div>
-                    <div class="kurs-content"><h3>EU AI Act</h3><p>Rechtssichere KI-Nutzung mit Compliance-Framework</p></div>
-                </a>
-                <a href="/kurse/" class="kurs-card">
-                    <div class="kurs-image" style="background-image: url('/public/images/kurs2_chatgpt.png?v=2')"><span class="kurs-badge popular">Beliebt</span></div>
-                    <div class="kurs-content"><h3>ChatGPT Professional</h3><p>Enterprise Prompt Engineering</p></div>
-                </a>
-                <a href="/kurse/" class="kurs-card">
-                    <div class="kurs-image" style="background-image: url('/public/images/kurs3_prompt.png?v=2')"><span class="kurs-badge advanced">Advanced</span></div>
-                    <div class="kurs-content"><h3>Prompt Engineering</h3><p>Maximale Ergebnisse durch professionelle Prompts</p></div>
-                </a>
-            </div>
+  <!-- Footer -->
+  <footer id="kontakt" class="border-t border-white/5 py-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="flex items-center space-x-3">
+          <svg class="w-7 h-7 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+          <span class="text-lg font-bold text-white">KI <span style="color:#00d4ff">Expertenraum</span></span>
         </div>
-    </section>
-
-    <section class="ebooks">
-        <div class="section-header">
-            <span class="section-label">Ressourcen</span>
-            <h2>Kostenlose eBooks</h2>
-            <p>Praxisnahe Guides für sofortige Umsetzung</p>
+        <div class="flex items-center gap-8 text-gray-500 text-sm">
+          <a href="#" class="hover:text-white transition">Impressum</a>
+          <a href="#" class="hover:text-white transition">Datenschutz</a>
+          <a href="mailto:zerna.philipp@gmail.com" class="hover:text-cyan-400 transition">zerna.philipp@gmail.com</a>
         </div>
-        <div class="ebooks-grid">
-            <a href="https://www.dropbox.com/scl/fi/rt7k1r6w4qwexzs795gkv/Die_10_KI-Prompts_fuer_KMU.pdf?rlkey=wlo2fn2815lt2hwlp1w76ggk3&st=d49shol7&dl=1" class="ebook-card" target="_blank">
-                <div class="ebook-cover"><img src="/public/images/ebook1.png?v=2" alt="eBook 1"></div>
-                <div class="ebook-content">
-                    <span class="ebook-badge">Kostenloser Download</span>
-                    <h3 class="ebook-title">Die 10 KI-Prompts für KMU</h3>
-                    <p class="ebook-description">Die wichtigsten Prompts für kleine und mittlere Unternehmen.</p>
-                    <span class="ebook-btn">Download →</span>
-                </div>
-            </a>
-            <a href="https://www.dropbox.com/scl/fi/qee9tm1p7hbo5oe4eyemt/EU-AI-Act-Survival-Guide.pdf?rlkey=chsnn67os8xsei5epy9ft3x9l&st=foqj4wf8&dl=1" class="ebook-card" target="_blank">
-                <div class="ebook-cover"><img src="/public/images/ebook2.png?v=2" alt="eBook 2"></div>
-                <div class="ebook-content">
-                    <span class="ebook-badge">Kostenloser Download</span>
-                    <h3 class="ebook-title">EU AI Act Survival Guide</h3>
-                    <p class="ebook-description">Alles über die EU KI-Verordnung – kompakt erklärt.</p>
-                    <span class="ebook-btn">Download →</span>
-                </div>
-            </a>
-        </div>
-    </section>
-
-    <section class="cta">
-        <h2>Bereit für Ihre <span>KI-Transformation?</span></h2>
-        <p>Lassen Sie uns gemeinsam Ihr Potenzial analysieren und einen maßgeschneiderten Fahrplan erstellen.</p>
-        <a href="/kontakt.html" class="btn btn-primary">Beratung anfragen →</a>
-    </section>
-
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <a href="/" class="logo">KI<span>.</span>Expertenraum</a>
-                <p>Enterprise-grade KI-Beratung für den Mittelstand.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Angebot</h4>
-                <a href="/kurse/">Kurse</a>
-                <a href="/services/">Services</a>
-                <a href="/artikel/">Artikel</a>
-            </div>
-            <div class="footer-col">
-                <h4>Rechtliches</h4>
-                <a href="/impressum/">Impressum</a>
-                <a href="/datenschutz/">Datenschutz</a>
-            </div>
-            <div class="footer-col">
-                <h4>Connect</h4>
-                <a href="https://www.youtube.com/@philippzerna" target="_blank">YouTube</a>
-                <a href="https://www.linkedin.com/in/philipp-zerna/" target="_blank">LinkedIn</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2026 Philipp Zerna</p>
-            <div>
-                <a href="/impressum/">Impressum</a>
-                <a href="/datenschutz/">Datenschutz</a>
-            </div>
-        </div>
-    </footer>
+      </div>
+      <p class="text-gray-600 text-sm text-center mt-8">© 2026 KI Expertenraum. Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
 </body>
 </html>
