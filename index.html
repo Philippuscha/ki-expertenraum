@@ -3,158 +3,456 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KI Expertenraum | Strategische KI-Beratung</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600&display=swap" rel="stylesheet">
+  <title>KI Expertenraum | Premium KI-Beratung</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
-      --bg: #0a0a0a;
-      --bg-2: #111111;
-      --text: #fafafa;
-      --text-2: #a3a3a3;
-      --gold: #c9a962;
-      --border: rgba(255,255,255,0.06);
+      --bg: #fafafa;
+      --bg-warm: #f5f3ef;
+      --text: #1a1a1a;
+      --text-light: #666;
+      --accent: #c9a962;
+      --border: rgba(0,0,0,0.08);
     }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-    .serif { font-family: 'Cormorant Garamond', serif; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .serif { font-family: 'Playfair Display', serif; }
     
-    /* Navigation */
-    nav { position: fixed; top: 0; width: 100%; background: rgba(10,10,10,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); z-index: 100; }
-    .nav-container { max-width: 1400px; margin: 0 auto; padding: 0 60px; display: flex; justify-content: space-between; align-items: center; height: 90px; }
-    .logo { display: flex; align-items: center; gap: 16px; text-decoration: none; }
-    .logo-box { width: 48px; height: 48px; border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center; }
-    .logo-box span { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--gold); }
-    .logo-text { display: flex; flex-direction: column; }
-    .logo-title { font-size: 14px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text); }
-    .logo-sub { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-2); }
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(250,250,250,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .logo-mark {
+      width: 40px;
+      height: 40px;
+      background: var(--text);
+      color: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+    }
+    .logo-text { font-size: 18px; font-weight: 500; }
     
-    .nav-links { display: flex; gap: 48px; }
-    .nav-links a { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-2); text-decoration: none; transition: color 0.3s; position: relative; }
+    .nav-links { display: flex; gap: 40px; }
+    .nav-links a {
+      font-size: 14px;
+      color: var(--text-light);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
     .nav-links a:hover { color: var(--text); }
-    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.3s; }
-    .nav-links a:hover::after { width: 100%; }
     
-    .btn { background: var(--gold); color: #0a0a0a; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 16px 32px; border: none; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s; }
-    .btn:hover { background: #d4b56a; }
-    .btn-outline { background: transparent; border: 1px solid rgba(255,255,255,0.12); color: var(--text); }
-    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+    .nav-cta {
+      background: var(--text);
+      color: var(--bg);
+      padding: 12px 24px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .nav-cta:hover { background: var(--accent); }
     
-    /* Hero */
-    .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 90px; background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%); }
-    .hero-container { max-width: 1400px; margin: 0 auto; padding: 80px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
-    .accent-line { width: 60px; height: 1px; background: linear-gradient(90deg, var(--gold), transparent); margin-bottom: 32px; }
-    .label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
-    .hero h1 { font-size: 64px; line-height: 1.1; margin-bottom: 32px; font-weight: 400; }
-    .hero h1 span { font-style: italic; }
-    .hero p { font-size: 18px; color: var(--text-2); margin-bottom: 40px; max-width: 500px; line-height: 1.8; }
-    .hero-buttons { display: flex; gap: 16px; }
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 60px 80px;
+      background: linear-gradient(135deg, var(--bg) 0%, var(--bg-warm) 100%);
+    }
+    .hero-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: center;
+      width: 100%;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      margin-bottom: 32px;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 30px;
+      height: 1px;
+      background: var(--accent);
+    }
+    .hero h1 {
+      font-size: 72px;
+      line-height: 1.1;
+      font-weight: 400;
+      margin-bottom: 32px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .hero p {
+      font-size: 20px;
+      color: var(--text-light);
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 32px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .btn-primary {
+      background: var(--text);
+      color: var(--bg);
+    }
+    .btn-primary:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+      margin-left: 16px;
+    }
+    .btn-secondary:hover {
+      border-color: var(--text);
+      background: var(--text);
+      color: var(--bg);
+    }
     
-    .stats { display: flex; gap: 48px; margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border); }
-    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 64px; color: var(--gold); line-height: 1; }
-    .stat-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-2); margin-top: 8px; }
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 13px;
+      color: var(--text-light);
+      margin-top: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
     
-    /* Visual Element */
-    .visual { position: relative; aspect-ratio: 1; max-width: 500px; margin: 0 auto; }
-    .visual::before { content: ''; position: absolute; inset: 0; border: 1px solid var(--gold); opacity: 0.2; }
-    .visual::after { content: ''; position: absolute; inset: 30px; border: 1px solid var(--gold); opacity: 0.1; }
-    .visual-inner { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
-    .visual-letter { font-family: 'Cormorant Garamond', serif; font-size: 180px; color: var(--gold); opacity: 0.25; }
-    .lines { position: absolute; inset: 0; pointer-events: none; }
-    .lines::before, .lines::after { content: ''; position: absolute; width: 1px; height: 80px; background: linear-gradient(to bottom, var(--gold), transparent); opacity: 0.5; }
-    .lines::before { top: 0; left: 50%; transform: translateX(-50%); }
-    .lines::after { bottom: 0; left: 50%; transform: translateX(-50%) rotate(180deg); }
+    .hero-visual {
+      position: relative;
+      aspect-ratio: 4/5;
+      background: linear-gradient(135deg, #e8e6e2 0%, #d4d0c8 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-visual::before {
+      content: 'K';
+      font-family: 'Playfair Display', serif;
+      font-size: 300px;
+      color: rgba(0,0,0,0.08);
+    }
+    .floating-card {
+      position: absolute;
+      bottom: 40px;
+      right: -30px;
+      background: white;
+      padding: 24px 32px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    }
+    .floating-card-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-light);
+      margin-bottom: 8px;
+    }
+    .floating-card-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      color: var(--accent);
+    }
     
-    /* Services */
-    .services { padding: 140px 0; background: var(--bg-2); }
-    .container { max-width: 1400px; margin: 0 auto; padding: 0 60px; }
-    .section-header { margin-bottom: 80px; }
-    .section-header h2 { font-size: 48px; margin-bottom: 24px; font-weight: 400; }
-    .section-header h2 span { font-style: italic; }
-    .section-header p { color: var(--text-2); max-width: 500px; line-height: 1.8; }
+    section { padding: 120px 60px; }
+    .container { max-width: 1400px; margin: 0 auto; }
     
-    .service-grid { display: grid; gap: 1px; background: var(--border); }
-    .service-item { background: var(--bg-2); padding: 40px; display: grid; grid-template-columns: 60px 1fr auto; gap: 32px; align-items: start; cursor: pointer; transition: all 0.4s; }
-    .service-item:hover { background: linear-gradient(145deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.005) 100%); }
-    .service-item:hover h3 { color: var(--gold); }
-    .service-num { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
-    .service-item h3 { font-size: 24px; margin-bottom: 12px; transition: color 0.3s; }
-    .service-item p { color: var(--text-2); font-size: 15px; line-height: 1.7; }
-    .arrow { color: var(--text-2); transition: all 0.3s; }
-    .service-item:hover .arrow { color: var(--gold); transform: translateX(8px); }
+    .section-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-size: 52px;
+      font-weight: 400;
+      margin-bottom: 60px;
+    }
+    .section-title em { font-style: italic; color: var(--accent); }
     
-    /* Courses */
-    .courses { padding: 140px 0; background: var(--bg); }
-    .section-top { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 80px; }
+    .services { background: white; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+    }
+    .service-card {
+      background: white;
+      padding: 60px;
+      transition: all 0.4s;
+    }
+    .service-card:hover { background: var(--bg-warm); }
+    .service-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 14px;
+      color: var(--accent);
+      margin-bottom: 24px;
+    }
+    .service-card h3 {
+      font-size: 28px;
+      font-weight: 400;
+      margin-bottom: 16px;
+    }
+    .service-card:hover h3 { color: var(--accent); }
+    .service-card p {
+      color: var(--text-light);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+    .service-link {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .service-link:hover { color: var(--accent); }
     
-    .course-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .course-card { background: var(--bg-2); border: 1px solid var(--border); padding: 32px; transition: all 0.4s; text-decoration: none; color: inherit; }
-    .course-card:hover { border-color: rgba(201,169,98,0.3); transform: translateY(-4px); }
-    .course-img { aspect-ratio: 4/3; background: #1a1a1a; margin-bottom: 24px; overflow: hidden; }
-    .course-img img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(30%); transition: filter 0.4s; }
-    .course-card:hover .course-img img { filter: grayscale(0%); }
-    .course-card .label { margin-bottom: 16px; display: block; }
-    .course-card h3 { font-size: 22px; margin-bottom: 12px; font-family: 'Cormorant Garamond', serif; }
-    .course-card p { font-size: 14px; color: var(--text-2); line-height: 1.6; margin-bottom: 24px; }
-    .course-link { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
+    .courses { background: var(--bg-warm); }
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    .course-card {
+      background: white;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+      transition: all 0.4s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .course-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    }
+    .course-image {
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      background: #e8e6e2;
+    }
+    .course-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .course-content { padding: 32px; }
+    .course-category {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .course-card h3 {
+      font-size: 22px;
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+    .course-card p {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
     
-    /* Quote */
-    .quote { padding: 140px 0; background: var(--bg-2); text-align: center; }
-    .quote-mark { font-family: 'Cormorant Garamond', serif; font-size: 120px; color: var(--gold); opacity: 0.15; line-height: 1; margin-bottom: -40px; }
-    .quote blockquote { font-size: 32px; line-height: 1.5; max-width: 900px; margin: 0 auto 40px; font-style: italic; }
-    .quote-author { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-2); }
+    .quote {
+      background: var(--text);
+      color: var(--bg);
+      text-align: center;
+      padding: 140px 60px;
+    }
+    .quote-icon {
+      font-family: 'Playfair Display', serif;
+      font-size: 120px;
+      color: var(--accent);
+      opacity: 0.5;
+      line-height: 1;
+      margin-bottom: -40px;
+    }
+    .quote-text {
+      font-size: 36px;
+      line-height: 1.5;
+      font-weight: 300;
+      max-width: 900px;
+      margin: 0 auto 40px;
+      font-style: italic;
+    }
+    .quote-author {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+    }
     
-    /* Articles */
-    .articles { padding: 140px 0; background: var(--bg); }
-    .article-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); }
-    .article-item { background: var(--bg-2); padding: 32px 40px; display: grid; grid-template-columns: 120px 1fr auto; gap: 40px; align-items: center; text-decoration: none; color: inherit; transition: all 0.3s; }
-    .article-item:hover { background: linear-gradient(145deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.005) 100%); }
-    .article-item:hover h3 { color: var(--gold); }
-    .article-item h3 { font-size: 20px; font-family: 'Cormorant Garamond', serif; transition: color 0.3s; }
-    .article-link { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-2); transition: color 0.3s; }
-    .article-item:hover .article-link { color: var(--gold); }
+    .articles { background: white; }
+    .article-item {
+      display: grid;
+      grid-template-columns: 120px 1fr auto;
+      align-items: center;
+      gap: 40px;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s;
+    }
+    .article-item:hover { padding-left: 20px; }
+    .article-item:hover h3 { color: var(--accent); }
+    .article-category {
+      font-size: 13px;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .article-item h3 {
+      font-size: 24px;
+      font-weight: 400;
+    }
+    .article-tag {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+    }
     
-    /* CTA */
-    .cta { padding: 140px 0; background: var(--bg); text-align: center; position: relative; }
-    .cta::before, .cta::after { content: ''; position: absolute; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(201,169,98,0.3), transparent); }
-    .cta::before { top: 0; }
-    .cta::after { bottom: 0; }
-    .cta h2 { font-size: 56px; margin-bottom: 32px; font-weight: 400; }
-    .cta h2 span { font-style: italic; }
-    .cta p { color: var(--text-2); font-size: 18px; max-width: 600px; margin: 0 auto 48px; line-height: 1.8; }
+    .cta {
+      background: var(--bg-warm);
+      text-align: center;
+    }
+    .cta-box {
+      background: white;
+      padding: 100px;
+      max-width: 900px;
+      margin: 0 auto;
+      box-shadow: 0 20px 80px rgba(0,0,0,0.06);
+    }
+    .cta h2 {
+      font-size: 48px;
+      font-weight: 400;
+      margin-bottom: 24px;
+    }
+    .cta h2 em { font-style: italic; color: var(--accent); }
+    .cta p {
+      font-size: 18px;
+      color: var(--text-light);
+      margin-bottom: 40px;
+    }
     
-    /* Footer */
-    footer { padding: 80px 0 40px; background: var(--bg-2); border-top: 1px solid var(--border); }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 80px; margin-bottom: 80px; }
-    .footer-brand { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
-    .footer-brand .logo-box { width: 40px; height: 40px; }
-    .footer-brand .logo-box span { font-size: 20px; }
-    .footer-about { color: var(--text-2); font-size: 14px; line-height: 1.8; max-width: 400px; }
-    .footer-col h4 { font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text); margin-bottom: 24px; }
-    .footer-col a { display: block; color: var(--text-2); text-decoration: none; font-size: 14px; margin-bottom: 12px; transition: color 0.3s; }
-    .footer-col a:hover { color: var(--gold); }
-    
-    .footer-bottom { padding-top: 40px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-    .footer-bottom p { font-size: 12px; color: var(--text-2); }
+    footer {
+      background: var(--text);
+      color: var(--bg);
+      padding: 80px 60px 40px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+    .footer-col h4 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      margin-bottom: 24px;
+    }
+    .footer-col a {
+      display: block;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+    .footer-col a:hover { color: var(--bg); }
+    .footer-bottom {
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+    }
     
     @media (max-width: 1024px) {
-      .hero-container { grid-template-columns: 1fr; gap: 60px; }
-      .visual { max-width: 350px; }
-      .course-grid { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-container { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 48px; }
+      .hero-visual { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .courses-grid { grid-template-columns: 1fr; }
+      .article-item { grid-template-columns: 1fr; gap: 16px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
       .nav-links { display: none; }
     }
   </style>
 </head>
 <body>
-  <!-- Navigation -->
   <nav>
     <div class="nav-container">
       <a href="/" class="logo">
-        <div class="logo-box"><span>K</span></div>
-        <div class="logo-text">
-          <span class="logo-title">KI Expertenraum</span>
-          <span class="logo-sub">Strategische Beratung</span>
-        </div>
+        <div class="logo-mark">K</div>
+        <span class="logo-text serif">KI Expertenraum</span>
       </a>
       <div class="nav-links">
         <a href="/kurse/">Kurse</a>
@@ -163,198 +461,163 @@
         <a href="/glossar/">Glossar</a>
         <a href="/kontakt.html">Kontakt</a>
       </div>
-      <a href="/kontakt.html" class="btn">Beratung anfragen</a>
+      <a href="/kontakt.html" class="nav-cta">Beratung anfragen</a>
     </div>
   </nav>
 
-  <!-- Hero -->
   <section class="hero">
     <div class="hero-container">
       <div>
-        <div class="accent-line"></div>
-        <p class="label">Premium KI-Beratung</p>
-        <h1 class="serif">Strategische<br><span>KI-Implementierung</span><br>für Unternehmen</h1>
+        <div class="hero-badge">Premium KI-Beratung</div>
+        <h1 class="serif">Strategische<br><em>KI-Implementierung</em><br>für Unternehmen</h1>
         <p>Wir begleiten Entscheider bei der Integration künstlicher Intelligenz. Rechtssicher, praxiserprobt, messbar erfolgreich.</p>
-        <div class="hero-buttons">
-          <a href="/kurse/" class="btn">Kurse entdecken</a>
-          <a href="/services/" class="btn btn-outline">Services</a>
-        </div>
-        <div class="stats">
-          <div>
-            <div class="stat-num">22</div>
-            <div class="stat-label">Spezialisierte Kurse</div>
-          </div>
-          <div>
-            <div class="stat-num">100%</div>
-            <div class="stat-label">Praxiserprobt</div>
-          </div>
+        <a href="/kurse/" class="btn btn-primary">Kurse entdecken →</a>
+        <a href="/services/" class="btn btn-secondary">Services</a>
+        <div class="hero-stats">
+          <div><div class="stat-number">22</div><div class="stat-label">Kurse</div></div>
+          <div><div class="stat-number">100%</div><div class="stat-label">Praxis</div></div>
+          <div><div class="stat-number">EU</div><div class="stat-label">Ready</div></div>
         </div>
       </div>
-      <div class="visual">
-        <div class="lines"></div>
-        <div class="visual-inner">
-          <span class="visual-letter">K</span>
+      <div class="hero-visual">
+        <div class="floating-card">
+          <div class="floating-card-label">Erfolgsquote</div>
+          <div class="floating-card-value">98%</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Services -->
   <section class="services">
     <div class="container">
-      <div class="grid" style="grid-template-columns: 1fr 2fr; gap: 100px;">
-        <div class="section-header">
-          <div class="accent-line"></div>
-          <p class="label">Leistungen</p>
-          <h2 class="serif">Maßgeschneiderte<br><span>KI-Lösungen</span></h2>
-          <p>Von der Strategieentwicklung bis zur rechtlichen Absicherung – wir begleiten Sie durch den gesamten Transformationsprozess.</p>
+      <div class="section-label">Leistungen</div>
+      <h2 class="section-title serif">Maßgeschneiderte <em>KI-Lösungen</em></h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-number">01</div>
+          <h3 class="serif">KI-Strategie & Roadmap</h3>
+          <p>Entwicklung einer ganzheitlichen KI-Strategie abgestimmt auf Ihre Unternehmensziele.</p>
+          <a href="/services/" class="service-link">Mehr erfahren →</a>
         </div>
-        <div class="service-grid">
-          <div class="service-item">
-            <span class="service-num">01</span>
-            <div>
-              <h3 class="serif">KI-Strategie & Roadmap</h3>
-              <p>Entwicklung einer ganzheitlichen KI-Strategie abgestimmt auf Ihre Unternehmensziele und Ressourcen.</p>
-            </div>
-            <span class="arrow">→</span>
-          </div>
-          <div class="service-item">
-            <span class="service-num">02</span>
-            <div>
-              <h3 class="serif">EU AI Act Compliance</h3>
-              <p>Vollständige Konformität mit dem EU AI Act. Risikobewertung, Dokumentation, Governance-Strukturen.</p>
-            </div>
-            <span class="arrow">→</span>
-          </div>
-          <div class="service-item">
-            <span class="service-num">03</span>
-            <div>
-              <h3 class="serif">KI-Beauftragter 360°</h3>
-              <p>Interims-KI-Beauftragter oder Coaching für Ihren internen Beauftragten.</p>
-            </div>
-            <span class="arrow">→</span>
-          </div>
-          <div class="service-item">
-            <span class="service-num">04</span>
-            <div>
-              <h3 class="serif">Executive Training</h3>
-              <p>Spezialisierte Kurse für Entscheider. EU AI Act, KI-Governance, praxisnahe Anwendungsfälle.</p>
-            </div>
-            <span class="arrow">→</span>
-          </div>
+        <div class="service-card">
+          <div class="service-number">02</div>
+          <h3 class="serif">EU AI Act Compliance</h3>
+          <p>Vollständige Konformität mit dem EU AI Act. Risikobewertung und Dokumentation.</p>
+          <a href="/services/" class="service-link">Mehr erfahren →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-number">03</div>
+          <h3 class="serif">KI-Beauftragter 360°</h3>
+          <p>Interims-KI-Beauftragter oder Coaching für Ihren internen Beauftragten.</p>
+          <a href="/services/" class="service-link">Mehr erfahren →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-number">04</div>
+          <h3 class="serif">Executive Training</h3>
+          <p>Spezialisierte Kurse für Entscheider. EU AI Act, KI-Governance, Anwendungsfälle.</p>
+          <a href="/services/" class="service-link">Mehr erfahren →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Courses -->
   <section class="courses">
     <div class="container">
-      <div class="section-top">
-        <div>
-          <div class="accent-line"></div>
-          <p class="label">Kursangebot</p>
-          <h2 class="serif">Ausgewählte <span>Kurse</span></h2>
-        </div>
-        <a href="/kurse/" class="nav-links" style="display: flex; align-items: center; gap: 8px;">Alle Kurse →</a>
-      </div>
-      <div class="course-grid">
+      <div class="section-label">Kursangebot</div>
+      <h2 class="section-title serif">Ausgewählte <em>Kurse</em></h2>
+      <div class="courses-grid">
         <a href="/kurse/" class="course-card">
-          <div class="course-img"><img src="/kurs1_eu au ai act.png" alt="EU AI Act"></div>
-          <span class="label">Compliance</span>
-          <h3 class="serif">EU AI Act für Unternehmen</h3>
-          <p>Vollständige Compliance-Roadmap inkl. Risikoklassifizierung.</p>
-          <span class="course-link">Zum Kurs →</span>
+          <div class="course-image"><img src="/kurs1_eu au ai act.png" alt="EU AI Act"></div>
+          <div class="course-content">
+            <div class="course-category">Compliance</div>
+            <h3 class="serif">EU AI Act für Unternehmen</h3>
+            <p>Vollständige Compliance-Roadmap inkl. Risikoklassifizierung.</p>
+          </div>
         </a>
         <a href="/kurse/" class="course-card">
-          <div class="course-img"><img src="/kurs2_chatgpt.png" alt="KI Implementierung"></div>
-          <span class="label">Strategie</span>
-          <h3 class="serif">KI-Implementierung im Mittelstand</h3>
-          <p>Praxiserprobte Roadmap von der ersten Analyse bis zum produktiven Einsatz.</p>
-          <span class="course-link">Zum Kurs →</span>
+          <div class="course-image"><img src="/kurs2_chatgpt.png" alt="KI Strategie"></div>
+          <div class="course-content">
+            <div class="course-category">Strategie</div>
+            <h3 class="serif">KI-Implementierung</h3>
+            <p>Praxiserprobte Roadmap von der Analyse bis zum Einsatz.</p>
+          </div>
         </a>
         <a href="/kurse/" class="course-card">
-          <div class="course-img"><img src="/kurs5_büroauto.png" alt="Büroautomatisierung"></div>
-          <span class="label">Praxis</span>
-          <h3 class="serif">Büroautomatisierung mit KI</h3>
-          <p>10 konkrete Workflows für sofortige Effizienzsteigerung.</p>
-          <span class="course-link">Zum Kurs →</span>
+          <div class="course-image"><img src="/kurs5_büroauto.png" alt="Automatisierung"></div>
+          <div class="course-content">
+            <div class="course-category">Praxis</div>
+            <h3 class="serif">Büroautomatisierung</h3>
+            <p>10 Workflows für sofortige Effizienzsteigerung.</p>
+          </div>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Quote -->
   <section class="quote">
-    <div class="quote-mark">"</div>
-    <blockquote class="serif">Die Integration von KI ist keine technische Frage, sondern eine strategische Entscheidung, die den zukünftigen Erfolg eines Unternehmens maßgeblich bestimmt.</blockquote>
-    <div class="accent-line" style="margin: 0 auto 24px;"></div>
-    <p class="quote-author">Philipp Zerna, Gründer</p>
+    <div class="quote-icon">"</div>
+    <p class="quote-text serif">Die Integration von KI ist keine technische Frage, sondern eine strategische Entscheidung.</p>
+    <p class="quote-author">— Philipp Zerna, Gründer</p>
   </section>
 
-  <!-- Articles -->
   <section class="articles">
     <div class="container">
-      <div class="section-top">
-        <div>
-          <div class="accent-line"></div>
-          <p class="label">Publikationen</p>
-          <h2 class="serif">Aktuelle <span>Artikel</span></h2>
-        </div>
-        <a href="/artikel/" class="nav-links" style="display: flex; align-items: center; gap: 8px;">Alle Artikel →</a>
-      </div>
-      <div class="article-list">
+      <div class="section-label">Publikationen</div>
+      <h2 class="section-title serif">Aktuelle <em>Artikel</em></h2>
+      <div class="articles-list">
         <a href="/blog/" class="article-item">
-          <span class="label">Strategie</span>
+          <span class="article-category">Strategie</span>
           <h3 class="serif">KI-Einführung im Mittelstand: Die komplette Roadmap</h3>
-          <span class="article-link">Lesen →</span>
+          <span class="article-tag">Lesen</span>
         </a>
         <a href="/blog/" class="article-item">
-          <span class="label">Recht</span>
-          <h3 class="serif">KI rechtssicher nutzen: DSGVO & EU AI Act im Überblick</h3>
-          <span class="article-link">Lesen →</span>
+          <span class="article-category">Recht</span>
+          <h3 class="serif">KI rechtssicher nutzen: DSGVO & EU AI Act</h3>
+          <span class="article-tag">Lesen</span>
         </a>
         <a href="/blog/" class="article-item">
-          <span class="label">Rolle</span>
-          <h3 class="serif">Der KI-Beauftragte: 30-Tage-Roadmap für Ihre neue Rolle</h3>
-          <span class="article-link">Lesen →</span>
+          <span class="article-category">Praxis</span>
+          <h3 class="serif">Der KI-Beauftragte: 30-Tage-Roadmap</h3>
+          <span class="article-tag">Lesen</span>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
   <section class="cta">
-    <div class="accent-line" style="margin: 0 auto 32px;"></div>
-    <p class="label">Beratung</p>
-    <h2 class="serif">Starten Sie Ihre<br><span>KI-Transformation</span></h2>
-    <p>Vereinbaren Sie ein unverbindliches Gespräch. Wir analysieren Ihre Ausgangslage und entwickeln einen maßgeschneiderten Fahrplan.</p>
-    <a href="/kontakt.html" class="btn">Beratungsgespräch anfragen</a>
+    <div class="cta-box">
+      <div class="section-label">Beratung</div>
+      <h2 class="serif">Starten Sie Ihre<br><em>KI-Transformation</em></h2>
+      <p>Vereinbaren Sie ein unverbindliches Gespräch. Wir analysieren Ihre Ausgangslage.</p>
+      <a href="/kontakt.html" class="btn btn-primary">Beratungsgespräch anfragen →</a>
+    </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="container">
       <div class="footer-grid">
         <div>
-          <div class="footer-brand">
-            <div class="logo-box"><span>K</span></div>
-            <span class="logo-title">KI Expertenraum</span>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
+            <div style="width:40px;height:40px;background:white;color:#1a1a1a;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:20px;">K</div>
+            <span style="font-size:18px;font-weight:500;">KI Expertenraum</span>
           </div>
-          <p class="footer-about">Premium KI-Beratung für den Mittelstand. Praxiserprobt, rechtssicher, messbar erfolgreich.</p>
+          <p style="color:rgba(255,255,255,0.6);font-size:14px;line-height:1.8;max-width:300px;">Premium KI-Beratung für den Mittelstand. Praxiserprobt, rechtssicher, messbar erfolgreich.</p>
         </div>
         <div class="footer-col">
           <h4>Navigation</h4>
           <a href="/kurse/">Kurse</a>
           <a href="/services/">Services</a>
           <a href="/artikel/">Artikel</a>
-          <a href="/glossar/">Glossar</a>
         </div>
         <div class="footer-col">
           <h4>Rechtliches</h4>
           <a href="/impressum/">Impressum</a>
           <a href="/datenschutz/">Datenschutz</a>
           <a href="/kontakt.html">Kontakt</a>
+        </div>
+        <div class="footer-col">
+          <h4>Kontakt</h4>
+          <a href="mailto:zerna.philipp@gmail.com">zerna.philipp@gmail.com</a>
         </div>
       </div>
       <div class="footer-bottom">
