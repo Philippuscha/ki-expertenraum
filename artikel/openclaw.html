@@ -3,549 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenClaw Masterclass: Lokale KI für Unternehmen | KI-Expertenraum</title>
-    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+    <title>OpenClaw: Lokale KI für Unternehmen | KI-Expertenraum</title>
     <meta name="description" content="OpenClaw: Die lokale KI-Alternative für Unternehmen. Datenschutz-konform, kostengünstig, vollständig unter Ihrer Kontrolle.">
+    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/main.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { 
-            --bg: #f0f7ff; 
-            --bg-card: rgba(255, 255, 255, 0.9);
-            --text: #0f172a; 
-            --text-muted: #475569; 
-            --text-light: #64748b; 
-            --border: rgba(255, 255, 255, 0.6);
-            --accent: #3b82f6;
-            --accent-glow: rgba(59, 130, 246, 0.3);
-        }
-        html { scroll-behavior: smooth; }
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 50%, #dbeafe 100%); 
-            color: var(--text); 
-            line-height: 1.7;
-            min-height: 100vh;
-        }
-        h1, h2, h3, h4 { font-family: 'DM Sans', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
-        
-        .nav { 
-            position: fixed; 
-            top: 0; left: 0; right: 0; 
-            z-index: 1000; 
-            padding: 20px 40px; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            background: rgba(240, 247, 255, 0.95); 
-            backdrop-filter: blur(20px); 
-            border-bottom: 1px solid var(--border);
-        }
-        .logo { 
-            font-family: 'DM Sans', sans-serif; 
-            font-size: 24px; 
-            font-weight: 800; 
-            background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent;
-            text-decoration: none;
-        }
-        .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
-        .nav-links a { 
-            color: var(--text-muted); 
-            text-decoration: none; 
-            font-size: 15px; 
-            font-weight: 600; 
-            transition: color 0.3s;
-        }
-        .nav-links a:hover { color: var(--accent); }
-        
-        .dropdown { position: relative; }
-        .dropdown-toggle {
-            background: rgba(59, 130, 246, 0.1);
-            color: var(--accent);
-            padding: 8px 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            margin-top: 10px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-            padding: 12px;
-            min-width: 220px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s;
-        }
-        .dropdown:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        .dropdown-menu a { display: block; padding: 10px 16px; border-radius: 8px; }
-        .dropdown-menu a:hover { background: #f0f7ff; }
-        /* Mobile Menu Toggle - Hidden by default, shown on mobile */
-        
-        .mobile-menu-toggle span { width: 24px; height: 2.5px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
-        .mobile-menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-        .mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
-        .mobile-menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
-        
-        /* Mobile Menu - Full screen overlay */
-        
-        .mobile-menu.active { display: flex; opacity: 1; visibility: visible; }
-        .mobile-menu a { font-family: 'DM Sans', sans-serif; font-size: 28px; font-weight: 700; color: var(--text); text-decoration: none; }
-        .mobile-menu a:hover { color: var(--accent); }
-
-        
-        .hero {
-            margin-top: 0; 
-            padding: 200px 40px 80px; 
-            text-align: center; 
-            max-width: 900px; 
-            margin: 0 auto;
-            background: linear-gradient(135deg, rgba(139,92,246,0.1) 0%, rgba(59,130,246,0.1) 100%);
-            border-radius: 0 0 40px 40px;
-            margin-bottom: 40px;
-        }
-        .hero-badge { 
-            display: inline-block; 
-            background: rgba(139, 92, 246, 0.15); 
-            color: #8b5cf6; 
-            padding: 8px 20px; 
-            border-radius: 20px; 
-            font-size: 13px; 
-            font-weight: 700; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            margin-bottom: 25px;
-        }
-        .hero h1 { 
-            font-size: clamp(32px, 5vw, 48px); 
-            line-height: 1.15; 
-            margin-bottom: 25px; 
-            font-weight: 800;
-        }
-        .hero h1 span { 
-            background: linear-gradient(135deg, #8b5cf6 0%, var(--accent) 100%); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent;
-        }
-        .hero-description { font-size: 19px; color: var(--text-muted); max-width: 600px; margin: 0 auto 30px; }
-        .hero-meta { display: flex; justify-content: flex-start; gap: 30px; color: var(--text-light); font-size: 14px; }
-        
-        .content-wrapper {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px 40px 60px;
-    }
-        
-        .main-content { max-width: 800px; }
-        h2 { font-size: 32px; margin: 50px 0 25px; font-weight: 800; color: var(--text); scroll-margin-top: 140px; }
-        h3 { font-size: 24px; margin: 35px 0 20px; font-weight: 700; color: var(--text); scroll-margin-top: 140px; }
-        h4 { font-size: 20px; margin: 25px 0 15px; font-weight: 600; color: var(--text); }
-        p { margin-bottom: 25px; color: var(--text-muted); font-size: 17px; line-height: 1.8; }
-        ul, ol { margin: 25px 0; padding-left: 30px; }
-        li { margin: 12px 0; color: var(--text-muted); }
-        
-        blockquote { 
-            background: rgba(139, 92, 246, 0.08); 
-            border-left: 4px solid #8b5cf6; 
-            padding: 30px; 
-            margin: 35px 0; 
-            border-radius: 0 12px 12px 0; 
-            font-size: 19px; 
-            font-weight: 600;
-            color: var(--text);
-        }
-        
-        .highlight { 
-            background: rgba(59, 130, 246, 0.08); 
-            border-radius: 12px; 
-            padding: 25px; 
-            margin: 35px 0;
-            border: 1px solid rgba(59, 130, 246, 0.15);
-        }
-        
-        .step-box {
-            background: var(--bg-card);
-            border-radius: 16px;
-            padding: 30px;
-            margin: 30px 0;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            border-left: 5px solid #8b5cf6;
-        }
-        
-        .step-box h4 { margin-top: 0; color: #8b5cf6; }
-        
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin: 30px 0;
-        }
-        
-        .feature-card {
-            background: var(--bg-card);
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        
-        .feature-card h4 {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 0;
-            font-size: 18px;
-        }
-        
-        .feature-card p {
-            margin-bottom: 0;
-            font-size: 15px;
-        }
-        
-        .roi-box {
-            background: linear-gradient(135deg, rgba(139,92,246,0.1) 0%, rgba(59,130,246,0.1) 100%);
-            border-radius: 16px;
-            padding: 35px;
-            margin: 40px 0;
-            text-align: center;
-            border: 2px solid rgba(139,92,246,0.2);
-        }
-        
-        .roi-box .big-number {
-            font-size: 48px;
-            font-weight: 800;
-            color: #8b5cf6;
-            font-family: 'DM Sans', sans-serif;
-        }
-        
-        
-        
-        /* Table of Contents - Sticky Sidebar */
-        .toc-sidebar {
-            position: fixed;
-            top: 100px;
-            right: 30px;
-            width: 260px;
-            max-height: calc(100vh - 140px);
-            overflow-y: auto;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            border: 1px solid rgba(16,185,129,0.3);
-            z-index: 100;
-            backdrop-filter: blur(10px);
-        }
-        .toc-sidebar h4 {
-            font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: #059669;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .toc-sidebar ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .toc-sidebar li {
-            margin: 8px 0;
-        }
-        .toc-sidebar a {
-            color: #64748b;
-            text-decoration: none;
-            font-size: 13px;
-            display: block;
-            padding: 6px 10px;
-            border-radius: 6px;
-            transition: all 0.2s;
-            line-height: 1.4;
-        }
-        .toc-sidebar a:hover {
-            background: rgba(16,185,129,0.1);
-            color: #059669;
-        }
-        .toc-sidebar a.active {
-            background: rgba(16,185,129,0.15);
-            color: #059669;
-            font-weight: 600;
-        }
-        @media (max-width: 1400px) {
-            .toc-sidebar { right: 20px; width: 220px; }
-        }
-        @media (max-width: 1100px) {
-            .toc-sidebar { display: none; }
-        }
-        
-        .cta-box { 
-            background: linear-gradient(135deg, #8b5cf6 0%, var(--accent) 100%); 
-            color: white; 
-            border-radius: 16px; 
-            padding: 50px; 
-            margin: 60px 0; 
-            text-align: center;
-            box-shadow: 0 10px 40px rgba(139,92,246,0.3);
-        }
-        .cta-box h2 { font-size: 28px; margin-bottom: 15px; color: white; }
-        .cta-box p { font-size: 17px; margin-bottom: 30px; color: rgba(255,255,255,0.9); }
-        .btn { 
-            display: inline-block; 
-            background: white; 
-            color: #8b5cf6; 
-            padding: 16px 40px; 
-            border-radius: 12px; 
-            text-decoration: none; 
-            font-weight: 700;
-            font-family: 'DM Sans', sans-serif;
-            transition: all 0.3s;
-        }
-        .btn:hover { transform: translateY(-2px); }
-        
-        .footer { 
-            background: var(--text); 
-            color: rgba(255,255,255,0.7); 
-            padding: 50px 40px 30px; 
-            margin-top: 80px; 
-            text-align: center;
-        }
-        .footer-logo { 
-            font-family: 'DM Sans', sans-serif; 
-            font-size: 24px; 
-            font-weight: 800; 
-            margin-bottom: 15px;
-            background: linear-gradient(135deg, white 0%, #60a5fa 100%); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent;
-            .nav-links { display: none; }
-            .hero {
-            margin-top: 0; padding: 100px 20px 50px; }
-            .content-wrapper { padding: 0 20px; }
-            .feature-grid { grid-template-columns: 1fr; }
-            h2 { font-size: 26px; }
-            h3 { font-size: 22px; }
-        }
-        /* MOBILE RESPONSIVE */
-        
-            .nav-links {
-                display: none;
-            }
-            
-            .mobile-menu-toggle span {
-                width: 24px;
-                height: 2.5px;
-                background: var(--text);
-                border-radius: 2px;
-                transition: all 0.3s;
-            }
-            .mobile-menu-toggle.active span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
-            }
-            .mobile-menu-toggle.active span:nth-child(2) {
-                opacity: 0;
-            }
-            .mobile-menu-toggle.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(7px, -6px);
-            }
-            
-            .mobile-menu a {
-                font-family: 'DM Sans', sans-serif;
-                font-size: 28px;
-                font-weight: 700;
-                color: var(--text);
-                text-decoration: none;
-            }
-            .mobile-menu a:hover {
-                color: var(--accent);
-            }
-            .hero {
-                padding: 100px 20px 60px;
-            }
-            .hero h1 {
-                font-size: 28px;
-            }
-            .content-wrapper {
-                padding: 0 20px;
-            }
-            h2 {
-                font-size: 24px;
-            }
-            h3 {
-                font-size: 20px;
-            }
-            p {
-                font-size: 16px;
-            }
-            pre {
-                padding: 15px;
-                font-size: 13px;
-            }
-            table {
-                display: block;
-                overflow-x: auto;
-                white-space: nowrap;
-            }
-            .cta-box {
-                padding: 30px 20px;
-            }
-            .cta-box h2 {
-                font-size: 22px;
-            }
-            .btn {
-                padding: 14px 28px;
-                font-size: 14px;
-            }
-            .footer {
-                padding: 40px 20px;
-        /* Responsive Styles */
-        
-        
-        
-        
-        
-
-        /* Mobile Menu Toggle - Hidden by default, shown on mobile */
-        .mobile-menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; z-index: 1001; }
-        .mobile-menu-toggle span { width: 24px; height: 2.5px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
-        .mobile-menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-        .mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
-        .mobile-menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
-        
-        /* Mobile Menu - Full screen overlay */
-        .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(240, 247, 255, 0.98); backdrop-filter: blur(20px); z-index: 999; flex-direction: column; justify-content: flex-start; align-items: center; gap: 30px; opacity: 0; visibility: hidden; transition: all 0.3s; }
-        .mobile-menu.active { display: flex; opacity: 1; visibility: visible; }
-        .mobile-menu a { font-family: 'DM Sans', sans-serif; font-size: 28px; font-weight: 700; color: var(--text); text-decoration: none; }
-        .mobile-menu a:hover { color: var(--accent); }
-
-        /* Responsive Styles */
-        @media (max-width: 1024px) {
-            .content-wrapper { grid-template-columns: 1fr; gap: 40px; }
-            
-        }
-        
-@media (max-width: 768px) {
-            .nav { padding: 12px 20px; min-height: 60px; }
-            .nav-links { display: none; }
-            .mobile-menu-toggle { display: flex; }
-            .hero { padding: 100px 20px 60px; border-radius: 0 0 24px 24px; }
-            .hero h1 { font-size: 26px; }
-            .hero-description { font-size: 16px; }
-            .hero-meta { gap: 15px; font-size: 13px; flex-wrap: wrap; }
-            .content-wrapper { padding: 0 20px; }
-            h2 { font-size: 24px; margin: 40px 0 20px; scroll-margin-top: 80px; }
-            h3 { font-size: 20px; margin: 30px 0 15px; scroll-margin-top: 80px; }
-            p { font-size: 16px; line-height: 1.7; margin-bottom: 20px; }
-            ul, ol { padding-left: 20px; margin: 20px 0; }
-            blockquote { padding: 20px; font-size: 17px; margin: 25px 0; }
-            pre { padding: 15px; font-size: 13px; overflow-x: auto; }
-            .cta-box { padding: 30px 20px; margin: 40px 0; }
-            .cta-box h2, .cta-box h3 { font-size: 20px; }
-            .btn, .btn-white { padding: 12px 24px; font-size: 15px; }
-            .footer { padding: 40px 20px; margin-top: 60px; }
-            table { display: block; overflow-x: auto; white-space: nowrap; font-size: 14px; }
-            th, td { padding: 12px; }
-        }
-        
-        @media (max-width: 375px) {
-            .hero h1 { font-size: 24px; }
-            h2 { font-size: 22px; }
-            h3 { font-size: 18px; }
-            .mobile-menu a { font-size: 24px; }
-            .hero-meta { flex-direction: column; gap: 8px; }
-        }
-
-    
-        /* Hamburger Menu */
-        .hamburger { display: none; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text); }
-        .mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; background: rgba(240,247,255,0.98); backdrop-filter: blur(20px); padding: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); z-index: 999; }
-        .mobile-menu a { display: block; padding: 15px; color: var(--text); text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .mobile-menu a:hover { background: var(--accent-light, #dbeafe); color: var(--accent); }
-        .mobile-menu.show { display: block; }
-        
-        @media (max-width: 768px) { 
-            .nav-links { display: none !important; } 
-            .hamburger { display: block !important; } 
-            .nav { padding: 15px 20px !important; }
-            .hero { padding: 120px 20px 40px !important; }
-            .content-wrapper { padding: 0 20px !important; grid-template-columns: 1fr !important; }
-            h1 { font-size: clamp(28px, 5vw, 42px) !important; }
-            h2 { font-size: clamp(24px, 4vw, 32px) !important; }
-            h3 { font-size: clamp(20px, 3vw, 24px) !important; }
-            p { font-size: 16px !important; line-height: 1.7 !important; }
-            table { display: block !important; overflow-x: auto !important; white-space: nowrap !important; }
-            img { max-width: 100% !important; height: auto !important; }
-        }
-        </style>
+        .article-hero { padding: 180px 0 60px; text-align: center; background: var(--bg-secondary); border-bottom: 1px solid var(--border); }
+        .article-hero .hero-badge { display: inline-block; background: rgba(16, 185, 129, 0.15); color: #10b981; padding: 8px 20px; border-radius: 100px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px; }
+        .article-hero h1 { font-family: var(--font-display); font-size: clamp(32px, 5vw, 48px); font-weight: 500; margin-bottom: 20px; line-height: 1.2; }
+        .article-hero h1 span { background: linear-gradient(135deg, #10b981 0%, #059669 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-style: italic; }
+        .article-hero .hero-description { font-size: 18px; color: var(--text-secondary); max-width: 600px; margin: 0 auto 20px; }
+        .article-hero .hero-meta { display: flex; justify-content: center; gap: 25px; color: var(--text-muted); font-size: 14px; flex-wrap: wrap; }
+        .article-content { max-width: 800px; margin: 0 auto; padding: 60px 40px; }
+        .article-content h2 { font-family: var(--font-display); font-size: 28px; margin: 40px 0 20px; font-weight: 500; color: var(--text-primary); }
+        .article-content h3 { font-family: var(--font-display); font-size: 22px; margin: 30px 0 15px; font-weight: 500; color: var(--text-primary); }
+        .article-content p { margin-bottom: 20px; color: var(--text-secondary); font-size: 16px; line-height: 1.8; }
+        .article-content ul, .article-content ol { margin: 20px 0; padding-left: 25px; }
+        .article-content li { margin: 10px 0; color: var(--text-secondary); }
+        .article-content blockquote { background: rgba(16, 185, 129, 0.08); border-left: 4px solid #10b981; padding: 20px; margin: 25px 0; border-radius: 0 12px 12px 0; font-size: 17px; font-weight: 500; color: var(--text-primary); }
+        .article-content table { width: 100%; border-collapse: collapse; margin: 25px 0; background: var(--bg-card); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); display: block; overflow-x: auto; }
+        .article-content th { background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 14px; text-align: left; font-weight: 600; font-size: 14px; }
+        .article-content td { padding: 14px; border-bottom: 1px solid var(--border); color: var(--text-secondary); font-size: 14px; }
+        .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin: 30px 0; }
+        .feature-card { background: var(--bg-card); padding: 25px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border: 1px solid var(--border); }
+        .feature-card h4 { margin-top: 0; font-size: 18px; color: var(--text-primary); }
+        .step-box { background: var(--bg-card); border-radius: 16px; padding: 30px; margin: 30px 0; border-left: 5px solid #10b981; }
+        .step-box h4 { margin-top: 0; color: #10b981; }
+        .roi-box { background: linear-gradient(135deg, rgba(16,185,129,0.1) 0%, rgba(59,130,246,0.1) 100%); border-radius: 16px; padding: 35px; margin: 40px 0; text-align: center; border: 2px solid rgba(16,185,129,0.2); }
+        .roi-box .big-number { font-size: 48px; font-weight: 700; color: #10b981; font-family: var(--font-display); }
+        .highlight { background: rgba(16, 185, 129, 0.08); border-radius: 12px; padding: 20px; margin: 25px 0; border: 1px solid rgba(16, 185, 129, 0.15); }
+        .cta-box { background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 50px; border-radius: 16px; margin: 60px 0; text-align: center; }
+        .cta-box h2 { color: white; margin-bottom: 15px; font-size: 28px; font-family: var(--font-display); }
+        .btn { display: inline-block; background: var(--bg-primary); color: #10b981; padding: 16px 40px; border-radius: 12px; text-decoration: none; font-weight: 600; }
+        @media (max-width: 768px) { .article-hero { padding: 120px 20px 40px; } .article-hero h1 { font-size: 26px; } .article-content { padding: 40px 20px; } .feature-grid { grid-template-columns: 1fr; } }
+    </style>
 </head>
 <body>
     <nav class="nav" id="nav">
-        <a href="/" class="logo">KI-Expertenraum</a>
-        <div class="mobile-menu-toggle" id="mobileMenuToggle" onclick="toggleMobileMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="nav-container">
+            <a href="/" class="logo"><span class="logo-mark">K</span><span class="logo-text">KI<span class="logo-dot">.</span>Expertenraum</span></a>
+            <ul class="nav-links">
+                <li><a href="/">Start</a></li>
+                <li><a href="/kurse/">Kurse</a></li>
+                <li><a href="/services/">Services</a></li>
+                <li><a href="/artikel/" class="active">Artikel</a></li>
+                <li><a href="/glossar/">Glossar</a></li>
+                <li><a href="/kontakt.html">Kontakt</a></li>
+            </ul>
+            <a href="/kontakt.html" class="nav-cta">Beratung anfragen</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn"><span></span><span></span><span></span></button>
         </div>
-        <ul class="nav-links">
-            <li><a href="/">Startseite</a></li>
-            <li><a href="/kurse/">Kurse</a></li>
-            <li><a href="/services/">Services</a></li>
-            <li><a href="/artikel/">Artikel</a></li>
-            <li><a href="/glossar/">Glossar</a></li>
-            <li><a href="/kontakt.html">Kontakt</a></li>
-        </ul>
-            
     </nav>
-    
-    <aside class="toc-sidebar">
-        <h4>Inhalt</h4>
-        <ul id="toc-list"></ul>
-    </aside>
-    
     <div class="mobile-menu" id="mobileMenu">
-        <a href="/" onclick="toggleMobileMenu()">Startseite</a>
-        <a href="/kurse/" onclick="toggleMobileMenu()">Kurse</a>
-        <a href="/services/" onclick="toggleMobileMenu()">Services</a>
-        <a href="/artikel/" onclick="toggleMobileMenu()">Artikel</a>
-        <a href="/glossar/" onclick="toggleMobileMenu()">Glossar</a>
-        <a href="/kontakt.html" onclick="toggleMobileMenu()">Kontakt</a>
-    </div>
-
-    <header class="hero">
-        <span class="hero-badge">Datenschutz-First</span>
-        <h1>OpenClaw: <span>Lokale KI</span> für Unternehmen</h1>
-        <p class="hero-description">Die smarte Alternative zu Cloud-KI: Datenschutz-konform, kostengünstig, vollständig unter Ihrer Kontrolle.</p>
-        <div class="hero-meta">
-            <span>✍️ Philipp Zerna</span>
-            <span>⏱️ 12 Min. Lesezeit</span>
-            <span>📊 8.521 Leser</span>
+        <div class="mobile-menu-content">
+            <a href="/" onclick="closeMobileMenu()">Start</a>
+            <a href="/kurse/" onclick="closeMobileMenu()">Kurse</a>
+            <a href="/services/" onclick="closeMobileMenu()">Services</a>
+            <a href="/artikel/" onclick="closeMobileMenu()">Artikel</a>
+            <a href="/glossar/" onclick="closeMobileMenu()">Glossar</a>
+            <a href="/kontakt.html" onclick="closeMobileMenu()">Kontakt</a>
         </div>
-    </header>
-
-    <div class="content-wrapper">
-        <main class="main-content">
+    </div>
+    <main>
+        <header class="article-hero">
+            <span class="hero-badge">Datenschutz-First</span>
+            <h1>OpenClaw: <span>Lokale KI</span> für Unternehmen</h1>
+            <p class="hero-description">Die smarte Alternative zu Cloud-KI: Datenschutz-konform, kostengünstig, vollständig unter Ihrer Kontrolle.</p>
+            <div class="hero-meta">
+                <span>✍️ Philipp Zerna</span>
+                <span>⏱️ 12 Min. Lesezeit</span>
+                <span>📊 8.521 Leser</span>
+            </div>
+        </header>
+        <div class="article-content">
             <h2>Das Problem mit Cloud-KI</h2>
             <p>Jedes Mal, wenn Ihre Mitarbeiter ChatGPT, Claude oder andere Cloud-KI-Tools nutzen, verlassen Ihre Daten das Unternehmen. Vertragsentwürfe, Kundendaten, interne Strategien – alles wird auf fremde Server übertragen.</p>
-            
-            <p>Für viele Unternehmen, besonders in regulierten Branchen wie Gesundheit, Finanzen oder Recht, ist das ein No-Go. Die DSGVO verlangt die Kontrolle über sensible Daten, und genau die geht bei Cloud-KI verloren.</p>
-            
+            <p>Für viele Unternehmen, besonders in regulierten Branchen wie Gesundheit, Finanzen oder Recht, ist das ein No-Go.</p>
             <blockquote>OpenClaw bietet die Lösung: KI-Power direkt auf Ihren eigenen Servern oder Computern. 100% Datenschutz, 100% Kontrolle.</blockquote>
-
             <h2>Was ist OpenClaw?</h2>
-            <p>OpenClaw ist eine Open-Source-Plattform, die es ermöglicht, große Sprachmodelle (LLMs) lokal zu betreiben. Statt Daten an externe Anbieter zu senden, läuft die KI direkt in Ihrer Infrastruktur – on-premise oder in Ihrer privaten Cloud.</p>
-            
+            <p>OpenClaw ist eine Open-Source-Plattform, die es ermöglicht, große Sprachmodelle (LLMs) lokal zu betreiben. Statt Daten an externe Anbieter zu senden, läuft die KI direkt in Ihrer Infrastruktur.</p>
             <div class="feature-grid">
                 <div class="feature-card">
                     <h4>🔒 Datenschutz</h4>
@@ -564,30 +103,15 @@
                     <p>Vollständige Anpassung an Ihre Bedürfnisse und Workflows.</p>
                 </div>
             </div>
-
             <h2>Wer sollte OpenClaw nutzen?</h2>
-            
-            <h3>✅ Ideal für:</h3>
+            <h3>Ideal für:</h3>
             <ul>
                 <li><strong>Anwaltskanzleien:</strong> Mandantengeheimnis bleibt geschützt</li>
                 <li><strong>Krankenhäuser & Praxen:</strong> Patientendaten bleiben intern</li>
                 <li><strong>Banken & Versicherungen:</strong> Compliance-Anforderungen erfüllt</li>
-                <li><strong>Forschungseinrichtungen:</strong> Schutz von IP und Forschungsergebnissen</li>
                 <li><strong>Öffentlicher Sektor:</strong> Staatstrojaner-frei und souverän</li>
-                <li><strong>Datenschutz-bewusste Unternehmen:</strong> Maximale Kontrolle</li>
             </ul>
-
-            <h3>❌ Nicht ideal für:</h3>
-            <ul>
-                <li>Kleine Teams ohne IT-Expertise</li>
-                <li>Unternehmen ohne dedizierte Hardware</li>
-                <li>Wer regelmäßig aktuelles Web-Wissen braucht (keine Live-Suche)</li>
-            </ul>
-
             <h2>Die technischen Grundlagen</h2>
-            
-            <p>OpenClaw basiert auf Open-Source-Sprachmodellen wie:</p>
-            
             <div class="highlight">
                 <ul>
                     <li><strong>Llama 2/3:</strong> Meta's Open-Source-Modell, kommerziell nutzbar</li>
@@ -596,7 +120,6 @@
                     <li><strong>Mixtral:</strong> Mixture-of-Experts für komplexe Aufgaben</li>
                 </ul>
             </div>
-
             <h3>Hardware-Anforderungen</h3>
             <table>
                 <tr><th>Einsatzszenario</th><th>GPU</th><th>RAM</th><th>Schätzung</th></tr>
@@ -604,51 +127,30 @@
                 <tr><td>Team (5-10 Nutzer)</td><td>16-24GB VRAM</td><td>32GB</td><td>2.500-4.000€</td></tr>
                 <tr><td>Abteilung (20+ Nutzer)</td><td>48GB+ VRAM</td><td>64GB</td><td>6.000-10.000€</td></tr>
             </table>
-
             <h2>Schritt-für-Schritt: OpenClaw einrichten</h2>
-            
             <div class="step-box">
                 <h4>Schritt 1: Hardware vorbereiten</h4>
                 <p>Beschaffen Sie einen leistungsfähigen Arbeitsplatz-PC oder Server mit dedizierter NVIDIA-GPU. Empfohlen: Mindestens RTX 3060 (12GB) für den Einstieg.</p>
             </div>
-            
             <div class="step-box">
                 <h4>Schritt 2: OpenClaw installieren</h4>
                 <p>Download und Installation der OpenClaw-Software. Unterstützt werden Windows, Linux und macOS (mit Einschränkungen).</p>
             </div>
-            
             <div class="step-box">
                 <h4>Schritt 3: Modell auswählen</h4>
                 <p>Wählen Sie das passende Sprachmodell für Ihre Anforderungen. Für den Einstieg: Llama 3 8B. Für höhere Qualität: Mixtral 8x7B.</p>
             </div>
-            
             <div class="step-box">
                 <h4>Schritt 4: Team einrichten</h4>
                 <p>Erstellen Sie Benutzerkonten für Ihr Team. OpenClaw bietet rollenbasierte Zugriffssteuerung und Nutzungs-Tracking.</p>
             </div>
-
-            <h2>Praxis-Einsatz: Was kann OpenClaw?</h2>
-            
-            <h3>Typische Anwendungsfälle</h3>
-            <ul>
-                <li><strong>Dokumentenanalyse:</strong> Verträge, Berichte, Rechnungen durchsuchen und zusammenfassen</li>
-                <li><strong>Textgenerierung:</strong> E-Mails, Angebote, Marketing-Texte verfassen</li>
-                <li><strong>Code-Assistenz:</strong> Programme erklären, debuggen, optimieren</li>
-                <li><strong>Wissensmanagement:</strong> Interne Dokumentation durchsuchen und befragen</li>
-                <li><strong>Übersetzungen:</strong> Texte in verschiedene Sprachen übersetzen</li>
-                <li><strong>Datenextraktion:</strong> Informationen aus unstrukturierten Dokumenten ziehen</li>
-            </ul>
-
             <h2>Kostenvergleich: OpenClaw vs. Cloud-KI</h2>
-            
             <p>Beispielrechnung für ein Unternehmen mit 20 Nutzern über 3 Jahre:</p>
-            
             <div class="roi-box">
                 <p style="margin-bottom: 10px;"><strong>Ersparnis mit OpenClaw</strong></p>
                 <div class="big-number">12.000€</div>
                 <p style="margin-top: 15px;">gegenüber ChatGPT Enterprise (3 Jahre)</p>
             </div>
-            
             <table>
                 <tr><th>Kostenfaktor</th><th>OpenClaw</th><th>ChatGPT Enterprise</th></tr>
                 <tr><td>Einrichtung (einmalig)</td><td>3.000-5.000€</td><td>0€</td></tr>
@@ -656,147 +158,42 @@
                 <tr><td>3-Jahres-Gesamtkosten</td><td>3.000-5.000€</td><td>21.600€</td></tr>
                 <tr><td><strong>Ersparnis</strong></td><td colspan="2"><strong>16.600-18.600€</strong></td></tr>
             </table>
-
-            <h2>Herausforderungen & Lösungen</h2>
-            
-            <div class="highlight">
-                <h4>⚠️ Herausforderung: Technische Komplexität</h4>
-                <p><strong>Lösung:</strong> Starten Sie mit unserem Setup-Service oder nutzen Sie vorkonfigurierte Hardware-Pakete.</p>
-            </div>
-            
-            <div class="highlight">
-                <h4>⚠️ Herausforderung: Modell-Qualität</h4>
-                <p><strong>Lösung:</strong> Lokale Modelle sind inzwischen nahezu gleichwertig mit GPT-3.5. Für spezielle Aufgaben können gelegentlich Cloud-APIs ergänzt werden.</p>
-            </div>
-            
-            <div class="highlight">
-                <h4>⚠️ Herausforderung: Updates & Wartung</h4>
-                <p><strong>Lösung:</strong> OpenClaw bietet automatische Updates und einen Wartungsvertrag für Unternehmen.</p>
-            </div>
-
             <div class="cta-box">
                 <h2>Bereit für souveräne KI?</h2>
-                <p>In unserer OpenClaw Masterclass zeigen wir Ihnen Schritt für Schritt, wie Sie Ihre eigene lokale KI-Infrastruktur aufbauen – von der Hardware-Auswahl bis zur produktiven Nutzung.</p>
-                <a href="/#work" class="btn">Masterclass entdecken</a>
+                <p>In unserer OpenClaw Masterclass zeigen wir Ihnen Schritt für Schritt, wie Sie Ihre eigene lokale KI-Infrastruktur aufbauen.</p>
+                <a href="/kurse/" class="btn">Masterclass entdecken</a>
             </div>
-            
-            <div class="highlight">
-                <h3>💡 Schnellstart-Tipp</h3>
-                <p>Testen Sie OpenClaw erst mit einem einfachen Setup auf einem bestehenden PC mit guter GPU. Die Erfahrungen helfen Ihnen, die richtige Hardware-Größe für den produktiven Einsatz zu bestimmen.</p>
-            </div>
-        </main>
-
-        
-    </div>
-
+        </div>
+    </main>
     <footer class="footer">
-        <div class="footer-logo">KI-Expertenraum</div>
-        <p>© 2026 Philipp Zerna | <a href="/impressum/" style="color: rgba(255,255,255,0.7);">Impressum</a> | <a href="/datenschutz/" style="color: rgba(255,255,255,0.7);">Datenschutz</a></p>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo"><span class="logo-mark">K</span><span>KI<span class="logo-dot">.</span>Expertenraum</span></a>
+                    <p class="footer-tagline">Premium KI-Beratung für den Mittelstand.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Angebot</h4>
+                    <a href="/kurse/">Kurse</a>
+                    <a href="/services/">Services</a>
+                    <a href="/artikel/">Artikel</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Rechtliches</h4>
+                    <a href="/impressum/">Impressum</a>
+                    <a href="/datenschutz/">Datenschutz</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <a href="https://www.youtube.com/@philippzerna" target="_blank">YouTube</a>
+                    <a href="https://www.linkedin.com/in/philipp-zerna/" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 KI-Expertenraum. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
     </footer>
-    
-    <script>
-        // Auto-generate TOC from headings
-        // Generate TOC from H2 headings
-        const h2s = document.querySelectorAll('h2');
-        const tocList = document.getElementById('toc-list');
-        if (tocList && h2s.length > 0) {
-            h2s.forEach((h2, index) => {
-                const id = 'section-' + index;
-                h2.id = id;
-                const li = document.createElement('li');
-                const a = document.createElement('a');
-                a.href = '#' + id;
-                a.textContent = h2.textContent;
-                li.appendChild(a);
-                tocList.appendChild(li);
-            });
-            
-            // Scroll spy
-            const tocLinks = document.querySelectorAll('.toc-sidebar a');
-            const sections = document.querySelectorAll('h2');
-            
-            function updateActiveLink() {
-                let current = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    if (scrollY >= sectionTop - 150) {
-                        current = section.getAttribute('id');
-                    }
-                });
-                
-                tocLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === '#' + current) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-            
-            window.addEventListener('scroll', updateActiveLink);
-            updateActiveLink();
-        }
-    </script>
-    <script>
-        function toggleMobileMenu() {
-            const toggle = document.getElementById('mobileMenuToggle');
-            const menu = document.getElementById('mobileMenu');
-            toggle.classList.toggle('active');
-            menu.classList.toggle('active');
-        }
-    
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(e) {
-        const menu = document.getElementById('mobileMenu');
-        const toggle = document.getElementById('mobileMenuToggle');
-        if (menu && toggle && menu.classList.contains('active') && !menu.contains(e.target) && !toggle.contains(e.target)) {
-            toggleMobileMenu();
-        }
-    });
-
-        // Generate TOC from H2 headings
-        document.addEventListener("DOMContentLoaded", function() {
-            const tocList = document.querySelector(".toc-list");
-            if (!tocList) return;
-
-            const headings = document.querySelectorAll(".main-content h2");
-            tocList.innerHTML = "";
-
-            headings.forEach((heading, index) => {
-                const id = "section-" + index;
-                heading.id = id;
-
-                const li = document.createElement("li");
-                const a = document.createElement("a");
-                a.href = "#" + id;
-                a.textContent = heading.textContent;
-                li.appendChild(a);
-                tocList.appendChild(li);
-            });
-
-            // Scroll spy
-            const tocLinks = document.querySelectorAll('.toc-sidebar a');
-            const sections = document.querySelectorAll('h2');
-
-            function updateActiveLink() {
-                let current = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    if (scrollY >= sectionTop - 150) {
-                        current = section.getAttribute('id');
-                    }
-                });
-
-                tocLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === '#' + current) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-
-            window.addEventListener('scroll', updateActiveLink);
-            updateActiveLink();
-        });
-</script>
+    <script src="/assets/js/main.js"></script>
 </body>
 </html>
