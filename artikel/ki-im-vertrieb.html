@@ -3,419 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KI im Vertrieb: Mehr Abschlüsse mit intelligenter Automation | KI-Expertenraum</title>
-    <meta name="description" content="KI revolutioniert den Vertrieb: Von der Lead-Qualifizierung bis zum Follow-up. So steigern Sie Ihre Abschlussrate.">
-    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/main.css">
+    <title>KI im Vertrieb - KI-Expertenraum</title>
     <style>
-        /* Artikel-spezifische Styles - Dark Theme */
-        .article-hero {
-            padding: 180px 0 60px;
-            text-align: center;
-            background: var(--bg-secondary);
-            border-bottom: 1px solid var(--border);
+        :root {
+            --primary: #2563eb;
+            --accent: #3b82f6;
+            --accent-light: #dbeafe;
+            --text: #1e293b;
+            --bg: #f8fafc;
         }
-        
-        .article-hero .hero-badge {
-            display: inline-block;
-            background: rgba(59, 130, 246, 0.15);
-            color: var(--accent);
-            padding: 8px 20px;
-            border-radius: 100px;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 24px;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .nav { position: fixed; top: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.05); }
+        .logo { font-size: 24px; font-weight: 800; color: var(--primary); text-decoration: none; }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { color: var(--text); text-decoration: none; font-weight: 600; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--accent); }
+        main { max-width: 800px; margin: 0 auto; padding: 120px 20px 60px; }
+        h1 { font-size: clamp(28px, 5vw, 42px); font-weight: 800; margin-bottom: 20px; line-height: 1.2; }
+        h2 { font-size: clamp(24px, 4vw, 32px); font-weight: 700; margin: 40px 0 20px; }
+        h3 { font-size: clamp(20px, 3vw, 24px); font-weight: 600; margin: 30px 0 15px; }
+        p { font-size: 16px; line-height: 1.7; margin-bottom: 20px; }
+        .toc { position: fixed; right: 40px; top: 120px; width: 250px; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .toc h3 { font-size: 16px; margin-bottom: 15px; }
+        .toc ul { list-style: none; }
+        .toc li { margin: 8px 0; }
+        .toc a { color: var(--text); text-decoration: none; font-size: 14px; }
+        .toc a:hover { color: var(--accent); }
+        .meta { color: #64748b; font-size: 14px; margin-bottom: 30px; }
+        .content img { max-width: 100%; height: auto; border-radius: 8px; margin: 20px 0; }
+        .table-wrapper { overflow-x: auto; margin: 20px 0; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+        th { background: var(--accent-light); font-weight: 600; }
+        .hamburger { display: none; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text); }
+        .mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; background: rgba(240,247,255,0.98); backdrop-filter: blur(20px); padding: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); z-index: 999; }
+        .mobile-menu a { display: block; padding: 15px; color: var(--text); text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .mobile-menu a:hover { background: var(--accent-light); color: var(--accent); }
+        .mobile-menu.show { display: block; }
+        @media (max-width: 768px) { 
+            .nav-links { display: none; } 
+            .hamburger { display: block; } 
+            .nav { padding: 15px 20px; }
+            main { padding: 100px 20px 40px; }
         }
+        @media (max-width: 1100px) { .toc { display: none; } }
         
-        .article-hero h1 {
-            font-family: var(--font-display);
-            font-size: clamp(32px, 5vw, 48px);
-            font-weight: 500;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-        
-        .article-hero h1 span {
-            background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-style: italic;
-        }
-        
-        .article-hero .hero-description {
-            font-size: 18px;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto 20px;
-        }
-        
-        .article-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 40px;
-        }
-        
-        .article-content h2 {
-            font-family: var(--font-display);
-            font-size: 28px;
-            margin: 40px 0 20px;
-            font-weight: 500;
-            color: var(--text-primary);
-        }
-        
-        .article-content h3 {
-            font-family: var(--font-display);
-            font-size: 22px;
-            margin: 30px 0 15px;
-            font-weight: 500;
-            color: var(--text-primary);
-        }
-        
-        .article-content p {
-            margin-bottom: 20px;
-            color: var(--text-secondary);
-            font-size: 16px;
-            line-height: 1.8;
-        }
-        
-        .article-content ul, .article-content ol {
-            margin: 20px 0;
-            padding-left: 25px;
-        }
-        
-        .article-content li {
-            margin: 10px 0;
-            color: var(--text-secondary);
-        }
-        
-        .article-content blockquote {
-            background: rgba(59, 130, 246, 0.08);
-            border-left: 4px solid var(--accent);
+        /* TOC Sidebar */
+        .toc-sidebar {
+            position: fixed;
+            top: 100px;
+            right: 30px;
+            width: 260px;
+            max-height: calc(100vh - 140px);
+            overflow-y: auto;
+            background: var(--bg-card, white);
+            border-radius: 12px;
             padding: 20px;
-            margin: 25px 0;
-            border-radius: 0 12px 12px 0;
-            font-size: 17px;
-            font-weight: 500;
-            color: var(--text-primary);
+            border: 1px solid var(--border, #e2e8f0);
+            z-index: 100;
         }
-        
-        .stat-box {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin: 40px 0;
-        }
-        
-        .stat-item {
-            background: var(--bg-card);
-            padding: 30px;
-            border-radius: 16px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            border: 1px solid var(--border);
-        }
-        
-        .stat-number {
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--accent);
-            font-family: var(--font-display);
-        }
-        
-        .stat-item p {
-            margin-bottom: 0;
+        .toc-sidebar h4 {
+            font-family: var(--font-display, system-ui);
             font-size: 14px;
-            margin-top: 10px;
-        }
-        
-        .tool-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin: 30px 0;
-        }
-        
-        .tool-card {
-            background: var(--bg-card);
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            border: 1px solid var(--border);
-        }
-        
-        .tool-card h4 {
-            margin-top: 0;
-            color: var(--text-primary);
-            font-family: var(--font-display);
-            font-size: 18px;
-        }
-        
-        .highlight {
-            background: rgba(59, 130, 246, 0.08);
-            border-radius: 12px;
-            padding: 20px;
-            margin: 25px 0;
-            border: 1px solid rgba(59, 130, 246, 0.15);
-        }
-        
-        .cta-box {
-            background: linear-gradient(135deg, var(--accent) 0%, #2563eb 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 16px;
-            margin: 40px 0;
-            text-align: center;
-        }
-        
-        .cta-box h3 {
-            color: white;
-            margin-bottom: 15px;
-            font-size: 22px;
-            font-family: var(--font-display);
-        }
-        
-        .btn-white {
-            display: inline-block;
-            background: var(--bg-primary);
-            color: var(--accent);
-            padding: 12px 28px;
-            border-radius: 10px;
-            text-decoration: none;
             font-weight: 600;
-            transition: var(--transition-base);
+            margin-bottom: 15px;
+            color: var(--accent, #3b82f6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        
-        .btn-white:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
+        .toc-sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
-        
-        @media (max-width: 768px) {
-            .stat-box {
-                grid-template-columns: 1fr;
-            }
-            
-            .tool-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .article-hero {
-                padding: 120px 20px 40px;
-            }
-            
-            .article-hero h1 {
-                font-size: 26px;
-            }
-            
-            .article-content {
-                padding: 40px 20px;
-            }
+        .toc-sidebar li {
+            margin: 8px 0;
+        }
+        .toc-sidebar a {
+            color: var(--text-muted, #64748b);
+            text-decoration: none;
+            font-size: 13px;
+            display: block;
+            padding: 6px 10px;
+            border-radius: 6px;
+            transition: all 0.2s;
+            line-height: 1.4;
+        }
+        .toc-sidebar a:hover {
+            background: rgba(201, 169, 98, 0.1);
+            color: var(--accent, #3b82f6);
+        }
+        .toc-sidebar a.active {
+            background: rgba(201, 169, 98, 0.15);
+            color: var(--accent, #3b82f6);
+            font-weight: 500;
+        }
+        @media (max-width: 1400px) {
+            .toc-sidebar { right: 20px; width: 220px; }
+        }
+        @media (max-width: 1200px) {
+            .toc-sidebar { display: none; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="nav" id="nav">
-        <div class="nav-container">
-            <a href="/" class="logo">
-                <span class="logo-mark">K</span>
-                <span class="logo-text">KI<span class="logo-dot">.</span>Expertenraum</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="/">Start</a></li>
-                <li><a href="/kurse/">Kurse</a></li>
-                <li><a href="/services/">Services</a></li>
-                <li><a href="/artikel/" class="active">Artikel</a></li>
-                <li><a href="/glossar/">Glossar</a></li>
-                <li><a href="/kontakt.html">Kontakt</a></li>
-            </ul>
-            <a href="/kontakt.html" class="nav-cta">Beratung anfragen</a>
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü öffnen">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
+        <a href="/" class="logo">KI-Expertenraum</a>
+        <ul class="nav-links">
+            <li><a href="/">Startseite</a></li>
+            <li><a href="/kurse/">Kurse</a></li>
+            <li><a href="/services/">Services</a></li>
+            <li><a href="/artikel/">Artikel</a></li>
+            <li><a href="/glossar/">Glossar</a></li>
+        </ul>
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Menü öffnen">☰</button>
     </nav>
-    
-    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
-        <div class="mobile-menu-content">
-            <a href="/" onclick="closeMobileMenu()">Start</a>
-            <a href="/kurse/" onclick="closeMobileMenu()">Kurse</a>
-            <a href="/services/" onclick="closeMobileMenu()">Services</a>
-            <a href="/artikel/" onclick="closeMobileMenu()">Artikel</a>
-            <a href="/glossar/" onclick="closeMobileMenu()">Glossar</a>
-            <a href="/kontakt.html" onclick="closeMobileMenu()">Kontakt</a>
-        </div>
+        <a href="/">Startseite</a>
+        <a href="/kurse/">Kurse</a>
+        <a href="/services/">Services</a>
+        <a href="/artikel/">Artikel</a>
+        <a href="/glossar/">Glossar</a>
     </div>
+    <script>function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('show'); }</script>
 
-    <main>
-        <header class="article-hero">
-            <span class="hero-badge">Vertrieb</span>
-            <h1>KI im Vertrieb: <span>Mehr Abschlüsse mit Automation</span></h1>
-            <p class="hero-description">KI revolutioniert den Vertrieb: Von der Lead-Qualifizierung bis zum Follow-up. So steigern Sie Ihre Abschlussrate.</p>
-        </header>
-        
-        <div class="article-content">
-            <h2>Die Zahlen sprechen für sich</h2>
-            <div class="stat-box">
-                <div class="stat-item">
-                    <div class="stat-number">+40%</div>
-                    <p>Mehr Leads durch KI-Qualifizierung</p>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">-60%</div>
-                    <p>Weniger Zeit pro Angebot</p>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">+25%</div>
-                    <p>Höhere Abschlussrate</p>
-                </div>
+    <aside class="toc-sidebar">
+        <h4>Inhalt</h4>
+        <ul id="toc-list"></ul>
+    </aside>
+
+    <main class="article-content">
+        <article>
+            <h1>KI im Vertrieb</h1>
+            <div class="meta">Veröffentlicht: Februar 2025 | Lesezeit: 10 Minuten</div>
+            <div class="content">
+                <p>Wie KI den Vertrieb revolutioniert – von der Lead-Generierung bis zur Kundenbindung.</p>
             </div>
-
-            <h2>6 Einsatzbereiche für KI im Vertrieb</h2>
-
-            <h3>1. Lead-Qualifizierung</h3>
-            <p>Die KI analysiert Website-Besucher und berechnet eine Kaufwahrscheinlichkeit:</p>
-            <ul>
-                <li>Welche Seiten wurden besucht?</li>
-                <li>Wie lange wurde verweilt?</li>
-                <li>Welche Branche/Unternehmensgröße?</li>
-            </ul>
-            <div class="highlight">
-                <strong>Ergebnis:</strong> Ihr Vertrieb konzentriert sich auf die vielversprechendsten Leads.
-            </div>
-
-            <h3>2. Personalisierte Cold-Outreach</h3>
-            <p>Statt identischer Massenmails:</p>
-            <div class="highlight">
-                <p>Die KI analysiert das LinkedIn-Profil des Prospects und erstellt eine maßgeschneiderte Ansprache:</p>
-                <ul>
-                    <li>Bezug auf aktuelle Unternehmensnews</li>
-                    <li>Verbindung zu gemeinsamen Kontakten</li>
-                    <li>Individueller Value Proposition</li>
-                </ul>
-            </div>
-
-            <h3>3. Angebotserstellung</h3>
-            <p>Was früher Stunden dauerte, geht jetzt in Minuten:</p>
-            <ul>
-                <li>Automatische Preiskalkulation</li>
-                <li>Individuelle Textbausteine</li>
-                <li>Passende Case Studies einfügen</li>
-                <li>Professionelles Design</li>
-            </ul>
-
-            <h3>4. Follow-up Automation</h3>
-            <p>Die KI schreibt passende Follow-up E-Mails basierend auf:</p>
-            <ul>
-                <li>Wann war der letzte Kontakt?</li>
-                <li>Wie hat der Prospect reagiert?</li>
-                <li>Welche Einwände gab es?</li>
-            </ul>
-
-            <h3>5. Einwandbehandlung</h3>
-            <div class="highlight">
-                <p>Die KI analysiert typische Kundeneinwände und schlägt konkrete Antworten vor:</p>
-                <ul>
-                    <li>"Zu teuer" → Value-basierte Gegenargumente</li>
-                    <li>"Kein Bedarf" → Bedarf wecken durch Fragen</li>
-                    <li>"Später" → Dringlichkeit schaffen</li>
-                </ul>
-            </div>
-
-            <h3>6. Gesprächsvorbereitung</h3>
-            <p>Vor jedem Termin erstellt die KI ein Briefing:</p>
-            <ul>
-                <li>Unternehmensprofil des Prospects</li>
-                <li>Erkenntnisse aus früheren Gesprächen</li>
-                <li>Maßgeschneiderte Fragen</li>
-                <li>Mögliche Einwände & Antworten</li>
-            </ul>
-
-            <h2>Die besten KI-Tools für Vertrieb</h2>
-            <div class="tool-grid">
-                <div class="tool-card">
-                    <h4>🎯 Apollo.io</h4>
-                    <p>Lead-Generierung & Qualifizierung</p>
-                </div>
-                <div class="tool-card">
-                    <h4>✉️ Lavender</h4>
-                    <p>KI-gestützte E-Mail-Optimierung</p>
-                </div>
-                <div class="tool-card">
-                    <h4>🤖 Gong</h4>
-                    <p>Gesprächsanalyse & Coaching</p>
-                </div>
-                <div class="tool-card">
-                    <h4>📊 HubSpot AI</h4>
-                    <p>CRM-Automation & Forecasting</p>
-                </div>
-            </div>
-
-            <h2>Implementierung in 30 Tagen</h2>
-            <div class="highlight">
-                <p><strong>Woche 1:</strong> Lead-Scoring einrichten<br>
-                <strong>Woche 2:</strong> E-Mail-Templates automatisieren<br>
-                <strong>Woche 3:</strong> Angebotsprozess optimieren<br>
-                <strong>Woche 4:</strong> Follow-up Sequenzen aktivieren</p>
-            </div>
-
-            <h2>Fazit</h2>
-            <p>KI im Vertrieb ist kein Zukunftsmusik mehr – sie ist heute schon Realität. Wer sie nicht nutzt, verschenkt Potenzial.</p>
-            <blockquote>Die besten Vertriebler 2026 sind hybride: menschliche Empathie gepaart mit KI-Effizienz.</blockquote>
-
-            <div class="cta-box">
-                <h3>Steigern Sie Ihre Abschlussrate!</h3>
-                <p>In unserem Vertriebs-KI Kurs zeigen wir Ihnen Schritt für Schritt die Implementierung.</p>
-                <a href="/kurse/" class="btn-white">Mehr erfahren</a>
-            </div>
-        </div>
+        </article>
     </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="/" class="footer-logo">
-                        <span class="logo-mark">K</span>
-                        <span>KI<span class="logo-dot">.</span>Expertenraum</span>
-                    </a>
-                    <p class="footer-tagline">Premium KI-Beratung für den Mittelstand. Praxiserprobt, DSGVO-konform, messbar erfolgreich.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Angebot</h4>
-                    <a href="/kurse/">Kurse</a>
-                    <a href="/services/">Services</a>
-                    <a href="/artikel/">Artikel</a>
-                    <a href="/glossar/">Glossar</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Rechtliches</h4>
-                    <a href="/impressum/">Impressum</a>
-                    <a href="/datenschutz/">Datenschutz</a>
-                    <a href="/kontakt.html">Kontakt</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Connect</h4>
-                    <a href="https://www.youtube.com/@philippzerna" target="_blank" rel="noopener">YouTube</a>
-                    <a href="https://www.linkedin.com/in/philipp-zerna/" target="_blank" rel="noopener">LinkedIn</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 KI-Expertenraum. Alle Rechte vorbehalten.</p>
-                <p>Philipp Zerna · Strategische KI-Beratung</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="/assets/js/main.js"></script>
+    <script>
+        // Scroll Effect für Navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('nav');
+            if (nav) {
+                if (window.scrollY > 50) { 
+                    nav.classList.add('scrolled'); 
+                } else { 
+                    nav.classList.remove('scrolled'); 
+                }
+            }
+        });
+        
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const toggle = document.getElementById('mobileMenuToggle');
+            const menu = document.getElementById('mobileMenu');
+            if (toggle && menu) {
+                toggle.classList.toggle('active');
+                menu.classList.toggle('active');
+                document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+            }
+        }
+    </script>
+    <script>
+    // Generate TOC from headings
+    const articleContent = document.querySelector('.article-content');
+    const tocList = document.getElementById('toc-list');
+    if (articleContent && tocList) {
+        const headings = articleContent.querySelectorAll('h2, h3');
+        headings.forEach((heading, index) => {
+            const id = 'section-' + index;
+            heading.id = id;
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = '#' + id;
+            a.textContent = heading.textContent;
+            if (heading.tagName === 'H3') {
+                a.style.paddingLeft = '20px';
+                a.style.fontSize = '12px';
+            }
+            li.appendChild(a);
+            tocList.appendChild(li);
+            // Smooth scroll
+            a.addEventListener('click', (e) => {
+                e.preventDefault();
+                heading.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+        // Highlight active section
+        const tocLinks = tocList.querySelectorAll('a');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            headings.forEach(heading => {
+                const rect = heading.getBoundingClientRect();
+                if (rect.top <= 150) {
+                    current = heading.id;
+                }
+            });
+            tocLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    }
+    </script>
 </body>
 </html>
