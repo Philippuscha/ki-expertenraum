@@ -4,412 +4,414 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontakt | Philipp Zerna | KI-Expertenraum</title>
+    <meta name="description" content="Kontaktieren Sie Philipp Zerna für KI-Kurse, Kooperationen und Beratung. Ich freue mich auf Ihre Nachricht.">
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
-    <meta name="description" content="Kontaktieren Sie Philipp Zerna für KI-Kurse, Kooperationen und mehr.">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/css/main.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --bg-primary: #F5F5F0;
-            --bg-secondary: #FAFAF7;
-            --bg-card: #FFFFFF;
-            --text-primary: #1a1a1a;
-            --text-secondary: #666666;
-            --text-muted: #999999;
-            --accent-gold: #C9A962;
-            --accent-rose: #D4A5A5;
-            --font-display: 'Playfair Display', serif;
-            --font-body: 'Inter', sans-serif;
-        }
-        body {
-            font-family: var(--font-body);
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.7;
-            min-height: 100vh;
-        }
-        h1, h2, h3 { font-family: var(--font-display); font-weight: 500; }
-        
-        /* Navigation - Luxus Style */
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 24px 64px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(245, 245, 240, 0.9);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(26, 26, 26, 0.05);
-        }
-        .logo {
-            font-family: var(--font-display);
-            font-size: 26px;
-            font-weight: 600;
-            color: var(--text-primary);
-            text-decoration: none;
-            letter-spacing: -0.02em;
-        }
-        .logo span { color: var(--accent-gold); }
-        .nav-links {
-            display: flex;
-            gap: 48px;
-            list-style: none;
-            align-items: center;
-        }
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 400;
-            transition: color 0.3s ease;
-        }
-        .nav-links a:hover { color: var(--accent-gold); }
-        .nav-cta {
-            background: var(--text-primary);
-            color: var(--bg-primary);
-            padding: 12px 28px;
-            border-radius: 100px;
-            font-weight: 500;
-            font-size: 13px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        .nav-cta:hover {
-            background: var(--accent-gold);
-            color: var(--text-primary);
-        }
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: var(--text-primary);
-            z-index: 1001;
-        }
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--bg-primary);
-            z-index: 999;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 32px;
-        }
-        .mobile-menu.active { display: flex; }
-        .mobile-menu a {
-            font-family: var(--font-display);
-            font-size: 32px;
-            color: var(--text-primary);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        .mobile-menu a:hover { color: var(--accent-gold); }
-        .mobile-menu-close {
-            position: absolute;
-            top: 24px;
-            right: 64px;
-            background: none;
-            border: none;
-            font-size: 32px;
-            cursor: pointer;
-            color: var(--text-primary);
-        }
-
-        /* Hero */
+        /* Contact Page Specific Styles */
         .hero {
-            padding: 180px 64px 60px;
+            padding: 180px 0 60px;
             text-align: center;
             max-width: 900px;
             margin: 0 auto;
         }
+        
         .hero h1 {
             font-size: clamp(36px, 5vw, 56px);
             margin-bottom: 20px;
             font-weight: 500;
         }
-        .hero h1 span {
+        
+        .hero h1 em {
             font-style: italic;
-            color: var(--accent-gold);
+            color: var(--accent);
         }
+        
         .hero p {
             font-size: 18px;
             color: var(--text-secondary);
             max-width: 600px;
             margin: 0 auto;
-            font-weight: 300;
         }
-
-        /* Content */
+        
         .content {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 0 64px 80px;
+            padding: 0 0 80px;
         }
         
         /* Profile Section */
         .profile-section {
             display: flex;
             align-items: center;
-            gap: 40px;
+            gap: 48px;
             margin: 40px 0;
             background: var(--bg-card);
             border-radius: 24px;
-            padding: 40px;
-            box-shadow: 0 4px 30px rgba(0,0,0,0.05);
-            border: 1px solid rgba(26, 26, 26, 0.06);
+            padding: 48px;
+            border: 1px solid var(--border);
         }
+        
         .profile-img {
-            width: 180px;
-            height: 180px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid var(--accent-gold);
-            box-shadow: 0 4px 20px rgba(201, 169, 98, 0.3);
+            border: 4px solid var(--accent);
+            box-shadow: var(--shadow-glow);
             flex-shrink: 0;
         }
-        .profile-info { flex: 1; }
+        
+        .profile-info {
+            flex: 1;
+        }
+        
         .profile-name {
             font-family: var(--font-display);
-            font-size: 32px;
+            font-size: 36px;
             font-weight: 600;
             margin-bottom: 8px;
         }
+        
         .profile-title {
             font-size: 16px;
-            color: var(--accent-gold);
-            margin-bottom: 15px;
+            color: var(--accent);
+            margin-bottom: 20px;
             font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
+        
         .profile-text {
             color: var(--text-secondary);
             line-height: 1.8;
-            font-weight: 300;
+            font-size: 16px;
         }
         
         /* Contact Cards */
         .contact-row {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             gap: 24px;
-            margin: 30px 0;
+            margin: 40px 0;
         }
+        
         .contact-box {
-            flex: 1;
             background: var(--bg-card);
             border-radius: 20px;
-            padding: 32px 24px;
+            padding: 40px 32px;
             text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            border: 1px solid rgba(26, 26, 26, 0.06);
-            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--border);
+            transition: var(--transition-slow);
         }
+        
         .contact-box:hover {
+            border-color: var(--accent);
             transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow-glow);
         }
+        
         .contact-icon {
-            font-size: 40px;
-            margin-bottom: 16px;
+            width: 64px;
+            height: 64px;
+            background: var(--bg-tertiary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin: 0 auto 20px;
         }
+        
         .contact-title {
             font-family: var(--font-display);
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 500;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
+        
         .contact-text {
-            font-size: 14px;
+            font-size: 15px;
             color: var(--text-secondary);
-            margin-bottom: 20px;
-            font-weight: 300;
+            margin-bottom: 24px;
         }
+        
         .contact-link {
-            display: inline-block;
-            background: var(--text-primary);
+            display: inline-flex;
+            background: var(--accent);
             color: var(--bg-primary);
-            padding: 12px 28px;
+            padding: 14px 32px;
             border-radius: 100px;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             font-size: 14px;
-            transition: all 0.3s ease;
+            transition: var(--transition-base);
         }
+        
         .contact-link:hover {
-            background: var(--accent-gold);
-            color: var(--text-primary);
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
         }
         
         /* Email Section */
         .email-section {
-            background: linear-gradient(135deg, rgba(201, 169, 98, 0.1) 0%, rgba(212, 165, 165, 0.1) 100%);
+            background: var(--gradient-card);
             border-radius: 24px;
-            padding: 48px;
+            padding: 60px;
             margin: 40px 0;
             text-align: center;
-            border: 1px solid rgba(201, 169, 98, 0.2);
-        }
-        .email-section h2 {
-            font-size: 28px;
-            margin-bottom: 12px;
-        }
-        .email-section > p {
-            color: var(--text-secondary);
-            margin-bottom: 24px;
-            font-weight: 300;
-        }
-        .email-address {
-            font-size: 22px;
-            font-weight: 600;
-            color: var(--accent-gold);
-            margin: 20px 0;
-            font-family: var(--font-display);
-        }
-        .copy-btn {
-            background: white;
-            border: 2px solid var(--accent-gold);
-            color: var(--accent-gold);
-            padding: 12px 24px;
-            border-radius: 100px;
-            cursor: pointer;
-            font-weight: 500;
-            font-family: var(--font-body);
-            transition: all 0.3s ease;
-            margin-bottom: 16px;
-        }
-        .copy-btn:hover {
-            background: var(--accent-gold);
-            color: var(--text-primary);
+            border: 1px solid var(--border);
         }
         
-        /* Footer */
-        .footer {
-            background: var(--text-primary);
-            color: rgba(245, 245, 240, 0.7);
-            padding: 50px 64px 30px;
-            margin-top: 80px;
-            text-align: center;
+        .email-section h2 {
+            font-size: 32px;
+            margin-bottom: 16px;
         }
-        .footer-logo {
+        
+        .email-section > p {
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+        
+        .email-address {
             font-family: var(--font-display);
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 600;
-            margin-bottom: 15px;
+            color: var(--accent);
+            margin: 24px 0;
+            letter-spacing: 0.02em;
         }
-        .footer-logo span { color: var(--accent-gold); }
-        .footer a {
-            color: rgba(245, 245, 240, 0.7);
-            text-decoration: none;
-            transition: color 0.3s;
+        
+        .copy-btn {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            padding: 14px 28px;
+            border-radius: 100px;
+            cursor: pointer;
+            font-weight: 600;
+            font-family: var(--font-body);
+            font-size: 14px;
+            transition: var(--transition-base);
+            margin-right: 12px;
         }
-        .footer a:hover { color: var(--accent-gold); }
+        
+        .copy-btn:hover {
+            background: var(--accent);
+            color: var(--bg-primary);
+        }
+        
+        .copy-btn.copied {
+            background: #22c55e;
+            border-color: #22c55e;
+            color: white;
+        }
+        
+        .email-actions {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
         
         /* Responsive */
         @media (max-width: 1024px) {
-            .nav { padding: 20px 32px; }
-            .nav-links, .nav-cta { display: none; }
-            .mobile-menu-btn { display: block; }
-            .hero { padding: 140px 32px 60px; }
-            .content { padding: 0 32px 60px; }
-            .mobile-menu-close { right: 32px; }
+            .hero {
+                padding: 140px 0 40px;
+            }
+            
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+                padding: 32px;
+            }
+            
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .contact-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .email-section {
+                padding: 40px 24px;
+            }
+            
+            .email-address {
+                font-size: 22px;
+            }
         }
+        
         @media (max-width: 768px) {
-            .profile-section { flex-direction: column; text-align: center; }
-            .profile-img { width: 150px; height: 150px; }
-            .contact-row { flex-direction: column; }
-            .hero h1 { font-size: 32px; }
-            .email-section { padding: 32px 24px; }
-            .email-address { font-size: 18px; }
-            .footer { padding: 40px 32px 30px; }
+            .email-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .copy-btn {
+                margin-right: 0;
+                width: 100%;
+                max-width: 280px;
+            }
         }
     </style>
 </head>
 <body>
-    <nav class="nav">
-        <a href="/" class="logo">KI<span>.</span>Expertenraum</a>
-        <ul class="nav-links">
-            <li><a href="/">Start</a></li>
-            <li><a href="/kurse/">Kurse</a></li>
-            <li><a href="/services/">Services</a></li>
-            <li><a href="/artikel/">Artikel</a></li>
-            <li><a href="/glossar/">Glossar</a></li>
-            <li><a href="/kontakt.html">Kontakt</a></li>
-        </ul>
-        <a href="/kontakt.html" class="nav-cta">Beratung anfragen</a>
-        <button class="mobile-menu-btn" onclick="document.getElementById('mobileMenu').classList.add('active')">☰</button>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <span class="logo-mark">K</span>
+                <span class="logo-text">KI<span class="logo-dot">.</span>Expertenraum</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="/">Start</a></li>
+                <li><a href="/kurse/">Kurse</a></li>
+                <li><a href="/services/">Services</a></li>
+                <li><a href="/artikel/">Artikel</a></li>
+                <li><a href="/glossar/">Glossar</a></li>
+                <li><a href="/kontakt.html" class="active">Kontakt</a></li>
+            </ul>
+            
+            <a href="/kontakt.html" class="nav-cta">Beratung anfragen</a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü öffnen">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </nav>
     
+    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
-        <button class="mobile-menu-close" onclick="document.getElementById('mobileMenu').classList.remove('active')">×</button>
-        <a href="/" onclick="document.getElementById('mobileMenu').classList.remove('active')">Start</a>
-        <a href="/kurse/" onclick="document.getElementById('mobileMenu').classList.remove('active')">Kurse</a>
-        <a href="/services/" onclick="document.getElementById('mobileMenu').classList.remove('active')">Services</a>
-        <a href="/artikel/" onclick="document.getElementById('mobileMenu').classList.remove('active')">Artikel</a>
-        <a href="/glossar/" onclick="document.getElementById('mobileMenu').classList.remove('active')">Glossar</a>
-        <a href="/kontakt.html" onclick="document.getElementById('mobileMenu').classList.remove('active')">Kontakt</a>
-    </div>
-
-    <header class="hero">
-        <h1>Lassen Sie uns <span>connecten</span></h1>
-        <p>Ich freue mich auf Ihre Nachricht zu Kursen oder Kooperationen.</p>
-    </header>
-
-    <div class="content">
-        <!-- Profil mit Bild -->
-        <div class="profile-section">
-            <img src="/public/images/kontakt.png" alt="Philipp Zerna" class="profile-img">
-            <div class="profile-info">
-                <h2 class="profile-name">Philipp Zerna</h2>
-                <p class="profile-title">KI-Enthusiast & Content Creator</p>
-                <p class="profile-text">Ich teile mein Wissen über Künstliche Intelligenz in Kursen und Artikeln. Mein Ziel: KI für jeden verständlich und nutzbar machen. Haben Sie Fragen zu meinen Kursen oder Interesse an einer Zusammenarbeit? Schreiben Sie mir!</p>
-            </div>
-        </div>
-
-        <!-- Zwei Karten nebeneinander -->
-        <div class="contact-row">
-            <div class="contact-box">
-                <div class="contact-icon">🎓</div>
-                <h3 class="contact-title">Kurse</h3>
-                <p class="contact-text">Fragen zu Kursen oder Inhouse-Schulungen</p>
-                <a href="mailto:zernaphilipp@gmail.com?subject=Kursanfrage" class="contact-link">Anfragen</a>
-            </div>
-            <div class="contact-box">
-                <div class="contact-icon">🤝</div>
-                <h3 class="contact-title">Kooperation</h3>
-                <p class="contact-text">Partnerschaften und gemeinsame Projekte</p>
-                <a href="mailto:zernaphilipp@gmail.com?subject=Kooperationsanfrage" class="contact-link">Anfragen</a>
-            </div>
-        </div>
-
-        <!-- E-Mail Bereich -->
-        <div class="email-section">
-            <h2>📧 Direkter Kontakt</h2>
-            <p>Schreiben Sie mir – ich antworte in der Regel innerhalb von 24 Stunden.</p>
-            <div class="email-address" id="emailAddress">zernaphilipp@gmail.com</div>
-            <button class="copy-btn" onclick="copyEmail()">📋 E-Mail kopieren</button>
-            <p><a href="mailto:zernaphilipp@gmail.com" class="contact-link">✉️ E-Mail-App öffnen</a></p>
+        <div class="mobile-menu-content">
+            <a href="/" onclick="closeMobileMenu()">Start</a>
+            <a href="/kurse/" onclick="closeMobileMenu()">Kurse</a>
+            <a href="/services/" onclick="closeMobileMenu()">Services</a>
+            <a href="/artikel/" onclick="closeMobileMenu()">Artikel</a>
+            <a href="/glossar/" onclick="closeMobileMenu()">Glossar</a>
+            <a href="/kontakt.html" onclick="closeMobileMenu()">Kontakt</a>
         </div>
     </div>
 
+    <main>
+        <div class="container">
+            <header class="hero">
+                <h1>Lassen Sie uns <em>connecten</em></h1>
+                <p>Ich freue mich auf Ihre Nachricht zu Kursen, Services oder Kooperationen.</p>
+            </header>
+
+            <div class="content">
+                <!-- Profil mit Bild -->
+                <div class="profile-section">
+                    <img src="/public/images/kontakt.png" alt="Philipp Zerna" class="profile-img">
+                    <div class="profile-info">
+                        <h2 class="profile-name">Philipp Zerna</h2>
+                        <p class="profile-title">KI-Enthusiast & Content Creator</p>
+                        <p class="profile-text">Ich teile mein Wissen über Künstliche Intelligenz in Kursen und Artikeln. Mein Ziel: KI für jeden verständlich und nutzbar machen. Haben Sie Fragen zu meinen Kursen oder Interesse an einer Zusammenarbeit? Schreiben Sie mir!</p>
+                    </div>
+                </div>
+
+                <!-- Zwei Karten nebeneinander -->
+                <div class="contact-row">
+                    <div class="contact-box">
+                        <div class="contact-icon">🎓</div>
+                        <h3 class="contact-title">Kurse</h3>
+                        <p class="contact-text">Fragen zu Kursen oder Inhouse-Schulungen</p>
+                        <a href="mailto:zernaphilipp@gmail.com?subject=Kursanfrage" class="contact-link">Anfragen →</a>
+                    </div>
+                    <div class="contact-box">
+                        <div class="contact-icon">🤝</div>
+                        <h3 class="contact-title">Kooperation</h3>
+                        <p class="contact-text">Partnerschaften und gemeinsame Projekte</p>
+                        <a href="mailto:zernaphilipp@gmail.com?subject=Kooperationsanfrage" class="contact-link">Anfragen →</a>
+                    </div>
+                </div>
+
+                <!-- E-Mail Bereich -->
+                <div class="email-section">
+                    <span class="section-label">Direkter Kontakt</span>
+                    <h2>Schreiben Sie mir</h2>
+                    <p>Ich antworte in der Regel innerhalb von 24 Stunden.</p>
+                    <div class="email-address" id="emailAddress">zernaphilipp@gmail.com</div>
+                    <div class="email-actions">
+                        <button class="copy-btn" onclick="copyEmail()">📋 E-Mail kopieren</button>
+                        <a href="mailto:zernaphilipp@gmail.com" class="contact-link">✉️ E-Mail-App öffnen</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
     <footer class="footer">
-        <div class="footer-logo">KI<span>.</span>Expertenraum</div>
-        <p>© 2026 Philipp Zerna | <a href="/impressum/">Impressum</a> | <a href="/datenschutz/">Datenschutz</a></p>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo">
+                        <span class="logo-mark">K</span>
+                        <span>KI<span class="logo-dot">.</span>Expertenraum</span>
+                    </a>
+                    <p class="footer-tagline">Premium KI-Beratung für den Mittelstand. Praxiserprobt, DSGVO-konform, messbar erfolgreich.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Angebot</h4>
+                    <a href="/kurse/">Kurse</a>
+                    <a href="/services/">Services</a>
+                    <a href="/artikel/">Artikel</a>
+                    <a href="/glossar/">Glossar</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Rechtliches</h4>
+                    <a href="/impressum/">Impressum</a>
+                    <a href="/datenschutz/">Datenschutz</a>
+                    <a href="/kontakt.html">Kontakt</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <a href="https://www.youtube.com/@philippzerna" target="_blank" rel="noopener">YouTube</a>
+                    <a href="https://www.linkedin.com/in/philipp-zerna/" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 KI-Expertenraum. Alle Rechte vorbehalten.</p>
+                <p>Philipp Zerna · Strategische KI-Beratung</p>
+            </div>
+        </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="/assets/js/main.js"></script>
     <script>
         function copyEmail() {
             const email = 'zernaphilipp@gmail.com';
+            const btn = document.querySelector('.copy-btn');
+            
             navigator.clipboard.writeText(email).then(() => {
-                alert('E-Mail-Adresse kopiert: ' + email);
+                const originalText = btn.textContent;
+                btn.textContent = '✓ Kopiert!';
+                btn.classList.add('copied');
+                
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.classList.remove('copied');
+                }, 2000);
             });
         }
     </script>

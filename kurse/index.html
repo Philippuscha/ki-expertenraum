@@ -6,130 +6,19 @@
     <title>KI-Kurse | Strategische Weiterbildung | KI-Expertenraum</title>
     <meta name="description" content="Enterprise KI-Kurse für Führungskräfte. Von EU AI Act bis Prompt Engineering – praxisnah und zertifiziert.">
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/css/main.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --bg-primary: #F5F5F0;
-            --bg-secondary: #FAFAF7;
-            --text-primary: #1a1a1a;
-            --text-secondary: #666666;
-            --text-muted: #999999;
-            --accent-gold: #C9A962;
-            --accent-rose: #D4A5A5;
-            --font-display: 'Playfair Display', serif;
-            --font-body: 'Inter', sans-serif;
-        }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: var(--font-body);
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 500; }
-        
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 24px 64px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(245, 245, 240, 0.9);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(26, 26, 26, 0.05);
-        }
-        .logo {
-            font-family: var(--font-display);
-            font-size: 26px;
-            font-weight: 600;
-            color: var(--text-primary);
-            text-decoration: none;
-            letter-spacing: -0.02em;
-        }
-        .logo span { color: var(--accent-gold); }
-        .nav-links {
-            display: flex;
-            gap: 48px;
-            list-style: none;
-            align-items: center;
-        }
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 400;
-            transition: color 0.3s ease;
-        }
-        .nav-links a:hover { color: var(--accent-gold); }
-        .nav-links a.active { color: var(--accent-gold); font-weight: 500; }
-        .nav-cta {
-            background: var(--text-primary);
-            color: var(--bg-primary);
-            padding: 12px 28px;
-            border-radius: 100px;
-            font-weight: 500;
-            font-size: 13px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        .nav-cta:hover {
-            background: var(--accent-gold);
-            color: var(--text-primary);
-        }
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: var(--text-primary);
-            z-index: 1001;
-        }
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--bg-primary);
-            z-index: 999;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 32px;
-        }
-        .mobile-menu.active { display: flex; }
-        .mobile-menu a {
-            font-family: var(--font-display);
-            font-size: 32px;
-            color: var(--text-primary);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        .mobile-menu a:hover, .mobile-menu a.active { color: var(--accent-gold); }
-        .mobile-menu-close {
-            position: absolute;
-            top: 24px;
-            right: 64px;
-            background: none;
-            border: none;
-            font-size: 32px;
-            cursor: pointer;
-            color: var(--text-primary);
-        }
-        
+        /* Courses Page Specific Styles */
         .hero {
             min-height: 70vh;
-            padding: 180px 64px 100px;
+            padding: 180px 0 100px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -139,71 +28,59 @@
             margin: 0 auto;
             position: relative;
         }
+        
         .hero-badge {
             font-family: var(--font-display);
             font-size: 14px;
             font-style: italic;
-            color: var(--accent-gold);
+            color: var(--accent);
             margin-bottom: 24px;
             letter-spacing: 0.1em;
         }
+        
         .hero h1 {
             font-size: clamp(48px, 5.5vw, 72px);
             line-height: 1.05;
             margin-bottom: 32px;
             font-weight: 500;
         }
-        .hero h1 span {
+        
+        .hero h1 em {
             font-style: italic;
-            color: var(--accent-gold);
+            color: var(--accent);
         }
+        
         .hero p {
             font-size: 20px;
             color: var(--text-secondary);
             max-width: 600px;
             line-height: 1.8;
-            font-weight: 300;
-        }
-        .hero-visual {
-            position: absolute;
-            right: -100px;
-            top: 50%;
-            transform: translateY(-50%);
-            opacity: 0.15;
-            z-index: -1;
-        }
-        .hero-visual svg {
-            width: 400px;
-            filter: drop-shadow(0 20px 40px rgba(201, 169, 98, 0.3));
         }
         
         .courses-section {
-            padding: 100px 64px 140px;
-            max-width: 1400px;
-            margin: 0 auto;
+            padding: 80px 0 140px;
         }
+        
         .section-header {
             text-align: center;
             max-width: 600px;
             margin: 0 auto 80px;
         }
-        .section-label {
-            font-family: var(--font-display);
-            font-size: 14px;
-            font-style: italic;
-            color: var(--accent-gold);
-            margin-bottom: 16px;
-            display: block;
-        }
+        
         .section-header h2 {
-            font-size: 52px;
+            font-size: clamp(36px, 4vw, 52px);
             margin-bottom: 20px;
             font-weight: 500;
         }
+        
+        .section-header h2 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+        
         .section-header p {
             font-size: 17px;
             color: var(--text-secondary);
-            font-weight: 300;
         }
         
         .courses-grid {
@@ -211,35 +88,41 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 32px;
         }
+        
         .course-card {
-            background: white;
+            background: var(--bg-card);
             border-radius: 24px;
             overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: var(--transition-slow);
             text-decoration: none;
             color: inherit;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-            border: 1px solid rgba(26, 26, 26, 0.06);
+            border: 1px solid var(--border);
         }
+        
         .course-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-glow);
         }
+        
         .course-card.featured {
-            border: 2px solid var(--accent-gold);
+            border: 2px solid var(--accent);
         }
+        
         .course-image {
             height: 220px;
             background-size: cover;
             background-position: center;
             position: relative;
         }
+        
         .course-image::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 60%);
+            background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%);
         }
+        
         .course-badge {
             position: absolute;
             top: 20px;
@@ -247,73 +130,101 @@
             padding: 8px 16px;
             border-radius: 100px;
             font-size: 11px;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             z-index: 1;
         }
-        .badge-bestseller { background: linear-gradient(135deg, var(--accent-gold) 0%, #b8941d 100%); color: white; }
-        .badge-popular { background: linear-gradient(135deg, var(--accent-rose) 0%, #c99494 100%); color: white; }
-        .badge-new { background: var(--text-primary); color: var(--bg-primary); }
-        .badge-advanced { background: rgba(26, 26, 26, 0.1); color: var(--text-primary); }
+        
+        .badge-bestseller {
+            background: var(--gradient-gold);
+            color: var(--bg-primary);
+        }
+        
+        .badge-popular {
+            background: linear-gradient(135deg, #d4a5a5 0%, #c99494 100%);
+            color: white;
+        }
+        
+        .badge-new {
+            background: var(--text-primary);
+            color: var(--bg-primary);
+        }
+        
+        .badge-advanced {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+        
         .course-content {
             padding: 32px;
         }
+        
         .course-title {
             font-size: 22px;
             margin-bottom: 12px;
             font-weight: 500;
         }
+        
         .course-desc {
             color: var(--text-secondary);
             font-size: 15px;
             line-height: 1.6;
             margin-bottom: 20px;
-            font-weight: 300;
         }
+        
         .course-meta {
             display: flex;
             gap: 16px;
             font-size: 13px;
             color: var(--text-muted);
             margin-bottom: 20px;
-            font-weight: 400;
         }
+        
         .course-price {
             font-family: var(--font-display);
             font-size: 32px;
-            color: var(--accent-gold);
+            color: var(--accent);
             margin-bottom: 16px;
         }
+        
         .course-price span {
             font-size: 14px;
             color: var(--text-muted);
             font-family: var(--font-body);
         }
+        
         .buy-btn {
             display: block;
-            background: var(--text-primary);
+            background: var(--accent);
             color: var(--bg-primary);
             padding: 16px;
             border-radius: 12px;
             text-align: center;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             font-size: 14px;
-            transition: all 0.3s ease;
+            transition: var(--transition-base);
+            border: none;
+            cursor: pointer;
+            width: 100%;
         }
+        
         .buy-btn:hover {
-            background: var(--accent-gold);
-            color: var(--text-primary);
+            background: var(--accent-light);
         }
+        
         .buy-btn.disabled {
-            background: rgba(26, 26, 26, 0.2);
+            background: var(--bg-tertiary);
+            color: var(--text-muted);
             cursor: not-allowed;
         }
+        
         .buy-btn.disabled:hover {
-            background: rgba(26, 26, 26, 0.2);
-            color: var(--bg-primary);
+            background: var(--bg-tertiary);
         }
+        
         .secure-badge {
             display: flex;
             align-items: center;
@@ -324,321 +235,267 @@
             color: var(--text-muted);
         }
         
+        /* CTA Section */
         .cta {
-            padding: 140px 64px;
+            padding: 140px 0;
             text-align: center;
-            background: var(--text-primary);
-            color: var(--bg-primary);
+            background: var(--bg-secondary);
         }
+        
         .cta h2 {
-            font-size: 48px;
+            font-size: clamp(36px, 4vw, 48px);
             margin-bottom: 20px;
             font-weight: 500;
         }
-        .cta h2 span {
+        
+        .cta h2 em {
             font-style: italic;
-            color: var(--accent-gold);
+            color: var(--accent);
         }
+        
         .cta p {
             font-size: 18px;
-            color: rgba(245, 245, 240, 0.6);
+            color: var(--text-secondary);
             margin-bottom: 40px;
             max-width: 500px;
             margin-left: auto;
             margin-right: auto;
-            font-weight: 300;
-        }
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 16px 36px;
-            border-radius: 100px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            border: none;
-            cursor: pointer;
-        }
-        .btn-primary {
-            background: var(--bg-primary);
-            color: var(--text-primary);
-        }
-        .btn-primary:hover {
-            background: var(--accent-gold);
         }
         
-        .footer {
-            background: var(--text-primary);
-            color: var(--bg-primary);
-            padding: 80px 64px 40px;
-        }
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 80px;
-            margin-bottom: 60px;
-        }
-        .footer-brand .logo {
-            color: var(--bg-primary);
-            margin-bottom: 20px;
-            display: inline-block;
-        }
-        .footer-brand p {
-            color: rgba(245, 245, 240, 0.5);
-            font-size: 14px;
-            line-height: 1.8;
-            font-weight: 300;
-        }
-        .footer-col h4 {
-            font-family: var(--font-display);
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 24px;
-            color: var(--bg-primary);
-        }
-        .footer-col a {
-            display: block;
-            color: rgba(245, 245, 240, 0.5);
-            text-decoration: none;
-            font-size: 14px;
-            margin-bottom: 14px;
-            transition: color 0.3s ease;
-            font-weight: 300;
-        }
-        .footer-col a:hover {
-            color: var(--accent-gold);
-        }
-        .footer-bottom {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding-top: 40px;
-            border-top: 1px solid rgba(245, 245, 240, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .footer-bottom p {
-            color: rgba(245, 245, 240, 0.4);
-            font-size: 13px;
-        }
-        .footer-bottom a {
-            color: rgba(245, 245, 240, 0.4);
-            text-decoration: none;
-            margin-left: 32px;
-            font-size: 13px;
-            transition: color 0.3s ease;
-        }
-        .footer-bottom a:hover {
-            color: var(--accent-gold);
-        }
-        
+        /* Responsive */
         @media (max-width: 1024px) {
-            .courses-grid { grid-template-columns: repeat(2, 1fr); }
-            .hero-visual { display: none; }
-            .footer-content { grid-template-columns: 1fr 1fr; }
-            .nav { padding: 20px 32px; }
-            .nav-links, .nav-cta { display: none; }
-            .mobile-menu-btn { display: block; }
+            .hero {
+                padding: 140px 0 80px;
+            }
+            
+            .courses-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
+        
         @media (max-width: 768px) {
-            .hero { padding: 140px 32px 80px; }
-            .hero h1 { font-size: 40px; }
-            .courses-section { padding: 80px 32px; }
-            .courses-grid { grid-template-columns: 1fr; }
-            .section-header h2 { font-size: 36px; }
-            .cta h2 { font-size: 36px; }
-            .footer-content { grid-template-columns: 1fr; gap: 40px; text-align: center; }
-            .footer-bottom { flex-direction: column; gap: 16px; }
-            .mobile-menu-close { right: 32px; }
+            .hero h1 {
+                font-size: 40px;
+            }
+            
+            .courses-section {
+                padding: 60px 0 80px;
+            }
+            
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-header h2 {
+                font-size: 36px;
+            }
+            
+            .cta h2 {
+                font-size: 36px;
+            }
         }
     </style>
 </head>
 <body>
-    <nav class="nav">
-        <a href="/" class="logo">KI<span>.</span>Expertenraum</a>
-        <ul class="nav-links">
-            <li><a href="/">Start</a></li>
-            <li><a href="/kurse/" class="active">Kurse</a></li>
-            <li><a href="/services/">Services</a></li>
-            <li><a href="/artikel/">Artikel</a></li>
-            <li><a href="/glossar/">Glossar</a></li>
-            <li><a href="/kontakt.html">Kontakt</a></li>
-        </ul>
-        <a href="/kontakt.html" class="nav-cta">Beratung anfragen</a>
-        <button class="mobile-menu-btn" onclick="document.getElementById('mobileMenu').classList.add('active')">☰</button>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <span class="logo-mark">K</span>
+                <span class="logo-text">KI<span class="logo-dot">.</span>Expertenraum</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="/">Start</a></li>
+                <li><a href="/kurse/" class="active">Kurse</a></li>
+                <li><a href="/services/">Services</a></li>
+                <li><a href="/artikel/">Artikel</a></li>
+                <li><a href="/glossar/">Glossar</a></li>
+                <li><a href="/kontakt.html">Kontakt</a></li>
+            </ul>
+            
+            <a href="/kontakt.html" class="nav-cta">Beratung anfragen</a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü öffnen">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </nav>
     
+    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
-        <button class="mobile-menu-close" onclick="document.getElementById('mobileMenu').classList.remove('active')">×</button>
-        <a href="/" onclick="document.getElementById('mobileMenu').classList.remove('active')">Start</a>
-        <a href="/kurse/" class="active" onclick="document.getElementById('mobileMenu').classList.remove('active')">Kurse</a>
-        <a href="/services/" onclick="document.getElementById('mobileMenu').classList.remove('active')">Services</a>
-        <a href="/artikel/" onclick="document.getElementById('mobileMenu').classList.remove('active')">Artikel</a>
-        <a href="/glossar/" onclick="document.getElementById('mobileMenu').classList.remove('active')">Glossar</a>
-        <a href="/kontakt.html" onclick="document.getElementById('mobileMenu').classList.remove('active')">Kontakt</a>
+        <div class="mobile-menu-content">
+            <a href="/" onclick="closeMobileMenu()">Start</a>
+            <a href="/kurse/" onclick="closeMobileMenu()">Kurse</a>
+            <a href="/services/" onclick="closeMobileMenu()">Services</a>
+            <a href="/artikel/" onclick="closeMobileMenu()">Artikel</a>
+            <a href="/glossar/" onclick="closeMobileMenu()">Glossar</a>
+            <a href="/kontakt.html" onclick="closeMobileMenu()">Kontakt</a>
+        </div>
     </div>
 
-    <header class="hero">
-        <span class="hero-badge">Academy</span>
-        <h1>Enterprise <span>KI-Kurse</span></h1>
-        <p>Zertifizierte Weiterbildung für Führungskräfte – von EU AI Act bis Prompt Engineering. Praxisnah, DSGVO-konform, sofort umsetzbar.</p>
-        <div class="hero-visual">
-            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#C9A962"/>
-                        <stop offset="100%" style="stop-color:#D4A5A5"/>
-                    </linearGradient>
-                </defs>
-                <circle cx="100" cy="100" r="80" stroke="url(#grad)" stroke-width="0.5" fill="none"/>
-                <circle cx="100" cy="100" r="60" stroke="url(#grad)" stroke-width="0.5" fill="none"/>
-                <circle cx="100" cy="100" r="40" stroke="url(#grad)" stroke-width="0.5" fill="none"/>
-                <circle cx="100" cy="100" r="8" fill="url(#grad)"/>
-                <path d="M100 20 L100 180 M20 100 L180 100" stroke="url(#grad)" stroke-width="0.3"/>
-            </svg>
-        </div>
-    </header>
+    <main>
+        <header class="hero">
+            <span class="hero-badge">Academy</span>
+            <h1>Enterprise <em>KI-Kurse</em></h1>
+            <p>Zertifizierte Weiterbildung für Führungskräfte – von EU AI Act bis Prompt Engineering. Praxisnah, DSGVO-konform, sofort umsetzbar.</p>
+        </header>
 
-    <section class="courses-section">
-        <div class="section-header">
-            <span class="section-label">Unser Angebot</span>
-            <h2>Kurse für jede Expertise-Stufe</h2>
-            <p>Von Compliance bis Produktivität – wählen Sie Ihren Weg</p>
-        </div>
-        
-        <div class="courses-grid">
-            <div class="course-card featured">
-                <div class="course-image" style="background-image: url('/public/images/kurs1_eu%20au%20ai%20act.png?v=2')"><span class="course-badge badge-bestseller">Bestseller</span></div>
-                <div class="course-content">
-                    <h3 class="course-title">EU AI Act für KMU</h3>
-                    <p class="course-desc">Rechtssichere KI-Nutzung mit Compliance-Framework – praxisumsetzung mit Checklisten.</p>
-                    <div class="course-meta">
-                        <span>⏱ 8h</span>
-                        <span>📋 25 Checklisten</span>
+        <section class="courses-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Unser Angebot</span>
+                    <h2>Kurse für jede Expertise-Stufe</h2>
+                    <p>Von Compliance bis Produktivität – wählen Sie Ihren Weg</p>
+                </div>
+                
+                <div class="courses-grid">
+                    <div class="course-card featured">
+                        <div class="course-image" style="background-image: url('/public/images/kurs1_eu%20au%20ai%20act.png?v=2')"><span class="course-badge badge-bestseller">Bestseller</span></div>
+                        <div class="course-content">
+                            <h3 class="course-title">EU AI Act für KMU</h3>
+                            <p class="course-desc">Rechtssichere KI-Nutzung mit Compliance-Framework – praxisnah mit Checklisten.</p>
+                            <div class="course-meta">
+                                <span>⏱ 8h</span>
+                                <span>📋 25 Checklisten</span>
+                            </div>
+                            <div class="course-price">249€ <span>inkl. MwSt</span></div>
+                            <span class="buy-btn disabled">Demnächst verfügbar</span>
+                            <div class="secure-badge">🔒 Sichere Bezahlung</div>
+                        </div>
                     </div>
-                    <div class="course-price">249€ <span>inkl. MwSt</span></div>
-                    <span class="buy-btn disabled">Demnächst verfügbar</span>
-                    <div class="secure-badge">🔒 Sichere Bezahlung</div>
+
+                    <div class="course-card">
+                        <div class="course-image" style="background-image: url('/public/images/kurs2_chatgpt.png?v=2')"><span class="course-badge badge-popular">Beliebt</span></div>
+                        <div class="course-content">
+                            <h3 class="course-title">ChatGPT Professional</h3>
+                            <p class="course-desc">Enterprise Prompt Engineering für maximale Produktivität im Alltag.</p>
+                            <div class="course-meta">
+                                <span>⏱ 4h</span>
+                                <span>🎯 50 Übungen</span>
+                            </div>
+                            <div class="course-price">99€ <span>inkl. MwSt</span></div>
+                            <span class="buy-btn disabled">Demnächst verfügbar</span>
+                            <div class="secure-badge">🔒 Sichere Bezahlung</div>
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <div class="course-image" style="background-image: url('/public/images/kurs3_prompt.png?v=2')"><span class="course-badge badge-advanced">Fortgeschritten</span></div>
+                        <div class="course-content">
+                            <h3 class="course-title">Prompt Engineering</h3>
+                            <p class="course-desc">Professionelle Prompts für maximale Ergebnisse – über 100 Templates inklusive.</p>
+                            <div class="course-meta">
+                                <span>⏱ 6h</span>
+                                <span>📚 100+ Templates</span>
+                            </div>
+                            <div class="course-price">149€ <span>inkl. MwSt</span></div>
+                            <span class="buy-btn disabled">Demnächst verfügbar</span>
+                            <div class="secure-badge">🔒 Sichere Bezahlung</div>
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <div class="course-image" style="background-image: url('/public/images/kurs4_ki%20marketing.png?v=2')"><span class="course-badge badge-advanced">Fortgeschritten</span></div>
+                        <div class="course-content">
+                            <h3 class="course-title">KI im Marketing</h3>
+                            <p class="course-desc">DSGVO, UWG, AI Act – rechtssicheres Marketing mit KI-Unterstützung.</p>
+                            <div class="course-meta">
+                                <span>⏱ 5h</span>
+                                <span>⚖️ Compliance</span>
+                            </div>
+                            <div class="course-price">179€ <span>inkl. MwSt</span></div>
+                            <span class="buy-btn disabled">Demnächst verfügbar</span>
+                            <div class="secure-badge">🔒 Sichere Bezahlung</div>
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <div class="course-image" style="background-image: url('/public/images/kurs5_b%C3%BCroauto.png?v=2')"><span class="course-badge badge-new">Neu</span></div>
+                        <div class="course-content">
+                            <h3 class="course-title">Büroautomatisierung</h3>
+                            <p class="course-desc">10 Prozesse mit No-Code Tools – sofortiger ROI für Ihr Unternehmen.</p>
+                            <div class="course-meta">
+                                <span>⏱ 8h</span>
+                                <span>🛠️ 10 Workflows</span>
+                            </div>
+                            <div class="course-price">199€ <span>inkl. MwSt</span></div>
+                            <span class="buy-btn disabled">Demnächst verfügbar</span>
+                            <div class="secure-badge">🔒 Sichere Bezahlung</div>
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <div class="course-image" style="background-image: url('/public/images/kurs6_roadmap.png?v=2')"><span class="course-badge badge-advanced">Experte</span></div>
+                        <div class="course-content">
+                            <h3 class="course-title">KI-Beauftragter</h3>
+                            <p class="course-desc">30-Tage-Roadmap für die neue Rolle als KI-Beauftragter mit Zertifikat.</p>
+                            <div class="course-meta">
+                                <span>⏱ 10h</span>
+                                <span>📊 Zertifikat</span>
+                            </div>
+                            <div class="course-price">299€ <span>inkl. MwSt</span></div>
+                            <span class="buy-btn disabled">Demnächst verfügbar</span>
+                            <div class="secure-badge">🔒 Sichere Bezahlung</div>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="course-card">
-                <div class="course-image" style="background-image: url('/public/images/kurs2_chatgpt.png?v=2')"><span class="course-badge badge-popular">Beliebt</span></div>
-                <div class="course-content">
-                    <h3 class="course-title">ChatGPT Professional</h3>
-                    <p class="course-desc">Enterprise Prompt Engineering für maximale Produktivität im Alltag.</p>
-                    <div class="course-meta">
-                        <span>⏱ 4h</span>
-                        <span>🎯 50 Übungen</span>
-                    </div>
-                    <div class="course-price">99€ <span>inkl. MwSt</span></div>
-                    <span class="buy-btn disabled">Demnächst verfügbar</span>
-                    <div class="secure-badge">🔒 Sichere Bezahlung</div>
-                </div>
+        <section class="cta">
+            <div class="container">
+                <h2>Fragen zu den <em>Kursen?</em></h2>
+                <p>Ich helfe Ihnen bei der Auswahl des richtigen Kurses für Ihre Ziele.</p>
+                <a href="/kontakt.html" class="btn btn-primary">Kontakt aufnehmen →</a>
             </div>
+        </section>
+    </main>
 
-            <div class="course-card">
-                <div class="course-image" style="background-image: url('/public/images/kurs3_prompt.png?v=2')"><span class="course-badge badge-advanced">Fortgeschritten</span></div>
-                <div class="course-content">
-                    <h3 class="course-title">Prompt Engineering</h3>
-                    <p class="course-desc">Professionelle Prompts für maximale Ergebnisse – über 100 Templates inklusive.</p>
-                    <div class="course-meta">
-                        <span>⏱ 6h</span>
-                        <span>📚 100+ Templates</span>
-                    </div>
-                    <div class="course-price">149€ <span>inkl. MwSt</span></div>
-                    <span class="buy-btn disabled">Demnächst verfügbar</span>
-                    <div class="secure-badge">🔒 Sichere Bezahlung</div>
-                </div>
-            </div>
-
-            <div class="course-card">
-                <div class="course-image" style="background-image: url('/public/images/kurs4_ki%20marketing.png?v=2')"><span class="course-badge badge-advanced">Fortgeschritten</span></div>
-                <div class="course-content">
-                    <h3 class="course-title">KI im Marketing</h3>
-                    <p class="course-desc">DSGVO, UWG, AI Act – rechtssicheres Marketing mit KI-Unterstützung.</p>
-                    <div class="course-meta">
-                        <span>⏱ 5h</span>
-                        <span>⚖️ Compliance</span>
-                    </div>
-                    <div class="course-price">179€ <span>inkl. MwSt</span></div>
-                    <span class="buy-btn disabled">Demnächst verfügbar</span>
-                    <div class="secure-badge">🔒 Sichere Bezahlung</div>
-                </div>
-            </div>
-
-            <div class="course-card">
-                <div class="course-image" style="background-image: url('/public/images/kurs5_b%C3%BCroauto.png?v=2')"><span class="course-badge badge-new">Neu</span></div>
-                <div class="course-content">
-                    <h3 class="course-title">Büroautomatisierung</h3>
-                    <p class="course-desc">10 Prozesse mit No-Code Tools – sofortiger ROI für Ihr Unternehmen.</p>
-                    <div class="course-meta">
-                        <span>⏱ 8h</span>
-                        <span>🛠️ 10 Workflows</span>
-                    </div>
-                    <div class="course-price">199€ <span>inkl. MwSt</span></div>
-                    <span class="buy-btn disabled">Demnächst verfügbar</span>
-                    <div class="secure-badge">🔒 Sichere Bezahlung</div>
-                </div>
-            </div>
-
-            <div class="course-card">
-                <div class="course-image" style="background-image: url('/public/images/kurs6_roadmap.png?v=2')"><span class="course-badge badge-advanced">Experte</span></div>
-                <div class="course-content">
-                    <h3 class="course-title">KI-Beauftragter</h3>
-                    <p class="course-desc">30-Tage-Roadmap für die neue Rolle als KI-Beauftragter mit Zertifikat.</p>
-                    <div class="course-meta">
-                        <span>⏱ 10h</span>
-                        <span>📊 Zertifikat</span>
-                    </div>
-                    <div class="course-price">299€ <span>inkl. MwSt</span></div>
-                    <span class="buy-btn disabled">Demnächst verfügbar</span>
-                    <div class="secure-badge">🔒 Sichere Bezahlung</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta">
-        <h2>Fragen zu den <span>Kursen?</span></h2>
-        <p>Ich helfe Ihnen bei der Auswahl des richtigen Kurses für Ihre Ziele.</p>
-        <a href="/kontakt.html" class="btn btn-primary">Kontakt aufnehmen →</a>
-    </section>
-
+    <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <a href="/" class="logo">KI<span>.</span>Expertenraum</a>
-                <p>Enterprise-grade KI-Beratung für den Mittelstand.</p>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo">
+                        <span class="logo-mark">K</span>
+                        <span>KI<span class="logo-dot">.</span>Expertenraum</span>
+                    </a>
+                    <p class="footer-tagline">Premium KI-Beratung für den Mittelstand. Praxiserprobt, DSGVO-konform, messbar erfolgreich.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Angebot</h4>
+                    <a href="/kurse/">Kurse</a>
+                    <a href="/services/">Services</a>
+                    <a href="/artikel/">Artikel</a>
+                    <a href="/glossar/">Glossar</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Rechtliches</h4>
+                    <a href="/impressum/">Impressum</a>
+                    <a href="/datenschutz/">Datenschutz</a>
+                    <a href="/kontakt.html">Kontakt</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <a href="https://www.youtube.com/@philippzerna" target="_blank" rel="noopener">YouTube</a>
+                    <a href="https://www.linkedin.com/in/philipp-zerna/" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
             </div>
-            <div class="footer-col">
-                <h4>Angebot</h4>
-                <a href="/kurse/">Kurse</a>
-                <a href="/services/">Services</a>
-                <a href="/artikel/">Artikel</a>
-            </div>
-            <div class="footer-col">
-                <h4>Rechtliches</h4>
-                <a href="/impressum/">Impressum</a>
-                <a href="/datenschutz/">Datenschutz</a>
-            </div>
-            <div class="footer-col">
-                <h4>Connect</h4>
-                <a href="https://www.youtube.com/@philippzerna" target="_blank">YouTube</a>
-                <a href="https://www.linkedin.com/in/philipp-zerna/" target="_blank">LinkedIn</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2026 Philipp Zerna</p>
-            <div>
-                <a href="/impressum/">Impressum</a>
-                <a href="/datenschutz/">Datenschutz</a>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 KI-Expertenraum. Alle Rechte vorbehalten.</p>
+                <p>Philipp Zerna · Strategische KI-Beratung</p>
             </div>
         </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="/assets/js/main.js"></script>
 </body>
 </html>
