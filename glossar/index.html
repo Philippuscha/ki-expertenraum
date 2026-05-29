@@ -221,6 +221,25 @@
 
     <script src="/assets/js/main.js"></script>
     <script>
+        // Smooth scroll für Buchstaben-Navigation
+        document.querySelectorAll('.alpha-nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    const navHeight = document.getElementById('nav').offsetHeight;
+                    const alphaNavHeight = document.querySelector('.alpha-nav').offsetHeight;
+                    const offset = navHeight + alphaNavHeight + 20;
+                    const targetPosition = targetSection.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
         const searchInput = document.getElementById('searchInput');
         const termCards = document.querySelectorAll('.term-card');
         const letterSections = document.querySelectorAll('.letter-section');

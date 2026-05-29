@@ -126,16 +126,62 @@
             align-items: center;
             justify-content: center;
             border: 1px solid var(--border);
+            overflow: hidden;
         }
         
         .hero-visual::before {
-            content: 'K';
-            font-family: var(--font-display);
-            font-size: 300px;
-            color: var(--accent);
-            opacity: 0.1;
-            line-height: 1;
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 30% 20%, rgba(201, 169, 98, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 70% 80%, rgba(201, 169, 98, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(201, 169, 98, 0.05) 0%, transparent 50%);
         }
+        
+        .hero-visual::after {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+        
+        .hero-visual-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 24px;
+            z-index: 1;
+        }
+        
+        .hero-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-base);
+        }
+        
+        .hero-icon:nth-child(1) { transform: translate(-40px, -20px); }
+        .hero-icon:nth-child(2) { transform: translate(40px, 10px); }
+        .hero-icon:nth-child(3) { transform: translate(-20px, 30px); }
+        
+        .hero-visual:hover .hero-icon:nth-child(1) { transform: translate(-40px, -20px) scale(1.1); }
+        .hero-visual:hover .hero-icon:nth-child(2) { transform: translate(40px, 10px) scale(1.1); }
+        .hero-visual:hover .hero-icon:nth-child(3) { transform: translate(-20px, 30px) scale(1.1); }
         
         .floating-card {
             position: absolute;
@@ -572,6 +618,11 @@
                     </div>
                 </div>
                 <div class="hero-visual">
+                    <div class="hero-visual-icons">
+                        <div class="hero-icon">🤖</div>
+                        <div class="hero-icon">⚡</div>
+                        <div class="hero-icon">🚀</div>
+                    </div>
                     <div class="floating-card">
                         <div class="floating-card-label">Erfolgsquote</div>
                         <div class="floating-card-value">98%</div>
