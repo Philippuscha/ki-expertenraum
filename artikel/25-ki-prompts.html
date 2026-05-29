@@ -4,211 +4,385 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>25 KI-Prompts für Produktivität | KI-Expertenraum</title>
-    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
     <meta name="description" content="25 fertige KI-Prompts für Marketing, Vertrieb & Büro. Copy & Paste-fertig für sofortige Zeitersparnis.">
+    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/main.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { --bg: #f0f7ff; --bg-card: rgba(255, 255, 255, 0.95); --text: #0f172a; --text-muted: #475569; --text-light: #64748b; --border: rgba(255, 255, 255, 0.6); --accent: #3b82f6; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 50%, #dbeafe 100%); color: var(--text); line-height: 1.7; min-height: 100vh; }
-        h1, h2, h3, h4 { font-family: 'DM Sans', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
-        
-        /* Navigation */
-        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; background: rgba(240, 247, 255, 0.98); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); min-height: 70px; }
-        .logo { font-family: 'DM Sans', sans-serif; font-size: 22px; font-weight: 800; background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
-        .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
-        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.3s; }
-        .nav-links a:hover { color: var(--accent); }
-        
-        /* Mobile Menu Toggle */
-        .mobile-menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; z-index: 1001; background: none; border: none; }
-        .mobile-menu-toggle span { width: 25px; height: 3px; background: var(--text); border-radius: 3px; transition: all 0.3s; }
-        .mobile-menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
-        .mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
-        .mobile-menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
-        
-        /* Mobile Menu Overlay */
-        .mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; bottom: 0; background: rgba(240, 247, 255, 0.98); backdrop-filter: blur(20px); z-index: 999; flex-direction: column; justify-content: flex-start; align-items: center; gap: 0; opacity: 0; visibility: hidden; transition: all 0.3s; padding-top: 40px; }
-        .mobile-menu.active { display: flex; opacity: 1; visibility: visible; }
-        .mobile-menu a { font-family: 'DM Sans', sans-serif; font-size: 24px; font-weight: 700; color: var(--text); text-decoration: none; padding: 20px; width: 100%; text-align: center; border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .mobile-menu a:hover { color: var(--accent); background: rgba(59,130,246,0.05); }
-        
-        /* Hero Section */
-        .hero { padding: 140px 40px 60px; text-align: center; max-width: 900px; margin: 0 auto; }
-        .hero-badge { display: inline-block; background: rgba(59, 130, 246, 0.1); color: var(--accent); padding: 8px 20px; border-radius: 20px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
-        .hero h1 { font-size: clamp(28px, 5vw, 46px); line-height: 1.2; margin-bottom: 20px; font-weight: 800; }
-        .hero h1 span { background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-description { font-size: 18px; color: var(--text-muted); max-width: 600px; margin: 0 auto 20px; line-height: 1.6; }
-        .hero-meta { display: flex; justify-content: flex-start; gap: 25px; color: var(--text-light); font-size: 14px; flex-wrap: wrap; }
-        
-        /* Content */
-        .content-wrapper { max-width: 800px; margin: 0 auto; padding: 20px 40px 60px; }
-        .main-content { max-width: 100%; }
-        h2 { font-size: 28px; margin: 40px 0 20px; font-weight: 800; color: var(--text); }
-        h3 { font-size: 22px; margin: 30px 0 15px; font-weight: 700; color: var(--text); }
-        p { margin-bottom: 20px; color: var(--text-muted); font-size: 16px; line-height: 1.8; }
-        ul, ol { margin: 20px 0; padding-left: 25px; }
-        li { margin: 10px 0; color: var(--text-muted); }
-        blockquote { background: rgba(59, 130, 246, 0.08); border-left: 4px solid var(--accent); padding: 20px; margin: 25px 0; border-radius: 0 12px 12px 0; font-size: 17px; font-weight: 600; color: var(--text); }
-        
-        /* Code boxes */
-        pre { background: #1e293b; border-radius: 12px; padding: 20px; margin: 20px 0; color: #e2e8f0; font-family: 'Monaco', 'Consolas', monospace; font-size: 14px; line-height: 1.6; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word; }
-        code { font-family: 'Monaco', 'Consolas', monospace; background: rgba(59,130,246,0.1); padding: 2px 6px; border-radius: 4px; font-size: 14px; }
-        
-        /* Tables */
-        table { width: 100%; border-collapse: collapse; margin: 25px 0; background: var(--bg-card); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: block; overflow-x: auto; }
-        th { background: linear-gradient(135deg, var(--accent) 0%, #2563eb 100%); color: white; padding: 14px; text-align: left; font-weight: 700; font-size: 14px; }
-        td { padding: 14px; border-bottom: 1px solid rgba(0,0,0,0.05); color: var(--text-muted); font-size: 14px; }
-        tr:last-child td { border-bottom: none; }
-        
-        /* Components */
-        .highlight { background: rgba(59, 130, 246, 0.08); border-radius: 12px; padding: 20px; margin: 25px 0; border: 1px solid rgba(59, 130, 246, 0.15); }
-        .warning { background: rgba(239, 68, 68, 0.08); border-left: 4px solid #ef4444; padding: 15px 20px; margin: 20px 0; border-radius: 0 12px 12px 0; }
-        .warning strong { color: #dc2626; }
-        .tool-card { background: var(--bg-card); border-radius: 12px; padding: 20px; margin: 20px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .cta-box { background: linear-gradient(135deg, var(--accent) 0%, #2563eb 100%); color: white; padding: 30px; border-radius: 16px; margin: 40px 0; text-align: center; }
-        .cta-box h2, .cta-box h3 { color: white; margin-bottom: 15px; font-size: 24px; }
-        .cta-box p { color: rgba(255,255,255,0.9); margin-bottom: 20px; }
-        .btn-white { display: inline-block; background: white; color: var(--accent); padding: 12px 28px; border-radius: 10px; text-decoration: none; font-weight: 700; transition: transform 0.2s; }
-        .btn-white:hover { transform: translateY(-2px); }
-        
-        /* Footer */
-        .footer { background: var(--text); color: rgba(255,255,255,0.7); padding: 40px 40px 30px; margin-top: 60px; text-align: center; }
-        .footer-logo { font-family: 'DM Sans', sans-serif; font-size: 22px; font-weight: 800; margin-bottom: 15px; background: linear-gradient(135deg, white 0%, #60a5fa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        
-        
-        
-        
-        /* Responsive - MOBILE FIRST */
-        /* Table of Contents - Sticky Sidebar */
-.toc-sidebar {
-    position: fixed;
-    top: 100px;
-    right: 30px;
-    width: 260px;
-    max-height: calc(100vh - 140px);
-    overflow-y: auto;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    border: 1px solid rgba(59,130,246,0.2);
-    z-index: 100;
-    backdrop-filter: blur(10px);
-}
-.toc-sidebar h4 {
-    font-size: 14px;
-    font-weight: 700;
-    margin-bottom: 15px;
-    color: var(--text);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-.toc-sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-.toc-sidebar li {
-    margin: 8px 0;
-}
-.toc-sidebar a {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 13px;
-    display: block;
-    padding: 6px 10px;
-    border-radius: 6px;
-    transition: all 0.2s;
-    line-height: 1.4;
-}
-.toc-sidebar a:hover {
-    background: rgba(59,130,246,0.1);
-    color: var(--accent);
-}
-.toc-sidebar a.active {
-    background: rgba(59,130,246,0.15);
-    color: var(--accent);
-    font-weight: 600;
-}
-@media (max-width: 1400px) {
-    .toc-sidebar { right: 20px; width: 220px; }
-}
-@media (max-width: 768px) {
-            .nav { padding: 12px 20px; min-height: 60px; }
-            .nav-links { display: none; }
-            .mobile-menu-toggle { display: flex; }
-            .hero { padding: 100px 20px 40px; }
-            .hero h1 { font-size: 26px; }
-            .hero-description { font-size: 16px; }
-            .hero-meta { gap: 15px; font-size: 13px; }
-            .content-wrapper { padding: 10px 20px 40px; }
-            h2 { font-size: 22px; margin: 30px 0 15px; }
-            h3 { font-size: 18px; margin: 25px 0 12px; }
-            p { font-size: 15px; line-height: 1.7; margin-bottom: 15px; }
-            ul, ol { padding-left: 20px; margin: 15px 0; }
-            li { margin: 8px 0; }
-            blockquote { padding: 15px; font-size: 15px; margin: 20px 0; }
-            pre { padding: 15px; font-size: 13px; }
-            th, td { padding: 12px; font-size: 13px; }
-            .tool-card { padding: 15px; }
-            .cta-box { padding: 25px 20px; margin: 30px 0; }
-            .cta-box h2, .cta-box h3 { font-size: 20px; }
-            .footer { padding: 30px 20px; margin-top: 40px; }
+        /* Artikel-spezifische Styles - Dark Theme */
+        .article-hero {
+            padding: 180px 0 60px;
+            text-align: center;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
         }
         
-        @media (max-width: 375px) {
-            .hero h1 { font-size: 24px; }
-            .mobile-menu a { font-size: 20px; padding: 18px; }
+        .article-hero .hero-badge {
+            display: inline-block;
+            background: rgba(201, 169, 98, 0.15);
+            color: var(--accent);
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+        }
+        
+        .article-hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 500;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .article-hero h1 span {
+            color: var(--accent);
+            font-style: italic;
+        }
+        
+        .article-hero .hero-description {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+        
+        .article-hero .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+        
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+        
+        .article-content h2 {
+            font-family: var(--font-display);
+            font-size: 28px;
+            margin: 40px 0 20px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        
+        .article-content h3 {
+            font-family: var(--font-display);
+            font-size: 22px;
+            margin: 30px 0 15px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        
+        .article-content p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 25px;
+        }
+        
+        .article-content li {
+            margin: 10px 0;
+            color: var(--text-secondary);
+        }
+        
+        .article-content blockquote {
+            background: rgba(201, 169, 98, 0.08);
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 12px 12px 0;
+            font-size: 17px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        
+        .article-content pre {
+            background: var(--bg-tertiary);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            color: var(--text-primary);
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            border: 1px solid var(--border);
+        }
+        
+        .article-content code {
+            font-family: 'Monaco', 'Consolas', monospace;
+            background: var(--bg-hover);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 14px;
+            color: var(--accent);
+        }
+        
+        .article-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            display: block;
+            overflow-x: auto;
+        }
+        
+        .article-content th {
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 14px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .article-content td {
+            padding: 14px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+        
+        .article-content tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .article-content .highlight {
+            background: rgba(201, 169, 98, 0.08);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 25px 0;
+            border: 1px solid rgba(201, 169, 98, 0.2);
+        }
+        
+        .article-content .warning {
+            background: rgba(239, 68, 68, 0.08);
+            border-left: 4px solid #ef4444;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 12px 12px 0;
+        }
+        
+        .article-content .warning strong {
+            color: #dc2626;
+        }
+        
+        .article-content .tool-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid var(--border);
+        }
+        
+        .article-content .cta-box {
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 30px;
+            border-radius: 16px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .article-content .cta-box h2,
+        .article-content .cta-box h3 {
+            color: var(--bg-primary);
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        
+        .article-content .cta-box p {
+            color: rgba(10, 10, 10, 0.9);
+            margin-bottom: 20px;
+        }
+        
+        .article-content .btn-white {
+            display: inline-block;
+            background: var(--bg-primary);
+            color: var(--accent);
+            padding: 12px 28px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition-base);
+        }
+        
+        .article-content .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        /* TOC Sidebar */
+        .toc-sidebar {
+            position: fixed;
+            top: 100px;
+            right: 30px;
+            width: 260px;
+            max-height: calc(100vh - 140px);
+            overflow-y: auto;
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid var(--border);
+            z-index: 100;
+        }
+        
+        .toc-sidebar h4 {
+            font-family: var(--font-display);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .toc-sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .toc-sidebar li {
+            margin: 8px 0;
+        }
+        
+        .toc-sidebar a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            display: block;
+            padding: 6px 10px;
+            border-radius: 6px;
+            transition: all 0.2s;
+            line-height: 1.4;
+        }
+        
+        .toc-sidebar a:hover {
+            background: rgba(201, 169, 98, 0.1);
+            color: var(--accent);
+        }
+        
+        .toc-sidebar a.active {
+            background: rgba(201, 169, 98, 0.15);
+            color: var(--accent);
+            font-weight: 500;
+        }
+        
+        @media (max-width: 1400px) {
+            .toc-sidebar { right: 20px; width: 220px; }
+        }
+        
+        @media (max-width: 1200px) {
+            .toc-sidebar { display: none; }
+        }
+        
+        @media (max-width: 768px) {
+            .article-hero {
+                padding: 120px 20px 40px;
+            }
+            
+            .article-hero h1 {
+                font-size: 26px;
+            }
+            
+            .article-content {
+                padding: 40px 20px;
+            }
+            
+            .article-content h2 {
+                font-size: 22px;
+                margin: 30px 0 15px;
+            }
+            
+            .article-content h3 {
+                font-size: 18px;
+                margin: 25px 0 12px;
+            }
+            
+            .article-content p {
+                font-size: 15px;
+                line-height: 1.7;
+            }
         }
     </style>
 </head>
 <body>
-    <nav class="nav">
-        <a href="/" class="logo">KI-Expertenraum</a>
-        <ul class="nav-links">
-            <li><a href="/">Startseite</a></li>
-            <li><a href="/kurse/">Kurse</a></li>
-            <li><a href="/services/">Services</a></li>
-            <li><a href="/artikel/">Artikel</a></li>
-            <li><a href="/glossar/">Glossar</a></li>
-            <li><a href="/kontakt.html">Kontakt</a></li>
-        </ul>
-        <button class="mobile-menu-toggle" id="mobileMenuToggle" onclick="toggleMobileMenu()" aria-label="Menü öffnen">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <span class="logo-mark">K</span>
+                <span class="logo-text">KI<span class="logo-dot">.</span>Expertenraum</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="/">Start</a></li>
+                <li><a href="/kurse/">Kurse</a></li>
+                <li><a href="/services/">Services</a></li>
+                <li><a href="/artikel/" class="active">Artikel</a></li>
+                <li><a href="/glossar/">Glossar</a></li>
+                <li><a href="/kontakt.html">Kontakt</a></li>
+            </ul>
+            
+            <a href="/kontakt.html" class="nav-cta">Beratung anfragen</a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü öffnen">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </nav>
     
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <a href="/" onclick="closeMobileMenu()">Start</a>
+            <a href="/kurse/" onclick="closeMobileMenu()">Kurse</a>
+            <a href="/services/" onclick="closeMobileMenu()">Services</a>
+            <a href="/artikel/" onclick="closeMobileMenu()">Artikel</a>
+            <a href="/glossar/" onclick="closeMobileMenu()">Glossar</a>
+            <a href="/kontakt.html" onclick="closeMobileMenu()">Kontakt</a>
+        </div>
+    </div>
+
     <aside class="toc-sidebar">
         <h4>Inhalt</h4>
         <ul id="toc-list"></ul>
     </aside>
-    
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="/" onclick="toggleMobileMenu()">Startseite</a>
-        <a href="/kurse/" onclick="toggleMobileMenu()">Kurse</a>
-        <a href="/services/" onclick="toggleMobileMenu()">Services</a>
-        <a href="/artikel/" onclick="toggleMobileMenu()">Artikel</a>
-        <a href="/glossar/" onclick="toggleMobileMenu()">Glossar</a>
-        <a href="/kontakt.html" onclick="toggleMobileMenu()">Kontakt</a>
-    </div>
 
-    <header class="hero">
-        <span class="hero-badge">Produktivität</span>
-        <h1>25 KI-Prompts für <span>maximale Produktivität</span></h1>
-        <p class="hero-description">Fertige, optimierte Prompts für Marketing, Vertrieb & Büro. Copy & Paste-fertig mit sofort messbarer Zeitersparnis.</p>
-        <div class="hero-meta">
-            <span>✍️ Philipp Zerna</span>
-            <span>⏱️ 12 Min. Lesezeit</span>
-        </div>
-    </header>
+    <main>
+        <header class="article-hero">
+            <span class="hero-badge">Produktivität</span>
+            <h1>25 KI-Prompts für <span>maximale Produktivität</span></h1>
+            <p class="hero-description">Fertige, optimierte Prompts für Marketing, Vertrieb & Büro. Copy & Paste-fertig mit sofort messbarer Zeitersparnis.</p>
+            <div class="hero-meta">
+                <span>✍️ Philipp Zerna</span>
+                <span>⏱️ 12 Min. Lesezeit</span>
+            </div>
+        </header>
 
-    <div class="content-wrapper">
-        <main class="main-content">
+        <div class="article-content">
             <h2>Warum die meisten KI-Ergebnisse enttäuschen</h2>
             <p>90% der Nutzer geben KI-Tools vage Anweisungen wie "Schreibe einen guten Text" – und wundern sich dann über mittelmäßige Ergebnisse.</p>
             <blockquote>Mit den richtigen Prompts werden Sie vom KI-Anfänger zum Power-User.</blockquote>
@@ -296,29 +470,56 @@ Jetzt deine 3 Vorschläge:</pre>
             <div class="cta-box">
                 <h3>Meister die KI-Kommunikation!</h3>
                 <p>In unserem Prompt Engineering Kurs lernen Sie fortgeschrittene Techniken für maximale Ergebnisse.</p>
-                <a href="/#work" class="btn-white">Mehr erfahren</a>
+                <a href="/kurse/" class="btn-white">Mehr erfahren</a>
             </div>
-        </main>
-        
-        
-    </div>
+        </div>
+    </main>
 
+    <!-- Footer -->
     <footer class="footer">
-        <div class="footer-logo">KI-Expertenraum</div>
-        <p>© 2026 Philipp Zerna | <a href="/impressum/" style="color: rgba(255,255,255,0.7);">Impressum</a> | <a href="/datenschutz/" style="color: rgba(255,255,255,0.7);">Datenschutz</a></p>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo">
+                        <span class="logo-mark">K</span>
+                        <span>KI<span class="logo-dot">.</span>Expertenraum</span>
+                    </a>
+                    <p class="footer-tagline">Premium KI-Beratung für den Mittelstand. Praxiserprobt, DSGVO-konform, messbar erfolgreich.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Angebot</h4>
+                    <a href="/kurse/">Kurse</a>
+                    <a href="/services/">Services</a>
+                    <a href="/artikel/">Artikel</a>
+                    <a href="/glossar/">Glossar</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Rechtliches</h4>
+                    <a href="/impressum/">Impressum</a>
+                    <a href="/datenschutz/">Datenschutz</a>
+                    <a href="/kontakt.html">Kontakt</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <a href="https://www.youtube.com/@philippzerna" target="_blank" rel="noopener">YouTube</a>
+                    <a href="https://www.linkedin.com/in/philipp-zerna/" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 KI-Expertenraum. Alle Rechte vorbehalten.</p>
+                <p>Philipp Zerna · Strategische KI-Beratung</p>
+            </div>
+        </div>
     </footer>
-    
+
+    <script src="/assets/js/main.js"></script>
     <script>
-        function toggleMobileMenu() {
-            const toggle = document.getElementById('mobileMenuToggle');
-            const menu = document.getElementById('mobileMenu');
-            toggle.classList.toggle('active');
-            menu.classList.toggle('active');
-            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
-        }
-        
         // Generate TOC from H2 headings
-        const h2s = document.querySelectorAll('h2');
+        const h2s = document.querySelectorAll('.article-content h2');
         const tocList = document.getElementById('toc-list');
         if (tocList && h2s.length > 0) {
             h2s.forEach((h2, index) => {
@@ -334,7 +535,7 @@ Jetzt deine 3 Vorschläge:</pre>
             
             // Scroll spy
             const tocLinks = document.querySelectorAll('.toc-sidebar a');
-            const sections = document.querySelectorAll('h2');
+            const sections = document.querySelectorAll('.article-content h2');
             
             function updateActiveLink() {
                 let current = '';
