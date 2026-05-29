@@ -134,54 +134,101 @@
             position: absolute;
             inset: 0;
             background: 
-                radial-gradient(circle at 30% 20%, rgba(201, 169, 98, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 70% 80%, rgba(201, 169, 98, 0.1) 0%, transparent 40%),
-                radial-gradient(circle at 50% 50%, rgba(201, 169, 98, 0.05) 0%, transparent 50%);
+                radial-gradient(ellipse 80% 50% at 20% 40%, rgba(201, 169, 98, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 40% at 80% 60%, rgba(201, 169, 98, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(201, 169, 98, 0.05) 0%, transparent 70%);
         }
         
-        .hero-visual::after {
-            content: '';
-            position: absolute;
-            width: 120px;
-            height: 120px;
-            border: 2px solid var(--accent);
-            border-radius: 50%;
-            opacity: 0.3;
-        }
-        
-        .hero-visual-icons {
+        /* Neural Network Nodes */
+        .neural-network {
             position: absolute;
             width: 100%;
             height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            gap: 24px;
             z-index: 1;
         }
         
-        .hero-icon {
-            width: 64px;
-            height: 64px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            box-shadow: var(--shadow-md);
-            transition: var(--transition-base);
+        .node {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(201, 169, 98, 0.9) 0%, rgba(201, 169, 98, 0.6) 100%);
+            box-shadow: 
+                0 0 30px rgba(201, 169, 98, 0.4),
+                inset 0 2px 4px rgba(255, 255, 255, 0.3);
+            animation: pulse 4s ease-in-out infinite;
         }
         
-        .hero-icon:nth-child(1) { transform: translate(-40px, -20px); }
-        .hero-icon:nth-child(2) { transform: translate(40px, 10px); }
-        .hero-icon:nth-child(3) { transform: translate(-20px, 30px); }
+        .node-1 { width: 24px; height: 24px; top: 25%; left: 30%; animation-delay: 0s; }
+        .node-2 { width: 16px; height: 16px; top: 35%; left: 55%; animation-delay: 0.5s; }
+        .node-3 { width: 32px; height: 32px; top: 45%; left: 25%; animation-delay: 1s; }
+        .node-4 { width: 20px; height: 20px; top: 55%; left: 60%; animation-delay: 1.5s; }
+        .node-5 { width: 28px; height: 28px; top: 65%; left: 35%; animation-delay: 2s; }
+        .node-6 { width: 14px; height: 14px; top: 30%; left: 70%; animation-delay: 2.5s; }
+        .node-7 { width: 18px; height: 18px; top: 70%; left: 55%; animation-delay: 3s; }
+        .node-8 { width: 22px; height: 22px; top: 40%; left: 75%; animation-delay: 3.5s; }
         
-        .hero-visual:hover .hero-icon:nth-child(1) { transform: translate(-40px, -20px) scale(1.1); }
-        .hero-visual:hover .hero-icon:nth-child(2) { transform: translate(40px, 10px) scale(1.1); }
-        .hero-visual:hover .hero-icon:nth-child(3) { transform: translate(-20px, 30px) scale(1.1); }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+        
+        /* Connection Lines */
+        .connections {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        
+        .connection {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(201, 169, 98, 0.3), transparent);
+            transform-origin: left center;
+        }
+        
+        .conn-1 { width: 120px; top: 28%; left: 32%; transform: rotate(25deg); }
+        .conn-2 { width: 100px; top: 38%; left: 27%; transform: rotate(60deg); }
+        .conn-3 { width: 140px; top: 48%; left: 35%; transform: rotate(-15deg); }
+        .conn-4 { width: 110px; top: 58%; left: 40%; transform: rotate(40deg); }
+        .conn-5 { width: 130px; top: 50%; left: 55%; transform: rotate(-45deg); }
+        .conn-6 { width: 90px; top: 35%; left: 60%; transform: rotate(70deg); }
+        
+        /* Course Cards in Visual */
+        .course-preview {
+            position: absolute;
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(201, 169, 98, 0.2);
+            border-radius: 16px;
+            padding: 16px 20px;
+            z-index: 2;
+            transition: all 0.4s ease;
+        }
+        
+        .course-preview:hover {
+            transform: translateY(-4px);
+            border-color: rgba(201, 169, 98, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .course-preview-badge {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 6px;
+        }
+        
+        .course-preview-title {
+            font-size: 13px;
+            font-weight: 500;
+            color: white;
+            line-height: 1.4;
+        }
+        
+        .course-prev-1 { top: 20%; right: 15%; width: 160px; }
+        .course-prev-2 { bottom: 25%; left: 10%; width: 150px; }
+        .course-prev-3 { bottom: 15%; right: 20%; width: 140px; }
         
         .floating-card {
             position: absolute;
@@ -618,10 +665,35 @@
                     </div>
                 </div>
                 <div class="hero-visual">
-                    <div class="hero-visual-icons">
-                        <div class="hero-icon">🤖</div>
-                        <div class="hero-icon">⚡</div>
-                        <div class="hero-icon">🚀</div>
+                    <div class="connections">
+                        <div class="connection conn-1"></div>
+                        <div class="connection conn-2"></div>
+                        <div class="connection conn-3"></div>
+                        <div class="connection conn-4"></div>
+                        <div class="connection conn-5"></div>
+                        <div class="connection conn-6"></div>
+                    </div>
+                    <div class="neural-network">
+                        <div class="node node-1"></div>
+                        <div class="node node-2"></div>
+                        <div class="node node-3"></div>
+                        <div class="node node-4"></div>
+                        <div class="node node-5"></div>
+                        <div class="node node-6"></div>
+                        <div class="node node-7"></div>
+                        <div class="node node-8"></div>
+                    </div>
+                    <div class="course-preview course-prev-1">
+                        <div class="course-preview-badge">Top Kurs</div>
+                        <div class="course-preview-title">EU AI Act Mastery</div>
+                    </div>
+                    <div class="course-preview course-prev-2">
+                        <div class="course-preview-badge">Bestseller</div>
+                        <div class="course-preview-title">KI-Strategie für Entscheider</div>
+                    </div>
+                    <div class="course-preview course-prev-3">
+                        <div class="course-preview-badge">Praxis</div>
+                        <div class="course-preview-title">No-Code Automation</div>
                     </div>
                     <div class="floating-card">
                         <div class="floating-card-label">Erfolgsquote</div>

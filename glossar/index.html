@@ -22,6 +22,7 @@
         .alpha-nav { background: var(--bg-card); padding: 20px 40px; display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid var(--border); position: sticky; top: 80px; z-index: 100; }
         .alpha-nav a { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: var(--bg-tertiary); border-radius: 12px; text-decoration: none; color: var(--text-primary); font-weight: 700; font-size: 16px; transition: var(--transition-base); border: 1px solid var(--border); }
         .alpha-nav a:hover { background: var(--accent); color: var(--bg-primary); border-color: var(--accent); transform: translateY(-2px); }
+        .alpha-nav a.disabled { opacity: 0.3; cursor: not-allowed; pointer-events: none; }
         .glossary-content { max-width: 1000px; margin: 0 auto; padding: 40px 0 80px; }
         .letter-section { margin-bottom: 50px; }
         .letter-header { font-family: var(--font-display); font-size: 48px; font-weight: 700; color: var(--accent); margin-bottom: 25px; padding-bottom: 15px; border-bottom: 2px solid var(--border); }
@@ -92,10 +93,10 @@
 
         <nav class="alpha-nav">
             <a href="#A">A</a><a href="#B">B</a><a href="#C">C</a><a href="#D">D</a><a href="#E">E</a>
-            <a href="#F">F</a><a href="#G">G</a><a href="#H">H</a><a href="#I">I</a><a href="#J">J</a>
-            <a href="#K">K</a><a href="#L">L</a><a href="#M">M</a><a href="#N">N</a><a href="#O">O</a>
-            <a href="#P">P</a><a href="#Q">Q</a><a href="#R">R</a><a href="#S">S</a><a href="#T">T</a>
-            <a href="#U">U</a><a href="#V">V</a><a href="#W">W</a><a href="#X">X</a><a href="#Y">Y</a><a href="#Z">Z</a>
+            <a class="disabled">F</a><a href="#G">G</a><a class="disabled">H</a><a class="disabled">I</a><a class="disabled">J</a>
+            <a class="disabled">K</a><a href="#L">L</a><a href="#M">M</a><a href="#N">N</a><a class="disabled">O</a>
+            <a href="#P">P</a><a class="disabled">Q</a><a href="#R">R</a><a class="disabled">S</a><a href="#T">T</a>
+            <a class="disabled">U</a><a class="disabled">V</a><a class="disabled">W</a><a class="disabled">X</a><a class="disabled">Y</a><a href="#Z">Z</a>
         </nav>
 
         <div class="container">
