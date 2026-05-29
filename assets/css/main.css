@@ -1030,6 +1030,20 @@ img {
     color: var(--accent);
 }
 
+.trust-indicator {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    opacity: 0.8;
+    transition: var(--transition-base);
+    letter-spacing: 0.02em;
+}
+
+.trust-indicator:hover {
+    opacity: 1;
+    color: var(--accent);
+}
+
 /* ============================================
    RATING STARS
    ============================================ */
