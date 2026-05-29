@@ -219,20 +219,88 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Handle video play button click
-function initVideoPlayer() {
-    const playBtn = document.querySelector('.video-play-btn');
-    if (playBtn) {
-        playBtn.addEventListener('click', function() {
-            // Placeholder for video modal or redirect
-            // In production, this would open a video modal
-            console.log('Video play clicked - implement video modal here');
+// Counter Animation for Statistics
+function animateCounter(element, target, duration = 2000) {
+    const start = 0;
+    const increment = target / (duration / 16);
+    let current = start;
+    
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            current = target;
+            clearInterval(timer);
+        }
+        
+        // Format number with dots for thousands
+        if (target >= 1000) {
+            element.textContent = Math.floor(current).toLocaleString('de-DE');
+        } else {
+            element.textContent = Math.floor(current);
+        }
+    }, 16);
+}
+
+// Initialize Counter Animations
+function initCounterAnimations() {
+    const counters = document.querySelectorAll('.trust-number, .stat-number');
+    
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const text = el.textContent;
+                
+                // Extract number from text (e.g., "22+" -> 22, "2.500+" -> 2500)
+                const match = text.match(/[\d.]+/);
+                if (match) {
+                    const target = parseInt(match[0].replace(/\./g, ''), 10);
+                    const suffix = text.replace(match[0], '');
+                    
+                    el.textContent = '0' + suffix;
+                    animateCounter(el, target, 2000);
+                    
+                    // Restore suffix after animation
+                    setTimeout(() => {
+                        el.textContent = target.toLocaleString('de-DE') + suffix;
+                    }, 2000);
+                }
+                
+                counterObserver.unobserve(el);
+            }
         });
-    }
+    }, { threshold: 0.5 });
+    
+    counters.forEach(counter => counterObserver.observe(counter));
+}
+
+// Lazy Loading for Images
+function initLazyLoading() {
+    const lazyImages = document.querySelectorAll('img[data-src]');
+    
+    const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+                img.classList.add('loaded');
+                imageObserver.unobserve(img);
+            }
+        });
+    }, {
+        rootMargin: '50px 0px',
+        threshold: 0.01
+    });
+    
+    lazyImages.forEach(img => imageObserver.observe(img));
 }
 
 // Initialize video player on DOM ready
-document.addEventListener('DOMContentLoaded', initVideoPlayer);
+document.addEventListener('DOMContentLoaded', function() {
+    initCounterAnimations();
+    initLazyLoading();
+});
 
 // Expose functions globally
 window.openMobileMenu = openMobileMenu;
