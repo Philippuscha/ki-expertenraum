@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community | KI-Expertenraum - Fragen & Austausch</title>
+    <meta name="description" content="Stelle deine KI-Fragen und diskutiere mit der Community. Praxisnaher Austausch für Unternehmer und Führungskräfte.">
+    <link rel="canonical" href="https://ki-expertenraum.de/community/">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-tertiary: #1a1a1a;
+            --bg-card: rgba(20, 20, 20, 0.8);
+            --bg-hover: rgba(30, 30, 30, 0.9);
+            --text-primary: #f5f5f5;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --accent: #c9a962;
+            --accent-dark: #a88b4a;
+            --border: rgba(255, 255, 255, 0.08);
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+        
+        .logo-mark {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            color: var(--bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 700;
+            border-radius: 8px;
+        }
+        
+        .logo-text {
+            font-weight: 600;
+            font-size: 18px;
+        }
+        
+        .logo-dot { color: var(--accent); }
+        
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent);
+        }
+        
+        .nav-cta {
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .nav-cta:hover {
+            background: var(--accent-dark);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+        }
+        
+        .mobile-menu-btn span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0; right: 0;
+            background: var(--bg-secondary);
+            padding: 20px;
+            z-index: 999;
+        }
+        
+        .mobile-menu.show { display: block; }
+        
+        .mobile-menu a {
+            display: block;
+            padding: 16px;
+            color: var(--text-primary);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        /* Hero */
+        .hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            text-align: center;
+        }
+        
+        .section-label {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .serif {
+            font-family: var(--font-display);
+        }
+        
+        h1.serif {
+            font-size: clamp(40px, 5vw, 56px);
+            margin-bottom: 24px;
+        }
+        
+        h1.serif em {
+            font-style: italic;
+            color: var(--accent);
+        }
+        
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        /* Stats */
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 50px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 48px;
+            font-weight: 500;
+            color: var(--accent);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        /* Form Section */
+        .form-section {
+            padding: 80px 0;
+            background: var(--bg-secondary);
+        }
+        
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 50px;
+        }
+        
+        .form-container h2 {
+            font-size: 28px;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        
+        .form-container > p {
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-size: 15px;
+            font-family: var(--font-body);
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-muted);
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            accent-color: var(--accent);
+        }
+        
+        .checkbox-group label {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        
+        .checkbox-group a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 16px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+        }
+        
+        /* Success Message */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .success-message.show {
+            display: block;
+        }
+        
+        .success-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+        
+        .success-message h3 {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+        
+        .success-message p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+        
+        /* Discussions Section */
+        .discussions {
+            padding: 80px 0;
+            background: var(--bg-primary);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-header h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+        
+        .section-header p {
+            color: var(--text-secondary);
+        }
+        
+        .discussions-note {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .discussions-note h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--accent);
+        }
+        
+        .discussions-note p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+        
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            padding: 14px 28px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+        
+        .github-link:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        
+        /* Features */
+        .features {
+            padding: 80px 0;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .feature h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+        
+        .feature p {
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--bg-primary);
+            padding: 60px 0 30px;
+            border-top: 1px solid var(--border);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+        
+        .footer-tagline {
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .footer-col h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+        
+        .footer-col a {
+            display: block;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 12px;
+            transition: color 0.3s;
+        }
+        
+        .footer-col a:hover {
+            color: var(--accent);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: flex; }
+            .hero-stats { flex-direction: column; gap: 30px; }
+            .features-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        
+        @media (max-width: 768px) {
+            .container { padding: 0 20px; }
+            .nav-container { padding: 15px 20px; }
+            .hero { padding: 140px 0 60px; }
+            .form-container { padding: 30px 20px; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <span class="logo-mark">K</span>
+                <span class="logo-text">KI<span class="logo-dot">.</span>Expertenraum</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="/">Start</a></li>
+                <li><a href="/kurse/">Kurse</a></li>
+                <li><a href="/ebooks/">Ebooks</a></li>
+                <li><a href="/services/">Services</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/artikel/">Artikel</a></li>
+                <li><a href="/community/" class="active">Community</a></li>
+                <li><a href="/kontakt.html">Kontakt</a></li>
+            </ul>
+            
+            <a href="/kontakt.html" class="nav-cta">Beratung anfragen</a>
+            
+            <button class="mobile-menu-btn" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="/" onclick="closeMenu()">Start</a>
+        <a href="/kurse/" onclick="closeMenu()">Kurse</a>
+        <a href="/ebooks/" onclick="closeMenu()">Ebooks</a>
+        <a href="/services/" onclick="closeMenu()">Services</a>
+        <a href="/blog/" onclick="closeMenu()">Blog</a>
+        <a href="/artikel/" onclick="closeMenu()">Artikel</a>
+        <a href="/community/" onclick="closeMenu()">Community</a>
+        <a href="/kontakt.html" onclick="closeMenu()">Kontakt</a>
+    </div>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <span class="section-label">Community</span>
+                <h1 class="serif">Stelle deine <em>Frage</em></h1>
+                <p class="hero-subtitle">Du hast eine Frage zu KI, dem EU AI Act oder brauchst praktische Hilfe? Stell sie hier und diskutiere mit der Community.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">20</span>
+                        <span class="stat-label">Kurse</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">Ebooks</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Jahre Praxis</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <div class="container">
+                <div class="form-container">
+                    <h2 class="serif">💬 Neue Frage stellen</h2>
+                    <p>Deine Frage wird öffentlich beantwortet und hilft auch anderen. Keine Anmeldung nötig!</p>
+                    
+                    <form id="questionForm" onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">Dein Name</label>
+                            <input type="text" id="name" name="name" placeholder="Max Mustermann" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">E-Mail-Adresse *</label>
+                            <input type="email" id="email" name="email" placeholder="max@beispiel.de" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="topic">Thema</label>
+                            <select id="topic" name="topic" required>
+                                <option value="">Bitte wählen...</option>
+                                <option value="eu-ai-act">EU AI Act & Recht</option>
+                                <option value="chatgpt">ChatGPT & Tools</option>
+                                <option value="strategie">KI-Strategie</option>
+                                <option value="praxis">Praxis & Umsetzung</option>
+                                <option value="sonstiges">Sonstiges</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="question">Deine Frage *</label>
+                            <textarea id="question" name="question" placeholder="Beschreibe deine Frage so genau wie möglich. Je mehr Details, desto besser können wir helfen..." required></textarea>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="newsletter" name="newsletter" checked>
+                            <label for="newsletter">Ich möchte per E-Mail benachrichtigt werden, wenn meine Frage beantwortet wurde.</label>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="datenschutz" name="datenschutz" required>
+                            <label for="datenschutz">Ich akzeptiere die <a href="/datenschutz/" target="_blank">Datenschutzerklärung</a> und bin einverstanden, dass meine Frage öffentlich veröffentlicht wird. *</label>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Frage absenden →</button>
+                    </form>
+                    
+                    <div class="success-message" id="successMessage">
+                        <div class="success-icon">🎉</div>
+                        <h3>Danke für deine Frage!</h3>
+                        <p>Wir werden sie so schnell wie möglich beantworten. Du erhältst eine Benachrichtigung per E-Mail.</p>
+                        <a href="/blog/" class="submit-btn" style="display: inline-block; width: auto; padding: 14px 28px; margin-top: 20px;">Zurück zum Blog</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="discussions">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Diskussionen</span>
+                    <h2 class="serif">Aktuelle <em>Fragen</em></h2>
+                    <p>Hier werden alle Fragen öffentlich beantwortet. Durchstöbere bestehende Diskussionen oder stelle deine eigene Frage.</p>
+                </div>
+                
+                <div class="discussions-note">
+                    <h3>🔗 GitHub Discussions</h3>
+                    <p>Unsere Community-Diskussionen finden auf GitHub statt. Dort kannst du alle Fragen sehen, antworten und neue Themen erstellen – ganz ohne zusätzliche Anmeldung (nur GitHub-Account nötig).</p>
+                    <a href="https://github.com/philipp-zerna/ki-expertenraum/discussions" target="_blank" rel="noopener" class="github-link">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        Zu den Diskussionen →
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature">
+                        <div class="feature-icon">🚀</div>
+                        <h3>Schnelle Antworten</h3>
+                        <p>Deine Frage wird in der Regel innerhalb von 24-48 Stunden beantwortet.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Praxisnah</h3>
+                        <p>Keine theoretischen Antworten – sondern echte Lösungen für dein Business.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">💡</div>
+                        <h3>Community</h3>
+                        <p>Lerne von anderen Unternehmern und teile deine eigenen Erfahrungen.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="/" class="footer-logo">
+                        <span class="logo-mark">K</span>
+                        <span>KI<span style="color: var(--accent);">.</span>Expertenraum</span>
+                    </a>
+                    <p class="footer-tagline">Praxisnahe KI-Beratung für Führungskräfte. 20 Kurse, 5+ Jahre Erfahrung.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Angebot</h4>
+                    <a href="/kurse/">Premium Kurse</a>
+                    <a href="/ebooks/">Ebooks</a>
+                    <a href="/services/">Services</a>
+                    <a href="/blog/">Blog</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Community</h4>
+                    <a href="/community/">Frage stellen</a>
+                    <a href="https://github.com/philipp-zerna/ki-expertenraum/discussions" target="_blank">Diskussionen</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <a href="mailto:zernaphilipp@gmail.com">E-Mail</a>
+                    <a href="https://www.linkedin.com/in/philipp-zerna-b155343a3/" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 KI-Expertenraum. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('show');
+        }
+        function closeMenu() {
+            document.getElementById('mobileMenu').classList.remove('show');
+        }
+        
+        function handleSubmit(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                topic: document.getElementById('topic').value,
+                question: document.getElementById('question').value,
+                newsletter: document.getElementById('newsletter').checked,
+                timestamp: new Date().toISOString()
+            };
+            
+            // Speichere in localStorage
+            let questions = JSON.parse(localStorage.getItem('communityQuestions') || '[]');
+            questions.push(formData);
+            localStorage.setItem('communityQuestions', JSON.stringify(questions));
+            
+            // Zeige Erfolgsmeldung
+            document.getElementById('questionForm').style.display = 'none';
+            document.getElementById('successMessage').classList.add('show');
+            
+            // Erstelle GitHub Discussion Link (mit vorausgefülltem Text)
+            const discussionTitle = encodeURIComponent(formData.topic + ': ' + formData.question.substring(0, 50) + '...');
+            const discussionBody = encodeURIComponent(
+                `**Frage von:** ${formData.name} (${formData.email})\n\n` +
+                `**Thema:** ${formData.topic}\n\n` +
+                `**Frage:**\n${formData.question}\n\n` +
+                `---\n*Diese Frage wurde über das Community-Formular eingereicht.*`
+            );
+            
+            // Öffne GitHub Discussions nach 2 Sekunden
+            setTimeout(() => {
+                window.open(
+                    `https://github.com/philipp-zerna/ki-expertenraum/discussions/new?title=${discussionTitle}&body=${discussionBody}&category=q-a`,
+                    '_blank'
+                );
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
