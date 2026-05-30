@@ -212,6 +212,18 @@
             color: var(--accent);
         }
         
+        .like-btn.liked {
+            color: #ff6b6b;
+        }
+        
+        .like-btn.liked .like-icon {
+            transform: scale(1.2);
+        }
+        
+        .save-btn.saved {
+            color: var(--accent);
+        }
+        
         /* Replies */
         .replies {
             margin-top: 20px;
@@ -443,9 +455,12 @@
                         </div>
                     </div>
                     <div class="actions">
-                        <button class="action-btn">👍 12</button>
-                        <button class="action-btn">💬 5 Antworten</button>
-                        <button class="action-btn">🔖 Speichern</button>
+                        <button class="action-btn like-btn" onclick="toggleLike(this, 'post1')" data-post="post1">
+                            <span class="like-icon">👍</span>
+                            <span class="like-count">12</span>
+                        </button>
+                        <button class="action-btn">💬 3 Antworten</button>
+                        <button class="action-btn save-btn" onclick="toggleSave(this, 'post1')">🔖 Speichern</button>
                     </div>
 
                     <div class="replies">
@@ -503,9 +518,12 @@
                         </div>
                     </div>
                     <div class="actions">
-                        <button class="action-btn">👍 23</button>
-                        <button class="action-btn">💬 8 Antworten</button>
-                        <button class="action-btn">🔖 Speichern</button>
+                        <button class="action-btn like-btn" onclick="toggleLike(this, 'post2')" data-post="post2">
+                            <span class="like-icon">👍</span>
+                            <span class="like-count">23</span>
+                        </button>
+                        <button class="action-btn">💬 4 Antworten</button>
+                        <button class="action-btn save-btn" onclick="toggleSave(this, 'post2')">🔖 Speichern</button>
                     </div>
 
                     <div class="replies">
@@ -574,9 +592,12 @@
                         </div>
                     </div>
                     <div class="actions">
-                        <button class="action-btn">👍 18</button>
-                        <button class="action-btn">💬 6 Antworten</button>
-                        <button class="action-btn">🔖 Speichern</button>
+                        <button class="action-btn like-btn" onclick="toggleLike(this, 'post3')" data-post="post3">
+                            <span class="like-icon">👍</span>
+                            <span class="like-count">18</span>
+                        </button>
+                        <button class="action-btn">💬 3 Antworten</button>
+                        <button class="action-btn save-btn" onclick="toggleSave(this, 'post3')">🔖 Speichern</button>
                     </div>
 
                     <div class="replies">
@@ -661,6 +682,81 @@
     </div>
 
     <script>
+        // Likes aus localStorage laden
+        function loadLikes() {
+            const likes = JSON.parse(localStorage.getItem('communityLikes') || '{}');
+            document.querySelectorAll('.like-btn').forEach(btn => {
+                const postId = btn.dataset.post;
+                const countSpan = btn.querySelector('.like-count');
+                const iconSpan = btn.querySelector('.like-icon');
+                
+                if (likes[postId]) {
+                    countSpan.textContent = likes[postId].count;
+                    if (likes[postId].liked) {
+                        btn.classList.add('liked');
+                        iconSpan.textContent = '❤️';
+                    }
+                }
+            });
+        }
+
+        // Toggle Like
+        function toggleLike(btn, postId) {
+            const likes = JSON.parse(localStorage.getItem('communityLikes') || '{}');
+            const countSpan = btn.querySelector('.like-count');
+            const iconSpan = btn.querySelector('.like-icon');
+            
+            if (!likes[postId]) {
+                likes[postId] = { count: parseInt(countSpan.textContent), liked: false };
+            }
+            
+            if (btn.classList.contains('liked')) {
+                // Unlike
+                likes[postId].count--;
+                likes[postId].liked = false;
+                btn.classList.remove('liked');
+                iconSpan.textContent = '👍';
+            } else {
+                // Like
+                likes[postId].count++;
+                likes[postId].liked = true;
+                btn.classList.add('liked');
+                iconSpan.textContent = '❤️';
+            }
+            
+            countSpan.textContent = likes[postId].count;
+            localStorage.setItem('communityLikes', JSON.stringify(likes));
+        }
+
+        // Toggle Save
+        function toggleSave(btn, postId) {
+            const saves = JSON.parse(localStorage.getItem('communitySaves') || '{}');
+            
+            if (saves[postId]) {
+                delete saves[postId];
+                btn.textContent = '🔖 Speichern';
+                btn.classList.remove('saved');
+            } else {
+                saves[postId] = true;
+                btn.textContent = '🔖 Gespeichert';
+                btn.classList.add('saved');
+            }
+            
+            localStorage.setItem('communitySaves', JSON.stringify(saves));
+        }
+
+        // Gespeicherte Posts laden
+        function loadSaves() {
+            const saves = JSON.parse(localStorage.getItem('communitySaves') || '{}');
+            document.querySelectorAll('.save-btn').forEach(btn => {
+                const postId = btn.getAttribute('onclick').match(/'([^']+)'/)[1];
+                if (saves[postId]) {
+                    btn.textContent = '🔖 Gespeichert';
+                    btn.classList.add('saved');
+                }
+            });
+        }
+
         function openModal() {
             document.getElementById('questionModal').classList.add('show');
         }
@@ -673,7 +769,6 @@
 
         function handleSubmit(e) {
             e.preventDefault();
-            // Hier könnte später Formspree eingebaut werden
             document.getElementById('questionForm').style.display = 'none';
             document.getElementById('successMsg').classList.add('show');
             
@@ -684,6 +779,12 @@
 
         document.getElementById('questionModal').addEventListener('click', function(e) {
             if (e.target === this) closeModal();
+        });
+
+        // Initialisierung
+        document.addEventListener('DOMContentLoaded', function() {
+            loadLikes();
+            loadSaves();
         });
     </script>
 </body>
