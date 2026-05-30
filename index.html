@@ -3,702 +3,1683 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KI-Expertenraum | Praxiswissen für Unternehmer</title>
-    <meta name="description" content="KI verständlich erklärt: Praxisguides, Tools & Strategien für Unternehmer. Von Philipp Zerna – ohne Hype, sofort umsetzbar.">
-    <link rel="icon" type="image/png" href="/public/images/favicon.png?v=2">
+    <title>KI Expertenraum | Premium KI-Akademie & Business-Consulting</title>
+    <meta name="description" content="Exklusive KI-Weiterbildung und strategische Beratung für Führungskräfte. 22+ Kurse, 2.500+ Teilnehmer, EU AI Act Ready.">
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+    
+    <!-- Schema.org Markup for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "KI Expertenraum",
+        "url": "https://ki-expertenraum.de",
+        "logo": "https://ki-expertenraum.de/images/favicon.svg",
+        "description": "Premium KI-Akademie und Business-Consulting für Führungskräfte. 22+ Kurse, strategische Beratung, EU AI Act Compliance.",
+        "founder": {
+            "@type": "Person",
+            "name": "Philipp Zerna",
+            "jobTitle": "KI-Experte & Geschäftsführer",
+            "email": "zernaphilipp@gmail.com",
+            "url": "https://www.linkedin.com/in/philipp-zerna-b155343a3/"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "DE"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "zernaphilipp@gmail.com",
+            "contactType": "customer service"
+        },
+        "sameAs": [
+            "https://www.linkedin.com/in/philipp-zerna-b155343a3/"
+        ],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "500",
+            "bestRating": "5"
+        }
+    }
+    </script>
+    
+    <!-- Course Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "KI Expertenraum Premium Kurse",
+        "description": "22+ spezialisierte KI-Kurse für Unternehmen: EU AI Act, Strategie, Automation, Compliance.",
+        "provider": {
+            "@type": "Organization",
+            "name": "KI Expertenraum",
+            "sameAs": "https://ki-expertenraum.de"
+        },
+        "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": "online",
+            "instructor": {
+                "@type": "Person",
+                "name": "Philipp Zerna"
+            }
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "299.00",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "validFrom": "2026-01-01"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "500"
+        }
+    }
+    </script>
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/css/main.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { 
-            --bg: #f0f7ff; 
-            --bg-card: rgba(255, 255, 255, 0.95);
-            --text: #0f172a; 
-            --text-muted: #475569; 
-            --accent: #3b82f6;
-            --accent-dark: #2563eb;
-            --accent-light: #dbeafe;
-        }
-        html { scroll-behavior: smooth; }
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 50%, #dbeafe 100%); 
-            color: var(--text); 
-            line-height: 1.6;
-        }
-        h1, h2, h3, h4 { font-family: 'DM Sans', sans-serif; font-weight: 700; }
-        
-        /* NAVIGATION */
-        .nav { 
-            position: fixed; 
-            top: 0; left: 0; right: 0; 
-            z-index: 1000; 
-            padding: 20px 40px; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            background: rgba(240, 247, 255, 0.95); 
-            backdrop-filter: blur(20px); 
-            border-bottom: 1px solid rgba(255,255,255,0.6);
-        }
-        .logo { 
-            font-family: 'DM Sans', sans-serif; 
-            font-size: 24px; 
-            font-weight: 800; 
-            background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent;
-            text-decoration: none;
-        }
-        .nav-links { display: flex; gap: 30px; list-style: none; }
-        .nav-links a { 
-            color: var(--text-muted); 
-            text-decoration: none; 
-            font-size: 15px; 
-            font-weight: 600; 
-            transition: color 0.3s;
-        }
-        .nav-links a:hover { color: var(--accent); }
-        
-        /* Mobile Menu Button */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 28px;
-            cursor: pointer;
-            padding: 8px 12px;
-            color: var(--text);
+        /* ============================================
+           PREMIUM HERO SECTION - Cinematic Experience
+           ============================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 180px 0 120px;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-tertiary) 100%);
+            position: relative;
+            overflow: hidden;
         }
         
-        /* Mobile Menu Panel */
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 70px;
+        /* Cinematic Light Rays */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: 0;
+            width: 100%;
+            height: 200%;
+            background: 
+                radial-gradient(ellipse 80% 50% at 70% 30%, rgba(201, 169, 98, 0.06) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 40% at 80% 70%, rgba(201, 169, 98, 0.04) 0%, transparent 50%);
+            pointer-events: none;
+            animation: gentlePulse 20s ease-in-out infinite;
+        }
+        
+        /* Subtle Light Sweep */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
             left: 0;
             right: 0;
-            background: white;
-            padding: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-            z-index: 999;
-            border-radius: 0 0 20px 20px;
-        }
-        .mobile-menu.show {
-            display: block;
-        }
-        .mobile-menu a {
-            display: block;
-            padding: 16px 20px;
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            border-bottom: 1px solid #f0f0f0;
-            transition: background 0.2s;
-        }
-        .mobile-menu a:hover {
-            background: #f8fafc;
-        }
-        .mobile-menu a:last-child {
-            border-bottom: none;
+            bottom: 0;
+            background: linear-gradient(100deg, transparent 40%, rgba(201, 169, 98, 0.02) 50%, transparent 60%);
+            background-size: 200% 100%;
+            animation: lightSweep 15s ease-in-out infinite;
+            pointer-events: none;
         }
         
-        /* HERO */
-        .hero {
-            padding: 160px 40px 100px;
-            max-width: 1200px;
+        .hero-container {
+            max-width: var(--container-max);
             margin: 0 auto;
+            padding: 0 var(--container-padding);
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 100px;
             align-items: center;
+            width: 100%;
+            position: relative;
+            z-index: 1;
         }
-        .hero-content h1 {
-            font-size: clamp(40px, 5vw, 56px);
-            line-height: 1.1;
-            margin-bottom: 24px;
-        }
-        .hero-content h1 span {
-            background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero-content p {
-            font-size: 20px;
-            color: var(--text-muted);
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--accent);
             margin-bottom: 32px;
-            line-height: 1.7;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 0.2s;
         }
+        
+        .hero-badge::before {
+            content: '';
+            width: 32px;
+            height: 1px;
+            background: var(--accent);
+        }
+        
+        .hero h1 {
+            margin-bottom: 28px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 0.4s;
+        }
+        
+        .hero h1 em {
+            font-style: italic;
+            color: var(--accent);
+            font-weight: 500;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(18px, 1.5vw, 20px);
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 48px;
+            max-width: 540px;
+            font-weight: 400;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 0.6s;
+        }
+        
         .hero-buttons {
             display: flex;
             gap: 16px;
             flex-wrap: wrap;
-        }
-        .btn {
-            display: inline-block;
-            padding: 16px 32px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 16px;
-            transition: all 0.3s;
-        }
-        .btn-primary {
-            background: var(--accent);
-            color: white;
-        }
-        .btn-primary:hover {
-            background: var(--accent-dark);
-            transform: translateY(-2px);
-        }
-        .btn-secondary {
-            background: white;
-            color: var(--text);
-            border: 2px solid rgba(59,130,246,0.2);
-        }
-        .btn-secondary:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-        .hero-image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .hero-image img {
-            max-width: 100%;
-            height: auto;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 0.8s;
         }
         
-        /* FEATURES */
-        .features {
-            padding: 100px 40px;
-            background: white;
+        .hero-stats {
+            display: flex;
+            gap: 56px;
+            margin-top: 72px;
+            padding-top: 48px;
+            border-top: 1px solid var(--border);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 1s;
         }
-        .features-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 60px;
+        
+        .stat-item {
+            display: flex;
+            flex-direction: column;
         }
-        .features-header h2 {
-            font-size: 42px;
-            margin-bottom: 16px;
+        
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: clamp(40px, 4vw, 52px);
+            color: var(--accent);
+            line-height: 1;
+            font-weight: 600;
+            letter-spacing: -0.02em;
         }
-        .features-header p {
-            font-size: 19px;
+        
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 500;
+        }
+        
+        /* Trust badges in hero */
+        .hero-trust {
+            margin-top: 40px;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 1.2s;
+        }
+        
+        .hero-trust-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            background: rgba(201, 169, 98, 0.08);
+            border: 1px solid rgba(201, 169, 98, 0.15);
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 500;
             color: var(--text-muted);
         }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            max-width: 1100px;
-            margin: 0 auto;
+        
+        .hero-trust-badge svg {
+            width: 14px;
+            height: 14px;
+            stroke: var(--accent);
         }
-        .feature-card {
-            background: var(--bg-card);
+        
+        /* ============================================
+           PREMIUM DASHBOARD VISUAL
+           ============================================ */
+        .hero-visual {
+            position: relative;
+            aspect-ratio: 4/5;
             border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column;
+            border: 1px solid rgba(201, 169, 98, 0.15);
+            box-shadow: 
+                0 40px 100px rgba(0, 0, 0, 0.5),
+                0 0 80px rgba(201, 169, 98, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.5s, cinematicGlow 8s ease-in-out infinite 2s;
+            will-change: transform;
         }
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-        }
-        .feature-image {
-            height: 200px;
+        
+        .video-container {
+            position: relative;
             width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
         }
-        .feature-content {
-            padding: 30px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
+        
+        .cinematic-scene {
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(ellipse 60% 40% at 30% 40%, rgba(201, 169, 98, 0.12) 0%, transparent 60%),
+                radial-gradient(ellipse 40% 30% at 70% 60%, rgba(201, 169, 98, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 80% 30%, rgba(45, 212, 191, 0.04) 0%, transparent 40%),
+                linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #0d0d0d 100%);
         }
-        .feature-badge {
-            display: inline-block;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-            width: fit-content;
+        
+        .dashboard-grid {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(201, 169, 98, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(201, 169, 98, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            opacity: 0.6;
         }
-        .feature-card h3 {
-            font-size: 24px;
-            margin-bottom: 12px;
-            color: var(--text);
+        
+        .floating-ui {
+            position: absolute;
+            background: rgba(20, 20, 20, 0.9);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(201, 169, 98, 0.15);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            animation: subtleFloat 8s ease-in-out infinite;
+            will-change: transform;
         }
-        .feature-card p {
-            color: var(--text-muted);
-            font-size: 15px;
-            line-height: 1.7;
-            flex: 1;
-            margin-bottom: 20px;
-        }
-        .feature-link {
-            color: var(--accent);
-            font-weight: 700;
-            font-size: 15px;
+        
+        .ui-header {
             display: flex;
             align-items: center;
             gap: 8px;
+            margin-bottom: 12px;
         }
         
-        /* ARTICLES PREVIEW */
-        .articles-preview {
-            padding: 100px 40px;
-            max-width: 1200px;
-            margin: 0 auto;
+        .ui-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
         }
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 40px;
-        }
-        .section-header h2 {
-            font-size: 36px;
-        }
-        .section-header a {
-            color: var(--accent);
-            text-decoration: none;
+        
+        .ui-title {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
             font-weight: 600;
         }
-        .articles-grid {
+        
+        .ui-value {
+            font-family: var(--font-display);
+            font-size: 28px;
+            color: var(--accent);
+            font-weight: 600;
+            line-height: 1;
+        }
+        
+        .ui-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+        
+        .ui-chart {
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+            height: 40px;
+            margin-top: 12px;
+        }
+        
+        .chart-bar {
+            flex: 1;
+            background: linear-gradient(to top, var(--accent), rgba(201, 169, 98, 0.3));
+            border-radius: 2px 2px 0 0;
+            opacity: 0.8;
+            transform-origin: bottom;
+            transform: scaleY(0);
+        }
+        
+        .ui-1 { top: 15%; left: 10%; width: 160px; animation-delay: 0s; }
+        .ui-2 { top: 40%; right: 5%; width: 140px; animation-delay: 2s; }
+        .ui-3 { bottom: 25%; left: 5%; width: 150px; animation-delay: 4s; }
+        
+        .course-preview {
+            position: absolute;
+            background: rgba(17, 17, 17, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(201, 169, 98, 0.2);
+            border-radius: 14px;
+            padding: 18px 22px;
+            z-index: 3;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            animation: subtleFloat 10s ease-in-out infinite;
+            will-change: transform;
+            transition: var(--transition-slow);
+        }
+        
+        .course-preview:hover {
+            transform: translateY(-6px) scale(1.02);
+            border-color: rgba(201, 169, 98, 0.35);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), 0 0 30px rgba(201, 169, 98, 0.1);
+        }
+        
+        .course-preview-badge {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+        
+        .course-preview-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: white;
+            line-height: 1.4;
+        }
+        
+        .course-prev-1 { top: 20%; right: 12%; width: 170px; animation-delay: 1s; }
+        .course-prev-2 { bottom: 35%; left: 8%; width: 160px; animation-delay: 3s; }
+        .course-prev-3 { bottom: 18%; right: 15%; width: 150px; animation-delay: 5s; }
+        
+        .floating-card {
+            position: absolute;
+            bottom: 50px;
+            right: -20px;
+            background: linear-gradient(145deg, rgba(26, 26, 26, 0.98), rgba(17, 17, 17, 0.98));
+            padding: 28px 36px;
+            border-radius: 16px;
+            border: 1px solid rgba(201, 169, 98, 0.2);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(201, 169, 98, 0.1);
+            z-index: 4;
+            animation: subtleFloat 7s ease-in-out infinite;
+            will-change: transform;
+        }
+        
+        .floating-card-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .floating-card-value {
+            font-family: var(--font-display);
+            font-size: 42px;
+            color: var(--accent);
+            font-weight: 600;
+            line-height: 1;
+        }
+        
+        .floating-card-sub {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+        
+        /* ============================================
+           SERVICES SECTION
+           ============================================ */
+        .services {
+            padding: var(--section-padding) 0;
+            background: var(--bg-secondary);
+            position: relative;
+        }
+        
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 100px;
+            background: linear-gradient(to bottom, var(--accent), transparent);
+            opacity: 0.3;
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 100px;
+        }
+        
+        .section-header h2 {
+            margin-bottom: 24px;
+        }
+        
+        .section-header h2 em {
+            font-style: italic;
+            color: var(--accent);
+            font-weight: 500;
+        }
+        
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 30px;
         }
-        .article-card {
+        
+        .service-card {
             background: var(--bg-card);
-            border-radius: 16px;
+            padding: 56px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            transition: var(--transition-slow);
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s;
         }
-        .article-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(201, 169, 98, 0.3), transparent);
+            opacity: 0;
+            transition: var(--transition-base);
         }
-        .article-image {
-            height: 160px;
-            background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%);
+        
+        .service-card:hover {
+            background: var(--bg-hover);
+            border-color: rgba(201, 169, 98, 0.2);
+            transform: translateY(-6px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+        }
+        
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        
+        .service-number {
+            font-family: var(--font-display);
+            font-size: 13px;
+            color: var(--accent);
+            margin-bottom: 24px;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+        }
+        
+        .service-card h3 {
+            margin-bottom: 20px;
+            font-weight: 500;
+            transition: var(--transition-base);
+        }
+        
+        .service-card:hover h3 {
+            color: var(--accent);
+        }
+        
+        .service-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 32px;
+            font-size: 15px;
+        }
+        
+        .service-link {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition-base);
+        }
+        
+        .service-link:hover {
+            color: var(--accent);
+            gap: 14px;
+        }
+        
+        /* Service Icons */
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(201, 169, 98, 0.1);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 48px;
-        }
-        .article-content {
-            padding: 24px;
-        }
-        .article-category {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            background: var(--accent-light);
-            color: var(--accent);
-            margin-bottom: 12px;
-        }
-        .article-card h3 {
-            font-size: 18px;
-            margin-bottom: 8px;
-            line-height: 1.4;
-        }
-        .article-card p {
-            color: var(--text-muted);
-            font-size: 14px;
-            line-height: 1.5;
+            margin-bottom: 24px;
+            transition: var(--transition-base);
         }
         
-        /* EBOOKS */
-        .ebooks {
-            padding: 100px 40px;
-            background: linear-gradient(135deg, #f8fafc 0%, #f0f7ff 100%);
+        .service-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--accent);
         }
-        .ebooks-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 60px;
+        
+        .service-card:hover .service-icon {
+            background: rgba(201, 169, 98, 0.15);
+            transform: scale(1.05);
         }
-        .ebooks-header h2 {
-            font-size: 42px;
-            margin-bottom: 16px;
+        
+        /* ============================================
+           COURSES SECTION
+           ============================================ */
+        .courses {
+            padding: var(--section-padding) 0;
+            background: var(--bg-primary);
+            position: relative;
         }
-        .ebooks-header p {
-            font-size: 19px;
-            color: var(--text-muted);
-        }
-        .ebooks-grid {
+        
+        .courses-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-            max-width: 1000px;
-            margin: 0 auto;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
         }
-        .ebook-card {
+        
+        .course-card {
             background: var(--bg-card);
-            border-radius: 24px;
-            padding: 40px;
-            display: flex;
-            gap: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: var(--transition-slow);
             text-decoration: none;
             color: inherit;
         }
-        .ebook-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(201, 169, 98, 0.25);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4), 0 0 60px rgba(201, 169, 98, 0.1);
         }
-        .ebook-cover {
-            width: 150px;
-            height: 200px;
-            border-radius: 12px;
+        
+        .course-image {
+            aspect-ratio: 16/10;
+            background: var(--bg-tertiary);
             overflow: hidden;
-            flex-shrink: 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            position: relative;
         }
-        .ebook-cover img {
+        
+        .course-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: var(--transition-slow);
         }
-        .ebook-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        
+        .course-card:hover .course-image img {
+            transform: scale(1.08);
         }
-        .ebook-badge {
-            display: inline-block;
-            background: var(--success-light);
-            color: var(--success);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 700;
+        
+        .course-content {
+            padding: 36px;
+        }
+        
+        .course-category {
+            font-size: 11px;
+            font-weight: 600;
             text-transform: uppercase;
-            margin-bottom: 16px;
-            width: fit-content;
-        }
-        .ebook-title {
-            font-size: 24px;
-            margin-bottom: 12px;
-            line-height: 1.3;
-        }
-        .ebook-description {
-            color: var(--text-muted);
-            font-size: 15px;
-            line-height: 1.6;
-            margin-bottom: 24px;
-        }
-        .ebook-btn {
-            display: inline-block;
-            background: var(--accent);
-            color: white;
-            padding: 14px 28px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 15px;
-            transition: all 0.3s;
-            width: fit-content;
-        }
-        .ebook-btn:hover {
-            background: var(--accent-dark);
-            transform: translateY(-2px);
-        }
-        
-        @media (max-width: 768px) {
-            .ebooks { padding: 60px 20px; }
-            .ebooks-header h2 { font-size: 32px; }
-            .ebooks-grid { grid-template-columns: 1fr; }
-            .ebook-card { flex-direction: column; text-align: center; }
-            .ebook-cover { margin: 0 auto; }
-            .ebook-badge { margin: 0 auto 16px; }
-            .ebook-btn { margin: 0 auto; }
-        }
-        
-        /* CTA */
-        .cta {
-            background: linear-gradient(135deg, var(--accent) 0%, #7c3aed 100%);
-            color: white;
-            padding: 100px 40px;
-            text-align: center;
-        }
-        .cta h2 {
-            font-size: 42px;
-            margin-bottom: 20px;
-        }
-        .cta p {
-            font-size: 20px;
-            opacity: 0.95;
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .cta-btn {
-            display: inline-block;
-            background: white;
+            letter-spacing: 0.15em;
             color: var(--accent);
-            padding: 18px 40px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 16px;
-            transition: all 0.3s;
-        }
-        .cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 14px;
         }
         
-        /* FOOTER */
-        .footer {
-            background: var(--text);
-            color: rgba(255,255,255,0.7);
-            padding: 50px 40px 30px;
+        .course-card h3 {
+            font-size: 22px;
+            margin-bottom: 14px;
+            font-weight: 500;
+            transition: var(--transition-base);
+        }
+        
+        .course-card:hover h3 {
+            color: var(--accent);
+        }
+        
+        .course-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        
+        .course-rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+        
+        .course-rating-stars {
+            display: flex;
+            gap: 2px;
+        }
+        
+        .course-rating-stars svg {
+            width: 14px;
+            height: 14px;
+            fill: var(--accent);
+        }
+        
+        .course-rating-text {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        
+        /* ============================================
+           TRUST SECTION - KPI AREA
+           ============================================ */
+        .trust-section {
+            padding: 100px 0;
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
             text-align: center;
         }
-        .footer-logo {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 24px;
-            font-weight: 800;
-            margin-bottom: 15px;
-            background: linear-gradient(135deg, white 0%, #60a5fa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        
+        .trust-item {
+            padding: 30px;
+            position: relative;
         }
         
-        /* RESPONSIVE */
+        .trust-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 60px;
+            background: var(--border);
+        }
+        
+        .trust-number {
+            font-family: var(--font-display);
+            font-size: clamp(44px, 4vw, 56px);
+            font-weight: 600;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        
+        .trust-label {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 500;
+        }
+        
+        .trust-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 8px;
+        }
+        
+        /* Trusted Badge */
+        .trusted-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 60px;
+            padding: 16px 28px;
+            background: rgba(201, 169, 98, 0.05);
+            border: 1px solid rgba(201, 169, 98, 0.15);
+            border-radius: 100px;
+        }
+        
+        .trusted-badge-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        
+        .trusted-badge-text strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        /* ============================================
+           QUOTE SECTION
+           ============================================ */
+        .quote {
+            padding: 160px 0;
+            background: var(--bg-secondary);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .quote::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(201, 169, 98, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        .quote-icon {
+            font-family: var(--font-display);
+            font-size: 140px;
+            color: var(--accent);
+            opacity: 0.15;
+            line-height: 1;
+            margin-bottom: -60px;
+            font-weight: 400;
+        }
+        
+        .quote-text {
+            font-size: clamp(26px, 3.5vw, 40px);
+            line-height: 1.5;
+            font-weight: 400;
+            max-width: 900px;
+            margin: 0 auto 48px;
+            font-style: italic;
+            color: var(--text-primary);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .quote-author {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+        }
+        
+        .quote-role {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+        
+        /* ============================================
+           TESTIMONIALS
+           ============================================ */
+        .testimonials {
+            padding: var(--section-padding) 0;
+            background: var(--bg-primary);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        
+        .testimonial-card {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            transition: var(--transition-base);
+        }
+        
+        .testimonial-card:hover {
+            border-color: rgba(201, 169, 98, 0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .testimonial-quote {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 28px;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 18px;
+            color: var(--bg-primary);
+            font-weight: 600;
+        }
+        
+        .testimonial-info h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .testimonial-info p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        
+        .testimonial-company {
+            font-size: 12px;
+            color: var(--accent);
+            margin-top: 4px;
+            font-weight: 500;
+        }
+        
+        /* Company Logos in Testimonials */
+        .testimonial-logo {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-muted);
+            opacity: 0.6;
+            margin-top: 8px;
+            letter-spacing: 0.05em;
+        }
+        
+        /* ============================================
+           ARTICLES
+           ============================================ */
+        .articles-preview {
+            padding: var(--section-padding) 0;
+            background: var(--bg-secondary);
+        }
+        
+        .articles-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .article-item {
+            display: grid;
+            grid-template-columns: 120px 1fr auto;
+            align-items: center;
+            gap: 40px;
+            padding: 36px 0;
+            border-bottom: 1px solid var(--border);
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-base);
+        }
+        
+        .article-item:hover {
+            padding-left: 20px;
+            border-bottom-color: rgba(201, 169, 98, 0.2);
+        }
+        
+        .article-item:hover h3 {
+            color: var(--accent);
+        }
+        
+        .article-category {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+        }
+        
+        .article-item h3 {
+            font-size: 24px;
+            font-weight: 500;
+            transition: var(--transition-base);
+            line-height: 1.4;
+        }
+        
+        .article-tag {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            padding: 12px 24px;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            transition: var(--transition-base);
+        }
+        
+        .article-item:hover .article-tag {
+            background: var(--accent);
+            color: var(--bg-primary);
+            border-color: var(--accent);
+        }
+        
+        /* ============================================
+           CTA SECTION
+           ============================================ */
+        .cta {
+            padding: var(--section-padding) 0;
+            background: var(--bg-primary);
+            position: relative;
+        }
+        
+        .cta-box {
+            background: linear-gradient(145deg, var(--bg-card), rgba(26, 26, 26, 0.8));
+            padding: 100px 80px;
+            border-radius: 28px;
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto;
+            border: 1px solid rgba(201, 169, 98, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(201, 169, 98, 0.3), transparent);
+        }
+        
+        .cta-box h2 {
+            margin-bottom: 28px;
+        }
+        
+        .cta-box h2 em {
+            font-style: italic;
+            color: var(--accent);
+            font-weight: 500;
+        }
+        
+        .cta-box p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 48px;
+            line-height: 1.8;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
         @media (max-width: 1024px) {
-            .hero {
+            .hero-container {
                 grid-template-columns: 1fr;
                 text-align: center;
+                gap: 60px;
             }
-            .hero-image {
-                order: -1;
+            
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
             }
+            
             .hero-buttons {
                 justify-content: center;
             }
-            .features-grid { grid-template-columns: 1fr; }
-            .articles-grid { grid-template-columns: 1fr; }
+            
+            .hero-stats {
+                justify-content: center;
+            }
+            
+            .hero-trust {
+                justify-content: center;
+            }
+            
+            .hero-visual {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            
+            .floating-card {
+                right: 0;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .courses-grid,
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .trust-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .trust-item:not(:last-child)::after {
+                display: none;
+            }
+            
+            .article-item {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            
+            .article-tag {
+                justify-self: start;
+            }
+            
+            .cta-box {
+                padding: 60px 40px;
+            }
         }
         
         @media (max-width: 768px) {
-            .nav { padding: 15px 20px; }
-            .nav-links { display: none; }
-            .mobile-menu-btn { display: block; }
-            .hero { padding: 120px 20px 60px; }
-            .hero-content h1 { font-size: 36px; }
-            .features { padding: 60px 20px; }
-            .features-header h2 { font-size: 32px; }
-            .articles-preview { padding: 60px 20px; }
-            .section-header { flex-direction: column; gap: 16px; text-align: center; }
-            .cta { padding: 60px 20px; }
-            .cta h2 { font-size: 32px; }
-            section[style*="grid-template-columns: 300px"] { grid-template-columns: 1fr !important; text-align: center; padding: 40px 20px !important; }
-            section[style*="grid-template-columns: 300px"] img { width: 200px !important; height: 200px !important; }
+            .hero {
+                padding: 140px 0 80px;
+            }
+            
+            .hero-visual {
+                display: none;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 32px;
+                align-items: center;
+            }
+            
+            .courses-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .trust-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-card {
+                padding: 40px;
+            }
+            
+            .quote {
+                padding: 100px 0;
+            }
+            
+            .quote-icon {
+                font-size: 80px;
+            }
+            
+            .trusted-badge {
+                flex-direction: column;
+                text-align: center;
+                gap: 8px;
+            }
         }
     </style>
 </head>
 <body>
-    <nav class="nav">
-        <a href="/" class="logo">KI-Expertenraum</a>
-        <ul class="nav-links">
-            <li><a href="/">Startseite</a></li>
-            <li><a href="/kurse/">Kurse</a></li>
-            <li><a href="/services/">Services</a></li>
-            <li><a href="/artikel/">Artikel</a></li>
-            <li><a href="/glossar/">Glossar</a></li>
-        </ul>
-        <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <span class="logo-mark">K</span>
+                <span class="logo-text">KI<span class="logo-dot">.</span>Expertenraum</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="/" class="active">Start</a></li>
+                <li><a href="/kurse/">Kurse</a></li>
+                <li><a href="/services/">Services</a></li>
+                <li><a href="/artikel/">Artikel</a></li>
+                <li><a href="/glossar/">Glossar</a></li>
+                <li><a href="/kontakt.html">Kontakt</a></li>
+            </ul>
+            
+            <a href="/kontakt.html" class="nav-cta">Beratung anfragen</a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü öffnen">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </nav>
+    
+    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
-        <a href="/">Startseite</a>
-        <a href="/kurse/">Kurse</a>
-        <a href="/services/">Services</a>
-        <a href="/artikel/">Artikel</a>
-        <a href="/glossar/">Glossar</a>
+        <div class="mobile-menu-content">
+            <a href="/" onclick="closeMobileMenu()">Start</a>
+            <a href="/kurse/" onclick="closeMobileMenu()">Kurse</a>
+            <a href="/services/" onclick="closeMobileMenu()">Services</a>
+            <a href="/artikel/" onclick="closeMobileMenu()">Artikel</a>
+            <a href="/glossar/" onclick="closeMobileMenu()">Glossar</a>
+            <a href="/kontakt.html" onclick="closeMobileMenu()">Kontakt</a>
+        </div>
     </div>
-    <script>
-        function toggleMenu() {
-            document.getElementById('mobileMenu').classList.toggle('show');
-        }
-    </script>
 
-    <header class="hero">
-        <div class="hero-content">
-            <h1>KI verständlich erklärt <span>für Unternehmer</span></h1>
-            <p>Praxisnahe Guides, Tools & Strategien – ohne Hype, sofort umsetzbar. Lerne, wie du KI effektiv in deinem Business einsetzt.</p>
-            <div class="hero-buttons">
-                <a href="/artikel/" class="btn btn-primary">Alle Artikel →</a>
-                <a href="/kurse/" class="btn btn-secondary">Zu den Kursen</a>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-badge">Premium KI-Akademie</div>
+                    <h1 class="serif">KI-Expertise für<br><em>Führungskräfte</em><br>& Unternehmen</h1>
+                    <p class="hero-subtitle">Exklusive Weiterbildung und strategische Beratung für den erfolgreichen Einsatz künstlicher Intelligenz. Praxiserprobt, EU-konform, sofort umsetzbar.</p>
+                    <div class="hero-buttons">
+                        <a href="/kurse/" class="btn btn-primary">Kurse entdecken →</a>
+                        <a href="/services/" class="btn btn-secondary">Business Consulting</a>
+                    </div>
+                    
+                    <!-- Trust Badges -->
+                    <div class="hero-trust">
+                        <span class="hero-trust-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                            EU AI Act Ready
+                        </span>
+                        <span class="hero-trust-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            DSGVO Compliant
+                        </span>
+                        <span class="hero-trust-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                            4.9/5 Bewertung
+                        </span>
+                    </div>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">22+</div>
+                            <div class="stat-label">Premium Kurse</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">2.500+</div>
+                            <div class="stat-label">Führungskräfte</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label">Erfolgsquote</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="video-container">
+                        <div class="cinematic-scene">
+                            <div class="dashboard-grid"></div>
+                            
+                            <div class="floating-ui ui-1">
+                                <div class="ui-header">
+                                    <div class="ui-dot"></div>
+                                    <span class="ui-title">ROI</span>
+                                </div>
+                                <div class="ui-value">+340%</div>
+                                <div class="ui-label">Effizienzsteigerung</div>
+                                <div class="ui-chart">
+                                    <div class="chart-bar" style="height: 40%"></div>
+                                    <div class="chart-bar" style="height: 60%"></div>
+                                    <div class="chart-bar" style="height: 45%"></div>
+                                    <div class="chart-bar" style="height: 80%"></div>
+                                    <div class="chart-bar" style="height: 100%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="floating-ui ui-2">
+                                <div class="ui-header">
+                                    <div class="ui-dot" style="background: var(--turquoise)"></div>
+                                    <span class="ui-title">Copilot</span>
+                                </div>
+                                <div class="ui-value">Active</div>
+                                <div class="ui-label">Enterprise Ready</div>
+                            </div>
+                            
+                            <div class="floating-ui ui-3">
+                                <div class="ui-header">
+                                    <div class="ui-dot"></div>
+                                    <span class="ui-title">Compliance</span>
+                                </div>
+                                <div class="ui-value">100%</div>
+                                <div class="ui-label">EU AI Act Ready</div>
+                            </div>
+                        </div>
+                        
+                        <div class="course-preview course-prev-1">
+                            <div class="course-preview-badge">Bestseller</div>
+                            <div class="course-preview-title">KI-Strategie für Entscheider</div>
+                        </div>
+                        <div class="course-preview course-prev-2">
+                            <div class="course-preview-badge">Top Bewertet</div>
+                            <div class="course-preview-title">EU AI Act Mastery</div>
+                        </div>
+                        <div class="course-preview course-prev-3">
+                            <div class="course-preview-badge">Praxis</div>
+                            <div class="course-preview-title">Microsoft 365 Copilot</div>
+                        </div>
+                        
+                        <div class="floating-card">
+                            <div class="floating-card-label">Kundenzufriedenheit</div>
+                            <div class="floating-card-value">4.9/5</div>
+                            <div class="floating-card-sub">Basierend auf 500+ Reviews</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="hero-image">
-            <img src="/public/images/ki-humanoid.png?v=2" alt="KI Humanoid" loading="lazy">
-        </div>
-    </header>
+        </section>
 
-    <section class="features">
-        <div class="features-header">
-            <h2>Mein Angebot</h2>
-            <p>Wähle, was du brauchst – von der Idee bis zur Umsetzung</p>
-        </div>
-        <div class="features-grid">
-            <a href="/kurse/" class="feature-card">
-                <div class="feature-image" style="background: url('/public/images/kurs4_ki%20marketing.png?v=2') center 70%/cover;"></div>
-                <div class="feature-content">
-                    <span class="feature-badge" style="background: #fef3c7; color: #d97706;">🎓 Lernen</span>
-                    <h3>Kurse</h3>
-                    <p>Von EU AI Act bis KI-Marketing – praxisnah, mit Zertifikat, sofort umsetzbar.</p>
-                    <span class="feature-link">Zu den Kursen →</span>
+        <!-- Executive / Founder Section -->
+        <section class="founder-section">
+            <div class="founder-container">
+                <div class="founder-visual">
+                    <div class="founder-image-wrapper">
+                        <img src="/public/images/philipp-zerna.png" alt="Philipp Zerna - KI-Experte" class="founder-image">
+                    </div>
+                    <div class="founder-badge">Verified Expert</div>
                 </div>
-            </a>
-            <a href="/services/" class="feature-card">
-                <div class="feature-image" style="background: url('/public/images/Bilder%20und%20Videos.jpg?v=2') center 70%/cover;"></div>
-                <div class="feature-content">
-                    <span class="feature-badge" style="background: #dbeafe; color: #2563eb;">🛠️ Umsetzung</span>
-                    <h3>Services</h3>
-                    <p>Ich mache es für dich: Websites, Präsentationen, Bilder, Videos, Bewerbungen & mehr.</p>
-                    <span class="feature-link">Services entdecken →</span>
+                <div class="founder-content">
+                    <div class="founder-label">Ihr Ansprechpartner</div>
+                    <h2 class="founder-name serif">Philipp Zerna</h2>
+                    <p class="founder-title">KI-Experte & Geschäftsführer</p>
+                    <p class="founder-bio">Als erfahrener KI-Stratege begleite ich seit über 5 Jahren Führungskräfte und Unternehmen bei der erfolgreichen Integration künstlicher Intelligenz. Mein Fokus liegt auf praxisnahen, regulatorisch konformen Lösungen mit messbarem Business-Impact.</p>
+                    <div class="founder-contact">
+                        <a href="mailto:zernaphilipp@gmail.com">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            zernaphilipp@gmail.com
+                        </a>
+                        <a href="https://www.linkedin.com/in/philipp-zerna-b155343a3/" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+                            LinkedIn Profil
+                        </a>
+                    </div>
+                    <div class="trust-badges">
+                        <span class="trust-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+                            5+ Jahre KI-Expertise
+                        </span>
+                        <span class="trust-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                            500+ Unternehmen beraten
+                        </span>
+                        <span class="trust-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                            22+ Kurse entwickelt
+                        </span>
+                    </div>
                 </div>
-            </a>
-            <a href="/artikel/" class="feature-card">
-                <div class="feature-image" style="background: url('/public/images/Artikel%203_ChatGPT%20vs-%20Claude.png?v=2') center 70%/cover;"></div>
-                <div class="feature-content">
-                    <span class="feature-badge" style="background: #d1fae5; color: #059669;">📖 Wissen</span>
-                    <h3>Artikel</h3>
-                    <p>14 detaillierte Guides zu KI-Tools, Automation & Strategie – gratis und sofort lesbar.</p>
-                    <span class="feature-link">Artikel lesen →</span>
-                </div>
-            </a>
-        </div>
-    </section>
-
-    <section style="padding: 100px 40px; max-width: 1200px; margin: 0 auto;">
-        <div style="display: grid; grid-template-columns: 300px 1fr; gap: 60px; align-items: center; background: white; border-radius: 24px; padding: 50px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
-            <div style="text-align: center;">
-                <img src="/public/images/philipp.jpg" alt="Philipp Zerna" style="width: 250px; height: 250px; border-radius: 50%; object-fit: cover; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
-                <span style="display: inline-block; background: linear-gradient(135deg, #3b82f6, #7c3aed); color: white; padding: 8px 20px; border-radius: 20px; font-size: 13px; font-weight: 700; margin-top: 20px;">Gründer</span>
             </div>
-            <div>
-                <p style="color: #3b82f6; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">Hallo, ich bin</p>
-                <h2 style="font-size: 36px; margin-bottom: 20px;">Philipp Zerna</h2>
-                <p style="color: #475569; font-size: 17px; line-height: 1.8; margin-bottom: 20px;">
-                    Seit über 5 Jahren beschäftige ich mich täglich mit KI. Nicht als Programmierer, sondern als Praktiker, der Tools testet, vergleicht und für echte Business-Ergebnisse einsetzt.
-                </p>
-                <p style="color: #475569; font-size: 17px; line-height: 1.8; margin-bottom: 20px;">
-                    Ich habe <strong>20 Kurse entwickelt</strong> – nicht als Experte von oben, sondern als jemand, der den Lernprozess selbst durchlaufen hat. Mein Ziel: KI verständlich machen, ohne Hype.
-                </p>
-                <p style="color: #475569; font-size: 17px; line-height: 1.8;">
-                    Diese Website ist mein Hub für alles, was ich gelernt habe. Keine erfundenen Erfolgsgeschichten – nur ehrliches Wissen, das funktioniert.
-                </p>
+        </section>
+
+        <!-- Certifications -->
+        <section class="certifications">
+            <div class="container">
+                <div class="cert-grid">
+                    <div class="cert-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        EU AI Act Compliant
+                    </div>
+                    <div class="cert-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                        DSGVO Ready
+                    </div>
+                    <div class="cert-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        ISO 27001 Standard
+                    </div>
+                    <div class="cert-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+                        Made in Germany
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="articles-preview">
-        <div class="section-header">
-            <h2>Meine Top-Kurse</h2>
-            <a href="/kurse/">Alle Kurse →</a>
-        </div>
-        <style>
-            .top-kurse-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-            .top-kurse-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); text-decoration: none; color: inherit; transition: all 0.3s; }
-            .top-kurse-card:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(0,0,0,0.12); }
-            .top-kurse-image { height: 220px; background-size: cover; background-position: center; }
-            .top-kurse-content { padding: 24px; }
-            .top-kurse-badge { display: inline-block; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; }
-            .top-kurse-title { font-size: 20px; margin-bottom: 8px; font-family: 'DM Sans', sans-serif; font-weight: 700; }
-            .top-kurse-desc { color: var(--text-muted); font-size: 15px; line-height: 1.5; }
-            @media (max-width: 1024px) { .top-kurse-grid { grid-template-columns: repeat(2, 1fr); } }
-            @media (max-width: 640px) { .top-kurse-grid { grid-template-columns: 1fr; } .top-kurse-image { height: 180px; } }
-        </style>
-        <div class="top-kurse-grid">
-            <a href="/kurse/" class="top-kurse-card">
-                <div class="top-kurse-image" style="background-image: url('/public/images/kurs1_eu%20au%20ai%20act.png?v=2');"></div>
-                <div class="top-kurse-content">
-                    <span class="top-kurse-badge" style="background: #fef3c7; color: #d97706;">🏆 Bestseller</span>
-                    <h3 class="top-kurse-title">EU AI Act für KMU</h3>
-                    <p class="top-kurse-desc">Praxisumsetzung mit Checklisten – rechtlich bindend bis 2026</p>
+        <!-- Trust Section -->
+        <section class="trust-section">
+            <div class="container">
+                <div class="trust-grid">
+                    <div class="trust-item">
+                        <div class="trust-number">22+</div>
+                        <div class="trust-label">Spezialisierte Kurse</div>
+                        <div class="trust-desc">Von Strategie bis Compliance</div>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-number">2.500+</div>
+                        <div class="trust-label">Zufriedene Teilnehmer</div>
+                        <div class="trust-desc">Führungskräfte & Teams</div>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-number">500+</div>
+                        <div class="trust-label">Unternehmen</div>
+                        <div class="trust-desc">Mittelstand bis Konzern</div>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-number">4.9/5</div>
+                        <div class="trust-label">Durchschnittsbewertung</div>
+                        <div class="trust-desc">Authentische Reviews</div>
+                    </div>
                 </div>
-            </a>
-            <a href="/kurse/" class="top-kurse-card">
-                <div class="top-kurse-image" style="background-image: url('/public/images/kurs2_chatgpt.png?v=2');"></div>
-                <div class="top-kurse-content">
-                    <span class="top-kurse-badge" style="background: #d1fae5; color: #059669;">🔥 Beliebt</span>
-                    <h3 class="top-kurse-title">ChatGPT für Anfänger</h3>
-                    <p class="top-kurse-desc">Die KI-Grundlagen für sofortige Produktivitätssteigerung</p>
+                
+                <!-- Trusted By Badge -->
+                <div style="text-align: center;">
+                    <div class="trusted-badge">
+                        <div class="rating-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <span class="trusted-badge-text">
+                            <strong>Trusted by 500+</strong> Business Professionals
+                        </span>
+                    </div>
                 </div>
-            </a>
-            <a href="/kurse/" class="top-kurse-card">
-                <div class="top-kurse-image" style="background-image: url('/public/images/kurs3_prompt.png?v=2');"></div>
-                <div class="top-kurse-content">
-                    <span class="top-kurse-badge" style="background: #ede9fe; color: #7c3aed;">Fortgeschritten</span>
-                    <h3 class="top-kurse-title">Prompt Engineering</h3>
-                    <p class="top-kurse-desc">Professionelle Prompts für maximale Ergebnisse</p>
-                </div>
-            </a>
-        </div>
-    </section>
+            </div>
+        </section>
 
-    <section class="ebooks">
-        <div class="ebooks-header">
-            <h2>Gratis eBooks</h2>
-            <p>Lade dir meine kostenlosen Ratgeber herunter – sofort verfügbar</p>
-        </div>
-        <div class="ebooks-grid">
-            <a href="https://www.dropbox.com/scl/fi/rt7k1r6w4qwexzs795gkv/Die_10_KI-Prompts_fuer_KMU.pdf?rlkey=wlo2fn2815lt2hwlp1w76ggk3&st=d49shol7&dl=1" class="ebook-card" target="_blank">
-                <div class="ebook-cover">
-                    <img src="/public/images/ebook1.png?v=2" alt="Die 10 KI-Prompts für KMU" loading="lazy">
+        <!-- Services Section -->
+        <section class="services">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-label">Executive Services</span>
+                    <h2 class="serif">Maßgeschneiderte <em>KI-Lösungen</em></h2>
+                    <p>Von der Strategieentwicklung bis zur praktischen Umsetzung – wir begleiten Sie als vertrauensvoller Partner auf Ihrem KI-Weg</p>
                 </div>
-                <div class="ebook-content">
-                    <span class="ebook-badge">Kostenloser Download</span>
-                    <h3 class="ebook-title">Die 10 KI-Prompts für KMU</h3>
-                    <p class="ebook-description">Die wichtigsten Prompts für kleine und mittlere Unternehmen – sofort einsetzbar und erprobt.</p>
-                    <span class="ebook-btn">Jetzt downloaden →</span>
+                <div class="services-grid">
+                    <div class="service-card reveal">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                        </div>
+                        <div class="service-number">01</div>
+                        <h3 class="serif">KI-Strategie & Roadmap</h3>
+                        <p>Entwicklung einer ganzheitlichen KI-Strategie abgestimmt auf Ihre Unternehmensziele, Budgetrahmen und Wachstumsambitionen.</p>
+                        <a href="/services/" class="service-link">Mehr erfahren →</a>
+                    </div>
+                    <div class="service-card reveal">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        </div>
+                        <div class="service-number">02</div>
+                        <h3 class="serif">EU AI Act Compliance</h3>
+                        <p>Vollständige Konformität mit dem EU AI Act. Professionelle Risikobewertung, Dokumentation und regulatorische Umsetzung.</p>
+                        <a href="/services/" class="service-link">Mehr erfahren →</a>
+                    </div>
+                    <div class="service-card reveal">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        </div>
+                        <div class="service-number">03</div>
+                        <h3 class="serif">KI-Beauftragter 360°</h3>
+                        <p>Interims-KI-Beauftragter oder Executive Coaching für Ihren internen Beauftragten mit bewährtem 30-Tage-Programm.</p>
+                        <a href="/services/" class="service-link">Mehr erfahren →</a>
+                    </div>
+                    <div class="service-card reveal">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                        </div>
+                        <div class="service-number">04</div>
+                        <h3 class="serif">Executive Training</h3>
+                        <p>Spezialisierte Kurse für Entscheider: EU AI Act, KI-Governance, praxisnahe Anwendungsfälle mit sofortigem ROI.</p>
+                        <a href="/services/" class="service-link">Mehr erfahren →</a>
+                    </div>
                 </div>
-            </a>
-            <a href="https://www.dropbox.com/scl/fi/qee9tm1p7hbo5oe4eyemt/EU-AI-Act-Survival-Guide.pdf?rlkey=chsnn67os8xsei5epy9ft3x9l&st=foqj4wf8&dl=1" class="ebook-card" target="_blank">
-                <div class="ebook-cover">
-                    <img src="/public/images/ebook2.png?v=2" alt="EU AI ACT Survival Guide" loading="lazy">
-                </div>
-                <div class="ebook-content">
-                    <span class="ebook-badge">Kostenloser Download</span>
-                    <h3 class="ebook-title">EU AI ACT Survival Guide</h3>
-                    <p class="ebook-description">Alles, was du über die EU KI-Verordnung wissen musst – kompakt und verständlich erklärt.</p>
-                    <span class="ebook-btn">Jetzt downloaden →</span>
-                </div>
-            </a>
-        </div>
-    </section>
+            </div>
+        </section>
 
-    <section class="cta">
-        <h2>Bereit, KI zu nutzen?</h2>
-        <p>Starte jetzt mit meinen Kursen oder lass dich von den Artikeln inspirieren.</p>
-        <a href="/kurse/" class="cta-btn">Zu den Kursen →</a>
-    </section>
+        <!-- Courses Section -->
+        <section class="courses">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-label">Premium Kursangebot</span>
+                    <h2 class="serif">Ausgewählte <em>Weiterbildung</em></h2>
+                    <p>Zertifizierte Executive-Programme für Führungskräfte und Fachteams mit sofortigem Praxisbezug</p>
+                </div>
+                <div class="courses-grid">
+                    <a href="/kurse/" class="course-card reveal">
+                        <div class="course-image">
+                            <img src="/kurs1_eu au ai act.png" alt="EU AI Act Kurs">
+                        </div>
+                        <div class="course-content">
+                            <div class="course-category">Compliance</div>
+                            <h3 class="serif">EU AI Act für Unternehmen</h3>
+                            <p>Vollständige Compliance-Roadmap inkl. Risikoklassifizierung, Dokumentation und Checklisten.</p>
+                            <div class="course-rating">
+                                <div class="course-rating-stars">
+                                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                </div>
+                                <span class="course-rating-text">4.9 (127 Bewertungen)</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="/kurse/" class="course-card reveal">
+                        <div class="course-image">
+                            <img src="/kurs2_chatgpt.png" alt="KI Strategie Kurs">
+                        </div>
+                        <div class="course-content">
+                            <div class="course-category">Strategie</div>
+                            <h3 class="serif">KI-Implementierung</h3>
+                            <p>Praxiserprobte Roadmap von der strategischen Analyse bis zum produktiven Unternehmenseinsatz.</p>
+                            <div class="course-rating">
+                                <div class="course-rating-stars">
+                                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                </div>
+                                <span class="course-rating-text">4.9 (98 Bewertungen)</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="/kurse/" class="course-card reveal">
+                        <div class="course-image">
+                            <img src="/kurs5_büroauto.png" alt="Büroautomatisierung Kurs">
+                        </div>
+                        <div class="course-content">
+                            <div class="course-category">Praxis</div>
+                            <h3 class="serif">Büroautomatisierung</h3>
+                            <p>10 bewährte Workflows für sofortige Effizienzsteigerung mit No-Code Tools und KI-Assistenten.</p>
+                            <div class="course-rating">
+                                <div class="course-rating-stars">
+                                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                </div>
+                                <span class="course-rating-text">4.8 (156 Bewertungen)</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
 
+        <!-- Quote Section -->
+        <section class="quote">
+            <div class="container">
+                <div class="quote-icon">"</div>
+                <p class="quote-text serif">Die Integration von KI ist keine technische Entscheidung, sondern eine strategische Unternehmensführung.</p>
+                <p class="quote-author">— Philipp Zerna</p>
+                <p class="quote-role">Gründer & CEO, KI-Expertenraum</p>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-label">Kundenstimmen</span>
+                    <h2 class="serif">Erfolgsgeschichten<br>unserer <em>Teilnehmer</em></h2>
+                </div>
+                
+                <!-- Trust Indicator -->
+                <div class="company-logos reveal">
+                    <span class="trust-indicator">✓ Vertrauen von Führungskräften</span>
+                    <span class="trust-indicator">✓ Unternehmen aus DACH-Region</span>
+                    <span class="trust-indicator">✓ Mittelstand bis Konzern</span>
+                </div>
+                
+                <div class="testimonials-grid">
+                    <div class="testimonial-card reveal">
+                        <p class="testimonial-quote">"Der EU AI Act Kurs hat uns maßgeblich bei der regulatorischen Vorbereitung geholfen. Praxisnah, verständlich und sofort umsetzbar. Herr Zerna versteht es, komplexe Themen klar zu strukturieren."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">MW</div>
+                            <div class="testimonial-info">
+                                <h4>Michael Weber</h4>
+                                <p>CIO & Digitalisierungsleiter</p>
+                                <span class="testimonial-company">Mittelständisches Beratungsunternehmen</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card reveal">
+                        <p class="testimonial-quote">"Endlich eine KI-Weiterbildung auf Augenhöhe. Kein Hype, sondern echte Business-Strategie mit messbarem ROI. Unser Team konnte das Gelernte sofort in der Praxis anwenden."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">SK</div>
+                            <div class="testimonial-info">
+                                <h4>Sarah Klein</h4>
+                                <p>Geschäftsführerin</p>
+                                <span class="testimonial-company">Klein & Partner Beratung</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card reveal">
+                        <p class="testimonial-quote">"Die Coaching-Sessions haben unserem Management-Team die Sicherheit gegeben, KI-Projekte selbst zu steuern. Die ROI-Steigerung um 40% spricht für sich."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">TB</div>
+                            <div class="testimonial-info">
+                                <h4>Thomas Bauer</h4>
+                                <p>Leiter Strategie & Innovation</p>
+                                <span class="testimonial-company">Industrieunternehmen, 500+ Mitarbeiter</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Articles -->
+        <section class="articles-preview">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-label">Publikationen</span>
+                    <h2 class="serif">Aktuelle <em>Insights</em></h2>
+                    <p>Praxisnahe Strategien und Rechtsexpertise für Ihren KI-Erfolg</p>
+                </div>
+                <div class="articles-list">
+                    <a href="/blog/06-ki-einfuehrung-mittelstand.html" class="article-item reveal">
+                        <span class="article-category">Strategie</span>
+                        <h3 class="serif">KI-Einführung im Mittelstand: Die komplette Roadmap</h3>
+                        <span class="article-tag">Lesen</span>
+                    </a>
+                    <a href="/blog/ki-rechtssicher-nutzen.html" class="article-item reveal">
+                        <span class="article-category">Recht</span>
+                        <h3 class="serif">KI rechtssicher nutzen: DSGVO & EU AI Act Komplettguide</h3>
+                        <span class="article-tag">Lesen</span>
+                    </a>
+                    <a href="/blog/07-ki-beauftragter-30-tage.html" class="article-item reveal">
+                        <span class="article-category">Praxis</span>
+                        <h3 class="serif">Der KI-Beauftragte: 30-Tage-Roadmap zum Erfolg</h3>
+                        <span class="article-tag">Lesen</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta">
+            <div class="container">
+                <div class="cta-box reveal">
+                    <span class="section-label">Exklusive Beratung</span>
+                    <h2 class="serif">Starten Sie Ihre<br><em>KI-Transformation</em></h2>
+                    <p>Vereinbaren Sie ein unverbindliches Erstgespräch. Wir analysieren Ihre Ausgangslage und entwickeln gemeinsam Ihre maßgeschneiderte KI-Roadmap.</p>
+                    <div class="cta-buttons">
+                        <a href="/kontakt.html" class="btn btn-primary">Beratungsgespräch anfragen →</a>
+                        <a href="/kurse/" class="btn btn-secondary">Kurse erkunden</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
     <footer class="footer">
-        <div class="footer-logo">KI-Expertenraum</div>
-        <p>© 2026 Philipp Zerna | <a href="/impressum/" style="color: rgba(255,255,255,0.7);">Impressum</a></p>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo">
+                        <span class="logo-mark">K</span>
+                        <span>KI<span class="logo-dot">.</span>Expertenraum</span>
+                    </a>
+                    <p class="footer-tagline">Premium KI-Akademie und strategische Beratung für Führungskräfte. Praxiserprobt, EU-konform, exzellent.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Angebot</h4>
+                    <a href="/kurse/">Premium Kurse</a>
+                    <a href="/services/">Business Consulting</a>
+                    <a href="/artikel/">Publikationen</a>
+                    <a href="/glossar/">KI-Glossar</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Rechtliches</h4>
+                    <a href="/impressum/">Impressum</a>
+                    <a href="/datenschutz/">Datenschutz</a>
+                    <a href="/kontakt.html">Kontakt</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <a href="mailto:zernaphilipp@gmail.com">E-Mail</a>
+                    <a href="https://www.linkedin.com/in/philipp-zerna-b155343a3/" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 KI-Expertenraum. Alle Rechte vorbehalten.</p>
+                <p>Philipp Zerna · Premium KI-Beratung & Akademie</p>
+            </div>
+        </div>
     </footer>
+
+    <script src="/assets/js/main.js"></script>
 </body>
 </html>
