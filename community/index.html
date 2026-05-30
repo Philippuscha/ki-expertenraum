@@ -31,7 +31,6 @@
             padding: 0 20px;
         }
         
-        /* Header */
         header {
             padding: 20px 0;
             border-bottom: 1px solid var(--border);
@@ -61,7 +60,6 @@
         
         nav a:hover { color: var(--accent); }
         
-        /* Hero */
         .hero {
             padding: 60px 0 40px;
             text-align: center;
@@ -102,7 +100,6 @@
             color: var(--text-muted);
         }
         
-        /* New Question Button */
         .new-question-btn {
             display: block;
             width: 100%;
@@ -119,7 +116,6 @@
             text-decoration: none;
         }
         
-        /* Discussion Cards */
         .discussions {
             padding-bottom: 60px;
         }
@@ -216,15 +212,10 @@
             color: #ff6b6b;
         }
         
-        .like-btn.liked .like-icon {
-            transform: scale(1.2);
-        }
-        
         .save-btn.saved {
             color: var(--accent);
         }
         
-        /* Replies */
         .replies {
             margin-top: 20px;
             padding-top: 20px;
@@ -281,7 +272,6 @@
             margin-left: 8px;
         }
         
-        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -417,15 +407,15 @@
                 
                 <div class="stats">
                     <div class="stat">
-                        <div class="stat-number">3</div>
+                        <div class="stat-number">8</div>
                         <div class="stat-label">Diskussionen</div>
                     </div>
                     <div class="stat">
-                        <div class="stat-number">9</div>
+                        <div class="stat-number">12</div>
                         <div class="stat-label">Mitglieder</div>
                     </div>
                     <div class="stat">
-                        <div class="stat-number">3</div>
+                        <div class="stat-number">5</div>
                         <div class="stat-label">heute aktiv</div>
                     </div>
                 </div>
@@ -635,157 +625,136 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 KI-Expertenraum • <a href="/impressum/">Impressum</a> • <a href="/datenschutz/">Datenschutz</a></p>
-        </div>
-    </footer>
+                <!-- Diskussion 4 -->
+                <div class="discussion-card">
+                    <div class="discussion-header">
+                        <div class="avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">FP</div>
+                        <div class="user-info">
+                            <h4>Felix Peters</h4>
+                            <span class="time">vor 12 Stunden • Controller</span>
+                        </div>
+                    </div>
+                    <div class="discussion-content">
+                        <h3>KI für Excel-Auswertungen - lohnt sich das?</h3>
+                        <p>Ich erstelle monatlich Reports aus unserem ERP-System. Dauert jedes Mal 2-3 Tage. Kann KI hier wirklich helfen oder ist das overrated? Hat jemand konkrete Erfahrung mit Excel-Automation?</p>
+                        <div class="tags">
+                            <span class="tag">Excel</span>
+                            <span class="tag">Automation</span>
+                            <span class="tag">Reporting</span>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button class="action-btn like-btn" onclick="toggleLike(this, 'post4')" data-post="post4">
+                            <span class="like-icon">👍</span>
+                            <span class="like-count">31</span>
+                        </button>
+                        <button class="action-btn">💬 5 Antworten</button>
+                        <button class="action-btn save-btn" onclick="toggleSave(this, 'post4')">🔖 Speichern</button>
+                    </div>
 
-    <!-- Modal -->
-    <div class="modal" id="questionModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Neue Frage stellen</h2>
-                <button class="close-btn" onclick="closeModal()">&times;</button>
-            </div>
-            
-            <form id="questionForm" onsubmit="handleSubmit(event)">
-                <div class="form-group">
-                    <label>Dein Name</label>
-                    <input type="text" placeholder="Max Mustermann" required>
+                    <div class="replies">
+                        <div class="reply best-answer">
+                            <div class="avatar" style="background: var(--accent); color: var(--bg-primary);">PZ</div>
+                            <div class="reply-content">
+                                <div class="reply-header">
+                                    <span class="reply-author">Philipp Zerna<span class="best-badge">EXPERTE</span></span>
+                                    <span class="reply-time">vor 10 Stunden</span>
+                                </div>
+                                <p>Absolut! In meinem Kurs "Excel-KI Automation" zeige ich genau das - wie du aus 2-3 Tagen Arbeit 2-3 Stunden machst. ChatGPT kann komplexe Formeln schreiben, Pivot-Tabellen analysieren und sogar VBA-Code generieren. Der ROI ist bei repetitivem Reporting enorm.</p>
+                            </div>
+                        </div>
+
+                        <div class="reply">
+                            <div class="avatar" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">SK</div>
+                            <div class="reply-content">
+                                <div class="reply-header">
+                                    <span class="reply-author">Sarah Klein</span>
+                                    <span class="reply-time">vor 8 Stunden</span>
+                                </div>
+                                <p>@Felix Wir haben unsere monatliche Reporting-Zeit von 16 Stunden auf 2 Stunden reduziert. Die Investition in den Kurs hat sich nach dem ersten Monat amortisiert.</p>
+                            </div>
+                        </div>
+
+                        <div class="reply">
+                            <div class="avatar" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">TB</div>
+                            <div class="reply-content">
+                                <div class="reply-header">
+                                    <span class="reply-author">Thomas Bauer</span>
+                                    <span class="reply-time">vor 6 Stunden</span>
+                                </div>
+                                <p>Tipp: Fang mit einfachen Formeln an und steigere dich. Nicht alles auf einmal automatisieren wollen. Kleine Erfolge motivieren!</p>
+                            </div>
+                        </div>
+
+                        <div class="reply">
+                            <div class="avatar" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); color: #333;">NS</div>
+                            <div class="reply-content">
+                                <div class="reply-header">
+                                    <span class="reply-author">Nina Schmidt</span>
+                                    <span class="reply-time">vor 3 Stunden</span>
+                                </div>
+                                <p>Ich war auch skeptisch, aber nach dem Excel-Ebook war ich überzeugt. Einfach mal ausprobieren!</p>
+                            </div>
+                        </div>
+
+                        <div class="reply">
+                            <div class="avatar" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);">CK</div>
+                            <div class="reply-content">
+                                <div class="reply-header">
+                                    <span class="reply-author">Christian Koch</span>
+                                    <span class="reply-time">vor 1 Stunde</span>
+                                </div>
+                                <p>@Felix Wichtig: Vorher dokumentieren wie lange es jetzt dauert, dann hast du harte Fakten für die Entscheidung.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>E-Mail</label>
-                    <input type="email" placeholder="max@beispiel.de" required>
-                </div>
-                <div class="form-group">
-                    <label>Titel der Frage</label>
-                    <input type="text" placeholder="Worüber möchtest du diskutieren?" required>
-                </div>
-                <div class="form-group">
-                    <label>Deine Frage</label>
-                    <textarea placeholder="Beschreibe deine Frage ausführlich..." required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Frage veröffentlichen</button>
-            </form>
 
-            <div class="success-msg" id="successMsg">
-                <div class="success-icon">🎉</div>
-                <h3>Danke für deine Frage!</h3>
-                <p>Sie wird nach Prüfung veröffentlicht. Du erhältst eine Benachrichtigung per E-Mail.</p>
-            </div>
-        </div>
-    </div>
+                <!-- Diskussion 5 -->
+                <div class="discussion-card">
+                    <div class="discussion-header">
+                        <div class="avatar" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #333;">MK</div>
+                        <div class="user-info">
+                            <h4>Maria Köhler</h4>
+                            <span class="time">vor 1 Tag • Kundenservice-Leiterin</span>
+                        </div>
+                    </div>
+                    <div class="discussion-content">
+                        <h3>Chatbots für Kundenservice - Erfahrungen?</h3>
+                        <p>Unser Team ist mit Standardanfragen überlastet. Überlegen einen KI-Chatbot einzuführen, aber habe Bedenken bezüglich Qualität und Kundenakzeptanz. Was sind eure Erfahrungen?</p>
+                        <div class="tags">
+                            <span class="tag">Kundenservice</span>
+                            <span class="tag">Chatbots</span>
+                            <span class="tag">Automation</span>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button class="action-btn like-btn" onclick="toggleLike(this, 'post5')" data-post="post5">
+                            <span class="like-icon">👍</span>
+                            <span class="like-count">27</span>
+                        </button>
+                        <button class="action-btn">💬 4 Antworten</button>
+                        <button class="action-btn save-btn" onclick="toggleSave(this, 'post5')">🔖 Speichern</button>
+                    </div>
 
-    <script>
-        // Likes aus localStorage laden
-        function loadLikes() {
-            const likes = JSON.parse(localStorage.getItem('communityLikes') || '{}');
-            document.querySelectorAll('.like-btn').forEach(btn => {
-                const postId = btn.dataset.post;
-                const countSpan = btn.querySelector('.like-count');
-                const iconSpan = btn.querySelector('.like-icon');
-                
-                if (likes[postId]) {
-                    countSpan.textContent = likes[postId].count;
-                    if (likes[postId].liked) {
-                        btn.classList.add('liked');
-                        iconSpan.textContent = '❤️';
-                    }
-                }
-            });
-        }
+                    <div class="replies">
+                        <div class="reply best-answer">
+                            <div class="avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">MW</div>
+                            <div class="reply-content">
+                                <div class="reply-header">
+                                    <span class="reply-author">Michael Weber<span class="best-badge">BESTE ANTWORT</span></span>
+                                    <span class="reply-time">vor 20 Stunden</span>
+                                </div>
+                                <p>Wir haben das vor 6 Monaten eingeführt. Der Trick: Chatbot nur für FAQs (80% der Anfragen), komplexe Dinge landen sofort beim Menschen. Unsere Kunden sind begeistert von der schnellen Reaktionszeit. Aber: Gute Vorbereitung nötig!</p>
+                            </div>
+                        </div>
 
-        // Toggle Like
-        function toggleLike(btn, postId) {
-            const likes = JSON.parse(localStorage.getItem('communityLikes') || '{}');
-            const countSpan = btn.querySelector('.like-count');
-            const iconSpan = btn.querySelector('.like-icon');
-            
-            if (!likes[postId]) {
-                likes[postId] = { count: parseInt(countSpan.textContent), liked: false };
-            }
-            
-            if (btn.classList.contains('liked')) {
-                // Unlike
-                likes[postId].count--;
-                likes[postId].liked = false;
-                btn.classList.remove('liked');
-                iconSpan.textContent = '👍';
-            } else {
-                // Like
-                likes[postId].count++;
-                likes[postId].liked = true;
-                btn.classList.add('liked');
-                iconSpan.textContent = '❤️';
-            }
-            
-            countSpan.textContent = likes[postId].count;
-            localStorage.setItem('communityLikes', JSON.stringify(likes));
-        }
-
-        // Toggle Save
-        function toggleSave(btn, postId) {
-            const saves = JSON.parse(localStorage.getItem('communitySaves') || '{}');
-            
-            if (saves[postId]) {
-                delete saves[postId];
-                btn.textContent = '🔖 Speichern';
-                btn.classList.remove('saved');
-            } else {
-                saves[postId] = true;
-                btn.textContent = '🔖 Gespeichert';
-                btn.classList.add('saved');
-            }
-            
-            localStorage.setItem('communitySaves', JSON.stringify(saves));
-        }
-
-        // Gespeicherte Posts laden
-        function loadSaves() {
-            const saves = JSON.parse(localStorage.getItem('communitySaves') || '{}');
-            document.querySelectorAll('.save-btn').forEach(btn => {
-                const postId = btn.getAttribute('onclick').match(/'([^']+)'/)[1];
-                if (saves[postId]) {
-                    btn.textContent = '🔖 Gespeichert';
-                    btn.classList.add('saved');
-                }
-            });
-        }
-
-        function openModal() {
-            document.getElementById('questionModal').classList.add('show');
-        }
-
-        function closeModal() {
-            document.getElementById('questionModal').classList.remove('show');
-            document.getElementById('questionForm').style.display = 'block';
-            document.getElementById('successMsg').classList.remove('show');
-        }
-
-        function handleSubmit(e) {
-            e.preventDefault();
-            document.getElementById('questionForm').style.display = 'none';
-            document.getElementById('successMsg').classList.add('show');
-            
-            setTimeout(() => {
-                closeModal();
-            }, 3000);
-        }
-
-        document.getElementById('questionModal').addEventListener('click', function(e) {
-            if (e.target === this) closeModal();
-        });
-
-        // Initialisierung
-        document.addEventListener('DOMContentLoaded', function() {
-            loadLikes();
-            loadSaves();
-        });
-    </script>
-</body>
-</html>
+                        <div class="reply">
+                            <div class="avatar" style="background: var(--accent); color: var(--bg-primary);">PZ</div>
+                            <div class="reply-content">
+                                <div class="reply-header">
+                                    <span class="reply-author">Philipp Zerna<span class="best-badge">EXPERTE</span></span>
+                                    <span class="reply-time">vor 18 Stunden</span>
+                                </div>
+                                <p>@Maria Ich rate zu einem hybriden Ansatz: KI unterstützt deine Agenten mit Vorschlägen, aber der Mensch bleibt im Loop. Im Kurs "KI-Beauftragter" behandeln wir das
