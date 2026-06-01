@@ -271,9 +271,19 @@
         }
         .templates-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
             margin-top: 60px;
+        }
+        @media (max-width: 1024px) {
+            .templates-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .templates-grid {
+                grid-template-columns: 1fr;
+            }
         }
         .template-card {
             background: linear-gradient(135deg, rgba(201, 169, 98, 0.05), rgba(201, 169, 98, 0.02));
@@ -508,7 +518,7 @@
                 
                 <div class="ebooks-grid">
                     <div class="ebook-card">
-                        <div class="ebook-cover" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
+                        <div class="ebook-cover" style="background-image: url('/ebooks/10%20ki%20prompts%20ebook.png'); background-size: cover; background-position: center;">
                             <span class="ebook-badge">Gratis</span>
                         </div>
                         <div class="ebook-content">
@@ -525,7 +535,7 @@
                     </div>
 
                     <div class="ebook-card">
-                        <div class="ebook-cover" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
+                        <div class="ebook-cover" style="background-image: url('/ebooks/eu%20survival%20guide%20ebook.png'); background-size: cover; background-position: center;">
                             <span class="ebook-badge">Gratis</span>
                         </div>
                         <div class="ebook-content">
@@ -542,7 +552,7 @@
                     </div>
 
                     <div class="ebook-card">
-                        <div class="ebook-cover" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
+                        <div class="ebook-cover" style="background-image: url('/ebooks/ki%20aitomatisierungen%20ebook.png'); background-size: cover; background-position: center;">
                             <span class="ebook-badge">Gratis</span>
                         </div>
                         <div class="ebook-content">
@@ -559,7 +569,7 @@
                     </div>
 
                     <div class="ebook-card">
-                        <div class="ebook-cover" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
+                        <div class="ebook-cover" style="background-image: url('/ebooks/25%20ki%20tools%20ebook.png'); background-size: cover; background-position: center;">
                             <span class="ebook-badge">Gratis</span>
                         </div>
                         <div class="ebook-content">
@@ -589,6 +599,34 @@
                 
                 <div class="templates-grid">
                     <div class="template-card">
+                        <div class="template-icon">🚀</div>
+                        <h3>KI-Quickstart Guide</h3>
+                        <p>Der 10-Minuten-Einstieg für komplette Anfänger. Von Account-Erstellung bis ersten Ergebnis.</p>
+                        <ul class="template-features">
+                            <li>1 Seite, sofort umsetzbar</li>
+                            <li>3 einfache Schritte</li>
+                            <li>Tool-Empfehlungen inkl.</li>
+                            <li>Erste-Woche-Checkliste</li>
+                        </ul>
+                        <div class="template-price">2,99€ <span>inkl. MwSt</span></div>
+                        <a href="/downloads/ki-quickstart-guide.html" class="buy-btn" target="_blank">Vorschau →</a>
+                    </div>
+
+                    <div class="template-card">
+                        <div class="template-icon">📝</div>
+                        <h3>Meeting-Notizen Template</h3>
+                        <p>Strukturierte Protokolle in 5 Minuten. Mit KI-Prompt für automatische Zusammenfassungen.</p>
+                        <ul class="template-features">
+                            <li>Fertiges Notiz-Template</li>
+                            <li>KI-Prompt inklusive</li>
+                            <li>Action-Item Tabelle</li>
+                            <li>Für alle Meeting-Typen</li>
+                        </ul>
+                        <div class="template-price">3,99€ <span>inkl. MwSt</span></div>
+                        <a href="/downloads/meeting-notizen-template.html" class="buy-btn" target="_blank">Vorschau →</a>
+                    </div>
+
+                    <div class="template-card">
                         <div class="template-icon">📋</div>
                         <h3>KI-Checkliste für KMU</h3>
                         <p>15 konkrete Checkpunkte für den erfolgreichen KI-Einstieg. In 3 Phasen von der Vorbereitung bis zur Skalierung.</p>
@@ -599,7 +637,7 @@
                             <li>Mit ROI-Berechnungsformel</li>
                         </ul>
                         <div class="template-price">4,99€ <span>inkl. MwSt</span></div>
-                        <a href="/checkliste/" class="buy-btn">Mehr erfahren →</a>
+                        <a href="/downloads/ki-checkliste-kmu.html" class="buy-btn" target="_blank">Vorschau →</a>
                     </div>
 
                     <div class="template-card">
@@ -612,8 +650,8 @@
                             <li>Für ChatGPT, Claude & Co.</li>
                             <li>Mit Praxis-Tipps pro Template</li>
                         </ul>
-                        <div class="template-price">9,90€ <span>inkl. MwSt</span></div>
-                        <a href="/prompts/" class="buy-btn">Mehr erfahren →</a>
+                        <div class="template-price">6,90€ <span>inkl. MwSt</span></div>
+                        <a href="/downloads/prompt-framework-fuehrungskraefte.html" class="buy-btn" target="_blank">Vorschau →</a>
                     </div>
                 </div>
             </div>

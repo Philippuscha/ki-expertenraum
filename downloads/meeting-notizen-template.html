@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting-Notizen mit KI | KI-Expertenraum</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 15mm;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Georgia', serif;
+            color: #1a1a1a;
+            line-height: 1.6;
+            background: #fff;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20mm;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #c9a962;
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+        .logo {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #c9a962;
+            margin-bottom: 10px;
+        }
+        h1 {
+            font-family: 'Georgia', serif;
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
+        }
+        .intro {
+            background: #f9f9f9;
+            border-left: 3px solid #c9a962;
+            padding: 15px 20px;
+            margin-bottom: 25px;
+            font-size: 13px;
+            color: #444;
+        }
+        
+        /* Template Section */
+        .template-section {
+            margin-bottom: 25px;
+        }
+        .section-title {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #c9a962;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        /* Meeting Header */
+        .meeting-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .field {
+            background: #fafafa;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 12px;
+        }
+        .field-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #999;
+            margin-bottom: 5px;
+        }
+        .field-value {
+            font-size: 13px;
+            color: #333;
+            min-height: 20px;
+        }
+        
+        /* Content Blocks */
+        .content-block {
+            background: #fafafa;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .content-block h3 {
+            font-size: 13px;
+            color: #c9a962;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .content-lines {
+            min-height: 80px;
+        }
+        .content-lines .line {
+            border-bottom: 1px dotted #ddd;
+            height: 24px;
+        }
+        
+        /* Action Items */
+        .action-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .action-table th {
+            text-align: left;
+            font-size: 11px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 8px;
+            border-bottom: 2px solid #c9a962;
+        }
+        .action-table td {
+            padding: 10px 8px;
+            border-bottom: 1px solid #eee;
+            font-size: 12px;
+        }
+        .checkbox {
+            width: 16px;
+            height: 16px;
+            border: 2px solid #c9a962;
+            border-radius: 3px;
+            display: inline-block;
+        }
+        
+        /* Prompt Section */
+        .prompt-section {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+        .prompt-section h3 {
+            color: #c9a962;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+        .prompt-text {
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            line-height: 1.8;
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 3px solid #c9a962;
+        }
+        .prompt-tip {
+            font-size: 11px;
+            color: #aaa;
+            margin-top: 12px;
+            font-style: italic;
+        }
+        
+        /* Workflow */
+        .workflow {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f5f5, #fafafa);
+            border-radius: 8px;
+        }
+        .workflow-step {
+            text-align: center;
+            flex: 1;
+        }
+        .workflow-step .number {
+            width: 32px;
+            height: 32px;
+            background: #c9a962;
+            color: #fff;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .workflow-step .text {
+            font-size: 11px;
+            color: #555;
+        }
+        .arrow {
+            color: #c9a962;
+            font-size: 20px;
+            align-self: center;
+        }
+        
+        /* Example Box */
+        .example-box {
+            background: #fff9e6;
+            border: 1px solid #ffe082;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .example-box h4 {
+            font-size: 12px;
+            color: #f57c00;
+            margin-bottom: 10px;
+        }
+        .example-box ul {
+            margin-left: 20px;
+            font-size: 12px;
+            color: #555;
+        }
+        .example-box li {
+            margin-bottom: 5px;
+        }
+        
+        /* Benefits */
+        .benefits {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .benefit {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .benefit-icon {
+            font-size: 20px;
+        }
+        .benefit-text {
+            font-size: 12px;
+            color: #555;
+        }
+        .benefit-text strong {
+            color: #1a1a1a;
+            display: block;
+            margin-bottom: 3px;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+            font-size: 10px;
+            color: #999;
+        }
+        .footer strong {
+            color: #c9a962;
+        }
+        
+        @media print {
+            body { padding: 0; }
+            .content-block { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">KI-EXPERTENRAUM</div>
+        <h1>Meeting-Notizen mit KI</h1>
+        <p class="subtitle">Strukturierte Protokolle in 5 Minuten</p>
+    </div>
+
+    <div class="intro">
+        <strong>Warum dieses Template?</strong><br>
+        Nie wieder unstrukturierte Meeting-Notizen. Mit diesem Template und dem passenden KI-Prompt erstellen Sie professionelle Protokolle in Minuten statt Stunden – inklusive Aufgaben, Entscheidungen und nächster Schritte.
+    </div>
+
+    <div class="template-section">
+        <div class="section-title">Meeting-Header</div>
+        <div class="meeting-header">
+            <div class="field">
+                <div class="field-label">Datum & Uhrzeit</div>
+                <div class="field-value"></div>
+            </div>
+            <div class="field">
+                <div class="field-label">Teilnehmer</div>
+                <div class="field-value"></div>
+            </div>
+            <div class="field">
+                <div class="field-label">Meeting-Titel</div>
+                <div class="field-value"></div>
+            </div>
+            <div class="field">
+                <div class="field-label">Protokollant</div>
+                <div class="field-value"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="template-section">
+        <div class="section-title">Agenda & Besprochene Punkte</div>
+        <div class="content-block">
+            <h3>Agenda-Punkte</h3>
+            <div class="content-lines">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="template-section">
+        <div class="section-title">Wichtige Entscheidungen</div>
+        <div class="content-block">
+            <div class="content-lines">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="template-section">
+        <div class="section-title">Action Items</div>
+        <table class="action-table">
+            <thead>
+                <tr>
+                    <th style="width: 30px;">✓</th>
+                    <th>Aufgabe</th>
+                    <th>Verantwortlich</th>
+                    <th>Frist</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="checkbox"></span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><span class="checkbox"></span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><span class="checkbox"></span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><span class="checkbox"></span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="template-section">
+        <div class="section-title">Nächste Schritte</div>
+        <div class="content-block">
+            <div class="content-lines">
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="prompt-section">
+        <h3>🤖 Der KI-Prompt für Ihre Notizen</h3>
+        <div class="prompt-text">
+Fasse das folgende Meeting zusammen in einem strukturierten Protokoll:
+
+[IHRE STICHPUNKTE HIER EINFÜGEN]
+
+Format:
+1. Kurze Zusammenfassung (2-3 Sätze)
+2. Getroffene Entscheidungen (als Liste)
+3. Action Items mit Verantwortlichen (falls genannt)
+4. Nächste Schritte
+5. Offene Fragen
+
+Ton: Professionell, prägnant, sachlich.
+        </div>
+        <p class="prompt-tip">💡 Tipp: Kopieren Sie den Prompt in ChatGPT oder Claude, fügen Sie Ihre Stichpunkte ein und lassen Sie das Protokoll erstellen.</p>
+    </div>
+
+    <div class="section-title">So funktioniert der Workflow</div>
+    <div class="workflow">
+        <div class="workflow-step">
+            <div class="number">1</div>
+            <div class="text">Stichpunkte<br>während Meeting</div>
+        </div>
+        <div class="arrow">→</div>
+        <div class="workflow-step">
+            <div class="number">2</div>
+            <div class="text">Prompt + Notizen<br>in KI-Tool</div>
+        </div>
+        <div class="arrow">→</div>
+        <div class="workflow-step">
+            <div class="number">3</div>
+            <div class="text">Protokoll<br>erhalten</div>
+        </div>
+        <div class="arrow">→</div>
+        <div class="workflow-step">
+            <div class="number">4</div>
+            <div class="text">Finalisieren &<br>versenden</div>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>📋 Beispiel: Was die KI für Sie erstellt</h4>
+        <ul>
+            <li><strong>Zusammenfassung:</strong> "Besprechung zur Q4-Planung. Team einig über Budget-Verteilung. Neue Marketing-Kampagne genehmigt."</li>
+            <li><strong>Entscheidungen:</strong> Budget 50k€ freigegeben, externer Designer engagiert, Launch-Termin 15.11.</li>
+            <li><strong>Action Items:</strong> Müller: Briefing Designer (bis 01.11.), Schmidt: Kampagnenplan (bis 05.11.)</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Ihre Vorteile</div>
+    <div class="benefits">
+        <div class="benefit">
+            <div class="benefit-icon">⏱️</div>
+            <div class="benefit-text">
+                <strong>Zeitersparnis</strong>
+                Protokoll in 5 Min. statt 30 Min.
+            </div>
+        </div>
+        <div class="benefit">
+            <div class="benefit-icon">📊</div>
+            <div class="benefit-text">
+                <strong>Konsistenz</strong>
+                Immer gleiche Struktur
+            </div>
+        </div>
+        <div class="benefit">
+            <div class="benefit-icon">🎯</div>
+            <div class="benefit-text">
+                <strong>Vollständigkeit</strong>
+                Keine vergessenen Punkte
+            </div>
+        </div>
+        <div class="benefit">
+            <div class="benefit-icon">✨</div>
+            <div class="benefit-text">
+                <strong>Professionalität</strong>
+                Klare, strukturierte Protokolle
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <strong>KI-Expertenraum</strong> | Philipp Zerna<br>
+        www.ki-expertenraum.de | zernaphilipp@gmail.com
+    </div>
+</body>
+</html>

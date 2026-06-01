@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KI-Quickstart Guide | KI-Expertenraum</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 15mm;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Georgia', serif;
+            color: #1a1a1a;
+            line-height: 1.6;
+            background: #fff;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20mm;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #c9a962;
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+        .logo {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #c9a962;
+            margin-bottom: 10px;
+        }
+        h1 {
+            font-family: 'Georgia', serif;
+            font-size: 26px;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
+        }
+        .intro-box {
+            background: linear-gradient(135deg, #f9f9f9, #f0f0f0);
+            border-left: 4px solid #c9a962;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 0 8px 8px 0;
+        }
+        .intro-box h2 {
+            font-size: 16px;
+            color: #c9a962;
+            margin-bottom: 10px;
+        }
+        .intro-box p {
+            font-size: 13px;
+            color: #444;
+            line-height: 1.6;
+        }
+        .step {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #fafafa;
+            border-radius: 8px;
+            border: 1px solid #e8e8e8;
+        }
+        .step-number {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            background: #c9a962;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+        .step h3 {
+            display: inline;
+            font-size: 15px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        .step-content {
+            margin-top: 10px;
+            margin-left: 38px;
+        }
+        .step-content p {
+            font-size: 12px;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+        .highlight {
+            background: #fff9e6;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+        .prompt-box {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 12px 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            margin: 10px 0;
+            border-left: 3px solid #c9a962;
+        }
+        .tools-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .tool {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 6px;
+            text-align: center;
+        }
+        .tool-name {
+            font-weight: 600;
+            font-size: 13px;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+        .tool-price {
+            font-size: 11px;
+            color: #666;
+        }
+        .checklist {
+            background: #f0f7f0;
+            border: 1px solid #c8e6c9;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        .checklist h3 {
+            font-size: 14px;
+            color: #2e7d32;
+            margin-bottom: 12px;
+        }
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 12px;
+        }
+        .checklist-box {
+            width: 16px;
+            height: 16px;
+            border: 2px solid #c9a962;
+            border-radius: 3px;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        .next-steps {
+            background: linear-gradient(135deg, #c9a962, #a88b4a);
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 25px;
+            text-align: center;
+        }
+        .next-steps h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .next-steps p {
+            font-size: 12px;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+            font-size: 10px;
+            color: #999;
+        }
+        .footer strong {
+            color: #c9a962;
+        }
+        @media print {
+            body { padding: 0; }
+            .step { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">KI-EXPERTENRAUM</div>
+        <h1>KI-Quickstart Guide</h1>
+        <p class="subtitle">In 10 Minuten zur ersten KI-Nutzung</p>
+    </div>
+
+    <div class="intro-box">
+        <h2>🚀 Für wen ist dieser Guide?</h2>
+        <p>Sie haben noch nie mit KI gearbeitet? Perfekt. Dieser Guide bringt Sie in 3 einfachen Schritten zum ersten erfolgreichen Ergebnis. Keine Vorkenntnisse nötig – nur 10 Minuten Zeit.</p>
+    </div>
+
+    <div class="step">
+        <span class="step-number">1</span>
+        <h3>Tool auswählen & Account erstellen (3 Min.)</h3>
+        <div class="step-content">
+            <p>Für Einsteiger empfehlen wir <span class="highlight">ChatGPT</span> (kostenlos) oder <span class="highlight">Claude</span> (kostenlos).</p>
+            <div class="tools-grid">
+                <div class="tool">
+                    <div class="tool-name">ChatGPT</div>
+                    <div class="tool-price">chat.openai.com</div>
+                </div>
+                <div class="tool">
+                    <div class="tool-name">Claude</div>
+                    <div class="tool-price">claude.ai</div>
+                </div>
+            </div>
+            <p style="margin-top: 10px; font-size: 11px; color: #888;">💡 Tipp: Nutzen Sie Ihre geschäftliche E-Mail-Adresse für den Account.</p>
+        </div>
+    </div>
+
+    <div class="step">
+        <span class="step-number">2</span>
+        <h3>Ersten Prompt schreiben (4 Min.)</h3>
+        <div class="step-content">
+            <p>Ein guter Prompt braucht nur 3 Elemente:</p>
+            <p><strong>1. Rolle:</strong> "Du bist ein erfahrener [BERUF]..."<br>
+               <strong>2. Aufgabe:</strong> "Erstelle/Schreibe/Analysiere..."<br>
+               <strong>3. Format:</strong> "In 3 Absätzen/Als Liste/Als E-Mail..."</p>
+            
+            <div class="prompt-box">
+Du bist ein erfahrener Marketing-Experte. Schreibe eine E-Mail an meine Kunden, in der ich unsere neue Dienstleistung vorstelle. Die E-Mail soll freundlich, professionell und maximal 150 Wörter lang sein.
+            </div>
+            
+            <p style="font-size: 11px; color: #666; margin-top: 8px;">✏️ Passen Sie den Prompt an Ihre Situation an und kopieren Sie ihn ins KI-Tool.</p>
+        </div>
+    </div>
+
+    <div class="step">
+        <span class="step-number">3</span>
+        <h3>Ergebnis verbessern (3 Min.)</h3>
+        <div class="step-content">
+            <p>Das erste Ergebnis ist nur der Anfang. So wird es besser:</p>
+            <p>• <strong>"Kürzer:"</strong> für prägnantere Texte<br>
+               • <strong>"Formeller:"</strong> für Geschäftskommunikation<br>
+               • <strong>"Mit Beispielen:"</strong> für mehr Klarheit<br>
+               • <strong>"Anderes Format:"</strong> für Tabellen oder Listen</p>
+            
+            <p style="margin-top: 10px; font-size: 11px; color: #666;">💡 Je spezifischer Ihr Feedback, desto besser das Ergebnis.</p>
+        </div>
+    </div>
+
+    <div class="checklist">
+        <h3>✓ Erste-Woche-Checkliste</h3>
+        <div class="checklist-item">
+            <div class="checklist-box"></div>
+            <span>Account bei ChatGPT oder Claude erstellt</span>
+        </div>
+        <div class="checklist-item">
+            <div class="checklist-box"></div>
+            <span>Ersten Prompt ausprobiert</span>
+        </div>
+        <div class="checklist-item">
+            <div class="checklist-box"></div>
+            <span>Ein Ergebnis im Job verwendet</span>
+        </div>
+        <div class="checklist-item">
+            <div class="checklist-box"></div>
+            <span>Kollegen über das Ergebnis berichtet</span>
+        </div>
+    </div>
+
+    <div class="next-steps">
+        <h3>🎯 Was kommt danach?</h3>
+        <p>Sobald Sie den Dreh raus haben, empfehlen wir unsere <strong>KI-Checkliste für KMU</strong> mit 15 konkreten Schritten für den professionellen Einstieg – inklusive DSGVO-Checks und ROI-Berechnung.</p>
+    </div>
+
+    <div class="footer">
+        <strong>KI-Expertenraum</strong> | Philipp Zerna<br>
+        www.ki-expertenraum.de | zernaphilipp@gmail.com
+    </div>
+</body>
+</html>
