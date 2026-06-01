@@ -109,6 +109,59 @@
         .nav-links a:hover, .nav-links a.active {
             color: var(--accent);
         }
+        
+        .nav-cta {
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .nav-cta:hover {
+            background: #a88b4a;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+        }
+        
+        .mobile-menu-btn span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0; right: 0;
+            background: var(--bg-secondary);
+            padding: 20px;
+            z-index: 999;
+        }
+        
+        .mobile-menu.show {
+            display: block;
+        }
+        
+        .mobile-menu a {
+            display: block;
+            padding: 16px;
+            color: var(--text-primary);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border);
+            font-size: 16px;
+        }
 
         /* Hero Section */
         .hero {
@@ -351,13 +404,15 @@
             }
         }
         
+        @media (max-width: 1024px) {
+            .nav-links { display: none; }
+            .nav-cta { display: none; }
+            .mobile-menu-btn { display: flex; }
+        }
+        
         @media (max-width: 768px) {
             .container {
                 padding: 0 20px;
-            }
-            
-            .nav-links {
-                display: none;
             }
         }
     </style>
@@ -374,10 +429,29 @@
                 <li><a href="/">Start</a></li>
                 <li><a href="/kurse/">Kurse</a></li>
                 <li><a href="/ressourcen/">Ressourcen</a></li>
+                <li><a href="/services/">Services</a></li>
+                <li><a href="/artikel/">Artikel</a></li>
                 <li><a href="/kontakt.html">Kontakt</a></li>
             </ul>
+            
+            <a href="/kontakt.html" class="nav-cta">Beratung anfragen</a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü öffnen">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
+    
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="/" onclick="closeMenu()">Start</a>
+        <a href="/kurse/" onclick="closeMenu()">Kurse</a>
+        <a href="/ressourcen/" onclick="closeMenu()">Ressourcen</a>
+        <a href="/services/" onclick="closeMenu()">Services</a>
+        <a href="/artikel/" onclick="closeMenu()">Artikel</a>
+        <a href="/kontakt.html" onclick="closeMenu()">Kontakt</a>
+    </div>
 
     <main>
         <section class="hero">
@@ -393,8 +467,8 @@
                         </div>
                         
                         <div class="button-group">
-                            <a href="/downloads/ki-quickstart-guide.html" class="btn btn-primary" target="_blank">
-                                📄 Vorschau öffnen
+                            <a href="/vorschau/ki-quickstart-guide.html" class="btn btn-primary">
+                                👁️ Vorschau öffnen
                             </a>
                             <a href="mailto:zernaphilipp@gmail.com?subject=Bestellung: KI-Quickstart Guide" class="btn btn-secondary">
                                 🛒 Jetzt kaufen
@@ -473,5 +547,15 @@
             <p>&copy; 2026 KI-Expertenraum | Philipp Zerna</p>
         </div>
     </footer>
+    
+    <script>
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('show');
+        }
+        function closeMenu() {
+            document.getElementById('mobileMenu').classList.remove('show');
+        }
+        document.getElementById('mobileMenuBtn').addEventListener('click', toggleMenu);
+    </script>
 </body>
 </html>

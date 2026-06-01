@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KI-Checkliste für KMU | Der vollständige 4-Wochen-Plan</title>
-    <meta name="description" content="15 konkrete Checkpunkte für rechtssicheren KI-Einstieg. Mit Tool-Entscheidungsmatrix, ROI-Rechner und AVV-Übersicht.">
+    <title>KI-Checkliste für KMU | In 60 Minuten zur ersten KI-Nutzung</title>
+    <meta name="description" content="Der 10-Minuten-Einstieg für komplette Anfänger. Von Account-Erstellung bis ersten Ergebnis.">
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VDQNVYGYE1"></script>
@@ -46,6 +46,7 @@
             padding: 0 40px;
         }
 
+        /* Navigation */
         .nav {
             position: fixed;
             top: 0; left: 0; right: 0;
@@ -108,7 +109,61 @@
         .nav-links a:hover, .nav-links a.active {
             color: var(--accent);
         }
+        
+        .nav-cta {
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .nav-cta:hover {
+            background: #a88b4a;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+        }
+        
+        .mobile-menu-btn span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0; right: 0;
+            background: var(--bg-secondary);
+            padding: 20px;
+            z-index: 999;
+        }
+        
+        .mobile-menu.show {
+            display: block;
+        }
+        
+        .mobile-menu a {
+            display: block;
+            padding: 16px;
+            color: var(--text-primary);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border);
+            font-size: 16px;
+        }
 
+        /* Hero Section */
         .hero {
             padding: 160px 0 80px;
             background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
@@ -230,6 +285,7 @@
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
         }
         
+        /* Features Section */
         .features {
             padding: 80px 0;
             background: var(--bg-secondary);
@@ -292,6 +348,7 @@
             line-height: 1.6;
         }
         
+        /* CTA Section */
         .cta {
             padding: 100px 0;
             background: var(--bg-primary);
@@ -315,6 +372,7 @@
             margin-bottom: 32px;
         }
         
+        /* Footer */
         .footer {
             background: var(--bg-primary);
             padding: 40px 0;
@@ -346,13 +404,15 @@
             }
         }
         
+        @media (max-width: 1024px) {
+            .nav-links { display: none; }
+            .nav-cta { display: none; }
+            .mobile-menu-btn { display: flex; }
+        }
+        
         @media (max-width: 768px) {
             .container {
                 padding: 0 20px;
-            }
-            
-            .nav-links {
-                display: none;
             }
         }
     </style>
@@ -369,10 +429,29 @@
                 <li><a href="/">Start</a></li>
                 <li><a href="/kurse/">Kurse</a></li>
                 <li><a href="/ressourcen/">Ressourcen</a></li>
+                <li><a href="/services/">Services</a></li>
+                <li><a href="/artikel/">Artikel</a></li>
                 <li><a href="/kontakt.html">Kontakt</a></li>
             </ul>
+            
+            <a href="/kontakt.html" class="nav-cta">Beratung anfragen</a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü öffnen">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
+    
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="/" onclick="closeMenu()">Start</a>
+        <a href="/kurse/" onclick="closeMenu()">Kurse</a>
+        <a href="/ressourcen/" onclick="closeMenu()">Ressourcen</a>
+        <a href="/services/" onclick="closeMenu()">Services</a>
+        <a href="/artikel/" onclick="closeMenu()">Artikel</a>
+        <a href="/kontakt.html" onclick="closeMenu()">Kontakt</a>
+    </div>
 
     <main>
         <section class="hero">
@@ -413,33 +492,33 @@
         <section class="features">
             <div class="container">
                 <div class="section-title">
-                    <h2>Ein <em>System</em>, keine Liste</h2>
-                    <p>Nicht nur abhaken – sondern fundiert KI etablieren.</p>
+                    <h2>Was Sie <em>erwartet</em></h2>
+                    <p>Keine oberflächliche Einführung – sondern Ihr taktischer Begleiter.</p>
                 </div>
                 
                 <div class="features-grid">
                     <div class="feature">
-                        <div class="feature-icon">🎯</div>
-                        <h3>Tool-Entscheidungsmatrix</h3>
-                        <p>Welches Tool passt zu Ihrem Use-Case? ChatGPT, Claude, Gemini – ehrliche Einordnung mit Preisen und Limits.</p>
-                    </div>
-                    
-                    <div class="feature">
-                        <div class="feature-icon">⚖️</div>
-                        <h3>DSGVO-Drei-Stufen-Modell</h3>
-                        <p>Klare Regeln: Was dürfen Sie eingeben? Was nicht? Mit konkreten Beispielen statt juristischem Fachchinesisch.</p>
+                        <div class="feature-icon">⚡</div>
+                        <h3>10-Minuten-Einstieg</h3>
+                        <p>Von Account-Erstellung bis ersten Ergebnis. Keine Vorkenntnisse nötig – nur 10 Minuten Zeit.</p>
                     </div>
                     
                     <div class="feature">
                         <div class="feature-icon">📊</div>
-                        <h3>ROI-Rechner inklusive</h3>
-                        <p>Formel + Beispiel: Berechnen Sie Ihre Zeitersparnis und den Return on Investment.</p>
+                        <h3>Tool-Vergleich</h3>
+                        <p>ChatGPT vs Claude vs Gemini – ehrliche Einordnung mit Preisen, Limits und Stärken.</p>
                     </div>
                     
                     <div class="feature">
-                        <div class="feature-icon">📋</div>
-                        <h3>AVV-Übersicht</h3>
-                        <p>Welche Anbieter haben Auftragsverarbeitungsverträge? Übersichtstabelle für ChatGPT, Claude, Microsoft & Co.</p>
+                        <div class="feature-icon">⚠️</div>
+                        <h3>10 Anfängerfehler</h3>
+                        <p>Die häufigsten Fehler, die 90% aller Einsteiger machen – und wie Sie sie vermeiden.</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <div class="feature-icon">📅</div>
+                        <h3>7-Tage-Plan</h3>
+                        <p>Tag für Tag konkrete 15-Minuten-Aufgaben, die Sie Schritt für Schritt zum Profi machen.</p>
                     </div>
                 </div>
             </div>
@@ -448,10 +527,10 @@
         <section class="cta">
             <div class="container">
                 <div class="cta-box">
-                    <h2>Rechtssicher in 4 <em>Wochen</em></h2>
-                    <p>Von der ersten Idee bis zur produktiven, dokumentierten KI-Nutzung.</p>
+                    <h2>Bereit für den <em>Start?</em></h2>
+                    <p>In 60 Minuten von null zur ersten KI-Nutzung. Der schnellste Einstieg für Führungskräfte.</p>
                     <div class="button-group" style="justify-content: center;">
-                        <a href="/downloads/ki-checkliste-kmu.html" class="btn btn-primary" target="_blank">
+                        <a href="/downloads/ki-quickstart-guide.html" class="btn btn-primary" target="_blank">
                             📄 Vorschau öffnen
                         </a>
                         <a href="mailto:zernaphilipp@gmail.com?subject=Bestellung: KI-Checkliste für KMU" class="btn btn-secondary">
@@ -468,5 +547,15 @@
             <p>&copy; 2026 KI-Expertenraum | Philipp Zerna</p>
         </div>
     </footer>
+    
+    <script>
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('show');
+        }
+        function closeMenu() {
+            document.getElementById('mobileMenu').classList.remove('show');
+        }
+        document.getElementById('mobileMenuBtn').addEventListener('click', toggleMenu);
+    </script>
 </body>
 </html>

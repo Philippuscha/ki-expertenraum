@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vorschau: KI-Quickstart Guide | KI-Expertenraum</title>
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 20px 40px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #f5f5f5;
+        }
+        
+        .logo-mark {
+            width: 40px;
+            height: 40px;
+            background: #c9a962;
+            color: #0a0a0a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            border-radius: 8px;
+        }
+        
+        .header-actions {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: #c9a962;
+            color: #0a0a0a;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 169, 98, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #f5f5f5;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-secondary:hover {
+            border-color: #c9a962;
+            color: #c9a962;
+        }
+        
+        .preview-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 120px 40px 40px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+        }
+        
+        .pdf-preview {
+            width: 100%;
+            max-width: 800px;
+            background: #fff;
+            color: #1a1a1a;
+            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.8);
+            border-radius: 8px;
+            overflow: hidden;
+            transform: perspective(1000px) rotateY(-2deg);
+            transition: transform 0.3s;
+        }
+        
+        .pdf-preview:hover {
+            transform: perspective(1000px) rotateY(0deg) scale(1.02);
+        }
+        
+        .pdf-header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            padding: 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pdf-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(201, 169, 98, 0.1) 0%, transparent 60%);
+            animation: shimmer 10s infinite;
+        }
+        
+        @keyframes shimmer {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(180deg); }
+        }
+        
+        .pdf-logo {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: #c9a962;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .pdf-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 52px;
+            font-weight: 400;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .pdf-subtitle {
+            font-size: 20px;
+            opacity: 0.9;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .pdf-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .pdf-content-preview {
+            padding: 50px 60px;
+            background: #fff;
+        }
+        
+        .preview-section {
+            margin-bottom: 35px;
+        }
+        
+        .preview-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            color: #c9a962;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #c9a962;
+            padding-bottom: 8px;
+        }
+        
+        .preview-section p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #444;
+            margin-bottom: 10px;
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .feature-list li {
+            padding: 8px 0;
+            padding-left: 28px;
+            position: relative;
+            font-size: 13px;
+            color: #555;
+        }
+        
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #c9a962;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        
+        .pdf-footer {
+            background: #fafafa;
+            padding: 30px 60px;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .pdf-footer p {
+            font-size: 12px;
+            color: #888;
+        }
+        
+        .pdf-footer strong {
+            color: #c9a962;
+        }
+        
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            font-size: 120px;
+            color: rgba(201, 169, 98, 0.05);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 20px;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .zoom-controls {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(20, 20, 20, 0.9);
+            padding: 12px 24px;
+            border-radius: 30px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .zoom-btn {
+            background: none;
+            border: none;
+            color: #f5f5f5;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 5px 10px;
+            transition: color 0.3s;
+        }
+        
+        .zoom-btn:hover {
+            color: #c9a962;
+        }
+        
+        .zoom-level {
+            font-size: 14px;
+            color: #888;
+            min-width: 60px;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .pdf-preview {
+                transform: none;
+            }
+            
+            .pdf-title {
+                font-size: 36px;
+            }
+            
+            .pdf-content-preview {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="/" class="logo">
+            <span class="logo-mark">K</span>
+            <span>KI.Expertenraum</span>
+        </a>
+        <div class="header-actions">
+            <a href="/produkte/ki-quickstart-guide/" class="btn btn-secondary">← Zurück</a>
+            <a href="mailto:zernaphilipp@gmail.com?subject=Bestellung: KI-Quickstart Guide" class="btn btn-primary">Jetzt kaufen — 2,99€</a>
+        </div>
+    </header>
+    
+    <main class="preview-container">
+        <div class="pdf-preview" id="pdfPreview">
+            <div class="pdf-header">
+                <div class="watermark">Vorschau</div>
+                <div class="pdf-logo">KI-EXPERTENRAUM PREMIUM</div>
+                <div class="pdf-icon">🚀</div>
+                <h1 class="pdf-title">KI-Quickstart Guide</h1>
+                <p class="pdf-subtitle">Von null zur ersten KI-Nutzung in 60 Minuten</p>
+            </div>
+            
+            <div class="pdf-content-preview">
+                <div class="preview-section">
+                    <h3>Was Sie erwartet</h3>
+                    <p>Dieser Guide ist keine theoretische Einführung – er ist Ihr taktischer Begleiter für die ersten 7 Tage mit KI. Mit Tool-Vergleichen, den häufigsten Anfängerfehlern und einem täglichen 15-Minuten-Plan.</p>
+                </div>
+                
+                <div class="preview-section">
+                    <h3>Inhalt des vollständigen Guides</h3>
+                    <ul class="feature-list">
+                        <li>Tool-Vergleich: ChatGPT vs Claude vs Gemini mit ehrlicher Einordnung</li>
+                        <li>Die 10 tödlichen Anfängerfehler – und wie Sie sie vermeiden</li>
+                        <li>7-Tage-Einstiegsplan mit konkreten 15-Minuten-Aufgaben</li>
+                        <li>Prompt-Cheat-Sheet für sofortige Ergebnisse</li>
+                        <li>Erste-Woche-Checkliste zum Abhaken</li>
+                    </ul>
+                </div>
+                
+                <div class="preview-section">
+                    <h3>Für wen ist dieser Guide?</h3>
+                    <p>Für Führungskräfte, die noch nie mit KI gearbeitet haben und einen schnellen, pragmatischen Einstieg suchen. Keine Vorkenntnisse nötig – nur 10 Minuten Zeit pro Tag.</p>
+                </div>
+            </div>
+            
+            <div class="pdf-footer">
+                <p><strong>KI-Expertenraum</strong> | Premium KI-Akademie & Business Consulting<br>
+                <span style="color: #c9a962;">Vollständige Version: 6 Seiten | Sofort-Download nach Kauf</span></p>
+            </div>
+        </div>
+    </main>
+    
+    <div class="zoom-controls">
+        <button class="zoom-btn" onclick="zoomOut()">−</button>
+        <span class="zoom-level" id="zoomLevel">100%</span>
+        <button class="zoom-btn" onclick="zoomIn()">+</button>
+    </div>
+    
+    <script>
+        let currentZoom = 100;
+        const preview = document.getElementById('pdfPreview');
+        const zoomDisplay = document.getElementById('zoomLevel');
+        
+        function zoomIn() {
+            if (currentZoom < 150) {
+                currentZoom += 10;
+                updateZoom();
+            }
+        }
+        
+        function zoomOut() {
+            if (currentZoom > 70) {
+                currentZoom -= 10;
+                updateZoom();
+            }
+        }
+        
+        function updateZoom() {
+            preview.style.transform = `perspective(1000px) rotateY(-2deg) scale(${currentZoom / 100})`;
+            zoomDisplay.textContent = currentZoom + '%';
+        }
+    </script>
+</body>
+</html>
