@@ -51,70 +51,210 @@
         .intro {
             background: #f9f9f9;
             border-left: 3px solid #c9a962;
-            padding: 15px 20px;
+            padding: 20px;
             margin-bottom: 30px;
             font-size: 13px;
             color: #444;
         }
-        .checklist {
-            margin-bottom: 30px;
-        }
-        .category {
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .intro strong {
             color: #c9a962;
-            margin: 25px 0 15px 0;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #e0e0e0;
+        }
+        h2 {
+            font-family: 'Georgia', serif;
+            font-size: 18px;
+            color: #c9a962;
+            margin: 35px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #c9a962;
+        }
+        .phase-header {
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            color: #fff;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 30px 0 20px 0;
+        }
+        .phase-header h3 {
+            font-size: 16px;
+            margin: 0;
+            color: #c9a962;
+        }
+        .phase-header p {
+            font-size: 12px;
+            margin: 5px 0 0 0;
+            opacity: 0.9;
+        }
+        .checklist {
+            margin-bottom: 25px;
         }
         .item {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 12px;
-            padding: 12px;
+            margin-bottom: 20px;
+            padding: 20px;
             background: #fafafa;
-            border-radius: 4px;
+            border-radius: 8px;
+            border: 1px solid #e8e8e8;
+            page-break-inside: avoid;
         }
         .checkbox {
-            width: 18px;
-            height: 18px;
-            border: 2px solid #c9a962;
-            border-radius: 3px;
-            margin-right: 12px;
+            width: 22px;
+            height: 22px;
+            border: 3px solid #c9a962;
+            border-radius: 4px;
+            margin-right: 15px;
             flex-shrink: 0;
             margin-top: 2px;
         }
         .content h3 {
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 600;
-            margin-bottom: 4px;
+            margin-bottom: 8px;
             color: #1a1a1a;
         }
         .content p {
             font-size: 11px;
             color: #666;
-            line-height: 1.5;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .action-box {
+            background: #fff9e6;
+            border-left: 3px solid #c9a962;
+            padding: 12px 15px;
+            margin-top: 10px;
+            border-radius: 0 6px 6px 0;
+        }
+        .action-box strong {
+            color: #c9a962;
+            font-size: 11px;
+        }
+        .action-box ul {
+            margin: 8px 0 0 18px;
+            font-size: 11px;
+            color: #555;
+        }
+        .action-box li {
+            margin-bottom: 4px;
+        }
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+            font-size: 10px;
+        }
+        .tool-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+        }
+        .tool-card strong {
+            display: block;
+            font-size: 12px;
+            color: #1a1a1a;
+            margin-bottom: 5px;
+        }
+        .tool-card span {
+            color: #666;
+        }
+        .warning-box {
+            background: #ffebee;
+            border-left: 4px solid #c62828;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .warning-box strong {
+            color: #c62828;
+            font-size: 12px;
+        }
+        .warning-box p {
+            font-size: 11px;
+            color: #666;
+            margin-top: 8px;
+        }
+        .roi-calculator {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+        .roi-calculator h3 {
+            font-size: 14px;
+            color: #2e7d32;
+            margin-bottom: 15px;
+        }
+        .roi-formula {
+            background: #fff;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .roi-example {
+            background: #fff;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 11px;
+        }
+        .roi-example strong {
+            color: #2e7d32;
+        }
+        .avv-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 10px;
+        }
+        .avv-table th {
+            background: #c9a962;
+            color: #fff;
+            padding: 10px;
+            text-align: left;
+        }
+        .avv-table td {
+            padding: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .avv-table tr:nth-child(even) {
+            background: #fafafa;
+        }
+        .next-steps {
+            background: linear-gradient(135deg, #c9a962, #a88b4a);
+            color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        .next-steps h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .next-steps p {
+            font-size: 12px;
+            line-height: 1.6;
+            opacity: 0.95;
         }
         .footer {
             margin-top: 40px;
             padding-top: 20px;
             border-top: 1px solid #e0e0e0;
             text-align: center;
-            font-size: 11px;
+            font-size: 10px;
             color: #999;
         }
         .footer strong {
             color: #c9a962;
         }
-        .page-break {
-            page-break-after: always;
-        }
         @media print {
-            body {
-                padding: 0;
-            }
+            body { padding: 0; }
+            .item { break-inside: avoid; }
         }
     </style>
 </head>
@@ -122,140 +262,352 @@
     <div class="header">
         <div class="logo">KI-EXPERTENRAUM</div>
         <h1>KI-Checkliste für KMU</h1>
-        <p class="subtitle">15 Punkte für den erfolgreichen KI-Einstieg</p>
+        <p class="subtitle">Der vollständige 4-Wochen-Plan für rechtssicheren KI-Einstieg</p>
     </div>
 
     <div class="intro">
-        <strong>So nutzen Sie diese Checkliste:</strong><br>
-        Arbeiten Sie die 15 Punkte Schritt für Schritt ab. Jeder abgehakte Punkt bringt Sie näher an eine rechtssichere, produktive KI-Nutzung im Unternehmen. Zeitaufwand: 2-4 Wochen.
+        <strong>Warum diese Checkliste anders ist:</strong><br>
+        Nicht nur 15 Punkte zum Abhaken, sondern ein komplettes System mit Entscheidungshilfen, ROI-Rechner, AVV-Übersicht und konkreten Handlungsanweisungen pro Punkt. Entwickelt aus 5+ Jahren KI-Praxis mit über 500 Unternehmen.
+    </div>
+
+    <!-- TOOL-ENTSCHEIDUNG -->
+    <h2>🎯 Vorab: Welches KI-Tool passt zu Ihrem Use-Case?</h2>
+    
+    <div class="tool-grid">
+        <div class="tool-card">
+            <strong>Texte & Kommunikation</strong>
+            <span>ChatGPT, Claude</span>
+        </div>
+        <div class="tool-card">
+            <strong>Bilder & Design</strong>
+            <span>Midjourney, DALL-E, Canva</span>
+        </div>
+        <div class="tool-card">
+            <strong>Dokumente & Analyse</strong>
+            <span>Claude, ChatGPT Plus</span>
+        </div>
+        <div class="tool-card">
+            <strong>Präsentationen</strong>
+            <span>Gamma, Tome, Plus AI</span>
+        </div>
+        <div class="tool-card">
+            <strong>Automation</strong>
+            <span>Make, Zapier, n8n</span>
+        </div>
+        <div class="tool-card">
+            <strong>Meeting-Notizen</strong>
+            <span>Fireflies, Otter.ai</span>
+        </div>
+    </div>
+
+    <div class="warning-box">
+        <strong>⚠️ Kritische Entscheidung vorab</strong>
+        <p>Starten Sie mit MAXIMAL 2 Tools. Die größte Fehlerquelle ist der "Tool-Hopping" – ständiges Wechseln statt eines Tools wirklich beherrschen. Empfehlung: ChatGPT + ein Spezialtool für Ihren Haupt-Use-Case.</p>
+    </div>
+
+    <!-- PHASE 1 -->
+    <div class="phase-header">
+        <h3>Phase 1: Fundament (Woche 1)</h3>
+        <p>Ziel: Klare Ausgangslage, Tool-Entscheidung, rechtliche Grundlagen</p>
     </div>
 
     <div class="checklist">
-        <div class="category">Phase 1: Vorbereitung (Woche 1)</div>
-        
         <div class="item">
             <div class="checkbox"></div>
             <div class="content">
-                <h3>Verantwortlichen benennen</h3>
-                <p>Bestimmen Sie eine Person, die den KI-Einstieg koordiniert. Das kann der Geschäftsführer, ein IT-Verantwortlicher oder externer Berater sein.</p>
+                <h3>01. KI-Verantwortlichen benennen</h3>
+                <p>Jedes Unternehmen braucht einen Ansprechpartner für KI-Fragen – auch wenn es nur 2 Stunden/Woche sind. Diese Person koordiniert Schulungen, beantwortet Kollegen-Fragen und evaluiert neue Tools.</p>
+                <div class="action-box">
+                    <strong>Konkrete Maßnahmen:</strong>
+                    <ul>
+                        <li>Name und Rolle dokumentieren</li>
+                        <li>Kommunikationskanal festlegen (E-Mail, Teams, Slack)</li>
+                        <li>Zeitbudget definieren (min. 2h/Woche für Einarbeitung)</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
         <div class="item">
             <div class="checkbox"></div>
             <div class="content">
-                <h3>Erste Use-Case identifizieren</h3>
-                <p>Wählen Sie einen konkreten Anwendungsfall mit hohem ROI-Potenzial: E-Mail-Management, Dokumentenerstellung oder Kundenkommunikation.</p>
+                <h3>02. Ersten Use-Case identifizieren (mit ROI-Check)</h3>
+                <p>Nicht "wir wollen KI nutzen", sondern "wir nutzen KI für [konkrete Aufgabe]". Der Use-Case sollte: 1) Häufig wiederkehrend sein, 2) min. 30 Min./Woche Zeit kosten, 3) messbare Ergebnisse liefern.</p>
+                <div class="action-box">
+                    <strong>Beispiele mit hohem ROI:</strong>
+                    <ul>
+                        <li>E-Mail-Beantwortung (Kundenservice, Anfragen)</li>
+                        <li>Meeting-Protokolle (zeitaufwändiges Schreiben)</li>
+                        <li>Social Media Posts (Content-Erstellung)</li>
+                        <li>Dokumentation/Reporting (wiederkehrende Texte)</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
         <div class="item">
             <div class="checkbox"></div>
             <div class="content">
-                <h3>Datenschutz-Grundlagen prüfen</h3>
-                <p>Überprüfen Sie, welche Daten Sie verarbeiten dürfen. Keine personenbezogenen Daten in öffentliche KI-Tools eingeben ohne Auftragsverarbeitung.</p>
+                <h3>03. Datenschutz-Grundlagen prüfen (DSGVO-Check)</h3>
+                <p>Die häufigste Fehlerquelle: Unwissenheit über Datenverarbeitung. Klarheit schaffen, bevor Mitarbeiter anfangen.</p>
+                <div class="action-box">
+                    <strong>Das Drei-Stufen-Modell:</strong>
+                    <ul>
+                        <li><strong>Stufe 1 (sicher):</strong> Öffentliche Daten, Beispiele, hypothetische Szenarien</li>
+                        <li><strong>Stufe 2 (mit AVV):</strong> Interne Prozessbeschreibungen, anonymisierte Daten</li>
+                        <li><strong>Stufe 3 (verboten):</strong> Kundendaten, Mitarbeiterdaten, Geschäftsgeheimnisse ohne AVV</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
         <div class="item">
             <div class="checkbox"></div>
             <div class="content">
-                <h3>Tool-Stack definieren</h3>
-                <p>Entscheiden Sie sich für max. 3 Tools in der Startphase. ChatGPT Plus, Microsoft Copilot oder Claude – weniger ist mehr.</p>
+                <h3>04. Tool-Stack finalisieren & budgetieren</h3>
+                <p>Entscheidung basierend auf Use-Case + Budget. Die meisten KMU kommen mit 0-50€/Monat aus.</p>
+                <div class="action-box">
+                    <strong>Kostenübersicht (pro Nutzer/Monat):</strong>
+                    <ul>
+                        <li>ChatGPT Plus: 20€ (empfohlen für Textarbeit)</li>
+                        <li>Claude Pro: 18€ (besser für lange Dokumente)</li>
+                        <li>Midjourney: 10€ (Bildgenerierung)</li>
+                        <li>Make Core: 9€ (Automation)</li>
+                    </ul>
+                </div>
             </div>
         </div>
+    </div>
 
-        <div class="category">Phase 2: Umsetzung (Woche 2-3)</div>
+    <!-- PHASE 2 -->
+    <div class="phase-header">
+        <h3>Phase 2: Aufbau (Woche 2-3)</h3>
+        <p>Ziel: Erste praktische Nutzung, Prompt-Kompetenz, Dokumentation</p>
+    </div>
 
+    <div class="checklist">
         <div class="item">
             <div class="checkbox"></div>
             <div class="content">
-                <h3>Test-Accounts einrichten</h3>
-                <p>Richten Sie geschäftliche Accounts ein (nicht privat). Nutzen Sie die 14-tägigen Testphasen, um Funktionen zu evaluieren.</p>
-            </div>
-        </div>
-
-        <div class="item">
-            <div class="checkbox"></div>
-            <div class="content">
-                <h3>Grundlegende Prompt-Schulung</h3>
-                <p>Schulen Sie 1-2 Key-User im effektiven Prompting: Kontext, Rolle, konkrete Anweisung, gewünschtes Format.</p>
-            </div>
-        </div>
-
-        <div class="item">
-            <div class="checkbox"></div>
-            <div class="content">
-                <h3>Erste Automatisierung bauen</h3>
-                <p>Automatisieren Sie einen wiederkehrenden Prozess: E-Mail-Beantwortung, Meeting-Zusammenfassungen oder Standard-Dokumente.</p>
-            </div>
-        </div>
-
-        <div class="item">
-            <div class="checkbox"></div>
-            <div class="content">
-                <h3>Ergebnisse dokumentieren</h3>
-                <p>Notieren Sie Zeitersparnis und Qualität. Was funktioniert? Wo sind Nachbesserungen nötig? Daten für ROI-Berechnung.</p>
-            </div>
-        </div>
-
-        <div class="category">Phase 3: Compliance & Skalierung (Woche 4)</div>
-
-        <div class="item">
-            <div class="checkbox"></div>
-            <div class="content">
-                <h3>EU AI Act Check durchführen</h3>
-                <p>Prüfen Sie, ob Ihre KI-Nutzung unter den EU AI Act fällt. Die meisten KMU-Use-Cases sind unproblematisch, aber dokumentieren Sie es.</p>
+                <h3>05. Geschäftliche Accounts einrichten</h3>
+                <p>Nie private Accounts für Business-Zwecke nutzen. Daten gehören dem Unternehmen, nicht dem Mitarbeiter.</p>
+                <div class="action-box">
+                    <strong>Checkliste Account-Einrichtung:</strong>
+                    <ul>
+                        <li>Firmen-E-Mail-Adresse verwenden (nicht privat)</li>
+                        <li>Zwei-Faktor-Authentifizierung aktivieren</li>
+                        <li>Passwort-Manager-Eintrag erstellen (nicht im Browser speichern)</li>
+                        <li>Rechnungsadresse auf Firma stellen</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
         <div class="item">
             <div class="checkbox"></div>
             <div class="content">
-                <h3>AVV mit Tool-Anbietern prüfen</h3>
-                <p>Stellen Sie sicher, dass Auftragsverarbeitungsverträge vorliegen (bei ChatGPT Enterprise, Microsoft 365 Copilot etc.).</p>
+                <h3>06. Key-User schulen (2-3 Personen)</h3>
+                <p>Multiplikator-Strategie: Nicht alle schulen, sondern 2-3 engagierte Mitarbeiter zu internen Experten machen.</p>
+                <div class="action-box">
+                    <strong>Schulungs-Agenda (90 Minuten):</strong>
+                    <ul>
+                        <li>0-15 Min: Grundlagen (Was ist KI, was nicht?)</li>
+                        <li>15-45 Min: Prompting-Grundlagen (Rolle-Kontext-Aufgabe-Format)</li>
+                        <li>45-75 Min: Hands-on mit eigenen Arbeitsaufgaben</li>
+                        <li>75-90 Min: Fehler vermeiden, Datenschutz-Regeln</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
         <div class="item">
             <div class="checkbox"></div>
             <div class="content">
-                <h3>Mitarbeiter informieren</h3>
-                <p>Kommunizieren Sie transparent: Welche Tools werden genutzt? Welche Daten dürfen eingegeben werden? Wohin bei Fragen?</p>
+                <h3>07. Erste Automation/Aufgabe umsetzen</h3>
+                <p>Jetzt wird's konkret: Der erste Use-Case wird produktiv genutzt. Nicht perfektionieren, sondern starten.</p>
+                <div class="action-box">
+                    <strong>Quick-Win-Automatisierungen (1h Einrichtung):</strong>
+                    <ul>
+                        <li>E-Mail-Entwürfe standardisieren (3-5 Vorlagen-Prompts)</li>
+                        <li>Meeting-Notizen automatisch zusammenfassen (KI-Prompt)</li>
+                        <li>Social-Media-Content im Batch erstellen (1x/Woche für ganze Woche)</li>
+                        <li>Dokumentation aus Stichpunkten generieren</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
         <div class="item">
             <div class="checkbox"></div>
             <div class="content">
-                <h3>Prompt-Bibliothek anlegen</h3>
-                <p>Sammeln Sie erfolgreiche Prompts an zentraler Stelle (Notion, SharePoint). Vermeidet Doppelarbeit und sichert Know-how.</p>
+                <h3>08. Ergebnisse dokumentieren (für ROI-Nachweis)</h3>
+                <p>Was nicht gemessen wird, kann nicht verbessert werden. Beginnen Sie jetzt mit der Datenerfassung.</p>
+                <div class="action-box">
+                    <strong>Tracking-Vorlage (wöchentlich):</strong>
+                    <ul>
+                        <li>Aufgabe: [konkrete Tätigkeit]</li>
+                        <li>Zeit vor KI: [X Minuten]</li>
+                        <li>Zeit mit KI: [Y Minuten]</li>
+                        <li>Qualität: [besser/gleich/schlechter]</li>
+                        <li>Anmerkungen: [Besonderheiten, Probleme]</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
         <div class="item">
             <div class="checkbox"></div>
             <div class="content">
-                <h3>Monatliches Review einführen</h3>
-                <p>Planen Sie 30 Minuten pro Monat für KI-Optimierung ein: Neue Features, Prompt-Verbesserungen, zusätzliche Use-Cases.</p>
+                <h3>09. Prompt-Bibliothek anlegen</h3>
+                <p>Erfolgreiche Prompts sind Unternehmenswissen. Sammeln und teilen – sonst verlässt das Know-how mit dem Mitarbeiter.</p>
+                <div class="action-box">
+                    <strong>Struktur-Vorschlag (Notion/SharePoint):</strong>
+                    <ul>
+                        <li>Kategorie: Marketing / Vertrieb / Intern / Support</li>
+                        <li>Prompt-Name: [Beschreibung]</li>
+                        <li>Der Prompt: [Vollständiger Text]</li>
+                        <li>Beispiel-Ergebnis: [Screenshot oder Text]</li>
+                        <li>Erstellt von: [Name] am [Datum]</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PHASE 3 -->
+    <div class="phase-header">
+        <h3>Phase 3: Compliance & Skalierung (Woche 4)</h3>
+        <p>Ziel: Rechtssicherheit, Prozess-Etablierung, nächste Schritte planen</p>
+    </div>
+
+    <div class="checklist">
+        <div class="item">
+            <div class="checkbox"></div>
+            <div class="content">
+                <h3>10. EU AI Act Check durchführen</h3>
+                <p>Die gute Nachricht: Die meisten KMU-Use-Cases fallen unter "minimales Risiko" und sind unproblematisch.</p>
+                <div class="action-box">
+                    <strong>Risiko-Einstufung schnell checken:</strong>
+                    <ul>
+                        <li><strong>Unbedenklich (99% der KMU):</strong> Textgenerierung, Bilder, interne Prozesse, Dokumentation</li>
+                        <li><strong>Aufmerksamkeit nötig:</strong> Kunden-Chatbots, Bewerbungs-Screening, Kredit-Scoring</li>
+                        <li><strong>Hohes Risiko (reguliert):</strong> Medizinische Diagnose, kritische Infrastruktur, öffentliche Sicherheit</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
         <div class="item">
             <div class="checkbox"></div>
             <div class="content">
-                <h3>ROI berechnen</h3>
-                <p>Ermitteln Sie die Einsparung: (Zeitersparnis pro Woche × Stundensatz) − Tool-Kosten = monatlicher ROI.</p>
+                <h3>11. AVV-Status klären (Auftragsverarbeitung)</h3>
+                <p>Wer personenbezogene Daten verarbeitet, braucht einen Auftragsverarbeitungsvertrag (AVV). Hier die Übersicht:</p>
+                <table class="avv-table">
+                    <thead>
+                        <tr>
+                            <th>Tool</th>
+                            <th>AVV verfügbar?</th>
+                            <th>Hinweis</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ChatGPT Consumer</td>
+                            <td>❌ Nein</td>
+                            <td>Nur für öffentliche Daten nutzen</td>
+                        </tr>
+                        <tr>
+                            <td>ChatGPT Enterprise/Team</td>
+                            <td>✅ Ja</td>
+                            <td>Zusätzlicher Vertrag nötig</td>
+                        </tr>
+                        <tr>
+                            <td>Microsoft 365 Copilot</td>
+                            <td>✅ Ja</td>
+                            <td>Über bestehenden M365-Vertrag</td>
+                        </tr>
+                        <tr>
+                            <td>Claude (alle Versionen)</td>
+                            <td>⚠️ Limitiert</td>
+                            <td>Nur über API mit Business Associate Agreement</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 
         <div class="item">
             <div class="checkbox"></div>
             <div class="content">
-                <h3>Nächsten Use-Case planen</h3>
-                <p>Wählen Sie den nächsten Anwendungsfall aus. Skalieren Sie schrittweise – nicht alles auf einmal.</p>
+                <h3>12. Mitarbeiter briefing durchführen</h3>
+                <p>Transparente Kommunikation verhindert Gerüchte und Ängste. Klare Regeln statt Verbots-Politik.</p>
+                <div class="action-box">
+                    <strong>Mindest-Inhalte des Briefings:</strong>
+                    <ul>
+                        <li>Welche Tools werden genutzt und warum?</li>
+                        <li>Was darf eingeben werden, was nicht? (Drei-Stufen-Modell)</li>
+                        <li>Wer ist Ansprechpartner bei Fragen?</li>
+                        <li>Wie werden Ergebnisqualität und Datenschutz gewährleistet?</li>
+                    </ul>
+                </div>
             </div>
         </div>
+
+        <div class="item">
+            <div class="checkbox"></div>
+            <div class="content">
+                <h3>13. ROI berechnen (erste Bilanz)</h3>
+                <p>Nach 3-4 Wochen lässt sich erste Rechnung aufmachen. Transparent kommunizieren – auch wenn's negativ ist.</p>
+                <div class="roi-calculator">
+                    <h3>📊 ROI-Formel für KI-Nutzung</h3>
+                    <div class="roi-formula">
+                        (Zeitersparnis/Woche × Stundensatz × 4,3) − Tool-Kosten = Monatlicher ROI
+                    </div>
+                    <div class="roi-example">
+                        <strong>Beispiel:</strong> 3 Stunden/Woche gespart × 80€ Stundensatz × 4,3 Wochen = 1.032€ Wert<br>
+                        Abzgl. 20€ Tool-Kosten = <strong>1.012€ positiver ROI/Monat</strong><br>
+                        ROI nach 1 Monat: 5.060% (Kosten 20€, Wert 1.032€)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="checkbox"></div>
+            <div class="content">
+                <h3>14. Review-Prozess etablieren</h3>
+                <p>KI ist kein "Einmal aufsetzen, dann vergessen". Regelmäßige Reviews sichern kontinuierliche Verbesserung.</p>
+                <div class="action-box">
+                    <strong>Review-Rhythmus empfohlen:</strong>
+                    <ul>
+                        <li><strong>Wöchentlich (15 Min.):</strong> Neue Prompts teilen, Probleme klären</li>
+                        <li><strong>Monatlich (30 Min.):</strong> ROI prüfen, Tool-Nutzung analysieren</li>
+                        <li><strong>Quartalsweise (60 Min.):</strong> Neue Use-Cases evaluieren, Strategie anpassen</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="checkbox"></div>
+            <div class="content">
+                <h3>15. Nächsten Use-Case planen</h3>
+                <p>Skalierung Schritt für Schritt. Nicht 10 neue Tools gleichzeitig, sondern einen weiteren Use-Case perfektionieren.</p>
+                <div class="action-box">
+                    <strong>Priorisierungs-Matrix für nächste Use-Cases:</strong>
+                    <ul>
+                        <li><strong>Höchste Priorität:</strong> Hohe Zeitersparnis + geringe Einarbeitung (z.B. weitere Text-Automatisierungen)</li>
+                        <li><strong>Mittlere Priorität:</strong> Hohe Zeitersparnis + hohe Einarbeitung (z.B. komplexe Workflows mit Make/Zapier)</li>
+                        <li><strong>Später:</strong> Neue Tool-Kategorien (Bilder, Video, Audio) erst nach Beherrschung der Text-KI</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="next-steps">
+        <h3>🎯 Nach diesen 4 Wochen</h3>
+        <p>Sie haben jetzt ein fundiertes Fundament. Für tiefergehende Strategie, komplexe Automationen und individuelle Beratung empfehlen wir die Premium-Kurse oder ein persönliches Strategiegespräch.</p>
     </div>
 
     <div class="footer">

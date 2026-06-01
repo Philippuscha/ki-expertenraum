@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meeting-Notizen mit KI | KI-Expertenraum</title>
+    <title>Meeting-Mastery-System | KI-Expertenraum</title>
     <style>
         @page {
             size: A4;
@@ -55,96 +55,181 @@
             font-size: 13px;
             color: #444;
         }
-        
-        /* Template Section */
-        .template-section {
-            margin-bottom: 25px;
-        }
-        .section-title {
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        h2 {
+            font-family: 'Georgia', serif;
+            font-size: 18px;
             color: #c9a962;
-            margin-bottom: 15px;
+            margin: 30px 0 15px 0;
             padding-bottom: 8px;
             border-bottom: 1px solid #e0e0e0;
+        }
+        h3 {
+            font-size: 15px;
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+            color: #1a1a1a;
+        }
+        
+        /* Template Selection */
+        .template-selector {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .template-btn {
+            flex: 1;
+            min-width: 140px;
+            background: linear-gradient(135deg, #c9a962, #a88b4a);
+            color: #fff;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .template-btn small {
+            display: block;
+            font-weight: 400;
+            font-size: 10px;
+            opacity: 0.9;
+            margin-top: 4px;
+        }
+        
+        /* Template Sections */
+        .template-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #fafafa;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+        .template-header {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin: -20px -20px 20px -20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .template-header span {
+            color: #c9a962;
         }
         
         /* Meeting Header */
         .meeting-header {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            gap: 12px;
             margin-bottom: 20px;
         }
         .field {
-            background: #fafafa;
-            border: 1px solid #e0e0e0;
+            background: #fff;
+            border: 1px solid #ddd;
             border-radius: 6px;
-            padding: 12px;
+            padding: 10px;
         }
         .field-label {
-            font-size: 10px;
+            font-size: 9px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             color: #999;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
         .field-value {
-            font-size: 13px;
+            font-size: 12px;
             color: #333;
-            min-height: 20px;
+            min-height: 18px;
         }
         
         /* Content Blocks */
         .content-block {
-            background: #fafafa;
+            background: #fff;
             border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 15px;
+            border-radius: 6px;
+            padding: 12px;
+            margin-bottom: 12px;
         }
-        .content-block h3 {
-            font-size: 13px;
+        .content-block h4 {
+            font-size: 11px;
             color: #c9a962;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             font-weight: 600;
+            text-transform: uppercase;
         }
         .content-lines {
-            min-height: 80px;
+            min-height: 60px;
         }
         .content-lines .line {
             border-bottom: 1px dotted #ddd;
-            height: 24px;
+            height: 22px;
         }
         
-        /* Action Items */
+        /* Action Items Table */
         .action-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 10px;
+            font-size: 11px;
         }
         .action-table th {
             text-align: left;
-            font-size: 11px;
+            font-size: 9px;
             color: #999;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             padding: 8px;
             border-bottom: 2px solid #c9a962;
+            background: #f5f5f5;
         }
         .action-table td {
             padding: 10px 8px;
             border-bottom: 1px solid #eee;
-            font-size: 12px;
         }
         .checkbox {
-            width: 16px;
-            height: 16px;
+            width: 14px;
+            height: 14px;
             border: 2px solid #c9a962;
             border-radius: 3px;
             display: inline-block;
+        }
+        
+        /* Priority Matrix */
+        .priority-matrix {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .priority-matrix h4 {
+            font-size: 11px;
+            color: #c9a962;
+            margin-bottom: 10px;
+        }
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .matrix-quadrant {
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 10px;
+        }
+        .matrix-quadrant.high {
+            background: #ffebee;
+            border-left: 3px solid #c62828;
+        }
+        .matrix-quadrant.medium {
+            background: #fff3e0;
+            border-left: 3px solid #f57c00;
+        }
+        .matrix-quadrant.low {
+            background: #e8f5e9;
+            border-left: 3px solid #2e7d32;
         }
         
         /* Prompt Section */
@@ -162,101 +247,102 @@
         }
         .prompt-text {
             font-family: 'Courier New', monospace;
-            font-size: 11px;
+            font-size: 10px;
             line-height: 1.8;
             background: rgba(255,255,255,0.05);
-            padding: 15px;
+            padding: 12px;
             border-radius: 6px;
             border-left: 3px solid #c9a962;
+            margin-bottom: 10px;
         }
         .prompt-tip {
-            font-size: 11px;
+            font-size: 10px;
             color: #aaa;
-            margin-top: 12px;
             font-style: italic;
         }
         
-        /* Workflow */
-        .workflow {
-            display: flex;
-            justify-content: space-between;
-            margin: 20px 0;
-            padding: 20px;
+        /* Example Protocols */
+        .example-box {
+            background: #e3f2fd;
+            border-left: 4px solid #1976d2;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        .example-box h4 {
+            font-size: 12px;
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+        .example-box p {
+            font-size: 11px;
+            color: #444;
+            margin-bottom: 6px;
+        }
+        .example-box strong {
+            color: #1a1a1a;
+        }
+        
+        /* Best Practice */
+        .best-practice {
             background: linear-gradient(135deg, #f5f5f5, #fafafa);
             border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
         }
-        .workflow-step {
-            text-align: center;
-            flex: 1;
+        .best-practice h3 {
+            font-size: 14px;
+            color: #c9a962;
+            margin-bottom: 15px;
         }
-        .workflow-step .number {
-            width: 32px;
-            height: 32px;
+        .bp-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 11px;
+        }
+        .bp-number {
+            width: 24px;
+            height: 24px;
             background: #c9a962;
             color: #fff;
             border-radius: 50%;
-            display: inline-flex;
+            display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 600;
-            font-size: 14px;
-            margin-bottom: 8px;
+            font-size: 12px;
+            flex-shrink: 0;
         }
-        .workflow-step .text {
-            font-size: 11px;
-            color: #555;
+        .bp-content strong {
+            display: block;
+            color: #1a1a1a;
+            margin-bottom: 2px;
         }
-        .arrow {
-            color: #c9a962;
-            font-size: 20px;
-            align-self: center;
+        .bp-content span {
+            color: #666;
         }
         
-        /* Example Box */
-        .example-box {
+        /* Methodology */
+        .methodology {
             background: #fff9e6;
             border: 1px solid #ffe082;
             border-radius: 8px;
             padding: 15px;
             margin: 15px 0;
         }
-        .example-box h4 {
+        .methodology h4 {
             font-size: 12px;
             color: #f57c00;
             margin-bottom: 10px;
         }
-        .example-box ul {
+        .methodology ul {
             margin-left: 20px;
-            font-size: 12px;
+            font-size: 11px;
             color: #555;
         }
-        .example-box li {
+        .methodology li {
             margin-bottom: 5px;
-        }
-        
-        /* Benefits */
-        .benefits {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin: 20px 0;
-        }
-        .benefit {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-        }
-        .benefit-icon {
-            font-size: 20px;
-        }
-        .benefit-text {
-            font-size: 12px;
-            color: #555;
-        }
-        .benefit-text strong {
-            color: #1a1a1a;
-            display: block;
-            margin-bottom: 3px;
         }
         
         .footer {
@@ -273,204 +359,449 @@
         
         @media print {
             body { padding: 0; }
-            .content-block { break-inside: avoid; }
+            .template-section { break-inside: avoid; page-break-inside: avoid; }
         }
     </style>
 </head>
 <body>
     <div class="header">
         <div class="logo">KI-EXPERTENRAUM</div>
-        <h1>Meeting-Notizen mit KI</h1>
-        <p class="subtitle">Strukturierte Protokolle in 5 Minuten</p>
+        <h1>Meeting-Mastery-System</h1>
+        <p class="subtitle">3 professionelle Templates + KI-Integration für perfekte Protokolle</p>
     </div>
 
     <div class="intro">
-        <strong>Warum dieses Template?</strong><br>
-        Nie wieder unstrukturierte Meeting-Notizen. Mit diesem Template und dem passenden KI-Prompt erstellen Sie professionelle Protokolle in Minuten statt Stunden – inklusive Aufgaben, Entscheidungen und nächster Schritte.
+        <strong>Was Sie hier bekommen:</strong><br>
+        Nicht nur ein Template – sondern ein komplettes System für drei Meeting-Typen: Status-Meetings (Projektupdates), Entscheidungs-Meetings (mit Stakeholder-Einordnung) und Kreativ-Workshops (mit Ideen-Priorisierung). Inklusive fertiger Beispiel-Protokolle und der „60-zu-5-Minuten"-Methode.
     </div>
 
+    <div class="template-selector">
+        <div class="template-btn">
+            TEMPLATE 1
+            <small>Status-Meeting</small>
+        </div>
+        <div class="template-btn">
+            TEMPLATE 2
+            <small>Entscheidungs-Meeting</small>
+        </div>
+        <div class="template-btn">
+            TEMPLATE 3
+            <small>Kreativ-Workshop</small>
+        </div>
+    </div>
+
+    <!-- TEMPLATE 1: STATUS MEETING -->
+    <h2>Template 1: Status-Meeting</h2>
+    <p style="font-size: 11px; color: #666; margin-bottom: 15px;">Für: Projekt-Updates, Weekly Standups, Sprint-Reviews | Zeit: 30-60 Min.</p>
+
     <div class="template-section">
-        <div class="section-title">Meeting-Header</div>
+        <div class="template-header"><span>📊</span> STATUS-MEETING PROTOKOLL</div>
+        
         <div class="meeting-header">
             <div class="field">
-                <div class="field-label">Datum & Uhrzeit</div>
+                <div class="field-label">Datum & Zeit</div>
                 <div class="field-value"></div>
             </div>
             <div class="field">
-                <div class="field-label">Teilnehmer</div>
+                <div class="field-label">Projekt / Thema</div>
                 <div class="field-value"></div>
             </div>
             <div class="field">
-                <div class="field-label">Meeting-Titel</div>
+                <div class="field-label">Anwesende</div>
                 <div class="field-value"></div>
             </div>
             <div class="field">
-                <div class="field-label">Protokollant</div>
+                <div class="field-label">Nächstes Meeting</div>
                 <div class="field-value"></div>
             </div>
         </div>
-    </div>
 
-    <div class="template-section">
-        <div class="section-title">Agenda & Besprochene Punkte</div>
         <div class="content-block">
-            <h3>Agenda-Punkte</h3>
-            <div class="content-lines">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="template-section">
-        <div class="section-title">Wichtige Entscheidungen</div>
-        <div class="content-block">
+            <h4>1. Erreichte Meilensteine (seit letztem Meeting)</h4>
             <div class="content-lines">
                 <div class="line"></div>
                 <div class="line"></div>
                 <div class="line"></div>
             </div>
         </div>
-    </div>
 
-    <div class="template-section">
-        <div class="section-title">Action Items</div>
+        <div class="content-block">
+            <h4>2. Aktuelle Blocker & Probleme</h4>
+            <div class="content-lines">
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <h4>3. Nächste Schritte & Ziele (bis zum nächsten Meeting)</h4>
+            <div class="content-lines">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <h4>4. Ressourcenbedarf</h4>
+            <div class="content-lines">
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>
+
         <table class="action-table">
             <thead>
                 <tr>
-                    <th style="width: 30px;">✓</th>
+                    <th style="width: 25px;">✓</th>
                     <th>Aufgabe</th>
                     <th>Verantwortlich</th>
-                    <th>Frist</th>
+                    <th>Deadline</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td><span class="checkbox"></span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><span class="checkbox"></span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><span class="checkbox"></span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><span class="checkbox"></span></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                <tr><td><span class="checkbox"></span></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td><span class="checkbox"></span></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td><span class="checkbox"></span></td><td></td><td></td><td></td><td></td></tr>
             </tbody>
         </table>
     </div>
 
+    <div class="example-box">
+        <h4>📋 Beispiel: Status-Meeting Website-Relaunch</h4>
+        <p><strong>Erreichte Meilensteine:</strong> Design-Phase abgeschlossen, 3 von 5 Seiten programmiert, Content für Startseite finalisiert</p>
+        <p><strong>Blocker:</strong> Genehmigung durch Geschäftsführung für Bildlizenzen ausstehend (Kontakt: Frau Müller)</p>
+        <p><strong>Nächste Schritte:</strong> Bildlizenz-Genehmigung einholen (KW45), Testphase mit 5 Nutzern starten (KW46), Launch-Vorbereitung (KW48)</p>
+        <p><strong>Action Items:</strong> Schmidt: Lizenzen klären (15.11.), Weber: Testnutzer rekrutieren (18.11.), Team: Bugfixing (laufend)</p>
+    </div>
+
+    <!-- TEMPLATE 2: ENTSCHEIDUNGS-MEETING -->
+    <h2>Template 2: Entscheidungs-Meeting</h2>
+    <p style="font-size: 11px; color: #666; margin-bottom: 15px;">Für: Strategie-Entscheidungen, Budget-Freigaben, Konzept-Abnahmen | Zeit: 45-90 Min.</p>
+
     <div class="template-section">
-        <div class="section-title">Nächste Schritte</div>
+        <div class="template-header"><span>⚡</span> ENTSCHEIDUNGS-MEETING PROTOKOLL</div>
+        
+        <div class="meeting-header">
+            <div class="field">
+                <div class="field-label">Datum & Zeit</div>
+                <div class="field-value"></div>
+            </div>
+            <div class="field">
+                <div class="field-label">Entscheidungsthema</div>
+                <div class="field-value"></div>
+            </div>
+            <div class="field">
+                <div class="field-label">Decision-Maker</div>
+                <div class="field-value"></div>
+            </div>
+            <div class="field">
+                <div class="field-label">Stakeholder</div>
+                <div class="field-value"></div>
+            </div>
+        </div>
+
         <div class="content-block">
+            <h4>1. Entscheidungsgrundlage</h4>
             <div class="content-lines">
                 <div class="line"></div>
                 <div class="line"></div>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <h4>2. Optionen & Alternativen</h4>
+            <div class="content-lines">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>
+
+        <div class="priority-matrix">
+            <h4>3. Stakeholder-Einordnung (RACI)</h4>
+            <div class="matrix-grid">
+                <div class="matrix-quadrant high">
+                    <strong>R - Responsible</strong><br>
+                    Wer führt die Aufgabe aus?
+                </div>
+                <div class="matrix-quadrant high">
+                    <strong>A - Accountable</strong><br>
+                    Wer trägt die Verantwortung?
+                </div>
+                <div class="matrix-quadrant medium">
+                    <strong>C - Consulted</strong><br>
+                    Wer muss konsultiert werden?
+                </div>
+                <div class="matrix-quadrant low">
+                    <strong>I - Informed</strong><br>
+                    Wer muss informiert werden?
+                </div>
+            </div>
+        </div>
+
+        <div class="content-block" style="background: #e8f5e9; border-left: 4px solid #2e7d32;">
+            <h4 style="color: #2e7d32;">4. GETROFFENE ENTSCHEIDUNG</h4>
+            <div class="content-lines">
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <h4>5. Begründung & Risiken</h4>
+            <div class="content-lines">
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <h4>6. Nächste Schritte & Verantwortlichkeiten</h4>
+            <table class="action-table">
+                <thead>
+                    <tr>
+                        <th style="width: 25px;">✓</th>
+                        <th>Maßnahme</th>
+                        <th>Verantwortlich</th>
+                        <th>Deadline</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><span class="checkbox"></span></td><td></td><td></td><td></td></tr>
+                    <tr><td><span class="checkbox"></span></td><td></td><td></td><td></td></tr>
+                    <tr><td><span class="checkbox"></span></td><td></td><td></td><td></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>📋 Beispiel: Entscheidung Marketing-Budget Q4</h4>
+        <p><strong>Entscheidungsgrundlage:</strong> Umsatzziele Q4 um 15% steigern, aktueller Marketing-ROI bei 3.2x</p>
+        <p><strong>Optionen:</strong> A) Budget 50k€ in Performance Marketing, B) Budget 30k€ Performance + 20k€ Branding, C) Keine Budget-Erhöhung</p>
+        <p><strong>Entscheidung:</strong> Option A - 50k€ in Performance Marketing (Google Ads + LinkedIn)</p>
+        <p><strong>Begründung:</strong> Höchste Messbarkeit, schnell skalierbar, past zu kurzfristigem Umsatzziel</p>
+        <p><strong>Risiko:</strong> Abhängigkeit von Plattformen → Gegenmaßnahme: Parallel Aufbau E-Mail-Liste</p>
+    </div>
+
+    <!-- TEMPLATE 3: KREATIV-WORKSHOP -->
+    <h2>Template 3: Kreativ-Workshop</h2>
+    <p style="font-size: 11px; color: #666; margin-bottom: 15px;">Für: Brainstorming, Design-Sprints, Konzept-Entwicklung | Zeit: 60-180 Min.</p>
+
+    <div class="template-section">
+        <div class="template-header"><span>💡</span> KREATIV-WORKSHOP PROTOKOLL</div>
+        
+        <div class="meeting-header">
+            <div class="field">
+                <div class="field-label">Datum & Zeit</div>
+                <div class="field-value"></div>
+            </div>
+            <div class="field">
+                <div class="field-label">Workshop-Thema</div>
+                <div class="field-value"></div>
+            </div>
+            <div class="field">
+                <div class="field-label">Moderator</div>
+                <div class="field-value"></div>
+            </div>
+            <div class="field">
+                <div class="field-label">Teilnehmerzahl</div>
+                <div class="field-value"></div>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <h4>1. Workshop-Ziel</h4>
+            <div class="content-lines">
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <h4>2. Gesammelte Ideen (roh)</h4>
+            <div class="content-lines">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>
+
+        <div class="priority-matrix">
+            <h4>3. Ideen-Priorisierung (Impact vs. Aufwand)</h4>
+            <div class="matrix-grid">
+                <div class="matrix-quadrant high">
+                    <strong>🚀 Quick Wins</strong><br>
+                    Hoher Impact, geringer Aufwand<br>
+                    <em>Sofort umsetzen</em>
+                </div>
+                <div class="matrix-quadrant medium">
+                    <strong>⭐ Major Projects</strong><br>
+                    Hoher Impact, hoher Aufwand<br>
+                    <em>Planen & Ressourcen klären</em>
+                </div>
+                <div class="matrix-quadrant low">
+                    <strong>📝 Fill-Ins</strong><br>
+                    Geringer Impact, geringer Aufwand<br>
+                    <em>Bei Kapazität umsetzen</em>
+                </div>
+                <div class="matrix-quadrant low" style="background: #ffebee; border-left-color: #c62828;">
+                    <strong>🗑️ Thankless Tasks</strong><br>
+                    Geringer Impact, hoher Aufwand<br>
+                    <em>Verwerfen oder delegieren</em>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-block" style="background: #fff3e0; border-left: 4px solid #f57c00;">
+            <h4 style="color: #e65100;">4. Top 3 Ideen (detailliert)</h4>
+            <div class="content-lines">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <h4>5. Umsetzungsplan für Top-Ideen</h4>
+            <table class="action-table">
+                <thead>
+                    <tr>
+                        <th>Idee</th>
+                        <th>Nächster Schritt</th>
+                        <th>Verantwortlich</th>
+                        <th>Timeline</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Idee 1</td><td></td><td></td><td></td></tr>
+                    <tr><td>Idee 2</td><td></td><td></td><td></td></tr>
+                    <tr><td>Idee 3</td><td></td><td></td><td></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="content-block">
+            <h4>6. Offene Punkte & Follow-up</h4>
+            <div class="content-lines">
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>📋 Beispiel: Workshop „Kundengewinnung 2026"</h4>
+        <p><strong>Top-Ideen:</strong> 1) Referral-Programm mit 20% Rabatt, 2) LinkedIn-Content-Serie „KI im Mittelstand", 3) Webinar-Reihe mit Partnern</p>
+        <p><strong>Priorisierung:</strong> Referral = Quick Win (sofort starten), LinkedIn = Major Project (Content-Plan nötig), Webinar = Major Project (Partner klären)</p>
+        <p><strong>Umsetzung:</strong> Referral-Programm: Landingpage erstellen (Weber), AGB anpassen (Müller), Launch KW46</p>
+    </div>
+
+    <!-- KI INTEGRATION -->
+    <h2>Die „60-zu-5-Minuten"-Methode mit KI</h2>
+
+    <div class="best-practice">
+        <h3>Wie Sie 60 Minuten Meeting in 5 Minuten Protokoll verwandeln</h3>
+        
+        <div class="bp-item">
+            <div class="bp-number">1</div>
+            <div class="bp-content">
+                <strong>Während des Meetings: Nur Stichpunkte</strong>
+                <span>Schreiben Sie nicht ganze Sätze – nur Keywords, Zahlen, Namen. Ziel: Max. 10 Stichpunkte pro 30 Minuten.</span>
+            </div>
+        </div>
+
+        <div class="bp-item">
+            <div class="bp-number">2</div>
+            <div class="bp-content">
+                <strong>Direkt nach dem Meeting: KI-Prompt nutzen</strong>
+                <span>Kopieren Sie den passenden Prompt unten, fügen Sie Ihre Stichpunkte ein. Die KI erstellt das vollständige Protokoll.</span>
+            </div>
+        </div>
+
+        <div class="bp-item">
+            <div class="bp-number">3</div>
+            <div class="bp-content">
+                <strong>Nachbearbeitung (2 Min.)</strong>
+                <span>Kontrollieren Sie Namen, Zahlen und Deadlines. Fügen Sie bei Bedarf persönliche Anmerkungen hinzu.</span>
+            </div>
+        </div>
+
+        <div class="bp-item">
+            <div class="bp-number">4</div>
+            <div class="bp-content">
+                <strong>Versenden (1 Min.)</strong>
+                <span>Das Protokoll ist nun professioneller als 90% der handgeschriebenen – und Sie haben 55 Minuten gespart.</span>
             </div>
         </div>
     </div>
 
     <div class="prompt-section">
-        <h3>🤖 Der KI-Prompt für Ihre Notizen</h3>
+        <h3>🤖 Die 3 KI-Prompts für jedes Template</h3>
+        
         <div class="prompt-text">
-Fasse das folgende Meeting zusammen in einem strukturierten Protokoll:
+<strong>[FÜR STATUS-MEETINGS]:</strong>
 
-[IHRE STICHPUNKTE HIER EINFÜGEN]
+Erstelle ein professionelles Meeting-Protokoll aus diesen Stichpunkten:
 
-Format:
-1. Kurze Zusammenfassung (2-3 Sätze)
-2. Getroffene Entscheidungen (als Liste)
-3. Action Items mit Verantwortlichen (falls genannt)
+[STICHPUNKTE HIER EINFÜGEN]
+
+Struktur:
+1. Zusammenfassung (2 Sätze)
+2. Erreichte Meilensteine
+3. Aktuelle Blocker
 4. Nächste Schritte
-5. Offene Fragen
+5. Action Items mit Verantwortlichen und Deadlines
 
-Ton: Professionell, prägnant, sachlich.
+Ton: Professionell, sachlich. Format: Klare Überschriften, Bullet Points.
         </div>
-        <p class="prompt-tip">💡 Tipp: Kopieren Sie den Prompt in ChatGPT oder Claude, fügen Sie Ihre Stichpunkte ein und lassen Sie das Protokoll erstellen.</p>
+
+        <div class="prompt-text" style="margin-top: 15px;">
+<strong>[FÜR ENTSCHEIDUNGS-MEETINGS]:</strong>
+
+Fasse die Entscheidung und ihre Grundlagen zusammen:
+
+[STICHPUNKTE HIER EINFÜGEN]
+
+Struktur:
+1. Entscheidungsgrundlage (Warum mussten wir entscheiden?)
+2. Geprüfte Optionen (kurz)
+3. Getroffene Entscheidung (prägnant formuliert)
+4. Begründung (Fakten-basiert)
+5. Identifizierte Risiken & Gegenmaßnahmen
+6. Konkrete Next Steps mit RACI-Verantwortlichkeiten
+
+Ton: Autoritär, klar, dokumentarisch.
+        </div>
+
+        <div class="prompt-text" style="margin-top: 15px;">
+<strong>[FÜR KREATIV-WORKSHOPS]:</strong>
+
+Erstelle ein Workshop-Summary mit Priorisierung:
+
+[STICHPUNKTE HIER EINFÜGEN]
+
+Struktur:
+1. Workshop-Ziel (1 Satz)
+2. Alle gesammelten Ideen (Liste)
+3. Priorisierung nach Impact/Aufwand (4 Kategorien)
+4. Top 3 Ideen mit kurzer Beschreibung
+5. Konkrete nächste Schritte für jede Top-Idee
+6. Offene Fragen & Follow-up-Termin
+
+Ton: Kreativ, motivierend, lösungsorientiert.
+        </div>
+
+        <p class="prompt-tip">💡 Tipp: Speichern Sie diese Prompts als Textbausteine in Ihrem KI-Tool (ChatGPT: „My GPTs", Claude: Projects) für noch schnelleren Zugriff.</p>
     </div>
 
-    <div class="section-title">So funktioniert der Workflow</div>
-    <div class="workflow">
-        <div class="workflow-step">
-            <div class="number">1</div>
-            <div class="text">Stichpunkte<br>während Meeting</div>
-        </div>
-        <div class="arrow">→</div>
-        <div class="workflow-step">
-            <div class="number">2</div>
-            <div class="text">Prompt + Notizen<br>in KI-Tool</div>
-        </div>
-        <div class="arrow">→</div>
-        <div class="workflow-step">
-            <div class="number">3</div>
-            <div class="text">Protokoll<br>erhalten</div>
-        </div>
-        <div class="arrow">→</div>
-        <div class="workflow-step">
-            <div class="number">4</div>
-            <div class="text">Finalisieren &<br>versenden</div>
-        </div>
-    </div>
-
-    <div class="example-box">
-        <h4>📋 Beispiel: Was die KI für Sie erstellt</h4>
+    <div class="methodology">
+        <h4>🎯 Erfolgsfaktoren für alle Meeting-Typen</h4>
         <ul>
-            <li><strong>Zusammenfassung:</strong> "Besprechung zur Q4-Planung. Team einig über Budget-Verteilung. Neue Marketing-Kampagne genehmigt."</li>
-            <li><strong>Entscheidungen:</strong> Budget 50k€ freigegeben, externer Designer engagiert, Launch-Termin 15.11.</li>
-            <li><strong>Action Items:</strong> Müller: Briefing Designer (bis 01.11.), Schmidt: Kampagnenplan (bis 05.11.)</li>
-        </ul>
-    </div>
-
-    <div class="section-title">Ihre Vorteile</div>
-    <div class="benefits">
-        <div class="benefit">
-            <div class="benefit-icon">⏱️</div>
-            <div class="benefit-text">
-                <strong>Zeitersparnis</strong>
-                Protokoll in 5 Min. statt 30 Min.
-            </div>
-        </div>
-        <div class="benefit">
-            <div class="benefit-icon">📊</div>
-            <div class="benefit-text">
-                <strong>Konsistenz</strong>
-                Immer gleiche Struktur
-            </div>
-        </div>
-        <div class="benefit">
-            <div class="benefit-icon">🎯</div>
-            <div class="benefit-text">
-                <strong>Vollständigkeit</strong>
-                Keine vergessenen Punkte
-            </div>
-        </div>
-        <div class="benefit">
-            <div class="benefit-icon">✨</div>
-            <div class="benefit-text">
-                <strong>Professionalität</strong>
-                Klare, strukturierte Protokolle
-            </div>
-        </div>
-    </div>
-
-    <div class="footer">
-        <strong>KI-Expertenraum</strong> | Philipp Zerna<br>
-        www.ki-expertenraum.de | zernaphilipp@gmail.com
-    </div>
-</body>
-</html>
+            <li><strong>Immer:</strong> Action Items mit Verantwortlichen und Deadlines – sonst passiert nichts</li>
+            <li><strong>Immer:</strong> Protokoll innerhalb von 24 Stunden versenden – solange es noch relevant ist</li>
+            <li><
