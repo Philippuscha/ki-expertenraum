@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KI-Checkliste für KMU | In 60 Minuten zur ersten KI-Nutzung</title>
-    <meta name="description" content="Der 10-Minuten-Einstieg für komplette Anfänger. Von Account-Erstellung bis ersten Ergebnis.">
+    <title>KI-Checkliste für KMU | Der vollständige 4-Wochen-Plan</title>
+    <meta name="description" content="15 konkrete Checkpunkte für rechtssicheren KI-Einstieg. Mit Tool-Entscheidungsmatrix, ROI-Rechner und AVV-Übersicht.">
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VDQNVYGYE1"></script>
@@ -285,6 +285,110 @@
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
         }
         
+        /* Product Cover Design */
+        .product-cover {
+            width: 100%;
+            aspect-ratio: 4/5;
+            background: linear-gradient(135deg, #2d5a3d 0%, #3d7a4d 100%);
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+        
+        .product-cover::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 20%, rgba(201, 169, 98, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(201, 169, 98, 0.1) 0%, transparent 40%);
+        }
+        
+        .cover-accent-line-top {
+            position: absolute;
+            top: 60px;
+            left: 40px;
+            right: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+        
+        .cover-accent-line-bottom {
+            position: absolute;
+            bottom: 60px;
+            left: 40px;
+            right: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+        
+        .cover-logo {
+            position: absolute;
+            top: 80px;
+            font-size: 12px;
+            letter-spacing: 3px;
+            color: var(--accent);
+            font-weight: 600;
+            z-index: 1;
+        }
+        
+        .cover-icon {
+            font-size: 100px;
+            margin-bottom: 30px;
+            z-index: 1;
+            filter: drop-shadow(0 10px 30px rgba(201, 169, 98, 0.3));
+        }
+        
+        .cover-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            color: #fff;
+            text-align: center;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            z-index: 1;
+        }
+        
+        .cover-title span {
+            color: var(--accent);
+            font-style: italic;
+        }
+        
+        .cover-subtitle {
+            font-size: 18px;
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            z-index: 1;
+            margin-bottom: 30px;
+        }
+        
+        .cover-features {
+            display: flex;
+            gap: 24px;
+            z-index: 1;
+        }
+        
+        .cover-feature {
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+            font-size: 12px;
+        }
+        
+        .cover-feature strong {
+            display: block;
+            color: var(--accent);
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+        
         /* Features Section */
         .features {
             padding: 80px 0;
@@ -477,12 +581,27 @@
                     </div>
                     
                     <div class="hero-image">
-                        <div style="background: linear-gradient(135deg, #2d5a3d 0%, #3d7a4d 100%); aspect-ratio: 4/5; border-radius: 16px; display: flex; align-items: center; justify-content: center;">
-                            <div style="text-align: center; color: #fff; padding: 40px;">
-                                <div style="font-size: 80px; margin-bottom: 20px;">📋</div>
-                                <div style="font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 600;">KI-Checkliste</div>
-                                <div style="font-size: 16px; opacity: 0.9; margin-top: 10px;">15 Punkte • 4 Wochen • Rechtssicher</div>
+                        <div class="product-cover">
+                            <div class="cover-accent-line-top"></div>
+                            <div class="cover-logo">KI-EXPERTENRAUM PREMIUM</div>
+                            <div class="cover-icon">📋</div>
+                            <div class="cover-title">KI-<span>Checkliste</span></div>
+                            <div class="cover-subtitle">15 Punkte für rechtssicheren KI-Einstieg</div>
+                            <div class="cover-features">
+                                <div class="cover-feature">
+                                    <strong>15</strong>
+                                    Punkte
+                                </div>
+                                <div class="cover-feature">
+                                    <strong>4</strong>
+                                    Wochen
+                                </div>
+                                <div class="cover-feature">
+                                    <strong>DSGVO</strong>
+                                    konform
+                                </div>
                             </div>
+                            <div class="cover-accent-line-bottom"></div>
                         </div>
                     </div>
                 </div>
@@ -492,33 +611,33 @@
         <section class="features">
             <div class="container">
                 <div class="section-title">
-                    <h2>Was Sie <em>erwartet</em></h2>
-                    <p>Keine oberflächliche Einführung – sondern Ihr taktischer Begleiter.</p>
+                    <h2>Ein <em>System</em>, keine Liste</h2>
+                    <p>Nicht nur abhaken – sondern fundiert KI etablieren.</p>
                 </div>
                 
                 <div class="features-grid">
                     <div class="feature">
-                        <div class="feature-icon">⚡</div>
-                        <h3>10-Minuten-Einstieg</h3>
-                        <p>Von Account-Erstellung bis ersten Ergebnis. Keine Vorkenntnisse nötig – nur 10 Minuten Zeit.</p>
+                        <div class="feature-icon">🎯</div>
+                        <h3>Tool-Entscheidungsmatrix</h3>
+                        <p>Welches Tool passt zu Ihrem Use-Case? ChatGPT, Claude, Gemini – ehrliche Einordnung mit Preisen und Limits.</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <div class="feature-icon">⚖️</div>
+                        <h3>DSGVO-Drei-Stufen-Modell</h3>
+                        <p>Klare Regeln: Was dürfen Sie eingeben? Was nicht? Mit konkreten Beispielen statt juristischem Fachchinesisch.</p>
                     </div>
                     
                     <div class="feature">
                         <div class="feature-icon">📊</div>
-                        <h3>Tool-Vergleich</h3>
-                        <p>ChatGPT vs Claude vs Gemini – ehrliche Einordnung mit Preisen, Limits und Stärken.</p>
+                        <h3>ROI-Rechner inklusive</h3>
+                        <p>Formel + Beispiel: Berechnen Sie Ihre Zeitersparnis und den Return on Investment.</p>
                     </div>
                     
                     <div class="feature">
-                        <div class="feature-icon">⚠️</div>
-                        <h3>10 Anfängerfehler</h3>
-                        <p>Die häufigsten Fehler, die 90% aller Einsteiger machen – und wie Sie sie vermeiden.</p>
-                    </div>
-                    
-                    <div class="feature">
-                        <div class="feature-icon">📅</div>
-                        <h3>7-Tage-Plan</h3>
-                        <p>Tag für Tag konkrete 15-Minuten-Aufgaben, die Sie Schritt für Schritt zum Profi machen.</p>
+                        <div class="feature-icon">📋</div>
+                        <h3>AVV-Übersicht</h3>
+                        <p>Welche Anbieter haben Auftragsverarbeitungsverträge? Übersichtstabelle für ChatGPT, Claude, Microsoft & Co.</p>
                     </div>
                 </div>
             </div>
@@ -527,10 +646,10 @@
         <section class="cta">
             <div class="container">
                 <div class="cta-box">
-                    <h2>Bereit für den <em>Start?</em></h2>
-                    <p>In 60 Minuten von null zur ersten KI-Nutzung. Der schnellste Einstieg für Führungskräfte.</p>
+                    <h2>Rechtssicher in 4 <em>Wochen</em></h2>
+                    <p>Von der ersten Idee bis zur produktiven, dokumentierten KI-Nutzung.</p>
                     <div class="button-group" style="justify-content: center;">
-                        <a href="/downloads/ki-quickstart-guide.html" class="btn btn-primary" target="_blank">
+                        <a href="/downloads/ki-checkliste-kmu.html" class="btn btn-primary" target="_blank">
                             📄 Vorschau öffnen
                         </a>
                         <a href="mailto:zernaphilipp@gmail.com?subject=Bestellung: KI-Checkliste für KMU" class="btn btn-secondary">
