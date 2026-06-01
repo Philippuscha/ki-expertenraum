@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KI-Prompt-Framework für Führungskräfte | KI-Expertenraum</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 15mm;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Georgia', serif;
+            color: #1a1a1a;
+            line-height: 1.6;
+            background: #fff;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20mm;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #c9a962;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .logo {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #c9a962;
+            margin-bottom: 10px;
+        }
+        h1 {
+            font-family: 'Georgia', serif;
+            font-size: 26px;
+            font-weight: 400;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+        .subtitle {
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
+        }
+        .intro {
+            background: #f9f9f9;
+            border-left: 3px solid #c9a962;
+            padding: 15px 20px;
+            margin-bottom: 25px;
+            font-size: 13px;
+            color: #444;
+        }
+        .section {
+            margin-bottom: 25px;
+        }
+        .section-title {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #c9a962;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .prompt-box {
+            background: #fafafa;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .prompt-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+        .prompt-use {
+            font-size: 11px;
+            color: #666;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        .prompt-template {
+            background: #fff;
+            border-left: 3px solid #c9a962;
+            padding: 12px 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .prompt-tip {
+            font-size: 11px;
+            color: #666;
+            border-top: 1px dashed #ddd;
+            padding-top: 8px;
+            margin-top: 8px;
+        }
+        .framework-box {
+            background: #f5f5f5;
+            border: 2px solid #c9a962;
+            border-radius: 4px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .framework-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #c9a962;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        .framework-steps {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .step {
+            font-size: 11px;
+            padding: 8px;
+            background: #fff;
+            border-radius: 3px;
+        }
+        .step strong {
+            color: #c9a962;
+        }
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+            font-size: 11px;
+            color: #999;
+        }
+        .footer strong {
+            color: #c9a962;
+        }
+        @media print {
+            body {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">KI-EXPERTENRAUM</div>
+        <h1>KI-Prompt-Framework für Führungskräfte</h1>
+        <p class="subtitle">10 bewährte Templates für Strategie, Kommunikation & Management</p>
+    </div>
+
+    <div class="intro">
+        <strong>Die PERFECT-Methode:</strong> Jeder erfolgreiche Prompt enthält diese 6 Elemente: <strong>P</strong>ersona, <strong>E</strong>rwartung, <strong>R</strong>ahmen, <strong>F</strong>ormat, <strong>E</strong>inschränkungen, <strong>C</strong>ontext, <strong>T</strong>onfall. Kopieren Sie die Templates und passen Sie die [Variablen] an.
+    </div>
+
+    <div class="section">
+        <div class="section-title">Strategie & Entscheidungsfindung</div>
+        
+        <div class="prompt-box">
+            <div class="prompt-title">1. Strategische Analyse</div>
+            <div class="prompt-use">Für: Marktanalysen, Wettbewerbsbeurteilungen, Trend-Evaluierung</div>
+            <div class="prompt-template">
+Handel als strategischer Berater mit 20 Jahren Erfahrung im [BRANCHE]-Sektor. Analysiere [THEMA] für ein [UNTERNEHMENSGRÖSSE]-Unternehmen mit folgenden Rahmenbedingungen:<br><br>
+- Zeitrahmen: [ZEITRAUM]<br>
+- Budget: [BUDGET]<br>
+- Hauptziel: [ZIEL]<br>
+- Einschränkungen: [EINSCHRÄNKUNGEN]<br><br>
+Liefere:<br>
+1. Drei strategische Optionen mit Vor-/Nachteilen<br>
+2. Risikobewertung pro Option (1-10 Skala)<br>
+3. Konkrete nächste Schritte für die empfohlene Option<br>
+4. Kritische Erfolgsfaktoren<br><br>
+Ton: Professionell, analytisch, lösungsorientiert.
+            </div>
+            <div class="prompt-tip">💡 Tipp: Je spezifischer die Rahmenbedingungen, desto präziser die Analyse.</div>
+        </div>
+
+        <div class="prompt-box">
+            <div class="prompt-title">2. Entscheidungsmatrix</div>
+            <div class="prompt-use">Für: Komplexe Entscheidungen mit mehreren Optionen</div>
+            <div class="prompt-template">
+Erstelle eine Entscheidungsmatrix für folgendes Szenario:<br><br>
+Entscheidung: [KURZBESCHREIBUNG]<br>
+Option A: [OPTION A]<br>
+Option B: [OPTION B]<br>
+Option C: [OPTION C]<br><br>
+Bewertungskriterien (Gewichtung in %):<br>
+- [KRITERIUM 1]: [GEWICHTUNG]%<br>
+- [KRITERIUM 2]: [GEWICHTUNG]%<br>
+- [KRITERIUM 3]: [GEWICHTUNG]%<br><br>
+Erstelle eine Tabelle mit Punktwerten (1-10) pro Kriterium, berechne die gewichteten Gesamtpunkte und empfehle die beste Option mit Begründung.
+            </div>
+            <div class="prompt-tip">💡 Tipp: Nutzen Sie dies vor wichtigen Investitionsentscheidungen oder Personaleinstellungen.</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Kommunikation & Führung</div>
+        
+        <div class="prompt-box">
+            <div class="prompt-title">3. Schwieriges Mitarbeitergespräch</div>
+            <div class="prompt-use">Für: Kritikgespräche, Leistungsabfragen, Verhaltensprobleme</div>
+            <div class="prompt-template">
+Bereite mich auf ein Führungsgespräch mit [MITARBEITERNAME] vor.<br><br>
+Kontext:<br>
+- Position: [POSITION]<br>
+- Betriebszugehörigkeit: [DAUER]<br>
+- Problem: [PROBLEMBESCHREIBUNG]<br>
+- Konkrete Beispiele: [BEISPIELE]<br>
+- Gewünschtes Ergebnis: [ZIEL]<br><br>
+Erstelle:<br>
+1. Gesprächsleitfaden mit Zeitplanung (30 Min.)<br>
+2. Formulierungsvorschläge für den Einstieg<br>
+3. Mögliche Einwände des Mitarbeiters + Antworten<br>
+4. Vereinbarungspunkte für das Gesprächsende<br>
+5. Follow-up Schritte<br><br>
+Ton: Wertschätzend, klar, konstruktiv.
+            </div>
+            <div class="prompt-tip">💡 Tipp: Üben Sie das Gespräch einmal durch, bevor Sie es führen.</div>
+        </div>
+
+        <div class="prompt-box">
+            <div class="prompt-title">4. Veränderungskommunikation</div>
+            <div class="prompt-use">Für: Change-Management, neue Prozesse, Restrukturierung</div>
+            <div class="prompt-template">
+Erstelle eine Change-Kommunikation für [VERÄNDERUNG] im Unternehmen.<br><br>
+Zielgruppe: [ZIELGRUPPE]<br>
+Zeitrahmen der Veränderung: [ZEITRAUM]<br>
+Hauptbetroffene Abteilungen: [ABTEILUNGEN]<br>
+Größte Sorgen der Mitarbeiter (erwartet): [Sorgen]<br><br>
+Erstelle folgende Kommunikationsbausteine:<br>
+1. Ankündigung (E-Mail, 150 Wörter)<br>
+2. FAQ-Liste mit 10 Fragen und Antworten<br>
+3. Talking Points für Abteilungsleiter<br>
+4. Timeline der Kommunikation (Woche für Woche)<br><br>
+Berücksichtige: Transparenz, Empathie, klare Benefits für Mitarbeiter.
+            </div>
+            <div class="prompt-tip">💡 Tipp: Die ersten 48 Stunden nach der Ankündigung sind entscheidend.</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Reporting & Präsentation</div>
+        
+        <div class="prompt-box">
+            <div class="prompt-title">5. Executive Summary</div>
+            <div class="prompt-use">Für: Aufsichtsrat, Geschäftsführung, Investoren</div>
+            <div class="prompt-template">
+Erstelle eine Executive Summary zu folgendem Thema:<br><br>
+Bericht: [TITEL]<br>
+Zeitraum: [ZEITRAUM]<br>
+Kernzahlen: [KENNZAHLEN]<br>
+Herausforderungen: [PROBLEME]<br>
+Erfolge: [ERFOLGE]<br><br>
+Struktur (max. 1 Seite):<br>
+1. Empfehlung/Kernbotschaft (2 Sätze)<br>
+2. Situation (3-4 Sätze)<br>
+3. Analyse der 3 wichtigsten Punkte<br>
+4. Konkrete Handlungsempfehlungen mit Timeline<br>
+5. Risiken bei Nicht-Handlung<br><br>
+Ton: Sachlich, prägnant, handlungsorientiert.
+            </div>
+            <div class="prompt-tip">💡 Tipp: Die Empfehlung kommt immer zuerst – Führungskräfte haben wenig Zeit.</div>
+        </div>
+
+        <div class="prompt-box">
+            <div class="prompt-title">6. Meeting-Vorbereitung</div>
+            <div class="prompt-use">Für: Wichtige Meetings, Verhandlungen, Statusgespräche</div>
+            <div class="prompt-template">
+Bereite mich auf ein Meeting mit [TEILNEHMER] vor.<br><br>
+Thema: [THEMA]<br>
+Meine Rolle: [ROLLE]<br>
+Mein Ziel für dieses Meeting: [ZIEL]<br>
+Rote Linien (nicht verhandelbar): [GRENZEN]<br>
+Erwartete Gegenargumente: [EINWÄNDE]<br><br>
+Erstelle:<br>
+1. Agenda-Vorschlag (15/30/45 Min. je nach Bedarf)<br>
+2. Drei Eröffnungssätze für verschiedene Szenarien<br>
+3. Wichtigste Argumente (max. 5, mit Daten)<br>
+4. Konzessionen, die ich bereit bin zu machen<br>
+5. Nächste Schritte, die ich vorschlagen werde<br><br>
+Ton: Selbstbewusst, kooperativ, ergebnisorientiert.
+            </div>
+            <div class="prompt-tip">💡 Tipp: Definieren Sie vor dem Meeting Ihre Walk-away-Position.</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">HR & Teamentwicklung</div>
+        
+        <div class="prompt-box">
+            <div class="prompt-title">7. Stellenbeschreibung</div>
+            <div class="prompt-use">Für: Neue Positionen, Nachbesetzung, Rollenwechsel</div>
+            <div class="prompt-template">
+Erstelle eine Stellenbeschreibung für die Position [POSITION].<br><br>
+Unternehmen: [BRANCHE], [GRÖSSE]<br>
+Team: [TEAMSTRUKTUR]<br>
+Gehaltsspielraum: [SPANNE]<br>
+Wichtigste Aufgaben: [AUFGABEN]<br>
+Must-have Skills: [SKILLS]<br>
+Nice-to-have: [ZUSATZ]<br>
+Unternehmenskultur: [KULTUR]<br><br>
+Struktur:<br>
+1. Über uns (50 Wörter)<br>
+2. Deine Aufgaben (5-7 Punkte)<br>
+3. Dein Profil (Must-haves, Nice-to-haves)<br>
+4. Wir bieten (Benefits, Entwicklung)<br>5. Call-to-Action für Bewerbung<br><br>
+Ton: Modern, authentisch, nicht überkandidelt.
+            </div>
+            <div class="prompt-tip">💡 Tipp: Sprechen Sie den Kandidaten direkt an („Du" statt „der Bewerber").</div>
+        </div>
+
+        <div class="prompt-box">
+            <div class="prompt-title">8. Feedback-Formulierung</div>
+            <div class="prompt-use">Für: Leistungsgespräche, 360°-Feedback, Entwicklungspläne</div>
+            <div class="prompt-template">
+Formuliere konstruktives Feedback für [MITARBEITER].<br><br>
+Position: [POSITION]<br>
+Zu bewertende Leistung: [BEREICH]<br>
+Konkrete Beobachtungen: [BEISPIELE]<br>
+Auswirkungen auf Team/Ergebnis: [AUSWIRKUNGEN]<br>
+Erwartete Veränderung: [ZIEL]<br>
+Unterstützung vom Unternehmen: [ANGEBOTE]<br><br>
+Erstelle:<br>
+1. Positive Eröffnung (spezifisch)<br>
+2. Entwicklungspotenzial (sachlich, nicht persönlich)<br>
+3. Konkrete Verbesserungsvorschläge<br>
+4. Unterstützungsangebot<br>
+5. Gemeinsame Vereinbarung für nächste 3 Monate<br><br>
+Ton: Wertschätzend, klar, zukunftsorientiert.
+            </div>
+            <div class="prompt-tip">💡 Tipp: Verhältnis positiv : Entwicklung sollte 3:1 sein.</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Effizienz & Selbstmanagement</div>
+        
+        <div class="prompt-box">
+            <div class="prompt-title">9. Priorisierung & Zeitmanagement</div>
+            <div class="prompt-use">Für: Überlastungssituationen, Priorisierung, Delegation</div>
+            <div class="prompt-template">
+Hilf mir bei der Priorisierung meiner aktuellen Aufgaben.<br><br>
+Meine Rolle: [POSITION]<br>
+Offene Aufgaben:<br>
+1. [AUFGABE 1] - Deadline: [DATUM] - Aufwand: [ZEIT]<br>
+2. [AUFGABE 2] - Deadline: [DATUM] - Aufwand: [ZEIT]<br>
+3. [AUFGABE 3] - Deadline: [DATUM] - Aufwand: [ZEIT]<br>
+4. [AUFGABE 4] - Deadline: [DATUM] - Aufwand: [ZEIT]<br>
+5. [AUFGABE 5] - Deadline: [DATUM] - Aufwand: [ZEIT]<br><br>
+Kriterien: [STRATEGISCHE WICHTIGKEIT vs. DRINGEND]<br>
+Verfügbare Zeit diese Woche: [STUNDEN]<br><br>
+Erstelle:<br>
+1. Eisenhower-Matrix mit Einordnung aller Aufgaben<br>
+2. Empfohlene Reihenfolge (Top 3 Prioritäten)<br>
+3. Delegationsvorschläge (was kann abgegeben werden)<br>
+4. Realistische Zeitplanung<br>
+5. Was sollte verschoben/gestrichen werden?
+            </div>
+            <div class="prompt-tip">💡 Tipp: Arbeiten Sie nie mehr als 3 große Aufgaben pro Tag ab.</div>
+        </div>
+
+        <div class="prompt-box">
+            <div class="prompt-title">10. E-Mail-Effizienz</div>
+            <div class="prompt-use">Für: Schwierige E-Mails, Kundenbeschwerden, Preisverhandlungen</div>
+            <div class="prompt-template">
+Formuliere eine professionelle E-Mail zu folgendem Anlass:<br><br>
+Empfänger: [NAME], [POSITION], [BEZIEHUNG ZU MIR]<br>
+Anlass: [THEMA]<br>
+Mein Ziel: [GEWÜNSCHTES ERGEBNIS]<br>
+Kontext: [HINTERGRUND]<br>
+Problem/Einwand: [SCHWIERIGKEIT]<br>
+Meine Position: [STANDPUNKT]<br>
+Zeitdruck: [DRINGEND/OPTIONAL]<br><br>
+Anforderungen:<br>
+- Betreffzeile: Klick-attraktiv, aber professionell<br>
+- Länge: Max. 150 Wörter im Haupttext<br>
+- Struktur: Einleitung, Kernbotschaft, Call-to-Action<br>
+- Ton: [FORMAL/SEMI-FORMAL/KOOPERATIV]<br>- Abschluss: Nächster Schritt klar benennen
+            </div>
+            <div class="prompt-tip">💡 Tipp: Die Betreffzeile bestimmt, ob die E-Mail geöffnet wird. Investieren Sie hier Zeit.</div>
+        </div>
+    </div>
+
+    <div class="framework-box">
+        <div class="framework-title">PERFECT-Checkliste für jeden Prompt</div>
+        <div class="framework-steps">
+            <div class="step"><strong>P</strong>ersona – Wer soll antworten?</div>
+            <div class="step"><strong>E</strong>rwartung – Was genau soll rauskommen?</div>
+            <div class="step"><strong>R</strong>ahmen – Budget, Zeit, Ressourcen?</div>
+            <div class="step"><strong>F</strong>ormat – Tabelle, Text, Liste?</div>
+            <div class="step"><strong>E</strong>inschränkungen – Was gilt es zu beachten?</div>
+            <div class="step"><strong>C</strong>ontext – Hintergrundinformationen?</div>
+            <div class="step"><strong>T</strong>onfall – Wie soll es klingen?</div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <strong>KI-Expertenraum</strong> | Philipp Zerna<br>
+        Premium KI-Akademie & Business Consulting<br>
+        www.ki-expertenraum.de | zernaphilipp@gmail.com<br><br>
+        © 2026 – Alle Rechte vorbehalten. Für persönlichen Gebrauch im Unternehmen.
+    </div>
+</body>
+</html>

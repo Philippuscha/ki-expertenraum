@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KI-Prompt-Framework für Führungskräfte | KI-Expertenraum</title>
+    <meta name="description" content="10 bewährte Prompt-Templates für Strategie, Kommunikation & Management. Copy-Paste ready, mit PERFECT-Methode.">
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VDQNVYGYE1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-VDQNVYGYE1');
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --accent: #c9a962;
+            --text-primary: #f5f5f5;
+            --text-secondary: #a0a0a0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        .hero {
+            padding: 140px 0 80px;
+            text-align: center;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(201, 169, 98, 0.1);
+            border: 1px solid rgba(201, 169, 98, 0.2);
+            color: var(--accent);
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 24px;
+        }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 400;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        h1 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+        .subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+        .price-box {
+            background: linear-gradient(135deg, rgba(201, 169, 98, 0.1), rgba(201, 169, 98, 0.05));
+            border: 1px solid rgba(201, 169, 98, 0.2);
+            border-radius: 16px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        .price {
+            font-family: 'Playfair Display', serif;
+            font-size: 56px;
+            color: var(--accent);
+            font-weight: 600;
+            line-height: 1;
+        }
+        .price span {
+            font-size: 18px;
+            color: var(--text-secondary);
+            font-family: 'Inter', sans-serif;
+        }
+        .buy-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 18px 40px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            margin-top: 24px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .buy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 169, 98, 0.3);
+        }
+        .features {
+            padding: 60px 0;
+            background: var(--bg-secondary);
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(201, 169, 98, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        .feature h3 {
+            font-size: 16px;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+        .feature p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        .content {
+            padding: 80px 0;
+        }
+        .content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .prompt-preview {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+        .prompt-preview h3 {
+            color: var(--accent);
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+        .prompt-preview .category {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+        .prompt-preview .text {
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: #888;
+            line-height: 1.6;
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            border-radius: 8px;
+            white-space: pre-wrap;
+        }
+        .framework {
+            background: linear-gradient(135deg, rgba(201, 169, 98, 0.1), rgba(201, 169, 98, 0.05));
+            border: 1px solid rgba(201, 169, 98, 0.2);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 40px 0;
+        }
+        .framework h3 {
+            text-align: center;
+            color: var(--accent);
+            font-size: 18px;
+            margin-bottom: 24px;
+        }
+        .framework-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+        .fw-item {
+            text-align: center;
+            padding: 16px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
+        }
+        .fw-item strong {
+            color: var(--accent);
+            font-size: 20px;
+        }
+        .fw-item span {
+            display: block;
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+        .guarantee {
+            padding: 60px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .guarantee-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+        .guarantee h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+        .guarantee p {
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .framework-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero {
+                padding: 100px 0 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="container">
+            <div class="badge">Prompt-Framework</div>
+            <h1>KI-Prompts für <em>Führungskräfte</em></h1>
+            <p class="subtitle">10 bewährte Templates für Strategie, Kommunikation & Management. Copy-Paste ready, mit PERFECT-Methode.</p>
+            
+            <div class="price-box">
+                <div class="price">9,90€ <span>inkl. MwSt</span></div>
+                <p style="color: var(--text-secondary); margin-top: 12px; font-size: 14px;">Einmaliger Kauf • Sofortiger Download • Inkl. PERFECT-Methode</p>
+                <a href="#" class="buy-btn" onclick="alert('Stripe-Integration folgt. Bitte kontaktieren Sie mich direkt.')">
+                    Jetzt kaufen & downloaden →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">📋</div>
+                    <div>
+                        <h3>10 Copy-Paste Templates</h3>
+                        <p>Fertige Prompts für Strategie, HR, Kommunikation, Reporting. Einfach Variablen anpassen.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🎯</div>
+                    <div>
+                        <h3>PERFECT-Methode</h3>
+                        <p>Lerne das 7-Schritte-Framework für eigene Prompts. Nie wieder schlechte KI-Ergebnisse.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <div>
+                        <h3>Sofort einsetzbar</h3>
+                        <p>Keine Schulung nötig. Innerhalb von 5 Minuten produktiver mit ChatGPT & Co.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💼</div>
+                    <div>
+                        <h3>Executive Level</h3>
+                        <p>Für Führungskräfte entwickelt: Strategie, Entscheidungen, schwierige Gespräche.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <h2>Ein Blick ins Framework</h2>
+            
+            <div class="prompt-preview">
+                <div class="category">Strategie & Entscheidungsfindung</div>
+                <h3>Strategische Analyse</h3>
+                <div class="text">Handel als strategischer Berater mit 20 Jahren Erfahrung im [BRANCHE]-Sektor. Analysiere [THEMA] für ein [UNTERNEHMENSGRÖSSE]-Unternehmen...
+
+Liefere:
+1. Drei strategische Optionen mit Vor-/Nachteilen
+2. Risikobewertung pro Option (1-10 Skala)
+3. Konkrete nächste Schritte
+4. Kritische Erfolgsfaktoren</div>
+            </div>
+
+            <div class="prompt-preview">
+                <div class="category">Kommunikation & Führung</div>
+                <h3>Schwieriges Mitarbeitergespräch</h3>
+                <div class="text">Bereite mich auf ein Führungsgespräch mit [MITARBEITERNAME] vor.
+
+Kontext:
+- Position: [POSITION]
+- Problem: [PROBLEMBESCHREIBUNG]
+- Gewünschtes Ergebnis: [ZIEL]
+
+Erstelle:
+1. Gesprächsleitfaden mit Zeitplanung
+2. Formulierungsvorschläge für den Einstieg
+3. Mögliche Einwände + Antworten</div>
+            </div>
+
+            <div class="prompt-preview">
+                <div class="category">Reporting & Präsentation</div>
+                <h3>Executive Summary</h3>
+                <div class="text">Erstelle eine Executive Summary zu folgendem Thema:
+
+Bericht: [TITEL]
+Kernzahlen: [KENNZAHLEN]
+Herausforderungen: [PROBLEME]
+
+Struktur (max. 1 Seite):
+1. Empfehlung/Kernbotschaft (2 Sätze)
+2. Situation (3-4 Sätze)
+3. Analyse der 3 wichtigsten Punkte
+4. Konkrete Handlungsempfehlungen</div>
+            </div>
+
+            <div class="framework">
+                <h3>Die PERFECT-Methode für eigene Prompts</h3>
+                <div class="framework-grid">
+                    <div class="fw-item">
+                        <strong>P</strong>
+                        <span>ersona</span>
+                    </div>
+                    <div class="fw-item">
+                        <strong>E</strong>
+                        <span>rwartung</span>
+                    </div>
+                    <div class="fw-item">
+                        <strong>R</strong>
+                        <span>ahmen</span>
+                    </div>
+                    <div class="fw-item">
+                        <strong>F</strong>
+                        <span>ormat</span>
+                    </div>
+                    <div class="fw-item">
+                        <strong>E</strong>
+                        <span>inschränk.</span>
+                    </div>
+                    <div class="fw-item">
+                        <strong>C</strong>
+                        <span>ontext</span>
+                    </div>
+                    <div class="fw-item">
+                        <strong>T</strong>
+                        <span>onfall</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="price-box" style="margin-top: 60px;">
+                <div class="price">9,90€ <span>inkl. MwSt</span></div>
+                <a href="#" class="buy-btn" onclick="alert('Stripe-Integration folgt. Bitte kontaktieren Sie mich direkt.')">
+                    Jetzt kaufen & downloaden →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="guarantee">
+        <div class="container">
+            <div class="guarantee-icon">🛡️</div>
+            <h3>14 Tage Geld-zurück-Garantie</h3>
+            <p>Nicht zufrieden? Schreiben Sie mir eine E-Mail und Sie bekommen Ihr Geld zurück. Keine Fragen, kein Stress.</p>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KI-Checkliste für KMU | KI-Expertenraum</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 15mm;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Georgia', serif;
+            color: #1a1a1a;
+            line-height: 1.6;
+            background: #fff;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20mm;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #c9a962;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .logo {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #c9a962;
+            margin-bottom: 10px;
+        }
+        h1 {
+            font-family: 'Georgia', serif;
+            font-size: 28px;
+            font-weight: 400;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+        .subtitle {
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
+        }
+        .intro {
+            background: #f9f9f9;
+            border-left: 3px solid #c9a962;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            font-size: 13px;
+            color: #444;
+        }
+        .checklist {
+            margin-bottom: 30px;
+        }
+        .category {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #c9a962;
+            margin: 25px 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            padding: 12px;
+            background: #fafafa;
+            border-radius: 4px;
+        }
+        .checkbox {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #c9a962;
+            border-radius: 3px;
+            margin-right: 12px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .content h3 {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #1a1a1a;
+        }
+        .content p {
+            font-size: 11px;
+            color: #666;
+            line-height: 1.5;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+            font-size: 11px;
+            color: #999;
+        }
+        .footer strong {
+            color: #c9a962;
+        }
+        .page-break {
+            page-break-after: always;
+        }
+        @media print {
+            body {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">KI-EXPERTENRAUM</div>
+        <h1>KI-Checkliste für KMU</h1>
+        <p class="subtitle">15 Punkte für den erfolgreichen KI-Einstieg</p>
+    </div>
+
+    <div class="intro">
+        <strong>So nutzen Sie diese Checkliste:</strong><br>
+        Arbeiten Sie die 15 Punkte Schritt für Schritt ab. Jeder abgehakte Punkt bringt Sie näher an eine rechtssichere, produktive KI-Nutzung im Unternehmen. Zeitaufwand: 2-4 Wochen.
+    </div>
+
+    <div class="checklist">
+        <div class="category">Phase 1: Vorbereitung (Woche 1)</div>
+        
+        <div class="item">
+            <div class="checkbox"></div>
+            <div class="content">
+                <h3>Verantwortlichen benennen</h3>
+                <p>Bestimmen Sie eine Person, die den KI-Einstieg koordiniert. Das kann der Geschäftsführer, ein IT-Verantwortlicher oder externer Berater sein.</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="checkbox"></div>
+            <div class="content">
+                <h3>Erste Use-Case identifizieren</h3>
+                <p>Wählen Sie einen konkreten Anwendungsfall mit hohem ROI-Potenzial: E-Mail-Management, Dokumentenerstellung oder Kundenkommunikation.</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="checkbox"></div>
+            <div class="content">
+                <h3>Datenschutz-Grundlagen prüfen</h3>
+                <p>Überprüfen Sie, welche Daten Sie verarbeiten dürfen. Keine personenbezogenen Daten in öffentliche KI-Tools eingeben ohne Auftragsverarbeitung.</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="checkbox"></div>
+            <div class="content">
+                <h3>Tool-Stack definieren</h3>
+                <p>Entscheiden Sie sich für max. 3 Tools in der Startphase. ChatGPT Plus, Microsoft Copilot oder Claude – weniger ist mehr.</p>
+            </div>
+        </div>
+
+        <div class="category">Phase 2: Umsetzung (Woche 2-3)</div>
+
+        <div class="item">
+            <div class="checkbox"></div>
+            <div class="content">
+                <h3>Test-Accounts einrichten</h3>
+                <p>Richten Sie geschäftliche Accounts ein (nicht privat). Nutzen Sie die 14-tägigen Testphasen, um Funktionen zu evaluieren.</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="checkbox"></div>
+            <div class="content">
+                <h3>Grundlegende Prompt-Schulung</h3>
+                <p>Schulen Sie 1-2 Key-User im effektiven Prompting: Kontext, Rolle, konkrete Anweisung, gewünschtes Format.</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="checkbox"></div>
+            <div class="content">
+                <h3>Erste Automatisierung bauen</h3>
+                <p>Automatisieren Sie einen wiederkehrenden Prozess: E-Mail-Beantwortung, Meeting-Zusammenfassungen oder Standard-Dokumente.</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="checkbox"></div>
+            <div class="content">
+                <h3>Ergebnisse dokumentieren</h3>
+                <p>Notieren Sie Zeitersparnis und Qualität. Was funktioniert? Wo sind Nachbesserungen nötig? Daten für ROI-Berechnung.</p>
+            </div>
+        </div>
+
+        <div class="category">Phase 3: Compliance & Skalierung (Woche 4)</div>
+
+        <div class="item">
+            <div class="checkbox"></div>
+            <div class="content">
+                <h3>EU AI Act Check durchführen</h3>
+                <p>Prüfen Sie, ob Ihre KI-Nutzung unter den EU AI Act fällt. Die meisten KMU-Use-Cases sind unproblematisch, aber dokumentieren Sie es.</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="checkbox"></div>
+            <div class="content">
+                <h3>AVV mit Tool-Anbietern prüfen</h3>
+                <p>Stellen Sie sicher, dass Auftragsverarbeitungsverträge vorliegen (bei ChatGPT Enterprise, Microsoft 365 Copilot etc.).</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="checkbox"></div>
+            <div class="content">
+                <h3>Mitarbeiter informieren</h3>
+                <p>Kommunizieren Sie transparent: Welche Tools werden genutzt? Welche Daten dürfen eingegeben werden? Wohin bei Fragen?</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="checkbox"></div>
+            <div class="content">
+                <h3>Prompt-Bibliothek anlegen</h3>
+                <p>Sammeln Sie erfolgreiche Prompts an zentraler Stelle (Notion, SharePoint). Vermeidet Doppelarbeit und sichert Know-how.</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="checkbox"></div>
+            <div class="content">
+                <h3>Monatliches Review einführen</h3>
+                <p>Planen Sie 30 Minuten pro Monat für KI-Optimierung ein: Neue Features, Prompt-Verbesserungen, zusätzliche Use-Cases.</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="checkbox"></div>
+            <div class="content">
+                <h3>ROI berechnen</h3>
+                <p>Ermitteln Sie die Einsparung: (Zeitersparnis pro Woche × Stundensatz) − Tool-Kosten = monatlicher ROI.</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="checkbox"></div>
+            <div class="content">
+                <h3>Nächsten Use-Case planen</h3>
+                <p>Wählen Sie den nächsten Anwendungsfall aus. Skalieren Sie schrittweise – nicht alles auf einmal.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <strong>KI-Expertenraum</strong> | Philipp Zerna<br>
+        Premium KI-Akademie & Business Consulting<br>
+        www.ki-expertenraum.de | zernaphilipp@gmail.com
+    </div>
+</body>
+</html>
