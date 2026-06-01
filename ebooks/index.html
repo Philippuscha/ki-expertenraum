@@ -481,172 +481,6 @@
             .features-list { gap: 24px; }
             .footer-grid { grid-template-columns: 1fr; }
         }
-    /* Modal Styles */
-.modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(10px);
-    z-index: 10000;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.modal-overlay.show {
-    display: flex;
-}
-
-.modal {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 40px;
-    max-width: 450px;
-    width: 100%;
-    position: relative;
-    animation: modalSlide 0.3s ease;
-}
-
-@keyframes modalSlide {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.modal-close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: none;
-    border: none;
-    color: var(--text-muted);
-    font-size: 24px;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-.modal-close:hover {
-    color: var(--accent);
-}
-
-.modal h3 {
-    font-size: 24px;
-    margin-bottom: 12px;
-    color: var(--text-primary);
-}
-
-.modal p {
-    color: var(--text-secondary);
-    margin-bottom: 24px;
-    font-size: 15px;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text-muted);
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 14px 16px;
-    background: var(--bg-primary);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    color: var(--text-primary);
-    font-size: 15px;
-    transition: border-color 0.3s;
-}
-
-.form-group input:focus {
-    outline: none;
-    border-color: var(--accent);
-}
-
-.form-group input::placeholder {
-    color: var(--text-muted);
-}
-
-.checkbox-group {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    margin-bottom: 24px;
-}
-
-.checkbox-group input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
-    margin-top: 2px;
-    accent-color: var(--accent);
-}
-
-.checkbox-group label {
-    font-size: 13px;
-    color: var(--text-secondary);
-    line-height: 1.5;
-}
-
-.checkbox-group a {
-    color: var(--accent);
-    text-decoration: none;
-}
-
-.modal-submit {
-    width: 100%;
-    background: var(--accent);
-    color: var(--bg-primary);
-    padding: 16px;
-    border: none;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.modal-submit:hover {
-    background: var(--accent-dark);
-    transform: translateY(-2px);
-}
-
-.success-message {
-    display: none;
-    text-align: center;
-    padding: 20px 0;
-}
-
-.success-message.show {
-    display: block;
-}
-
-.success-icon {
-    font-size: 48px;
-    margin-bottom: 16px;
-}
-
-.success-message h3 {
-    margin-bottom: 12px;
-}
-
-.success-message p {
-    margin-bottom: 24px;
-}
 </style>
 </head>
 <body>
@@ -735,10 +569,10 @@
                             </div>
                             <h3 class="serif">Die 10 KI-Prompts für KMU</h3>
                             <p>Die wichtigsten Prompts für kleine und mittlere Unternehmen – sofort einsetzbar und erprobt. Inklusive Vorlagen für Marketing, Kundenservice und interne Prozesse.</p>
-                            <button class="ebook-btn" onclick="openModal('Die 10 KI-Prompts für KMU', '/ebooks/Die_10_KI-Prompts_fuer_KMU.pdf')">
+                            <a href="/ebooks/Die_10_KI-Prompts_fuer_KMU.pdf" class="ebook-btn" download>
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-                                Kostenlos downloaden
-                            </button>
+                                Jetzt downloaden
+                            </a>
                         </div>
                     </div>
 
@@ -755,10 +589,10 @@
                             </div>
                             <h3 class="serif">EU AI Act Survival Guide</h3>
                             <p>Alles, was du über die EU KI-Verordnung wissen musst – kompakt und verständlich erklärt. Mit Compliance-Checkliste und Risikobewertung für dein Unternehmen.</p>
-                            <button class="ebook-btn" onclick="openModal('EU AI Act Survival Guide', '/ebooks/EU-AI-Act-Survival-Guide.pdf')">
+                            <a href="/ebooks/EU-AI-Act-Survival-Guide.pdf" class="ebook-btn" download>
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-                                Kostenlos downloaden
-                            </button>
+                                Jetzt downloaden
+                            </a>
                         </div>
                     </div>
 
@@ -775,10 +609,10 @@
                             </div>
                             <h3 class="serif">KI-Automation für Büros</h3>
                             <p>10 bewährte Workflows für sofortige Effizienzsteigerung. Von der E-Mail-Verarbeitung bis zur Dokumentenerstellung – mit Schritt-für-Schritt Anleitungen.</p>
-                            <button class="ebook-btn" onclick="openModal('KI-Automation für Büros', '/ebooks/KI-Automatisierungen-Ebook.pdf')">
+                            <a href="/ebooks/KI-Automatisierungen-Ebook.pdf" class="ebook-btn" download>
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-                                Kostenlos downloaden
-                            </button>
+                                Jetzt downloaden
+                            </a>
                         </div>
                     </div>
 
@@ -795,10 +629,10 @@
                             </div>
                             <h3 class="serif">KI Tools 2026</h3>
                             <p>Die essenziellen Strategien für Führungskräfte. Wie du KI-Tools effektiv im Management einsetzt – von der Strategieentwicklung bis zur Team-Kommunikation.</p>
-                            <button class="ebook-btn" onclick="openModal('KI Tools 2026', '/ebooks/KI_Tools_Ebook_2026.pdf')">
+                            <a href="/ebooks/KI_Tools_Ebook_2026.pdf" class="ebook-btn" download>
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-                                Kostenlos downloaden
-                            </button>
+                                Jetzt downloaden
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -859,114 +693,13 @@
         </div>
     </footer>
 
-    <!-- Email Capture Modal -->
-    <div class="modal-overlay" id="downloadModal">
-        <div class="modal">
-            <button class="modal-close" onclick="closeModal()">×</button>
-            
-            <div id="modalForm">
-                <h3 class="serif">📧 Fast fertig!</h3>
-                <p>Gib deine E-Mail-Adresse ein, um <strong id="ebookTitle">das Ebook</strong> zu erhalten. Wir schicken dir den Download-Link sofort zu.</p>
-                
-                <form onsubmit="handleSubmit(event)">
-                    <div class="form-group">
-                        <label for="name">Vorname</label>
-                        <input type="text" id="name" name="name" placeholder="Max" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">E-Mail-Adresse *</label>
-                        <input type="email" id="email" name="email" placeholder="max@firma.de" required>
-                    </div>
-                    
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="newsletter" name="newsletter" checked>
-                        <label for="newsletter">Ja, ich möchte den KI-Expertenraum Newsletter mit Tipps und Updates erhalten (kostenlos, jederzeit abbestellbar).</label>
-                    </div>
-                    
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="datenschutz" name="datenschutz" required>
-                        <label for="datenschutz">Ich akzeptiere die <a href="/datenschutz/" target="_blank">Datenschutzerklärung</a> *</label>
-                    </div>
-                    
-                    <button type="submit" class="modal-submit">Download-Link anfordern →</button>
-                </form>
-            </div>
-            
-            <div class="success-message" id="successMessage">
-                <div class="success-icon">🎉</div>
-                <h3>Perfekt!</h3>
-                <p>Check dein Postfach – der Download-Link ist unterwegs!</p>
-                <p style="font-size: 13px; color: var(--text-muted); margin-top: 16px;">Falls du nichts findest, schau im Spam-Ordner nach.</p>
-                <a href="/kurse/" class="cta-button" style="margin-top: 20px;">Zu den Kursen →</a>
-            </div>
-        </div>
-    </div>
-
     <script>
-        let currentDownloadUrl = '';
-        
         function toggleMenu() {
             document.getElementById('mobileMenu').classList.toggle('show');
         }
         function closeMenu() {
             document.getElementById('mobileMenu').classList.remove('show');
         }
-        
-        function openModal(ebookName, downloadUrl) {
-            currentDownloadUrl = downloadUrl;
-            document.getElementById('ebookTitle').textContent = ebookName;
-            document.getElementById('downloadModal').classList.add('show');
-            document.getElementById('modalForm').style.display = 'block';
-            document.getElementById('successMessage').classList.remove('show');
-        }
-        
-        function closeModal() {
-            document.getElementById('downloadModal').classList.remove('show');
-        }
-        
-        function handleSubmit(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const newsletter = document.getElementById('newsletter').checked;
-            
-            // Speichere Daten (später an Backend/API senden)
-            const leadData = {
-                name: name,
-                email: email,
-                ebook: document.getElementById('ebookTitle').textContent,
-                newsletter: newsletter,
-                timestamp: new Date().toISOString()
-            };
-            
-            // Speichere in localStorage für jetzt (bis Backend eingerichtet)
-            let leads = JSON.parse(localStorage.getItem('kiLeads') || '[]');
-            leads.push(leadData);
-            localStorage.setItem('kiLeads', JSON.stringify(leads));
-            
-            // Zeige Erfolgsmeldung
-            document.getElementById('modalForm').style.display = 'none';
-            document.getElementById('successMessage').classList.add('show');
-            
-            // Starte Download nach 2 Sekunden
-            setTimeout(() => {
-                window.open(currentDownloadUrl, '_blank');
-            }, 2000);
-            
-            // Email an dich senden (durch Formspree ersetzen)
-            // fetch('https://formspree.io/f/DEINE_FORM_ID', {
-            //     method: 'POST',
-            //     headers: { 'Content-Type': 'application/json' },
-            //     body: JSON.stringify(leadData)
-            // });
-        }
-        
-        // Schließe Modal bei Klick außerhalb
-        document.getElementById('downloadModal').addEventListener('click', function(e) {
-            if (e.target === this) closeModal();
-        });
     </script>
 </body>
 </html>
