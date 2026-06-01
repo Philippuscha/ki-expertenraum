@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KI-Checkliste für KMU | Der vollständige 4-Wochen-Plan</title>
+    <meta name="description" content="15 konkrete Checkpunkte für rechtssicheren KI-Einstieg. Mit Tool-Entscheidungsmatrix, ROI-Rechner und AVV-Übersicht.">
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VDQNVYGYE1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-VDQNVYGYE1');
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-card: rgba(20, 20, 20, 0.8);
+            --text-primary: #f5f5f5;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --accent: #c9a962;
+            --border: rgba(255, 255, 255, 0.08);
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+        
+        .logo-mark {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            color: var(--bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            border-radius: 8px;
+        }
+        
+        .logo-text {
+            font-weight: 600;
+            font-size: 18px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .hero {
+            padding: 160px 0 80px;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .hero-text {
+            max-width: 540px;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: rgba(201, 169, 98, 0.1);
+            border: 1px solid rgba(201, 169, 98, 0.2);
+            color: var(--accent);
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 24px;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(36px, 4vw, 48px);
+            font-weight: 400;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        h1 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+        
+        .price-box {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+        
+        .price {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .price span {
+            font-size: 16px;
+            color: var(--text-muted);
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 32px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: var(--bg-primary);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 169, 98, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        
+        .hero-image {
+            position: relative;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        }
+        
+        .features {
+            padding: 80px 0;
+            background: var(--bg-secondary);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+        
+        .section-title h2 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+        
+        .section-title p {
+            color: var(--text-secondary);
+            font-size: 18px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+        
+        .feature {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s;
+        }
+        
+        .feature:hover {
+            border-color: rgba(201, 169, 98, 0.2);
+            transform: translateY(-4px);
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+        
+        .feature h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        
+        .feature p {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        .cta {
+            padding: 100px 0;
+            background: var(--bg-primary);
+            text-align: center;
+        }
+        
+        .cta-box {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .cta-box h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+        
+        .cta-box p {
+            color: var(--text-secondary);
+            font-size: 18px;
+            margin-bottom: 32px;
+        }
+        
+        .footer {
+            background: var(--bg-primary);
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+        
+        .footer p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+        
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-text {
+                max-width: 100%;
+            }
+            
+            .button-group {
+                justify-content: center;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <span class="logo-mark">K</span>
+                <span class="logo-text">KI<span style="color: var(--accent);">.</span>Expertenraum</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="/">Start</a></li>
+                <li><a href="/kurse/">Kurse</a></li>
+                <li><a href="/ressourcen/">Ressourcen</a></li>
+                <li><a href="/kontakt.html">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <span class="badge">15-Punkte-System</span>
+                        <h1>KI-Checkliste für <em>KMU</em></h1>
+                        <p class="subtitle">Der vollständige 4-Wochen-Plan für rechtssicheren KI-Einstieg. Mit Tool-Entscheidungsmatrix, ROI-Rechner und AVV-Übersicht.</p>
+                        
+                        <div class="price-box">
+                            <span class="price">4,99€ <span>inkl. MwSt</span></span>
+                        </div>
+                        
+                        <div class="button-group">
+                            <a href="/downloads/ki-checkliste-kmu.html" class="btn btn-primary" target="_blank">
+                                📄 Vorschau öffnen
+                            </a>
+                            <a href="mailto:zernaphilipp@gmail.com?subject=Bestellung: KI-Checkliste für KMU" class="btn btn-secondary">
+                                🛒 Jetzt kaufen
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-image">
+                        <div style="background: linear-gradient(135deg, #2d5a3d 0%, #3d7a4d 100%); aspect-ratio: 4/5; border-radius: 16px; display: flex; align-items: center; justify-content: center;">
+                            <div style="text-align: center; color: #fff; padding: 40px;">
+                                <div style="font-size: 80px; margin-bottom: 20px;">📋</div>
+                                <div style="font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 600;">KI-Checkliste</div>
+                                <div style="font-size: 16px; opacity: 0.9; margin-top: 10px;">15 Punkte • 4 Wochen • Rechtssicher</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Ein <em>System</em>, keine Liste</h2>
+                    <p>Nicht nur abhaken – sondern fundiert KI etablieren.</p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Tool-Entscheidungsmatrix</h3>
+                        <p>Welches Tool passt zu Ihrem Use-Case? ChatGPT, Claude, Gemini – ehrliche Einordnung mit Preisen und Limits.</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <div class="feature-icon">⚖️</div>
+                        <h3>DSGVO-Drei-Stufen-Modell</h3>
+                        <p>Klare Regeln: Was dürfen Sie eingeben? Was nicht? Mit konkreten Beispielen statt juristischem Fachchinesisch.</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <div class="feature-icon">📊</div>
+                        <h3>ROI-Rechner inklusive</h3>
+                        <p>Formel + Beispiel: Berechnen Sie Ihre Zeitersparnis und den Return on Investment.</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <div class="feature-icon">📋</div>
+                        <h3>AVV-Übersicht</h3>
+                        <p>Welche Anbieter haben Auftragsverarbeitungsverträge? Übersichtstabelle für ChatGPT, Claude, Microsoft & Co.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <div class="cta-box">
+                    <h2>Rechtssicher in 4 <em>Wochen</em></h2>
+                    <p>Von der ersten Idee bis zur produktiven, dokumentierten KI-Nutzung.</p>
+                    <div class="button-group" style="justify-content: center;">
+                        <a href="/downloads/ki-checkliste-kmu.html" class="btn btn-primary" target="_blank">
+                            📄 Vorschau öffnen
+                        </a>
+                        <a href="mailto:zernaphilipp@gmail.com?subject=Bestellung: KI-Checkliste für KMU" class="btn btn-secondary">
+                            🛒 Jetzt kaufen
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 KI-Expertenraum | Philipp Zerna</p>
+        </div>
+    </footer>
+</body>
+</html>
