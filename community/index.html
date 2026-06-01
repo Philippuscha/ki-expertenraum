@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community | KI-Expertenraum - Fragen & Austausch</title>
+    <meta name="description" content="Austausch und Diskussion über KI, EU AI Act und Automation. Stelle Fragen und lerne von anderen.">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-card: rgba(20, 20, 20, 0.8);
+            --text-primary: #f5f5f5;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --accent: #c9a962;
+            --border: rgba(255, 255, 255, 0.08);
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+        
+        .logo span { color: var(--accent); }
+        
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+        
+        nav a:hover { color: var(--accent); }
+        
+        .hero {
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+        
+        .hero h1 span {
+            color: var(--accent);
+        }
+        
+        .hero p {
+            color: var(--text-secondary);
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        
+        .stat-label {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        
+        .new-question-btn {
+            display: block;
+            width: 100%;
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 30px 0;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        .discussions {
+            padding-bottom: 60px;
+        }
+        
+        .discussion-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .discussion-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-right: 12px;
+            font-size: 16px;
+        }
+        
+        .user-info h4 {
+            font-size: 15px;
+            margin-bottom: 2px;
+        }
+        
+        .user-info .time {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        
+        .discussion-content h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        
+        .discussion-content h3:hover {
+            color: var(--accent);
+        }
+        
+        .discussion-content p {
+            color: var(--text-secondary);
+            font-size: 15px;
+            margin-bottom: 16px;
+        }
+        
+        .tags {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        
+        .tag {
+            background: rgba(201, 169, 98, 0.1);
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+        
+        .actions {
+            display: flex;
+            gap: 20px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+        }
+        
+        .action-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .action-btn:hover {
+            color: var(--accent);
+        }
+        
+        .like-btn.liked {
+            color: #ff6b6b;
+        }
+        
+        .save-btn.saved {
+            color: var(--accent);
+        }
+        
+        .replies {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+        
+        .reply {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding: 16px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 12px;
+        }
+        
+        .reply-content {
+            flex: 1;
+        }
+        
+        .reply-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        
+        .reply-author {
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .reply-time {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        
+        .reply p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+        
+        .best-answer {
+            border-left: 3px solid var(--accent);
+            background: rgba(201, 169, 98, 0.05);
+        }
+        
+        .best-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .modal.show {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .modal-header h2 {
+            font-size: 24px;
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 15px;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        .success-msg {
+            display: none;
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .success-msg.show {
+            display: block;
+        }
+        
+        .success-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">KI<span>.</span>Expertenraum</a>
+                <nav>
+                    <a href="/">Start</a>
+                    <a href="/kurse/">Kurse</a>
+                    <a href="/ebooks/">Ebooks</a>
+                    <a href="/blog/">Blog</a>
+                    <a href="/community/">Community</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Community <span>Diskussionen</span></h1>
+                <p>Stelle Fragen, teile Erfahrungen und lerne von anderen KI-Anwendern</p>
+                
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">Diskussionen</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">Mitglieder</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">heute aktiv</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="discussions">
+            <div class="container">
+                <button class="new-question-btn" onclick="openModal()">+ Neue Frage stellen</button>
+
+                <!-- Diskussion 1 -->
+                <div class="discussion-card">
+                    <div class="discussion-header">
+                        <div class="avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">MW</div>
+                        <div class="user-info">
+                            <h4>Michael Weber</h4>
+                            <span class="time">vor 2 Stunden • Geschäftsführer</span>
+                        </div>
+                    </div>
+                    <div class="discussion-content">
+                        <h3>Welche KI-Tools nutzt ihr für die Erstellung von Angeboten?</h3>
+                        <p>Wir erstellen derzeit Angebote manuell in Word. Das dauert ewig und sieht nie so professionell aus wie bei den Großen. Hat jemand Erfahrung mit KI-Tools für Angebotsvorlagen und automatisierte Textbausteine? Soll datenschutzkonform sein.</p>
+                        <div class="tags">
+                            <span class="tag">Praxis</span>
+                            <span class="tag">Tools</span>
+                            <span class="tag">B2B</span>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button class="action-btn like-btn" onclick="toggleLike(this, 'post1')" data-post="post1">
+                            <span class="like-icon">👍</span>
+                            <span class="like-count">12</span>
+                        </button>
+                        <button class="action-btn">💬 3 Antworten</button>
+                        <button class="action-btn save-btn" onclick="toggleSave(this, 'post1')">🔖 Speichern</button>
+                    </div>
+
+                    <div class="replies">
+                        <div class="reply best-answer">
+                            <div class="avatar" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">SK</div>
+                            <div class="reply-content">
+                                <div class="reply-header">
+                                    <span class="reply-author">Sarah Klein<span class="best-badge">BESTE ANTWORT</span></span>
+                                    <span class="reply-time">vor 1 Stunde</span>
+                                </div>
+                                <p>Wir nutzen seit 3 Monaten ChatGPT mit maßgeschneiderten Prompts für Angebote. Die Zeitersparnis ist enorm! Wichtig: Enterprise-Version für Datenschutz. Ich habe meine Prompts im Ebook "10 KI-Prompts für KMU" von Philipp beschrieben.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="reply">
+                            <div class="avatar" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">TB</div>
+                            <div class="reply-content">
+                                <div class="reply-header">
+                                    <span class="reply-author">Thomas Bauer</span>
+                                    <span class="reply-time">vor 45 Minuten</span>
+                                </div>
+                                <p>Canva AI hat bei uns gut funktioniert für das Design. Kombiniert mit Claude für die Texte. Kostenlos und einfach zu bedienen.</p>
+                            </div>
+                        </div>
+
+                        <div class="reply">
+                            <div class="avatar" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">LM</div>
+                            <div class="reply-content">
+                                <div class="reply-header">
+                                    <span class="reply-author">Lisa Müller</span>
+                                    <span class="reply-time">vor 20 Minuten</span>
+                                </div>
+                                <p>@Michael Wir sind gerade dabei, das EU AI Act Ebook durchzuarbeiten. Dort gibt es auch eine Checkliste für datenschutzkonforme Tools. Sehr hilfreich!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Diskussion 2 -->
+                <div class="discussion-card">
+                    <div class="discussion-header">
+                        <div class="avatar" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #333;">AH</div>
+                        <div class="user-info">
+                            <h4>Andreas Hoffmann</h4>
+                            <span class="time">vor 5 Stunden • IT-Leiter</span>
+                        </div>
+                    </div>
+                    <div class="discussion-content">
+                        <h3>EU AI Act: Ab wann müssen wir handeln?</h3>
+                        <p>Uns wurde gesagt, ab August 2025 gilt der EU AI Act. Aber ich lese überall unterschiedliche Daten. Hat jemand verlässliche Infos? Wir nutzen bereits ChatGPT im Team und wollen nichts falsch machen.</p>
+                        <div class="tags">
+                            <span class="tag">EU AI Act</span>
+                            <span class="tag">Recht</span>
+                            <span class="tag">Compliance</span>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button class="action-btn like-btn" onclick="toggleLike(this, 'post2')" data-post="post2">
+                            <span class="like-icon">👍</span>
+                            <span class="like-count">23</span>
+                        </button>
+                        <button class="action-btn">💬 4 Antworten</button>
+                        <button class="action-btn save-btn" onclick="toggleSave(this, 'post2')">🔖 Speichern</button>
+                    </div>
+
+                    <div class="replies">
+                        <div class="reply best-answer">
+                            <div class="avatar" style="background: var(--accent); color: var(--bg-primary);">PZ</div>
+                            <div class="reply-content">
+                                <div class="reply-header">
+                                    <span class="reply-author">Philipp Zerna<span class="best-badge">EXPERTE</span></span>
+                                    <span class="reply-time">vor 4 Stunden</span>
+                                </div>
+                                <p>Die Verordnung tritt schrittweise in Kraft: Ab Februar 2025 Verbot bestimmter KI-Praktiken, ab August 2025 Pflichten für Hochrisiko-KI. Für ChatGPT im Unternehmen: Solange ihr keine personenbezogenen Daten in die öffentliche Version eingibt, seid ihr auf der sicheren Seite. Mehr dazu im kostenlosen EU AI Act Guide!</p>
+                            </div>
+                        </div>
+
+                        <div class="reply">
+                            <div class="avatar" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); color: #333;">JF</div>
+                            <div class="reply-content">
+                                <div class="reply-header">
+                                    <span class="reply-author">Julia Fischer</span>
+                                    <span class="reply-time">vor 3 Stunden</span>
+                                </div>
+                                <p>Wir haben unsere Datenschutzbeauftragte eingeschaltet. Ihre Empfehlung: Jetzt schon Enterprise-Versionen evaluieren, nicht warten bis August. Besser früh als zu spät.</p>
+                            </div>
+                        </div>
+
+                        <div class="reply">
+                            <div class="avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">MW</div>
+                            <div class="reply-content">
+                                <div class="reply-header">
+                                    <span class="reply-author">Michael Weber</span>
+                                    <span class="reply-time">vor 2 Stunden</span>
+                                </div>
+                                <p>@Andreas Wir haben gerade den Kurs "EU AI Act für Unternehmen" gebucht. Philipp geht da Schritt für Schritt durch alle Pflichten. Vielleicht was für euch?</p>
+                            </div>
+                        </div>
+
+                        <div class="reply">
+                            <div class="avatar" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);">CK</div>
+                            <div class="reply-content">
+                                <div class="reply-header">
+                                    <span class="reply-author">Christian Koch</span>
+                                    <span class="reply-time">vor 1 Stunde</span>
+                                </div>
+                                <p>Gibt es eigentlich schon Bußgelder? Oder ist das erst ab 2026 relevant?</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Diskussion 3 -->
+                <div class="discussion-card">
+                    <div class="discussion-header">
+                        <div class="avatar" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); color: #333;">NS</div>
+                        <div class="user-info">
+                            <h4>Nina Schmidt</h4>
+                            <span class="time">vor 8 Stunden • Marketing Managerin</span>
+                        </div>
+                    </div>
+                    <div class="discussion-content">
+                        <h3>Erfahrungen mit KI für Social Media Content?</h3>
+                        <p>Ich soll für unseren B2B-Bereich Social Media Posts erstellen. Bisher habe ich das manuell gemacht, aber das ist sehr zeitaufwändig. Welche Tools nutzt ihr für LinkedIn-Posts und wie klingt das authentisch und nicht wie Roboter?</p>
+                        <div class="tags">
+                            <span class="tag">Marketing</span>
+                            <span class="tag">Content</span>
+                            <span class="tag">Social Media</span>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button class="action-btn like-btn" onclick="toggleLike(this, 'post3')" data-post="post3">
+                            <span class="like-icon">👍</span>
+                            <span class="like-count">18</span>
+                        </button>
+                        <button class="action-btn">💬 3 Antworten</button>
+                        <button class="action-btn save-btn" onclick="toggleSave(this, 'post3')">🔖 Speichern</button>
+                    </div>
+
+                    <div class="replies">
+                        <div class="reply best-answer">
+                            <div class="avatar" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">LM</div>
+                            <div class="reply-content">
+                                <div class="reply-header">
+                                    <span class="reply-author">Lisa Müller<span class="best-badge">BESTE ANTWORT</span></span>
+                                    <span class="reply-time">vor 6 Stunden</span>
+                                </div>
+                                <p>Mein Tipp: KI für die ersten Entwürfe nutzen, aber immer persönlich nachbearbeiten! Ich gebe ChatGPT 3 Beispiele meiner bisherigen Posts und lasse mich inspirieren. Nie 1:1 übernehmen. Der menschliche Touch bleibt wichtig.</p>
+                            </div>
+                        </div>
+
+                        <div class="reply">
+                            <div class="avatar" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #333;">AH</div>
+                            <div class="reply-content">
+                                <div class="reply-header">
+                                    <span class="reply-author">Andreas Hoffmann</span>
+                                    <span class="reply-time">vor 5 Stunden</span>
+                                </div>
+                                <p>Wir nutzen Jasper AI für LinkedIn. Ist nicht kostenlos, aber die Ergebnisse sind deutlich besser als bei ChatGPT. Für B2B echt gut.</p>
+                            </div>
+                        </div>
+
+                        <div class="reply">
+                            <div class="avatar" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); color: #333;">JF</div>
+                            <div class="reply-content">
+                                <div class="reply-header">
+                                    <span class="reply-author">Julia Fischer</span>
+                                    <span class="reply-time">vor 4 Stunden</span>
+                                </div>
+                                <p>@Nina Schau dir mal das Ebook "10 KI-Prompts für KMU" an. Dort gibt es spezielle Prompts für LinkedIn-Posts, die wirklich gut funktionieren. Habe ich selbst getestet!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Diskussion 4 -->
+                <div class="discussion-card">
+                    <div class="discussion-header">
+                        <div class="avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">FP</div>
+                        <div class="user-info">
+                            <h4>Felix Peters</h4>
+                            <span class="time">vor 12 Stunden • Controller</span>
+                        </div>
+                    </div>
+                    <div class="discussion-content">
+                        <h3>KI für Excel-Auswertungen - lohnt sich das?</h3>
+                        <p>Ich erstelle monatlich Reports aus unserem ERP-System. Dauert jedes Mal 2-3 Tage. Kann KI hier wirklich helfen oder ist das overrated? Hat jemand konkrete Erfahrung mit Excel-Automation?</p>
+                        <div class="tags">
+                            <span class="tag">Excel</span>
+                            <span class="tag">Automation</span>
+                            <span class="tag">Reporting</span>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button class="action-btn like-btn" onclick="toggleLike(this, 'post4')" data-post="post4">
+                            <span class="like-icon">👍</span>
+                            <span class="like-count">31</span>
+                        </button>
+                        <button class="action-btn">💬 5 Antworten</button>
+                        <button class="action-btn save-btn" onclick="toggleSave(this, 'post4')">🔖 Speichern</button>
+                    </div>
+
+                    <div class="replies">
+                        <div class="reply best-answer">
+                            <div class="avatar" style="background: var(--accent); color: var(--bg-primary);">PZ</div>
+                            <div class="reply-content">
+                                <div class="reply-header">
+                                    <span class="reply-author">Philipp Zerna<span class="best-badge">EXPERTE</span></span>
+                                    <span class="reply-time">vor 10 Stunden</span>
+                                </div>
+                                <p>Absolut! In meinem Kurs "Excel-KI Automation" zeige ich genau das - wie du aus 2-3 Tagen Arbeit 2-3 Stunden machst. ChatGPT kann komplexe Formeln schreiben, Pivot-Tabellen analysieren und sogar VBA-Code generieren. Der ROI ist bei repetitivem Reporting enorm.</p>
+                            </div>
+                        </div>
+
+                        <div class="reply">
+                            <div class="avatar" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">SK</div>
+                            <div class="reply-content">
+                                <div class="reply-header">
+                                    <span class="reply-author">Sarah Klein</span>
+                                    <span class="reply-time">vor 8 Stunden</span>
+                                </div>
+                                <p>@Felix Wir haben unsere monatliche Reporting-Zeit von 16 Stunden auf 2 Stunden reduziert. Die Investition in den Kurs hat sich nach dem ersten Monat amortisiert.</p>
+                            </div>
+                        </div>
+
+                        <div class="reply">
+                            <div class="avatar" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">TB</div>
+                            <div class="reply-content">
+                                <div class="reply-header">
+                                    <span class="reply-author">Thomas Bauer</span>
+                                    <span class="reply-time">vor 6 Stunden</span>
+                                </div>
+                                <p>Tipp: Fang mit einfachen Formeln an und steigere dich. Nicht alles auf einmal automatisieren wollen. Kleine Erfolge motivieren!</p>
+                            </div>
+                        </div>
+
+                        <div class="reply">
+                            <div class="avatar" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); color: #333;">NS</div>
+                            <div class="reply-content">
+                                <div class="reply-header">
+                                    <span class="reply-author">Nina Schmidt</span>
+                                    <span class="reply-time">vor 3 Stunden</span>
+                                </div>
+                                <p>Ich war auch skeptisch, aber nach dem Excel-Ebook war ich überzeugt. Einfach mal ausprobieren!</p>
+                            </div>
+                        </div>
+
+                        <div class="reply">
+                            <div class="avatar" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);">CK</div>
+                            <div class="reply-content">
+                                <div class="reply-header">
+                                    <span class="reply-author">Christian Koch</span>
+                                    <span class="reply-time">vor 1 Stunde</span>
+                                </div>
+                                <p>@Felix Wichtig: Vorher dokumentieren wie lange es jetzt dauert, dann hast du harte Fakten für die Entscheidung.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Diskussion 5 -->
+                <div class="discussion-card">
+                    <div class="discussion-header">
+                        <div class="avatar" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #333;">MK</div>
+                        <div class="user-info">
+                            <h4>Maria Köhler</h4>
+                            <span class="time">vor 1 Tag • Kundenservice-Leiterin</span>
+                        </div>
+                    </div>
+                    <div class="discussion-content">
+                        <h3>Chatbots für Kundenservice - Erfahrungen?</h3>
+                        <p>Unser Team ist mit Standardanfragen überlastet. Überlegen einen KI-Chatbot einzuführen, aber habe Bedenken bezüglich Qualität und Kundenakzeptanz. Was sind eure Erfahrungen?</p>
+                        <div class="tags">
+                            <span class="tag">Kundenservice</span>
+                            <span class="tag">Chatbots</span>
+                            <span class="tag">Automation</span>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button class="action-btn like-btn" onclick="toggleLike(this, 'post5')" data-post="post5">
+                            <span class="like-icon">👍</span>
+                            <span class="like-count">27</span>
+                        </button>
+                        <button class="action-btn">💬 4 Antworten</button>
+                        <button class="action-btn save-btn" onclick="toggleSave(this, 'post5')">🔖 Speichern</button>
+                    </div>
+
+                    <div class="replies">
+                        <div class="reply best-answer">
+                            <div class="avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">MW</div>
+                            <div class="reply-content">
+                                <div class="reply-header">
+                                    <span class="reply-author">Michael Weber<span class="best-badge">BESTE ANTWORT</span></span>
+                                    <span class="reply-time">vor 20 Stunden</span>
+                                </div>
+                                <p>Wir haben das vor 6 Monaten eingeführt. Der Trick: Chatbot nur für FAQs (80% der Anfragen), komplexe Dinge landen sofort beim Menschen. Unsere Kunden sind begeistert von der schnellen Reaktionszeit. Aber: Gute Vorbereitung nötig!</p>
+                            </div>
+                        </div>
+
+                        <div class="reply">
+                            <div class="avatar" style="background: var(--accent); color: var(--bg-primary);">PZ</div>
+                            <div class="reply-content">
+                                <div class="reply-header">
+                                    <span class="reply-author">Philipp Zerna<span class="best-badge">EXPERTE</span></span>
+                                    <span class="reply-time">vor 18 Stunden</span>
+                                </div>
+                                <p>@Maria Ich rate zu einem hybriden Ansatz: KI unterstützt deine Agenten mit Vorschlägen, aber der Mensch bleibt im Loop. Im Kurs "KI-Beauftragter" behandeln wir das
