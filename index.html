@@ -137,7 +137,6 @@
                     <a href="/kurse/" class="course-card">
                         <div class="course-image" style="background-image: url('/public/images/kurs1_eu%20au%20ai%20act.png'); background-size: cover; background-position: center;"></div>
                         <div class="course-content">
-                            <span class="course-badge" style="background: #FEF3C7; color: #92400E;">📋 Praxisnah</span>
                             <h3>EU AI Act für KMU</h3>
                             <p>Praxisumsetzung mit Checklisten – rechtlich bindend bis 2026</p>
                         </div>
@@ -146,7 +145,6 @@
                     <a href="/kurse/" class="course-card">
                         <div class="course-image" style="background-image: url('/public/images/kurs2_chatgpt.png'); background-size: cover; background-position: center;"></div>
                         <div class="course-content">
-                            <span class="course-badge" style="background: #D1FAE5; color: #065F46;">🔥 Beliebt</span>
                             <h3>ChatGPT für Anfänger</h3>
                             <p>Die KI-Grundlagen für sofortige Produktivitätssteigerung</p>
                         </div>
@@ -155,7 +153,6 @@
                     <a href="/kurse/" class="course-card">
                         <div class="course-image" style="background-image: url('/public/images/kurs3_prompt.png'); background-size: cover; background-position: center;"></div>
                         <div class="course-content">
-                            <span class="course-badge" style="background: #EDE9FE; color: #5B21B6;">Fortgeschritten</span>
                             <h3>Prompt Engineering</h3>
                             <p>Professionelle Prompts für maximale Ergebnisse</p>
                         </div>
@@ -370,6 +367,24 @@
         function toggleMenu() {
             document.getElementById('mobileMenu').classList.toggle('show');
         }
+        
+        // Dropdown Toggle
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+            const toggle = dropdown.querySelector('a');
+            toggle.addEventListener('click', function(e) {
+                if (window.innerWidth > 1024) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                }
+            });
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.dropdown')) {
+                document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+            }
+        });
     </script>
 </body>
 </html>
