@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontakt | Philipp Zerna | KI-Expertenraum</title>
-    <meta name="description" content="Kontaktieren Sie Philipp Zerna für KI-Kurse, Kooperationen und Beratung. Ich freue mich auf Ihre Nachricht.">
+    <meta name="description" content="Kontaktieren Sie Philipp Zerna für KI-Kurse, Unternehmenszugänge und Partnerschaften. Ich freue mich auf Ihre Anfrage.">
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
     
     <!-- Google Analytics 4 -->
@@ -79,7 +79,7 @@
         }
         
         .content {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 0 60px;
         }
@@ -123,8 +123,7 @@
             color: var(--secondary);
             margin-bottom: 20px;
             font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.02em;
         }
         
         .profile-text {
@@ -133,10 +132,10 @@
             font-size: 16px;
         }
         
-        /* Contact Cards */
+        /* Contact Cards - 3 Columns */
         .contact-row {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 24px;
             margin: 40px 0;
         }
@@ -144,7 +143,7 @@
         .contact-box {
             background: white;
             border-radius: 20px;
-            padding: 40px 32px;
+            padding: 40px 28px;
             text-align: center;
             border: 1px solid var(--border);
             transition: all 0.3s ease;
@@ -156,21 +155,189 @@
             box-shadow: 0 20px 40px rgba(11, 31, 58, 0.1);
         }
         
-        .contact-icon {
-            width: 64px;
-            height: 64px;
-            background: #F7F9FC;
-            border-radius: 16px;
+        /* CSS Mockups for Contact Cards */
+        .mockup-container {
+            height: 120px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
-            margin: 0 auto 20px;
+            margin-bottom: 24px;
         }
+        
+        /* Kurse Mockup - Laptop/Dashboard */
+        .mockup-kurse {
+            width: 140px;
+            height: 90px;
+            background: linear-gradient(135deg, #F1F5F9 0%, #E2E8F0 100%);
+            border-radius: 8px 8px 4px 4px;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(11, 31, 58, 0.15);
+        }
+        
+        .mockup-kurse::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            height: 6px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .mockup-kurse::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 8px;
+            right: 8px;
+            bottom: 8px;
+            background: white;
+            border-radius: 2px;
+        }
+        
+        .mockup-kurse-screen {
+            position: absolute;
+            top: 24px;
+            left: 12px;
+            right: 12px;
+            bottom: 12px;
+        }
+        
+        .mockup-kurse-screen div {
+            height: 4px;
+            background: #E2E8F0;
+            margin-bottom: 6px;
+            border-radius: 1px;
+        }
+        
+        .mockup-kurse-screen div:nth-child(1) { width: 70%; }
+        .mockup-kurse-screen div:nth-child(2) { width: 90%; }
+        .mockup-kurse-screen div:nth-child(3) { width: 60%; }
+        .mockup-kurse-screen div:nth-child(4) { width: 80%; }
+        
+        /* Teams Mockup - Multiple Users/Cards */
+        .mockup-teams {
+            position: relative;
+            width: 120px;
+            height: 100px;
+        }
+        
+        .mockup-teams-card {
+            position: absolute;
+            width: 70px;
+            height: 90px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(11, 31, 58, 0.1);
+            border: 1px solid var(--border);
+        }
+        
+        .mockup-teams-card:nth-child(1) {
+            left: 0;
+            top: 5px;
+            transform: rotate(-8deg);
+            z-index: 1;
+        }
+        
+        .mockup-teams-card:nth-child(2) {
+            left: 25px;
+            top: 0;
+            z-index: 2;
+        }
+        
+        .mockup-teams-card:nth-child(3) {
+            left: 50px;
+            top: 5px;
+            transform: rotate(8deg);
+            z-index: 1;
+        }
+        
+        .mockup-teams-card::before {
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px;
+            height: 24px;
+            background: var(--secondary);
+            border-radius: 50%;
+            opacity: 0.2;
+        }
+        
+        .mockup-teams-card::after {
+            content: '';
+            position: absolute;
+            top: 42px;
+            left: 8px;
+            right: 8px;
+            height: 3px;
+            background: #E2E8F0;
+            border-radius: 1px;
+        }
+        
+        /* Zusammenarbeit Mockup - Documents */
+        .mockup-collab {
+            position: relative;
+            width: 130px;
+            height: 100px;
+        }
+        
+        .mockup-doc {
+            position: absolute;
+            width: 60px;
+            height: 80px;
+            background: white;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(11, 31, 58, 0.1);
+            border: 1px solid var(--border);
+        }
+        
+        .mockup-doc:nth-child(1) {
+            left: 10px;
+            top: 10px;
+            transform: rotate(-5deg);
+        }
+        
+        .mockup-doc:nth-child(2) {
+            left: 50px;
+            top: 5px;
+            transform: rotate(5deg);
+        }
+        
+        .mockup-doc::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 16px;
+            height: 16px;
+            background: linear-gradient(135deg, transparent 50%, var(--secondary) 50%);
+            border-radius: 0 4px 0 0;
+        }
+        
+        .mockup-doc-lines {
+            position: absolute;
+            top: 20px;
+            left: 8px;
+            right: 8px;
+        }
+        
+        .mockup-doc-lines div {
+            height: 2px;
+            background: #E2E8F0;
+            margin-bottom: 5px;
+            border-radius: 1px;
+        }
+        
+        .mockup-doc-lines div:nth-child(1) { width: 80%; }
+        .mockup-doc-lines div:nth-child(2) { width: 60%; }
+        .mockup-doc-lines div:nth-child(3) { width: 90%; }
         
         .contact-title {
             font-family: var(--font-display);
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 600;
             margin-bottom: 12px;
             color: var(--primary);
@@ -180,6 +347,7 @@
             font-size: 15px;
             color: var(--text-secondary);
             margin-bottom: 24px;
+            line-height: 1.6;
         }
         
         .contact-link {
@@ -357,7 +525,7 @@
             <header class="hero">
                 <span class="section-label">KONTAKT</span>
                 <h1>Lassen Sie uns <em>connecten</em></h1>
-                <p>Ich freue mich auf Ihre Nachricht zu Kursen, Services oder Kooperationen.</p>
+                <p>Ich freue mich auf Ihre Nachricht zu Kursen, Unternehmenszugängen oder Zusammenarbeit.</p>
             </header>
 
             <div class="content">
@@ -366,24 +534,67 @@
                     <img src="/public/images/kontakt.png" alt="Philipp Zerna" class="profile-img" style="flex-shrink: 0;">
                     <div class="profile-info" style="flex: 1; min-width: 280px;">
                         <h2 class="profile-name">Philipp Zerna</h2>
-                        <p class="profile-title">KI-Enthusiast & Content Creator</p>
-                        <p class="profile-text">Ich teile mein Wissen über Künstliche Intelligenz in Kursen und Artikeln. Mein Ziel: KI für jeden verständlich und nutzbar machen. Haben Sie Fragen zu meinen Kursen oder Interesse an einer Zusammenarbeit? Schreiben Sie mir!</p>
+                        <p class="profile-title">KI-Schulungen & Praxiswissen für Unternehmen</p>
+                        <p class="profile-text">Ich helfe Unternehmen bei der praktischen KI-Implementierung – von der ersten Schulung bis zur strategischen Integration. Haben Sie Fragen zu meinen Kursen, Interesse an Teamzugängen oder möchten Sie gemeinsam ein Projekt umsetzen? Ich freue mich auf Ihre Anfrage.</p>
                     </div>
                 </div>
 
-                <!-- Zwei Karten nebeneinander -->
-                <div class="contact-row" style="display: flex; gap: 24px; flex-wrap: wrap;">
+                <!-- Drei Karten -->
+                <div class="contact-row">
+                    <!-- Karte 1: Kurse & Schulungen -->
                     <div class="contact-box">
-                        <div class="contact-icon">🎓</div>
-                        <h3 class="contact-title">Kurse</h3>
-                        <p class="contact-text">Fragen zu Kursen oder Inhouse-Schulungen</p>
-                        <a href="mailto:zernaphilipp@gmail.com?subject=Kursanfrage" class="contact-link">Anfragen →</a>
+                        <div class="mockup-container">
+                            <div class="mockup-kurse">
+                                <div class="mockup-kurse-screen">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="contact-title">Kurse & Schulungen</h3>
+                        <p class="contact-text">Fragen zu Kursen, Inhouse-Schulungen oder passenden Lernpaketen für Ihr Unternehmen.</p>
+                        <a href="mailto:zernaphilipp@gmail.com?subject=Anfrage%20Kurse%20und%20Schulungen" class="contact-link">Anfragen →</a>
                     </div>
+
+                    <!-- Karte 2: Unternehmenszugang -->
                     <div class="contact-box">
-                        <div class="contact-icon">🤝</div>
-                        <h3 class="contact-title">Kooperation</h3>
-                        <p class="contact-text">Partnerschaften und gemeinsame Projekte</p>
-                        <a href="mailto:zernaphilipp@gmail.com?subject=Kooperationsanfrage" class="contact-link">Anfragen →</a>
+                        <div class="mockup-container">
+                            <div class="mockup-teams">
+                                <div class="mockup-teams-card"></div>
+                                <div class="mockup-teams-card"></div>
+                                <div class="mockup-teams-card"></div>
+                            </div>
+                        </div>
+                        <h3 class="contact-title">Unternehmenszugang</h3>
+                        <p class="contact-text">Interesse an mehreren Lizenzen, Teamzugängen oder einer KI-Schulung für Mitarbeitende.</p>
+                        <a href="mailto:zernaphilipp@gmail.com?subject=Anfrage%20Unternehmenszugang" class="contact-link">Anfragen →</a>
+                    </div>
+
+                    <!-- Karte 3: Zusammenarbeit -->
+                    <div class="contact-box">
+                        <div class="mockup-container">
+                            <div class="mockup-collab">
+                                <div class="mockup-doc">
+                                    <div class="mockup-doc-lines">
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                </div>
+                                <div class="mockup-doc">
+                                    <div class="mockup-doc-lines">
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="contact-title">Zusammenarbeit</h3>
+                        <p class="contact-text">Anfragen zu Partnerschaften, Gastbeiträgen, gemeinsamen Projekten oder Bildungspartnern.</p>
+                        <a href="mailto:zernaphilipp@gmail.com?subject=Anfrage%20Zusammenarbeit" class="contact-link">Anfragen →</a>
                     </div>
                 </div>
 
@@ -411,7 +622,7 @@
                         <span class="logo-mark">K</span>
                         <span>KI<span class="logo-dot">.</span>Expertenraum</span>
                     </a>
-                    <p class="footer-tagline">Premium KI-Beratung für den Mittelstand. Praxiserprobt, DSGVO-konform, messbar erfolgreich.</p>
+                    <p class="footer-tagline">Praxisnahe KI-Schulungen und EU AI Act Umsetzung für KMU.</p>
                 </div>
                 
                 <div class="footer-col">
@@ -419,32 +630,38 @@
                     <a href="/kurse/">Kurse</a>
                     <a href="/services/">Services</a>
                     <a href="/artikel/">Artikel</a>
+                    <a href="/glossar/">Glossar</a>
                 </div>
                 
                 <div class="footer-col">
                     <h4>Rechtliches</h4>
                     <a href="/impressum/">Impressum</a>
                     <a href="/datenschutz/">Datenschutz</a>
-                    <a href="/kontakt.html">Kontakt</a>
                 </div>
-                
+
                 <div class="footer-col">
-                    <h4>Connect</h4>
+                    <h4>Kontakt</h4>
                     <a href="mailto:zernaphilipp@gmail.com">E-Mail</a>
-                    <a href="https://www.linkedin.com/in/philipp-zerna-b155343a3/" target="_blank" rel="noopener">LinkedIn</a>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2026 KI-Expertenraum. Alle Rechte vorbehalten.</p>
-                <p>Philipp Zerna · Strategische KI-Beratung</p>
+                <p>&copy; 2026 KI-Expertenraum</p>
+                <p>Philipp Zerna</p>
             </div>
         </div>
     </footer>
 
     <!-- Scripts -->
-    <script src="/assets/js/main.js"></script>
     <script>
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('show');
+        }
+        
+        function closeMobileMenu() {
+            document.getElementById('mobileMenu').classList.remove('show');
+        }
+        
         function copyEmail() {
             const email = 'zernaphilipp@gmail.com';
             const btn = document.querySelector('.copy-btn');
