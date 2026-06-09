@@ -131,24 +131,24 @@
         }
         
         .contact-box {
-            background: var(--bg-card);
+            background: white;
             border-radius: 20px;
             padding: 40px 32px;
             text-align: center;
             border: 1px solid var(--border);
-            transition: var(--transition-slow);
+            transition: all 0.3s ease;
         }
         
         .contact-box:hover {
-            border-color: var(--accent);
+            border-color: var(--secondary);
             transform: translateY(-4px);
-            box-shadow: var(--shadow-glow);
+            box-shadow: 0 20px 40px rgba(11, 31, 58, 0.1);
         }
         
         .contact-icon {
             width: 64px;
             height: 64px;
-            background: var(--bg-tertiary);
+            background: #F7F9FC;
             border-radius: 16px;
             display: flex;
             align-items: center;
@@ -160,8 +160,9 @@
         .contact-title {
             font-family: var(--font-display);
             font-size: 24px;
-            font-weight: 500;
+            font-weight: 600;
             margin-bottom: 12px;
+            color: var(--primary);
         }
         
         .contact-text {
@@ -172,68 +173,69 @@
         
         .contact-link {
             display: inline-flex;
-            background: var(--accent);
-            color: var(--bg-primary);
+            background: var(--secondary);
+            color: white;
             padding: 14px 32px;
             border-radius: 100px;
             text-decoration: none;
             font-weight: 600;
             font-size: 14px;
-            transition: var(--transition-base);
+            transition: all 0.25s ease;
         }
-        
+
         .contact-link:hover {
-            background: var(--accent-light);
+            background: #164ED9;
             transform: translateY(-2px);
-            box-shadow: var(--shadow-glow);
+            box-shadow: 0 10px 30px rgba(30, 94, 255, 0.2);
         }
-        
+
         /* Email Section */
         .email-section {
-            background: var(--gradient-card);
+            background: #F7F9FC;
             border-radius: 24px;
             padding: 60px;
             margin: 40px 0;
             text-align: center;
             border: 1px solid var(--border);
         }
-        
+
         .email-section h2 {
             font-size: 32px;
             margin-bottom: 16px;
+            color: var(--primary);
         }
-        
+
         .email-section > p {
             color: var(--text-secondary);
             margin-bottom: 32px;
         }
-        
+
         .email-address {
             font-family: var(--font-display);
             font-size: 28px;
             font-weight: 600;
-            color: var(--accent);
+            color: var(--secondary);
             margin: 24px 0;
             letter-spacing: 0.02em;
         }
-        
+
         .copy-btn {
             background: transparent;
-            border: 2px solid var(--accent);
-            color: var(--accent);
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
             padding: 14px 28px;
             border-radius: 100px;
             cursor: pointer;
             font-weight: 600;
             font-family: var(--font-body);
             font-size: 14px;
-            transition: var(--transition-base);
+            transition: all 0.25s ease;
             margin-right: 12px;
         }
-        
+
         .copy-btn:hover {
-            background: var(--accent);
-            color: var(--bg-primary);
+            background: var(--secondary);
+            color: white;
         }
         
         .copy-btn.copied {
@@ -399,7 +401,6 @@
                     <a href="/kurse/">Kurse</a>
                     <a href="/services/">Services</a>
                     <a href="/artikel/">Artikel</a>
-                    <a href="/glossar/">Glossar</a>
                 </div>
                 
                 <div class="footer-col">
