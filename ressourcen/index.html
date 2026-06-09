@@ -342,18 +342,148 @@
             box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
         }
         
-        .template-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--accent-light);
-            border-radius: 10px;
+        .template-mockup {
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 20px;
-            font-family: var(--font-mono);
-            font-size: 18px;
+        }
+        
+        /* PDF Mockup */
+        .mockup-pdf {
+            width: 44px;
+            height: 56px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            position: relative;
+            box-shadow: 0 2px 4px rgba(15, 23, 42, 0.06);
+        }
+        
+        .mockup-lines {
+            padding: 10px 8px;
+        }
+        
+        .mockup-lines div {
+            height: 3px;
+            background: var(--border);
+            border-radius: 1px;
+            margin-bottom: 5px;
+        }
+        
+        .mockup-lines div:nth-child(1) { width: 80%; }
+        .mockup-lines div:nth-child(2) { width: 60%; }
+        .mockup-lines div:nth-child(3) { width: 90%; }
+        
+        .mockup-corner {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 12px;
+            height: 12px;
+            background: linear-gradient(135deg, transparent 50%, var(--secondary) 50%);
+            border-radius: 0 3px 0 0;
+            opacity: 0.3;
+        }
+        
+        /* Notepad Mockup */
+        .mockup-notepad {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 8px 6px;
+            box-shadow: 0 2px 4px rgba(15, 23, 42, 0.06);
+        }
+        
+        .mockup-checkboxes {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 5px;
+        }
+        
+        .mockup-check {
+            width: 8px;
+            height: 8px;
+            border: 1px solid var(--secondary);
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+        
+        .mockup-line {
+            flex: 1;
+            height: 2px;
+            background: var(--border);
+            border-radius: 1px;
+        }
+        
+        /* Checklist Mockup */
+        .mockup-checklist {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 6px;
+        }
+        
+        .mockup-checkbox {
+            width: 20px;
+            height: 20px;
+            border: 1.5px solid var(--border);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .mockup-checkbox.checked::after {
+            content: '✓';
+            font-size: 11px;
             color: var(--secondary);
+        }
+        
+        /* Featured Badge */
+        .template-card {
+            position: relative;
+        }
+        
+        .template-card.featured {
+            border-color: var(--accent-gold);
+        }
+        
+        .featured-badge {
+            position: absolute;
+            top: -1px;
+            right: 20px;
+            background: var(--accent-gold);
+            color: white;
+            padding: 4px 10px;
+            font-family: var(--font-mono);
+            font-size: 9px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-radius: 0 0 4px 4px;
+        }
+        
+        /* Template Footer with Price & Button */
+        .template-footer {
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+        
+        .template-price {
+            font-family: var(--font-body);
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+        
+        .template-price span {
+            font-size: 12px;
+            color: var(--text-muted);
         }
         
         .template-card h3 {
@@ -412,23 +542,24 @@
         .buy-btn {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            background: var(--primary);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
+            justify-content: center;
+            background: transparent;
+            color: var(--primary);
+            padding: 8px 20px;
+            border-radius: 6px;
             text-decoration: none;
             font-weight: 500;
-            font-size: 14px;
+            font-size: 13px;
             transition: all 0.25s ease;
-            border: none;
+            border: 1px solid var(--border);
             cursor: pointer;
-            width: 100%;
-            justify-content: center;
+            width: auto;
+            min-width: 140px;
         }
         
         .buy-btn:hover {
-            background: var(--secondary);
+            border-color: var(--secondary);
+            color: var(--secondary);
         }
 
         /* CTA Section */
@@ -721,42 +852,80 @@
                 
                 <div class="templates-grid">
                     <div class="template-card">
-                        <div class="template-icon">Q</div>
+                        <div class="template-mockup">
+                            <div class="mockup-pdf">
+                                <div class="mockup-lines">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <div class="mockup-corner"></div>
+                            </div>
+                        </div>
                         <h3>KI-Quickstart Guide</h3>
-                        <p>Der 10-Minuten-Einstieg fur komplette Anfanger. Von Account bis ersten Ergebnis.</p>
+                        <p>Der 10-Minuten-Einstieg für komplette Anfänger. Vom ersten Login bis zum ersten Ergebnis.</p>
                         <ul class="template-features">
                             <li>1 Seite, sofort umsetzbar</li>
                             <li>3 einfache Schritte</li>
-                            <li>Tool-Empfehlungen inkl.</li>
+                            <li>Tool-Empfehlungen inklusive</li>
                         </ul>
-                        <div class="template-price">2,99 EUR <span>inkl. MwSt</span></div>
-                        <a href="/produkte/ki-quickstart-guide/" class="buy-btn">Mehr erfahren</a>
+                        <div class="template-footer">
+                            <div class="template-price">2,99 € <span>inkl. MwSt.</span></div>
+                            <a href="/produkte/ki-quickstart-guide/" class="buy-btn">Details ansehen</a>
+                        </div>
                     </div>
 
-                    <div class="template-card">
-                        <div class="template-icon">M</div>
-                        <h3>Meeting-Notizen Template</h3>
-                        <p>Strukturierte Protokolle in 5 Minuten. Mit KI-Prompt fur Zusammenfassungen.</p>
+                    <div class="template-card featured">
+                        <div class="featured-badge">Beliebt</div>
+                        <div class="template-mockup">
+                            <div class="mockup-notepad">
+                                <div class="mockup-checkboxes">
+                                    <div class="mockup-check"></div>
+                                    <div class="mockup-line"></div>
+                                </div>
+                                <div class="mockup-checkboxes">
+                                    <div class="mockup-check"></div>
+                                    <div class="mockup-line"></div>
+                                </div>
+                                <div class="mockup-checkboxes">
+                                    <div class="mockup-check"></div>
+                                    <div class="mockup-line"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <h3>Meeting-Notizen mit KI</h3>
+                        <p>Strukturierte Protokolle in 5 Minuten. Mit KI-Prompt für Zusammenfassungen.</p>
                         <ul class="template-features">
                             <li>Fertiges Notiz-Template</li>
                             <li>KI-Prompt inklusive</li>
                             <li>Action-Item Tabelle</li>
                         </ul>
-                        <div class="template-price">3,99 EUR <span>inkl. MwSt</span></div>
-                        <a href="/produkte/meeting-notizen/" class="buy-btn">Mehr erfahren</a>
+                        <div class="template-footer">
+                            <div class="template-price">3,99 € <span>inkl. MwSt.</span></div>
+                            <a href="/produkte/meeting-notizen/" class="buy-btn">Details ansehen</a>
+                        </div>
                     </div>
 
                     <div class="template-card">
-                        <div class="template-icon">C</div>
-                        <h3>KI-Checkliste fur KMU</h3>
-                        <p>15 konkrete Checkpunkte fur den KI-Einstieg. In 3 Phasen von Vorbereitung bis Umsetzung.</p>
+                        <div class="template-mockup">
+                            <div class="mockup-checklist">
+                                <div class="mockup-checkbox checked"></div>
+                                <div class="mockup-checkbox"></div>
+                                <div class="mockup-checkbox checked"></div>
+                                <div class="mockup-checkbox"></div>
+                            </div>
+                        </div>
+                        <h3>KI-Checkliste für KMU</h3>
+                        <p>15 konkrete Checkpunkte für den KI-Einstieg. In 3 Phasen von Vorbereitung bis Umsetzung.</p>
                         <ul class="template-features">
                             <li>DSGVO & EU AI Act Checks</li>
                             <li>Realistische Timeline</li>
                             <li>Druckfertiges PDF</li>
                         </ul>
-                        <div class="template-price">4,99 EUR <span>inkl. MwSt</span></div>
-                        <a href="/produkte/ki-checkliste/" class="buy-btn">Mehr erfahren</a>
+                        <div class="template-footer">
+                            <div class="template-price">4,99 € <span>inkl. MwSt.</span></div>
+                            <a href="/produkte/ki-checkliste/" class="buy-btn">Details ansehen</a>
+                        </div>
                     </div>
                 </div>
             </div>
