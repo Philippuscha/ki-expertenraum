@@ -299,7 +299,9 @@ a {
 
 .hero {
     display: flex;
+    flex-direction: column;
     align-items: center;
+    text-align: center;
     padding: 100px 0 40px;
     background: linear-gradient(135deg, #F7F9FC 0%, #FFFFFF 50%, #F1F5F9 100%);
 }
