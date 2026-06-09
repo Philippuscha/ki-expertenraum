@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <meta name="description" content="{{description}}">
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    {{extra_css}}
+</head>
+<body class="{{body_class}}">
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <span class="logo-mark">K</span>
+                <span class="logo-text">KI<span class="logo-dot">.</span>Expertenraum</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="/" {{#if active_home}}class="active"{{/if}}>Start</a></li>
+                <li><a href="/kurse/" {{#if active_kurse}}class="active"{{/if}}>Kurse</a></li>
+                <li><a href="/services/" {{#if active_services}}class="active"{{/if}}>Services</a></li>
+                <li><a href="/artikel/" {{#if active_artikel}}class="active"{{/if}}>Artikel</a></li>
+                <li><a href="/glossar/" {{#if active_glossar}}class="active"{{/if}}>Glossar</a></li>
+                <li><a href="/kontakt.html" {{#if active_kontakt}}class="active"{{/if}}>Kontakt</a></li>
+            </ul>
+            
+            <a href="/kontakt.html" class="nav-cta">Beratung anfragen</a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü öffnen">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <a href="/" onclick="closeMobileMenu()">Start</a>
+            <a href="/kurse/" onclick="closeMobileMenu()">Kurse</a>
+            <a href="/services/" onclick="closeMobileMenu()">Services</a>
+            <a href="/artikel/" onclick="closeMobileMenu()">Artikel</a>
+            <a href="/glossar/" onclick="closeMobileMenu()">Glossar</a>
+            <a href="/kontakt.html" onclick="closeMobileMenu()">Kontakt</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        {{content}}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo">
+                        <span class="logo-mark">K</span>
+                        <span>KI<span class="logo-dot">.</span>Expertenraum</span>
+                    </a>
+                    <p class="footer-tagline">Premium KI-Beratung für den Mittelstand. Praxiserprobt, DSGVO-konform, messbar erfolgreich.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Angebot</h4>
+                    <a href="/kurse/">Kurse</a>
+                    <a href="/services/">Services</a>
+                    <a href="/artikel/">Artikel</a>
+                    <a href="/glossar/">Glossar</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Rechtliches</h4>
+                    <a href="/impressum/">Impressum</a>
+                    <a href="/datenschutz/">Datenschutz</a>
+                    <a href="/kontakt.html">Kontakt</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <a href="https://www.youtube.com/@philippzerna" target="_blank" rel="noopener">YouTube</a>
+                    <a href="https://www.linkedin.com/in/philipp-zerna/" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 KI-Expertenraum. Alle Rechte vorbehalten.</p>
+                <p>Philipp Zerna · Strategische KI-Beratung</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/assets/js/main.js"></script>
+    {{extra_js}}
+</body>
+</html>

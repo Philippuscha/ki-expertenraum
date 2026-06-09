@@ -1,139 +1,211 @@
-# KI Expertenraum
+# KI-Expertenraum Website
 
-**Dein Zugang zur KI-Elite**
+Premium KI-Beratung für den Mittelstand. Praxiserprobt, DSGVO-konform, messbar erfolgreich.
 
-Moderne KI-Website mit Next.js, Stripe-Zahlung und Blog-System.
-URL: https://ki-expertenraum.de
+## Neue Struktur (Refactored)
 
-## 🚀 Features
+### Layout-System
 
-- ⚡ **Next.js 14** mit App Router
-- 🎨 **Modernes Dark Design** mit Tailwind CSS
-- 💳 **Stripe Integration** für Kurs-Verkäufe
-- 📝 **Blog-System** mit SEO-Optimierung
-- 🛠️ **Tools & Ressourcen** Seite (Affiliate-Marketing)
-- 📱 **100% Responsive**
-- 🔍 **SEO-freundlich** (Meta-Tags, Sitemap)
-- ✨ **Animationen** mit Framer Motion
-
-## 📁 Projektstruktur
+Die Website verwendet jetzt ein **einheitliches Layout-System** mit geteilten Komponenten:
 
 ```
-ki-website/
-├── app/                    # Next.js App Router
-│   ├── api/               # API Routes (Stripe Checkout)
-│   ├── blog/              # Blog-Seiten
-│   ├── tools/             # Tools & Ressourcen Seite
-│   ├── layout.tsx         # Root Layout
-│   ├── page.tsx           # Homepage
-│   └── globals.css        # Global Styles
-├── components/            # React Komponenten
-│   └── Checkout.tsx       # Stripe Checkout
-├── content/              # Blog-Inhalte (MDX)
-│   └── blog/
-├── data/                 # Daten
-│   └── courses.ts        # Alle 22 Kurse
-├── lib/                  # Utility-Funktionen
-├── public/               # Statische Dateien
-└── next.config.js        # Next.js Konfiguration
+ki-expertenraum-repo/
+├── layouts/
+│   └── base.html              # Basis-Template (nicht direkt verwendet)
+├── assets/
+│   ├── css/
+│   │   └── main.css           # Haupt-Stylesheet (9KB)
+│   └── js/
+│       └── main.js            # Shared JavaScript (3.5KB)
+├── index.html                 # Homepage
+├── kontakt.html              # Kontaktseite
+├── kurse/
+│   └── index.html            # Kurse-Übersicht
+├── services/
+│   └── index.html            # Services
+├── artikel/
+│   └── index.html            # Artikel-Übersicht
+├── glossar/
+│   └── index.html            # KI-Glossar
+├── impressum/
+│   └── index.html            # Impressum
+├── datenschutz/
+│   └── index.html            # Datenschutz
+└── blog/                     # Blog-Artikel
+└── artikel/                  # Detail-Artikel
 ```
 
-## 🚀 Quick Deploy (3 Schritte)
+### Design-System
 
-### 1. GitHub Repository erstellen
-```bash
-# Lokal im Projektordner:
-git init
-git add .
-git commit -m "Initial commit: KI Expertenraum"
-git branch -M main
-git remote add origin https://github.com/DEIN_USERNAME/ki-expertenraum.git
-git push -u origin main
+**Farben:**
+- `--bg-primary: #0a0a0a` - Haupt-Hintergrund
+- `--bg-secondary: #111111` - Sekundärer Hintergrund
+- `--bg-card: #141414` - Karten-Hintergrund
+- `--accent: #c9a962` - Gold-Akzent
+- `--text-primary: #ffffff` - Primärer Text
+- `--text-secondary: rgba(255,255,255,0.7)` - Sekundärer Text
+
+**Typography:**
+- Headlines: `Playfair Display` (Serif)
+- Body: `Inter` (Sans-Serif)
+
+**Breakpoints:**
+- Desktop: > 1024px
+- Tablet: 768px - 1024px
+- Mobile: < 768px
+
+## Navigation
+
+Alle Seiten verwenden die **identische Navigation**:
+
+```html
+<nav class="nav" id="nav">
+    <div class="nav-container">
+        <a href="/" class="logo">...
+        <ul class="nav-links">...</ul>
+        <a href="/kontakt.html" class="nav-cta">Beratung anfragen</a>
+        <button class="mobile-menu-btn">...</button>
+    </div>
+</nav>
 ```
 
-### 2. Vercel verbinden
-1. Gehe zu [vercel.com](https://vercel.com)
-2. "Add New Project"
-3. GitHub Account verbinden
-4. Repository "ki-expertenraum" auswählen
-5. "Deploy"
+Navigation-Links:
+- Start
+- Kurse
+- Services
+- Artikel
+- Glossar
+- Kontakt
 
-### 3. Domain verknüpfen
-1. In Vercel: Settings → Domains
-2. "Add" → `ki-expertenraum.de`
-3. DNS-Records bei Hostinger eintragen:
-   - Type: A | Name: @ | Value: 76.76.21.21
-   - Type: CNAME | Name: www | Value: cname.vercel-dns.com
+## Footer
 
-## 🛠️ Lokale Entwicklung
+Alle Seiten verwenden den **identischen Footer** mit:
+- Brand-Logo
+- Angebots-Links
+- Rechtliche Links
+- Social Media Links
+- Copyright
 
-```bash
-# Dependencies installieren
-npm install
+## Neue Seite hinzufügen
 
-# Dev-Server starten
-npm run dev
+Um eine neue Seite mit dem einheitlichen Layout zu erstellen:
 
-# Build erstellen
-npm run build
+1. **HTML-Grundgerüst kopieren:**
+
+```html
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEITENTITEL | KI-Expertenraum</title>
+    <meta name="description" content="META-BESCHREIBUNG">
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <style>
+        /* Seiten-spezifische Styles hier */
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">...</nav>
+    <div class="mobile-menu" id="mobileMenu">...</div>
+
+    <main>
+        <!-- Seiteninhalt hier -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">...</footer>
+    
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>
 ```
 
-## 🔑 Umgebungsvariablen
+2. **Aktiven Nav-Link markieren:**
+   - Füge `class="active"` zum entsprechenden Link in `.nav-links` hinzu
 
-`.env.local` erstellen:
-```env
-# Stripe
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_live_...
-STRIPE_SECRET_KEY=sk_live_...
-STRIPE_WEBHOOK_SECRET=whsec_...
+3. **Seiten-spezifische CSS hinzufügen:**
+   - Im `<style>`-Bereich im `<head>`
 
-# Domain
-NEXT_PUBLIC_URL=https://ki-expertenraum.de
+## Layout aktualisieren
 
-# Optional: Analytics
-NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
+Um das Layout zu ändern:
+
+1. **Globale Änderungen** (betrifft alle Seiten):
+   - Bearbeite `/assets/css/main.css`
+   - Bearbeite `/assets/js/main.js`
+
+2. **Nur Navigation/Footer ändern:**
+   - Kopiere den neuen Code in alle HTML-Dateien
+   - Oder verwende ein Build-Tool (z.B. Node.js + templating)
+
+3. **Nur eine Seite ändern:**
+   - Bearbeite die spezifische HTML-Datei
+   - Füge seiten-spezifisches CSS im `<style>`-Block hinzu
+
+## Utility Classes
+
+Verfügbare Utility-Klassen:
+
+```css
+.serif              /* Playfair Display Font */
+.text-accent        /* Gold-Farbe */
+.text-gradient      /* Gold-Gradient Text */
+.container          /* Max-width 1400px, centered */
+.section-label      /* Kleine, goldene Überschrift */
+.btn                /* Basis-Button */
+.btn-primary        /* Gold-Button */
+.btn-secondary      /* Outline-Button */
 ```
 
-## 📝 Blog-Posts hinzufügen
+## CSS Variablen
 
-1. Neue `.mdx` Datei in `content/blog/` erstellen
-2. Frontmatter:
-```md
+Verfügbare CSS-Variablen für seiten-spezifische Styles:
+
+```css
+--bg-primary: #0a0a0a;
+--bg-secondary: #111111;
+--bg-tertiary: #1a1a1a;
+--bg-card: #141414;
+--text-primary: #ffffff;
+--text-secondary: rgba(255, 255, 255, 0.7);
+--text-muted: rgba(255, 255, 255, 0.5);
+--accent: #c9a962;
+--accent-light: #d4b978;
+--border: rgba(255, 255, 255, 0.08);
+--transition-base: 0.3s ease;
+--transition-slow: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+--shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.5);
+--shadow-glow: 0 0 40px rgba(201, 169, 98, 0.3);
+```
+
+## JavaScript Funktionen
+
+Verfügbare globale Funktionen:
+
+```javascript
+openMobileMenu()     // Mobiles Menü öffnen
+closeMobileMenu()    // Mobiles Menü schließen
+toggleMobileMenu()   // Mobiles Menü umschalten
+copyToClipboard(text, button)  // Text kopieren
+```
+
+## Migration Status
+
+| Bereich | Status | Anzahl |
+|---------|--------|--------|
+| Hauptseiten | ✓ Fertig | 8 |
+| Artikel-Detailseiten | ⏳ Offen | ~14 |
+| Blog-Artikel | ⏳ Offen | ~11 |
+| Unterordner | ⏳ Offen | ~5 |
+
+**Letztes Update:** 2026-05-29
+
 ---
-title: "Titel"
-description: "Meta-Beschreibung"
-date: "2026-02-20"
-author: "Philipp Zerna"
-tags: ["Tag1", "Tag2"]
----
 
-Inhalt hier...
-```
-
-## 💳 Stripe einrichten
-
-1. [stripe.com](https://stripe.com) Account erstellen
-2. Produkte für Kurse anlegen
-3. Preis-IDs in `data/courses.ts` eintragen
-4. Webhook-Endpunkt: `/api/webhooks/stripe`
-
-## 🔗 Affiliate-Links einfügen
-
-In `app/tools/page.tsx` unter `toolCategories`:
-```typescript
-{
-  name: 'Notion',
-  description: '...',
-  url: 'https://affiliate.notion.so/DEINID',  // ← Hier ändern
-  icon: '📊'
-}
-```
-
-## 📧 Kontakt
-
-Philipp Zerna
-Email: zerna.philipp@gmail.com
-
----
-
-© 2026 KI Expertenraum. Alle Rechte vorbehalten.
+© 2026 KI-Expertenraum · Philipp Zerna
