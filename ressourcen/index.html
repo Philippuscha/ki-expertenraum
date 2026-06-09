@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ressourcen | KI-Expertenraum</title>
-    <meta name="description" content="Kostenlose Guides und Downloads fur KI-Lernende. Kursmaterialien, Checklisten und mehr.">
+    <meta name="description" content="Kostenlose Guides und Downloads für KI-Lernende. Kursmaterialien, Checklisten und mehr.">
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VDQNVYGYE1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        fürnction gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-VDQNVYGYE1');
     </script>
@@ -343,74 +343,113 @@
         }
         
         .template-mockup {
-            height: 60px;
+            height: 90px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
+            background: var(--accent-light);
+            border-radius: 12px;
+            padding: 16px;
         }
         
-        /* PDF Mockup */
+        /* PDF Mockup - Größer und realistischer */
         .mockup-pdf {
-            width: 44px;
-            height: 56px;
+            width: 56px;
+            height: 72px;
             background: white;
             border: 1px solid var(--border);
-            border-radius: 3px;
+            border-radius: 4px;
             position: relative;
-            box-shadow: 0 2px 4px rgba(15, 23, 42, 0.06);
+            box-shadow: 
+                0 1px 2px rgba(15, 23, 42, 0.04),
+                0 4px 8px rgba(15, 23, 42, 0.08),
+                inset 0 -2px 0 rgba(0,0,0,0.02);
+            transform: rotate(-3deg);
+        }
+        
+        .mockup-pdf::before {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            right: 6px;
+            height: 14px;
+            background: var(--accent-light);
+            border-radius: 2px;
         }
         
         .mockup-lines {
-            padding: 10px 8px;
+            padding: 26px 8px 10px;
         }
         
         .mockup-lines div {
             height: 3px;
             background: var(--border);
             border-radius: 1px;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
         }
         
-        .mockup-lines div:nth-child(1) { width: 80%; }
-        .mockup-lines div:nth-child(2) { width: 60%; }
-        .mockup-lines div:nth-child(3) { width: 90%; }
+        .mockup-lines div:nth-child(1) { width: 85%; }
+        .mockup-lines div:nth-child(2) { width: 65%; }
+        .mockup-lines div:nth-child(3) { width: 95%; }
         
         .mockup-corner {
             position: absolute;
-            top: 0;
-            right: 0;
-            width: 12px;
-            height: 12px;
-            background: linear-gradient(135deg, transparent 50%, var(--secondary) 50%);
-            border-radius: 0 3px 0 0;
-            opacity: 0.3;
+            top: -1px;
+            right: -1px;
+            width: 16px;
+            height: 16px;
+            background: linear-gradient(135deg, var(--accent-light) 50%, var(--secondary) 50%);
+            border-radius: 0 4px 0 0;
+            box-shadow: -1px 1px 2px rgba(0,0,0,0.1);
         }
         
-        /* Notepad Mockup */
+        /* Notepad Mockup - Größer */
         .mockup-notepad {
-            width: 50px;
-            height: 50px;
+            width: 64px;
+            height: 72px;
             background: white;
             border: 1px solid var(--border);
             border-radius: 4px;
-            padding: 8px 6px;
-            box-shadow: 0 2px 4px rgba(15, 23, 42, 0.06);
+            padding: 10px 8px;
+            box-shadow: 
+                0 1px 2px rgba(15, 23, 42, 0.04),
+                0 4px 8px rgba(15, 23, 42, 0.08);
+            position: relative;
+        }
+        
+        .mockup-notepad::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: var(--secondary);
+            opacity: 0.15;
+            border-radius: 4px 4px 0 0;
         }
         
         .mockup-checkboxes {
             display: flex;
             align-items: center;
-            gap: 6px;
-            margin-bottom: 5px;
+            gap: 8px;
+            margin-bottom: 8px;
         }
         
         .mockup-check {
-            width: 8px;
-            height: 8px;
-            border: 1px solid var(--secondary);
+            width: 10px;
+            height: 10px;
+            border: 1.5px solid var(--secondary);
             border-radius: 2px;
             flex-shrink: 0;
+            opacity: 0.6;
+        }
+        
+        .mockup-check.checked {
+            background: var(--secondary);
+            opacity: 0.3;
         }
         
         .mockup-line {
@@ -420,27 +459,49 @@
             border-radius: 1px;
         }
         
-        /* Checklist Mockup */
+        /* Checklist Mockup - Größer */
         .mockup-checklist {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 6px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .mockup-checklist-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
         .mockup-checkbox {
-            width: 20px;
-            height: 20px;
-            border: 1.5px solid var(--border);
-            border-radius: 4px;
+            width: 14px;
+            height: 14px;
+            border: 1.5px solid var(--secondary);
+            border-radius: 3px;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
+            opacity: 0.6;
+        }
+        
+        .mockup-checkbox.checked {
+            background: var(--secondary);
+            opacity: 0.3;
+            border-color: transparent;
         }
         
         .mockup-checkbox.checked::after {
             content: '✓';
-            font-size: 11px;
-            color: var(--secondary);
+            font-size: 9px;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .mockup-checkbox-row-line {
+            flex: 1;
+            height: 2px;
+            background: var(--border);
+            border-radius: 1px;
         }
         
         /* Featured Badge */
@@ -545,21 +606,22 @@
             justify-content: center;
             background: transparent;
             color: var(--primary);
-            padding: 8px 20px;
-            border-radius: 6px;
+            padding: 12px 32px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 500;
-            font-size: 13px;
+            font-size: 14px;
             transition: all 0.25s ease;
             border: 1px solid var(--border);
             cursor: pointer;
-            width: auto;
-            min-width: 140px;
+            width: 100%;
+            letter-spacing: 0.01em;
         }
         
         .buy-btn:hover {
             border-color: var(--secondary);
             color: var(--secondary);
+            background: var(--accent-light);
         }
 
         /* CTA Section */
@@ -756,7 +818,7 @@
             <div class="container">
                 <span class="section-label">Downloads</span>
                 <h1>Praxisnahe <em>Ressourcen</em></h1>
-                <p class="hero-subtitle">Kostenlose Guides fur den Einstieg. Weiterfuhrende Downloads fur die Umsetzung.</p>
+                <p class="hero-subtitle">Kostenlose Guides für den Einstieg. Weiterfürhrende Downloads für die Umsetzung.</p>
             </div>
         </section>
 
@@ -766,7 +828,7 @@
                 <div class="section-header">
                     <span class="section-label">Kostenlos</span>
                     <h2>Guides & <em>eBooks</em></h2>
-                    <p>Fundiertes Wissen – ohne Anmeldung, sofort verfugbar.</p>
+                    <p>Fundiertes Wissen – ohne Anmeldung, sofort verfürgbar.</p>
                 </div>
                 
                 <div class="ebooks-grid">
@@ -779,9 +841,9 @@
                                 <span>28 Seiten</span>
                                 <span>15 Min.</span>
                             </div>
-                            <h3>Die 10 KI-Prompts fur KMU</h3>
-                            <p>Die wichtigsten Prompts fur kleine und mittlere Unternehmen – sofort einsetzbar.</p>
-                            <a href="/ebooks/Die_10_KI-Prompts_fuer_KMU.pdf" class="download-btn" download>
+                            <h3>Die 10 KI-Prompts für KMU</h3>
+                            <p>Die wichtigsten Prompts für kleine und mittlere Unternehmen – sofort einsetzbar.</p>
+                            <a href="/ebooks/Die_10_KI-Prompts_fürer_KMU.pdf" class="download-btn" download>
                                 Download
                             </a>
                         </div>
@@ -797,7 +859,7 @@
                                 <span>20 Min.</span>
                             </div>
                             <h3>EU AI Act Survival Guide</h3>
-                            <p>Alles uber die EU KI-Verordnung – kompakt und verstandlich. Mit Checkliste.</p>
+                            <p>Alles über die EU KI-Verordnung – kompakt und verständlich. Mit Checkliste.</p>
                             <a href="/ebooks/EU-AI-Act-Survival-Guide.pdf" class="download-btn" download>
                                 Download
                             </a>
@@ -813,8 +875,8 @@
                                 <span>26 Seiten</span>
                                 <span>15 Min.</span>
                             </div>
-                            <h3>KI-Automation fur Burus</h3>
-                            <p>10 Workflows fur Effizienzsteigerung. Von E-Mail-Verarbeitung bis Dokumentenerstellung.</p>
+                            <h3>KI-Automation für Burus</h3>
+                            <p>10 Workflows für Effizienzsteigerung. Von E-Mail-Verarbeitung bis Dokumentenerstellung.</p>
                             <a href="/ebooks/KI-Automatisierungen-Ebook.pdf" class="download-btn" download>
                                 Download
                             </a>
@@ -831,7 +893,7 @@
                                 <span>12 Min.</span>
                             </div>
                             <h3>KI Tools 2026</h3>
-                            <p>Die wesentlichen Strategien fur Unternehmer. Wie du KI-Tools effektiv einsetzt.</p>
+                            <p>Die wesentlichen Strategien für Unternehmer. Wie du KI-Tools effektiv einsetzt.</p>
                             <a href="/ebooks/KI_Tools_Ebook_2026.pdf" class="download-btn" download>
                                 Download
                             </a>
@@ -909,10 +971,18 @@
                     <div class="template-card">
                         <div class="template-mockup">
                             <div class="mockup-checklist">
-                                <div class="mockup-checkbox checked"></div>
-                                <div class="mockup-checkbox"></div>
-                                <div class="mockup-checkbox checked"></div>
-                                <div class="mockup-checkbox"></div>
+                                <div class="mockup-checklist-row">
+                                    <div class="mockup-checkbox checked"></div>
+                                    <div class="mockup-checkbox-row-line"></div>
+                                </div>
+                                <div class="mockup-checklist-row">
+                                    <div class="mockup-checkbox"></div>
+                                    <div class="mockup-checkbox-row-line"></div>
+                                </div>
+                                <div class="mockup-checklist-row">
+                                    <div class="mockup-checkbox checked"></div>
+                                    <div class="mockup-checkbox-row-line"></div>
+                                </div>
                             </div>
                         </div>
                         <h3>KI-Checkliste für KMU</h3>
@@ -936,7 +1006,7 @@
             <div class="container">
                 <div class="cta-box">
                     <span class="section-label">Nachster Schritt</span>
-                    <h2>Bereit fur mehr <em>Praxis</em>?</h2>
+                    <h2>Bereit für mehr <em>Praxis</em>?</h2>
                     <p>Die Templates sind nur der Anfang. In meinen Kursen gehe ich tiefer – mit Videos, Ubungen und direkter Unterstutzung.</p>
                     <div class="btn-group">
                         <a href="/kurse/" class="btn-primary">Zu den Kursen</a>
