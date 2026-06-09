@@ -541,35 +541,87 @@ a {
     :root {
         --container-padding: 32px;
     }
-    
+
     .nav-links,
     .nav-cta {
         display: none;
     }
-    
+
     .mobile-menu-btn {
         display: block;
     }
-    
+
+    /* Hero Grid auf Tablet */
+    .hero .container[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero img {
+        max-width: 350px;
+        margin: 0 auto;
+    }
+
     .courses-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .hero {
         padding: 120px 0 80px;
+    }
+
+    /* Services Grid */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    /* Articles Grid */
+    .articles-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
     }
 }
 
 @media (max-width: 768px) {
     :root {
-        --container-padding: 24px;
+        --container-padding: 20px;
     }
 
     h1 { font-size: 32px; }
     h2 { font-size: 26px; }
+    h3 { font-size: 22px; }
 
-    .hero-buttons {
-        flex-direction: column;
+    .hero {
+        padding: 100px 0 60px !important;
+    }
+
+    .hero h1 {
+        font-size: clamp(28px, 8vw, 40px) !important;
+    }
+
+    .hero p {
+        font-size: 16px !important;
+    }
+
+    .hero-buttons,
+    .hero-content > div[style*="flex"] {
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+
+    .hero img {
+        max-width: 280px;
+    }
+
+    /* Stats unter Hero */
+    .hero-content > div[style*="gap: 40px"] {
+        flex-direction: row !important;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 24px !important;
     }
 
     .btn {
@@ -580,9 +632,83 @@ a {
         grid-template-columns: 1fr;
     }
 
+    .services-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .articles-grid {
+        grid-template-columns: 1fr !important;
+    }
+
     .footer-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr !important;
         gap: 32px;
+        text-align: center;
+    }
+
+    .footer-brand {
+        max-width: 100%;
+    }
+
+    /* Problem Section */
+    .problem {
+        padding: 60px 0 !important;
+    }
+
+    /* CTA Section */
+    .cta {
+        padding: 60px 0 !important;
+    }
+
+    /* Kontakt-Seite */
+    .profile-section {
+        flex-direction: column !important;
+        text-align: center;
+        padding: 30px !important;
+    }
+
+    .profile-img {
+        width: 150px !important;
+        height: 150px !important;
+    }
+
+    .contact-row {
+        flex-direction: column !important;
+    }
+
+    /* Pricing */
+    .pricing-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Glossar */
+    .glossar-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --container-padding: 16px;
+    }
+
+    h1 { font-size: 26px; }
+    h2 { font-size: 22px; }
+
+    .hero {
+        padding: 90px 0 50px !important;
+    }
+
+    .section-label {
+        font-size: 11px;
+    }
+
+    .course-card {
+        padding: 20px;
+    }
+
+    .course-image {
+        height: 160px;
     }
 }
 
@@ -600,10 +726,37 @@ a {
     .materials-grid {
         grid-template-columns: repeat(2, 1fr) !important;
     }
+
+    .materials-grid > div {
+        padding: 24px !important;
+    }
+
+    .materials-grid img {
+        max-height: 100px !important;
+    }
 }
 
 @media (max-width: 480px) {
     .materials-grid {
         grid-template-columns: 1fr !important;
+    }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.text-center-mobile {
+    text-align: center;
+}
+
+@media (min-width: 769px) {
+    .text-center-mobile {
+        text-align: left;
     }
 }
