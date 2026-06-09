@@ -294,10 +294,9 @@ a {
    ============================================ */
 
 .hero {
-    min-height: 100vh;
     display: flex;
     align-items: center;
-    padding: 140px 0 100px;
+    padding: 100px 0 40px;
     background: linear-gradient(135deg, #F7F9FC 0%, #FFFFFF 50%, #F1F5F9 100%);
 }
 
