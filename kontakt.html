@@ -47,19 +47,30 @@
             margin: 0 auto;
             background: linear-gradient(135deg, #F7F9FC 0%, #FFFFFF 100%);
         }
-        
+
+        .hero .section-label {
+            display: block;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--secondary);
+            margin-bottom: 16px;
+        }
+
         .hero h1 {
             font-size: clamp(32px, 4vw, 48px);
             margin-bottom: 12px;
             font-weight: 600;
             color: var(--primary);
         }
-        
+
         .hero h1 em {
             font-style: italic;
             color: var(--secondary);
         }
-        
+
         .hero p {
             font-size: 18px;
             color: var(--text-secondary);
@@ -344,6 +355,7 @@
     <main>
         <div class="container">
             <header class="hero">
+                <span class="section-label">KONTAKT</span>
                 <h1>Lassen Sie uns <em>connecten</em></h1>
                 <p>Ich freue mich auf Ihre Nachricht zu Kursen, Services oder Kooperationen.</p>
             </header>

@@ -564,24 +564,46 @@ a {
     :root {
         --container-padding: 24px;
     }
-    
+
     h1 { font-size: 32px; }
     h2 { font-size: 26px; }
-    
+
     .hero-buttons {
         flex-direction: column;
     }
-    
+
     .btn {
         width: 100%;
     }
-    
+
     .courses-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .footer-grid {
         grid-template-columns: 1fr 1fr;
         gap: 32px;
+    }
+}
+
+/* ============================================
+   MATERIALS SECTION - RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1200px) {
+    .materials-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .materials-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .materials-grid {
+        grid-template-columns: 1fr !important;
     }
 }
