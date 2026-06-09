@@ -17,25 +17,29 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/main.css">
     <style>
         :root {
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #111111;
-            --bg-card: rgba(20, 20, 20, 0.8);
-            --text-primary: #f5f5f5;
-            --text-secondary: #a0a0a0;
-            --text-muted: #666666;
-            --accent: #c9a962;
-            --border: rgba(255, 255, 255, 0.08);
+            --primary: #0B1F3A;
+            --secondary: #1E5EFF;
+            --bg-soft: #F7F9FC;
+            --bg-white: #FFFFFF;
+            --text-primary: #1F2937;
+            --text-secondary: #64748B;
+            --text-muted: #94A3B8;
+            --accent-gold: #C9A227;
+            --border: #E2E8F0;
+            --font-display: 'IBM Plex Sans', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'IBM Plex Mono', monospace;
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg-primary);
+            font-family: var(--font-body);
+            background: var(--bg-soft);
             color: var(--text-primary);
             line-height: 1.6;
         }
@@ -46,477 +50,186 @@
             padding: 0 40px;
         }
 
-        /* Navigation */
-        .nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 1000;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
+        /* Product Hero */
+        .product-hero {
+            padding: 140px 0 80px;
+            background: linear-gradient(135deg, var(--bg-soft) 0%, var(--bg-white) 100%);
         }
         
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .product-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
         }
         
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: var(--text-primary);
-        }
-        
-        .logo-mark {
-            width: 40px;
-            height: 40px;
-            background: var(--accent);
-            color: var(--bg-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            font-weight: 700;
-            border-radius: 8px;
-        }
-        
-        .logo-text {
-            font-weight: 600;
-            font-size: 18px;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 40px;
-            list-style: none;
-        }
-        
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-        
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--accent);
-        }
-        
-        .nav-cta {
-            background: var(--accent);
-            color: var(--bg-primary);
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            transition: all 0.3s;
-        }
-        
-        .nav-cta:hover {
-            background: #a88b4a;
-        }
-        
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            flex-direction: column;
-            gap: 6px;
-        }
-        
-        .mobile-menu-btn span {
-            width: 24px;
-            height: 2px;
-            background: var(--text-primary);
-        }
-        
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 80px;
-            left: 0; right: 0;
-            background: var(--bg-secondary);
-            padding: 20px;
-            z-index: 999;
-        }
-        
-        .mobile-menu.show {
-            display: block;
-        }
-        
-        .mobile-menu a {
-            display: block;
-            padding: 16px;
-            color: var(--text-primary);
-            text-decoration: none;
-            border-bottom: 1px solid var(--border);
-            font-size: 16px;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 160px 0 80px;
-            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-        }
-        
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-        
-        .hero-text {
-            max-width: 540px;
-        }
-        
-        .badge {
+        .product-badge {
             display: inline-block;
-            background: rgba(201, 169, 98, 0.1);
-            border: 1px solid rgba(201, 169, 98, 0.2);
-            color: var(--accent);
+            background: var(--secondary);
+            color: white;
             padding: 8px 20px;
             border-radius: 100px;
             font-size: 12px;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             margin-bottom: 24px;
         }
         
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(36px, 4vw, 48px);
-            font-weight: 400;
+        .product-header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 600;
+            color: var(--primary);
             margin-bottom: 20px;
-            line-height: 1.2;
+            line-height: 1.1;
         }
         
-        h1 em {
+        .product-header h1 em {
             font-style: italic;
-            color: var(--accent);
+            color: var(--secondary);
         }
         
-        .subtitle {
-            font-size: 18px;
+        .product-header p {
+            font-size: 20px;
             color: var(--text-secondary);
             line-height: 1.7;
-            margin-bottom: 32px;
         }
         
-        .price-box {
-            display: flex;
-            align-items: baseline;
-            gap: 12px;
-            margin-bottom: 32px;
-        }
-        
-        .price {
-            font-family: 'Playfair Display', serif;
-            font-size: 48px;
-            color: var(--accent);
-            font-weight: 600;
-        }
-        
-        .price span {
-            font-size: 16px;
-            color: var(--text-muted);
-            font-family: 'Inter', sans-serif;
-        }
-        
-        .button-group {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-        
-        .btn {
-            display: inline-flex;
+        /* Product Content */
+        .product-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
             align-items: center;
-            gap: 10px;
-            padding: 18px 32px;
-            border-radius: 10px;
+        }
+        
+        .product-image {
+            background: var(--bg-white);
+            border-radius: 24px;
+            padding: 40px;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 60px rgba(11, 31, 58, 0.1);
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+        
+        .product-details h2 {
+            font-family: var(--font-display);
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .product-details ul {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+        
+        .product-details li {
+            padding: 12px 0;
+            padding-left: 32px;
+            position: relative;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .product-details li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: 700;
+        }
+        
+        .product-price {
+            font-family: var(--font-display);
+            font-size: 48px;
+            color: var(--primary);
+            margin-bottom: 24px;
+        }
+        
+        .product-price span {
+            font-size: 20px;
+            color: var(--text-secondary);
+        }
+        
+        .buy-btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
             font-size: 16px;
             transition: all 0.3s;
-            border: none;
-            cursor: pointer;
         }
         
-        .btn-primary {
-            background: var(--accent);
-            color: var(--bg-primary);
-        }
-        
-        .btn-primary:hover {
+        .buy-btn:hover {
+            background: #164ED9;
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(201, 169, 98, 0.3);
         }
-        
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-primary);
-            border: 1px solid var(--border);
-        }
-        
-        .btn-secondary:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-        
-        .hero-image {
-            position: relative;
-        }
-        
-        .hero-image img {
-            width: 100%;
-            border-radius: 16px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-        }
-        
-        /* Product Cover Design */
-        .product-cover {
-            width: 100%;
-            aspect-ratio: 4/5;
-            background: linear-gradient(135deg, #2d5a3d 0%, #3d7a4d 100%);
-            border-radius: 16px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 40px 80px rgba(0,0,0,0.6);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 40px;
-        }
-        
-        .product-cover::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 20%, rgba(201, 169, 98, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 80%, rgba(201, 169, 98, 0.1) 0%, transparent 40%);
-        }
-        
-        .cover-accent-line-top {
-            position: absolute;
-            top: 60px;
-            left: 40px;
-            right: 40px;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent);
-        }
-        
-        .cover-accent-line-bottom {
-            position: absolute;
-            bottom: 60px;
-            left: 40px;
-            right: 40px;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent);
-        }
-        
-        .cover-logo {
-            position: absolute;
-            top: 80px;
-            font-size: 12px;
-            letter-spacing: 3px;
-            color: var(--accent);
-            font-weight: 600;
-            z-index: 1;
-        }
-        
-        .cover-icon {
-            font-size: 100px;
-            margin-bottom: 30px;
-            z-index: 1;
-            filter: drop-shadow(0 10px 30px rgba(201, 169, 98, 0.3));
-        }
-        
-        .cover-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 42px;
-            color: #fff;
-            text-align: center;
-            line-height: 1.2;
-            margin-bottom: 16px;
-            z-index: 1;
-        }
-        
-        .cover-title span {
-            color: var(--accent);
-            font-style: italic;
-        }
-        
-        .cover-subtitle {
-            font-size: 18px;
-            color: rgba(255,255,255,0.7);
-            text-align: center;
-            z-index: 1;
-            margin-bottom: 30px;
-        }
-        
-        .cover-features {
-            display: flex;
-            gap: 24px;
-            z-index: 1;
-        }
-        
-        .cover-feature {
-            text-align: center;
-            color: rgba(255,255,255,0.6);
-            font-size: 12px;
-        }
-        
-        .cover-feature strong {
-            display: block;
-            color: var(--accent);
-            font-size: 18px;
-            margin-bottom: 4px;
-        }
-        
-        /* Features Section */
+
+        /* Features */
         .features {
-            padding: 80px 0;
-            background: var(--bg-secondary);
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-title h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            margin-bottom: 12px;
-        }
-        
-        .section-title h2 em {
-            font-style: italic;
-            color: var(--accent);
-        }
-        
-        .section-title p {
-            color: var(--text-secondary);
-            font-size: 18px;
+            padding: 100px 0;
+            background: var(--bg-white);
         }
         
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 32px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
         }
         
-        .feature {
-            background: var(--bg-card);
+        .feature-card {
+            text-align: center;
+            padding: 40px;
+            background: var(--bg-soft);
+            border-radius: 20px;
             border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 32px;
-            transition: all 0.3s;
-        }
-        
-        .feature:hover {
-            border-color: rgba(201, 169, 98, 0.2);
-            transform: translateY(-4px);
         }
         
         .feature-icon {
-            font-size: 40px;
-            margin-bottom: 16px;
+            font-size: 48px;
+            margin-bottom: 20px;
         }
         
-        .feature h3 {
-            font-size: 20px;
+        .feature-card h3 {
+            font-family: var(--font-display);
+            font-size: 22px;
             margin-bottom: 12px;
-            font-weight: 600;
+            color: var(--primary);
         }
         
-        .feature p {
+        .feature-card p {
             color: var(--text-secondary);
             font-size: 15px;
-            line-height: 1.6;
+            line-height: 1.7;
         }
-        
-        /* CTA Section */
-        .cta {
-            padding: 100px 0;
-            background: var(--bg-primary);
-            text-align: center;
-        }
-        
-        .cta-box {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .cta-box h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            margin-bottom: 16px;
-        }
-        
-        .cta-box p {
-            color: var(--text-secondary);
-            font-size: 18px;
-            margin-bottom: 32px;
-        }
-        
-        /* Footer */
-        .footer {
-            background: var(--bg-primary);
-            padding: 40px 0;
-            border-top: 1px solid var(--border);
-            text-align: center;
-        }
-        
-        .footer p {
-            color: var(--text-muted);
-            font-size: 14px;
-        }
-        
+
         @media (max-width: 1024px) {
-            .hero-content {
+            .product-content {
                 grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .hero-text {
-                max-width: 100%;
-            }
-            
-            .button-group {
-                justify-content: center;
+                gap: 60px;
             }
             
             .features-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
         }
         
-        @media (max-width: 1024px) {
-            .nav-links { display: none; }
-            .nav-cta { display: none; }
-            .mobile-menu-btn { display: flex; }
-        }
-        
         @media (max-width: 768px) {
-            .container {
-                padding: 0 20px;
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-image {
+                padding: 24px;
             }
         }
     </style>
@@ -526,13 +239,19 @@
         <div class="nav-container">
             <a href="/" class="logo">
                 <span class="logo-mark">K</span>
-                <span class="logo-text">KI<span style="color: var(--accent);">.</span>Expertenraum</span>
+                <span class="logo-text">KI<span class="logo-dot">.</span>Expertenraum</span>
             </a>
             
             <ul class="nav-links">
                 <li><a href="/">Start</a></li>
                 <li><a href="/kurse/">Kurse</a></li>
-                <li><a href="/ressourcen/">Ressourcen</a></li>
+                <li class="dropdown">
+                    <a href="/ressourcen/">Ressourcen</a>
+                    <div class="dropdown-menu">
+                        <a href="/ressourcen/">eBooks</a>
+                        <a href="/glossar/">Glossar</a>
+                    </div>
+                </li>
                 <li><a href="/services/">Services</a></li>
                 <li><a href="/artikel/">Artikel</a></li>
                 <li><a href="/kontakt.html">Kontakt</a></li>
@@ -540,7 +259,7 @@
             
             <a href="/kontakt.html" class="nav-cta">Beratung anfragen</a>
             
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü öffnen">
+            <button class="mobile-menu-btn" onclick="toggleMenu()">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -549,112 +268,61 @@
     </nav>
     
     <div class="mobile-menu" id="mobileMenu">
-        <a href="/" onclick="closeMenu()">Start</a>
-        <a href="/kurse/" onclick="closeMenu()">Kurse</a>
-        <a href="/ressourcen/" onclick="closeMenu()">Ressourcen</a>
-        <a href="/services/" onclick="closeMenu()">Services</a>
-        <a href="/artikel/" onclick="closeMenu()">Artikel</a>
-        <a href="/kontakt.html" onclick="closeMenu()">Kontakt</a>
+        <a href="/">Start</a>
+        <a href="/kurse/">Kurse</a>
+        <a href="/services/">Services</a>
+        <a href="/artikel/">Artikel</a>
+        <a href="/kontakt.html">Kontakt</a>
     </div>
 
     <main>
-        <section class="hero">
+        <section class="product-hero">
             <div class="container">
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <span class="badge">15-Punkte-System</span>
-                        <h1>KI-Checkliste für <em>KMU</em></h1>
-                        <p class="subtitle">Der vollständige 4-Wochen-Plan für rechtssicheren KI-Einstieg. Mit Tool-Entscheidungsmatrix, ROI-Rechner und AVV-Übersicht.</p>
-                        
-                        <div class="price-box">
-                            <span class="price">4,99€ <span>inkl. MwSt</span></span>
-                        </div>
-                        
-                        <div class="button-group">
-                            <a href="/downloads/ki-checkliste-kmu.html" class="btn btn-primary" target="_blank">
-                                📄 Vorschau öffnen
-                            </a>
-                            <a href="mailto:zernaphilipp@gmail.com?subject=Bestellung: KI-Checkliste für KMU" class="btn btn-secondary">
-                                🛒 Jetzt kaufen
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="hero-image">
-                        <div class="product-cover">
-                            <div class="cover-accent-line-top"></div>
-                            <div class="cover-logo">KI-EXPERTENRAUM PREMIUM</div>
-                            <div class="cover-icon">📋</div>
-                            <div class="cover-title">KI-<span>Checkliste</span></div>
-                            <div class="cover-subtitle">15 Punkte für rechtssicheren KI-Einstieg</div>
-                            <div class="cover-features">
-                                <div class="cover-feature">
-                                    <strong>15</strong>
-                                    Punkte
-                                </div>
-                                <div class="cover-feature">
-                                    <strong>4</strong>
-                                    Wochen
-                                </div>
-                                <div class="cover-feature">
-                                    <strong>DSGVO</strong>
-                                    konform
-                                </div>
-                            </div>
-                            <div class="cover-accent-line-bottom"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="features">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Ein <em>System</em>, keine Liste</h2>
-                    <p>Nicht nur abhaken – sondern fundiert KI etablieren.</p>
+                <div class="product-header">
+                    <span class="product-badge">Sofort umsetzbar</span>
+                    <h1>KI-Checkliste für <em>KMU</em></h1>
+                    <p>Der vollständige 4-Wochen-Plan. 15 konkrete Checkpunkte für rechtssicheren KI-Einstieg mit Tool-Entscheidungsmatrix, ROI-Rechner und AVV-Übersicht.</p>
                 </div>
                 
-                <div class="features-grid">
-                    <div class="feature">
-                        <div class="feature-icon">🎯</div>
-                        <h3>Tool-Entscheidungsmatrix</h3>
-                        <p>Welches Tool passt zu Ihrem Use-Case? ChatGPT, Claude, Gemini – ehrliche Einordnung mit Preisen und Limits.</p>
+                <div class="product-content">
+                    <div class="product-image">
+                        <img src="/images/ki-checkliste-cover.png" alt="KI-Checkliste für KMU" onerror="this.src='/ebooks/eu%20survival%20guide%20ebook.png'">
                     </div>
                     
-                    <div class="feature">
-                        <div class="feature-icon">⚖️</div>
-                        <h3>DSGVO-Drei-Stufen-Modell</h3>
-                        <p>Klare Regeln: Was dürfen Sie eingeben? Was nicht? Mit konkreten Beispielen statt juristischem Fachchinesisch.</p>
-                    </div>
-                    
-                    <div class="feature">
-                        <div class="feature-icon">📊</div>
-                        <h3>ROI-Rechner inklusive</h3>
-                        <p>Formel + Beispiel: Berechnen Sie Ihre Zeitersparnis und den Return on Investment.</p>
-                    </div>
-                    
-                    <div class="feature">
-                        <div class="feature-icon">📋</div>
-                        <h3>AVV-Übersicht</h3>
-                        <p>Welche Anbieter haben Auftragsverarbeitungsverträge? Übersichtstabelle für ChatGPT, Claude, Microsoft & Co.</p>
+                    <div class="product-details">
+                        <h2>Was du bekommst:</h2>
+                        <ul>
+                            <li>15 konkrete Checkpunkte</li>
+                            <li>4-Wochen-Implementierungsplan</li>
+                            <li>Tool-Entscheidungsmatrix</li>
+                            <li>ROI-Rechner</li>
+                            <li>AVV-Übersicht (DSGVO-konform)</li>
+                        </ul>
+                        
+                        <div class="product-price">19,99 € <span>inkl. MwSt.</span></div>
+                        <a href="#" class="buy-btn">Jetzt kaufen →</a>
                     </div>
                 </div>
             </div>
         </section>
-
-        <section class="cta">
+        
+        <section class="features">
             <div class="container">
-                <div class="cta-box">
-                    <h2>Rechtssicher in 4 <em>Wochen</em></h2>
-                    <p>Von der ersten Idee bis zur produktiven, dokumentierten KI-Nutzung.</p>
-                    <div class="button-group" style="justify-content: center;">
-                        <a href="/downloads/ki-checkliste-kmu.html" class="btn btn-primary" target="_blank">
-                            📄 Vorschau öffnen
-                        </a>
-                        <a href="mailto:zernaphilipp@gmail.com?subject=Bestellung: KI-Checkliste für KMU" class="btn btn-secondary">
-                            🛒 Jetzt kaufen
-                        </a>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">⚖️</div>
+                        <h3>Rechtssicher</h3>
+                        <p>DSGVO-konform mit AVV-Vorlagen.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>ROI-Rechner</h3>
+                        <p>Berechne deinen Return on Investment.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">✅</div>
+                        <h3>Schritt für Schritt</h3>
+                        <p>15 konkrete Checkpunkte zum Abhaken.</p>
                     </div>
                 </div>
             </div>
@@ -663,18 +331,45 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 KI-Expertenraum | Philipp Zerna</p>
+            <div style="display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 48px; margin-bottom: 48px;">
+                <div>
+                    <a href="/" class="logo" style="margin-bottom: 16px; display: inline-flex;">
+                        <span class="logo-mark">K</span>
+                        <span class="logo-text">KI<span class="logo-dot">.</span>Expertenraum</span>
+                    </a>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 15px; max-width: 280px;">Praxisnahe KI-Schulungen und EU AI Act Umsetzung für KMU.</p>
+                </div>
+                
+                <div>
+                    <h4 style="font-size: 14px; font-weight: 600; color: white; margin-bottom: 16px;">Angebot</h4>
+                    <a href="/kurse/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Kurse</a>
+                    <a href="/services/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Services</a>
+                    <a href="/artikel/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Artikel</a>
+                </div>
+                
+                <div>
+                    <h4 style="font-size: 14px; font-weight: 600; color: white; margin-bottom: 16px;">Rechtliches</h4>
+                    <a href="/impressum/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Impressum</a>
+                    <a href="/datenschutz/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Datenschutz</a>
+                </div>
+
+                <div>
+                    <h4 style="font-size: 14px; font-weight: 600; color: white; margin-bottom: 16px;">Kontakt</h4>
+                    <a href="mailto:zerna.philipp@gmail.com" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">E-Mail</a>
+                </div>
+            </div>
+            
+            <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; font-size: 14px; color: rgba(255,255,255,0.5);">
+                <p>© 2026 KI-Expertenraum</p>
+                <p>Philipp Zerna</p>
+            </div>
         </div>
     </footer>
-    
+
     <script>
         function toggleMenu() {
             document.getElementById('mobileMenu').classList.toggle('show');
         }
-        function closeMenu() {
-            document.getElementById('mobileMenu').classList.remove('show');
-        }
-        document.getElementById('mobileMenuBtn').addEventListener('click', toggleMenu);
     </script>
 </body>
 </html>
