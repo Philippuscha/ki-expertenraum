@@ -17,26 +17,33 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/main.css">
     <style>
         :root {
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #111111;
-            --bg-card: rgba(20, 20, 20, 0.8);
-            --text-primary: #f5f5f5;
-            --text-secondary: #a0a0a0;
-            --text-muted: #666666;
-            --accent: #c9a962;
-            --border: rgba(255, 255, 255, 0.08);
+            --primary: #0B1F3A;
+            --secondary: #1E5EFF;
+            --bg-soft: #F7F9FC;
+            --bg-white: #FFFFFF;
+            --text-primary: #1F2937;
+            --text-secondary: #64748B;
+            --text-muted: #94A3B8;
+            --accent-gold: #C9A227;
+            --border: #E2E8F0;
+            --font-display: 'IBM Plex Sans', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'IBM Plex Mono', monospace;
         }
+        
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg-primary);
+            font-family: var(--font-body);
+            background: var(--bg-white);
             color: var(--text-primary);
             line-height: 1.6;
         }
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -48,10 +55,11 @@
             position: fixed;
             top: 0; left: 0; right: 0;
             z-index: 1000;
-            background: rgba(10, 10, 10, 0.95);
+            background: rgba(247, 249, 252, 0.95);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
         }
+        
         .nav-container {
             max-width: 1400px;
             margin: 0 auto;
@@ -60,36 +68,42 @@
             justify-content: space-between;
             align-items: center;
         }
+        
         .logo {
             display: flex;
             align-items: center;
             gap: 12px;
             text-decoration: none;
-            color: var(--text-primary);
         }
+        
         .logo-mark {
             width: 40px;
             height: 40px;
-            background: var(--accent);
-            color: var(--bg-primary);
+            background: var(--primary);
+            color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Playfair Display', serif;
+            font-family: var(--font-display);
             font-size: 20px;
             font-weight: 700;
             border-radius: 8px;
         }
+        
         .logo-text {
             font-weight: 600;
             font-size: 18px;
+            color: var(--primary);
         }
-        .logo-dot { color: var(--accent); }
+        
+        .logo-dot { color: var(--secondary); }
+        
         .nav-links {
             display: flex;
             gap: 40px;
             list-style: none;
         }
+        
         .nav-links a {
             color: var(--text-secondary);
             text-decoration: none;
@@ -97,12 +111,14 @@
             font-weight: 500;
             transition: all 0.3s;
         }
+        
         .nav-links a:hover, .nav-links a.active {
-            color: var(--accent);
+            color: var(--primary);
         }
+        
         .nav-cta {
-            background: var(--accent);
-            color: var(--bg-primary);
+            background: var(--secondary);
+            color: white;
             padding: 12px 24px;
             border-radius: 8px;
             text-decoration: none;
@@ -110,35 +126,42 @@
             font-size: 14px;
             transition: all 0.3s;
         }
+        
         .nav-cta:hover {
-            background: #a88b4a;
+            background: #164ED9;
         }
 
         /* Hero */
         .hero {
             padding: 160px 0 80px;
             text-align: center;
-            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            background: linear-gradient(135deg, #F7F9FC 0%, #FFFFFF 100%);
         }
+        
         .section-label {
             display: inline-block;
+            font-family: var(--font-mono);
             font-size: 12px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.2em;
-            color: var(--accent);
+            color: var(--secondary);
             margin-bottom: 20px;
         }
+        
         h1 {
-            font-family: 'Playfair Display', serif;
+            font-family: var(--font-display);
             font-size: clamp(40px, 5vw, 56px);
             margin-bottom: 24px;
-            font-weight: 500;
+            font-weight: 600;
+            color: var(--primary);
         }
+        
         h1 em {
             font-style: italic;
-            color: var(--accent);
+            color: var(--secondary);
         }
+        
         .hero-subtitle {
             font-size: 18px;
             color: var(--text-secondary);
@@ -150,22 +173,27 @@
         /* Free Ebooks Section */
         .free-section {
             padding: 80px 0;
-            background: var(--bg-secondary);
+            background: var(--bg-white);
         }
+        
         .section-header {
             text-align: center;
             margin-bottom: 60px;
         }
+        
         .section-header h2 {
-            font-family: 'Playfair Display', serif;
+            font-family: var(--font-display);
             font-size: 36px;
             margin-bottom: 16px;
-            font-weight: 500;
+            font-weight: 600;
+            color: var(--primary);
         }
+        
         .section-header h2 em {
             font-style: italic;
-            color: var(--accent);
+            color: var(--secondary);
         }
+        
         .section-header p {
             color: var(--text-secondary);
             font-size: 17px;
@@ -176,8 +204,9 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 32px;
         }
+        
         .ebook-card {
-            background: var(--bg-card);
+            background: var(--bg-white);
             border: 1px solid var(--border);
             border-radius: 16px;
             overflow: hidden;
@@ -185,34 +214,39 @@
             display: flex;
             flex-direction: column;
         }
+        
         .ebook-card:hover {
             transform: translateY(-4px);
-            border-color: rgba(201, 169, 98, 0.2);
+            box-shadow: 0 20px 40px rgba(11, 31, 58, 0.1);
         }
+        
         .ebook-cover {
             height: 160px;
             background-size: cover;
             background-position: center;
             position: relative;
         }
+        
         .ebook-badge {
             position: absolute;
             top: 16px;
             right: 16px;
-            background: var(--accent);
-            color: var(--bg-primary);
+            background: var(--secondary);
+            color: white;
             padding: 6px 14px;
             border-radius: 20px;
             font-size: 11px;
             font-weight: 700;
             text-transform: uppercase;
         }
+        
         .ebook-content {
             padding: 28px;
             flex: 1;
             display: flex;
             flex-direction: column;
         }
+        
         .ebook-meta {
             display: flex;
             gap: 16px;
@@ -220,11 +254,14 @@
             font-size: 13px;
             color: var(--text-muted);
         }
+        
         .ebook-card h3 {
             font-size: 20px;
             margin-bottom: 10px;
-            font-weight: 500;
+            font-weight: 600;
+            color: var(--primary);
         }
+        
         .ebook-card p {
             color: var(--text-secondary);
             font-size: 14px;
@@ -232,13 +269,13 @@
             flex: 1;
             margin-bottom: 20px;
         }
+        
         .download-btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: transparent;
-            border: 1px solid var(--accent);
-            color: var(--accent);
+            background: var(--secondary);
+            color: white;
             padding: 12px 24px;
             border-radius: 8px;
             text-decoration: none;
@@ -246,21 +283,22 @@
             font-size: 14px;
             transition: all 0.3s;
         }
+        
         .download-btn:hover {
-            background: var(--accent);
-            color: var(--bg-primary);
+            background: #164ED9;
         }
 
         /* Premium Section */
         .premium-section {
             padding: 100px 0;
-            background: var(--bg-primary);
+            background: var(--bg-soft);
             border-top: 1px solid var(--border);
         }
+        
         .premium-badge {
             display: inline-block;
-            background: linear-gradient(135deg, var(--accent), #a88b4a);
-            color: var(--bg-primary);
+            background: var(--accent-gold);
+            color: var(--primary);
             padding: 8px 20px;
             border-radius: 100px;
             font-size: 12px;
@@ -269,53 +307,53 @@
             letter-spacing: 0.1em;
             margin-bottom: 20px;
         }
+        
         .templates-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
             margin-top: 60px;
         }
-        @media (max-width: 1024px) {
-            .templates-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        @media (max-width: 768px) {
-            .templates-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+        
         .template-card {
-            background: linear-gradient(135deg, rgba(201, 169, 98, 0.05), rgba(201, 169, 98, 0.02));
-            border: 1px solid rgba(201, 169, 98, 0.15);
+            background: var(--bg-white);
+            border: 1px solid var(--border);
             border-radius: 20px;
             padding: 40px;
             transition: all 0.3s ease;
         }
+        
         .template-card:hover {
-            border-color: rgba(201, 169, 98, 0.3);
+            border-color: var(--secondary);
             transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(11, 31, 58, 0.1);
         }
+        
         .template-icon {
             font-size: 48px;
             margin-bottom: 20px;
         }
+        
         .template-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
+            font-family: var(--font-display);
+            font-size: 22px;
             margin-bottom: 12px;
-            font-weight: 500;
+            font-weight: 600;
+            color: var(--primary);
         }
+        
         .template-card p {
             color: var(--text-secondary);
             font-size: 15px;
             line-height: 1.7;
             margin-bottom: 20px;
         }
+        
         .template-features {
             list-style: none;
             margin-bottom: 24px;
         }
+        
         .template-features li {
             padding: 8px 0;
             padding-left: 24px;
@@ -323,31 +361,36 @@
             color: var(--text-secondary);
             font-size: 14px;
         }
+        
         .template-features li::before {
             content: '✓';
             position: absolute;
             left: 0;
-            color: var(--accent);
+            color: var(--secondary);
             font-weight: 700;
         }
+        
         .template-price {
-            font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            color: var(--accent);
+            font-family: var(--font-display);
+            font-size: 32px;
+            color: var(--primary);
             margin-bottom: 20px;
+            font-weight: 600;
         }
+        
         .template-price span {
             font-size: 16px;
             color: var(--text-muted);
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-body);
         }
+        
         .buy-btn {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: var(--accent);
-            color: var(--bg-primary);
-            padding: 16px 32px;
+            background: var(--secondary);
+            color: white;
+            padding: 14px 28px;
             border-radius: 10px;
             text-decoration: none;
             font-weight: 600;
@@ -358,52 +401,61 @@
             width: 100%;
             justify-content: center;
         }
+        
         .buy-btn:hover {
+            background: #164ED9;
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(201, 169, 98, 0.3);
         }
 
         /* CTA Section */
         .cta-section {
             padding: 100px 0;
-            background: var(--bg-secondary);
+            background: var(--bg-white);
             text-align: center;
         }
+        
         .cta-box {
             max-width: 600px;
             margin: 0 auto;
         }
+        
         .cta-box h2 {
-            font-family: 'Playfair Display', serif;
+            font-family: var(--font-display);
             font-size: 36px;
             margin-bottom: 20px;
+            color: var(--primary);
         }
+        
         .cta-box h2 em {
             font-style: italic;
-            color: var(--accent);
+            color: var(--secondary);
         }
+        
         .cta-box p {
             color: var(--text-secondary);
             font-size: 17px;
             margin-bottom: 32px;
         }
+        
         .btn-group {
             display: flex;
             gap: 16px;
             justify-content: center;
         }
+        
         .btn-primary {
-            background: var(--accent);
-            color: var(--bg-primary);
+            background: var(--secondary);
+            color: white;
             padding: 16px 32px;
             border-radius: 10px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s;
         }
+        
         .btn-secondary {
             background: transparent;
-            color: var(--text-primary);
+            color: var(--primary);
             padding: 16px 32px;
             border-radius: 10px;
             text-decoration: none;
@@ -411,57 +463,77 @@
             border: 1px solid var(--border);
             transition: all 0.3s;
         }
+        
         .btn-primary:hover, .btn-secondary:hover {
             transform: translateY(-2px);
+        }
+        
+        .btn-primary:hover {
+            background: #164ED9;
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--secondary);
+            color: var(--secondary);
         }
 
         /* Footer */
         .footer {
-            background: var(--bg-primary);
+            background: var(--primary);
             padding: 60px 0 30px;
-            border-top: 1px solid var(--border);
         }
+        
         .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr;
             gap: 60px;
             margin-bottom: 40px;
         }
+        
         .footer-logo {
             display: flex;
             align-items: center;
             gap: 12px;
             text-decoration: none;
-            color: var(--text-primary);
             margin-bottom: 16px;
         }
+        
+        .footer-logo .logo-mark {
+            background: white;
+            color: var(--primary);
+        }
+        
         .footer-tagline {
-            color: var(--text-muted);
+            color: rgba(255,255,255,0.7);
             font-size: 14px;
             line-height: 1.6;
         }
+        
         .footer-col h4 {
             font-size: 14px;
             font-weight: 600;
             margin-bottom: 20px;
-            color: var(--text-primary);
+            color: white;
         }
+        
         .footer-col a {
             display: block;
-            color: var(--text-muted);
+            color: rgba(255,255,255,0.65);
             text-decoration: none;
             font-size: 14px;
             margin-bottom: 12px;
             transition: all 0.3s;
         }
+        
         .footer-col a:hover {
-            color: var(--accent);
+            color: white;
         }
+        
         .footer-bottom {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid var(--border);
-            color: var(--text-muted);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
             font-size: 14px;
         }
 
@@ -470,6 +542,7 @@
             .ebooks-grid, .templates-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr 1fr; }
         }
+        
         @media (max-width: 768px) {
             .container { padding: 0 20px; }
             .btn-group { flex-direction: column; }
@@ -502,7 +575,7 @@
         <section class="hero">
             <div class="container">
                 <span class="section-label">Downloads & Templates</span>
-                <h1 class="serif">Praxisnahe <em>Ressourcen</em></h1>
+                <h1>Praxisnahe <em>Ressourcen</em></h1>
                 <p class="hero-subtitle">Kostenlose Ebooks für den Einstieg. Premium Templates für sofortige Umsetzung. Alles auf einen Blick.</p>
             </div>
         </section>
@@ -512,13 +585,13 @@
             <div class="container">
                 <div class="section-header">
                     <span class="section-label">Kostenlos</span>
-                    <h2 class="serif">Ebooks & <em>Guides</em></h2>
+                    <h2>Ebooks & <em>Guides</em></h2>
                     <p>Fundiertes Wissen für Führungskräfte – ohne Anmeldung, sofort downloadbar.</p>
                 </div>
                 
                 <div class="ebooks-grid">
                     <div class="ebook-card">
-                        <div class="ebook-cover" style="background-image: url('/ebooks/10%20ki%20prompts%20ebook.png'); background-size: cover; background-position: center;">
+                        <div class="ebook-cover" style="background: linear-gradient(135deg, #1E5EFF 0%, #164ED9 100%);">
                             <span class="ebook-badge">Gratis</span>
                         </div>
                         <div class="ebook-content">
@@ -535,7 +608,7 @@
                     </div>
 
                     <div class="ebook-card">
-                        <div class="ebook-cover" style="background-image: url('/ebooks/eu%20survival%20guide%20ebook.png'); background-size: cover; background-position: center;">
+                        <div class="ebook-cover" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%);">
                             <span class="ebook-badge">Gratis</span>
                         </div>
                         <div class="ebook-content">
@@ -552,7 +625,7 @@
                     </div>
 
                     <div class="ebook-card">
-                        <div class="ebook-cover" style="background-image: url('/ebooks/ki%20aitomatisierungen%20ebook.png'); background-size: cover; background-position: center;">
+                        <div class="ebook-cover" style="background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);">
                             <span class="ebook-badge">Gratis</span>
                         </div>
                         <div class="ebook-content">
@@ -569,7 +642,7 @@
                     </div>
 
                     <div class="ebook-card">
-                        <div class="ebook-cover" style="background-image: url('/ebooks/25%20ki%20tools%20ebook.png'); background-size: cover; background-position: center;">
+                        <div class="ebook-cover" style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);">
                             <span class="ebook-badge">Gratis</span>
                         </div>
                         <div class="ebook-content">
@@ -593,7 +666,7 @@
             <div class="container">
                 <div class="section-header">
                     <span class="premium-badge">Premium</span>
-                    <h2 class="serif">Sofort <em>umsetzbar</em></h2>
+                    <h2>Sofort <em>umsetzbar</em></h2>
                     <p>Professionelle Templates zum Arbeiten – nicht nur Lesen. Druckfertig, DSGVO-konform, executive level.</p>
                 </div>
                 
@@ -639,20 +712,6 @@
                         <div class="template-price">4,99€ <span>inkl. MwSt</span></div>
                         <a href="/produkte/ki-checkliste/" class="buy-btn">Mehr erfahren →</a>
                     </div>
-
-                    <div class="template-card">
-                        <div class="template-icon">💬</div>
-                        <h3>Prompt-Framework</h3>
-                        <p>10 bewährte Prompt-Templates für Führungskräfte. Von Strategie bis schwierigen Mitarbeitergesprächen.</p>
-                        <ul class="template-features">
-                            <li>10 Copy-Paste Templates</li>
-                            <li>PERFECT-Methode inklusive</li>
-                            <li>Für ChatGPT, Claude & Co.</li>
-                            <li>Mit Praxis-Tipps pro Template</li>
-                        </ul>
-                        <div class="template-price">6,90€ <span>inkl. MwSt</span></div>
-                        <a href="/produkte/prompt-framework/" class="buy-btn">Mehr erfahren →</a>
-                    </div>
                 </div>
             </div>
         </section>
@@ -662,7 +721,7 @@
             <div class="container">
                 <div class="cta-box">
                     <span class="section-label">Nächster Schritt</span>
-                    <h2 class="serif">Bereit für mehr <em>Praxis</em>?</h2>
+                    <h2>Bereit für mehr <em>Praxis</em>?</h2>
                     <p>Die Templates sind nur der Anfang. In meinen Premium-Kursen gehe ich tiefer – mit Videos, Übungen und persönlichem Support.</p>
                     <div class="btn-group">
                         <a href="/kurse/" class="btn-primary">Zu den Kursen →</a>
@@ -679,30 +738,27 @@
                 <div>
                     <a href="/" class="footer-logo">
                         <span class="logo-mark">K</span>
-                        <span>KI<span style="color: var(--accent);">.</span>Expertenraum</span>
+                        <span style="color: white; font-weight: 600;">KI<span style="color: var(--secondary);">.</span>Expertenraum</span>
                     </a>
-                    <p class="footer-tagline">Premium KI-Akademie und strategische Beratung für Führungskräfte. Praxiserprobt, EU-konform, exzellent.</p>
+                    <p class="footer-tagline">Praxisnahe KI-Schulungen und EU AI Act Umsetzung für KMU.</p>
                 </div>
                 
                 <div class="footer-col">
                     <h4>Angebot</h4>
-                    <a href="/kurse/">Premium Kurse</a>
+                    <a href="/kurse/">Kurse</a>
                     <a href="/ressourcen/">Ressourcen</a>
-                    <a href="/services/">Business Consulting</a>
-                    <a href="/artikel/">Artikel</a>
+                    <a href="/services/">Services</a>
                 </div>
                 
                 <div class="footer-col">
                     <h4>Rechtliches</h4>
                     <a href="/impressum/">Impressum</a>
                     <a href="/datenschutz/">Datenschutz</a>
-                    <a href="/kontakt.html">Kontakt</a>
                 </div>
                 
                 <div class="footer-col">
-                    <h4>Connect</h4>
+                    <h4>Kontakt</h4>
                     <a href="mailto:zernaphilipp@gmail.com">E-Mail</a>
-                    <a href="https://www.linkedin.com/in/philipp-zerna-b155343a3/" target="_blank">LinkedIn</a>
                 </div>
             </div>
             
