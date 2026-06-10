@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Über mich | Philipp Zerna | KI-Expertenraum</title>
+    <meta name="description" content="Ich erstelle praxisnahe KI-Kurse, Guides und Lernmaterialien. Mein Fokus liegt darauf, komplexe KI-Themen verständlich aufzubereiten.">
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VDQNVYGYE1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-VDQNVYGYE1');
+    </script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <style>
+        :root {
+            --primary: #0F172A;
+            --secondary: #365F9C;
+            --bg-main: #F8F7F4;
+            --bg-soft: #F1F3F5;
+            --bg-white: #FFFFFF;
+            --text-primary: #334155;
+            --text-secondary: #64748B;
+            --text-muted: #94A3B8;
+            --accent-light: #E8EEF8;
+            --border: #D9DEE7;
+            --font-display: 'Source Serif 4', serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'IBM Plex Mono', monospace;
+        }
+        
+        body {
+            background: var(--bg-main);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+        }
+        
+        h1, h2, h3 { font-family: var(--font-display); color: var(--primary); }
+        
+        .section-label {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+        
+        .hero {
+            padding: 120px 0 60px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--bg-main);
+        }
+        
+        .hero h1 {
+            font-size: clamp(28px, 4vw, 42px);
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+        
+        .hero h1 em {
+            font-style: italic;
+            color: var(--secondary);
+            font-weight: 400;
+        }
+        
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+        }
+        
+        .profile-section {
+            display: flex;
+            gap: 48px;
+            margin-bottom: 64px;
+            align-items: flex-start;
+        }
+        
+        .profile-image {
+            flex-shrink: 0;
+            width: 240px;
+            height: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.1);
+        }
+        
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .profile-content h2 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+        
+        .profile-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+        
+        .what-i-do {
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 40px;
+            border: 1px solid var(--border);
+            margin-bottom: 48px;
+        }
+        
+        .what-i-do h2 {
+            font-size: 22px;
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+        
+        .what-i-do ul {
+            list-style: none;
+        }
+        
+        .what-i-do li {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .what-i-do li:last-child {
+            border-bottom: none;
+        }
+        
+        .what-i-do li span {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+        
+        .what-i-do li div strong {
+            display: block;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+        
+        .what-i-do li div p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 48px 0;
+        }
+        
+        .cta-section h2 {
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+        
+        .cta-section p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--secondary);
+        }
+        
+        @media (max-width: 768px) {
+            .profile-section {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .profile-image {
+                width: 200px;
+                height: 250px;
+            }
+            
+            .what-i-do {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <span class="logo-mark">K</span>
+                <span class="logo-text">KI<span class="logo-dot">.</span>Expertenraum</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="/">Start</a></li>
+                <li><a href="/kurse/">Kurse</a></li>
+                <li class="dropdown">
+                    <a href="/ressourcen/">Ressourcen</a>
+                    <div class="dropdown-menu">
+                        <a href="/ressourcen/">Downloads</a>
+                        <a href="/glossar/">Glossar</a>
+                    </div>
+                </li>
+                <li><a href="/artikel/">Artikel</a></li>
+                <li><a href="/ueber-mich/" class="active">Über mich</a></li>
+                <li><a href="/kontakt.html">Kontakt</a></li>
+            </ul>
+            
+            <a href="/kontakt.html" class="nav-cta">Kontakt</a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü öffnen">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <a href="/" onclick="closeMobileMenu()">Start</a>
+            <a href="/kurse/" onclick="closeMobileMenu()">Kurse</a>
+            <a href="/ressourcen/" onclick="closeMobileMenu()">Ressourcen</a>
+            <a href="/artikel/" onclick="closeMobileMenu()">Artikel</a>
+            <a href="/ueber-mich/" onclick="closeMobileMenu()">Über mich</a>
+            <a href="/kontakt.html" onclick="closeMobileMenu()">Kontakt</a>
+        </div>
+    </div>
+
+    <main>
+        <section class="hero">
+            <span class="section-label">Über mich</span>
+            <h1>Philipp <em>Zerna</em></h1>
+        </section>
+
+        <div class="content">
+            <div class="profile-section">
+                <div class="profile-image">
+                    <img src="/images/philipp-zerna.png" alt="Philipp Zerna">
+                </div>
+                <div class="profile-content">
+                    <h2>KI verständlich machen</h2>
+                    <p>Ich erstelle praxisnahe KI-Kurse, Guides und Lernmaterialien. Mein Fokus liegt darauf, komplexe KI-Themen verständlich, strukturiert und anwendbar aufzubereiten.</p>
+                    <p>Die rasante Entwicklung der KI-Technologie bietet enorme Chancen – aber auch viele Fragen. Mein Ziel ist es, diesen Wandel für jeden zugänglich zu machen, unabhängig vom technischen Vorwissen.</p>
+                    <p>Ich glaube daran, dass KI kein Hexenwerk ist. Mit den richtigen Grundlagen und einer klaren Herangehensweise kann jeder lernen, diese Technologie sinnvoll zu nutzen.</p>
+                </div>
+            </div>
+
+            <div class="what-i-do">
+                <h2>Was ich anbiete</h2>
+                <ul>
+                    <li>
+                        <span>01</span>
+                        <div>
+                            <strong>Kurse</strong>
+                            <p>Strukturierte Videokurse zu KI-Grundlagen, EU AI Act, AI Literacy, ChatGPT und praktischer Anwendung.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span>02</span>
+                        <div>
+                            <strong>Ressourcen</strong>
+                            <p>Kompakte Downloads, Checklisten, Guides, Vorlagen und Arbeitsblätter – sofort einsetzbar.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span>03</span>
+                        <div>
+                            <strong>Artikel</strong>
+                            <p>Verständliche Beiträge zu KI-Tools, Anwendungsideen, Produktivität und rechtlichen Grundlagen.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="cta-section">
+                <h2>Fragen oder Feedback?</h2>
+                <p>Ich freue mich auf Ihre Nachricht.</p>
+                <a href="/kontakt.html" class="btn btn-primary">Kontakt aufnehmen</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo">
+                        <span class="logo-mark">K</span>
+                        <span>KI<span class="logo-dot">.</span>Expertenraum</span>
+                    </a>
+                    <p class="footer-tagline">Persönliche KI-Lernplattform mit Kursen, Guides und Lernmaterialien.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Angebot</h4>
+                    <a href="/kurse/">Kurse</a>
+                    <a href="/ressourcen/">Ressourcen</a>
+                    <a href="/artikel/">Artikel</a>
+                    <a href="/glossar/">Glossar</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Rechtliches</h4>
+                    <a href="/impressum/">Impressum</a>
+                    <a href="/datenschutz/">Datenschutz</a>
+                    <a href="/kontakt.html">Kontakt</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <a href="https://www.youtube.com/@philippzerna" target="_blank" rel="noopener">YouTube</a>
+                    <a href="https://www.linkedin.com/in/philipp-zerna/" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2026 KI-Expertenraum</p>
+                <p>Philipp Zerna</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/assets/js/main.js"></script>
+    <script>
+        function closeMobileMenu() {
+            document.getElementById('mobileMenu').classList.remove('show');
+        }
+        
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mobileMenu').classList.toggle('show');
+        });
+    </script>
+</body>
+</html>

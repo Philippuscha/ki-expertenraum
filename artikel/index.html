@@ -3,653 +3,278 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artikel | KI-Expertenraum</title>
-    <meta name="description" content="Praxisnahe KI-Artikel: Tools, Automation & Strategie. Klar, verständlich, sofort umsetzbar.">
-    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+    <title>Blog | KI-Expertenraum - Praxiswissen für Unternehmer</title>
+    <meta name="description" content="Aktuelle Artikel zu KI, EU AI Act, Automation und digitaler Transformation. Praxisnahe Guides für Führungskräfte.">
+    <link rel="canonical" href="https://ki-expertenraum.de/blog/">
     
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="/assets/css/main.css">
     <style>
         :root {
-            --primary: #0F172A;
-            --secondary: #365F9C;
-            --bg-main: #F8F7F4;
-            --bg-soft: #F1F3F5;
-            --bg-white: #FFFFFF;
-            --text-primary: #334155;
-            --text-secondary: #64748B;
-            --text-muted: #94A3B8;
-            --accent-light: #E8EEF8;
-            --border: #D9DEE7;
-            --font-display: 'Source Serif 4', serif;
-            --font-body: 'Inter', sans-serif;
-            --font-mono: 'IBM Plex Mono', monospace;
-            --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
-            --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
-            --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.12);
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-card: rgba(20, 20, 20, 0.8);
+            --text-primary: #f5f5f5;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --accent: #c9a962;
+            --border: rgba(255, 255, 255, 0.08);
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
         body {
-            font-family: var(--font-body);
-            background: var(--bg-main);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.6;
         }
         
-        h1, h2, h3 { font-family: var(--font-display); color: var(--primary); }
-        
-        .section-label {
-            display: inline-block;
-            font-family: var(--font-mono);
-            font-size: 12px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--secondary);
-            margin-bottom: 16px;
-        }
-        
         .container {
-            max-width: 1200px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 20px;
         }
         
-        /* Navigation */
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(248, 247, 244, 0.95);
-            backdrop-filter: blur(12px);
+        /* Header */
+        header {
+            padding: 40px 0;
+            text-align: center;
             border-bottom: 1px solid var(--border);
         }
         
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 16px 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
             text-decoration: none;
+            display: inline-block;
+            margin-bottom: 10px;
         }
         
-        .logo-mark {
-            width: 36px;
-            height: 36px;
-            background: var(--primary);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-display);
-            font-size: 20px;
-            font-weight: 600;
-            border-radius: 8px;
+        .logo span {
+            color: var(--accent);
         }
         
-        .logo-text {
-            font-family: var(--font-display);
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--primary);
+        nav {
+            margin-top: 20px;
         }
         
-        .logo-dot { color: var(--secondary); }
-        
-        .nav-links {
-            display: none;
-            gap: 32px;
-            list-style: none;
-        }
-        
-        .nav-links a {
+        nav a {
             color: var(--text-secondary);
-            font-size: 15px;
-            font-weight: 500;
             text-decoration: none;
-            transition: color 0.2s;
-        }
-        
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--primary);
-        }
-        
-        .nav-cta {
-            display: none;
-            background: var(--primary);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 6px;
+            margin: 0 15px;
             font-size: 14px;
-            font-weight: 500;
-            text-decoration: none;
+            transition: color 0.3s;
         }
         
-        .mobile-menu-btn {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 8px;
-        }
-        
-        .mobile-menu-btn span {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: var(--primary);
-        }
-        
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--bg-main);
-            z-index: 999;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 100px 24px;
-        }
-        
-        .mobile-menu.active {
-            display: flex;
-        }
-        
-        .mobile-menu a {
-            font-family: var(--font-display);
-            font-size: 32px;
-            color: var(--primary);
-            text-decoration: none;
-            margin-bottom: 24px;
+        nav a:hover {
+            color: var(--accent);
         }
         
         /* Hero */
         .hero {
-            padding: 140px 0 60px;
+            padding: 80px 0 60px;
             text-align: center;
-            background: var(--bg-main);
         }
         
         .hero h1 {
-            font-size: clamp(32px, 5vw, 56px);
-            line-height: 1.1;
+            font-size: 42px;
             margin-bottom: 16px;
-            font-weight: 600;
+            font-weight: 700;
         }
         
         .hero h1 em {
             font-style: italic;
-            color: var(--secondary);
+            color: var(--accent);
         }
         
         .hero p {
-            font-size: 17px;
             color: var(--text-secondary);
-            line-height: 1.7;
+            font-size: 18px;
             max-width: 600px;
             margin: 0 auto;
         }
         
-        /* Filter */
-        .filter-container {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin: 0 auto 48px;
+        /* Blog List */
+        .blog-list {
+            padding: 40px 0 80px;
         }
         
-        .filter-btn {
-            padding: 10px 20px;
-            border-radius: 8px;
+        .blog-item {
+            background: var(--bg-card);
             border: 1px solid var(--border);
-            background: var(--bg-white);
-            color: var(--text-secondary);
-            font-family: var(--font-body);
-            font-weight: 500;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        
-        .filter-btn:hover {
-            border-color: var(--secondary);
-            color: var(--secondary);
-        }
-        
-        .filter-btn.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-        
-        /* Articles */
-        .articles-section {
-            padding: 0 0 100px;
-        }
-        
-        .articles-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 24px;
-        }
-        
-        .article-card {
-            background: var(--bg-white);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-            overflow: hidden;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 24px;
+            transition: all 0.3s;
             text-decoration: none;
             color: inherit;
-            transition: all 0.25s ease;
+            display: block;
         }
         
-        .article-card:hover {
-            border-color: var(--secondary);
-            box-shadow: var(--shadow-lg);
-            transform: translateY(-2px);
+        .blog-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
         }
         
-        .article-card.hidden {
-            display: none;
-        }
-        
-        .card-image {
-            height: 180px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-        
-        .card-category {
-            position: absolute;
-            top: 16px;
-            left: 16px;
-            padding: 6px 12px;
-            background: var(--bg-white);
-            border-radius: 6px;
-            font-family: var(--font-mono);
-            font-size: 10px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--secondary);
-            border: 1px solid var(--border);
-        }
-        
-        .card-content {
-            padding: 24px;
-        }
-        
-        .card-title {
-            font-family: var(--font-display);
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            line-height: 1.3;
-            color: var(--primary);
-        }
-        
-        .card-description {
-            font-size: 15px;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 16px;
-        }
-        
-        .card-meta {
-            font-family: var(--font-mono);
-            font-size: 11px;
+        .blog-meta {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 12px;
+            font-size: 13px;
             color: var(--text-muted);
+        }
+        
+        .blog-category {
+            color: var(--accent);
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
         
-        /* Footer */
-        .footer {
-            background: var(--primary);
-            padding: 60px 0 30px;
+        .blog-item h2 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            font-weight: 600;
         }
         
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
+        .blog-item:hover h2 {
+            color: var(--accent);
         }
         
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
+        .blog-item p {
+            color: var(--text-secondary);
+            line-height: 1.7;
         }
         
-        .footer-brand .logo-text {
-            color: white;
+        .read-more {
+            display: inline-block;
+            color: var(--accent);
+            font-weight: 600;
+            margin-top: 16px;
         }
         
-        .footer-tagline {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 14px;
-            margin-top: 12px;
-            line-height: 1.6;
-        }
-        
-        .footer-col h4 {
-            font-family: var(--font-mono);
-            font-size: 11px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: rgba(255, 255, 255, 0.5);
-            margin-bottom: 16px;
-        }
-        
-        .footer-col a {
-            display: block;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 14px;
-            text-decoration: none;
-            padding: 6px 0;
-            transition: color 0.2s;
-        }
-        
-        .footer-col a:hover {
-            color: white;
-        }
-        
-        .footer-bottom {
-            padding-top: 24px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        /* CTA */
+        .cta {
+            background: var(--bg-secondary);
+            padding: 60px 0;
             text-align: center;
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.5);
+            margin-top: 40px;
+        }
+        
+        .cta h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+        
+        .cta p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            opacity: 0.9;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 14px;
+            border-top: 1px solid var(--border);
+        }
+        
+        footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        
+        footer a:hover {
+            color: var(--accent);
         }
         
         /* Responsive */
-        @media (min-width: 768px) {
-            .container {
-                padding: 0 32px;
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 32px;
             }
             
-            .nav-container {
-                padding: 16px 32px;
-            }
-            
-            .mobile-menu-btn {
-                display: none;
-            }
-            
-            .nav-links {
-                display: flex;
-            }
-            
-            .nav-cta {
-                display: inline-flex;
-            }
-            
-            .articles-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .footer-grid {
-                grid-template-columns: 2fr repeat(3, 1fr);
-            }
-        }
-        
-        @media (min-width: 1024px) {
-            .container {
-                padding: 0 48px;
-            }
-            
-            .nav-container {
-                padding: 20px 48px;
-            }
-            
-            .articles-grid {
-                grid-template-columns: repeat(3, 1fr);
+            .blog-item h2 {
+                font-size: 20px;
             }
         }
     </style>
 </head>
 <body>
-    <nav class="nav">
-        <div class="nav-container">
-            <a href="/" class="logo">
-                <span class="logo-mark">K</span>
-                <span class="logo-text">KI<span class="logo-dot">.</span>Expertenraum</span>
-            </a>
-            
-            <ul class="nav-links">
-                <li><a href="/">Start</a></li>
-                <li><a href="/kurse/">Kurse</a></li>
-                <li><a href="/ressourcen/">Ressourcen</a></li>
-                <li><a href="/services/">Services</a></li>
-                <li><a href="/artikel/" class="active">Artikel</a></li>
-                <li><a href="/kontakt.html">Kontakt</a></li>
-            </ul>
-            
-            <a href="/kontakt.html" class="nav-cta">Kontakt</a>
-            
-            <button class="mobile-menu-btn" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </nav>
+    <header>
+        <a href="/" class="logo">KI<span>.</span>Expertenraum</a>
+        <nav>
+            <a href="/">Start</a>
+            <a href="/kurse/">Kurse</a>
+            <a href="/ebooks/">Ebooks</a>
+            <a href="/services/">Services</a>
+            <a href="/blog/">Blog</a>
+            <a href="/artikel/">Artikel</a>
+            <a href="/kontakt.html">Kontakt</a>
+        </nav>
+    </header>
     
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="/" onclick="closeMenu()">Start</a>
-        <a href="/kurse/" onclick="closeMenu()">Kurse</a>
-        <a href="/ressourcen/" onclick="closeMenu()">Ressourcen</a>
-        <a href="/services/" onclick="closeMenu()">Services</a>
-        <a href="/artikel/" onclick="closeMenu()">Artikel</a>
-        <a href="/kontakt.html" onclick="closeMenu()">Kontakt</a>
-    </div>
-
     <main>
         <section class="hero">
             <div class="container">
-                <span class="section-label">Artikel</span>
-                <h1>Insights & <em>Praxiswissen</em></h1>
-                <p>Klar, verständlich und sofort umsetzbar.</p>
+                <h1>Aktuelle <em>Artikel</em> & Insights</h1>
+                <p>Praxisnahe Einblicke zu KI, EU AI Act, Automation und digitaler Transformation für Führungskräfte.</p>
             </div>
         </section>
-
-        <div class="container">
-            <div class="filter-container">
-                <button class="filter-btn active" data-filter="all">Alle</button>
-                <button class="filter-btn" data-filter="ki-tools">KI-Tools</button>
-                <button class="filter-btn" data-filter="automation">Automation</button>
-                <button class="filter-btn" data-filter="strategie">Strategie</button>
+        
+        <section class="blog-list">
+            <div class="container">
+                <a href="/blog/ki-einfuehrung-mittelstand.html" class="blog-item">
+                    <div class="blog-meta">
+                        <span class="blog-category">Strategie</span>
+                        <span>30. Mai 2026</span>
+                        <span>15 Min. Lesezeit</span>
+                    </div>
+                    <h2>KI-Einführung im Mittelstand 2026: Der komplette Leitfaden</h2>
+                    <p>Wie Sie Künstliche Intelligenz erfolgreich in Ihrem Unternehmen etablieren – ohne Millionenbudget, ohne IT-Abteilung, ohne Hype. Die Schritt-für-Schritt Anleitung für KMUs.</p>
+                    <span class="read-more">Weiterlesen →</span>
+                </a>
+                
+                <a href="/blog/chatgpt-firmen.html" class="blog-item">
+                    <div class="blog-meta">
+                        <span class="blog-category">Praxis</span>
+                        <span>30. Mai 2026</span>
+                        <span>12 Min. Lesezeit</span>
+                    </div>
+                    <h2>ChatGPT für Firmen 2026: Sicher & produktiv nutzen</h2>
+                    <p>So setzen Sie ChatGPT DSGVO-konform im Unternehmen ein. Die ultimative Anleitung für Geschäftsführer – inklusive Datenschutz-Checkliste.</p>
+                    <span class="read-more">Weiterlesen →</span>
+                </a>
             </div>
-
-            <section class="articles-section">
-                <div class="articles-grid">
-                    <a href="/artikel/microsoft-copilot.html" class="article-card" data-category="ki-tools">
-                        <div class="card-image" style="background-image: url('/images/Artikel%201_Microsoft%20Copilot%20f%C3%BCr%20Unternehmen%202026.png'); background-size: cover; background-position: center;"></div>
-                        <div class="card-content">
-                            <span class="card-category">KI-Tools</span>
-                            <h3 class="card-title">Microsoft Copilot 2026</h3>
-                            <p class="card-description">Der komplette Guide mit Praxis-Workflows für den täglichen Einsatz.</p>
-                            <div class="card-meta">15 Min. Lesen</div>
-                        </div>
-                    </a>
-                    
-                    <a href="/artikel/openclaw.html" class="article-card" data-category="ki-tools">
-                        <div class="card-image" style="background-image: url('/images/Artikel%202_OpenClaw%20Lokale%20KI%20f%C3%BCr%20Unternehmen.png'); background-size: cover; background-position: center;"></div>
-                        <div class="card-content">
-                            <span class="card-category">KI-Tools</span>
-                            <h3 class="card-title">OpenClaw: Lokale KI</h3>
-                            <p class="card-description">Die datenschutz-konforme Alternative für Unternehmen.</p>
-                            <div class="card-meta">12 Min. Lesen</div>
-                        </div>
-                    </a>
-                    
-                    <a href="/artikel/chatgpt-vs-claude.html" class="article-card" data-category="ki-tools">
-                        <div class="card-image" style="background-image: url('/images/Artikel%203_ChatGPT%20vs-%20Claude.png'); background-size: cover; background-position: center;"></div>
-                        <div class="card-content">
-                            <span class="card-category">KI-Tools</span>
-                            <h3 class="card-title">ChatGPT vs Claude</h3>
-                            <p class="card-description">Der ultimative Vergleich in 8 Kategorien mit Tests.</p>
-                            <div class="card-meta">12 Min. Lesen</div>
-                        </div>
-                    </a>
-                    
-                    <a href="/artikel/bueroautomatisierung.html" class="article-card" data-category="automation">
-                        <div class="card-image" style="background-image: url('/images/Artikel%206_B%C3%BCroautomatisierung%2010%20Prozesse%20mit%20No-Code%20Tools.png'); background-size: cover; background-position: center;"></div>
-                        <div class="card-content">
-                            <span class="card-category">Automation</span>
-                            <h3 class="card-title">10 No-Code Workflows</h3>
-                            <p class="card-description">Sofort umsetzbare Automationen für E-Mail und Büro.</p>
-                            <div class="card-meta">18 Min. Lesen</div>
-                        </div>
-                    </a>
-                    
-                    <a href="/artikel/ki-agenten.html" class="article-card" data-category="automation">
-                        <div class="card-image" style="background-image: url('/images/Artikel%207_KI-Agenten%20f%C3%BCr%20Unternehmen%202026.png'); background-size: cover; background-position: center;"></div>
-                        <div class="card-content">
-                            <span class="card-category">Automation</span>
-                            <h3 class="card-title">KI-Agenten 2026</h3>
-                            <p class="card-description">Autonome KI-Assistenten für Geschäftsprozesse.</p>
-                            <div class="card-meta">16 Min. Lesen</div>
-                        </div>
-                    </a>
-                    
-                    <a href="/artikel/ki-einfuehrung.html" class="article-card" data-category="strategie">
-                        <div class="card-image" style="background-image: url('/images/Artikel%209_KI-Einf%C3%BChrung%20im%20Mittelstand%20Die%20komplette%20Roadmap%20-%20andere%20farben.png'); background-size: cover; background-position: center;"></div>
-                        <div class="card-content">
-                            <span class="card-category">Strategie</span>
-                            <h3 class="card-title">KI im Mittelstand</h3>
-                            <p class="card-description">Die bewährte 90-Tage-Roadmap mit messbarem ROI.</p>
-                            <div class="card-meta">16 Min. Lesen</div>
-                        </div>
-                    </a>
-                    
-                    <a href="/artikel/eu-ai-act-checkliste.html" class="article-card" data-category="strategie">
-                        <div class="card-image" style="background-image: url('/images/Artikel%2012_EU%20AI%20Act%20Checkliste%202026%20Alle%20Pflichten%20f%C3%BCr%20KMU.png'); background-size: cover; background-position: center;"></div>
-                        <div class="card-content">
-                            <span class="card-category">Strategie</span>
-                            <h3 class="card-title">EU AI Act Checkliste</h3>
-                            <p class="card-description">Alle Pflichten und Fristen für KMU kompakt erklärt.</p>
-                            <div class="card-meta">12 Min. Lesen</div>
-                        </div>
-                    </a>
-                    
-                    <a href="/artikel/25-ki-prompts.html" class="article-card" data-category="strategie">
-                        <div class="card-image" style="background-image: url('/images/Artikel%2011_25%20KI-Prompts%20f%C3%BCr%20KMU%20So%20sparst%20du%2010hWoche.png'); background-size: cover; background-position: center;"></div>
-                        <div class="card-content">
-                            <span class="card-category">Strategie</span>
-                            <h3 class="card-title">25 KI-Prompts</h3>
-                            <p class="card-description">Fertige, optimierte Prompts für Marketing und Vertrieb.</p>
-                            <div class="card-meta">15 Min. Lesen</div>
-                        </div>
-                    </a>
-                    
-                    <a href="/artikel/ki-rechtssicher-nutzen.html" class="article-card" data-category="strategie">
-                        <div class="card-image" style="background-image: url('/images/Artikel%2013_KI%20rechtssicher%20nutzen%20DSGVO%20%26%20EU%20AI%20Act.png'); background-size: cover; background-position: center;"></div>
-                        <div class="card-content">
-                            <span class="card-category">Strategie</span>
-                            <h3 class="card-title">KI rechtssicher nutzen</h3>
-                            <p class="card-description">DSGVO, Urheberrecht, Haftung – was Unternehmer wissen müssen.</p>
-                            <div class="card-meta">13 Min. Lesen</div>
-                        </div>
-                    </a>
-                </div>
-            </section>
-        </div>
+        </section>
+        
+        <section class="cta">
+            <div class="container">
+                <h3>Kostenlose Ressourcen</h3>
+                <p>Hol dir die 4 kostenlosen Ebooks mit praxisnahen Checklisten und Vorlagen.</p>
+                <a href="/ebooks/" class="btn">Ebooks downloaden →</a>
+            </div>
+        </section>
     </main>
-
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="/" class="logo" style="text-decoration: none;">
-                        <span class="logo-mark">K</span>
-                        <span class="logo-text">KI<span class="logo-dot">.</span>Expertenraum</span>
-                    </a>
-                    <p class="footer-tagline">KI-Schulungen und Lernmaterialien für Unternehmer.</p>
-                </div>
-                
-                <div class="footer-col">
-                    <h4>Angebot</h4>
-                    <a href="/kurse/">Kurse</a>
-                    <a href="/ressourcen/">Ressourcen</a>
-                    <a href="/services/">Services</a>
-                    <a href="/artikel/">Artikel</a>
-                </div>
-                
-                <div class="footer-col">
-                    <h4>Information</h4>
-                    <a href="/kontakt.html">Kontakt</a>
-                    <a href="/impressum/">Impressum</a>
-                    <a href="/datenschutz/">Datenschutz</a>
-                </div>
-                
-                <div class="footer-col">
-                    <h4>Kontakt</h4>
-                    <a href="mailto:zernaphilipp@gmail.com">zernaphilipp@gmail.com</a>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2026 KI-Expertenraum · Philipp Zerna</p>
-            </div>
-        </div>
+    
+    <footer>
+        <p>&copy; 2026 KI-Expertenraum · <a href="/impressum/">Impressum</a> · <a href="/datenschutz/">Datenschutz</a></p>
     </footer>
-
-    <script>
-        function toggleMenu() {
-            document.getElementById('mobileMenu').classList.toggle('active');
-        }
-        function closeMenu() {
-            document.getElementById('mobileMenu').classList.remove('active');
-        }
-        
-        // Filter functionality
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const articleCards = document.querySelectorAll('.article-card');
-        
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                const filter = btn.dataset.filter;
-                
-                articleCards.forEach(card => {
-                    if (filter === 'all' || card.dataset.category === filter) {
-                        card.classList.remove('hidden');
-                    } else {
-                        card.classList.add('hidden');
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 </html>
