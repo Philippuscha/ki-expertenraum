@@ -97,10 +97,11 @@
     .hero-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
     .hero h1 { font-size: 28px !important; }
     .hero p { font-size: 15px !important; }
-    .hero-image-wrapper { order: -1; overflow: hidden; }
+    .hero-image-wrapper { order: -1; }
     .hero img { max-width: 280px !important; }
-    /* Verstecke dekorativen Mockup-Elemente auf Mobile */
-    .hero-image-wrapper > div > div[style*="position: absolute"] { display: none !important; }
+    /* Verhindere horizontal scroll durch Mockup-Elemente */
+    .hero section { overflow-x: hidden; }
+    .hero .container { overflow-x: clip; }
 }
 </style>
                 <div class="hero-content">
