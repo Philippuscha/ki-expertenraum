@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KI-Checkliste für KMU | Sofort downloaden | KI-Expertenraum</title>
-    <meta name="description" content="15 konkrete Checkpunkte für den KI-Einstieg im Unternehmen. DSGVO-konform, praxiserprobt, sofort umsetzbar.">
+    <title>KI-Checkliste | KI-Expertenraum</title>
+    <meta name="description" content="Praktische Checkliste für den KI-Einstieg. Schritt für Schritt zur erfolgreichen KI-Nutzung.">
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
-    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VDQNVYGYE1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -14,312 +13,268 @@
         gtag('js', new Date());
         gtag('config', 'G-VDQNVYGYE1');
     </script>
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/main.css">
     <style>
         :root {
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #111111;
-            --accent: #c9a962;
-            --text-primary: #f5f5f5;
-            --text-secondary: #a0a0a0;
+            --primary: #0F172A;
+            --secondary: #365F9C;
+            --bg-main: #F8F7F4;
+            --bg-soft: #F1F3F5;
+            --bg-white: #FFFFFF;
+            --text-primary: #334155;
+            --text-secondary: #64748B;
+            --text-muted: #94A3B8;
+            --accent-light: #E8EEF8;
+            --border: #D9DEE7;
+            --font-display: 'Source Serif 4', serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'IBM Plex Mono', monospace;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg-primary);
+            font-family: var(--font-body);
+            background: var(--bg-main);
             color: var(--text-primary);
             line-height: 1.6;
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-        .hero {
-            padding: 140px 0 80px;
-            text-align: center;
-        }
-        .badge {
+        .section-label {
             display: inline-block;
-            background: rgba(201, 169, 98, 0.1);
-            border: 1px solid rgba(201, 169, 98, 0.2);
-            color: var(--accent);
-            padding: 8px 20px;
-            border-radius: 100px;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 24px;
-        }
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(36px, 5vw, 52px);
+            font-family: var(--font-mono);
+            font-size: 11px;
             font-weight: 400;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-        h1 em {
-            font-style: italic;
-            color: var(--accent);
-        }
-        .subtitle {
-            font-size: 18px;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto 40px;
-            line-height: 1.7;
-        }
-        .price-box {
-            background: linear-gradient(135deg, rgba(201, 169, 98, 0.1), rgba(201, 169, 98, 0.05));
-            border: 1px solid rgba(201, 169, 98, 0.2);
-            border-radius: 16px;
-            padding: 40px;
-            margin: 40px 0;
-            text-align: center;
-        }
-        .price {
-            font-family: 'Playfair Display', serif;
-            font-size: 56px;
-            color: var(--accent);
-            font-weight: 600;
-            line-height: 1;
-        }
-        .price span {
-            font-size: 18px;
-            color: var(--text-secondary);
-            font-family: 'Inter', sans-serif;
-        }
-        .buy-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: var(--accent);
-            color: var(--bg-primary);
-            padding: 18px 40px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            margin-top: 24px;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-        .buy-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(201, 169, 98, 0.3);
-        }
-        .features {
-            padding: 60px 0;
-            background: var(--bg-secondary);
-        }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-        }
-        .feature {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-        }
-        .feature-icon {
-            width: 48px;
-            height: 48px;
-            background: rgba(201, 169, 98, 0.1);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            flex-shrink: 0;
-        }
-        .feature h3 {
-            font-size: 16px;
-            margin-bottom: 6px;
-            font-weight: 600;
-        }
-        .feature p {
-            font-size: 14px;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-        .content {
-            padding: 80px 0;
-        }
-        .content h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .content-block {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 20px;
-        }
-        .content-block h3 {
-            color: var(--accent);
-            font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            margin-bottom: 12px;
-        }
-        .content-block ul {
-            list-style: none;
-        }
-        .content-block li {
-            padding: 8px 0;
-            padding-left: 24px;
-            position: relative;
-            color: var(--text-secondary);
-            font-size: 15px;
-        }
-        .content-block li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: 700;
-        }
-        .guarantee {
-            padding: 60px 0;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        .guarantee-icon {
-            font-size: 48px;
+            color: var(--text-muted);
             margin-bottom: 16px;
         }
-        .guarantee h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            margin-bottom: 12px;
+        .hero {
+            padding: 140px 0 60px;
+            text-align: center;
+            background: var(--bg-main);
         }
-        .guarantee p {
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(32px, 4vw, 48px);
+            margin-bottom: 16px;
+            font-weight: 500;
+            color: var(--primary);
+        }
+        .hero h1 em {
+            font-style: italic;
+            color: var(--secondary);
+        }
+        .hero p {
+            font-size: 17px;
             color: var(--text-secondary);
-            max-width: 500px;
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+        .content {
+            max-width: 800px;
             margin: 0 auto;
+            padding: 0 24px 80px;
+        }
+        .checklist-container {
+            background: var(--bg-white);
+            border-radius: 18px;
+            padding: 40px;
+            border: 1px solid var(--border);
+        }
+        .checklist-item {
+            display: flex;
+            gap: 16px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+        .checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--secondary);
+            border-radius: 6px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .checklist-content h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+        .checklist-content p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .download-section {
+            text-align: center;
+            margin-top: 40px;
+            padding: 32px;
+            background: var(--bg-soft);
+            border-radius: 12px;
+        }
+        .download-section h3 {
+            margin-bottom: 16px;
+        }
+        .btn-primary {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .btn-primary:hover {
+            background: var(--secondary);
         }
         @media (max-width: 768px) {
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
             .hero {
-                padding: 100px 0 60px;
+                padding: 120px 20px 40px;
+            }
+            .checklist-container {
+                padding: 24px;
             }
         }
     </style>
 </head>
 <body>
-    <section class="hero">
-        <div class="container">
-            <div class="badge">PDF-Checkliste</div>
-            <h1>KI-Checkliste für <em>KMU</em></h1>
-            <p class="subtitle">15 konkrete Checkpunkte für den erfolgreichen KI-Einstieg in Ihrem Unternehmen. DSGVO-konform, praxiserprobt, sofort umsetzbar.</p>
-            
-            <div class="price-box">
-                <div class="price">4,99€ <span>inkl. MwSt</span></div>
-                <p style="color: var(--text-secondary); margin-top: 12px; font-size: 14px;">Einmaliger Kauf • Sofortiger Download • Unbegrenzte Nutzung</p>
-                <a href="/downloads/ki-checkliste-kmu.html" class="buy-btn" target="_blank">
-                    Vorschau ansehen →
-                </a>
-            </div>
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <span class="logo-mark">K</span>
+                <span class="logo-text">KI<span class="logo-dot">.</span>Expertenraum</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Start</a></li>
+                <li><a href="/kurse/">Kurse</a></li>
+                <li class="dropdown">
+                    <a href="/ressourcen/" class="active">Ressourcen</a>
+                    <div class="dropdown-menu">
+                        <a href="/ressourcen/">Downloads</a>
+                        <a href="/glossar/">Glossar</a>
+                    </div>
+                </li>
+                <li><a href="/artikel/">Artikel</a></li>
+                <li><a href="/ueber-mich/">Über mich</a></li>
+                <li><a href="/kontakt.html">Kontakt</a></li>
+            </ul>
+            <a href="/kontakt.html" class="nav-cta">Kontakt</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn"><span></span><span></span><span></span></button>
         </div>
-    </section>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="/">Start</a>
+        <a href="/kurse/">Kurse</a>
+        <a href="/ressourcen/">Ressourcen</a>
+        <a href="/artikel/">Artikel</a>
+        <a href="/ueber-mich/">Über mich</a>
+        <a href="/kontakt.html">Kontakt</a>
+    </div>
 
-    <section class="features">
-        <div class="container">
-            <div class="features-grid">
-                <div class="feature">
-                    <div class="feature-icon">📋</div>
-                    <div>
-                        <h3>15 konkrete Punkte</h3>
-                        <p>Keine Theorie, sondern abhakbare To-Dos von der ersten Idee bis zur produktiven Nutzung.</p>
+    <main>
+        <header class="hero">
+            <span class="section-label">Ressourcen</span>
+            <h1>KI-<em>Checkliste</em></h1>
+            <p>Der komplette Leitfaden für deinen KI-Einstieg – Schritt für Schritt</p>
+        </header>
+
+        <div class="content">
+            <div class="checklist-container">
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <div class="checklist-content">
+                        <h3>1. Ersten Use-Case identifizieren</h3>
+                        <p>Wähle eine konkrete Aufgabe, die du mit KI verbessern möchtest. Am besten etwas, das du häufig machst und Zeit kostet.</p>
                     </div>
                 </div>
-                <div class="feature">
-                    <div class="feature-icon">⚖️</div>
-                    <div>
-                        <h3>DSGVO & EU AI Act</h3>
-                        <p>Compliance-Checks eingebaut. Wissen, was erlaubt ist und wo die Fallstricke liegen.</p>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <div class="checklist-content">
+                        <h3>2. Passendes Tool auswählen</h3>
+                        <p>Für Text: ChatGPT oder Claude. Für Bilder: Midjourney oder DALL-E. Für Automatisierung: Make oder Zapier.</p>
                     </div>
                 </div>
-                <div class="feature">
-                    <div class="feature-icon">⏱️</div>
-                    <div>
-                        <h3>2-4 Wochen Timeline</h3>
-                        <p>Realistischer Zeitplan in drei Phasen: Vorbereitung, Umsetzung, Compliance.</p>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <div class="checklist-content">
+                        <h3>3. Account erstellen</h3>
+                        <p>Registriere dich beim gewählten Tool. Nutze für den Anfang die kostenlose Version, um dich vertraut zu machen.</p>
                     </div>
                 </div>
-                <div class="feature">
-                    <div class="feature-icon">💾</div>
-                    <div>
-                        <h3>Druckfertiges PDF</h3>
-                        <p>A4-Format, professionelles Design, markenkonform in Schwarz-Gold. Für Aktenordner oder digital.</p>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <div class="checklist-content">
+                        <h3>4. Erste Prompts ausprobieren</h3>
+                        <p>Beginne mit einfachen Anfragen. Experimentiere mit verschiedenen Formulierungen, um die besten Ergebnisse zu erzielen.</p>
                     </div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <div class="checklist-content">
+                        <h3>5. Ergebnisse bewerten</h3>
+                        <p>Vergleiche die KI-Ergebnisse mit deiner bisherigen Arbeitsweise. Wo sparst du Zeit? Wo ist Nacharbeit nötig?</p>
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <div class="checklist-content">
+                        <h3>6. Datenschutz beachten</h3>
+                        <p>Keine personenbezogenen Daten oder Geschäftsgeheimnisse in öffentliche KI-Tools eingeben. Bei Unsicherheit: Erst recherchieren.</p>
+                    </div>
+                </div>
+
+                <div class="download-section">
+                    <h3>Die komplette Checkliste als PDF</h3>
+                    <p style="margin-bottom: 20px;">Lade dir die ausführliche Version mit allen 15 Punkten herunter.</p>
+                    <a href="/ressourcen/KI-Checkliste-KMU.pdf" class="btn-primary" download>PDF herunterladen</a>
                 </div>
             </div>
         </div>
-    </section>
+    </main>
 
-    <section class="content">
+    <footer class="footer">
         <div class="container">
-            <h2>Das ist drin</h2>
-            
-            <div class="content-block">
-                <h3>Phase 1: Vorbereitung</h3>
-                <ul>
-                    <li>Verantwortlichen benennen</li>
-                    <li>Erste Use-Case identifizieren (mit ROI-Potenzial)</li>
-                    <li>Datenschutz-Grundlagen prüfen</li>
-                    <li>Tool-Stack definieren (max. 3 Tools)</li>
-                </ul>
+            <div style="display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 48px; margin-bottom: 48px;">
+                <div>
+                    <a href="/" class="logo" style="margin-bottom: 16px; display: inline-flex;">
+                        <span class="logo-mark">K</span>
+                        <span class="logo-text">KI<span class="logo-dot">.</span>Expertenraum</span>
+                    </a>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 15px; max-width: 280px;">Persönliche KI-Lernplattform mit Kursen, Guides und Lernmaterialien.</p>
+                </div>
+                <div>
+                    <h4 style="font-size: 14px; font-weight: 600; color: white; margin-bottom: 16px;">Angebot</h4>
+                    <a href="/kurse/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Kurse</a>
+                    <a href="/ressourcen/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Ressourcen</a>
+                    <a href="/artikel/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Artikel</a>
+                </div>
+                <div>
+                    <h4 style="font-size: 14px; font-weight: 600; color: white; margin-bottom: 16px;">Rechtliches</h4>
+                    <a href="/impressum/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Impressum</a>
+                    <a href="/datenschutz/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Datenschutz</a>
+                </div>
+                <div>
+                    <h4 style="font-size: 14px; font-weight: 600; color: white; margin-bottom: 16px;">Kontakt</h4>
+                    <a href="/ueber-mich/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Über mich</a>
+                    <a href="/kontakt.html" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Kontakt</a>
+                </div>
             </div>
-
-            <div class="content-block">
-                <h3>Phase 2: Umsetzung</h3>
-                <ul>
-                    <li>Test-Accounts einrichten</li>
-                    <li>Grundlegende Prompt-Schulung</li>
-                    <li>Erste Automatisierung bauen</li>
-                    <li>Ergebnisse dokumentieren für ROI-Berechnung</li>
-                </ul>
-            </div>
-
-            <div class="content-block">
-                <h3>Phase 3: Compliance & Skalierung</h3>
-                <ul>
-                    <li>EU AI Act Check durchführen</li>
-                    <li>AVV mit Tool-Anbietern prüfen</li>
-                    <li>Mitarbeiter informieren</li>
-                    <li>Prompt-Bibliothek anlegen</li>
-                    <li>Monatliches Review einführen</li>
-                </ul>
-            </div>
-
-            <div class="price-box" style="margin-top: 60px;">
-                <div class="price">4,99€ <span>inkl. MwSt</span></div>
-                <a href="/downloads/ki-checkliste-kmu.html" class="buy-btn" target="_blank">
-                    Vorschau ansehen →
-                </a>
+            <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; font-size: 14px; color: rgba(255,255,255,0.5);">
+                <p>© 2026 KI-Expertenraum</p>
+                <p>Philipp Zerna</p>
             </div>
         </div>
-    </section>
-
-    <section class="guarantee">
-        <div class="container">
-            <div class="guarantee-icon">🛡️</div>
-            <h3>14 Tage Geld-zurück-Garantie</h3>
-            <p>Nicht zufrieden? Schreiben Sie mir eine E-Mail und Sie bekommen Ihr Geld zurück. Keine Fragen, kein Stress.</p>
-        </div>
-    </section>
+    </footer>
+    <script src="/assets/js/main.js"></script>
+    <script>
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mobileMenu').classList.toggle('show');
+        });
+    </script>
 </body>
 </html>

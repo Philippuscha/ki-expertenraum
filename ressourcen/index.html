@@ -3,13 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kostenlose Ebooks | KI-Expertenraum</title>
-    <meta name="description" content="4 praxisnahe Ebooks zu KI, EU AI Act und Automation. 25-30 Seiten, kostenlos zum Download.">
+    <title>Ressourcen | Kostenlose KI-Guides & Downloads</title>
+    <meta name="description" content="Kostenlose KI-Guides, Checklisten und Downloads. Praxisnah und sofort umsetzbar.">
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VDQNVYGYE1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-VDQNVYGYE1');
+    </script>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="/assets/css/main.css">
     <style>
@@ -24,525 +32,259 @@
             --text-muted: #94A3B8;
             --accent-light: #E8EEF8;
             --border: #D9DEE7;
-            --font-display: 'Playfair Display', serif;
+            --accent-gold: #A8843B;
+            --font-display: 'Source Serif 4', serif;
             --font-body: 'Inter', sans-serif;
-            --transition-base: all 0.3s ease;
-            --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --font-mono: 'IBM Plex Mono', monospace;
         }
-
+        
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        
         body {
             font-family: var(--font-body);
             background: var(--bg-main);
             color: var(--text-primary);
             line-height: 1.6;
         }
-
+        
+        .section-label {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 24px;
         }
 
-        /* Navigation */
-        .nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 1000;
-            background: rgba(248, 247, 244, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: var(--primary);
-        }
-
-        .logo-mark {
-            width: 40px;
-            height: 40px;
-            background: var(--secondary);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-display);
-            font-size: 20px;
-            font-weight: 700;
-            border-radius: 8px;
-        }
-
-        .logo-text {
-            font-weight: 600;
-            font-size: 18px;
-        }
-
-        .logo-dot { color: var(--secondary); }
-
-        .nav-links {
-            display: flex;
-            gap: 40px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: var(--transition-base);
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--secondary);
-        }
-
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: var(--bg-white);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 8px 0;
-            min-width: 160px;
-            box-shadow: 0 10px 40px rgba(15, 23, 42, 0.1);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.2s ease;
-        }
-
-        .dropdown:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .dropdown-menu a {
-            display: block;
-            padding: 10px 20px;
-            font-size: 14px;
-        }
-
-        .nav-cta {
-            background: var(--secondary);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            transition: var(--transition-base);
-        }
-
-        .nav-cta:hover {
-            background: var(--primary);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .mobile-menu-btn span {
-            width: 24px;
-            height: 2px;
-            background: var(--primary);
-        }
-
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 80px;
-            left: 0; right: 0;
-            background: var(--bg-white);
-            padding: 20px;
-            z-index: 999;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .mobile-menu.show { display: block; }
-
-        .mobile-menu a {
-            display: block;
-            padding: 16px;
-            color: var(--text-primary);
-            text-decoration: none;
-            border-bottom: 1px solid var(--border);
-        }
-
-        /* Hero Section */
-        .hero-ebooks {
-            padding: 160px 0 100px;
-            background: linear-gradient(135deg, var(--bg-main) 0%, var(--bg-soft) 100%);
+        .hero {
+            padding: 140px 0 60px;
             text-align: center;
+            background: var(--bg-main);
         }
-
-        .section-label {
-            display: inline-block;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: var(--secondary);
-            margin-bottom: 20px;
-        }
-
-        .serif {
+        
+        .hero h1 {
             font-family: var(--font-display);
-        }
-
-        h1.serif {
-            font-size: clamp(40px, 5vw, 56px);
-            margin-bottom: 24px;
+            font-size: clamp(32px, 4vw, 48px);
+            line-height: 1.2;
+            margin-bottom: 16px;
+            font-weight: 500;
             color: var(--primary);
         }
-
-        h1.serif em {
+        
+        .hero h1 em {
             font-style: italic;
             color: var(--secondary);
         }
-
-        .hero-subtitle {
-            font-size: 18px;
+        
+        .hero p {
+            font-size: 17px;
             color: var(--text-secondary);
             max-width: 600px;
             margin: 0 auto;
-            line-height: 1.8;
         }
-
-        /* Ebooks Grid */
-        .ebooks-section {
-            padding: 80px 0;
-            background: var(--bg-white);
+        
+        .resources-section {
+            padding: 60px 0 100px;
         }
-
-        .ebooks-grid {
+        
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 48px;
+        }
+        
+        .section-header h2 {
+            font-family: var(--font-display);
+            font-size: clamp(28px, 3vw, 36px);
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        
+        .section-header h2 em {
+            font-style: italic;
+            color: var(--secondary);
+        }
+        
+        .section-header p {
+            font-size: 16px;
+            color: var(--text-secondary);
+        }
+        
+        .resources-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
         }
-
-        .ebook-card {
-            background: var(--bg-main);
-            border: 1px solid var(--border);
-            border-radius: 20px;
+        
+        .resource-card {
+            background: var(--bg-white);
+            border-radius: 18px;
             overflow: hidden;
-            transition: var(--transition-slow);
+            transition: all 0.25s ease;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
             display: flex;
             flex-direction: column;
         }
-
-        .ebook-card:hover {
-            transform: translateY(-8px);
+        
+        .resource-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
             border-color: var(--secondary);
-            box-shadow: 0 30px 80px rgba(15, 23, 42, 0.1);
         }
-
-        .ebook-cover {
-            height: 200px;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        
+        .resource-image {
+            height: 180px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             position: relative;
             overflow: hidden;
         }
-
-        .ebook-cover::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at 30% 30%, rgba(54, 95, 156, 0.1) 0%, transparent 50%);
+        
+        .resource-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
-
-        .ebook-icon {
-            font-size: 64px;
-            z-index: 1;
-        }
-
-        .ebook-badge {
+        
+        .resource-badge {
             position: absolute;
             top: 16px;
-            right: 16px;
-            background: var(--secondary);
-            color: white;
+            left: 16px;
             padding: 6px 14px;
             border-radius: 20px;
-            font-size: 11px;
+            font-family: var(--font-mono);
+            font-size: 10px;
             font-weight: 700;
             text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: var(--accent-gold);
+            color: white;
         }
-
-        .ebook-content {
-            padding: 32px;
+        
+        .resource-content {
+            padding: 24px;
             flex: 1;
             display: flex;
             flex-direction: column;
         }
-
-        .ebook-meta {
+        
+        .resource-meta {
             display: flex;
             gap: 16px;
-            margin-bottom: 16px;
             font-size: 13px;
             color: var(--text-muted);
-        }
-
-        .ebook-meta span {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .ebook-card h3 {
-            font-size: 24px;
             margin-bottom: 12px;
+        }
+        
+        .resource-title {
+            font-family: var(--font-display);
+            font-size: 20px;
+            margin-bottom: 8px;
             font-weight: 500;
             color: var(--primary);
         }
-
-        .ebook-card p {
+        
+        .resource-desc {
             color: var(--text-secondary);
-            font-size: 15px;
-            line-height: 1.7;
-            flex: 1;
-            margin-bottom: 24px;
-        }
-
-        .ebook-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background: var(--secondary);
-            color: white;
-            padding: 16px 28px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
-            transition: var(--transition-base);
-        }
-
-        .ebook-btn:hover {
-            background: var(--primary);
-            transform: translateY(-2px);
-        }
-
-        .ebook-btn svg {
-            width: 18px;
-            height: 18px;
-        }
-
-        /* Features */
-        .features-bar {
-            padding: 60px 0;
-            background: var(--bg-main);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .features-list {
-            display: flex;
-            justify-content: center;
-            gap: 60px;
-            flex-wrap: wrap;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: var(--text-secondary);
-            font-size: 15px;
-        }
-
-        .feature-item svg {
-            width: 20px;
-            height: 20px;
-            color: var(--secondary);
-        }
-
-        /* CTA Section */
-        .cta-section {
-            padding: 100px 0;
-            background: linear-gradient(135deg, var(--bg-soft) 0%, var(--accent-light) 100%);
-            text-align: center;
-        }
-
-        .cta-box {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .cta-box h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-
-        .cta-box p {
-            color: var(--text-secondary);
-            margin-bottom: 32px;
-            font-size: 17px;
-            line-height: 1.7;
-        }
-
-        .btn-group {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            background: var(--secondary);
-            color: white;
-            padding: 16px 32px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition-base);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-primary);
-            padding: 16px 32px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 600;
-            border: 1px solid var(--border);
-            transition: var(--transition-base);
-        }
-
-        .btn-primary:hover, .btn-secondary:hover {
-            transform: translateY(-2px);
-        }
-
-        .btn-primary:hover {
-            background: var(--primary);
-        }
-
-        .btn-secondary:hover {
-            background: var(--bg-white);
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--primary);
-            color: white;
-            padding: 56px 0 24px;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 40px;
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: white;
-            margin-bottom: 16px;
-        }
-
-        .footer-logo .logo-mark {
-            background: white;
-            color: var(--primary);
-        }
-
-        .footer-tagline {
-            color: rgba(255,255,255,0.6);
             font-size: 14px;
             line-height: 1.6;
-        }
-
-        .footer-col h4 {
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            color: white;
+            flex: 1;
             margin-bottom: 16px;
         }
-
-        .footer-col a {
-            display: block;
-            color: rgba(255,255,255,0.55);
-            text-decoration: none;
-            font-size: 14px;
-            margin-bottom: 12px;
-            transition: var(--transition-base);
-        }
-
-        .footer-col a:hover {
+        
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary);
             color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.2s ease;
         }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 24px;
-            display: flex;
-            justify-content: space-between;
-            font-size: 13px;
-            color: rgba(255,255,255,0.4);
+        
+        .download-btn:hover {
+            background: var(--secondary);
         }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .nav-links { display: none; }
-            .mobile-menu-btn { display: flex; }
-            .ebooks-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
+        
+        .download-btn svg {
+            width: 16px;
+            height: 16px;
         }
-
+        
+        .cta {
+            padding: 80px 0;
+            text-align: center;
+            background: var(--bg-white);
+            border-top: 1px solid var(--border);
+        }
+        
+        .cta h2 {
+            font-family: var(--font-display);
+            font-size: clamp(28px, 3vw, 36px);
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        
+        .cta h2 em {
+            font-style: italic;
+            color: var(--secondary);
+        }
+        
+        .cta p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 28px;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn-primary {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-primary:hover {
+            background: var(--secondary);
+        }
+        
         @media (max-width: 768px) {
-            .container { padding: 0 20px; }
-            .nav-container { padding: 15px 20px; }
-            .hero-ebooks { padding: 120px 0 60px; }
-            .features-list { gap: 24px; }
-            .footer-grid { grid-template-columns: 1fr; }
-            .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+            .hero {
+                padding: 120px 20px 40px;
+            }
+            
+            .resources-section {
+                padding: 40px 0 60px;
+            }
+            
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <nav class="nav">
+    <nav class="nav" id="nav">
         <div class="nav-container">
             <a href="/" class="logo">
                 <span class="logo-mark">K</span>
@@ -566,7 +308,7 @@
             
             <a href="/kontakt.html" class="nav-cta">Kontakt</a>
             
-            <button class="mobile-menu-btn" onclick="toggleMenu()">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü öffnen">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -575,125 +317,104 @@
     </nav>
     
     <div class="mobile-menu" id="mobileMenu">
-        <a href="/" onclick="closeMenu()">Start</a>
-        <a href="/kurse/" onclick="closeMenu()">Kurse</a>
-        <a href="/ressourcen/" onclick="closeMenu()">Ressourcen</a>
-        <a href="/artikel/" onclick="closeMenu()">Artikel</a>
-        <a href="/ueber-mich/" onclick="closeMenu()">Über mich</a>
-        <a href="/kontakt.html" onclick="closeMenu()">Kontakt</a>
+        <div class="mobile-menu-content">
+            <a href="/" onclick="closeMobileMenu()">Start</a>
+            <a href="/kurse/" onclick="closeMobileMenu()">Kurse</a>
+            <a href="/ressourcen/" onclick="closeMobileMenu()">Ressourcen</a>
+            <a href="/artikel/" onclick="closeMobileMenu()">Artikel</a>
+            <a href="/ueber-mich/" onclick="closeMobileMenu()">Über mich</a>
+            <a href="/kontakt.html" onclick="closeMobileMenu()">Kontakt</a>
+        </div>
     </div>
 
     <main>
-        <section class="hero-ebooks">
-            <div class="container">
-                <span class="section-label">Kostenlose Ressourcen</span>
-                <h1 class="serif">Praxisnahe <em>Ebooks</em></h1>
-                <p class="hero-subtitle">4 kompakte Guides zu KI, EU AI Act und Automation. 25-30 Seiten voller umsetzbarer Strategien – gratis zum Download.</p>
-            </div>
-        </section>
+        <header class="hero">
+            <span class="section-label">Downloads</span>
+            <h1>Praxisnahe <em>Ressourcen</em></h1>
+            <p>Kostenlose Guides, Checklisten und Vorlagen – sofort downloadbar und umsetzbar</p>
+        </header>
 
-        <section class="features-bar">
+        <section class="resources-section">
             <div class="container">
-                <div class="features-list">
-                    <div class="feature-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-                        25-30 Seiten pro Ebook
-                    </div>
-                    <div class="feature-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                        Sofort umsetzbar
-                    </div>
-                    <div class="feature-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-                        Kostenlos & unverbindlich
-                    </div>
-                    <div class="feature-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-                        Mit Checklisten & Vorlagen
-                    </div>
+                <div class="section-header">
+                    <span class="section-label">Kostenlos</span>
+                    <h2>Guides & <em>eBooks</em></h2>
+                    <p>Fundiertes Wissen ohne Anmeldung – direkt für deinen Einstieg in KI</p>
                 </div>
-            </div>
-        </section>
-
-        <section class="ebooks-section">
-            <div class="container">
-                <div class="ebooks-grid">
-                    <!-- Ebook 1 -->
-                    <div class="ebook-card">
-                        <div class="ebook-cover" style="padding: 0; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
-                            <span class="ebook-badge">Gratis</span>
-                            <img src="/ressourcen/10-ki-prompts-ebook.png" alt="10 KI Prompts Ebook Cover" style="width: 100%; height: 100%; object-fit: cover;">
+                
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <span class="resource-badge">Gratis</span>
+                            <img src="/ressourcen/10-ki-prompts-ebook.png" alt="10 KI Prompts Guide">
                         </div>
-                        <div class="ebook-content">
-                            <div class="ebook-meta">
-                                <span>📄 28 Seiten</span>
-                                <span>⏱️ 15 Min. Lesezeit</span>
+                        <div class="resource-content">
+                            <div class="resource-meta">
+                                <span>28 Seiten</span>
+                                <span>PDF</span>
                             </div>
-                            <h3 class="serif">Die 10 KI-Prompts für KMU</h3>
-                            <p>Die wichtigsten Prompts für kleine und mittlere Unternehmen – sofort einsetzbar und erprobt. Inklusive Vorlagen für Marketing, Kundenservice und interne Prozesse.</p>
-                            <a href="/ressourcen/Die_10_KI-Prompts_fuer_KMU.pdf" class="ebook-btn" download target="_blank">
+                            <h3 class="resource-title">Die 10 KI-Prompts für KMU</h3>
+                            <p class="resource-desc">Die wichtigsten Prompts für kleine und mittlere Unternehmen – sofort einsetzbar und erprobt.</p>
+                            <a href="/ressourcen/Die_10_KI-Prompts_fuer_KMU.pdf" class="download-btn" download target="_blank">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-                                Jetzt downloaden
+                                Download
                             </a>
                         </div>
                     </div>
 
-                    <!-- Ebook 2 -->
-                    <div class="ebook-card">
-                        <div class="ebook-cover" style="padding: 0; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
-                            <span class="ebook-badge">Gratis</span>
-                            <img src="/ressourcen/eu-survival-guide-ebook.png" alt="EU Survival Guide Ebook Cover" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <span class="resource-badge">Gratis</span>
+                            <img src="/ressourcen/eu-survival-guide-ebook.png" alt="EU AI Act Guide">
                         </div>
-                        <div class="ebook-content">
-                            <div class="ebook-meta">
-                                <span>📄 30 Seiten</span>
-                                <span>⏱️ 20 Min. Lesezeit</span>
+                        <div class="resource-content">
+                            <div class="resource-meta">
+                                <span>30 Seiten</span>
+                                <span>PDF</span>
                             </div>
-                            <h3 class="serif">EU AI Act Survival Guide</h3>
-                            <p>Alles, was du über die EU KI-Verordnung wissen musst – kompakt und verständlich erklärt. Mit Compliance-Checkliste und Risikobewertung für dein Unternehmen.</p>
-                            <a href="/ressourcen/EU-AI-Act-Survival-Guide.pdf" class="ebook-btn" download target="_blank">
+                            <h3 class="resource-title">EU AI Act Survival Guide</h3>
+                            <p class="resource-desc">Alles, was du über die EU KI-Verordnung wissen musst – kompakt und verständlich erklärt.</p>
+                            <a href="/ressourcen/EU-AI-Act-Survival-Guide.pdf" class="download-btn" download target="_blank">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-                                Jetzt downloaden
+                                Download
                             </a>
                         </div>
                     </div>
 
-                    <!-- Ebook 3 -->
-                    <div class="ebook-card">
-                        <div class="ebook-cover" style="padding: 0; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
-                            <span class="ebook-badge">Gratis</span>
-                            <img src="/ressourcen/ki-automatisierungen-ebook.png" alt="KI Automatisierungen Ebook Cover" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <span class="resource-badge">Gratis</span>
+                            <img src="/ressourcen/ki-automatisierungen-ebook.png" alt="KI Automatisierung Guide">
                         </div>
-                        <div class="ebook-content">
-                            <div class="ebook-meta">
-                                <span>📄 26 Seiten</span>
-                                <span>⏱️ 15 Min. Lesezeit</span>
+                        <div class="resource-content">
+                            <div class="resource-meta">
+                                <span>26 Seiten</span>
+                                <span>PDF</span>
                             </div>
-                            <h3 class="serif">KI-Automation für Büros</h3>
-                            <p>10 bewährte Workflows für sofortige Effizienzsteigerung. Von der E-Mail-Verarbeitung bis zur Dokumentenerstellung – mit Schritt-für-Schritt Anleitungen.</p>
-                            <a href="/ressourcen/KI-Automatisierungen-Ebook.pdf" class="ebook-btn" download target="_blank">
+                            <h3 class="resource-title">KI-Automation für Büros</h3>
+                            <p class="resource-desc">10 bewährte Workflows für deinen Arbeitsalltag – mit Schritt-für-Schritt Anleitungen.</p>
+                            <a href="/ressourcen/KI-Automatisierungen-Ebook.pdf" class="download-btn" download target="_blank">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-                                Jetzt downloaden
+                                Download
                             </a>
                         </div>
                     </div>
 
-                    <!-- Ebook 4 -->
-                    <div class="ebook-card">
-                        <div class="ebook-cover" style="padding: 0; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
-                            <span class="ebook-badge">Gratis</span>
-                            <img src="/ressourcen/25-ki-tools-ebook.png" alt="25 KI Tools Ebook Cover" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <span class="resource-badge">Gratis</span>
+                            <img src="/ressourcen/25-ki-tools-ebook.png" alt="25 KI Tools Guide">
                         </div>
-                        <div class="ebook-content">
-                            <div class="ebook-meta">
-                                <span>📄 25 Seiten</span>
-                                <span>⏱️ 12 Min. Lesezeit</span>
+                        <div class="resource-content">
+                            <div class="resource-meta">
+                                <span>25 Seiten</span>
+                                <span>PDF</span>
                             </div>
-                            <h3 class="serif">KI Tools 2026</h3>
-                            <p>Die essenziellen Strategien für Führungskräfte. Wie du KI-Tools effektiv im Management einsetzt – von der Strategieentwicklung bis zur Team-Kommunikation.</p>
-                            <a href="/ressourcen/KI_Tools_Ebook_2026.pdf" class="ebook-btn" download target="_blank">
+                            <h3 class="resource-title">KI Tools 2026</h3>
+                            <p class="resource-desc">Übersicht der wichtigsten KI-Tools für verschiedene Anwendungsbereiche im Überblick.</p>
+                            <a href="/ressourcen/KI_Tools_Ebook_2026.pdf" class="download-btn" download target="_blank">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-                                Jetzt downloaden
+                                Download
                             </a>
                         </div>
                     </div>
@@ -701,66 +422,59 @@
             </div>
         </section>
 
-        <section class="cta-section">
+        <section class="cta">
             <div class="container">
-                <div class="cta-box">
-                    <span class="section-label">Mehr entdecken</span>
-                    <h2 class="serif">Bereit für den nächsten Schritt?</h2>
-                    <p>Die Ebooks sind nur der Anfang. In meinen Premium-Kursen gehe ich tiefer – mit Videos, Übungen und persönlichem Support.</p>
-                    <div class="btn-group">
-                        <a href="/kurse/" class="btn-primary">Zu den Kursen →</a>
-                        <a href="/kontakt.html" class="btn-secondary">Kontakt aufnehmen</a>
-                    </div>
-                </div>
+                <span class="section-label">Mehr entdecken</span>
+                <h2>Bereit für <em>mehr?</em></h2>
+                <p>Die Downloads sind nur der Anfang. In meinen Kursen gehe ich tiefer – mit Videos und Übungen.</p>
+                <a href="/kurse/" class="btn-primary">Zu den Kursen →</a>
             </div>
         </section>
     </main>
 
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-grid">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 48px; margin-bottom: 48px;">
                 <div>
-                    <a href="/" class="footer-logo">
+                    <a href="/" class="logo" style="margin-bottom: 16px; display: inline-flex;">
                         <span class="logo-mark">K</span>
-                        <span>KI<span style="color: var(--secondary);">.</span>Expertenraum</span>
+                        <span class="logo-text">KI<span class="logo-dot">.</span>Expertenraum</span>
                     </a>
-                    <p class="footer-tagline">Persönliche KI-Lernplattform mit Kursen, Guides und Lernmaterialien.</p>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 15px; max-width: 280px;">Persönliche KI-Lernplattform mit Kursen, Guides und Lernmaterialien.</p>
                 </div>
-                
-                <div class="footer-col">
-                    <h4>Angebot</h4>
-                    <a href="/kurse/">Kurse</a>
-                    <a href="/ressourcen/">Ressourcen</a>
-                    <a href="/artikel/">Artikel</a>
+                <div>
+                    <h4 style="font-size: 14px; font-weight: 600; color: white; margin-bottom: 16px;">Angebot</h4>
+                    <a href="/kurse/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Kurse</a>
+                    <a href="/ressourcen/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Ressourcen</a>
+                    <a href="/artikel/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Artikel</a>
                 </div>
-                
-                <div class="footer-col">
-                    <h4>Rechtliches</h4>
-                    <a href="/impressum/">Impressum</a>
-                    <a href="/datenschutz/">Datenschutz</a>
+                <div>
+                    <h4 style="font-size: 14px; font-weight: 600; color: white; margin-bottom: 16px;">Rechtliches</h4>
+                    <a href="/impressum/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Impressum</a>
+                    <a href="/datenschutz/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Datenschutz</a>
                 </div>
-                
-                <div class="footer-col">
-                    <h4>Kontakt</h4>
-                    <a href="/ueber-mich/">Über mich</a>
-                    <a href="/kontakt.html">Kontakt</a>
+                <div>
+                    <h4 style="font-size: 14px; font-weight: 600; color: white; margin-bottom: 16px;">Kontakt</h4>
+                    <a href="/ueber-mich/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Über mich</a>
+                    <a href="/kontakt.html" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Kontakt</a>
                 </div>
             </div>
-            
-            <div class="footer-bottom">
+            <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; font-size: 14px; color: rgba(255,255,255,0.5);">
                 <p>© 2026 KI-Expertenraum</p>
                 <p>Philipp Zerna</p>
             </div>
         </div>
     </footer>
 
+    <script src="/assets/js/main.js"></script>
     <script>
-        function toggleMenu() {
-            document.getElementById('mobileMenu').classList.toggle('show');
-        }
-        function closeMenu() {
+        function closeMobileMenu() {
             document.getElementById('mobileMenu').classList.remove('show');
         }
+        
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mobileMenu').classList.toggle('show');
+        });
     </script>
 </body>
 </html>

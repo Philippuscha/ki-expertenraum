@@ -4,11 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Datenschutz | KI-Expertenraum</title>
-    <meta name="description" content="Datenschutzerklärung von KI-Expertenraum. Informationen zur Datenverarbeitung nach DSGVO.">
+    <meta name="description" content="Datenschutzerklärung des KI-Expertenraums. Informationen zur Verarbeitung personenbezogener Daten.">
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VDQNVYGYE1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-VDQNVYGYE1');
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/main.css">
     <style>
         :root {
@@ -22,282 +29,105 @@
             --text-muted: #94A3B8;
             --accent-light: #E8EEF8;
             --border: #D9DEE7;
-            --font-display: 'Playfair Display', serif;
+            --font-display: 'Source Serif 4', serif;
             --font-body: 'Inter', sans-serif;
-            --transition-base: all 0.3s ease;
+            --font-mono: 'IBM Plex Mono', monospace;
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: var(--font-body);
             background: var(--bg-main);
             color: var(--text-primary);
             line-height: 1.6;
         }
-
-        /* Navigation */
-        .nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 1000;
-            background: rgba(248, 247, 244, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
+        .section-label {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 16px;
         }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .hero {
+            padding: 140px 0 40px;
+            text-align: center;
+            background: var(--bg-main);
         }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(32px, 4vw, 42px);
+            margin-bottom: 16px;
+            font-weight: 500;
             color: var(--primary);
         }
-
-        .logo-mark {
-            width: 40px;
-            height: 40px;
-            background: var(--secondary);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-display);
-            font-size: 20px;
-            font-weight: 700;
-            border-radius: 8px;
-        }
-
-        .logo-text {
-            font-weight: 600;
-            font-size: 18px;
-        }
-
-        .logo-dot { color: var(--secondary); }
-
-        .nav-links {
-            display: flex;
-            gap: 40px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: var(--transition-base);
-        }
-
-        .nav-links a:hover, .nav-links a.active {
+        .hero h1 em {
+            font-style: italic;
             color: var(--secondary);
         }
-
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: var(--bg-white);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 8px 0;
-            min-width: 160px;
-            box-shadow: 0 10px 40px rgba(15, 23, 42, 0.1);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.2s ease;
-        }
-
-        .dropdown:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .dropdown-menu a {
-            display: block;
-            padding: 10px 20px;
-            font-size: 14px;
-        }
-
-        .nav-cta {
-            background: var(--secondary);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            transition: var(--transition-base);
-        }
-
-        .nav-cta:hover {
-            background: var(--primary);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .mobile-menu-btn span {
-            width: 24px;
-            height: 2px;
-            background: var(--primary);
-        }
-
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 80px;
-            left: 0; right: 0;
-            background: var(--bg-white);
-            padding: 20px;
-            z-index: 999;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .mobile-menu.show { display: block; }
-
-        .mobile-menu a {
-            display: block;
-            padding: 16px;
-            color: var(--text-primary);
-            text-decoration: none;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .hero { padding: 160px 0 60px; text-align: center; max-width: 800px; margin: 0 auto; }
-        .hero h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.15; margin-bottom: 20px; font-family: var(--font-display); color: var(--primary); }
-        .hero h1 em { font-style: italic; color: var(--secondary); }
-        .container { max-width: 900px; margin: 0 auto; padding: 0 0 80px; }
-        .section { background: var(--bg-white); border-radius: 20px; padding: 40px; margin-bottom: 30px; border: 1px solid var(--border); }
-        .section h2 { font-size: 28px; margin-bottom: 20px; color: var(--secondary); font-family: var(--font-display); }
-        .section h3 { font-size: 22px; margin: 30px 0 15px; color: var(--primary); }
-        .section p { margin-bottom: 15px; color: var(--text-secondary); line-height: 1.8; }
-        .section ul { margin-left: 25px; margin-bottom: 15px; color: var(--text-secondary); }
-        .section li { margin-bottom: 8px; line-height: 1.7; }
-        .section a { color: var(--secondary); }
-        .section a:hover { text-decoration: underline; }
-        .highlight { background: var(--accent-light); padding: 20px; border-radius: 12px; border-left: 4px solid var(--secondary); margin: 20px 0; }
-
-        /* Footer */
-        .footer {
-            background: var(--primary);
-            color: white;
-            padding: 56px 0 24px;
-        }
-
-        .footer-container {
-            max-width: 900px;
+        .content {
+            max-width: 800px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 24px 80px;
         }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 40px;
+        .privacy-section {
+            background: var(--bg-white);
+            border-radius: 18px;
+            padding: 40px;
+            border: 1px solid var(--border);
         }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: white;
-            margin-bottom: 16px;
-        }
-
-        .footer-logo .logo-mark {
-            background: white;
-            color: var(--primary);
-            width: 32px;
-            height: 32px;
-            font-size: 16px;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        h2 {
             font-family: var(--font-display);
-            font-weight: 700;
+            font-size: 24px;
+            margin: 32px 0 16px;
+            font-weight: 500;
+            color: var(--primary);
         }
-
-        .footer-tagline {
-            color: rgba(255,255,255,0.6);
-            font-size: 14px;
-            line-height: 1.6;
+        h2:first-child {
+            margin-top: 0;
         }
-
-        .footer-col h4 {
-            font-size: 11px;
+        h3 {
+            font-size: 18px;
+            margin: 24px 0 12px;
             font-weight: 600;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            color: white;
+            color: var(--primary);
+        }
+        p {
             margin-bottom: 16px;
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.7;
         }
-
-        .footer-col a {
-            display: block;
-            color: rgba(255,255,255,0.55);
-            text-decoration: none;
-            font-size: 14px;
-            margin-bottom: 12px;
-            transition: var(--transition-base);
+        ul {
+            margin-bottom: 16px;
+            padding-left: 24px;
         }
-
-        .footer-col a:hover {
-            color: white;
+        li {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 8px;
         }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 24px;
-            display: flex;
-            justify-content: space-between;
-            font-size: 13px;
-            color: rgba(255,255,255,0.4);
+        a {
+            color: var(--secondary);
         }
-
-        @media (max-width: 1024px) {
-            .nav-links { display: none; }
-            .mobile-menu-btn { display: flex; }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
-        }
-
         @media (max-width: 768px) {
-            .hero { padding: 140px 0 40px; }
-            .section { padding: 25px; }
-            .section h2 { font-size: 24px; }
-            .section h3 { font-size: 20px; }
-            .footer-grid { grid-template-columns: 1fr; }
-            .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+            .hero {
+                padding: 120px 20px 32px;
+            }
+            .privacy-section {
+                padding: 24px;
+            }
         }
     </style>
 </head>
 <body>
     <nav class="nav" id="nav">
         <div class="nav-container">
-            <a href="/" class="logo"><span class="logo-mark">K</span><span class="logo-text">KI<span class="logo-dot">.</span>Expertenraum</span></a>
+            <a href="/" class="logo">
+                <span class="logo-mark">K</span>
+                <span class="logo-text">KI<span class="logo-dot">.</span>Expertenraum</span>
+            </a>
             <ul class="nav-links">
                 <li><a href="/">Start</a></li>
                 <li><a href="/kurse/">Kurse</a></li>
@@ -313,68 +143,47 @@
                 <li><a href="/kontakt.html">Kontakt</a></li>
             </ul>
             <a href="/kontakt.html" class="nav-cta">Kontakt</a>
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+            <button class="mobile-menu-btn" id="mobileMenuBtn"><span></span><span></span><span></span></button>
         </div>
     </nav>
     <div class="mobile-menu" id="mobileMenu">
-        <a href="/" onclick="closeMobileMenu()">Start</a>
-        <a href="/kurse/" onclick="closeMobileMenu()">Kurse</a>
-        <a href="/ressourcen/" onclick="closeMobileMenu()">Ressourcen</a>
-        <a href="/artikel/" onclick="closeMobileMenu()">Artikel</a>
-        <a href="/ueber-mich/" onclick="closeMobileMenu()">Über mich</a>
-        <a href="/kontakt.html" onclick="closeMobileMenu()">Kontakt</a>
+        <a href="/">Start</a>
+        <a href="/kurse/">Kurse</a>
+        <a href="/ressourcen/">Ressourcen</a>
+        <a href="/artikel/">Artikel</a>
+        <a href="/ueber-mich/">Über mich</a>
+        <a href="/kontakt.html">Kontakt</a>
     </div>
 
     <main>
-        <div class="container">
+        <div class="content">
             <header class="hero">
-                <h1><em>Datenschutz</em>erklärung</h1>
+                <span class="section-label">Rechtliches</span>
+                <h1><em>Datenschutz</em></h1>
             </header>
-
-            <div class="section">
+            <div class="privacy-section">
                 <h2>1. Datenschutz auf einen Blick</h2>
                 <h3>Allgemeine Hinweise</h3>
-                <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
+                <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen.</p>
+                
                 <h3>Datenerfassung auf dieser Website</h3>
                 <p><strong>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong></p>
                 <p>Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.</p>
-                <p><strong>Wie erfassen wir Ihre Daten?</strong></p>
-                <p>Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen (z.B. per E-Mail). Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst.</p>
-            </div>
-
-            <div class="section">
-                <h2>2. Hosting</h2>
-                <p>Wir hosten die Inhalte unserer Website bei folgendem Anbieter:</p>
-                <h3>Hostinger</h3>
-                <p>Anbieter ist die Hostinger International Ltd., 61 Lordou Vironos Street, 6023 Larnaca, Zypern.</p>
-                <p>Details entnehmen Sie der Datenschutzerklärung von Hostinger: <a href="https://www.hostinger.de/datenschutz" target="_blank">https://www.hostinger.de/datenschutz</a></p>
-            </div>
-
-            <div class="section">
-                <h2>3. Allgemeine Hinweise und Pflichtinformationen</h2>
+                
+                <h2>2. Allgemeine Hinweise und Pflichtinformationen</h2>
                 <h3>Datenschutz</h3>
-                <p>Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
+                <p>Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
+                
                 <h3>Hinweis zur verantwortlichen Stelle</h3>
-                <div class="highlight">
-                    <p><strong>Verantwortlich für die Datenverarbeitung auf dieser Website ist:</strong></p>
-                    <p>Philipp Zerna<br>E-Mail: <a href="mailto:zernaphilipp@gmail.com">zernaphilipp@gmail.com</a></p>
-                </div>
-                <h3>Ihre Rechte</h3>
-                <p>Sie haben jederzeit das Recht:</p>
-                <ul>
-                    <li><strong>Auskunft (Art. 15 DSGVO):</strong> Über Ihre bei uns gespeicherten personenbezogenen Daten</li>
-                    <li><strong>Berichtigung (Art. 16 DSGVO):</strong> Unrichtige Daten korrigieren zu lassen</li>
-                    <li><strong>Löschung (Art. 17 DSGVO):</strong> Ihre Daten löschen zu lassen</li>
-                    <li><strong>Einschränkung (Art. 18 DSGVO):</strong> Die Verarbeitung einschränken zu lassen</li>
-                    <li><strong>Datenübertragbarkeit (Art. 20 DSGVO):</strong> Ihre Daten in maschinenlesbarem Format zu erhalten</li>
-                    <li><strong>Widerspruch (Art. 21 DSGVO):</strong> Der Verarbeitung zu widersprechen</li>
-                </ul>
-            </div>
-
-            <div class="section">
-                <h2>4. Datenerfassung auf dieser Website</h2>
+                <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
+                <p>Philipp Zerna<br>Friedensstraße 30b<br>68804 Altlußheim<br>E-Mail: zernaphilipp@gmail.com</p>
+                
+                <h2>3. Datenerfassung auf dieser Website</h2>
+                <h3>Cookies</h3>
+                <p>Unsere Internetseiten verwenden so genannte „Cookies“. Cookies sind kleine Datenpakete und richten auf Ihrem Endgerät keinen Schaden an.</p>
+                
                 <h3>Server-Log-Dateien</h3>
-                <p>Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt:</p>
+                <p>Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:</p>
                 <ul>
                     <li>Browsertyp und Browserversion</li>
                     <li>Verwendetes Betriebssystem</li>
@@ -383,69 +192,51 @@
                     <li>Uhrzeit der Serveranfrage</li>
                     <li>IP-Adresse</li>
                 </ul>
-                <h3>Kontaktaufnahme per E-Mail</h3>
-                <p>Wenn Sie uns per E-Mail kontaktieren, wird Ihre Anfrage inklusive aller daraus hervorgehenden personenbezogenen Daten zum Zwecke der Bearbeitung Ihres Anliegens bei uns gespeichert und verarbeitet.</p>
-            </div>
-
-            <div class="section">
-                <h2>5. Cookies</h2>
-                <p>Unsere Website verwendet derzeit keine Cookies zur Nachverfolgung oder Analyse. Es werden lediglich technisch notwendige Session-Cookies eingesetzt, die für die Funktionalität der Website erforderlich sind.</p>
-            </div>
-
-            <div class="section">
-                <h2>6. Änderungen dieser Datenschutzerklärung</h2>
-                <p>Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht.</p>
-                <p>Stand: Februar 2026</p>
+                
+                <h3>Google Analytics</h3>
+                <p>Diese Website nutzt den Dienst "Google Analytics", welcher von der Google Inc. (1600 Amphitheatre Parkway Mountain View, CA 94043, USA) angeboten wird, zur Analyse der Websitebenutzung durch Nutzer.</p>
             </div>
         </div>
     </main>
 
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-grid">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 48px; margin-bottom: 48px;">
                 <div>
-                    <a href="/" class="footer-logo">
+                    <a href="/" class="logo" style="margin-bottom: 16px; display: inline-flex;">
                         <span class="logo-mark">K</span>
-                        <span>KI<span style="color: var(--secondary);">.</span>Expertenraum</span>
+                        <span class="logo-text">KI<span class="logo-dot">.</span>Expertenraum</span>
                     </a>
-                    <p class="footer-tagline">Persönliche KI-Lernplattform mit Kursen, Guides und Lernmaterialien.</p>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 15px; max-width: 280px;">Persönliche KI-Lernplattform mit Kursen, Guides und Lernmaterialien.</p>
                 </div>
-                
-                <div class="footer-col">
-                    <h4>Angebot</h4>
-                    <a href="/kurse/">Kurse</a>
-                    <a href="/ressourcen/">Ressourcen</a>
-                    <a href="/artikel/">Artikel</a>
+                <div>
+                    <h4 style="font-size: 14px; font-weight: 600; color: white; margin-bottom: 16px;">Angebot</h4>
+                    <a href="/kurse/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Kurse</a>
+                    <a href="/ressourcen/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Ressourcen</a>
+                    <a href="/artikel/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Artikel</a>
                 </div>
-                
-                <div class="footer-col">
-                    <h4>Rechtliches</h4>
-                    <a href="/impressum/">Impressum</a>
-                    <a href="/datenschutz/">Datenschutz</a>
+                <div>
+                    <h4 style="font-size: 14px; font-weight: 600; color: white; margin-bottom: 16px;">Rechtliches</h4>
+                    <a href="/impressum/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Impressum</a>
+                    <a href="/datenschutz/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Datenschutz</a>
                 </div>
-                
-                <div class="footer-col">
-                    <h4>Kontakt</h4>
-                    <a href="/ueber-mich/">Über mich</a>
-                    <a href="/kontakt.html">Kontakt</a>
+                <div>
+                    <h4 style="font-size: 14px; font-weight: 600; color: white; margin-bottom: 16px;">Kontakt</h4>
+                    <a href="/ueber-mich/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Über mich</a>
+                    <a href="/kontakt.html" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Kontakt</a>
                 </div>
             </div>
-            
-            <div class="footer-bottom">
+            <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; font-size: 14px; color: rgba(255,255,255,0.5);">
                 <p>© 2026 KI-Expertenraum</p>
                 <p>Philipp Zerna</p>
             </div>
         </div>
     </footer>
-
+    <script src="/assets/js/main.js"></script>
     <script>
-        function toggleMenu() {
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
             document.getElementById('mobileMenu').classList.toggle('show');
-        }
-        function closeMobileMenu() {
-            document.getElementById('mobileMenu').classList.remove('show');
-        }
-        document.getElementById('mobileMenuBtn').addEventListener('click', toggleMenu);
+        });
     </script>
 </body>
 </html>

@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artikel | KI-Expertenraum - Praxiswissen für Unternehmer</title>
-    <meta name="description" content="Aktuelle Artikel zu KI, EU AI Act, Automation und digitaler Transformation. Praxisnahe Guides für Führungskräfte.">
-    <link rel="canonical" href="https://ki-expertenraum.de/artikel/">
+    <title>Artikel | KI-Expertenraum</title>
+    <meta name="description" content="Praxisnahe KI-Artikel: Tools, Anwendungsideen und Strategie. Klar, verständlich, sofort umsetzbar.">
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="/assets/css/main.css">
     <style>
@@ -25,12 +24,13 @@
             --text-muted: #94A3B8;
             --accent-light: #E8EEF8;
             --border: #D9DEE7;
-            --font-display: 'Playfair Display', serif;
+            --font-display: 'Source Serif 4', serif;
             --font-body: 'Inter', sans-serif;
-            --transition-base: all 0.3s ease;
+            --font-mono: 'IBM Plex Mono', monospace;
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
             font-family: var(--font-body);
             background: var(--bg-main);
@@ -38,182 +38,35 @@
             line-height: 1.6;
         }
         
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Navigation */
-        .nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 1000;
-            background: rgba(248, 247, 244, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: var(--primary);
-        }
-
-        .logo-mark {
-            width: 40px;
-            height: 40px;
-            background: var(--secondary);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-display);
-            font-size: 20px;
-            font-weight: 700;
-            border-radius: 8px;
-        }
-
-        .logo-text {
-            font-weight: 600;
-            font-size: 18px;
-        }
-
-        .logo-dot { color: var(--secondary); }
-
-        .nav-links {
-            display: flex;
-            gap: 40px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: var(--transition-base);
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--secondary);
-        }
-
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: var(--bg-white);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 8px 0;
-            min-width: 160px;
-            box-shadow: 0 10px 40px rgba(15, 23, 42, 0.1);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.2s ease;
-        }
-
-        .dropdown:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .dropdown-menu a {
-            display: block;
-            padding: 10px 20px;
-            font-size: 14px;
-        }
-
-        .nav-cta {
-            background: var(--secondary);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            transition: var(--transition-base);
-        }
-
-        .nav-cta:hover {
-            background: var(--primary);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .mobile-menu-btn span {
-            width: 24px;
-            height: 2px;
-            background: var(--primary);
-        }
-
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 80px;
-            left: 0; right: 0;
-            background: var(--bg-white);
-            padding: 20px;
-            z-index: 999;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .mobile-menu.show { display: block; }
-
-        .mobile-menu a {
-            display: block;
-            padding: 16px;
-            color: var(--text-primary);
-            text-decoration: none;
-            border-bottom: 1px solid var(--border);
+        .section-label {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 16px;
         }
         
-        /* Hero */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
         .hero {
             padding: 140px 0 60px;
             text-align: center;
-            background: linear-gradient(135deg, var(--bg-main) 0%, var(--bg-soft) 100%);
-        }
-        
-        .hero .section-label {
-            display: inline-block;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: var(--secondary);
-            margin-bottom: 20px;
+            background: var(--bg-main);
         }
         
         .hero h1 {
-            font-size: clamp(32px, 5vw, 48px);
-            margin-bottom: 16px;
             font-family: var(--font-display);
+            font-size: clamp(32px, 4vw, 48px);
+            line-height: 1.2;
+            margin-bottom: 16px;
+            font-weight: 500;
             color: var(--primary);
         }
         
@@ -223,206 +76,105 @@
         }
         
         .hero p {
+            font-size: 17px;
             color: var(--text-secondary);
-            font-size: 18px;
             max-width: 600px;
             margin: 0 auto;
         }
         
-        /* Blog List */
-        .blog-list {
-            padding: 40px 0 80px;
+        .articles-section {
+            padding: 60px 0 100px;
         }
         
-        .blog-item {
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+        
+        .article-card {
             background: var(--bg-white);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 24px;
-            transition: all 0.3s;
+            border-radius: 18px;
+            overflow: hidden;
+            transition: all 0.25s ease;
             text-decoration: none;
             color: inherit;
-            display: block;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+            display: flex;
+            flex-direction: column;
         }
         
-        .blog-item:hover {
+        .article-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
             border-color: var(--secondary);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 40px rgba(15, 23, 42, 0.08);
         }
         
-        .blog-meta {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 12px;
-            font-size: 13px;
-            color: var(--text-muted);
-        }
-        
-        .blog-category {
-            color: var(--secondary);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        
-        .blog-item h2 {
-            font-size: 24px;
-            margin-bottom: 12px;
-            font-weight: 600;
-            color: var(--primary);
-        }
-        
-        .blog-item:hover h2 {
-            color: var(--secondary);
-        }
-        
-        .blog-item p {
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-        
-        .read-more {
-            display: inline-block;
-            color: var(--secondary);
-            font-weight: 600;
-            margin-top: 16px;
-        }
-        
-        /* CTA */
-        .cta {
-            background: var(--bg-soft);
-            padding: 60px 0;
-            text-align: center;
-            margin-top: 40px;
-            border-top: 1px solid var(--border);
-        }
-        
-        .cta h3 {
-            font-size: 24px;
-            margin-bottom: 12px;
-            color: var(--primary);
-        }
-        
-        .cta p {
-            color: var(--text-secondary);
-            margin-bottom: 24px;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: var(--secondary);
-            color: white;
-            padding: 14px 28px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        
-        .btn:hover {
-            background: var(--primary);
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--primary);
-            color: white;
-            padding: 56px 0 24px;
-        }
-
-        .footer-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 40px;
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: white;
-            margin-bottom: 16px;
-        }
-
-        .footer-logo .logo-mark {
-            background: white;
-            color: var(--primary);
-            width: 32px;
-            height: 32px;
-            font-size: 16px;
-            border-radius: 6px;
+        .article-image {
+            height: 180px;
+            background: linear-gradient(135deg, #365F9C 0%, #1e3a5f 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: var(--font-display);
-            font-weight: 700;
-        }
-
-        .footer-tagline {
-            color: rgba(255,255,255,0.6);
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        .footer-col h4 {
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            color: white;
-            margin-bottom: 16px;
-        }
-
-        .footer-col a {
-            display: block;
-            color: rgba(255,255,255,0.55);
-            text-decoration: none;
-            font-size: 14px;
-            margin-bottom: 12px;
-            transition: var(--transition-base);
-        }
-
-        .footer-col a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 24px;
-            display: flex;
-            justify-content: space-between;
-            font-size: 13px;
-            color: rgba(255,255,255,0.4);
+            font-size: 48px;
         }
         
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .nav-links { display: none; }
-            .mobile-menu-btn { display: flex; }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
+        .article-content {
+            padding: 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
-
+        
+        .article-category {
+            font-size: 12px;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .article-title {
+            font-family: var(--font-display);
+            font-size: 20px;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--primary);
+        }
+        
+        .article-desc {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+            flex: 1;
+            margin-bottom: 16px;
+        }
+        
+        .article-link {
+            color: var(--secondary);
+            font-weight: 500;
+            font-size: 14px;
+        }
+        
         @media (max-width: 768px) {
-            .hero h1 { font-size: 32px; }
-            .blog-item h2 { font-size: 20px; }
-            .footer-grid { grid-template-columns: 1fr; }
-            .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+            .hero {
+                padding: 120px 20px 40px;
+            }
+            
+            .articles-section {
+                padding: 40px 0 60px;
+            }
+            
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
+    <nav class="nav" id="nav">
         <div class="nav-container">
             <a href="/" class="logo">
                 <span class="logo-mark">K</span>
@@ -446,7 +198,7 @@
             
             <a href="/kontakt.html" class="nav-cta">Kontakt</a>
             
-            <button class="mobile-menu-btn" onclick="toggleMenu()">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü öffnen">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -455,114 +207,133 @@
     </nav>
     
     <div class="mobile-menu" id="mobileMenu">
-        <a href="/" onclick="closeMenu()">Start</a>
-        <a href="/kurse/" onclick="closeMenu()">Kurse</a>
-        <a href="/ressourcen/" onclick="closeMenu()">Ressourcen</a>
-        <a href="/artikel/" onclick="closeMenu()">Artikel</a>
-        <a href="/ueber-mich/" onclick="closeMenu()">Über mich</a>
-        <a href="/kontakt.html" onclick="closeMenu()">Kontakt</a>
+        <div class="mobile-menu-content">
+            <a href="/" onclick="closeMobileMenu()">Start</a>
+            <a href="/kurse/" onclick="closeMobileMenu()">Kurse</a>
+            <a href="/ressourcen/" onclick="closeMobileMenu()">Ressourcen</a>
+            <a href="/artikel/" onclick="closeMobileMenu()">Artikel</a>
+            <a href="/ueber-mich/" onclick="closeMobileMenu()">Über mich</a>
+            <a href="/kontakt.html" onclick="closeMobileMenu()">Kontakt</a>
+        </div>
     </div>
-    
-    <main>
-        <section class="hero">
-            <div class="container">
-                <span class="section-label">Blog</span>
-                <h1>Aktuelle <em>Artikel</em> & Insights</h1>
-                <p>Praxisnahe Einblicke zu KI, EU AI Act, Automation und digitaler Transformation für Führungskräfte.</p>
-            </div>
-        </section>
-        
-        <section class="blog-list">
-            <div class="container">
-                <a href="/artikel/ki-einfuehrung-mittelstand.html" class="blog-item">
-                    <div class="blog-meta">
-                        <span class="blog-category">Strategie</span>
-                        <span>30. Mai 2026</span>
-                        <span>15 Min. Lesezeit</span>
-                    </div>
-                    <h2>KI-Einführung im Mittelstand 2026: Der komplette Leitfaden</h2>
-                    <p>Wie Sie Künstliche Intelligenz erfolgreich in Ihrem Unternehmen etablieren – ohne Millionenbudget, ohne IT-Abteilung, ohne Hype. Die Schritt-für-Schritt Anleitung für KMUs.</p>
-                    <span class="read-more">Weiterlesen →</span>
-                </a>
-                
-                <a href="/artikel/chatgpt-firmen.html" class="blog-item">
-                    <div class="blog-meta">
-                        <span class="blog-category">Praxis</span>
-                        <span>30. Mai 2026</span>
-                        <span>12 Min. Lesezeit</span>
-                    </div>
-                    <h2>ChatGPT für Firmen 2026: Sicher & produktiv nutzen</h2>
-                    <p>So setzen Sie ChatGPT DSGVO-konform im Unternehmen ein. Die ultimative Anleitung für Geschäftsführer – inklusive Datenschutz-Checkliste.</p>
-                    <span class="read-more">Weiterlesen →</span>
-                </a>
 
-                <a href="/artikel/bueroautomatisierung.html" class="blog-item">
-                    <div class="blog-meta">
-                        <span class="blog-category">Automation</span>
-                        <span>25. Mai 2026</span>
-                        <span>18 Min. Lesezeit</span>
-                    </div>
-                    <h2>Büroautomatisierung: 10 Prozesse mit No-Code Tools</h2>
-                    <p>Praxisbeispiele für Büroautomatisierung: 10 wiederkehrende Prozesse, die Sie heute noch automatisieren können – ohne Programmierkenntnisse.</p>
-                    <span class="read-more">Weiterlesen →</span>
-                </a>
-            </div>
-        </section>
-        
-        <section class="cta">
+    <main>
+        <header class="hero">
+            <span class="section-label">Blog</span>
+            <h1>Insights & <em>Praxiswissen</em></h1>
+            <p>Verständliche Artikel zu KI-Tools, Anwendungsideen und rechtlichen Grundlagen</p>
+        </header>
+
+        <section class="articles-section">
             <div class="container">
-                <h3>Kostenlose Ressourcen</h3>
-                <p>Hol dir die 4 kostenlosen Ebooks mit praxisnahen Checklisten und Vorlagen.</p>
-                <a href="/ressourcen/" class="btn">Ebooks downloaden →</a>
+                <div class="articles-grid">
+                    <a href="/artikel/eu-ai-act-checkliste.html" class="article-card">
+                        <div class="article-image">📋</div>
+                        <div class="article-content">
+                            <span class="article-category">Rechtliches</span>
+                            <h3 class="article-title">EU AI Act Checkliste 2026</h3>
+                            <p class="article-desc">Alle Pflichten für KMU auf einen Blick – verständlich erklärt und sofort umsetzbar.</p>
+                            <span class="article-link">Weiterlesen →</span>
+                        </div>
+                    </a>
+
+                    <a href="/artikel/chatgpt-vs-claude.html" class="article-card">
+                        <div class="article-image">⚡</div>
+                        <div class="article-content">
+                            <span class="article-category">KI-Tools</span>
+                            <h3 class="article-title">ChatGPT vs Claude</h3>
+                            <p class="article-desc">Der direkte Vergleich: Welches Tool passt zu deinen Anforderungen?</p>
+                            <span class="article-link">Weiterlesen →</span>
+                        </div>
+                    </a>
+
+                    <a href="/artikel/bueroautomatisierung.html" class="article-card">
+                        <div class="article-image">🤖</div>
+                        <div class="article-content">
+                            <span class="article-category">Produktivität</span>
+                            <h3 class="article-title">Büroautomatisierung mit KI</h3>
+                            <p class="article-desc">10 Prozesse, die du heute noch automatisieren kannst – mit konkreten Anleitungen.</p>
+                            <span class="article-link">Weiterlesen →</span>
+                        </div>
+                    </a>
+
+                    <a href="/artikel/ki-einfuehrung.html" class="article-card">
+                        <div class="article-image">🚀</div>
+                        <div class="article-content">
+                            <span class="article-category">Strategie</span>
+                            <h3 class="article-title">KI-Einführung: Die komplette Roadmap</h3>
+                            <p class="article-desc">Von der ersten Idee bis zur produktiven Nutzung – Schritt für Schritt.</p>
+                            <span class="article-link">Weiterlesen →</span>
+                        </div>
+                    </a>
+
+                    <a href="/artikel/ki-rechtssicher-nutzen-dsgvo-eu-ai-act.html" class="article-card">
+                        <div class="article-image">⚖️</div>
+                        <div class="article-content">
+                            <span class="article-category">Compliance</span>
+                            <h3 class="article-title">KI rechtssicher nutzen</h3>
+                            <p class="article-desc">DSGVO und EU AI Act: Was du beachten musst, um auf der sicheren Seite zu sein.</p>
+                            <span class="article-link">Weiterlesen →</span>
+                        </div>
+                    </a>
+
+                    <a href="/artikel/openclaw.html" class="article-card">
+                        <div class="article-image">🔧</div>
+                        <div class="article-content">
+                            <span class="article-category">Tools</span>
+                            <h3 class="article-title">OpenClaw: Lokale KI für Unternehmen</h3>
+                            <p class="article-desc">Datenschutzkonforme KI-Nutzung auf eigenen Servern – ohne Cloud-Abhängigkeit.</p>
+                            <span class="article-link">Weiterlesen →</span>
+                        </div>
+                    </a>
+                </div>
             </div>
         </section>
     </main>
-    
+
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-grid">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 48px; margin-bottom: 48px;">
                 <div>
-                    <a href="/" class="footer-logo">
+                    <a href="/" class="logo" style="margin-bottom: 16px; display: inline-flex;">
                         <span class="logo-mark">K</span>
-                        <span>KI<span style="color: var(--secondary);">.</span>Expertenraum</span>
+                        <span class="logo-text">KI<span class="logo-dot">.</span>Expertenraum</span>
                     </a>
-                    <p class="footer-tagline">Persönliche KI-Lernplattform mit Kursen, Guides und Lernmaterialien.</p>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 15px; max-width: 280px;">Persönliche KI-Lernplattform mit Kursen, Guides und Lernmaterialien.</p>
                 </div>
-                
-                <div class="footer-col">
-                    <h4>Angebot</h4>
-                    <a href="/kurse/">Kurse</a>
-                    <a href="/ressourcen/">Ressourcen</a>
-                    <a href="/artikel/">Artikel</a>
+                <div>
+                    <h4 style="font-size: 14px; font-weight: 600; color: white; margin-bottom: 16px;">Angebot</h4>
+                    <a href="/kurse/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Kurse</a>
+                    <a href="/ressourcen/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Ressourcen</a>
+                    <a href="/artikel/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Artikel</a>
                 </div>
-                
-                <div class="footer-col">
-                    <h4>Rechtliches</h4>
-                    <a href="/impressum/">Impressum</a>
-                    <a href="/datenschutz/">Datenschutz</a>
+                <div>
+                    <h4 style="font-size: 14px; font-weight: 600; color: white; margin-bottom: 16px;">Rechtliches</h4>
+                    <a href="/impressum/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Impressum</a>
+                    <a href="/datenschutz/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Datenschutz</a>
                 </div>
-                
-                <div class="footer-col">
-                    <h4>Kontakt</h4>
-                    <a href="/ueber-mich/">Über mich</a>
-                    <a href="/kontakt.html">Kontakt</a>
+                <div>
+                    <h4 style="font-size: 14px; font-weight: 600; color: white; margin-bottom: 16px;">Kontakt</h4>
+                    <a href="/ueber-mich/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Über mich</a>
+                    <a href="/kontakt.html" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Kontakt</a>
                 </div>
             </div>
-            
-            <div class="footer-bottom">
+            <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; font-size: 14px; color: rgba(255,255,255,0.5);">
                 <p>© 2026 KI-Expertenraum</p>
                 <p>Philipp Zerna</p>
             </div>
         </div>
     </footer>
 
+    <script src="/assets/js/main.js"></script>
     <script>
-        function toggleMenu() {
-            document.getElementById('mobileMenu').classList.toggle('show');
-        }
-        function closeMenu() {
+        function closeMobileMenu() {
             document.getElementById('mobileMenu').classList.remove('show');
         }
+        
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mobileMenu').classList.toggle('show');
+        });
     </script>
 </body>
 </html>
