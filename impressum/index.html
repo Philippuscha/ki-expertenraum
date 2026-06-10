@@ -6,55 +6,200 @@
     <title>Impressum | KI-Expertenraum</title>
     <meta name="description" content="Impressum und Kontaktinformationen von Philipp Zerna, KI-Expertenraum.">
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VDQNVYGYE1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-VDQNVYGYE1');
+    </script>
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="/assets/css/main.css">
     <style>
-        .hero { padding: 180px 0 60px; text-align: center; max-width: 900px; margin: 0 auto; }
-        .hero h1 { font-size: clamp(36px, 5vw, 52px); line-height: 1.15; margin-bottom: 25px; }
-        .hero h1 em { font-style: italic; color: var(--accent); }
-        .container { max-width: 800px; margin: 0 auto; padding: 0 0 80px; }
-        .impressum-section { background: var(--bg-card); border-radius: 20px; padding: 48px; border: 1px solid var(--border); }
-        h2 { font-size: 28px; margin: 40px 0 20px; font-weight: 600; color: var(--text-primary); }
-        h2:first-child { margin-top: 0; }
-        h3 { font-size: 22px; margin: 30px 0 15px; font-weight: 600; color: var(--text-primary); }
-        p { margin-bottom: 20px; color: var(--text-secondary); font-size: 16px; line-height: 1.8; }
-        .contact-box { background: var(--bg-tertiary); border-radius: 16px; padding: 32px; margin: 30px 0; border: 1px solid var(--border); }
-        .contact-box h3 { margin-top: 0; color: var(--accent); }
-        .contact-box a { color: var(--accent); }
-        .contact-box a:hover { text-decoration: underline; }
+        :root {
+            --primary: #0F172A;
+            --secondary: #365F9C;
+            --bg-main: #F8F7F4;
+            --bg-soft: #F1F3F5;
+            --bg-white: #FFFFFF;
+            --text-primary: #334155;
+            --text-secondary: #64748B;
+            --text-muted: #94A3B8;
+            --accent-light: #E8EEF8;
+            --border: #D9DEE7;
+            --font-display: 'Source Serif 4', serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'IBM Plex Mono', monospace;
+        }
+        
+        body {
+            background: var(--bg-main);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+        }
+        
+        .section-label {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+        
+        .hero { 
+            padding: 140px 0 40px; 
+            text-align: center; 
+            max-width: 800px; 
+            margin: 0 auto; 
+            background: var(--bg-main);
+        }
+        
+        .hero h1 { 
+            font-family: var(--font-display);
+            font-size: clamp(32px, 4vw, 42px); 
+            line-height: 1.2; 
+            margin-bottom: 16px;
+            font-weight: 500;
+            color: var(--primary);
+        }
+        
+        .hero h1 em { 
+            font-style: italic; 
+            color: var(--secondary); 
+        }
+        
+        .container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 0 24px 80px; 
+        }
+        
+        .impressum-section { 
+            background: var(--bg-white); 
+            border-radius: 18px; 
+            padding: 40px; 
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+        }
+        
+        h2 { 
+            font-family: var(--font-display);
+            font-size: 24px; 
+            margin: 32px 0 16px; 
+            font-weight: 500; 
+            color: var(--primary); 
+        }
+        
+        h2:first-child { 
+            margin-top: 0; 
+        }
+        
+        h3 { 
+            font-size: 18px; 
+            margin: 24px 0 12px; 
+            font-weight: 600; 
+            color: var(--primary); 
+        }
+        
+        p { 
+            margin-bottom: 16px; 
+            color: var(--text-secondary); 
+            font-size: 15px; 
+            line-height: 1.7; 
+        }
+        
+        .contact-box { 
+            background: var(--bg-soft); 
+            border-radius: 12px; 
+            padding: 28px; 
+            margin: 24px 0; 
+            border: 1px solid var(--border); 
+        }
+        
+        .contact-box h3 { 
+            margin-top: 0; 
+            color: var(--secondary); 
+            font-size: 16px;
+        }
+        
+        .contact-box a { 
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .contact-box a:hover { 
+            text-decoration: underline; 
+        }
+        
         @media (max-width: 768px) {
-            .hero { padding: 140px 0 40px; }
-            .impressum-section { padding: 28px; }
+            .hero { 
+                padding: 120px 20px 32px; 
+            }
+            
+            .impressum-section { 
+                padding: 24px; 
+            }
+            
+            h2 {
+                font-size: 22px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Navigation -->
     <nav class="nav" id="nav">
         <div class="nav-container">
-            <a href="/" class="logo"><span class="logo-mark">K</span><span class="logo-text">KI<span class="logo-dot">.</span>Expertenraum</span></a>
+            <a href="/" class="logo">
+                <span class="logo-mark">K</span>
+                <span class="logo-text">KI<span class="logo-dot">.</span>Expertenraum</span>
+            </a>
+            
             <ul class="nav-links">
                 <li><a href="/">Start</a></li>
                 <li><a href="/kurse/">Kurse</a></li>
-                <li><a href="/ebooks/">Ebooks</a></li>
-                <li><a href="/services/">Services</a></li>
+                <li class="dropdown">
+                    <a href="/ressourcen/">Ressourcen</a>
+                    <div class="dropdown-menu">
+                        <a href="/ressourcen/">Downloads</a>
+                        <a href="/glossar/">Glossar</a>
+                    </div>
+                </li>
                 <li><a href="/artikel/">Artikel</a></li>
-                <li><a href="/glossar/">Glossar</a></li>
+                <li><a href="/ueber-mich/">Über mich</a></li>
                 <li><a href="/kontakt.html">Kontakt</a></li>
             </ul>
-            <a href="/kontakt.html" class="nav-cta">Beratung anfragen</a>
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+            
+            <a href="/kontakt.html" class="nav-cta">Kontakt</a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü öffnen">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
+    
+    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <div class="mobile-menu-content">
             <a href="/" onclick="closeMobileMenu()">Start</a>
             <a href="/kurse/" onclick="closeMobileMenu()">Kurse</a>
-            <a href="/ebooks/" onclick="closeMobileMenu()">Ebooks</a>
-            <a href="/services/" onclick="closeMobileMenu()">Services</a>
+            <a href="/ressourcen/" onclick="closeMobileMenu()">Ressourcen</a>
             <a href="/artikel/" onclick="closeMobileMenu()">Artikel</a>
-            <a href="/glossar/" onclick="closeMobileMenu()">Glossar</a>
+            <a href="/ueber-mich/" onclick="closeMobileMenu()">Über mich</a>
             <a href="/kontakt.html" onclick="closeMobileMenu()">Kontakt</a>
         </div>
     </div>
@@ -62,6 +207,7 @@
     <main>
         <div class="container">
             <header class="hero">
+                <span class="section-label">Rechtliches</span>
                 <h1><em>Impressum</em></h1>
             </header>
 
@@ -91,38 +237,54 @@
         </div>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="/" class="footer-logo"><span class="logo-mark">K</span><span>KI<span class="logo-dot">.</span>Expertenraum</span></a>
-                    <p class="footer-tagline">Premium KI-Beratung für den Mittelstand.</p>
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 48px; margin-bottom: 48px;">
+                <div>
+                    <a href="/" class="logo" style="margin-bottom: 16px; display: inline-flex;">
+                        <span class="logo-mark">K</span>
+                        <span class="logo-text">KI<span class="logo-dot">.</span>Expertenraum</span>
+                    </a>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 15px; max-width: 280px;">Persönliche KI-Lernplattform mit Kursen, Guides und Lernmaterialien.</p>
                 </div>
-                <div class="footer-col">
-                    <h4>Angebot</h4>
-                    <a href="/kurse/">Kurse</a>
-                    <a href="/services/">Services</a>
-                    <a href="/artikel/">Artikel</a>
-                    <a href="/glossar/">Glossar</a>
+                
+                <div>
+                    <h4 style="font-size: 14px; font-weight: 600; color: white; margin-bottom: 16px;">Angebot</h4>
+                    <a href="/kurse/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Kurse</a>
+                    <a href="/ressourcen/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Ressourcen</a>
+                    <a href="/artikel/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Artikel</a>
                 </div>
-                <div class="footer-col">
-                    <h4>Rechtliches</h4>
-                    <a href="/impressum/">Impressum</a>
-                    <a href="/datenschutz/">Datenschutz</a>
-                    <a href="/kontakt.html">Kontakt</a>
+                
+                <div>
+                    <h4 style="font-size: 14px; font-weight: 600; color: white; margin-bottom: 16px;">Rechtliches</h4>
+                    <a href="/impressum/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Impressum</a>
+                    <a href="/datenschutz/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Datenschutz</a>
                 </div>
-                <div class="footer-col">
-                    <h4>Connect</h4>
-                    <a href="https://www.youtube.com/@philippzerna" target="_blank" rel="noopener">YouTube</a>
-                    <a href="https://www.linkedin.com/in/philipp-zerna/" target="_blank" rel="noopener">LinkedIn</a>
+
+                <div>
+                    <h4 style="font-size: 14px; font-weight: 600; color: white; margin-bottom: 16px;">Kontakt</h4>
+                    <a href="/ueber-mich/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Über mich</a>
+                    <a href="/kontakt.html" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Kontakt</a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 KI-Expertenraum. Alle Rechte vorbehalten.</p>
-                <p>Philipp Zerna · Strategische KI-Beratung</p>
+            
+            <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; font-size: 14px; color: rgba(255,255,255,0.5);">
+                <p>© 2026 KI-Expertenraum</p>
+                <p>Philipp Zerna</p>
             </div>
         </div>
     </footer>
+
     <script src="/assets/js/main.js"></script>
+    <script>
+        function closeMobileMenu() {
+            document.getElementById('mobileMenu').classList.remove('show');
+        }
+        
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mobileMenu').classList.toggle('show');
+        });
+    </script>
 </body>
 </html>

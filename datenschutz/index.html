@@ -11,24 +11,286 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/main.css">
     <style>
+        :root {
+            --primary: #0F172A;
+            --secondary: #365F9C;
+            --bg-main: #F8F7F4;
+            --bg-soft: #F1F3F5;
+            --bg-white: #FFFFFF;
+            --text-primary: #334155;
+            --text-secondary: #64748B;
+            --text-muted: #94A3B8;
+            --accent-light: #E8EEF8;
+            --border: #D9DEE7;
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --transition-base: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(248, 247, 244, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--primary);
+        }
+
+        .logo-mark {
+            width: 40px;
+            height: 40px;
+            background: var(--secondary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 700;
+            border-radius: 8px;
+        }
+
+        .logo-text {
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .logo-dot { color: var(--secondary); }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: var(--transition-base);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--secondary);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 8px 0;
+            min-width: 160px;
+            box-shadow: 0 10px 40px rgba(15, 23, 42, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.2s ease;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+
+        .nav-cta {
+            background: var(--secondary);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: var(--transition-base);
+        }
+
+        .nav-cta:hover {
+            background: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .mobile-menu-btn span {
+            width: 24px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0; right: 0;
+            background: var(--bg-white);
+            padding: 20px;
+            z-index: 999;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .mobile-menu.show { display: block; }
+
+        .mobile-menu a {
+            display: block;
+            padding: 16px;
+            color: var(--text-primary);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border);
+        }
+
         .hero { padding: 160px 0 60px; text-align: center; max-width: 800px; margin: 0 auto; }
-        .hero h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.15; margin-bottom: 20px; }
-        .hero h1 em { font-style: italic; color: var(--accent); }
+        .hero h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.15; margin-bottom: 20px; font-family: var(--font-display); color: var(--primary); }
+        .hero h1 em { font-style: italic; color: var(--secondary); }
         .container { max-width: 900px; margin: 0 auto; padding: 0 0 80px; }
-        .section { background: var(--bg-card); border-radius: 20px; padding: 40px; margin-bottom: 30px; border: 1px solid var(--border); }
-        .section h2 { font-size: 28px; margin-bottom: 20px; color: var(--accent); }
-        .section h3 { font-size: 22px; margin: 30px 0 15px; color: var(--text-primary); }
+        .section { background: var(--bg-white); border-radius: 20px; padding: 40px; margin-bottom: 30px; border: 1px solid var(--border); }
+        .section h2 { font-size: 28px; margin-bottom: 20px; color: var(--secondary); font-family: var(--font-display); }
+        .section h3 { font-size: 22px; margin: 30px 0 15px; color: var(--primary); }
         .section p { margin-bottom: 15px; color: var(--text-secondary); line-height: 1.8; }
         .section ul { margin-left: 25px; margin-bottom: 15px; color: var(--text-secondary); }
         .section li { margin-bottom: 8px; line-height: 1.7; }
-        .section a { color: var(--accent); }
+        .section a { color: var(--secondary); }
         .section a:hover { text-decoration: underline; }
-        .highlight { background: var(--bg-tertiary); padding: 20px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 20px 0; }
+        .highlight { background: var(--accent-light); padding: 20px; border-radius: 12px; border-left: 4px solid var(--secondary); margin: 20px 0; }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 56px 0 24px;
+        }
+
+        .footer-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .footer-logo .logo-mark {
+            background: white;
+            color: var(--primary);
+            width: 32px;
+            height: 32px;
+            font-size: 16px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 700;
+        }
+
+        .footer-tagline {
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .footer-col h4 {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .footer-col a {
+            display: block;
+            color: rgba(255,255,255,0.55);
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 12px;
+            transition: var(--transition-base);
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: rgba(255,255,255,0.4);
+        }
+
+        @media (max-width: 1024px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: flex; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
         @media (max-width: 768px) {
             .hero { padding: 140px 0 40px; }
             .section { padding: 25px; }
             .section h2 { font-size: 24px; }
             .section h3 { font-size: 20px; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
         }
     </style>
 </head>
@@ -39,26 +301,28 @@
             <ul class="nav-links">
                 <li><a href="/">Start</a></li>
                 <li><a href="/kurse/">Kurse</a></li>
-                <li><a href="/ebooks/">Ebooks</a></li>
-                <li><a href="/services/">Services</a></li>
+                <li class="dropdown">
+                    <a href="/ressourcen/">Ressourcen</a>
+                    <div class="dropdown-menu">
+                        <a href="/ressourcen/">Downloads</a>
+                        <a href="/glossar/">Glossar</a>
+                    </div>
+                </li>
                 <li><a href="/artikel/">Artikel</a></li>
-                <li><a href="/glossar/">Glossar</a></li>
+                <li><a href="/ueber-mich/">Über mich</a></li>
                 <li><a href="/kontakt.html">Kontakt</a></li>
             </ul>
-            <a href="/kontakt.html" class="nav-cta">Beratung anfragen</a>
+            <a href="/kontakt.html" class="nav-cta">Kontakt</a>
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
         </div>
     </nav>
     <div class="mobile-menu" id="mobileMenu">
-        <div class="mobile-menu-content">
-            <a href="/" onclick="closeMobileMenu()">Start</a>
-            <a href="/kurse/" onclick="closeMobileMenu()">Kurse</a>
-            <a href="/ebooks/" onclick="closeMobileMenu()">Ebooks</a>
-            <a href="/services/" onclick="closeMobileMenu()">Services</a>
-            <a href="/artikel/" onclick="closeMobileMenu()">Artikel</a>
-            <a href="/glossar/" onclick="closeMobileMenu()">Glossar</a>
-            <a href="/kontakt.html" onclick="closeMobileMenu()">Kontakt</a>
-        </div>
+        <a href="/" onclick="closeMobileMenu()">Start</a>
+        <a href="/kurse/" onclick="closeMobileMenu()">Kurse</a>
+        <a href="/ressourcen/" onclick="closeMobileMenu()">Ressourcen</a>
+        <a href="/artikel/" onclick="closeMobileMenu()">Artikel</a>
+        <a href="/ueber-mich/" onclick="closeMobileMenu()">Über mich</a>
+        <a href="/kontakt.html" onclick="closeMobileMenu()">Kontakt</a>
     </div>
 
     <main>
@@ -139,35 +403,49 @@
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="/" class="footer-logo"><span class="logo-mark">K</span><span>KI<span class="logo-dot">.</span>Expertenraum</span></a>
-                    <p class="footer-tagline">Premium KI-Beratung für den Mittelstand.</p>
+                <div>
+                    <a href="/" class="footer-logo">
+                        <span class="logo-mark">K</span>
+                        <span>KI<span style="color: var(--secondary);">.</span>Expertenraum</span>
+                    </a>
+                    <p class="footer-tagline">Persönliche KI-Lernplattform mit Kursen, Guides und Lernmaterialien.</p>
                 </div>
+                
                 <div class="footer-col">
                     <h4>Angebot</h4>
                     <a href="/kurse/">Kurse</a>
-                    <a href="/services/">Services</a>
+                    <a href="/ressourcen/">Ressourcen</a>
                     <a href="/artikel/">Artikel</a>
-                    <a href="/glossar/">Glossar</a>
                 </div>
+                
                 <div class="footer-col">
                     <h4>Rechtliches</h4>
                     <a href="/impressum/">Impressum</a>
                     <a href="/datenschutz/">Datenschutz</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Kontakt</h4>
+                    <a href="/ueber-mich/">Über mich</a>
                     <a href="/kontakt.html">Kontakt</a>
                 </div>
-                <div class="footer-col">
-                    <h4>Connect</h4>
-                    <a href="https://www.youtube.com/@philippzerna" target="_blank" rel="noopener">YouTube</a>
-                    <a href="https://www.linkedin.com/in/philipp-zerna/" target="_blank" rel="noopener">LinkedIn</a>
-                </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2026 KI-Expertenraum. Alle Rechte vorbehalten.</p>
-                <p>Philipp Zerna · Strategische KI-Beratung</p>
+                <p>© 2026 KI-Expertenraum</p>
+                <p>Philipp Zerna</p>
             </div>
         </div>
     </footer>
-    <script src="/assets/js/main.js"></script>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('show');
+        }
+        function closeMobileMenu() {
+            document.getElementById('mobileMenu').classList.remove('show');
+        }
+        document.getElementById('mobileMenuBtn').addEventListener('click', toggleMenu);
+    </script>
 </body>
 </html>

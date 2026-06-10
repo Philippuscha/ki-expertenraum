@@ -28,13 +28,19 @@
             <ul class="nav-links">
                 <li><a href="/" {{#if active_home}}class="active"{{/if}}>Start</a></li>
                 <li><a href="/kurse/" {{#if active_kurse}}class="active"{{/if}}>Kurse</a></li>
-                <li><a href="/services/" {{#if active_services}}class="active"{{/if}}>Services</a></li>
+                <li class="dropdown">
+                    <a href="/ressourcen/" {{#if active_ressourcen}}class="active"{{/if}}>Ressourcen</a>
+                    <div class="dropdown-menu">
+                        <a href="/ressourcen/">Downloads</a>
+                        <a href="/glossar/">Glossar</a>
+                    </div>
+                </li>
                 <li><a href="/artikel/" {{#if active_artikel}}class="active"{{/if}}>Artikel</a></li>
-                <li><a href="/glossar/" {{#if active_glossar}}class="active"{{/if}}>Glossar</a></li>
+                <li><a href="/ueber-mich/" {{#if active_ueber}}class="active"{{/if}}>Über mich</a></li>
                 <li><a href="/kontakt.html" {{#if active_kontakt}}class="active"{{/if}}>Kontakt</a></li>
             </ul>
             
-            <a href="/kontakt.html" class="nav-cta">Beratung anfragen</a>
+            <a href="/kontakt.html" class="nav-cta">Kontakt</a>
             
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü öffnen">
                 <span></span>
@@ -49,9 +55,9 @@
         <div class="mobile-menu-content">
             <a href="/" onclick="closeMobileMenu()">Start</a>
             <a href="/kurse/" onclick="closeMobileMenu()">Kurse</a>
-            <a href="/services/" onclick="closeMobileMenu()">Services</a>
+            <a href="/ressourcen/" onclick="closeMobileMenu()">Ressourcen</a>
             <a href="/artikel/" onclick="closeMobileMenu()">Artikel</a>
-            <a href="/glossar/" onclick="closeMobileMenu()">Glossar</a>
+            <a href="/ueber-mich/" onclick="closeMobileMenu()">Über mich</a>
             <a href="/kontakt.html" onclick="closeMobileMenu()">Kontakt</a>
         </div>
     </div>
@@ -70,13 +76,13 @@
                         <span class="logo-mark">K</span>
                         <span>KI<span class="logo-dot">.</span>Expertenraum</span>
                     </a>
-                    <p class="footer-tagline">Premium KI-Beratung für den Mittelstand. Praxiserprobt, DSGVO-konform, messbar erfolgreich.</p>
+                    <p class="footer-tagline">Persönliche KI-Lernplattform mit Kursen, Guides und Lernmaterialien.</p>
                 </div>
                 
                 <div class="footer-col">
                     <h4>Angebot</h4>
                     <a href="/kurse/">Kurse</a>
-                    <a href="/services/">Services</a>
+                    <a href="/ressourcen/">Ressourcen</a>
                     <a href="/artikel/">Artikel</a>
                     <a href="/glossar/">Glossar</a>
                 </div>
@@ -96,8 +102,8 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2026 KI-Expertenraum. Alle Rechte vorbehalten.</p>
-                <p>Philipp Zerna · Strategische KI-Beratung</p>
+                <p>&copy; 2026 KI-Expertenraum</p>
+                <p>Philipp Zerna</p>
             </div>
         </div>
     </footer>

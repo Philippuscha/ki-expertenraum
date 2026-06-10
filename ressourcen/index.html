@@ -14,17 +14,16 @@
     <link rel="stylesheet" href="/assets/css/main.css">
     <style>
         :root {
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #111111;
-            --bg-tertiary: #1a1a1a;
-            --bg-card: rgba(20, 20, 20, 0.8);
-            --bg-hover: rgba(30, 30, 30, 0.9);
-            --text-primary: #f5f5f5;
-            --text-secondary: #a0a0a0;
-            --text-muted: #666666;
-            --accent: #c9a962;
-            --accent-dark: #a88b4a;
-            --border: rgba(255, 255, 255, 0.08);
+            --primary: #0F172A;
+            --secondary: #365F9C;
+            --bg-main: #F8F7F4;
+            --bg-soft: #F1F3F5;
+            --bg-white: #FFFFFF;
+            --text-primary: #334155;
+            --text-secondary: #64748B;
+            --text-muted: #94A3B8;
+            --accent-light: #E8EEF8;
+            --border: #D9DEE7;
             --font-display: 'Playfair Display', serif;
             --font-body: 'Inter', sans-serif;
             --transition-base: all 0.3s ease;
@@ -35,7 +34,7 @@
         html { scroll-behavior: smooth; }
         body {
             font-family: var(--font-body);
-            background: var(--bg-primary);
+            background: var(--bg-main);
             color: var(--text-primary);
             line-height: 1.6;
         }
@@ -51,7 +50,7 @@
             position: fixed;
             top: 0; left: 0; right: 0;
             z-index: 1000;
-            background: rgba(10, 10, 10, 0.95);
+            background: rgba(248, 247, 244, 0.95);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
         }
@@ -70,14 +69,14 @@
             align-items: center;
             gap: 12px;
             text-decoration: none;
-            color: var(--text-primary);
+            color: var(--primary);
         }
 
         .logo-mark {
             width: 40px;
             height: 40px;
-            background: var(--accent);
-            color: var(--bg-primary);
+            background: var(--secondary);
+            color: white;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -92,7 +91,7 @@
             font-size: 18px;
         }
 
-        .logo-dot { color: var(--accent); }
+        .logo-dot { color: var(--secondary); }
 
         .nav-links {
             display: flex;
@@ -109,12 +108,44 @@
         }
 
         .nav-links a:hover, .nav-links a.active {
-            color: var(--accent);
+            color: var(--secondary);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 8px 0;
+            min-width: 160px;
+            box-shadow: 0 10px 40px rgba(15, 23, 42, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.2s ease;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            font-size: 14px;
         }
 
         .nav-cta {
-            background: var(--accent);
-            color: var(--bg-primary);
+            background: var(--secondary);
+            color: white;
             padding: 12px 24px;
             border-radius: 8px;
             text-decoration: none;
@@ -124,7 +155,7 @@
         }
 
         .nav-cta:hover {
-            background: var(--accent-dark);
+            background: var(--primary);
         }
 
         .mobile-menu-btn {
@@ -139,7 +170,7 @@
         .mobile-menu-btn span {
             width: 24px;
             height: 2px;
-            background: var(--text-primary);
+            background: var(--primary);
         }
 
         .mobile-menu {
@@ -147,9 +178,10 @@
             position: fixed;
             top: 80px;
             left: 0; right: 0;
-            background: var(--bg-secondary);
+            background: var(--bg-white);
             padding: 20px;
             z-index: 999;
+            border-bottom: 1px solid var(--border);
         }
 
         .mobile-menu.show { display: block; }
@@ -165,7 +197,7 @@
         /* Hero Section */
         .hero-ebooks {
             padding: 160px 0 100px;
-            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            background: linear-gradient(135deg, var(--bg-main) 0%, var(--bg-soft) 100%);
             text-align: center;
         }
 
@@ -175,7 +207,7 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.2em;
-            color: var(--accent);
+            color: var(--secondary);
             margin-bottom: 20px;
         }
 
@@ -186,11 +218,12 @@
         h1.serif {
             font-size: clamp(40px, 5vw, 56px);
             margin-bottom: 24px;
+            color: var(--primary);
         }
 
         h1.serif em {
             font-style: italic;
-            color: var(--accent);
+            color: var(--secondary);
         }
 
         .hero-subtitle {
@@ -204,7 +237,7 @@
         /* Ebooks Grid */
         .ebooks-section {
             padding: 80px 0;
-            background: var(--bg-secondary);
+            background: var(--bg-white);
         }
 
         .ebooks-grid {
@@ -214,7 +247,7 @@
         }
 
         .ebook-card {
-            background: var(--bg-card);
+            background: var(--bg-main);
             border: 1px solid var(--border);
             border-radius: 20px;
             overflow: hidden;
@@ -225,8 +258,8 @@
 
         .ebook-card:hover {
             transform: translateY(-8px);
-            border-color: rgba(201, 169, 98, 0.2);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+            border-color: var(--secondary);
+            box-shadow: 0 30px 80px rgba(15, 23, 42, 0.1);
         }
 
         .ebook-cover {
@@ -243,7 +276,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at 30% 30%, rgba(201, 169, 98, 0.1) 0%, transparent 50%);
+            background: radial-gradient(circle at 30% 30%, rgba(54, 95, 156, 0.1) 0%, transparent 50%);
         }
 
         .ebook-icon {
@@ -255,8 +288,8 @@
             position: absolute;
             top: 16px;
             right: 16px;
-            background: var(--accent);
-            color: var(--bg-primary);
+            background: var(--secondary);
+            color: white;
             padding: 6px 14px;
             border-radius: 20px;
             font-size: 11px;
@@ -289,6 +322,7 @@
             font-size: 24px;
             margin-bottom: 12px;
             font-weight: 500;
+            color: var(--primary);
         }
 
         .ebook-card p {
@@ -304,8 +338,8 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            background: var(--accent);
-            color: var(--bg-primary);
+            background: var(--secondary);
+            color: white;
             padding: 16px 28px;
             border-radius: 10px;
             text-decoration: none;
@@ -315,7 +349,7 @@
         }
 
         .ebook-btn:hover {
-            background: var(--accent-dark);
+            background: var(--primary);
             transform: translateY(-2px);
         }
 
@@ -327,7 +361,7 @@
         /* Features */
         .features-bar {
             padding: 60px 0;
-            background: var(--bg-primary);
+            background: var(--bg-main);
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
         }
@@ -350,13 +384,13 @@
         .feature-item svg {
             width: 20px;
             height: 20px;
-            color: var(--accent);
+            color: var(--secondary);
         }
 
         /* CTA Section */
         .cta-section {
             padding: 100px 0;
-            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            background: linear-gradient(135deg, var(--bg-soft) 0%, var(--accent-light) 100%);
             text-align: center;
         }
 
@@ -368,6 +402,7 @@
         .cta-box h2 {
             font-size: 36px;
             margin-bottom: 20px;
+            color: var(--primary);
         }
 
         .cta-box p {
@@ -385,8 +420,8 @@
         }
 
         .btn-primary {
-            background: var(--accent);
-            color: var(--bg-primary);
+            background: var(--secondary);
+            color: white;
             padding: 16px 32px;
             border-radius: 10px;
             text-decoration: none;
@@ -409,11 +444,25 @@
             transform: translateY(-2px);
         }
 
+        .btn-primary:hover {
+            background: var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-white);
+        }
+
         /* Footer */
         .footer {
-            background: var(--bg-primary);
-            padding: 60px 0 30px;
-            border-top: 1px solid var(--border);
+            background: var(--primary);
+            color: white;
+            padding: 56px 0 24px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
         }
 
         .footer-grid {
@@ -428,26 +477,33 @@
             align-items: center;
             gap: 12px;
             text-decoration: none;
-            color: var(--text-primary);
+            color: white;
             margin-bottom: 16px;
         }
 
+        .footer-logo .logo-mark {
+            background: white;
+            color: var(--primary);
+        }
+
         .footer-tagline {
-            color: var(--text-muted);
+            color: rgba(255,255,255,0.6);
             font-size: 14px;
             line-height: 1.6;
         }
 
         .footer-col h4 {
-            font-size: 14px;
+            font-size: 11px;
             font-weight: 600;
-            margin-bottom: 20px;
-            color: var(--text-primary);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: white;
+            margin-bottom: 16px;
         }
 
         .footer-col a {
             display: block;
-            color: var(--text-muted);
+            color: rgba(255,255,255,0.55);
             text-decoration: none;
             font-size: 14px;
             margin-bottom: 12px;
@@ -455,15 +511,16 @@
         }
 
         .footer-col a:hover {
-            color: var(--accent);
+            color: white;
         }
 
         .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid var(--border);
-            color: var(--text-muted);
-            font-size: 14px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: rgba(255,255,255,0.4);
         }
 
         /* Responsive */
@@ -480,8 +537,9 @@
             .hero-ebooks { padding: 120px 0 60px; }
             .features-list { gap: 24px; }
             .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
         }
-</style>
+    </style>
 </head>
 <body>
     <nav class="nav">
@@ -494,14 +552,19 @@
             <ul class="nav-links">
                 <li><a href="/">Start</a></li>
                 <li><a href="/kurse/">Kurse</a></li>
-                <li><a href="/ebooks/" class="active">Ebooks</a></li>
-                <li><a href="/services/">Services</a></li>
+                <li class="dropdown">
+                    <a href="/ressourcen/" class="active">Ressourcen</a>
+                    <div class="dropdown-menu">
+                        <a href="/ressourcen/">Downloads</a>
+                        <a href="/glossar/">Glossar</a>
+                    </div>
+                </li>
                 <li><a href="/artikel/">Artikel</a></li>
-                <li><a href="/glossar/">Glossar</a></li>
+                <li><a href="/ueber-mich/">Über mich</a></li>
                 <li><a href="/kontakt.html">Kontakt</a></li>
             </ul>
             
-            <a href="/kontakt.html" class="nav-cta">Beratung anfragen</a>
+            <a href="/kontakt.html" class="nav-cta">Kontakt</a>
             
             <button class="mobile-menu-btn" onclick="toggleMenu()">
                 <span></span>
@@ -514,10 +577,9 @@
     <div class="mobile-menu" id="mobileMenu">
         <a href="/" onclick="closeMenu()">Start</a>
         <a href="/kurse/" onclick="closeMenu()">Kurse</a>
-        <a href="/ebooks/" onclick="closeMenu()">Ebooks</a>
-        <a href="/services/" onclick="closeMenu()">Services</a>
+        <a href="/ressourcen/" onclick="closeMenu()">Ressourcen</a>
         <a href="/artikel/" onclick="closeMenu()">Artikel</a>
-        <a href="/glossar/" onclick="closeMenu()">Glossar</a>
+        <a href="/ueber-mich/" onclick="closeMenu()">Über mich</a>
         <a href="/kontakt.html" onclick="closeMenu()">Kontakt</a>
     </div>
 
@@ -655,40 +717,39 @@
     </main>
 
     <footer class="footer">
-        <div class="container">
+        <div class="footer-container">
             <div class="footer-grid">
                 <div>
                     <a href="/" class="footer-logo">
                         <span class="logo-mark">K</span>
-                        <span>KI<span style="color: var(--accent);">.</span>Expertenraum</span>
+                        <span>KI<span style="color: var(--secondary);">.</span>Expertenraum</span>
                     </a>
-                    <p class="footer-tagline">Premium KI-Akademie und strategische Beratung für Führungskräfte. Praxiserprobt, EU-konform, exzellent.</p>
+                    <p class="footer-tagline">Persönliche KI-Lernplattform mit Kursen, Guides und Lernmaterialien.</p>
                 </div>
                 
                 <div class="footer-col">
                     <h4>Angebot</h4>
-                    <a href="/kurse/">Premium Kurse</a>
-                    <a href="/ebooks/">Ebooks</a>
-                    <a href="/services/">Business Consulting</a>
-                    <a href="/artikel/">Publikationen</a>
+                    <a href="/kurse/">Kurse</a>
+                    <a href="/ressourcen/">Ressourcen</a>
+                    <a href="/artikel/">Artikel</a>
                 </div>
                 
                 <div class="footer-col">
                     <h4>Rechtliches</h4>
                     <a href="/impressum/">Impressum</a>
                     <a href="/datenschutz/">Datenschutz</a>
-                    <a href="/kontakt.html">Kontakt</a>
                 </div>
                 
                 <div class="footer-col">
-                    <h4>Connect</h4>
-                    <a href="mailto:zernaphilipp@gmail.com">E-Mail</a>
-                    <a href="https://www.linkedin.com/in/philipp-zerna-b155343a3/" target="_blank">LinkedIn</a>
+                    <h4>Kontakt</h4>
+                    <a href="/ueber-mich/">Über mich</a>
+                    <a href="/kontakt.html">Kontakt</a>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2026 KI-Expertenraum. Alle Rechte vorbehalten.</p>
+                <p>© 2026 KI-Expertenraum</p>
+                <p>Philipp Zerna</p>
             </div>
         </div>
     </footer>
