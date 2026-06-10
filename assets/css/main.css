@@ -71,6 +71,33 @@ img {
     height: auto;
 }
 
+/* Image Loading Optimization */
+img[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+img[loading="lazy"].loaded,
+img[loading="eager"] {
+    opacity: 1;
+}
+
+/* Image placeholder background */
+.image-placeholder {
+    background: linear-gradient(135deg, var(--bg-soft) 0%, var(--accent-light) 100%);
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* Prevent layout shift */
+img {
+    aspect-ratio: attr(width) / attr(height);
+}
+
 .container {
     max-width: var(--container-max);
     margin: 0 auto;

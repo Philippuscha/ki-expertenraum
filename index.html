@@ -99,7 +99,7 @@
                     </div>
                 </div>
                 <div class="hero-image-wrapper" style="position: relative; text-align: center;">
-                    <img src="/images/philipp-zerna.png" alt="Philipp Zerna" loading="lazy" decoding="async" style="width: 100%; max-width: 400px; height: auto; border-radius: 18px; box-shadow: var(--shadow-lg); border: 1px solid var(--border);">
+                    <img src="/images/philipp-zerna.png" alt="Philipp Zerna" loading="eager" decoding="async" width="400" height="500" style="width: 100%; max-width: 400px; height: auto; border-radius: 18px; box-shadow: var(--shadow-lg); border: 1px solid var(--border); background: linear-gradient(135deg, var(--bg-soft) 0%, var(--accent-light) 100%);">
                 </div>
             </div>
         </section>
@@ -188,7 +188,7 @@
                         <a href="/ressourcen/" class="btn btn-primary">Zu den Ressourcen →</a>
                     </div>
                     <div class="resources-image" style="background: var(--bg-card); border-radius: 18px; padding: 40px; border: 1px solid var(--border); box-shadow: var(--shadow-lg); display: flex; align-items: center; justify-content: center;">
-                        <img src="/images/ebook1.png" alt="EU AI Act Survival Guide" loading="lazy" decoding="async" style="width: 100%; max-width: 280px; height: auto; border-radius: 8px; box-shadow: var(--shadow-md);">
+                        <img src="/images/ebook1.png" alt="EU AI Act Survival Guide" loading="lazy" decoding="async" width="280" height="350" style="width: 100%; max-width: 280px; height: auto; border-radius: 8px; box-shadow: var(--shadow-md); background: linear-gradient(135deg, var(--bg-soft) 0%, var(--accent-light) 100%);">
                     </div>
                 </div>
             </div>
@@ -300,6 +300,33 @@
         // Mobile Menu Toggle
         document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
             document.getElementById('mobileMenu').classList.toggle('show');
+        });
+        
+        // Image Loading Optimization
+        document.addEventListener('DOMContentLoaded', function() {
+            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+            
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.classList.add('loaded');
+                            observer.unobserve(img);
+                        }
+                    });
+                }, {
+                    rootMargin: '50px 0px',
+                    threshold: 0.01
+                });
+                
+                lazyImages.forEach(img => imageObserver.observe(img));
+            }
+            
+            // Fallback: Show images after a timeout
+            setTimeout(() => {
+                lazyImages.forEach(img => img.classList.add('loaded'));
+            }, 3000);
         });
     </script>
 </body>
