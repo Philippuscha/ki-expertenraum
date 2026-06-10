@@ -3,42 +3,267 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KI rechtssicher nutzen: DSGVO & EU AI Act für Unternehmer</title>
-    <meta name="description" content="KI im Marketing – legal und effektiv. Alles zu DSGVO, UWG und AI Act für Marketing-Teams.">
-    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+    <title>KI rechtssicher nutzen: DSGVO & EU AI Act für Unternehmer | KI-Expertenraum</title>
+    <meta name="description" content="KI im Unternehmen legal nutzen: Alles zu DSGVO, EU AI Act und Compliance. Praxisanleitung für rechtssichere KI-Einführung.">
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="/assets/css/main.css">
     <style>
-        .article-hero { padding: 180px 0 60px; text-align: center; background: var(--bg-secondary); border-bottom: 1px solid var(--border); }
-        .article-hero .hero-badge { display: inline-block; background: rgba(34, 197, 94, 0.15); color: #22c55e; padding: 8px 20px; border-radius: 100px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px; }
-        .article-hero h1 { font-family: var(--font-display); font-size: clamp(32px, 5vw, 48px); font-weight: 500; margin-bottom: 20px; line-height: 1.2; }
-        .article-hero h1 span { background: linear-gradient(135deg, #22c55e 0%, #10b981 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-style: italic; }
-        .article-hero .hero-description { font-size: 18px; color: var(--text-secondary); max-width: 600px; margin: 0 auto 20px; }
-        .article-hero .hero-meta { display: flex; justify-content: center; gap: 25px; color: var(--text-muted); font-size: 14px; flex-wrap: wrap; }
-        .article-content { max-width: 800px; margin: 0 auto; padding: 60px 40px; }
-        .article-content h2 { font-family: var(--font-display); font-size: 28px; margin: 40px 0 20px; font-weight: 500; color: var(--text-primary); }
-        .article-content h3 { font-family: var(--font-display); font-size: 22px; margin: 30px 0 15px; font-weight: 500; color: var(--text-primary); }
-        .article-content h4 { font-family: var(--font-display); font-size: 18px; margin: 25px 0 12px; font-weight: 500; color: var(--text-primary); }
-        .article-content p { margin-bottom: 20px; color: var(--text-secondary); font-size: 16px; line-height: 1.8; }
-        .article-content ul, .article-content ol { margin: 20px 0; padding-left: 25px; }
-        .article-content li { margin: 10px 0; color: var(--text-secondary); }
-        .article-content blockquote { background: rgba(34, 197, 94, 0.08); border-left: 4px solid #22c55e; padding: 20px; margin: 25px 0; border-radius: 0 12px 12px 0; font-size: 17px; font-weight: 500; color: var(--text-primary); }
-        .article-content table { width: 100%; border-collapse: collapse; margin: 25px 0; background: var(--bg-card); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); display: block; overflow-x: auto; }
-        .article-content th { background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); color: white; padding: 14px; text-align: left; font-weight: 600; font-size: 14px; }
-        .article-content td { padding: 14px; border-bottom: 1px solid var(--border); color: var(--text-secondary); font-size: 14px; }
-        .warning { background: rgba(239, 68, 68, 0.08); border-left: 4px solid #ef4444; padding: 15px 20px; margin: 20px 0; border-radius: 0 12px 12px 0; }
-        .warning strong { color: #dc2626; }
-        .success { background: rgba(34, 197, 94, 0.08); border-left: 4px solid #22c55e; padding: 15px 20px; margin: 20px 0; border-radius: 0 12px 12px 0; }
-        .danger { background: rgba(239, 68, 68, 0.08); border-left: 4px solid #ef4444; padding: 15px 20px; margin: 20px 0; border-radius: 0 12px 12px 0; }
-        .download-box { background: linear-gradient(135deg, rgba(139,92,246,0.2) 0%, rgba(59,130,246,0.2) 100%); padding: 25px; border-radius: 10px; margin: 30px 0; text-align: center; border: 1px solid rgba(139,92,246,0.3); }
-        .download-box h3 { margin-top: 0; color: var(--text-primary); }
-        pre { background: var(--bg-card); border-radius: 8px; padding: 20px; overflow-x: auto; font-family: monospace; font-size: 14px; color: var(--text-secondary); border: 1px solid var(--border); }
-        .cta-box { background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); color: white; padding: 30px; border-radius: 16px; margin: 40px 0; text-align: center; }
-        .cta-box h3 { color: white; margin-bottom: 15px; font-size: 22px; font-family: var(--font-display); }
-        .btn-white { display: inline-block; background: var(--bg-primary); color: #22c55e; padding: 12px 28px; border-radius: 10px; text-decoration: none; font-weight: 600; transition: var(--transition-base); }
-        @media (max-width: 768px) { .article-hero { padding: 120px 20px 40px; } .article-hero h1 { font-size: 26px; } .article-content { padding: 40px 20px; } }
+        :root {
+            --primary: #0F172A;
+            --secondary: #365F9C;
+            --bg-main: #F8F7F4;
+            --bg-soft: #F1F3F5;
+            --bg-white: #FFFFFF;
+            --text-primary: #334155;
+            --text-secondary: #64748B;
+            --text-muted: #94A3B8;
+            --accent-light: #E8EEF8;
+            --border: #D9DEE7;
+            --font-display: 'Source Serif 4', serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'IBM Plex Mono', monospace;
+        }
+        
+        .article-hero {
+            padding: 160px 0 60px;
+            text-align: center;
+            background: var(--bg-soft);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .article-hero .hero-badge {
+            display: inline-block;
+            background: rgba(54, 95, 156, 0.15);
+            color: var(--secondary);
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+        }
+        
+        .article-hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 500;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: var(--primary);
+        }
+        
+        .article-hero h1 span {
+            font-style: italic;
+            color: var(--secondary);
+        }
+        
+        .article-hero .hero-description {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+        
+        .article-hero .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            color: var(--text-muted);
+            font-size: 14px;
+            flex-wrap: wrap;
+        }
+        
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+        
+        .article-content h2 {
+            font-family: var(--font-display);
+            font-size: 28px;
+            margin: 50px 0 20px;
+            font-weight: 500;
+            color: var(--primary);
+        }
+        
+        .article-content h3 {
+            font-family: var(--font-display);
+            font-size: 22px;
+            margin: 35px 0 15px;
+            font-weight: 500;
+            color: var(--primary);
+        }
+        
+        .article-content h4 {
+            font-family: var(--font-display);
+            font-size: 18px;
+            margin: 25px 0 12px;
+            font-weight: 500;
+            color: var(--primary);
+        }
+        
+        .article-content p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 25px;
+        }
+        
+        .article-content li {
+            margin: 10px 0;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        
+        .warning-box {
+            background: rgba(239, 68, 68, 0.08);
+            border-left: 4px solid #ef4444;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+        
+        .warning-box h4 {
+            margin-top: 0;
+            color: #dc2626;
+            font-size: 18px;
+        }
+        
+        .info-box {
+            background: rgba(54, 95, 156, 0.08);
+            border-left: 4px solid var(--secondary);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+        
+        .info-box h4 {
+            margin-top: 0;
+            color: var(--secondary);
+            font-size: 18px;
+        }
+        
+        .checklist {
+            background: var(--bg-white);
+            border-left: 4px solid var(--secondary);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        
+        .checklist h4 {
+            margin-top: 0;
+            color: var(--secondary);
+        }
+        
+        .checklist ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 15px 0 0;
+        }
+        
+        .checklist li {
+            padding-left: 30px;
+            position: relative;
+            margin: 10px 0;
+        }
+        
+        .checklist li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        .cta-box {
+            background: linear-gradient(135deg, var(--secondary) 0%, #4a7ab8 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 16px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .cta-box h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 22px;
+            font-family: var(--font-display);
+        }
+        
+        .cta-box p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 20px;
+        }
+        
+        .btn-white {
+            display: inline-block;
+            background: white;
+            color: var(--secondary);
+            padding: 12px 28px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .risk-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: var(--bg-white);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        
+        .risk-table th {
+            background: linear-gradient(135deg, var(--secondary) 0%, #4a7ab8 100%);
+            color: white;
+            padding: 14px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .risk-table td {
+            padding: 14px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+        
+        .risk-high { color: #dc2626; font-weight: 600; }
+        .risk-medium { color: #ea580c; font-weight: 600; }
+        .risk-low { color: #16a34a; font-weight: 600; }
+        
+        @media (max-width: 768px) {
+            .article-hero { padding: 120px 20px 40px; }
+            .article-hero h1 { font-size: 26px; }
+            .article-content { padding: 40px 20px; }
+            .article-content h2 { font-size: 22px; }
+            .risk-table { font-size: 12px; }
+            .risk-table th, .risk-table td { padding: 10px; }
+        }
     </style>
 </head>
 <body>
@@ -48,6 +273,7 @@
                 <span class="logo-mark">K</span>
                 <span class="logo-text">KI<span class="logo-dot">.</span>Expertenraum</span>
             </a>
+            
             <ul class="nav-links">
                 <li><a href="/">Start</a></li>
                 <li><a href="/kurse/">Kurse</a></li>
@@ -62,10 +288,17 @@
                 <li><a href="/ueber-mich/">Über mich</a></li>
                 <li><a href="/kontakt.html">Kontakt</a></li>
             </ul>
+            
             <a href="/kontakt.html" class="nav-cta">Kontakt</a>
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü öffnen">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
+    
     <div class="mobile-menu" id="mobileMenu">
         <div class="mobile-menu-content">
             <a href="/" onclick="closeMobileMenu()">Start</a>
@@ -76,102 +309,302 @@
             <a href="/kontakt.html" onclick="closeMobileMenu()">Kontakt</a>
         </div>
     </div>
+
     <main>
         <header class="article-hero">
             <span class="hero-badge">Recht & Compliance</span>
-            <h1>KI rechtssicher nutzen: <span>DSGVO & EU AI Act Guide</span></h1>
-            <p class="hero-description">KI im Marketing – legal und effektiv. Alles zu DSGVO, UWG und AI Act für Marketing-Teams.</p>
+            <h1>KI rechtssicher nutzen: <span>DSGVO & EU AI Act für Unternehmer</span></h1>
+            <p class="hero-description">Der komplette Leitfaden für rechtssichere KI-Nutzung im Unternehmen. Alles zu Datenschutz, dem EU AI Act und praktischer Compliance.</p>
             <div class="hero-meta">
                 <span>✍️ Philipp Zerna</span>
-                <span>⏱️ 13 Min. Lesezeit</span>
+                <span>⏱️ 15 Min. Lesezeit</span>
+                <span>📅 Juni 2026</span>
             </div>
         </header>
+
         <div class="article-content">
-            <h2>Die rechtlichen Fallstricke der KI-Nutzung</h2>
-            <p>Sie nutzen ChatGPT für E-Mails? Canva für Grafiken? Notion für Notizen?</p>
-            <blockquote>Herzlichen Glückwunsch – Sie haben rechtliche Pflichten, über die kaum jemand spricht.</blockquote>
-            <p>Die gute Nachricht: Mit den richtigen Maßnahmen nutzen Sie KI <strong>100% rechtssicher</strong>.</p>
-            <p>Die schlechte Nachricht: Die meisten Unternehmer machen mindestens <strong>3 kritische Fehler</strong> – ohne es zu wissen.</p>
-            <h2>Die 4 größten rechtlichen Risiken</h2>
-            <h3>Risiko 1: Datenschutz bei KI-Tools (DSGVO)</h3>
-            <p><strong>Das Problem:</strong> Wenn Sie Kundendaten, Mitarbeiterdaten oder Geschäftsinformationen in ChatGPT & Co. eingeben, können diese für KI-Training verwendet werden.</p>
-            <div class="danger">
-                <strong>Beispiel - FALSCH:</strong>
-                <pre>"Schreibe eine E-Mail an Herrn Müller (m.mueller@firma.de). Er hat am 15.03.2025 bestellt, aber noch nicht bezahlt."</pre>
+            <h2>Warum Rechtskonformität bei KI entscheidend ist</h2>
+            <p>Künstliche Intelligenz revolutioniert Geschäftsprozesse – aber sie wirft auch komplexe rechtliche Fragen auf. Wer KI einsetzt, ohne die rechtlichen Grundlagen zu verstehen, riskiert Bußgelder, Schadensersatzansprüche und Reputationsschäden.</p>
+            
+            <p>Die gute Nachricht: Mit dem richtigen Wissen und der richtigen Vorgehensweise können Sie KI vollständig rechtskonform nutzen. Dieser Artikel zeigt Ihnen, wie.</p>
+
+            <div class="warning-box">
+                <h4>⚠️ Hohe Bußgelder drohen</h4>
+                <p>Bei schwerwiegenden Verstößen gegen den EU AI Act können Bußgelder bis zu <strong>35 Millionen Euro oder 7% des weltweiten Jahresumsatzes</strong> verhängt werden. Die DSGVO sieht bei Datenschutzverstößen bis zu <strong>20 Millionen Euro oder 4% des Jahresumsatzes</strong> vor.</p>
             </div>
-            <h3>Risiko 2: EU AI Act Nichteinhaltung</h3>
-            <p><strong>Fristen:</strong></p>
+
+            <h2>Der EU AI Act: Was Unternehmer wissen müssen</h2>
+            <p>Der EU AI Act ist das weltweit erste umfassende Regelwerk für Künstliche Intelligenz. Er gilt seit August 2024 und wird schrittweise bis 2026 vollständig in Kraft treten.</p>
+
+            <h3>Das Risikobasierte System</h3>
+            <p>Der AI Act unterteilt KI-Systeme in vier Risikokategorien:</p>
+
+            <table class="risk-table">
+                <tr>
+                    <th>Risikoklasse</th>
+                    <th>Beispiele</th>
+                    <th>Anforderungen</th>
+                </tr>
+                <tr>
+                    <td class="risk-high">Unakzeptables Risiko</td>
+                    <td>Social Scoring, Manipulation, Emotionserkennung am Arbeitsplatz</td>
+                    <td><strong>Verboten</strong></td>
+                </tr>
+                <tr>
+                    <td class="risk-high">Hohes Risiko</td>
+                    <td>KI in kritischen Infrastrukturen, Bildung, Personalauswahl, Kreditvergabe</td>
+                    <td>Strenge Pflichten (Konformitätsbewertung, Risikomanagement, Datenqualität)</td>
+                </tr>
+                <tr>
+                    <td class="risk-medium">Begrenztes Risiko</td>
+                    <td>Chatbots, Deepfakes, Textgenerierung</td>
+                    <td>Transparenzpflichten (Nutzer müssen informiert werden)</td>
+                </tr>
+                <tr>
+                    <td class="risk-low">Minimales Risiko</td>
+                    <td>Spam-Filter, Empfehlungssysteme (nicht-personalisiert)</td>
+                    <td>Freiwillige Verhaltenskodexe</td>
+                </tr>
+            </table>
+
+            <h3>Welche KI-Systeme nutzen Sie?</h3>
+            <p>Die meisten Unternehmen setzen heute KI-Systeme mit <strong>begrenztem Risiko</strong> ein – vor allem Chatbots wie ChatGPT, KI-gestützte Schreibassistenten oder Bildgeneratoren. Diese sind erlaubt, erfordern aber Transparenz gegenüber den Nutzern.</p>
+
+            <div class="info-box">
+                <h4>💡 Praxistipp: Risikoeinschätzung</h4>
+                <p>Stellen Sie sich bei jedem KI-Tool die Frage: <em>"Könnte dieses System Entscheidungen treffen, die erhebliche Auswirkungen auf Menschen haben?"</em> Wenn ja, handelt es sich wahrscheinlich um ein Hochrisiko-KI-System mit besonderen Pflichten.</p>
+            </div>
+
+            <h2>DSGVO-konforme KI-Nutzung: Die Grundlagen</h2>
+            <p>Die Datenschutz-Grundverordnung gilt uneingeschränkt für alle KI-Anwendungen, die personenbezogene Daten verarbeiten. Das sind fast alle Geschäftsanwendungen.</p>
+
+            <h3>Die sechs Prinzipien der DSGVO bei KI</h3>
+            <ol>
+                <li><strong>Rechtmäßigkeit:</strong> Es muss eine Rechtsgrundlage für die Datenverarbeitung geben (meist berechtigtes Interesse oder Einwilligung)</li>
+                <li><strong>Zweckbindung:</strong> Daten dürfen nur für den angegebenen Zweck verwendet werden</li>
+                <li><strong>Datenminimierung:</strong> Nur die nötigsten Daten erheben und verarbeiten</li>
+                <li><strong>Richtigkeit:</strong> Daten müssen korrekt und aktuell sein</li>
+                <li><strong>Speicherbegrenzung:</strong> Daten nicht länger als nötig aufbewahren</li>
+                <li><strong>Integrität & Vertraulichkeit:</strong> Angemessene Sicherheitsmaßnahmen implementieren</li>
+            </ol>
+
+            <h3>Die häufigsten DSGVO-Fehler bei KI</h3>
+            <div class="warning-box">
+                <h4>❌ Diese Fehler vermeiden</h4>
+                <ul>
+                    <li>Kundendaten in öffentliche KI-Tools wie ChatGPT eingeben (Daten gehen an OpenAI)</li>
+                    <li>Mitarbeiterdaten ohne Information der Betroffenen verarbeiten</li>
+                    <li>KI-generierte Profile ohne menschliche Überprüfung nutzen</li>
+                    <li>Keine Dokumentation der Verarbeitungstätigkeiten führen</li>
+                    <li>Die Rechenschaftspflicht ("Accountability") vernachlässigen</li>
+                </ul>
+            </div>
+
+            <h2>Der KI-Vertrag: Was beim KI-Anbieter prüfen</h2>
+            <p>Wenn Sie KI-Tools von Drittanbietern nutzen, müssen Sie sicherstellen, dass der Anbieter datenschutzkonform arbeitet. Das erfolgt über einen Auftragsverarbeitungsvertrag (AVV).</p>
+
+            <h3>Pflichten des KI-Anbieters nach DSGVO</h3>
             <ul>
-                <li><strong>Februar 2026:</strong> Verbotene Praktiken müssen gestoppt sein</li>
-                <li><strong>August 2026:</strong> High-Risk Pflichten umgesetzt</li>
+                <li>Verarbeitung nur auf dokumentierte Weisung des Auftraggebers</li>
+                <li>Vertraulichkeit sicherstellen</li>
+                <li>Technische und organisatorische Maßnahmen (TOMs) implementieren</li>
+                <li>Unterauftragnehmer nur mit Genehmigung einsetzen</li>
+                <li>Betroffenenrechte unterstützen</li>
+                <li>Bei Verletzungen den Auftraggeber informieren</li>
+                <li>Nach Vertragsende alle Daten löschen oder zurückgeben</li>
+                <li>Audits und Inspektionen ermöglichen</li>
             </ul>
-            <h3>Risiko 3: Urheberrecht bei KI-Inhalten</h3>
-            <p>In der EU: Kein Urheberrecht für reine KI-Outputs. Verantwortung liegt beim Nutzer.</p>
-            <h2>Der 5-Schutzschichten-Ansatz</h2>
-            <h3>Schicht 1: Daten klassifizieren</h3>
-            <table>
-                <tr><th>Kategorie</th><th>Beispiele</th><th>KI-Nutzung</th></tr>
-                <tr><td>Öffentlich</td><td>Marketingtexte, Social Media</td><td>✅ Uneingeschränkt</td></tr>
-                <tr><td>Intern</td><td>Interne Prozesse</td><td>✅ Mit Vorsicht</td></tr>
-                <tr><td>Sensibel</td><td>Kundendaten, Verträge</td><td>⚠️ Nur mit Schutzmaßnahmen</td></tr>
+
+            <h3>EU AI Act: Anbieterpflichten bei Hochrisiko-KI</h3>
+            <p>Bei Hochrisiko-KI-Systemen müssen Anbieter zusätzlich:</p>
+            <ul>
+                <li>Risikomanagementsystem einführen</li>
+                <li>Hochwertige Trainings-, Validierungs- und Testdatensätze verwenden</li>
+                <li>Technische Dokumentation erstellen</li>
+                <li>Protokollierungsfunktionen implementieren</li>
+                <li>Transparenzinformationen bereitstellen</li>
+                <li>Menschliche Aufsicht ermöglichen</li>
+                <li>Genauigkeit, Robustheit und Cybersicherheit gewährleisten</li>
+                <li>CE-Kennzeichnung anbringen</li>
+                <li>Qualitätsmanagementsystem einführen</li>
+            </ul>
+
+            <h2>Schritt-für-Schritt: Rechtssichere KI-Einführung</h2>
+
+            <div class="checklist">
+                <h4>📋 Phase 1: Vorbereitung (Woche 1-2)</h4>
+                <ul>
+                    <li>Bestandsaufnahme: Welche KI-Tools werden bereits genutzt?</li>
+                    <li>Risikobewertung nach EU AI Act durchführen</li>
+                    <li>Datenschutz-Folgenabschätzung (DSFA) bei Hochrisiko-KI erstellen</li>
+                    <li>KI-Verantwortlichen benennen</li>
+                    <li>Datenschutzbeauftragten einbinden (bei Pflicht)</li>
+                </ul>
+            </div>
+
+            <div class="checklist">
+                <h4>📋 Phase 2: Regelwerke (Woche 3-4)</h4>
+                <ul>
+                    <li>KI-Nutzungsrichtlinie erstellen</li>
+                    <li>Liste erlaubter Tools definieren</li>
+                    <li>Verbotene Use-Cases kommunizieren</li>
+                    <li>Auftragsverarbeitungsverträge mit Anbietern prüfen/abschließen</li>
+                    <li>Verzeichnis der Verarbeitungstätigkeiten aktualisieren</li>
+                </ul>
+            </div>
+
+            <div class="checklist">
+                <h4>📋 Phase 3: Implementierung (Woche 5-8)</h4>
+                <ul>
+                    <li>Enterprise-Versionen der KI-Tools lizenzieren</li>
+                    <li>Zugriffsrechte und Rollen definieren</li>
+                    <li>Technische Absicherung (DLP, API-Gateway)</li>
+                    <li>Dokumentation der technischen Maßnahmen</li>
+                    <li>Regelmäßige Audits planen</li>
+                </ul>
+            </div>
+
+            <div class="checklist">
+                <h4>📋 Phase 4: Schulung & Rollout (Woche 9-12)</h4>
+                <ul>
+                    <li>Mitarbeiterschulung zur sicheren KI-Nutzung</li>
+                    <li>Datenschutz-Grundlagen vermitteln</li>
+                    <li>Verbotene Eingaben konkret benennen</li>
+                    <li>Best Practices für Prompts zeigen</li>
+                    <li>Kontaktperson für Fragen benennen</li>
+                </ul>
+            </div>
+
+            <h2>Praxis: ChatGPT & Co. rechtskonform nutzen</h2>
+            <p>ChatGPT ist das am häufigsten genutzte KI-Tool in Unternehmen. Hier zeigen wir die sichere Nutzung:</p>
+
+            <h3>Das Problem mit der kostenlosen Version</h3>
+            <p>OpenAI speichert alle Eingaben und nutzt sie für das Modell-Training. Für Unternehmen bedeutet das: <strong>Jede Eingabe in ChatGPT Free ist ein potenzieller Datenschutzverstoß</strong>, sobald personenbezogene Daten involviert sind.</p>
+
+            <h3>Die Lösung: Enterprise-Tarife</h3>
+            <table class="risk-table">
+                <tr>
+                    <th>Version</th>
+                    <th>Preis</th>
+                    <th>DSGVO-konform?</th>
+                </tr>
+                <tr>
+                    <td>ChatGPT Free</td>
+                    <td>Kostenlos</td>
+                    <td class="risk-high">❌ Nein</td>
+                </tr>
+                <tr>
+                    <td>ChatGPT Plus</td>
+                    <td>20€/Monat</td>
+                    <td class="risk-high">❌ Nein</td>
+                </tr>
+                <tr>
+                    <td>ChatGPT Team</td>
+                    <td>25€/User/Monat</td>
+                    <td class="risk-medium">⚠️ Eingeschränkt</td>
+                </tr>
+                <tr>
+                    <td>ChatGPT Enterprise</td>
+                    <td>ab 60€/User/Monat</td>
+                    <td class="risk-low">✅ Ja (mit AVV)</td>
+                </tr>
+                <tr>
+                    <td>Microsoft Copilot</td>
+                    <td>30€/User/Monat</td>
+                    <td class="risk-low">✅ Ja (M365-Integration)</td>
+                </tr>
             </table>
-            <h3>Schicht 2: KI-Tools bewerten</h3>
-            <table>
-                <tr><th>Tool</th><th>Server</th><th>AVV</th><th>Empfehlung</th></tr>
-                <tr><td>ChatGPT Free</td><td>USA</td><td>❌</td><td>🟡 Nur für öffentliche Daten</td></tr>
-                <tr><td>ChatGPT Enterprise</td><td>Wählbar</td><td>✅</td><td>🟢 Auch für interne Daten</td></tr>
-                <tr><td>Microsoft Copilot</td><td>EU möglich</td><td>✅</td><td>🟢 Empfohlen</td></tr>
-            </table>
-            <h2>EU AI Act: Was KMU wissen müssen</h2>
-            <table>
-                <tr><th>Klasse</th><th>Beispiele</th><th>Pflichten</th></tr>
-                <tr><td>🔴 Verboten</td><td>Social Scoring</td><td>Sofort stoppen!</td></tr>
-                <tr><td>🟠 Hoch</td><td>KI bei Einstellung</td><td>Umfassende Dokumentation</td></tr>
-                <tr><td>🟡 Begrenzt</td><td>Chatbots</td><td>Transparenz</td></tr>
-                <tr><td>🟢 Minimal</td><td>Office-KI</td><td>Nur AI Literacy</td></tr>
-            </table>
+
+            <h3>Die goldene Regel für ChatGPT im Unternehmen</h3>
+            <div class="warning-box">
+                <h4>🛡️ Datenschutz-Regel für Mitarbeiter</h4>
+                <p><strong>„Würden Sie diese Information auf einem öffentlichen Platz laut aussprechen?"</strong></p>
+                <p>Wenn die Antwort „Nein" ist, gehört es nicht in ChatGPT Free/Plus.</p>
+            </div>
+
+            <h2>Transparenzpflichten: Was Sie kommunizieren müssen</h2>
+            <p>Der EU AI Act verlangt bei bestimmten KI-Systemen, dass Nutzer informiert werden. Das gilt vor allem für:</p>
+            <ul>
+                <li>Chatbots (Nutzer muss wissen, dass sie mit KI sprechen)</li>
+                <li>Deepfakes (müssen als solche gekennzeichnet werden)</li>
+                <li>Emotionserkennungssysteme</li>
+                <li>Biometrische Kategorisierung</li>
+            </ul>
+
+            <h3>Muster-Formulierung für Ihre Website</h3>
+            <div class="info-box">
+                <h4>💬 Transparenzhinweis Chatbot</h4>
+                <p>„Dieser Chatbot wird durch Künstliche Intelligenz betrieben. Ihre Eingaben werden zur Beantwortung Ihrer Anfrage verarbeitet. Bitte geben Sie keine sensiblen personenbezogenen Daten ein. Weitere Informationen finden Sie in unserer Datenschutzerklärung."</p>
+            </div>
+
+            <h2>Menschliche Aufsicht: Nicht alles der KI überlassen</h2>
+            <p>Der EU AI Act verlangt für Hochrisiko-KI-Systeme eine menschliche Aufsicht. Aber auch bei anderen Systemen ist das sinnvoll:</p>
+
+            <h3>Wann ist menschliche Überprüfung Pflicht?</h3>
+            <ul>
+                <li>Bei automatisierten Entscheidungen mit Rechtswirkung (Art. 22 DSGVO)</li>
+                <li>Bei Hochrisiko-KI-Systemen nach AI Act</li>
+                <li>Bei Entscheidungen über Menschen (Einstellung, Kredit, Strafverfolgung)</li>
+            </ul>
+
+            <h3>Best Practice: Mensch-in-der-Mitte</h3>
+            <p>Die beste Strategie: KI als Unterstützung, nicht als Ersatz. Beispiele:</p>
+            <ul>
+                <li>KI erstellt Entwurf → Mensch prüft und freigibt</li>
+                <li>KI analysiert Daten → Mensch trifft Entscheidung</li>
+                <li>KI beantwortet Standardfragen → Mensch bei komplexen Themen</li>
+            </ul>
+
+            <h2>Die Rolle des Datenschutzbeauftragten</h2>
+            <p>Bei der KI-Einführung ist der Datenschutzbeauftragte (DSB) ein wichtiger Partner. Ab einer gewissen Unternehmensgröße ist die Bestellung eines DSB sogar Pflicht.</p>
+
+            <h3>Wann ist ein DSB Pflicht?</h3>
+            <ul>
+                <li>Ab 20 Personen, die mit automatisierten Verfahren Daten verarbeiten</li>
+                <li>Unabhängig von der Unternehmensgröße bei besonderen Kategorien personenbezogener Daten</li>
+                <li>Bei umfangreicher systematischer Überwachung</li>
+            </ul>
+
+            <h3>Aufgaben des DSB bei KI-Projekten</h3>
+            <ul>
+                <li>Beratung bei der Datenschutz-Folgenabschätzung</li>
+                <li>Überwachung der Einhaltung von DSGVO und AI Act</li>
+                <li>Zusammenarbeit mit der Aufsichtsbehörde</li>
+                <li>Sensibilisierung und Schulung der Mitarbeiter</li>
+            </ul>
+
+            <h2>Fazit: KI nutzen – aber richtig</h2>
+            <p>Rechtssichere KI-Nutzung ist kein Hexenwerk, erfordert aber Systematik. Die wichtigsten Erkenntnisse:</p>
+
+            <ol>
+                <li><strong>Risiko einschätzen:</strong> Welche KI-Risikokategorie gilt für Ihre Tools?</li>
+                <li><strong>Enterprise wählen:</strong> Nie kostenlose KI-Tools für geschäftliche Zwecke</li>
+                <li><strong>Verträge prüfen:</strong> Auftragsverarbeitung mit allen Anbietern abschließen</li>
+                <li><strong>Regeln aufstellen:</strong> Klare Nutzungsrichtlinien für Mitarbeiter</li>
+                <li><strong>Schulen:</strong> Datenschutz-Verständnis im Unternehmen fördern</li>
+                <li><strong>Dokumentieren:</strong> Alles nachweisbar aufbereiten</li>
+            </ol>
+
+            <p>Mit dieser Herangehensweise nutzen Sie die Vorteile der KI – ohne rechtliche Risiken einzugehen.</p>
+
             <div class="cta-box">
-                <h3>Compliance-Starter-Pack</h3>
-                <p>Enthalten: KI-Nutzungsrichtlinie, KI-Inventar, Verarbeitungsverzeichnis, Schulungs-Unterlagen</p>
-                <a href="/kurse/" class="btn-white">Mehr erfahren</a>
+                <h3>📘 EU AI Act Survival Guide</h3>
+                <p>Der kostenlose Guide mit allen Pflichten, Checklisten und Zeitplänen für die AI Act-Umsetzung.</p>
+                <a href="/ressourcen/" class="btn-white">Jetzt downloaden →</a>
             </div>
         </div>
     </main>
+
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-grid">
+        <div class="container">
+            <div class="footer-grid" style="display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 48px; margin-bottom: 48px;">
                 <div class="footer-brand">
-                    <a href="/" class="footer-logo">
+                    <a href="/" class="logo" style="margin-bottom: 16px; display: inline-flex;">
                         <span class="logo-mark">K</span>
-                        <span>KI<span class="logo-dot">.</span>Expertenraum</span>
+                        <span class="logo-text">KI<span class="logo-dot">.</span>Expertenraum</span>
                     </a>
-                    <p class="footer-tagline">Praxisnahe KI-Kurse und Lernmaterialien von Philipp Zerna.</p>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 15px; max-width: 280px;">Persönliche KI-Lernplattform mit Kursen, Guides und Lernmaterialien.</p>
                 </div>
                 <div class="footer-col">
-                    <h4>Angebot</h4>
-                    <a href="/kurse/">Kurse</a>
-                    <a href="/ressourcen/">Ressourcen</a>
-                    <a href="/artikel/">Artikel</a>
-                    <a href="/glossar/">Glossar</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Rechtliches</h4>
-                    <a href="/impressum/">Impressum</a>
-                    <a href="/datenschutz/">Datenschutz</a>
-                    <a href="/kontakt.html">Kontakt</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Connect</h4>
-                    <a href="https://www.youtube.com/@philippzerna" target="_blank" rel="noopener">YouTube</a>
-                    <a href="https://www.linkedin.com/in/philipp-zerna/" target="_blank" rel="noopener">LinkedIn</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2026 KI-Expertenraum</p>
-                <p>Philipp Zerna</p>
-            </div>
-        </div>
-    </footer>
-    <script src="/assets/js/main.js"></script>
-</body>
-</html>
+                    <h4 style="font-size: 14px; font-weight: 600; color: white; margin-bottom: 16px;">Angebot</h4>
+                    <a href="/kurse/" style="display: block; color: rgba(255,255,255,0.65); text

@@ -394,16 +394,173 @@ ai_models:
             </ul>
             <p><strong>Amortisation: 6-12 Monate</strong></p>
 
+            <h2>Erweiterte Konfiguration</h2>
+            
+            <h3>Eigene Modelle einbinden</h3>
+            <p>OpenClaw unterstützt verschiedene Open-Source-Modelle. Die Wahl des richtigen Modells hängt von Ihrem Anwendungsfall ab:</p>
+            
+            <table>
+                <tr>
+                    <th>Modell</th>
+                    <th>Stärken</th>
+                    <th>Anwendungsfall</th>
+                </tr>
+                <tr>
+                    <td><strong>Llama 2</strong></td>
+                    <td>Allrounder, gut balanciert</td>
+                    <td>Allgemeine Konversation, Q&A</td>
+                </tr>
+                <tr>
+                    <td><strong>Mistral</strong></td>
+                    <td>Schnell, effizient</td>
+                    <td>Hoher Durchsatz, viele Nutzer</td>
+                </tr>
+                <tr>
+                    <td><strong>CodeLlama</strong></td>
+                    <td>Code-Verständnis</td>
+                    <td>Entwickler-Teams, Code-Review</td>
+                </tr>
+                <tr>
+                    <td><strong>Mixtral</strong></td>
+                    <td>MoE-Architektur, sehr leistungsfähig</td>
+                    <td>Komplexe Aufgaben, Reasoning</td>
+                </tr>
+            </table>
+            
+            <h3>Modell-Download und Integration</h3>
+            <pre><code># Modell herunterladen
+python scripts/download_model.py --model mixtral --quantization 4bit
+
+# In config.yml registrieren
+ai_models:
+  available:
+    - llama2
+    - mistral  
+    - mixtral
+  default: mixtral</code></pre>
+
+            <h3>RAG-System: Eigene Dokumente nutzen</h3>
+            <p>Mit Retrieval-Augmented Generation (RAG) können Sie OpenClaw auf Ihre eigenen Dokumente trainieren:</p>
+            
+            <ol>
+                <li><strong>Dokumente hochladen:</strong> PDF, Word, Text-Dateien im Admin-Panel importieren</li>
+                <li><strong>Indizierung:</strong> Automatische Vektorisierung und Speicherung in der Datenbank</li>
+                <li><strong>Abfragen:</strong> Das Modell bezieht Informationen aus Ihren Dokumenten mit ein</li>
+            </ol>
+            
+            <pre><code># Dokumente verarbeiten
+curl -X POST http://localhost:3000/api/rag/index \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -F "file=@handbuch.pdf" \
+  -F "collection=interne_doku"</code></pre>
+
+            <h3>Benutzerverwaltung und Berechtigungen</h3>
+            <p>Für den Unternehmenseinsatz sollten Sie ein Rollenkonzept implementieren:</p>
+            
+            <pre><code># Rollen definieren
+roles:
+  admin:
+    - all_permissions
+  power_user:
+    - use_all_models
+    - upload_documents
+    - view_analytics
+  user:
+    - use_default_model
+    - view_shared_documents</code></pre>
+
+            <h2>Troubleshooting: Häufige Probleme</h2>
+            
+            <h3>Problem: OpenClaw startet nicht</h3>
+            <p><strong>Lösungen:</strong></p>
+            <ul>
+                <li>Prüfen Sie, ob Port 3000 bereits belegt ist: <code>netstat -tuln | grep 3000</code></li>
+                <li>Docker-Logs prüfen: <code>docker-compose logs -f</code></li>
+                <li>Config-Datei auf YAML-Syntax prüfen</li>
+                <li>Genügend RAM verfügbar? (Mindestens 8GB empfohlen)</li>
+            </ul>
+            
+            <h3>Problem: Langsame Antworten</h3>
+            <p><strong>Optimierungen:</strong></p>
+            <ul>
+                <li>Kleinere Quantization nutzen (4bit statt 8bit)</li>
+                <li>Kleinere Modelle für einfache Aufgaben verwenden</li>
+                <li>GPU-Beschleunigung aktivieren (falls verfügbar)</li>
+                <li>Cache-Größe in der Config erhöhen</li>
+            </ul>
+            
+            <pre><code># Performance-Optimierung in config.yml
+performance:
+  gpu_layers: 35
+  batch_size: 512
+  ctx_size: 4096
+  cache_size: 1000</code></pre>
+            
+            <h3>Problem: Modell lädt nicht</h3>
+            <ul>
+                <li>Prüfen Sie die Download-URL im Modell-Config</li>
+                <li>Genügend Speicherplatz vorhanden?</li>
+                <li>Berechtigungen für das models-Verzeichnis prüfen</li>
+            </ul>
+
+            <h2>Sicherheitshinweise</h2>
+            
+            <p>Da OpenClaw lokal betrieben wird, sind Sie für die Sicherheit verantwortlich:</p>
+            
+            <ul>
+                <li><strong>HTTPS aktivieren:</strong> Nutzen Sie ein Reverse-Proxy wie Nginx mit SSL-Zertifikat</li>
+                <li><strong>Authentifizierung:</strong> Starke Passwörter erzwingen, 2FA aktivieren</li>
+                <li><strong>Netzwerk:</strong> Firewall-Regeln so setzen, dass nur interner Zugriff möglich ist</li>
+                <li><strong>Backups:</strong> Regelmäßige Backups der Datenbank und Konfiguration</li>
+                <li><strong>Updates:</strong> OpenClaw und Docker-Images regelmäßig aktualisieren</li>
+            </ul>
+            
+            <pre><code># Nginx Reverse-Proxy Konfiguration
+server {
+    listen 443 ssl;
+    server_name openclaw.firma.de;
+    
+    ssl_certificate /etc/nginx/ssl/cert.pem;
+    ssl_certificate_key /etc/nginx/ssl/key.pem;
+    
+    location / {
+        proxy_pass http://localhost:3000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}</code></pre>
+
+            <h2>Backup und Wiederherstellung</h2>
+            
+            <h3>Automatisches Backup einrichten</h3>
+            <pre><code># backup.sh
+#!/bin/bash
+DATE=$(date +%Y%m%d_%H%M%S)
+docker exec openclaw_db pg_dump -U openclaw > backup_$DATE.sql
+tar -czf backup_$DATE.tar.gz config.yml models/ backup_$DATE.sql
+# Optional: auf externes Storage kopieren
+aws s3 cp backup_$DATE.tar.gz s3://firma-backups/openclaw/</code></pre>
+
+            <h3>Wiederherstellung</h3>
+            <pre><code># Datenbank wiederherstellen
+docker exec -i openclaw_db psql -U openclaw < backup_20260115.sql
+
+# Konfiguration wiederherstellen
+tar -xzf backup_20260115.tar.gz
+sudo systemctl restart openclaw</code></pre>
+
             <h2>Fazit</h2>
             <p>OpenClaw bietet Unternehmen die volle Kontrolle über ihre KI-Nutzung. Die Investition in eigene Infrastruktur zahlt sich durch Datensicherheit, Unabhängigkeit und langfristige Kosteneinsparungen aus.</p>
             
+            <p>Mit den richtigen Modellen, einer guten RAG-Konfiguration und solidem Sicherheitsmanagement haben Sie einen leistungsfähigen KI-Assistenten, der komplett unter Ihrer Kontrolle bleibt.</p>
+            
             <blockquote>
-                Für Unternehmen mit hohen Datenschutzanforderungen ist OpenClaw oft die beste Wahl.
+                Für Unternehmen mit hohen Datenschutzanforderungen ist OpenClaw oft die beste Wahl. Die anfängliche Einrichtung erfordert etwas Aufwand, aber die langfristigen Vorteile überwiegen.
             </blockquote>
 
             <div class="cta-box">
                 <h3>Brauchen Sie Unterstützung?</h3>
-                <p>Ich helfe Ihnen bei der Installation und Konfiguration von OpenClaw in Ihrem Unternehmen.</p>
+                <p>Ich helfe Ihnen bei der Installation, Konfiguration und Optimierung von OpenClaw in Ihrem Unternehmen – inklusive RAG-Setup und Sicherheitskonfiguration.</p>
                 <a href="/kontakt.html" class="btn-white">Beratung anfragen →</a>
             </div>
         </div>

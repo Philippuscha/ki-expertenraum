@@ -4,25 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KI-Beauftragter werden: Der 30-Tage-Plan | KI-Expertenraum</title>
-    <meta name="description" content="Der komplette Plan für Ihre neue Rolle als KI-Beauftragter mit Checklisten, Templates und Priorisierung – in 30 Tagen zum KI-Champion.">
-    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+    <meta name="description" content="Der komplette Plan für deine neue Rolle als KI-Beauftragter mit Checklisten, Templates und Priorisierung – in 30 Tagen zum KI-Champion.">
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="/assets/css/main.css">
     <style>
-        /* Artikel-spezifische Styles - Dark Theme */
+        :root {
+            --primary: #0F172A;
+            --secondary: #365F9C;
+            --bg-main: #F8F7F4;
+            --bg-soft: #F1F3F5;
+            --bg-white: #FFFFFF;
+            --text-primary: #334155;
+            --text-secondary: #64748B;
+            --text-muted: #94A3B8;
+            --accent-light: #E8EEF8;
+            --border: #D9DEE7;
+            --font-display: 'Source Serif 4', serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'IBM Plex Mono', monospace;
+        }
+        
         .article-hero {
-            padding: 180px 0 60px;
+            padding: 160px 0 60px;
             text-align: center;
-            background: var(--bg-secondary);
+            background: var(--bg-soft);
             border-bottom: 1px solid var(--border);
         }
         
         .article-hero .hero-badge {
             display: inline-block;
-            background: rgba(59, 130, 246, 0.15);
-            color: var(--accent);
+            background: rgba(54, 95, 156, 0.15);
+            color: var(--secondary);
             padding: 8px 20px;
             border-radius: 100px;
             font-size: 12px;
@@ -38,13 +55,12 @@
             font-weight: 500;
             margin-bottom: 20px;
             line-height: 1.2;
+            color: var(--primary);
         }
         
         .article-hero h1 span {
-            background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
             font-style: italic;
+            color: var(--secondary);
         }
         
         .article-hero .hero-description {
@@ -72,17 +88,17 @@
         .article-content h2 {
             font-family: var(--font-display);
             font-size: 28px;
-            margin: 40px 0 20px;
+            margin: 50px 0 20px;
             font-weight: 500;
-            color: var(--text-primary);
+            color: var(--primary);
         }
         
         .article-content h3 {
             font-family: var(--font-display);
             font-size: 22px;
-            margin: 30px 0 15px;
+            margin: 35px 0 15px;
             font-weight: 500;
-            color: var(--text-primary);
+            color: var(--primary);
         }
         
         .article-content h4 {
@@ -90,7 +106,7 @@
             font-size: 18px;
             margin: 25px 0 12px;
             font-weight: 500;
-            color: var(--text-primary);
+            color: var(--primary);
         }
         
         .article-content p {
@@ -108,119 +124,68 @@
         .article-content li {
             margin: 10px 0;
             color: var(--text-secondary);
+            line-height: 1.7;
         }
         
-        .article-content blockquote {
-            background: rgba(59, 130, 246, 0.08);
-            border-left: 4px solid var(--accent);
-            padding: 20px;
-            margin: 25px 0;
-            border-radius: 0 12px 12px 0;
-            font-size: 17px;
-            font-weight: 500;
-            color: var(--text-primary);
-        }
-        
-        .article-content table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 25px 0;
-            background: var(--bg-card);
-            border-radius: 12px;
-            overflow: hidden;
+        .week-box {
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 30px 0;
             border: 1px solid var(--border);
-            display: block;
-            overflow-x: auto;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
         
-        .article-content th {
-            background: linear-gradient(135deg, var(--accent) 0%, #2563eb 100%);
-            color: white;
-            padding: 14px;
-            text-align: left;
-            font-weight: 600;
-            font-size: 14px;
-        }
-        
-        .article-content td {
-            padding: 14px;
-            border-bottom: 1px solid var(--border);
-            color: var(--text-secondary);
-            font-size: 14px;
-        }
-        
-        .article-content tr:last-child td {
-            border-bottom: none;
-        }
-        
-        .week-header {
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            color: white;
-            padding: 15px 20px;
-            border-radius: 12px;
-            margin: 30px 0 20px;
-        }
-        
-        .week-header h3 {
-            margin: 0;
-            color: white;
-            font-size: 20px;
-            font-family: var(--font-display);
-        }
-        
-        .day-box {
-            background: var(--bg-card);
-            border-radius: 12px;
-            padding: 20px;
-            margin: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            border-left: 4px solid var(--accent);
-        }
-        
-        .day-box h4 {
+        .week-box h3 {
             margin-top: 0;
-            color: var(--accent);
-            font-size: 16px;
-        }
-        
-        .checklist {
-            background: var(--bg-card);
-            border-radius: 12px;
-            padding: 25px;
-            margin: 25px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            border: 1px solid var(--border);
-        }
-        
-        .check-item {
+            color: var(--secondary);
+            font-size: 20px;
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             gap: 12px;
-            margin-bottom: 12px;
         }
         
-        .check-item input {
-            width: 20px;
-            height: 20px;
-            margin-top: 3px;
-            accent-color: var(--accent);
+        .week-box h3::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--secondary);
+            border-radius: 50%;
         }
         
-        .check-item label {
-            color: var(--text-secondary);
-            font-size: 15px;
+        .week-box ul {
+            margin: 15px 0 0;
         }
         
-        .highlight {
-            background: rgba(59, 130, 246, 0.08);
-            border-radius: 12px;
-            padding: 20px;
-            margin: 25px 0;
-            border: 1px solid rgba(59, 130, 246, 0.15);
+        .day-task {
+            background: var(--bg-soft);
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 12px 0;
+            border-left: 3px solid var(--secondary);
+        }
+        
+        .day-task strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 4px;
+        }
+        
+        .highlight-box {
+            background: rgba(54, 95, 156, 0.08);
+            border-left: 4px solid var(--secondary);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+        
+        .highlight-box h4 {
+            margin-top: 0;
+            color: var(--secondary);
         }
         
         .cta-box {
-            background: linear-gradient(135deg, var(--accent) 0%, #2563eb 100%);
+            background: linear-gradient(135deg, var(--secondary) 0%, #4a7ab8 100%);
             color: white;
             padding: 30px;
             border-radius: 16px;
@@ -228,130 +193,66 @@
             text-align: center;
         }
         
-        .cta-box h2 {
+        .cta-box h3 {
             color: white;
             margin-bottom: 15px;
-            font-size: 24px;
+            font-size: 22px;
             font-family: var(--font-display);
+        }
+        
+        .cta-box p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 20px;
         }
         
         .btn-white {
             display: inline-block;
-            background: var(--bg-primary);
-            color: var(--accent);
+            background: white;
+            color: var(--secondary);
             padding: 12px 28px;
             border-radius: 10px;
             text-decoration: none;
             font-weight: 600;
-            transition: var(--transition-base);
+            transition: all 0.2s;
         }
         
         .btn-white:hover {
             transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
         
-        /* TOC Sidebar */
-        .toc-sidebar {
-            position: fixed;
-            top: 100px;
-            right: 30px;
-            width: 260px;
-            max-height: calc(100vh - 140px);
-            overflow-y: auto;
-            background: var(--bg-card);
+        .template-box {
+            background: var(--bg-white);
+            border: 2px dashed var(--border);
             border-radius: 12px;
-            padding: 20px;
-            border: 1px solid var(--border);
-            z-index: 100;
+            padding: 25px;
+            margin: 25px 0;
         }
         
-        .toc-sidebar h4 {
-            font-family: var(--font-display);
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .template-box h4 {
+            margin-top: 0;
+            color: var(--primary);
         }
         
-        .toc-sidebar ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .toc-sidebar li {
-            margin: 8px 0;
-        }
-        
-        .toc-sidebar a {
-            color: var(--text-muted);
-            text-decoration: none;
+        .template-box pre {
+            background: var(--bg-soft);
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
             font-size: 13px;
-            display: block;
-            padding: 6px 10px;
-            border-radius: 6px;
-            transition: all 0.2s;
-            line-height: 1.4;
-        }
-        
-        .toc-sidebar a:hover {
-            background: rgba(59,130,246,0.1);
-            color: var(--accent);
-        }
-        
-        .toc-sidebar a.active {
-            background: rgba(59,130,246,0.15);
-            color: var(--accent);
-            font-weight: 500;
-        }
-        
-        @media (max-width: 1400px) {
-            .toc-sidebar { right: 20px; width: 220px; }
-        }
-        
-        @media (max-width: 1200px) {
-            .toc-sidebar { display: none; }
+            margin: 15px 0;
         }
         
         @media (max-width: 768px) {
-            .article-hero {
-                padding: 120px 20px 40px;
-            }
-            
-            .article-hero h1 {
-                font-size: 26px;
-            }
-            
-            .article-content {
-                padding: 40px 20px;
-            }
-            
-            .article-content h2 {
-                font-size: 22px;
-                margin: 30px 0 15px;
-            }
-            
-            .article-content h3 {
-                font-size: 18px;
-                margin: 25px 0 12px;
-            }
-            
-            .article-content p {
-                font-size: 15px;
-                line-height: 1.7;
-            }
-            
-            .week-header h3 {
-                font-size: 18px;
-            }
+            .article-hero { padding: 120px 20px 40px; }
+            .article-hero h1 { font-size: 26px; }
+            .article-content { padding: 40px 20px; }
+            .article-content h2 { font-size: 22px; }
+            .week-box { padding: 20px; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="nav" id="nav">
         <div class="nav-container">
             <a href="/" class="logo">
@@ -374,7 +275,7 @@
                 <li><a href="/kontakt.html">Kontakt</a></li>
             </ul>
             
-            <a href="/kontakt.html" class="nav-cta">Beratung anfragen</a>
+            <a href="/kontakt.html" class="nav-cta">Kontakt</a>
             
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü öffnen">
                 <span></span>
@@ -384,7 +285,6 @@
         </div>
     </nav>
     
-    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <div class="mobile-menu-content">
             <a href="/" onclick="closeMobileMenu()">Start</a>
@@ -396,273 +296,245 @@
         </div>
     </div>
 
-    <aside class="toc-sidebar">
-        <h4>Inhalt</h4>
-        <ul id="toc-list"></ul>
-    </aside>
-
     <main>
         <header class="article-hero">
-            <span class="hero-badge">Karriere-Guide</span>
+            <span class="hero-badge">Karriere & Skills</span>
             <h1>KI-Beauftragter werden: <span>Der 30-Tage-Plan</span></h1>
-            <p class="hero-description">Der komplette Plan für Ihre neue Rolle als KI-Beauftragter mit Checklisten, Templates und Priorisierung – in 30 Tagen zum KI-Champion.</p>
+            <p class="hero-description">Der komplette Plan für deine neue Rolle als KI-Beauftragter mit Checklisten, Templates und Priorisierung – in 30 Tagen zum KI-Champion.</p>
             <div class="hero-meta">
                 <span>✍️ Philipp Zerna</span>
-                <span>⏱️ 16 Min. Lesezeit</span>
+                <span>⏱️ 12 Min. Lesezeit</span>
+                <span>📅 Juni 2026</span>
             </div>
         </header>
 
         <div class="article-content">
-            <h2>Die neue Schlüsselrolle: KI-Beauftragter</h2>
-            <p>Sie wurden gerade zum KI-Beauftragten ernannt – oder möchten diese Rolle übernehmen? Herzlichen Glückwunsch! Sie stehen vor einer spannenden Herausforderung, die Ihre Karriere beschleunigen wird.</p>
+            <h2>Die Rolle des KI-Beauftragten</h2>
+            <p>Als KI-Beauftragter bist du der zentrale Ansprechpartner für alles rund um Künstliche Intelligenz in deinem Unternehmen. Du identifizierst Potenziale, entwickelt Strategien und begleitest die Einführung von KI-Tools – von der ersten Idee bis zur flächendeckenden Nutzung.</p>
             
-            <p>Die Realität: Die meisten KI-Beauftragten wissen am Anfang nicht, wo sie starten sollen. Zu viele Tools, zu viele Möglichkeiten, zu viele Erwartungen. Dieser 30-Tage-Plan gibt Ihnen die Struktur, die Sie brauchen.</p>
-            
-            <blockquote>Der KI-Beauftragte ist kein Techniker – er ist ein Change-Agent, der Menschen und Technologie zusammenbringt.</blockquote>
+            <p>Die Rolle ist neu, die Anforderungen hoch. Aber mit dem richtigen Plan und den richtigen Prioritäten kannst du in nur 30 Tagen die Grundlagen legen und erste Erfolge vorweisen.</p>
 
-            <h2>Die 4 Säulen Ihrer Rolle</h2>
-            
-            <table>
-                <tr><th>Säule</th><th>Aufgaben</th><th>Zeitanteil</th></tr>
-                <tr><td><strong>1. Strategie</strong></td><td>Roadmap, Use-Cases, Budget</td><td>20%</td></tr>
-                <tr><td><strong>2. Technologie</strong></td><td>Tool-Evaluation, Integration</td><td>25%</td></tr>
-                <tr><td><strong>3. Enablement</strong></td><td>Schulungen, Prompt-Bibliothek</td><td>35%</td></tr>
-                <tr><td><strong>4. Governance</strong></td><td>Compliance, Richtlinien</td><td>20%</td></tr>
-            </table>
-
-            <div class="week-header">
-                <h3>📅 Woche 1: Analyse & Strategie</h3>
-            </div>
-            
-            <div class="day-box">
-                <h4>Tag 1-2: Ist-Analyse durchführen</h4>
+            <div class="highlight-box">
+                <h4>🎯 Was dich erwartet</h4>
                 <ul>
-                    <li>Welche KI-Tools werden bereits genutzt (Schatten-IT)?</li>
-                    <li>Welche Prozesse sind repetitiv und zeitaufwendig?</li>
-                    <li>Wie ist der Reifegrad der Mitarbeiter?</li>
-                    <li>Welche Daten sind verfügbar und qualitativ hochwertig?</li>
-                </ul>
-            </div>
-            
-            <div class="day-box">
-                <h4>Tag 3-4: Stakeholder identifizieren</h4>
-                <ul>
-                    <li><strong>Executive Sponsor:</strong> Wer gibt Ressourcen frei?</li>
-                    <li><strong>KI-Champions:</strong> Wer sind die early adopters?</li>
-                    <li><strong>Skeptiker:</strong> Wer muss überzeugt werden?</li>
-                    <li><strong>IT & Datenschutz:</strong> Wer sind Ihre Verbündeten?</li>
-                </ul>
-            </div>
-            
-            <div class="day-box">
-                <h4>Tag 5: Erste Strategie-Version</h4>
-                <p>Erstellen Sie ein einseitiges Dokument mit:</p>
-                <ul>
-                    <li>Vision: Wo wollen wir in 12 Monaten sein?</li>
-                    <li>Top 3 Use-Cases für die ersten 90 Tage</li>
-                    <li>Grobe Ressourcen-Planung</li>
-                    <li>Risiken und Gegenmaßnahmen</li>
+                    <li>Verantwortung für KI-Strategie und -Governance</li>
+                    <li>Schnittstelle zwischen Fachbereichen und IT</li>
+                    <li>Change Management und Mitarbeiterschulung</li>
+                    <li>Compliance und Risikomanagement</li>
+                    <li>ROI-Messung und Erfolgskontrolle</li>
                 </ul>
             </div>
 
-            <div class="week-header">
-                <h3>📅 Woche 2: Tools & erste Quick Wins</h3>
-            </div>
+            <h2>Die ersten 30 Tage: Dein Roadmap</h2>
             
-            <div class="day-box">
-                <h4>Tag 6-8: Tool-Evaluation</h4>
-                <p>Testen Sie die 3 vielversprechendsten Tools:</p>
-                <ul>
-                    <li><strong>ChatGPT Plus:</strong> Für Textarbeit und Allrounder-Aufgaben</li>
-                    <li><strong>Microsoft Copilot:</strong> Für Office-Integration (falls Microsoft 365)</li>
-                    <li><strong>Make/Zapier:</strong> Für Automation</li>
-                </ul>
-            </div>
-            
-            <div class="day-box">
-                <h4>Tag 9-10: Ersten Quick Win realisieren</h4>
-                <p>Wählen Sie eine Aufgabe, die:</p>
-                <ul>
-                    <li>Maximal 2 Stunden dauert</li>
-                    <li>Sichtbaren Nutzen hat</li>
-                    <li>Einem einzelnen Champion zugeordnet ist</li>
-                </ul>
-                <p><strong>Beispiele:</strong> E-Mail-Zusammenfassungen, Stellenanzeigen-Optimierung, Meeting-Protokolle</p>
+            <div class="week-box">
+                <h3>Woche 1: Analyse & Orientierung</h3>
+                <p>In der ersten Woche geht es darum, den Status quo zu verstehen und die Ausgangslage zu erfassen.</p>
+                
+                <div class="day-task">
+                    <strong>Tag 1-2: Ist-Analyse durchführen</strong>
+                    Welche KI-Tools werden bereits genutzt? Wo entstehen Kosten? Wer sind die internen KI-Champions?
+                </div>
+                
+                <div class="day-task">
+                    <strong>Tag 3: Stakeholder identifizieren</strong>
+                    Wer sind die wichtigsten Ansprechpartner? Wer hat Budgetbefugnis? Wer könnte blockieren?
+                </div>
+                
+                <div class="day-task">
+                    <strong>Tag 4-5: Erste Gespräche führen</strong>
+                    Einzelgespräche mit Führungskräften und potenziellen Nutzern. Bedarfe erfassen, Erwartungen klären.
+                </div>
             </div>
 
-            <div class="week-header">
-                <h3>📅 Woche 3: Enablement starten</h3>
+            <div class="week-box">
+                <h3>Woche 2: Strategie & Planung</h3>
+                <p>Jetzt wird aus der Analyse eine handlungsfähige Strategie. Du definierst Ziele, identifizierst Use-Cases und erstellst einen Umsetzungsplan.</p>
+                
+                <div class="day-task">
+                    <strong>Tag 8-9: Quick Wins definieren</strong>
+                    Welche Use-Cases haben den größten Impact bei geringstem Aufwand? Priorisiere nach Effort-Impact-Matrix.
+                </div>
+                
+                <div class="day-task">
+                    <strong>Tag 10: KI-Policy entwerfen</strong>
+                    Erste Richtlinien für die Nutzung: Was ist erlaubt, was verboten? Welche Tools werden bereitgestellt?
+                </div>
+                
+                <div class="day-task">
+                    <strong>Tag 11-12: Budget und Ressourcen klären</strong>
+                    Was steht zur Verfügung? Welche Tools müssen lizenziert werden? Wer unterstützt technisch?
+                </div>
             </div>
-            
-            <div class="day-box">
-                <h4>Tag 11-13: Erste Schulung vorbereiten</h4>
-                <ul>
-                    <li>Zielgruppe definieren (wer kommt zur ersten Session?)</li>
-                    <li>Inhalte erstellen: Grundlagen, Demo, Hands-on</li>
-                    <li>Prompt-Bibliothek starten (10-20 bewährte Prompts)</li>
-                    <li>Materialien vorbereiten (Handout, Cheat-Sheet)</li>
-                </ul>
+
+            <div class="week-box">
+                <h3>Woche 3: Pilot & Setup</h3>
+                <p>Theory meets practice. Du startest den ersten Piloten mit einem kleinen Team, um zu lernen und zu iterieren.</p>
+                
+                <div class="day-task">
+                    <strong>Tag 15: Pilot-Team zusammenstellen</strong>
+                    3-5 motivierte Mitarbeiter aus verschiedenen Bereichen. Early Adopters, keine Skeptiker.
+                </div>
+                
+                <div class="day-task">
+                    <strong>Tag 16-17: Tools einrichten</strong>
+                    Enterprise-Accounts erstellen, Zugänge vergeben, erste Schulung durchführen.
+                </div>
+                
+                <div class="day-task">
+                    <strong>Tag 18-19: Pilot starten</strong>
+                    Konkrete Aufgaben definieren, Begleitung sicherstellen, Feedback-Sammeln etablieren.
+                </div>
             </div>
+
+            <div class="week-box">
+                <h3>Woche 4: Dokumentation & Reporting</h3>
+                <p>Die Ergebnisse des Piloten aufbereiten, Stakeholder informieren und den nächsten Schritt planen.</p>
+                
+                <div class="day-task">
+                    <strong>Tag 22-23: Ergebnisse auswerten</strong>
+                    Was hat funktioniert? Was nicht? Welche Hindernisse gab es? Zeitersparnis quantifizieren.
+                </div>
+                
+                <div class="day-task">
+                    <strong>Tag 24-25: Report erstellen</strong>
+                    Management-Präsentation mit Zahlen, Learnings und Empfehlungen für den Rollout.
+                </div>
+                
+                <div class="day-task">
+                    <strong>Tag 26-30: Nächste Schritte planen</strong>
+                    Rollout-Planung, weitere Use-Cases, Skalierungsstrategie, Change Management.
+                </div>
+            </div>
+
+            <h2>Die 5 Säulen erfolgreicher KI-Beauftragter</h2>
             
-            <div class="day-box">
-                <h4>Tag 14-15: Erste Schulung durchführen</h4>
-                <p>Agenda für 2-stündige Session:</p>
+            <h3>1. Technisches Verständnis</h3>
+            <p>Du musst nicht programmieren können, aber du solltest verstehen, wie KI funktioniert. Was sind Large Language Models? Was sind die Grenzen von ChatGPT? Wie funktioniert Prompt Engineering?</p>
+            
+            <p><strong>Lernressourcen:</strong> Mein Kurs "ChatGPT für Einsteiger", OpenAI-Dokumentation, Experimentieren mit den Tools.</p>
+
+            <h3>2. Change Management</h3>
+            <p>KI verändert Arbeitsabläufe. Das löst bei vielen Mitarbeitern Angst aus ("Werde ich ersetzt?"). Als KI-Beauftragter bist du auch Change Manager.</p>
+            
+            <ul>
+                <li>Kommuniziere das "Warum" klar</li>
+                <li>Beteilige Mitarbeiter früh ein</li>
+                <li>Feiere Erfolge sichtbar</li>
+                <li>Adressiere Bedenken offen</li>
+                <li>Schaffe psychologische Sicherheit</li>
+            </ul>
+
+            <h3>3. Compliance & Governance</h3>
+            <p>DSGVO und EU AI Act sind nicht optional. Du musst sicherstellen, dass alle KI-Nutzungen rechtskonform sind.</p>
+            
+            <ul>
+                <li>Keine personenbezogenen Daten in öffentliche KI-Tools</li>
+                <li>Auftragsverarbeitungsverträge mit Anbietern</li>
+                <li>Nutzungsrichtlinien erstellen und kommunizieren</li>
+                <li>Menschliche Überprüfung bei kritischen Entscheidungen</li>
+            </ul>
+
+            <h3>4. Business Impact</h3>
+            <p>KI muss messbaren Nutzen bringen. Definiere KPIs und messe den Erfolg.</p>
+            
+            <div class="template-box">
+                <h4>📊 KPI-Template</h4>
+                <pre>Zeitersparnis: ___ Stunden/Woche
+Qualitätsverbesserung: ___ % weniger Fehler
+Kosteneinsparung: ___ €/Monat
+Mitarbeiterzufriedenheit: ___ / 10
+Adoptionsrate: ___ % nutzen KI regelmäßig</pre>
+            </div>
+
+            <h3>5. Kommunikation & Networking</h3>
+            <p>Du bist der interne KI-Experte. Sei erreichbar, sei hilfsbereit, bau dir ein internes Netzwerk auf.</p>
+
+            <h2>Häufige Fallstricke vermeiden</h2>
+            
+            <div class="highlight-box">
+                <h4>⚠️ Typische Anfängerfehler</h4>
                 <ul>
-                    <li>0:00-0:15: Warum KI? (Nutzen, nicht Hype)</li>
-                    <li>0:15-0:30: Grundlagen einfach erklärt</li>
-                    <li>0:30-1:00: Live-Demo mit echten Beispielen</li>
-                    <li>1:00-1:45: Hands-on Übungen</li>
-                    <li>1:45-2:00: Q&A und Nächste Schritte</li>
+                    <li><strong>Too much, too fast:</strong> Nicht alles auf einmal rollen. Starte klein, skaliere smart.</li>
+                    <li><strong>Technik vor Mensch:</strong> Tools sind wichtig, aber der Wandel passiert bei den Menschen.</li>
+                    <li><strong>Keine Messung:</strong> Was nicht gemessen wird, kann nicht verbessert werden.</li>
+                    <li><strong>Shadow IT ignorieren:</strong> Mitarbeiter nutzen KI auch ohne Erlaubnis. Besser kanalisieren als ignorieren.</li>
+                    <li><strong>Alleine arbeiten:</strong> Du brauchst Verbündete. Bilde ein KI-Komitee oder eine Community of Practice.</li>
                 </ul>
             </div>
 
-            <div class="week-header">
-                <h3>📅 Woche 4: Governance & Skalierung</h3>
-            </div>
+            <h2>Dein Toolkit als KI-Beauftragter</h2>
             
-            <div class="day-box">
-                <h4>Tag 16-20: Richtlinien erstellen</h4>
-                <ul>
-                    <li>KI-Nutzungsrichtlinie (was ist erlaubt, was nicht?)</li>
-                    <li>Datenschutz-Checkliste</li>
-                    <li>Freigabe-Prozess für neue Tools</li>
-                    <li>Qualitätsstandards für KI-generierte Inhalte</li>
-                </ul>
-            </div>
-            
-            <div class="day-box">
-                <h4>Tag 21-25: Kommunikationsplan</h4>
-                <ul>
-                    <li>Internes Wiki/SharePoint mit Ressourcen</li>
-                    <li>Regelmäßige Newsletter mit Tipps</li>
-                    <li>Office Hours für Fragen</li>
-                    <li>Erfolgsgeschichten sammeln und teilen</li>
-                </ul>
-            </div>
-            
-            <div class="day-box">
-                <h4>Tag 26-30: Review & Planung</h4>
-                <ul>
-                    <li>Was hat in den ersten 30 Tagen funktioniert?</li>
-                    <li>Was muss angepasst werden?</li>
-                    <li>Ziele für die nächsten 60 Tage definieren</li>
-                    <li>Feedback von Stakeholdern einholen</li>
-                </ul>
-            </div>
+            <h3>Essenzielle Tools</h3>
+            <ul>
+                <li><strong>KI-Plattform:</strong> ChatGPT Enterprise, Microsoft Copilot oder Claude for Work</li>
+                <li><strong>Projektmanagement:</strong> Notion, Asana oder Clickup für die Übersicht</li>
+                <li><strong>Dokumentation:</strong> Confluence oder Notion für Wissenssammlung</li>
+                <li><strong>Kommunikation:</strong> Slack/Teams Kanal für KI-Fragen und Austausch</li>
+                <li><strong>Feedback:</strong> Typeform oder Google Forms für regelmäßige Umfragen</li>
+            </ul>
 
-            <div class="checklist">
-                <h3>✅ Checkliste: Die ersten 30 Tage</h3>
-                <div class="check-item"><input type="checkbox" id="c1"><label for="c1">Ist-Analyse durchgeführt</label></div>
-                <div class="check-item"><input type="checkbox" id="c2"><label for="c2">Stakeholder identifiziert</label></div>
-                <div class="check-item"><input type="checkbox" id="c3"><label for="c3">Strategie-Dokument erstellt</label></div>
-                <div class="check-item"><input type="checkbox" id="c4"><label for="c4">Tools evaluiert und ausgewählt</label></div>
-                <div class="check-item"><input type="checkbox" id="c5"><label for="c5">Erster Quick Win realisiert</label></div>
-                <div class="check-item"><input type="checkbox" id="c6"><label for="c6">Erste Schulung durchgeführt</label></div>
-                <div class="check-item"><input type="checkbox" id="c7"><label for="c7">Prompt-Bibliothek gestartet</label></div>
-                <div class="check-item"><input type="checkbox" id="c8"><label for="c8">KI-Nutzungsrichtlinie erstellt</label></div>
-                <div class="check-item"><input type="checkbox" id="c9"><label for="c9">Kommunikationskanäle eingerichtet</label></div>
-                <div class="check-item"><input type="checkbox" id="c10"><label for="c10">30-Tage-Review durchgeführt</label></div>
-            </div>
+            <h3>Wichtige Dokumente</h3>
+            <ul>
+                <li>KI-Nutzungsrichtlinie (was ist erlaubt/verboten)</li>
+                <li>Liste genehmigter Tools mit Begründung</li>
+                <li>Onboarding-Guide für neue Nutzer</li>
+                <li>Best Practices Sammlung (Prompts, Use-Cases)</li>
+                <li>FAQ für häufige Fragen</li>
+                <li>Incident Response Plan (was tun bei Problemen)</li>
+            </ul>
 
-            <div class="highlight">
-                <h3>💡 Erfolgs-Tipps aus der Praxis</h3>
-                <ul>
-                    <li><strong>Überzeugen statt zwingen:</strong> Zeigen Sie Nutzen, anstatt Vorschriften zu machen</li>
-                    <li><strong>Feiern Sie Erfolge:</strong> Jede Stunde gesparter Zeit ist ein Grund zur Freude</li>
-                    <li><strong>Seien Sie geduldig:</strong> Nicht jeder ist sofort begeistert</li>
-                    <li><strong>Dokumentieren Sie alles:</strong> Sie werden es brauchen für Budget- und Personalgespräche</li>
-                </ul>
-            </div>
+            <h2>Fazit: Dein Erfolg als KI-Beauftragter</h2>
+            <p>Die Rolle des KI-Beauftragten ist herausfordernd, aber extrem wertvoll. Du hast die Chance, dein Unternehmen nachhaltig zu verändern und echte Produktivitätsgewinne zu erzielen.</p>
+            
+            <p>Der 30-Tage-Plan gibt dir einen strukturierten Einstieg. Aber denk daran: KI-Transformation ist ein Marathon, kein Sprint. Bleib dran, bleib neugierig, bleib nah an den Nutzern.</p>
 
             <div class="cta-box">
-                <h2>Bereit für die KI-Beauftragten-Rolle?</h2>
-                <p>In unserem Kurs "KI-Beauftragter Bootcamp" erhalten Sie alle Templates, Schulungsmaterialien und persönliche Mentoring für einen erfolgreichen Start.</p>
-                <a href="/kurse/" class="btn-white">Bootcamp entdecken</a>
+                <h3>🚀 Bereit durchzustarten?</h3>
+                <p>Mein Kurs "KI-Beauftragter Masterclass" gibt dir alle Templates, Checklisten und Werkzeuge, die du für einen erfolgreichen Start brauchst.</p>
+                <a href="/kurse/" class="btn-white">Kurs entdecken →</a>
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-grid">
+        <div class="container">
+            <div class="footer-grid" style="display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 48px; margin-bottom: 48px;">
                 <div class="footer-brand">
-                    <a href="/" class="footer-logo">
+                    <a href="/" class="logo" style="margin-bottom: 16px; display: inline-flex;">
                         <span class="logo-mark">K</span>
-                        <span>KI<span class="logo-dot">.</span>Expertenraum</span>
+                        <span class="logo-text">KI<span class="logo-dot">.</span>Expertenraum</span>
                     </a>
-                    <p class="footer-tagline">Premium KI-Beratung für den Mittelstand. Praxiserprobt, DSGVO-konform, messbar erfolgreich.</p>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 15px; max-width: 280px;">Persönliche KI-Lernplattform mit Kursen, Guides und Lernmaterialien.</p>
                 </div>
-                
                 <div class="footer-col">
-                    <h4>Angebot</h4>
-                    <a href="/kurse/">Kurse</a>
-                    <a href="/ressourcen/">Ressourcen</a>
-                    <a href="/artikel/">Artikel</a>
-                    <a href="/glossar/">Glossar</a>
+                    <h4 style="font-size: 14px; font-weight: 600; color: white; margin-bottom: 16px;">Angebot</h4>
+                    <a href="/kurse/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Kurse</a>
+                    <a href="/ressourcen/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Ressourcen</a>
+                    <a href="/artikel/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Artikel</a>
                 </div>
-                
                 <div class="footer-col">
-                    <h4>Rechtliches</h4>
-                    <a href="/impressum/">Impressum</a>
-                    <a href="/datenschutz/">Datenschutz</a>
-                    <a href="/kontakt.html">Kontakt</a>
+                    <h4 style="font-size: 14px; font-weight: 600; color: white; margin-bottom: 16px;">Rechtliches</h4>
+                    <a href="/impressum/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Impressum</a>
+                    <a href="/datenschutz/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Datenschutz</a>
                 </div>
-                
                 <div class="footer-col">
-                    <h4>Connect</h4>
-                    <a href="https://www.youtube.com/@philippzerna" target="_blank" rel="noopener">YouTube</a>
-                    <a href="https://www.linkedin.com/in/philipp-zerna/" target="_blank" rel="noopener">LinkedIn</a>
+                    <h4 style="font-size: 14px; font-weight: 600; color: white; margin-bottom: 16px;">Kontakt</h4>
+                    <a href="/ueber-mich/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Über mich</a>
+                    <a href="/kontakt.html" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Kontakt</a>
                 </div>
             </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2026 KI-Expertenraum. Alle Rechte vorbehalten.</p>
-                <p>Philipp Zerna · Strategische KI-Beratung</p>
+            <div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; font-size: 14px; color: rgba(255,255,255,0.5);">
+                <p>© 2026 KI-Expertenraum</p>
+                <p>Philipp Zerna</p>
             </div>
         </div>
     </footer>
 
     <script src="/assets/js/main.js"></script>
     <script>
-        // Generate TOC from H2 headings
-        const h2s = document.querySelectorAll('.article-content h2');
-        const tocList = document.getElementById('toc-list');
-        if (tocList && h2s.length > 0) {
-            h2s.forEach((h2, index) => {
-                const id = 'section-' + index;
-                h2.id = id;
-                const li = document.createElement('li');
-                const a = document.createElement('a');
-                a.href = '#' + id;
-                a.textContent = h2.textContent;
-                li.appendChild(a);
-                tocList.appendChild(li);
-            });
-            
-            // Scroll spy
-            const tocLinks = document.querySelectorAll('.toc-sidebar a');
-            const sections = document.querySelectorAll('.article-content h2');
-            
-            function updateActiveLink() {
-                let current = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    if (scrollY >= sectionTop - 150) {
-                        current = section.getAttribute('id');
-                    }
-                });
-                
-                tocLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === '#' + current) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-            
-            window.addEventListener('scroll', updateActiveLink);
-            updateActiveLink();
+        function closeMobileMenu() {
+            document.getElementById('mobileMenu').classList.remove('show');
         }
     </script>
 </body>

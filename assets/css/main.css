@@ -1109,6 +1109,11 @@ img {
         padding: 100px 0 48px;
     }
 
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
     .hero h1 {
         font-size: clamp(26px, 7vw, 36px);
     }
@@ -1125,6 +1130,12 @@ img {
 
     .hero img {
         max-width: 280px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .hero-image-wrapper {
+        order: -1;
     }
 
     .btn {
