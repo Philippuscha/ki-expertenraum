@@ -1274,4 +1274,94 @@ img {
 
     .impressum-section,
     .privacy-section,
-    .checklist-container
+    .checklist-container {
+        padding: 24px;
+    }
+
+    .resources-image {
+        padding: 24px;
+    }
+
+    .resources-image img {
+        max-width: 100%;
+    }
+
+    .contact-box {
+        padding: 24px;
+    }
+
+    .email-section {
+        padding: 24px;
+    }
+
+    .what-i-do {
+        padding: 24px;
+    }
+
+    .what-i-do li {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+/* ============================================
+   RESPONSIVE - LARGE SCREENS (ab 1400px)
+   ============================================ */
+
+@media (min-width: 1400px) {
+    :root {
+        --container-max: 1320px;
+    }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+    .nav,
+    .mobile-menu-btn,
+    .mobile-menu,
+    .footer {
+        display: none;
+    }
+
+    body {
+        background: white;
+    }
+
+    .hero {
+        padding: 40px 0;
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Focus styles for keyboard navigation */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--secondary);
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --border: #000000;
+        --text-secondary: #000000;
+    }
+}
