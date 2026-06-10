@@ -1139,6 +1139,26 @@ img {
     .articles-grid {
         grid-template-columns: 1fr;
     }
+    
+    /* Resources Section */
+    .resources-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .resources-text {
+        text-align: center;
+    }
+    
+    .resources-list {
+        display: inline-block;
+        text-align: left;
+    }
+    
+    .resources-image {
+        order: -1;
+        padding: 30px;
+    }
 
     .footer-grid {
         grid-template-columns: 1fr;
