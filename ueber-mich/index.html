@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Über mich | Philipp Zerna | KI-Expertenraum</title>
-    <meta name="description" content="Ich erstelle praxisnahe KI-Kurse, Guides und Lernmaterialien. Mein Fokus liegt darauf, komplexe KI-Themen verständlich aufzubereiten.">
+    <meta name="description" content="Ich bin Philipp Zerna und entwickle praxisnahe KI-Kurse, Guides und Lernmaterialien. KI verständlich lernen – ohne Hype und Fachsprache.">
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
     
     <!-- Google Analytics 4 -->
@@ -60,7 +60,7 @@
         }
         
         .hero {
-            padding: 120px 0 60px;
+            padding: 140px 0 60px;
             text-align: center;
             max-width: 800px;
             margin: 0 auto;
@@ -69,7 +69,7 @@
         
         .hero h1 {
             font-size: clamp(28px, 4vw, 42px);
-            margin-bottom: 16px;
+            margin-bottom: 24px;
             font-weight: 500;
         }
         
@@ -79,26 +79,31 @@
             font-weight: 400;
         }
         
+        .hero-intro {
+            font-size: 17px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        
         .content {
             max-width: 800px;
             margin: 0 auto;
-            padding: 0 24px 80px;
+            padding: 0 24px 100px;
         }
         
         .profile-section {
-            display: flex;
-            gap: 48px;
-            margin-bottom: 64px;
-            align-items: flex-start;
+            margin-bottom: 80px;
         }
         
         .profile-image {
-            flex-shrink: 0;
-            width: 240px;
-            height: 300px;
+            width: 200px;
+            height: 250px;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.1);
+            margin: 0 auto 48px;
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
         }
         
         .profile-image img {
@@ -107,79 +112,85 @@
             object-fit: cover;
         }
         
-        .profile-content h2 {
-            font-size: 24px;
-            margin-bottom: 16px;
-            font-weight: 500;
-        }
-        
-        .profile-content p {
-            font-size: 16px;
+        .profile-text {
+            font-size: 17px;
             line-height: 1.8;
             color: var(--text-secondary);
-            margin-bottom: 16px;
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto;
         }
         
         .what-i-do {
             background: var(--bg-white);
             border-radius: 16px;
-            padding: 40px;
+            padding: 56px 48px;
             border: 1px solid var(--border);
-            margin-bottom: 48px;
+            margin-bottom: 64px;
         }
         
         .what-i-do h2 {
-            font-size: 22px;
-            margin-bottom: 24px;
+            font-size: 24px;
+            margin-bottom: 40px;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .what-i-do h2 em {
+            font-style: italic;
+            color: var(--secondary);
+        }
+        
+        .values-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+        
+        .values-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        
+        .values-list li span {
+            color: var(--secondary);
+            font-size: 20px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        .values-list li div strong {
+            display: block;
+            font-size: 17px;
+            color: var(--primary);
+            margin-bottom: 6px;
             font-weight: 500;
         }
         
-        .what-i-do ul {
-            list-style: none;
-        }
-        
-        .what-i-do li {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            padding: 16px 0;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .what-i-do li:last-child {
-            border-bottom: none;
-        }
-        
-        .what-i-do li span {
-            color: var(--secondary);
-            font-weight: 600;
-        }
-        
-        .what-i-do li div strong {
-            display: block;
-            color: var(--primary);
-            margin-bottom: 4px;
-        }
-        
-        .what-i-do li div p {
+        .values-list li div p {
             color: var(--text-secondary);
-            font-size: 14px;
+            font-size: 15px;
             line-height: 1.6;
+            margin: 0;
         }
         
         .cta-section {
             text-align: center;
-            padding: 48px 0;
+            padding: 40px 0;
         }
         
         .cta-section h2 {
-            font-size: 24px;
+            font-size: 22px;
             margin-bottom: 16px;
+            font-weight: 500;
         }
         
         .cta-section p {
             color: var(--text-secondary);
-            margin-bottom: 24px;
+            margin-bottom: 28px;
+            font-size: 16px;
         }
         
         .btn {
@@ -201,19 +212,25 @@
         }
         
         @media (max-width: 768px) {
-            .profile-section {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
+            .hero {
+                padding: 120px 20px 40px;
+            }
+            
+            .content {
+                padding: 0 20px 60px;
             }
             
             .profile-image {
-                width: 200px;
-                height: 250px;
+                width: 160px;
+                height: 200px;
             }
             
             .what-i-do {
-                padding: 24px;
+                padding: 36px 24px;
+            }
+            
+            .what-i-do h2 {
+                margin-bottom: 32px;
             }
         }
     </style>
@@ -268,6 +285,7 @@
         <section class="hero">
             <span class="section-label">Über mich</span>
             <h1>Philipp <em>Zerna</em></h1>
+            <p class="hero-intro">Ich bin Philipp Zerna und entwickle praxisnahe KI-Kurse, Guides und Lernmaterialien. Mein Fokus liegt darauf, komplexe KI-Themen klar, strukturiert und verständlich aufzubereiten – ohne Hype und ohne unnötige Fachsprache. Der KI-Expertenraum richtet sich an alle, die KI im Beruf oder Alltag sinnvoll einsetzen möchten.</p>
         </section>
 
         <div class="content">
@@ -275,44 +293,38 @@
                 <div class="profile-image">
                     <img src="/images/philipp-zerna.png" alt="Philipp Zerna">
                 </div>
-                <div class="profile-content">
-                    <h2>KI verständlich machen</h2>
-                    <p>Ich erstelle praxisnahe KI-Kurse, Guides und Lernmaterialien. Mein Fokus liegt darauf, komplexe KI-Themen verständlich, strukturiert und anwendbar aufzubereiten.</p>
-                    <p>Die rasante Entwicklung der KI-Technologie bietet enorme Chancen – aber auch viele Fragen. Mein Ziel ist es, diesen Wandel für jeden zugänglich zu machen, unabhängig vom technischen Vorwissen.</p>
-                    <p>Ich glaube daran, dass KI kein Hexenwerk ist. Mit den richtigen Grundlagen und einer klaren Herangehensweise kann jeder lernen, diese Technologie sinnvoll zu nutzen.</p>
-                </div>
             </div>
 
             <div class="what-i-do">
-                <h2>Was ich anbiete</h2>
-                <ul>
+                <h2>Worum es hier <em>geht</em></h2>
+                <ul class="values-list">
                     <li>
-                        <span>01</span>
+                        <span>→</span>
                         <div>
-                            <strong>Kurse</strong>
-                            <p>Strukturierte Videokurse zu KI-Grundlagen, EU AI Act, AI Literacy, ChatGPT und praktischer Anwendung.</p>
+                            <strong>KI verständlich lernen</strong>
+                            <p>Komplexe Themen werden klar strukturiert aufbereitet – Schritt für Schritt und ohne technischen Overhead.</p>
                         </div>
                     </li>
                     <li>
-                        <span>02</span>
+                        <span>→</span>
                         <div>
-                            <strong>Ressourcen</strong>
-                            <p>Kompakte Downloads, Checklisten, Guides, Vorlagen und Arbeitsblätter – sofort einsetzbar.</p>
+                            <strong>Tools praktisch anwenden</strong>
+                            <p>Keine theoretischen Konzepte, sondern konkrete Anleitungen für den Alltag – von ChatGPT bis EU AI Act.</p>
                         </div>
                     </li>
                     <li>
-                        <span>03</span>
+                        <span>→</span>
                         <div>
-                            <strong>Artikel</strong>
-                            <p>Verständliche Beiträge zu KI-Tools, Anwendungsideen, Produktivität und rechtlichen Grundlagen.</p>
+                            <strong>Wissen kompakt vertiefen</strong>
+                            <p>Kurse, Guides und Downloads, die auf den Punkt bringen, was wirklich wichtig ist.</p>
                         </div>
                     </li>
                 </ul>
             </div>
 
             <div class="cta-section">
-                <h2>Fragen oder Feedback?</h2>
-                <p>Ich freue mich auf Ihre Nachricht.</p>
+                <h2>Fragen oder Anregungen?</h2>
+                <p>Ich freue mich auf deine Nachricht.</p>
                 <a href="/kontakt.html" class="btn btn-primary">Kontakt aufnehmen</a>
             </div>
         </div>
@@ -327,7 +339,7 @@
                         <span class="logo-mark">K</span>
                         <span>KI<span class="logo-dot">.</span>Expertenraum</span>
                     </a>
-                    <p class="footer-tagline">Praxisnahe KI-Kurse und Lernmaterialien von Philipp Zerna.</p>
+                    <p class="footer-tagline">Persönliche KI-Lernplattform mit Kursen, Guides und Lernmaterialien.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Angebot</h4>
