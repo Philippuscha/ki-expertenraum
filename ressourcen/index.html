@@ -157,6 +157,23 @@
             display: block;
         }
         
+        @media (max-width: 768px) {
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+            .resource-image {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                min-height: 320px;
+            }
+            .resource-image img {
+                max-width: 260px;
+                width: auto;
+                margin: 0 auto;
+            }
+        }
+        
         .resource-badge {
             position: absolute;
             top: 16px;
