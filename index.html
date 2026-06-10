@@ -89,6 +89,15 @@
         <!-- Hero Section -->
         <section class="hero" style="padding: 140px 0 80px;">
             <div class="container hero-grid" style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center;">
+<style>
+@media (max-width: 768px) {
+    .hero-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+    .hero h1 { font-size: 28px !important; }
+    .hero p { font-size: 15px !important; }
+    .hero-image-wrapper { order: -1; }
+    .hero img { max-width: 280px !important; }
+}
+</style>
                 <div class="hero-content">
                     <span class="section-label">KI-Lernplattform</span>
                     <h1 style="font-size: clamp(28px, 4vw, 48px); line-height: 1.2; margin-bottom: 20px;">KI verständlich lernen.<br><em style="color: var(--secondary); font-style: italic;">Praktisch anwenden.</em></h1>
