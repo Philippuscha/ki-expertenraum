@@ -75,12 +75,14 @@
     
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
-        <a href="/">Start</a>
-        <a href="/kurse/">Kurse</a>
-        <a href="/ressourcen/">Ressourcen</a>
-        <a href="/artikel/">Artikel</a>
-        <a href="/ueber-mich/">Über mich</a>
-        <a href="/kontakt.html">Kontakt</a>
+        <div class="mobile-menu-content">
+            <a href="/" onclick="closeMobileMenu()">Start</a>
+            <a href="/kurse/" onclick="closeMobileMenu()">Kurse</a>
+            <a href="/ressourcen/" onclick="closeMobileMenu()">Ressourcen</a>
+            <a href="/artikel/" onclick="closeMobileMenu()">Artikel</a>
+            <a href="/ueber-mich/" onclick="closeMobileMenu()">Über mich</a>
+            <a href="/kontakt.html" onclick="closeMobileMenu()">Kontakt</a>
+        </div>
     </div>
 
     <main>
@@ -89,15 +91,15 @@
             <div class="container hero-grid" style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center;">
                 <div class="hero-content">
                     <span class="section-label">KI-Lernplattform</span>
-                    <h1 style="font-size: clamp(30px, 4vw, 48px); line-height: 1.2; margin-bottom: 20px;">KI verständlich lernen.<br><em style="color: var(--secondary); font-style: italic;">Praktisch anwenden.</em></h1>
+                    <h1 style="font-size: clamp(28px, 4vw, 48px); line-height: 1.2; margin-bottom: 20px;">KI verständlich lernen.<br><em style="color: var(--secondary); font-style: italic;">Praktisch anwenden.</em></h1>
                     <p style="font-size: clamp(15px, 1.8vw, 17px); color: var(--text-secondary); margin-bottom: 32px; line-height: 1.7;">Kurse, Guides und Downloads für alle, die KI im Beruf, Business oder Alltag sinnvoll nutzen möchten.</p>
                     <div class="hero-buttons" style="display: flex; gap: 12px; flex-wrap: wrap;">
                         <a href="/kurse/" class="btn btn-primary">Kurse entdecken</a>
                         <a href="/ressourcen/" class="btn btn-secondary">Ressourcen</a>
                     </div>
                 </div>
-                <div class="hero-image-wrapper" style="position: relative;">
-                    <img src="/images/philipp-zerna.png" alt="Philipp Zerna" style="width: 100%; max-width: 400px; border-radius: 18px; box-shadow: var(--shadow-lg); border: 1px solid var(--border);">
+                <div class="hero-image-wrapper" style="position: relative; text-align: center;">
+                    <img src="/images/philipp-zerna.png" alt="Philipp Zerna" style="width: 100%; max-width: 400px; height: auto; border-radius: 18px; box-shadow: var(--shadow-lg); border: 1px solid var(--border);">
                 </div>
             </div>
         </section>
@@ -149,16 +151,16 @@
         </section>
 
         <!-- Resources Section -->
-        <section style="padding: 100px 0; background: var(--bg-soft); border-top: 1px solid var(--border);">
+        <section class="resources-section" style="padding: 100px 0; background: var(--bg-soft); border-top: 1px solid var(--border);">
             <div class="container">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
-                    <div>
+                <div class="resources-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+                    <div class="resources-text">
                         <span class="section-label">Kostenlose Downloads</span>
                         <h2>Kompakte <em>Ressourcen</em></h2>
                         <p style="font-size: 16px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 24px;">
                             Checklisten, Guides, Vorlagen und Arbeitsblätter – alles, was du brauchst, um KI direkt anzuwenden.
                         </p>
-                        <ul style="list-style: none; margin-bottom: 32px;">
+                        <ul class="resources-list" style="list-style: none; margin-bottom: 32px;">
                             <li style="display: flex; align-items: center; gap: 12px; padding: 8px 0; color: var(--text-secondary);">
                                 <span style="color: var(--secondary);">✓</span>
                                 Praktische Checklisten
@@ -174,15 +176,15 @@
                         </ul>
                         <a href="/ressourcen/" class="btn btn-primary">Zu den Ressourcen →</a>
                     </div>
-                    <div style="background: var(--bg-card); border-radius: 18px; padding: 40px; border: 1px solid var(--border); box-shadow: var(--shadow-lg);">
-                        <img src="/images/ebook1.png" alt="EU AI Act Survival Guide" style="width: 100%; max-width: 300px; margin: 0 auto; display: block; border-radius: 8px; box-shadow: var(--shadow-md);">
+                    <div class="resources-image" style="background: var(--bg-card); border-radius: 18px; padding: 40px; border: 1px solid var(--border); box-shadow: var(--shadow-lg); text-align: center;">
+                        <img src="/images/ebook1.png" alt="EU AI Act Survival Guide" style="width: 100%; max-width: 300px; height: auto; margin: 0 auto; display: block; border-radius: 8px; box-shadow: var(--shadow-md);">
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Articles Section -->
-        <section style="padding: 100px 0; background: var(--bg-white);">
+        <section class="articles-section" style="padding: 100px 0; background: var(--bg-white);">
             <div class="container">
                 <div class="section-header" style="text-align: center; margin-bottom: 48px;">
                     <span class="section-label">Aktuelles</span>
@@ -190,7 +192,7 @@
                     <p>Verständliche Beiträge zu KI-Tools, Anwendungsideen, Produktivität und rechtlichen Grundlagen</p>
                 </div>
                 
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+                <div class="articles-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
                     <a href="/artikel/" style="text-decoration: none; color: inherit;">
                         <div style="background: var(--bg-soft); border-radius: 12px; padding: 24px; border: 1px solid var(--border);">
                             <span style="font-size: 12px; color: var(--secondary); text-transform: uppercase;">KI-Tools</span>
@@ -236,8 +238,8 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div style="display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 48px; margin-bottom: 48px;">
-                <div>
+            <div class="footer-grid" style="display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 48px; margin-bottom: 48px;">
+                <div class="footer-brand">
                     <a href="/" class="logo" style="margin-bottom: 16px; display: inline-flex;">
                         <span class="logo-mark">K</span>
                         <span class="logo-text">KI<span class="logo-dot">.</span>Expertenraum</span>
@@ -245,27 +247,27 @@
                     <p style="color: rgba(255,255,255,0.7); font-size: 15px; max-width: 280px;">Persönliche KI-Lernplattform mit Kursen, Guides und Lernmaterialien.</p>
                 </div>
                 
-                <div>
+                <div class="footer-col">
                     <h4 style="font-size: 14px; font-weight: 600; color: white; margin-bottom: 16px;">Angebot</h4>
                     <a href="/kurse/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Kurse</a>
                     <a href="/ressourcen/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Ressourcen</a>
                     <a href="/artikel/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Artikel</a>
                 </div>
                 
-                <div>
+                <div class="footer-col">
                     <h4 style="font-size: 14px; font-weight: 600; color: white; margin-bottom: 16px;">Rechtliches</h4>
                     <a href="/impressum/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Impressum</a>
                     <a href="/datenschutz/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Datenschutz</a>
                 </div>
 
-                <div>
+                <div class="footer-col">
                     <h4 style="font-size: 14px; font-weight: 600; color: white; margin-bottom: 16px;">Kontakt</h4>
                     <a href="/ueber-mich/" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Über mich</a>
                     <a href="/kontakt.html" style="display: block; color: rgba(255,255,255,0.65); text-decoration: none; padding: 6px 0; font-size: 14px;">Kontakt</a>
                 </div>
             </div>
             
-            <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; font-size: 14px; color: rgba(255,255,255,0.5);">
+            <div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; font-size: 14px; color: rgba(255,255,255,0.5);">
                 <p>© 2026 KI-Expertenraum</p>
                 <p>Philipp Zerna</p>
             </div>
@@ -276,6 +278,18 @@
         function toggleMenu() {
             document.getElementById('mobileMenu').classList.toggle('show');
         }
+        
+        function closeMobileMenu() {
+            document.getElementById('mobileMenu').classList.remove('show');
+        }
+        
+        // Hamburger Menu Button Event Listener
+        document.querySelector('.mobile-menu-btn').addEventListener('click', toggleMenu);
+        
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobileMenu').classList.toggle('show');
+        });
     </script>
 </body>
 </html>
