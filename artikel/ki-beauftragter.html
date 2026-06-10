@@ -529,6 +529,22 @@ Adoptionsrate: ___ % nutzen KI regelmäßig</pre>
                 <p>Philipp Zerna</p>
             </div>
         </div>
+    <style>
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr !important;
+                gap: 32px !important;
+            }
+            .footer-grid > div:first-child {
+                grid-column: span 2;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+        }
+    </style>
     </footer>
 
     <script src="/assets/js/main.js"></script>
