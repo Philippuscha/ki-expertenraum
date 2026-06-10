@@ -113,16 +113,22 @@
         <ul class="nav-links">
             <li><a href="/">Startseite</a></li>
             <li><a href="/kurse/">Kurse</a></li>
-            <li><a href="/services/">Services</a></li>
+            <li class="dropdown">
+                    <a href="/ressourcen/">Ressourcen</a>
+                    <div class="dropdown-menu">
+                        <a href="/ressourcen/">Downloads</a>
+                        <a href="/glossar/">Glossar</a>
+                    </div>
+                </li>
             <li><a href="/artikel/">Artikel</a></li>
-            <li><a href="/glossar/">Glossar</a></li>
+            <li><a href="/ueber-mich/">Über mich</a></li>
         </ul>
         <button class="hamburger" onclick="toggleMenu()" aria-label="Menü öffnen">☰</button>
     </nav>
     <div class="mobile-menu" id="mobileMenu">
         <a href="/">Startseite</a>
         <a href="/kurse/">Kurse</a>
-        <a href="/services/">Services</a>
+        <a href="/ressourcen/">Ressourcen</a>
         <a href="/artikel/">Artikel</a>
         <a href="/glossar/">Glossar</a>
     </div>

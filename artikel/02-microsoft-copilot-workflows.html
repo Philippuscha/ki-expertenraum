@@ -3,147 +3,447 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsoft Copilot: Workflows für HR, Vertrieb & Assistenz | KI-Expertenraum</title>
     <meta name="description" content="Praxis-Beispiele für Microsoft Copilot: So automatisieren Sie HR-Prozesse, Vertriebsaufgaben und Assistenz-Tätigkeiten.">
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
-    <title>Microsoft Copilot: Workflows für HR, Vertrieb & Assistenz | KI-Expertenraum</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/assets/css/main.css">
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.7; color: #333; max-width: 800px; margin: 0 auto; padding: 40px 20px; background: #fff; }
-        .meta { color: #666; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
-        h1 { font-size: 2.2em; margin-bottom: 10px; color: #1a1a1a; line-height: 1.3; }
-        h2 { font-size: 1.6em; margin-top: 40px; margin-bottom: 20px; color: #1a1a1a; border-bottom: 2px solid #4CAF50; padding-bottom: 10px; }
-        h3 { font-size: 1.3em; margin-top: 30px; margin-bottom: 15px; color: #333; }
-        blockquote { border-left: 4px solid #4CAF50; margin: 20px 0; padding: 15px 20px; background: #f9f9f9; font-style: italic; }
-        ul, ol { margin: 15px 0; padding-left: 25px; }
-        li { margin: 8px 0; }
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.95em; }
-        th { background: #4CAF50; color: white; padding: 12px; text-align: left; font-weight: 600; }
-        td { padding: 12px; border-bottom: 1px solid #ddd; }
-        tr:nth-child(even) { background: #f9f9f9; }
-        pre { background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; overflow-x: auto; font-family: 'Consolas', 'Monaco', monospace; font-size: 0.9em; line-height: 1.5; }
-        code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: 'Consolas', 'Monaco', monospace; font-size: 0.9em; }
-        pre code { background: none; padding: 0; }
-        .back-link { display: inline-block; margin-bottom: 30px; color: #4CAF50; text-decoration: none; font-weight: 600; }
-        .back-link:hover { text-decoration: underline; }
-        .cover-image { margin: -40px -20px 30px -20px; max-height: 400px; overflow: hidden; }
-        .cover-image img { width: 100%; height: 400px; object-fit: cover; }
-        footer { margin-top: 50px; padding-top: 30px; border-top: 1px solid #eee; color: #666; font-size: 0.9em; font-style: italic; }
-        img { max-width: 100%; height: auto; border-radius: 8px; }
-        a { color: #4CAF50; }
+        :root {
+            --primary: #0F172A;
+            --secondary: #365F9C;
+            --bg-main: #F8F7F4;
+            --bg-soft: #F1F3F5;
+            --bg-white: #FFFFFF;
+            --text-primary: #334155;
+            --text-secondary: #64748B;
+            --text-muted: #94A3B8;
+            --accent-light: #E8EEF8;
+            --border: #D9DEE7;
+            --font-display: 'Source Serif 4', serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'IBM Plex Mono', monospace;
+        }
+        
+        .article-hero {
+            padding: 160px 0 60px;
+            text-align: center;
+            background: var(--bg-soft);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .article-hero .hero-badge {
+            display: inline-block;
+            background: rgba(54, 95, 156, 0.15);
+            color: var(--secondary);
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+        }
+        
+        .article-hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 500;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: var(--primary);
+        }
+        
+        .article-hero h1 span {
+            font-style: italic;
+            color: var(--secondary);
+        }
+        
+        .article-hero .hero-description {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+        
+        .article-hero .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            color: var(--text-muted);
+            font-size: 14px;
+            flex-wrap: wrap;
+        }
+        
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+        
+        .article-content h2 {
+            font-family: var(--font-display);
+            font-size: 28px;
+            margin: 50px 0 20px;
+            font-weight: 500;
+            color: var(--primary);
+        }
+        
+        .article-content h3 {
+            font-family: var(--font-display);
+            font-size: 22px;
+            margin: 35px 0 15px;
+            font-weight: 500;
+            color: var(--primary);
+        }
+        
+        .article-content p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 25px;
+        }
+        
+        .article-content li {
+            margin: 10px 0;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        
+        .article-content blockquote {
+            background: rgba(54, 95, 156, 0.08);
+            border-left: 4px solid var(--secondary);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 12px 12px 0;
+            font-size: 17px;
+            font-weight: 500;
+            color: var(--primary);
+            font-family: var(--font-display);
+        }
+        
+        .article-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: var(--bg-white);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            display: block;
+            overflow-x: auto;
+        }
+        
+        .article-content th {
+            background: linear-gradient(135deg, var(--secondary) 0%, #4a7ab8 100%);
+            color: white;
+            padding: 14px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .article-content td {
+            padding: 14px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+        
+        pre {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 12px;
+            overflow-x: auto;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 20px 0;
+        }
+        
+        code {
+            background: var(--bg-soft);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.9em;
+            color: var(--secondary);
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+        
+        .cta-box {
+            background: linear-gradient(135deg, var(--secondary) 0%, #4a7ab8 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 16px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .cta-box h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 22px;
+            font-family: var(--font-display);
+        }
+        
+        .cta-box p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 20px;
+        }
+        
+        .btn-white {
+            display: inline-block;
+            background: white;
+            color: var(--secondary);
+            padding: 12px 28px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        @media (max-width: 768px) {
+            .article-hero { padding: 120px 20px 40px; }
+            .article-hero h1 { font-size: 26px; }
+            .article-content { padding: 40px 20px; }
+            .article-content h2 { font-size: 22px; }
+        }
     </style>
 </head>
 <body>
-    <a href="../blog.html" class="back-link">← Zurück zur Übersicht</a>
-    <article>
-        <h1>Microsoft Copilot: Workflows für HR, Vertrieb & Assistenz</h1>
-        <div class="meta">
-            <strong>Veröffentlicht:</strong> 28.02.2026 &nbsp;|&nbsp; 
-            <strong>Autor:</strong> Philipp Zerna
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <span class="logo-mark">K</span>
+                <span class="logo-text">KI<span class="logo-dot">.</span>Expertenraum</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="/">Start</a></li>
+                <li><a href="/kurse/">Kurse</a></li>
+                <li class="dropdown">
+                    <a href="/ressourcen/">Ressourcen</a>
+                    <div class="dropdown-menu">
+                        <a href="/ressourcen/">Downloads</a>
+                        <a href="/glossar/">Glossar</a>
+                    </div>
+                </li>
+                <li><a href="/artikel/" class="active">Artikel</a></li>
+                <li><a href="/ueber-mich/">Über mich</a></li>
+                <li><a href="/kontakt.html">Kontakt</a></li>
+            </ul>
+            
+            <a href="/kontakt.html" class="nav-cta">Kontakt</a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü öffnen">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-        <div class="cover-image"><img src="/images/copilot-thumbnail.jpg" alt="Microsoft Copilot: Workflows für HR, Vertrieb & Assistenz" style="width:100%; max-height:400px; object-fit:cover; border-radius:8px; margin-bottom:30px;"></div>
-        <h2>Warum Microsoft Copilot für Unternehmen?</h2>
-<p>Während ChatGPT Daten auf US-Servern verarbeitet, bietet <strong>Microsoft Copilot</strong> einen entscheidenden Vorteil: <strong>DSGVO-konforme Verarbeitung</strong> mit EU-Servern und Enterprise-Sicherheit.</p>
-<blockquote>
-<p><strong>Das Ergebnis:</strong> Ihre Mitarbeiter können KI produktiv nutzen, ohne Datenschutzbedenken.</p>
-</blockquote>
-<h2>Copilot für die Personalabteilung (HR)</h2>
-<h3>1. Stellenanzeigen optimieren</h3>
-<p><strong>Prompt:</strong></p>
-<pre><code>Analysiere diese Stellenanzeige und optimiere sie für mehr Diversity:
+    </nav>
+    
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <a href="/" onclick="closeMobileMenu()">Start</a>
+            <a href="/kurse/" onclick="closeMobileMenu()">Kurse</a>
+            <a href="/ressourcen/" onclick="closeMobileMenu()">Ressourcen</a>
+            <a href="/artikel/" onclick="closeMobileMenu()">Artikel</a>
+            <a href="/ueber-mich/" onclick="closeMobileMenu()">Über mich</a>
+            <a href="/kontakt.html" onclick="closeMobileMenu()">Kontakt</a>
+        </div>
+    </div>
+
+    <main>
+        <header class="article-hero">
+            <span class="hero-badge">Microsoft Copilot</span>
+            <h1>Microsoft Copilot: <span>Workflows für HR, Vertrieb & Assistenz</span></h1>
+            <p class="hero-description">Praxis-Beispiele für Microsoft Copilot: So automatisieren Sie HR-Prozesse, Vertriebsaufgaben und Assistenz-Tätigkeiten</p>
+            <div class="hero-meta">
+                <span>✍️ Philipp Zerna</span>
+                <span>⏱️ 10 Min. Lesezeit</span>
+                <span>📅 Februar 2026</span>
+            </div>
+        </header>
+
+        <div class="article-content">
+            <h2>Warum Microsoft Copilot für Unternehmen?</h2>
+            <p>Während ChatGPT Daten auf US-Servern verarbeitet, bietet <strong>Microsoft Copilot</strong> einen entscheidenden Vorteil: <strong>DSGVO-konforme Verarbeitung</strong> mit EU-Servern und Enterprise-Sicherheit.</p>
+            
+            <blockquote>
+                Das Ergebnis: Ihre Mitarbeiter können KI produktiv nutzen, ohne Datenschutzbedenken.
+            </blockquote>
+
+            <h2>Copilot für die Personalabteilung (HR)</h2>
+            
+            <h3>1. Stellenanzeigen optimieren</h3>
+            <p><strong>Prompt:</strong></p>
+            <pre><code>Analysiere diese Stellenanzeige und optimiere sie für mehr Diversity:
 
 [Stellenanzeige einfügen]
 
 Ziele:
 - Geschlechtergerechte Sprache
 - Klare Anforderungen vs. Wünsche
-- Inklusive Formulierungen
-</code></pre>
-<p><strong>Zeitersparnis:</strong> 30 Minuten pro Anzeige</p>
-<h3>2. Erstgespräche vorbereiten</h3>
-<p><strong>Workflow:</strong></p>
-<ol>
-<li>Lebenslauf in Copilot einfügen</li>
-<li>Prompt: "Erstelle 5 Interviewfragen basierend auf diesem CV, fokussiert auf [Stellenanforderungen]"</li>
-<li>Individuelle Fragen in Sekunden generiert</li>
-</ol>
-<h3>3. Onboarding-Dokumentation</h3>
-<p><strong>Automatisierung:</strong></p>
-<ul>
-<li>Mitarbeiterhandbuch aus vorhandenen Dokumenten erstellen</li>
-<li>FAQ für neue Mitarbeiter generieren</li>
-<li>Checklisten für die ersten 30 Tage</li>
-</ul>
-<h2>Copilot für den Vertrieb</h2>
-<h3>1. Angebots- und Vertragsanalyse</h3>
-<p><strong>Szenario:</strong> 20-seitiger Rahmenvertrag</p>
-<p><strong>Prompt:</strong></p>
-<pre><code>Analysiere diesen Vertrag und fasse die wichtigsten Punkte zusammen:
+- Inklusive Formulierungen</code></pre>
+            <p><strong>Zeitersparnis:</strong> 30 Minuten pro Anzeige</p>
+            
+            <h3>2. Erstgespräche vorbereiten</h3>
+            <p><strong>Workflow:</strong></p>
+            <ol>
+                <li>Lebenslauf in Copilot einfügen</li>
+                <li>Prompt: "Erstelle 5 Interviewfragen basierend auf diesem CV, fokussiert auf [Stellenanforderungen]"</li>
+                <li>Individuelle Fragen in Sekunden generiert</li>
+            </ol>
+            
+            <h3>3. Onboarding-Dokumentation</h3>
+            <p><strong>Automatisierung:</strong></p>
+            <ul>
+                <li>Mitarbeiterhandbuch aus vorhandenen Dokumenten erstellen</li>
+                <li>FAQ für neue Mitarbeiter generieren</li>
+                <li>Checklisten für die ersten 30 Tage</li>
+            </ul>
+
+            <h2>Copilot für den Vertrieb</h2>
+            
+            <h3>1. Angebots- und Vertragsanalyse</h3>
+            <p><strong>Szenario:</strong> 20-seitiger Rahmenvertrag</p>
+            <p><strong>Prompt:</strong></p>
+            <pre><code>Analysiere diesen Vertrag und fasse die wichtigsten Punkte zusammen:
 - Zahlungsbedingungen
 - Kündigungsfristen
 - Haftungsbeschränkungen
 - Besonderheiten
 
-Markiere kritische Klauseln rot.
-</code></pre>
-<p><strong>Ergebnis:</strong> 2-Minuten-Zusammenfassung statt 30 Minuten Lesen</p>
-<h3>2. Personalisierte Kundenansprache</h3>
-<p><strong>Workflow:</strong></p>
-<ol>
-<li>Kundenwebsite analysieren</li>
-<li>Prompt: "Erstelle eine personalisierte E-Mail an [Name] von [Firma], basierend auf ihrer Website. Bezug nehmen auf [Thema]."</li>
-<li>Individuelle Ansprache in Sekunden</li>
-</ol>
-<p><strong>Conversion-Steigerung:</strong> Bis zu 40% höhere Antwortraten</p>
-<h2>Sicherheit &amp; Compliance</h2>
-<table>
-<thead>
-<tr>
-<th>Feature</th>
-<th>ChatGPT</th>
-<th>Copilot Enterprise</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Server-Standort</td>
-<td>USA</td>
-<td>EU verfügbar</td>
-</tr>
-<tr>
-<td>DSGVO-konform</td>
-<td>⚠️</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>Daten für Training</td>
-<td>Ja</td>
-<td>Nein</td>
-</tr>
-<tr>
-<td>Unternehmens-SSO</td>
-<td>❌</td>
-<td>✅</td>
-</tr>
-</tbody>
-</table>
-<h2>ROI-Rechnung: Lohnt sich Copilot?</h2>
-<p><strong>Kosten pro Mitarbeiter:</strong> ~30€/Monat</p>
-<p><strong>Zeitersparnis:</strong></p>
-<ul>
-<li>E-Mail-Management: 5 Stunden/Monat</li>
-<li>Dokumentenerstellung: 3 Stunden/Monat</li>
-<li>Recherche: 4 Stunden/Monat</li>
-</ul>
-<p><strong>Bei 50€/Stunde:</strong> 600€ Wert pro Monat</p>
-<p><strong>ROI: 1900%</strong></p>
-<h2>Fazit</h2>
-<p>Microsoft Copilot ist mehr als ein "besseres ChatGPT" – es ist ein <strong>produktives Werkzeug</strong> für den täglichen Business-Alltag.</p>
-<blockquote>
-<p><strong>Tipp:</strong> Starten Sie mit einem Abteilungspiloten, sammeln Sie Erfolgsgeschichten und rollen Sie dann schrittweise aus.</p>
-</blockquote>
-    </article>
-    <footer>
-        <p><a href="../blog.html">← Alle Artikel anzeigen</a></p>
-        <p>© 2026 KI-Expertenraum | Philipp Zerna</p>
+Markiere kritische Klauseln rot.</code></pre>
+            <p><strong>Ergebnis:</strong> 2-Minuten-Zusammenfassung statt 30 Minuten Lesen</p>
+            
+            <h3>2. Personalisierte Kundenansprache</h3>
+            <p><strong>Workflow:</strong></p>
+            <ol>
+                <li>Kundenwebsite analysieren</li>
+                <li>Prompt: "Erstelle eine personalisierte E-Mail an [Name] von [Firma], basierend auf ihrer Website. Bezug nehmen auf [Thema]."</li>
+                <li>Individuelle Ansprache in Sekunden</li>
+            </ol>
+            <p><strong>Conversion-Steigerung:</strong> Bis zu 40% höhere Antwortraten</p>
+
+            <h2>Sicherheit & Compliance</h2>
+            <table>
+                <tr>
+                    <th>Feature</th>
+                    <th>ChatGPT</th>
+                    <th>Copilot Enterprise</th>
+                </tr>
+                <tr>
+                    <td>Server-Standort</td>
+                    <td>USA</td>
+                    <td>EU verfügbar</td>
+                </tr>
+                <tr>
+                    <td>DSGVO-konform</td>
+                    <td>⚠️</td>
+                    <td>✅</td>
+                </tr>
+                <tr>
+                    <td>Daten für Training</td>
+                    <td>Ja</td>
+                    <td>Nein</td>
+                </tr>
+                <tr>
+                    <td>Unternehmens-SSO</td>
+                    <td>❌</td>
+                    <td>✅</td>
+                </tr>
+            </table>
+
+            <h2>ROI-Rechnung: Lohnt sich Copilot?</h2>
+            <p><strong>Kosten pro Mitarbeiter:</strong> ~30€/Monat</p>
+            <p><strong>Zeitersparnis:</strong></p>
+            <ul>
+                <li>E-Mail-Management: 5 Stunden/Monat</li>
+                <li>Dokumentenerstellung: 3 Stunden/Monat</li>
+                <li>Recherche: 4 Stunden/Monat</li>
+            </ul>
+            <p><strong>Bei 50€/Stunde:</strong> 600€ Wert pro Monat</p>
+            <p><strong>ROI: 1900%</strong></p>
+
+            <h2>Fazit</h2>
+            <p>Microsoft Copilot ist mehr als ein "besseres ChatGPT" – es ist ein <strong>produktives Werkzeug</strong> für den täglichen Business-Alltag.</p>
+            
+            <blockquote>
+                Tipp: Starten Sie mit einem Abteilungspiloten, sammeln Sie Erfolgsgeschichten und rollen Sie dann schrittweise aus.
+            </blockquote>
+
+            <div class="cta-box">
+                <h3>Mehr über Microsoft Copilot erfahren?</h3>
+                <p>In meinem Kurs zeige ich Ihnen alle fortgeschrittenen Funktionen und Workflows für Ihr Unternehmen.</p>
+                <a href="/kurse/" class="btn-white">Kurse entdecken →</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo">
+                        <span class="logo-mark">K</span>
+                        <span>KI<span class="logo-dot">.</span>Expertenraum</span>
+                    </a>
+                    <p class="footer-tagline">Praxisnahe KI-Kurse und Lernmaterialien von Philipp Zerna.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Angebot</h4>
+                    <a href="/kurse/">Kurse</a>
+                    <a href="/ressourcen/">Ressourcen</a>
+                    <a href="/artikel/">Artikel</a>
+                    <a href="/glossar/">Glossar</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Rechtliches</h4>
+                    <a href="/impressum/">Impressum</a>
+                    <a href="/datenschutz/">Datenschutz</a>
+                    <a href="/kontakt.html">Kontakt</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <a href="https://www.youtube.com/@philippzerna" target="_blank" rel="noopener">YouTube</a>
+                    <a href="https://www.linkedin.com/in/philipp-zerna/" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 KI-Expertenraum</p>
+                <p>Philipp Zerna</p>
+            </div>
+        </div>
     </footer>
+
+    <script src="/assets/js/main.js"></script>
+    <script>
+        function closeMobileMenu() {
+            document.getElementById('mobileMenu').classList.remove('show');
+        }
+    </script>
 </body>
 </html>

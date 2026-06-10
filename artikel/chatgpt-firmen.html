@@ -3,211 +3,238 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChatGPT für Firmen 2026: Sicher & produktiv nutzen (Anleitung)</title>
+    <title>ChatGPT für Firmen 2026: Sicher & produktiv nutzen | KI-Expertenraum</title>
     <meta name="description" content="ChatGPT im Unternehmen einsetzen: Sicher, DSGVO-konform & produktiv. Praxisanleitung für Geschäftsführer & Teams.">
-    <meta name="keywords" content="ChatGPT Firmen, ChatGPT Unternehmen, ChatGPT DSGVO, ChatGPT sicher nutzen">
-    <link rel="canonical" href="https://ki-expertenraum.de/blog/chatgpt-firmen.html">
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/assets/css/main.css">
     <style>
         :root {
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #111111;
-            --bg-card: rgba(20, 20, 20, 0.8);
-            --text-primary: #f5f5f5;
-            --text-secondary: #a0a0a0;
-            --text-muted: #666666;
-            --accent: #c9a962;
-            --accent-dark: #a88b4a;
-            --border: rgba(255, 255, 255, 0.08);
+            --primary: #0F172A;
+            --secondary: #365F9C;
+            --bg-main: #F8F7F4;
+            --bg-soft: #F1F3F5;
+            --bg-white: #FFFFFF;
+            --text-primary: #334155;
+            --text-secondary: #64748B;
+            --text-muted: #94A3B8;
+            --accent-light: #E8EEF8;
+            --border: #D9DEE7;
+            --font-display: 'Source Serif 4', serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'IBM Plex Mono', monospace;
         }
         
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.7;
-            font-size: 17px;
+        .article-hero {
+            padding: 160px 0 60px;
+            text-align: center;
+            background: var(--bg-soft);
+            border-bottom: 1px solid var(--border);
         }
         
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        
-        .breadcrumb {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 30px;
-        }
-        .breadcrumb a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-        .breadcrumb a:hover {
-            text-decoration: underline;
-        }
-        
-        .article-header {
-            margin-bottom: 50px;
-        }
-        
-        .article-meta {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 20px;
-            font-size: 14px;
-            color: var(--text-muted);
-        }
-        
-        .article-category {
-            color: var(--accent);
+        .article-hero .hero-badge {
+            display: inline-block;
+            background: rgba(54, 95, 156, 0.15);
+            color: var(--secondary);
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 12px;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            font-size: 12px;
-        }
-        
-        h1 {
-            font-size: 42px;
-            line-height: 1.2;
+            letter-spacing: 2px;
             margin-bottom: 24px;
-            font-weight: 700;
         }
         
-        .article-subtitle {
-            font-size: 20px;
+        .article-hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 500;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: var(--primary);
+        }
+        
+        .article-hero h1 span {
+            font-style: italic;
+            color: var(--secondary);
+        }
+        
+        .article-hero .hero-description {
+            font-size: 18px;
             color: var(--text-secondary);
-            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto 20px;
         }
         
-        h2 {
+        .article-hero .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            color: var(--text-muted);
+            font-size: 14px;
+            flex-wrap: wrap;
+        }
+        
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+        
+        .article-content h2 {
+            font-family: var(--font-display);
             font-size: 28px;
             margin: 50px 0 20px;
-            color: var(--text-primary);
+            font-weight: 500;
+            color: var(--primary);
         }
         
-        h3 {
+        .article-content h3 {
+            font-family: var(--font-display);
             font-size: 22px;
             margin: 35px 0 15px;
-            color: var(--text-secondary);
+            font-weight: 500;
+            color: var(--primary);
         }
         
-        p {
+        .article-content p {
             margin-bottom: 20px;
             color: var(--text-secondary);
+            font-size: 16px;
+            line-height: 1.8;
         }
         
-        strong {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-        
-        ul, ol {
+        .article-content ul, .article-content ol {
             margin: 20px 0;
-            padding-left: 30px;
+            padding-left: 25px;
         }
         
-        li {
-            margin-bottom: 12px;
+        .article-content li {
+            margin: 10px 0;
             color: var(--text-secondary);
+            line-height: 1.7;
         }
         
         .warning-box {
-            background: rgba(239, 68, 68, 0.1);
-            border-left: 3px solid #ef4444;
-            padding: 25px 30px;
+            background: rgba(239, 68, 68, 0.08);
+            border-left: 4px solid #ef4444;
+            padding: 25px;
             margin: 30px 0;
             border-radius: 0 12px 12px 0;
         }
         
         .warning-box h3 {
             margin-top: 0;
-            color: #ef4444;
+            color: #dc2626;
+            font-size: 18px;
         }
         
-        .cta-box {
-            background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(201, 169, 98, 0.1) 100%);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 35px;
-            margin: 40px 0;
-            text-align: center;
-        }
-        
-        .cta-box h3 {
-            margin-top: 0;
-            color: var(--text-primary);
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: var(--accent);
-            color: var(--bg-primary);
-            padding: 16px 32px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 15px;
-            transition: all 0.3s;
-        }
-        
-        .cta-button:hover {
-            background: var(--accent-dark);
-            transform: translateY(-2px);
+        .warning-box ul {
+            margin: 15px 0 0;
+            padding-left: 20px;
         }
         
         .checklist {
-            background: var(--bg-secondary);
-            border-left: 3px solid var(--accent);
-            padding: 25px 30px;
+            background: var(--bg-white);
+            border-left: 4px solid var(--secondary);
+            padding: 25px;
             margin: 30px 0;
             border-radius: 0 12px 12px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
         
         .checklist h3 {
             margin-top: 0;
-            color: var(--accent);
+            color: var(--secondary);
         }
         
         .checklist ul {
             list-style: none;
             padding-left: 0;
+            margin: 15px 0 0;
         }
         
         .checklist li {
             padding-left: 30px;
             position: relative;
+            margin: 10px 0;
         }
         
         .checklist li::before {
             content: '✓';
             position: absolute;
             left: 0;
-            color: var(--accent);
+            color: var(--secondary);
             font-weight: bold;
         }
         
-        table {
+        .cta-box {
+            background: linear-gradient(135deg, var(--secondary) 0%, #4a7ab8 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 16px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .cta-box h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 22px;
+            font-family: var(--font-display);
+        }
+        
+        .cta-box p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 20px;
+        }
+        
+        .btn-white {
+            display: inline-block;
+            background: white;
+            color: var(--secondary);
+            padding: 12px 28px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .price-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
+            margin: 25px 0;
+            background: var(--bg-white);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
         }
         
-        tr {
+        .price-table td {
+            padding: 16px;
             border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
         }
         
-        td {
-            padding: 15px;
-            color: var(--text-secondary);
+        .price-table td:last-child {
+            text-align: right;
+            font-weight: 600;
+            color: var(--primary);
         }
         
         .author-box {
             display: flex;
             gap: 25px;
-            background: var(--bg-secondary);
+            background: var(--bg-white);
             border: 1px solid var(--border);
             border-radius: 16px;
             padding: 30px;
@@ -217,18 +244,19 @@
         .author-avatar {
             width: 80px;
             height: 80px;
-            background: var(--accent);
+            background: var(--secondary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 32px;
             flex-shrink: 0;
+            color: white;
         }
         
         .author-info h4 {
             margin-bottom: 8px;
-            color: var(--text-primary);
+            color: var(--primary);
         }
         
         .author-info p {
@@ -236,34 +264,73 @@
             margin-bottom: 0;
         }
         
-        @media (max-width: 600px) {
-            h1 { font-size: 32px; }
-            h2 { font-size: 24px; }
+        @media (max-width: 768px) {
+            .article-hero { padding: 120px 20px 40px; }
+            .article-hero h1 { font-size: 26px; }
+            .article-content { padding: 40px 20px; }
+            .article-content h2 { font-size: 22px; }
             .author-box { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <nav class="breadcrumb">
-            <a href="/">Start</a> → <a href="/artikel/">Artikel</a> → <span>ChatGPT für Firmen</span>
-        </nav>
-        
-        <header class="article-header">
-            <div class="article-meta">
-                <span class="article-category">Sicherheit</span>
-                <span>30. Mai 2026</span>
-                <span>12 Min. Lesezeit</span>
-            </div>
-            <h1>ChatGPT für Firmen 2026: Sicher & produktiv nutzen</h1>
-            <p class="article-subtitle">
-                So setzen Sie ChatGPT DSGVO-konform im Unternehmen ein. Die komplette Anleitung für Geschäftsführer – inklusive Datenschutz-Checkliste und Sicherheits-Tipps.
-            </p>
-        </header>
-        
-        <article>
-            <h2>Das Problem: ChatGPT und Datenschutz</h2>
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <span class="logo-mark">K</span>
+                <span class="logo-text">KI<span class="logo-dot">.</span>Expertenraum</span>
+            </a>
             
+            <ul class="nav-links">
+                <li><a href="/">Start</a></li>
+                <li><a href="/kurse/">Kurse</a></li>
+                <li class="dropdown">
+                    <a href="/ressourcen/">Ressourcen</a>
+                    <div class="dropdown-menu">
+                        <a href="/ressourcen/">Downloads</a>
+                        <a href="/glossar/">Glossar</a>
+                    </div>
+                </li>
+                <li><a href="/artikel/" class="active">Artikel</a></li>
+                <li><a href="/ueber-mich/">Über mich</a></li>
+                <li><a href="/kontakt.html">Kontakt</a></li>
+            </ul>
+            
+            <a href="/kontakt.html" class="nav-cta">Kontakt</a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü öffnen">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <a href="/" onclick="closeMobileMenu()">Start</a>
+            <a href="/kurse/" onclick="closeMobileMenu()">Kurse</a>
+            <a href="/ressourcen/" onclick="closeMobileMenu()">Ressourcen</a>
+            <a href="/artikel/" onclick="closeMobileMenu()">Artikel</a>
+            <a href="/ueber-mich/" onclick="closeMobileMenu()">Über mich</a>
+            <a href="/kontakt.html" onclick="closeMobileMenu()">Kontakt</a>
+        </div>
+    </div>
+
+    <main>
+        <header class="article-hero">
+            <span class="hero-badge">Sicherheit & Compliance</span>
+            <h1>ChatGPT für Firmen 2026: <span>Sicher & produktiv nutzen</span></h1>
+            <p class="hero-description">So setzen Sie ChatGPT DSGVO-konform im Unternehmen ein. Die komplette Anleitung für Geschäftsführer – inklusive Datenschutz-Checkliste und Sicherheits-Tipps.</p>
+            <div class="hero-meta">
+                <span>✍️ Philipp Zerna</span>
+                <span>⏱️ 12 Min. Lesezeit</span>
+                <span>📅 Mai 2026</span>
+            </div>
+        </header>
+
+        <div class="article-content">
+            <h2>Das Problem: ChatGPT und Datenschutz</h2>
             <p>ChatGPT ist revolutionär – aber für Unternehmen ein Datenschutz-Risiko. Die kostenlose Version speichert Eingaben und nutzt sie für Training. Für Firmen ein No-Go.</p>
             
             <div class="warning-box">
@@ -279,7 +346,6 @@
             </div>
             
             <h2>Die Lösung: ChatGPT Enterprise & Alternativen</h2>
-            
             <p>Für den sicheren Firmeneinsatz gibt es drei Optionen:</p>
             
             <h3>Option 1: ChatGPT Enterprise (OpenAI)</h3>
@@ -307,7 +373,7 @@
             <div class="cta-box">
                 <h3>📘 EU AI Act Guide</h3>
                 <p>Der kostenlose Survival Guide zeigt Ihnen alle regulatorischen Pflichten für KI-Nutzung im Unternehmen.</p>
-                <a href="/ebooks/" class="cta-button">Downloaden →</a>
+                <a href="/ressourcen/" class="btn-white">Downloaden →</a>
             </div>
             
             <h2>Die Datenschutz-Checkliste für ChatGPT</h2>
@@ -335,7 +401,6 @@
             </div>
             
             <h2>Die besten Use-Cases für Firmen</h2>
-            
             <p>Wenn Sie die Datenschutz-Grundlagen beachten, eröffnet ChatGPT enorme Potenziale:</p>
             
             <h3>1. Marketing & Content</h3>
@@ -363,22 +428,22 @@
             
             <h2>Kosten im Überblick</h2>
             
-            <table>
+            <table class="price-table">
                 <tr>
                     <td><strong>ChatGPT Plus (privat)</strong></td>
-                    <td style="text-align: right; font-weight: 600;">20€/Monat</td>
+                    <td>20€/Monat</td>
                 </tr>
                 <tr>
                     <td><strong>ChatGPT Team</strong></td>
-                    <td style="text-align: right; font-weight: 600;">25€/User/Monat</td>
+                    <td>25€/User/Monat</td>
                 </tr>
                 <tr>
                     <td><strong>ChatGPT Enterprise</strong></td>
-                    <td style="text-align: right; font-weight: 600;">ab 60€/User/Monat</td>
+                    <td>ab 60€/User/Monat</td>
                 </tr>
                 <tr>
                     <td><strong>Microsoft Copilot</strong></td>
-                    <td style="text-align: right; font-weight: 600;">30€/User/Monat</td>
+                    <td>30€/User/Monat</td>
                 </tr>
             </table>
             
@@ -397,38 +462,60 @@
             <div class="cta-box">
                 <h3>🎓 Mehr erfahren?</h3>
                 <p>In meinem Kurs "ChatGPT für Unternehmen" zeige ich Ihnen Schritt für Schritt, wie Sie ChatGPT DSGVO-konform und effektiv einsetzen.</p>
-                <a href="/kurse/" class="cta-button">Kurs ansehen →</a>
+                <a href="/kurse/" class="btn-white">Kurse ansehen →</a>
             </div>
-        </article>
-        
-        <div class="author-box">
-            <div class="author-avatar">👤</div>
-            <div class="author-info">
-                <h4>Über den Autor</h4>
-                <p><strong>Philipp Zerna</strong> begleitet Unternehmen bei der sicheren KI-Einführung. Seine Kurse und Ebooks helfen KMUs, KI datenschutzkonform und produktiv zu nutzen – ohne teure Berater.</p>
+            
+            <div class="author-box">
+                <div class="author-avatar">👤</div>
+                <div class="author-info">
+                    <h4>Über den Autor</h4>
+                    <p><strong>Philipp Zerna</strong> begleitet Unternehmen bei der sicheren KI-Einführung. Seine Kurse und Ebooks helfen KMUs, KI datenschutzkonform und produktiv zu nutzen – ohne teure Berater.</p>
+                </div>
             </div>
         </div>
-        
-        <!-- Giscus Comments -->
-        <div class="comments-section" style="margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border);">
-            <h2>💬 Diskussion</h2>
-            <p style="color: var(--text-muted); margin-bottom: 20px;">Fragen zur sicheren ChatGPT-Nutzung? Stell sie hier!</p>
-            <script src="https://giscus.app/client.js"
-                data-repo="philipp-zerna/ki-expertenraum"
-                data-repo-id="R_kgDOOOOQqA"
-                data-category="Blog Comments"
-                data-category-id="DIC_kwDOOOOQqM4CnN1J"
-                data-mapping="title"
-                data-strict="0"
-                data-reactions-enabled="1"
-                data-emit-metadata="0"
-                data-input-position="bottom"
-                data-theme="dark"
-                data-lang="de"
-                crossorigin="anonymous"
-                async>
-            </script>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo">
+                        <span class="logo-mark">K</span>
+                        <span>KI<span class="logo-dot">.</span>Expertenraum</span>
+                    </a>
+                    <p class="footer-tagline">Praxisnahe KI-Kurse und Lernmaterialien von Philipp Zerna.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Angebot</h4>
+                    <a href="/kurse/">Kurse</a>
+                    <a href="/ressourcen/">Ressourcen</a>
+                    <a href="/artikel/">Artikel</a>
+                    <a href="/glossar/">Glossar</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Rechtliches</h4>
+                    <a href="/impressum/">Impressum</a>
+                    <a href="/datenschutz/">Datenschutz</a>
+                    <a href="/kontakt.html">Kontakt</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <a href="https://www.youtube.com/@philippzerna" target="_blank" rel="noopener">YouTube</a>
+                    <a href="https://www.linkedin.com/in/philipp-zerna/" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 KI-Expertenraum</p>
+                <p>Philipp Zerna</p>
+            </div>
         </div>
-    </div>
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+    <script>
+        function closeMobileMenu() {
+            document.getElementById('mobileMenu').classList.remove('show');
+        }
+    </script>
 </body>
 </html>
