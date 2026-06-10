@@ -280,7 +280,7 @@
                             <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6;">Eine übersichtliche Zusammenstellung der nützlichsten Tools für verschiedene Anwendungsbereiche.</p>
                         </div>
                     </a>
-                    
+
                     <a href="/artikel/" style="text-decoration: none; color: inherit;">
                         <div style="background: var(--bg-soft); border-radius: 12px; padding: 24px; border: 1px solid var(--border);">
                             <span style="font-size: 12px; color: var(--secondary); text-transform: uppercase;">Produktivität</span>
@@ -288,7 +288,7 @@
                             <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6;">Konkrete Anwendungsideen für den Arbeitsalltag – von der E-Mail bis zur Recherche.</p>
                         </div>
                     </a>
-                    
+
                     <a href="/artikel/" style="text-decoration: none; color: inherit;">
                         <div style="background: var(--bg-soft); border-radius: 12px; padding: 24px; border: 1px solid var(--border);">
                             <span style="font-size: 12px; color: var(--secondary); text-transform: uppercase;">Rechtliches</span>
@@ -298,6 +298,14 @@
                     </a>
                 </div>
             </div>
+            <style>
+                @media (max-width: 768px) {
+                    .articles-grid {
+                        grid-template-columns: 1fr !important;
+                        gap: 16px !important;
+                    }
+                }
+            </style>
         </section>
 
         <!-- CTA Section -->
